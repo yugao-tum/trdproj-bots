@@ -114,3 +114,7 @@
 | bots/dot/notes/20261019-research-review.md | 20261019-research-review | 2026-10-19 | 研究总览/复现与数据核查 |
 | bots/dot/notes/20261019-execution-and-counting.md | 20261019-execution-and-counting | 2026-10-19 | 研究总览/复现与数据核查 |
 | bots/dot/notes/20261019-pm-data-schema-semantics.md | C09/C38字段、LFS指针与状态分支语义 | 2026-10-19 | 数据核查/未晋级 |
+| bots/dot/notes/short-window-sensitivity/20261019-short-window-sensitivity.md | 20261019-short-window-sensitivity | 2026-10-19 | 18日敏感性/派生结果及来源指纹 |
+| bots/dot/notes/short-window-sensitivity/PACKAGE-MANIFEST.json | PACKAGE-MANIFEST | 2026-10-19 | 18日敏感性/派生结果及来源指纹 |
+| bots/dot/notes/short-window-sensitivity/short-window-scenarios.csv | short-window-scenarios | 2026-10-19 | 18日敏感性/派生结果及来源指纹 |
+| bots/dot/notes/short-window-sensitivity/source-fingerprints.json | source-fingerprints | 2026-10-19 | 18日敏感性/派生结果及来源指纹 |

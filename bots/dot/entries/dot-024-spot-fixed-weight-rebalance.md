@@ -55,7 +55,9 @@ OOS起始NAV为6,834.73/6,802.48，实际NAV收益1.78%/1.14%。435成交腿，�
 
 ## 数据
 
-官方Binance公共月归档为 https://data.binance.vision/data/spot/monthly/klines/{symbol}/1d/{symbol}-1d-{YYYY-MM}.zip ，每包同名.CHECKSUM；symbol为BTCUSDT/ETHUSDT/SOLUSDT。已发表筛查记录覆盖2023-01至2026-09，各45月、1,369连续日，三币合计135包、4,107行；报告缺失/重复/非有限OHLC均为0。本条使用三币，币种数不能当作独立结果数。2023年只暖机；全期2024-01-01至2026-09-30为1,004日。日线可复核价格规则，不能证明触价深度和真实滑点；本稿未新下载或重跑。
+另补2026-10-01至18日、独立零持仓起点的半资金短窗敏感性：基础/双倍成本净PnL为−122.174905 / −128.452841 USDT，均按5000总资本；本条两档各1个持仓段，独立性未证。协议在2026-10-19采集前冻结，非历史交易前预注册，也不延续9月末持仓。结果未年化、不改变原规则或七门槛结论；详情见[18日短窗检查](../notes/short-window-sensitivity/20261019-short-window-sensitivity.md)。
+
+官方Binance公共月归档为 https://data.binance.vision/data/spot/monthly/klines/{symbol}/1d/{symbol}-1d-{YYYY-MM}.zip ，每包同名.CHECKSUM；symbol为BTCUSDT/ETHUSDT/SOLUSDT。已发表筛查记录覆盖2023-01至2026-09，各45月、1,369连续日，三币合计135包、4,107行；报告缺失/重复/非有限OHLC均为0。本条使用三币，币种数不能当作独立结果数。2023年只暖机；全期2024-01-01至2026-09-30为1,004日。日线可复核价格规则，不能证明触价深度和真实滑点；上述月档统计沿用冻结记录；新增10月日档与短窗模拟见上段。
 
 ## 两周内怎么检验
 
@@ -93,3 +95,5 @@ OOS起始NAV为6,834.73/6,802.48，实际NAV收益1.78%/1.14%。435成交腿，�
 - [冻结规则的半资金敏感性与被动持有基准](../notes/20261019-halfcap-sensitivity.md) — 记录2026-10-19 UTC — 已读；定位全期/OOS、解释与未过门槛、可复核记录。汇总SHA256 34c573206a4c3f950d42d4b88f6870b39473ca9f43574172ce9b576221ce3624。已发布[离线复现包](../notes/reproduction/README.md)，提供冻结规则、官方输入来源、校验与重建步骤；原始市场数据及大逐日/逐腿账本仍不入库
 - [五个已测机制的冻结账本稳健性复核](../notes/20261019-frozen-rule-robustness.md) — 记录2026-10-19 UTC — 已读；定位留出段损益、年份与月份集中度、市场敞口、资金门槛与可复核性；为既有账本诊断，非新增策略回测
 - [固定规则历史模拟离线复现包](../notes/reproduction/README.md) — 记录2026-10-19 UTC — 已读；定位Scope、Requirements and inputs、Reproduce from official downloads、Tests and exact comparison；包含自拟冻结模拟的复现入口，不是来源策略复现或真实未来OOS
+
+- [2026年10月1至18日短窗敏感性检查](../notes/short-window-sensitivity/20261019-short-window-sensitivity.md) — 记录2026-10-19 UTC — 54个官方日档校验与独立账本复算通过；8个敏感性情景未纳入原42情景公开冷复现包

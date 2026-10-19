@@ -52,6 +52,8 @@ SOL 日线 simple RSI14 低于 30 时，空仓者次日开盘买入现货；持�
 
 ## 数据
 
+另补2026-10-01至18日、独立零持仓起点的半资金短窗敏感性：基础/双倍成本净PnL为−57.144264 / −63.592175 USDT，均按5000总资本；本条两档各1个持仓段，独立性未证。协议在2026-10-19采集前冻结，非历史交易前预注册，也不延续9月末持仓。结果未年化、不改变原规则或七门槛结论；详情见[18日短窗检查](../notes/short-window-sensitivity/20261019-short-window-sensitivity.md)。
+
 - Binance 公共月归档：`https://data.binance.vision/data/spot/monthly/klines/SOLUSDT/1d/SOLUSDT-1d-{YYYY-MM}.zip`，每包同名 `.CHECKSUM`；2023-01 至 2026-09，共 45 个月；免费、免密钥、无需登录。
 - 保存的 2026-10-19 CHECKSUM 正文为 `8a41acebec9cd840944ee4ad1206b1b397ec4d2d42623c0801674dd55000c44a  SOLUSDT-1d-2026-09.zip`。完整 135 包的逐包校验是既有研究记录的结果，本次未重下；单个校验文件不独立证明所有历史包已核验。
 - 评估区间 2024-01-01 至 2026-09-30；2023 年仅作指标暖机。日线 OHLCV 不是盘口、逐笔成交或真实成交回报；没有 depth/slippage 数据。
@@ -91,11 +93,13 @@ SOL 日线 simple RSI14 低于 30 时，空仓者次日开盘买入现货；持�
 4. **不重复**：不确定——初步机制分类区别于 C21 趋势、C22 动量、C24 等权；仍属于均值回归家族，换 SOL、RSI 周期或持有期不新增机制。本次未做全库去重复核。
 5. **扣成本后粗算够用**：不满足——0.30%/腿全期净贡献 -5.05%（CAGR -1.87%），0.60%/腿 -11.62%（CAGR -4.39%）；OOS -7.12%/-11.86%；低于加密 standalone 约 8% 或组合腿 3% 的门槛。
 6. **两周内能检验**：不满足——现有 24 个持仓段少于 30，独立性未证；两周可复核模拟，但没有已验证路径补足 30 个独立结果。历史频率不构成未来次数硬上限。
-7. **出处可查**：不确定——公开机制来源与数据 URL/校验值可定位；收益数字来自既有研究模拟，其[公开摘要记录](../notes/20261019-spot-screen-v1.md)与[半资金/HODL补充报告](../notes/20261019-halfcap-sensitivity.md)可读；完整代码和逐笔/逐日账本未公开。本次未重跑，不能把归档可追溯等同外部可复现。
+7. **出处可查**：不确定——公开机制来源与数据 URL/校验值可定位；收益数字来自既有研究模拟，其[公开摘要记录](../notes/20261019-spot-screen-v1.md)与[半资金/HODL补充报告](../notes/20261019-halfcap-sensitivity.md)可读；原26情景的[代码与离线复现入口](../notes/reproduction/README.md)已公开，原始行情不随仓库提供，逐笔/逐日账本可由代码重建；另已进行[冷启动核验](../notes/20261019-offline-cold-reproduction.md)。新增8个短窗情景尚无公开执行器，不能把归档可追溯等同全部产物可复现。
 
 ## 出处
 
 - https://github.com/PatrickSebastine/mean-reversion-trading-bot — 原访问 2026-10-19 — 已读正文的保存副本；本次未重新访问。定位 README 的 Mean Reversion、Backtest Configuration、Backtest Results（15 分钟、RSI<25、3×、7 天 OKX；来源绩效未核实且未采用）。
 - https://data.binance.vision/data/spot/monthly/klines/SOLUSDT/1d/SOLUSDT-1d-2026-09.zip.CHECKSUM — 原访问 2026-10-19 — 已读校验文件的保存副本；定位整行 SHA256 与 zip 文件名。完整 45 月 SOL 数据路径模板见“数据”；本次未重新下载。
-- 既有研究记录[《四个固定现货变体：首次真实历史筛查》](../notes/20261019-spot-screen-v1.md) — 记录/核对日期 2026-10-19 — 已读保存记录；定位“冻结规则”“全期结果”“OOS时间切分结果”“资金门槛与稳健性”的 C23.screen-v1 行。模拟器 SHA256 `8e56d8e5c2e73c97710c795ee11a1fbdf86f6d5a2fac1f3688160d68160b3d8c`；冻结汇总 SHA256 `a9a2d45fdee6f39ac9f6802b6b0cb179a24da838fffb7c8ff58cf6785de33408`。公开摘要记录已链接；完整代码及逐笔/逐日账本未公开，仍属外部复现缺口。
+- 既有研究记录[《四个固定现货变体：首次真实历史筛查》](../notes/20261019-spot-screen-v1.md) — 记录/核对日期 2026-10-19 — 已读保存记录；定位“冻结规则”“全期结果”“OOS时间切分结果”“资金门槛与稳健性”的 C23.screen-v1 行。模拟器 SHA256 `8e56d8e5c2e73c97710c795ee11a1fbdf86f6d5a2fac1f3688160d68160b3d8c`；冻结汇总 SHA256 `a9a2d45fdee6f39ac9f6802b6b0cb179a24da838fffb7c8ff58cf6785de33408`。公开摘要与原26情景[代码/复现入口](../notes/reproduction/README.md)已提供，原始行情不随库，逐笔/逐日账本可重建；新增8个短窗情景尚未纳入该公开执行器。
 - [冻结规则的半资金敏感性与被动持有基准](../notes/20261019-halfcap-sensitivity.md) — 记录/核对日期2026-10-19 — 已读报告；定位“本次检验回答什么”“全期与OOS结果”“解释与未过门槛”及“可复核记录”。已有SOL_HODL/EW_HODL为半资金情景基准，不是本稿重新运行或新增机制。
+
+- [2026年10月1至18日短窗敏感性检查](../notes/short-window-sensitivity/20261019-short-window-sensitivity.md) — 记录2026-10-19 UTC — 54个官方日档校验与独立账本复算通过；8个敏感性情景未纳入原42情景公开冷复现包

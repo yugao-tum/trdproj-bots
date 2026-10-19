@@ -1,0 +1,24 @@
+{
+  "files": {
+    "20261019-short-window-sensitivity.md": {
+      "bytes": 3977,
+      "sha256": "695cc7a3f73ccd389ac0baffa3080fa937e155f6165e03f1688403e07c7ebba4"
+    },
+    "short-window-scenarios.csv": {
+      "bytes": 2457,
+      "sha256": "a4e035197bda4ee1ceea794fe1093eb9134466b7575ec811d7dd142e038c37ea"
+    },
+    "source-fingerprints.json": {
+      "bytes": 38410,
+      "sha256": "ce17e7837e7bd16a261a24c96d1e14016be042e648565561130a2607a171e17e"
+    }
+  },
+  "public_contents": [
+    "Chinese note",
+    "8 derived scenario rows",
+    "54 official archive URLs and SHA256 fingerprints"
+  ],
+  "raw_market_data_included": false,
+  "portable_runner_included": false,
+  "internal_absolute_paths_included": false
+}

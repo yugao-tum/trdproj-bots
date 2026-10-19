@@ -1,0 +1,590 @@
+{
+  "scope": "2026-10-01 through 2026-10-18 UTC fixed fresh-flat sensitivity; not historically unseen investment OOS",
+  "protocol_frozen_date_utc": "2026-10-19",
+  "code_freeze_utc": "2026-10-19T21:20:06.172342+00:00",
+  "acquisition_started_utc": "2026-10-19T21:22:56.383233Z",
+  "acquisition_completed_utc": "2026-10-19T21:24:43.804857Z",
+  "http_get_requests": 108,
+  "all_http_status_200": true,
+  "archive_count": 54,
+  "new_daily_rows": 54,
+  "complete_days_per_symbol": 18,
+  "archive_sha256_summary": {
+    "algorithm": "SHA256 over UTF-8, no BOM, LF-terminated lines; symbol then date order; each line is archive_sha256 + two ASCII spaces + filename + LF",
+    "digest": "aeab4d59dad29d3f18c938a3397b05a035b4da948e8d99fc8e5fa090ad1142df"
+  },
+  "evidence_fingerprints": {
+    "fixed_protocol_sha256": "9fa89e41bc7f0dcb639a8cab0e473ef24cbbc7285faec55b1d7ef0474932d576",
+    "preacquisition_freeze_sha256": "d365d0b3c4c79900a80853393631ab5e6c1b897732941bb96c1ee4a21f23c230",
+    "bounded_fetch_adapter_sha256": "f325868642b50cf17f2e1f5300c7f868828526bded73de0961947307cc4d2e27",
+    "local_normalize_and_run_adapter_sha256": "6df4b5e821dcb1a33dabd67a6852ec664a78d75cfb9093a2defbf161a81a655b",
+    "original_signal_engine_sha256": "8e56d8e5c2e73c97710c795ee11a1fbdf86f6d5a2fac1f3688160d68160b3d8c",
+    "unchanged_halfcap_engine_sha256": "0563bf94245a5b7e487a431f749c6f1f5b2becd0a698d16af232588acca53e29",
+    "earlier_2023_01_01_to_2026_09_30_warmup_csv_sha256": "a008fbd0514f4d01bd477fc008de9fb24b8dfae5e83ebda2ced8bbf2e89bcf0a",
+    "new_18day_normalized_csv_sha256": "26685cb4e685020615fd6e08b2cefea50f64811d9fe82fd8586b9f10e94b27ab",
+    "download_manifest_sha256": "53a13d48ea2e36cfb5be1ea0cb79934e6b4946043ed8f71df17d83d537c4383d",
+    "original_summary_json_sha256": "acfcdb2096eb99cae2b5f06c86aaf07f50ce0626f7c615d7cf1d078566255af5",
+    "daily_equity_json_sha256": "06a19d1aca62173ff21692ca609a3d852109a2fb689c49eb04e5f1bab37cfbe3",
+    "trades_json_sha256": "2b4c722a8bd1f3ebfdb5fa5f7164ad4898a5ffeac73b9b5e073942f4ab1ff00d",
+    "episodes_json_sha256": "41107441b4e4119620ba6a5680318d427146eafecc76f8b7559ed2510896f114",
+    "independent_audit_code_sha256": "bb179b01b1827a117d0d070db4c536c0a58eee631cd49db1d0b03bbfb66473e0",
+    "independent_audit_stdout_sha256": "19a11fe2f815b75a244c83d36079ec8ab5e1720f4050d1b79d2d230a50119029",
+    "public_eight_row_csv_sha256": "a4e035197bda4ee1ceea794fe1093eb9134466b7575ec811d7dd142e038c37ea"
+  },
+  "evidence_scope_note": "Fingerprints identify retained code, source and output evidence; these evidence files and raw market data are not included in this compact public package. No portable runner is supplied.",
+  "independent_audit": {
+    "checks": 5169,
+    "differences": 0,
+    "method": "Fraction-based independent signal and ledger reconstruction",
+    "absolute_tolerance_usdt": 1e-07
+  },
+  "scenario_count_note": {
+    "actual_project_scenarios_run": 50,
+    "existing_public_cold_reproduction_scenarios": 42,
+    "new_local_sensitivity_scenarios": 8,
+    "new_mechanisms": 0,
+    "qualified": 0
+  },
+  "archives": [
+    {
+      "symbol": "BTCUSDT",
+      "day_utc": "2026-10-01",
+      "filename": "BTCUSDT-1d-2026-10-01.zip",
+      "official_archive_url": "https://data.binance.vision/data/spot/daily/klines/BTCUSDT/1d/BTCUSDT-1d-2026-10-01.zip",
+      "official_checksum_url": "https://data.binance.vision/data/spot/daily/klines/BTCUSDT/1d/BTCUSDT-1d-2026-10-01.zip.CHECKSUM",
+      "archive_sha256": "544d2565f54cb6347dde9c65301ecd6a5bc9128a95deacad1b86d0d36ca6c1cc",
+      "checksum_file_sha256": "658e964ba1d667b20eaf8f442a00dc053378f7a07618298d1153ebc0a252445e",
+      "csv_member_sha256": "8975f93694dd1c66f2aeaac8ece1f49fe430b50737f863a5fad92f611ee6379b"
+    },
+    {
+      "symbol": "BTCUSDT",
+      "day_utc": "2026-10-02",
+      "filename": "BTCUSDT-1d-2026-10-02.zip",
+      "official_archive_url": "https://data.binance.vision/data/spot/daily/klines/BTCUSDT/1d/BTCUSDT-1d-2026-10-02.zip",
+      "official_checksum_url": "https://data.binance.vision/data/spot/daily/klines/BTCUSDT/1d/BTCUSDT-1d-2026-10-02.zip.CHECKSUM",
+      "archive_sha256": "97f00f9530c1ee2f091bb0fd157c2097e676cb4882c568490b2fed9d17d048da",
+      "checksum_file_sha256": "620c8d4dc91f46b6068c7a5f4913e7dce521c2ee9849aee2eda08dfdb16ac932",
+      "csv_member_sha256": "917981ed552cefd9e0c072d9ebf194e8c263668a627aaeaf585cf85159602495"
+    },
+    {
+      "symbol": "BTCUSDT",
+      "day_utc": "2026-10-03",
+      "filename": "BTCUSDT-1d-2026-10-03.zip",
+      "official_archive_url": "https://data.binance.vision/data/spot/daily/klines/BTCUSDT/1d/BTCUSDT-1d-2026-10-03.zip",
+      "official_checksum_url": "https://data.binance.vision/data/spot/daily/klines/BTCUSDT/1d/BTCUSDT-1d-2026-10-03.zip.CHECKSUM",
+      "archive_sha256": "4fad26c8ad8e581d66200b523a7b0fc723571cfe6c760f30f16497eb920a5d1b",
+      "checksum_file_sha256": "161a42aef206a867e771f301a9c16ce14fd9b46039f190169363e341acd68c96",
+      "csv_member_sha256": "997ac236effbcb429ed66688803a650a1a02406f56934ee58a67ac5787f548c0"
+    },
+    {
+      "symbol": "BTCUSDT",
+      "day_utc": "2026-10-04",
+      "filename": "BTCUSDT-1d-2026-10-04.zip",
+      "official_archive_url": "https://data.binance.vision/data/spot/daily/klines/BTCUSDT/1d/BTCUSDT-1d-2026-10-04.zip",
+      "official_checksum_url": "https://data.binance.vision/data/spot/daily/klines/BTCUSDT/1d/BTCUSDT-1d-2026-10-04.zip.CHECKSUM",
+      "archive_sha256": "7fbfe9a84ad5d0c2936b7cb489ea09f620e0813033a7d40043dd989f614175e1",
+      "checksum_file_sha256": "242c6c5a57972adaddbd15e2c91655100aba043a56ada35fc44c21550abf47f5",
+      "csv_member_sha256": "17f5f75aa29206a16cd0c896ee55d2803a2ac1483f985eab0c237bf3eff5c0f8"
+    },
+    {
+      "symbol": "BTCUSDT",
+      "day_utc": "2026-10-05",
+      "filename": "BTCUSDT-1d-2026-10-05.zip",
+      "official_archive_url": "https://data.binance.vision/data/spot/daily/klines/BTCUSDT/1d/BTCUSDT-1d-2026-10-05.zip",
+      "official_checksum_url": "https://data.binance.vision/data/spot/daily/klines/BTCUSDT/1d/BTCUSDT-1d-2026-10-05.zip.CHECKSUM",
+      "archive_sha256": "af132ef68300bdb34acbdab1aec6d44d8b0f54d9e6f64f5f11f6b252f67a7ec7",
+      "checksum_file_sha256": "ce7233deef103d6ba5546b1936bec7f9b64198104223f5fc5dcc9da501982e89",
+      "csv_member_sha256": "9f8437c500f8908ae97fc3a2bf60213f3fd426f63c8a56cf35f4cce913d9beb3"
+    },
+    {
+      "symbol": "BTCUSDT",
+      "day_utc": "2026-10-06",
+      "filename": "BTCUSDT-1d-2026-10-06.zip",
+      "official_archive_url": "https://data.binance.vision/data/spot/daily/klines/BTCUSDT/1d/BTCUSDT-1d-2026-10-06.zip",
+      "official_checksum_url": "https://data.binance.vision/data/spot/daily/klines/BTCUSDT/1d/BTCUSDT-1d-2026-10-06.zip.CHECKSUM",
+      "archive_sha256": "a9bfe3f7405ad80ca56d0719faf533dd66a405f7cea562b5afeb4ab220ae6982",
+      "checksum_file_sha256": "f9d66615c0c0af5b333bd818116cd787ea668ba14891ece280cf617b8fc7c867",
+      "csv_member_sha256": "596e7c9502d9c361e8c37899e82cf5725cd0361859072ef668a457ccdef8f686"
+    },
+    {
+      "symbol": "BTCUSDT",
+      "day_utc": "2026-10-07",
+      "filename": "BTCUSDT-1d-2026-10-07.zip",
+      "official_archive_url": "https://data.binance.vision/data/spot/daily/klines/BTCUSDT/1d/BTCUSDT-1d-2026-10-07.zip",
+      "official_checksum_url": "https://data.binance.vision/data/spot/daily/klines/BTCUSDT/1d/BTCUSDT-1d-2026-10-07.zip.CHECKSUM",
+      "archive_sha256": "0ddcb0b01671d17e7ee9956fdb19f594f408e6b6b60c632fc29ac4c9dddf05b8",
+      "checksum_file_sha256": "2d3407db5561d8ca63ec6ec5bd7fc343b6959da581912d274baa18f32d00bc7d",
+      "csv_member_sha256": "d2113a0fb093a1b5940afa2d6bd90fff00229e5d57ce2e8c2367d440323e4778"
+    },
+    {
+      "symbol": "BTCUSDT",
+      "day_utc": "2026-10-08",
+      "filename": "BTCUSDT-1d-2026-10-08.zip",
+      "official_archive_url": "https://data.binance.vision/data/spot/daily/klines/BTCUSDT/1d/BTCUSDT-1d-2026-10-08.zip",
+      "official_checksum_url": "https://data.binance.vision/data/spot/daily/klines/BTCUSDT/1d/BTCUSDT-1d-2026-10-08.zip.CHECKSUM",
+      "archive_sha256": "0478666aeb380f07ada5c94b667188b6d622c3e7c376b42960c0504484965ad9",
+      "checksum_file_sha256": "d20141e08410cf512b4e73cf81bb6d0e269b70e68fa67fae2070052398708a7f",
+      "csv_member_sha256": "f3f4adfdb2b7e3145d1a58ec867521989d90f2480071636eb4601cfd959c4190"
+    },
+    {
+      "symbol": "BTCUSDT",
+      "day_utc": "2026-10-09",
+      "filename": "BTCUSDT-1d-2026-10-09.zip",
+      "official_archive_url": "https://data.binance.vision/data/spot/daily/klines/BTCUSDT/1d/BTCUSDT-1d-2026-10-09.zip",
+      "official_checksum_url": "https://data.binance.vision/data/spot/daily/klines/BTCUSDT/1d/BTCUSDT-1d-2026-10-09.zip.CHECKSUM",
+      "archive_sha256": "abc8f686e5559268bd4fd8cdac4b478f9c0810fe26944fa582282becb33ee2f4",
+      "checksum_file_sha256": "a2ea48737a4945ce14d257b38e31c3f410b5c5b3b402c9d90fa511cd042c7d46",
+      "csv_member_sha256": "81c95659fa7afb6f8153ba2d16283a315ad6f83077e3f91e9dff4aecb9995806"
+    },
+    {
+      "symbol": "BTCUSDT",
+      "day_utc": "2026-10-10",
+      "filename": "BTCUSDT-1d-2026-10-10.zip",
+      "official_archive_url": "https://data.binance.vision/data/spot/daily/klines/BTCUSDT/1d/BTCUSDT-1d-2026-10-10.zip",
+      "official_checksum_url": "https://data.binance.vision/data/spot/daily/klines/BTCUSDT/1d/BTCUSDT-1d-2026-10-10.zip.CHECKSUM",
+      "archive_sha256": "7980c0fc7d3e7ef67fc5b9abb0b6dce5668b8cbf76c4828616aa1c315498a5fa",
+      "checksum_file_sha256": "3c3fca9864252673a238b078c8843ec93543a34ac0f450352401c8330b58f900",
+      "csv_member_sha256": "8b20fe1308114def7e9ad4b1fc3159933d7acf62d5f41e62322b544f444da1dc"
+    },
+    {
+      "symbol": "BTCUSDT",
+      "day_utc": "2026-10-11",
+      "filename": "BTCUSDT-1d-2026-10-11.zip",
+      "official_archive_url": "https://data.binance.vision/data/spot/daily/klines/BTCUSDT/1d/BTCUSDT-1d-2026-10-11.zip",
+      "official_checksum_url": "https://data.binance.vision/data/spot/daily/klines/BTCUSDT/1d/BTCUSDT-1d-2026-10-11.zip.CHECKSUM",
+      "archive_sha256": "6d01694528255af58912b5d72b48bcd0ad70e44afa625960af0bd407efe7ac84",
+      "checksum_file_sha256": "e7c26a9beaeba4714a4250aa45b06eee91a22c886218511945a56bc573d965dc",
+      "csv_member_sha256": "630cf831454ab1f5b94ce25c01e19fdcdedb2b06f2d046657c644d96cf2be1cf"
+    },
+    {
+      "symbol": "BTCUSDT",
+      "day_utc": "2026-10-12",
+      "filename": "BTCUSDT-1d-2026-10-12.zip",
+      "official_archive_url": "https://data.binance.vision/data/spot/daily/klines/BTCUSDT/1d/BTCUSDT-1d-2026-10-12.zip",
+      "official_checksum_url": "https://data.binance.vision/data/spot/daily/klines/BTCUSDT/1d/BTCUSDT-1d-2026-10-12.zip.CHECKSUM",
+      "archive_sha256": "6f116c20200f77a156f93710d4c96c007594634c6771e71741a9dbd9f4fc995b",
+      "checksum_file_sha256": "40ead24160edcf264a840b6647959fa4e376bfc7325e3e351fd735df2acbc21d",
+      "csv_member_sha256": "ff4af141756dab6773ab72ad2c7b2a241fc7de57060efaf3bf552006b5b9a39d"
+    },
+    {
+      "symbol": "BTCUSDT",
+      "day_utc": "2026-10-13",
+      "filename": "BTCUSDT-1d-2026-10-13.zip",
+      "official_archive_url": "https://data.binance.vision/data/spot/daily/klines/BTCUSDT/1d/BTCUSDT-1d-2026-10-13.zip",
+      "official_checksum_url": "https://data.binance.vision/data/spot/daily/klines/BTCUSDT/1d/BTCUSDT-1d-2026-10-13.zip.CHECKSUM",
+      "archive_sha256": "bee3a7d79cb4be4049a9b5dd5ef85c518ebb5e7b711d8fe13216d8ea550b2525",
+      "checksum_file_sha256": "6e1cae802b1d1b75ca61d05c74f75e9eaaff10afff719da0a87a4fe82aae5a1b",
+      "csv_member_sha256": "93cf5bcdc62aacb62c8a3f00165f9690e9448f7b4b9812e0793ce16acd94787f"
+    },
+    {
+      "symbol": "BTCUSDT",
+      "day_utc": "2026-10-14",
+      "filename": "BTCUSDT-1d-2026-10-14.zip",
+      "official_archive_url": "https://data.binance.vision/data/spot/daily/klines/BTCUSDT/1d/BTCUSDT-1d-2026-10-14.zip",
+      "official_checksum_url": "https://data.binance.vision/data/spot/daily/klines/BTCUSDT/1d/BTCUSDT-1d-2026-10-14.zip.CHECKSUM",
+      "archive_sha256": "f6b81a85f0cb71e819e848459be1204d1a68857608f8a4789b0f53a4b4af1bc1",
+      "checksum_file_sha256": "484b8ff2a4e727038c4217c538f5172142f0503cb8e7f7aaccb943c9d0fea50b",
+      "csv_member_sha256": "43d840b6584bef48f4add509cf740b871e7a1fb555dc180904b6d3f994614c0e"
+    },
+    {
+      "symbol": "BTCUSDT",
+      "day_utc": "2026-10-15",
+      "filename": "BTCUSDT-1d-2026-10-15.zip",
+      "official_archive_url": "https://data.binance.vision/data/spot/daily/klines/BTCUSDT/1d/BTCUSDT-1d-2026-10-15.zip",
+      "official_checksum_url": "https://data.binance.vision/data/spot/daily/klines/BTCUSDT/1d/BTCUSDT-1d-2026-10-15.zip.CHECKSUM",
+      "archive_sha256": "0861fcb0775f75f1af7b5b875e272098cf7650d3a8689d6f368c2382cd4a33be",
+      "checksum_file_sha256": "c37443297981da78fb43cf8c98d6941f1f35e00a0c75d4c627c688078a86f1ad",
+      "csv_member_sha256": "7448840188cebf94f85a601dfbfc537f29f7788ab41905439c5fbebf4978d243"
+    },
+    {
+      "symbol": "BTCUSDT",
+      "day_utc": "2026-10-16",
+      "filename": "BTCUSDT-1d-2026-10-16.zip",
+      "official_archive_url": "https://data.binance.vision/data/spot/daily/klines/BTCUSDT/1d/BTCUSDT-1d-2026-10-16.zip",
+      "official_checksum_url": "https://data.binance.vision/data/spot/daily/klines/BTCUSDT/1d/BTCUSDT-1d-2026-10-16.zip.CHECKSUM",
+      "archive_sha256": "a45767513118a5736df58561dd3e4ff01e44144f18e78ee8731b215cfa59b385",
+      "checksum_file_sha256": "a55bfbefb70d7313b6cde1da72d920551e0a321da64fde38e9a3f83ec965540d",
+      "csv_member_sha256": "b563bc5f7129d9079adeb6c7ebe3dcf8e92da907e18bded9d2c54e2cf42b6526"
+    },
+    {
+      "symbol": "BTCUSDT",
+      "day_utc": "2026-10-17",
+      "filename": "BTCUSDT-1d-2026-10-17.zip",
+      "official_archive_url": "https://data.binance.vision/data/spot/daily/klines/BTCUSDT/1d/BTCUSDT-1d-2026-10-17.zip",
+      "official_checksum_url": "https://data.binance.vision/data/spot/daily/klines/BTCUSDT/1d/BTCUSDT-1d-2026-10-17.zip.CHECKSUM",
+      "archive_sha256": "431913f651322f4e8054f75fd23abfad9defb7cb0214c2a531a76f984802dbad",
+      "checksum_file_sha256": "e899ec272ecf42a706b104bf212b0161917bfac50702dd9b2c8387609bb8e114",
+      "csv_member_sha256": "9127a7ff2949799b6d9c01d45fef6a3cf5c1d32aadb10af1f96f7d88c6060ecf"
+    },
+    {
+      "symbol": "BTCUSDT",
+      "day_utc": "2026-10-18",
+      "filename": "BTCUSDT-1d-2026-10-18.zip",
+      "official_archive_url": "https://data.binance.vision/data/spot/daily/klines/BTCUSDT/1d/BTCUSDT-1d-2026-10-18.zip",
+      "official_checksum_url": "https://data.binance.vision/data/spot/daily/klines/BTCUSDT/1d/BTCUSDT-1d-2026-10-18.zip.CHECKSUM",
+      "archive_sha256": "29e500f7e5cfa3fc4a97f88ab56d16be5db9a79e170b678c356262721f6bfd36",
+      "checksum_file_sha256": "4eec1018825824a0d98a99057e155e6349df1c7cdfad633206c604f116de87d5",
+      "csv_member_sha256": "4c1bed105992dcf42f88c2bb5e7cef179620c878cc2348339f3d048e6e496842"
+    },
+    {
+      "symbol": "ETHUSDT",
+      "day_utc": "2026-10-01",
+      "filename": "ETHUSDT-1d-2026-10-01.zip",
+      "official_archive_url": "https://data.binance.vision/data/spot/daily/klines/ETHUSDT/1d/ETHUSDT-1d-2026-10-01.zip",
+      "official_checksum_url": "https://data.binance.vision/data/spot/daily/klines/ETHUSDT/1d/ETHUSDT-1d-2026-10-01.zip.CHECKSUM",
+      "archive_sha256": "950b3ae5dbcdbc0d24a7c9f380b77efbaeb481b82abe1932a21f2142fd8dd229",
+      "checksum_file_sha256": "a35571b0618a6a17fa0c4ecdc8607c44c63a610f61446047c706682488ea7733",
+      "csv_member_sha256": "6e0c91b5a01d9bfbaeee69c72f3a8d895e52c564cec17126941d83b852f226de"
+    },
+    {
+      "symbol": "ETHUSDT",
+      "day_utc": "2026-10-02",
+      "filename": "ETHUSDT-1d-2026-10-02.zip",
+      "official_archive_url": "https://data.binance.vision/data/spot/daily/klines/ETHUSDT/1d/ETHUSDT-1d-2026-10-02.zip",
+      "official_checksum_url": "https://data.binance.vision/data/spot/daily/klines/ETHUSDT/1d/ETHUSDT-1d-2026-10-02.zip.CHECKSUM",
+      "archive_sha256": "cb40f462cf8e3649ddfc155dadea35f11e41dbae0bc233a89ab9622046e9ff9e",
+      "checksum_file_sha256": "0733d45b3dec199d9fc00955b26b0f4c022d3e8640a4f94e0875c1bc51a5585e",
+      "csv_member_sha256": "7179014b2df7a20681ee689c6fdc4ad81c7a62949a4f0e403fdb3f45ecc21a8c"
+    },
+    {
+      "symbol": "ETHUSDT",
+      "day_utc": "2026-10-03",
+      "filename": "ETHUSDT-1d-2026-10-03.zip",
+      "official_archive_url": "https://data.binance.vision/data/spot/daily/klines/ETHUSDT/1d/ETHUSDT-1d-2026-10-03.zip",
+      "official_checksum_url": "https://data.binance.vision/data/spot/daily/klines/ETHUSDT/1d/ETHUSDT-1d-2026-10-03.zip.CHECKSUM",
+      "archive_sha256": "d6dd5cb0934c8a115c73b66adbd75e89675dc399bc982d582a87685075102c25",
+      "checksum_file_sha256": "5701c0420ef91c568759ca4727256ed4215bc1239fdbbc4ab6c200d8cabb6cd6",
+      "csv_member_sha256": "6d124e59a1b1e3084107109f36c372854f09427e15e8b1692855936f8d6745b7"
+    },
+    {
+      "symbol": "ETHUSDT",
+      "day_utc": "2026-10-04",
+      "filename": "ETHUSDT-1d-2026-10-04.zip",
+      "official_archive_url": "https://data.binance.vision/data/spot/daily/klines/ETHUSDT/1d/ETHUSDT-1d-2026-10-04.zip",
+      "official_checksum_url": "https://data.binance.vision/data/spot/daily/klines/ETHUSDT/1d/ETHUSDT-1d-2026-10-04.zip.CHECKSUM",
+      "archive_sha256": "3cf5a3fc0505fb3ecd700df69ac0135d3a222e78f9781eb5d5e5619132159439",
+      "checksum_file_sha256": "ca6402e43372d4419d50b7033294bb43069cb118194a781367b96cdb622c1a8e",
+      "csv_member_sha256": "a3d9c8a069f588e5157bcba0843817c2807b74dcede7707aa8a438c2fe12484d"
+    },
+    {
+      "symbol": "ETHUSDT",
+      "day_utc": "2026-10-05",
+      "filename": "ETHUSDT-1d-2026-10-05.zip",
+      "official_archive_url": "https://data.binance.vision/data/spot/daily/klines/ETHUSDT/1d/ETHUSDT-1d-2026-10-05.zip",
+      "official_checksum_url": "https://data.binance.vision/data/spot/daily/klines/ETHUSDT/1d/ETHUSDT-1d-2026-10-05.zip.CHECKSUM",
+      "archive_sha256": "f14f79f261fe7d9df6f9bcc12a67f0bc97ca1f60dce891aa9c4a2cdf14198a84",
+      "checksum_file_sha256": "0f0283e4e5e30bf3b43c2916891e9e9c08b7bc2eb360e77d3ee110b042e0039a",
+      "csv_member_sha256": "74c28ea9537d72f1954b70019952248ad9c52f1f49ddd241fef6e78ac7527275"
+    },
+    {
+      "symbol": "ETHUSDT",
+      "day_utc": "2026-10-06",
+      "filename": "ETHUSDT-1d-2026-10-06.zip",
+      "official_archive_url": "https://data.binance.vision/data/spot/daily/klines/ETHUSDT/1d/ETHUSDT-1d-2026-10-06.zip",
+      "official_checksum_url": "https://data.binance.vision/data/spot/daily/klines/ETHUSDT/1d/ETHUSDT-1d-2026-10-06.zip.CHECKSUM",
+      "archive_sha256": "a6dd358d14e474613e1fd3c915b4d62c67117c659c88a56971500614ff130559",
+      "checksum_file_sha256": "d0b96f776593486943457a49b4c8f442ec52d1d6858deeecdc16ce5eccb8860b",
+      "csv_member_sha256": "17393d41f42c687a7203da618b13ae22b85bfa74ad192d4c69f4560f86f5ed37"
+    },
+    {
+      "symbol": "ETHUSDT",
+      "day_utc": "2026-10-07",
+      "filename": "ETHUSDT-1d-2026-10-07.zip",
+      "official_archive_url": "https://data.binance.vision/data/spot/daily/klines/ETHUSDT/1d/ETHUSDT-1d-2026-10-07.zip",
+      "official_checksum_url": "https://data.binance.vision/data/spot/daily/klines/ETHUSDT/1d/ETHUSDT-1d-2026-10-07.zip.CHECKSUM",
+      "archive_sha256": "2c6e3ecc9835c837141ef7d1275a108d1e547c86153ada571728bcde2d1c617e",
+      "checksum_file_sha256": "b86f121773b62c00c789b22142c3e9fd7d69b27b6c3902cf07f6c1c29fe235f2",
+      "csv_member_sha256": "68fa83525f8e2c82e33e0f805862569c744f54941c0a166eb0bd90a5a40b56e8"
+    },
+    {
+      "symbol": "ETHUSDT",
+      "day_utc": "2026-10-08",
+      "filename": "ETHUSDT-1d-2026-10-08.zip",
+      "official_archive_url": "https://data.binance.vision/data/spot/daily/klines/ETHUSDT/1d/ETHUSDT-1d-2026-10-08.zip",
+      "official_checksum_url": "https://data.binance.vision/data/spot/daily/klines/ETHUSDT/1d/ETHUSDT-1d-2026-10-08.zip.CHECKSUM",
+      "archive_sha256": "27b3fed20183061db5f34341a4c82b118397c23cc7976a3f9128eb947758f30f",
+      "checksum_file_sha256": "88270ca64a9853c990885f47b5fea3e64631d6faad839c017768e575ad267578",
+      "csv_member_sha256": "d9820e2e9faacb8b611f841f5f3bbd030fbad40a9e956abbe9a2986e61398191"
+    },
+    {
+      "symbol": "ETHUSDT",
+      "day_utc": "2026-10-09",
+      "filename": "ETHUSDT-1d-2026-10-09.zip",
+      "official_archive_url": "https://data.binance.vision/data/spot/daily/klines/ETHUSDT/1d/ETHUSDT-1d-2026-10-09.zip",
+      "official_checksum_url": "https://data.binance.vision/data/spot/daily/klines/ETHUSDT/1d/ETHUSDT-1d-2026-10-09.zip.CHECKSUM",
+      "archive_sha256": "f11d32f67942f6fe863146cc203237342447cc50b93b64da07c2e5cdb7791746",
+      "checksum_file_sha256": "b8b9491d40854a0ee3da0f86aaf44276aa70e2ebf6e3753f55b96945daaffd95",
+      "csv_member_sha256": "3296cb2ed7cf59866a2dc8f188ea2e6c81ed3ed8375324a341385edce29dccd4"
+    },
+    {
+      "symbol": "ETHUSDT",
+      "day_utc": "2026-10-10",
+      "filename": "ETHUSDT-1d-2026-10-10.zip",
+      "official_archive_url": "https://data.binance.vision/data/spot/daily/klines/ETHUSDT/1d/ETHUSDT-1d-2026-10-10.zip",
+      "official_checksum_url": "https://data.binance.vision/data/spot/daily/klines/ETHUSDT/1d/ETHUSDT-1d-2026-10-10.zip.CHECKSUM",
+      "archive_sha256": "9ab5f91484b55f3c652106923ffa4be50ad04fc8f63dedcd9a1c4dda2c329b6d",
+      "checksum_file_sha256": "42e4d02f181fdcdbeaa71b6d48e68cf50e78ea2313ebfdd12420d396de83b2ca",
+      "csv_member_sha256": "095fb9ed7e1ec03ecf2c3bd07040c53968dabb4568cc816049ac60f00d6e9ae9"
+    },
+    {
+      "symbol": "ETHUSDT",
+      "day_utc": "2026-10-11",
+      "filename": "ETHUSDT-1d-2026-10-11.zip",
+      "official_archive_url": "https://data.binance.vision/data/spot/daily/klines/ETHUSDT/1d/ETHUSDT-1d-2026-10-11.zip",
+      "official_checksum_url": "https://data.binance.vision/data/spot/daily/klines/ETHUSDT/1d/ETHUSDT-1d-2026-10-11.zip.CHECKSUM",
+      "archive_sha256": "6bdfb590454085ebd17e356667572b84860b99ee3a1693cd1db6054dbd60fed0",
+      "checksum_file_sha256": "1b51c07e895afb06b3e7ee10648537386f01669b00f108823697ac41cf1fccac",
+      "csv_member_sha256": "896b21872e7466350840662de9487f3c91c62a34fd5d577e9f67c6eb3358d05f"
+    },
+    {
+      "symbol": "ETHUSDT",
+      "day_utc": "2026-10-12",
+      "filename": "ETHUSDT-1d-2026-10-12.zip",
+      "official_archive_url": "https://data.binance.vision/data/spot/daily/klines/ETHUSDT/1d/ETHUSDT-1d-2026-10-12.zip",
+      "official_checksum_url": "https://data.binance.vision/data/spot/daily/klines/ETHUSDT/1d/ETHUSDT-1d-2026-10-12.zip.CHECKSUM",
+      "archive_sha256": "58f74da33787c64220569443d781303778a882557e908a1779e7eb29ca6e8e81",
+      "checksum_file_sha256": "afe88aad325df280eb67dc18c4bc2a3e17b5d21db865e3831cba0bd2f9103611",
+      "csv_member_sha256": "04876b5a7789b2d1ac624e080a03569016d9aeafea25ccad013aa9e797166db3"
+    },
+    {
+      "symbol": "ETHUSDT",
+      "day_utc": "2026-10-13",
+      "filename": "ETHUSDT-1d-2026-10-13.zip",
+      "official_archive_url": "https://data.binance.vision/data/spot/daily/klines/ETHUSDT/1d/ETHUSDT-1d-2026-10-13.zip",
+      "official_checksum_url": "https://data.binance.vision/data/spot/daily/klines/ETHUSDT/1d/ETHUSDT-1d-2026-10-13.zip.CHECKSUM",
+      "archive_sha256": "803071bd586bcef0cd8c0a1fd72f90bb3601a3b7478e201a932edb36f1f61fa3",
+      "checksum_file_sha256": "a17520d705ce9077a3843786a3b6421b370fe0aab1740cd1f29afee3b1ac4550",
+      "csv_member_sha256": "b1c4e1eb0ef46e41d632a93b159538c9f4591f560912d59450edb7b19391f8f9"
+    },
+    {
+      "symbol": "ETHUSDT",
+      "day_utc": "2026-10-14",
+      "filename": "ETHUSDT-1d-2026-10-14.zip",
+      "official_archive_url": "https://data.binance.vision/data/spot/daily/klines/ETHUSDT/1d/ETHUSDT-1d-2026-10-14.zip",
+      "official_checksum_url": "https://data.binance.vision/data/spot/daily/klines/ETHUSDT/1d/ETHUSDT-1d-2026-10-14.zip.CHECKSUM",
+      "archive_sha256": "ed08c738a90304e88fadbfcf2b97096137c1364ef54ec45308ed0f21e8ea63d7",
+      "checksum_file_sha256": "3008f53feb0440c247492c13380c0e38eaadf0113341b04a74b21f1c74b0eb60",
+      "csv_member_sha256": "64e6308aae07908dca89d0662302bd50ca816696ab477d60012e20eccefa10b7"
+    },
+    {
+      "symbol": "ETHUSDT",
+      "day_utc": "2026-10-15",
+      "filename": "ETHUSDT-1d-2026-10-15.zip",
+      "official_archive_url": "https://data.binance.vision/data/spot/daily/klines/ETHUSDT/1d/ETHUSDT-1d-2026-10-15.zip",
+      "official_checksum_url": "https://data.binance.vision/data/spot/daily/klines/ETHUSDT/1d/ETHUSDT-1d-2026-10-15.zip.CHECKSUM",
+      "archive_sha256": "c07f7216fbc8602f4df5984fe8007d2c19c30d2d433c02bae5c2b859d4019b8b",
+      "checksum_file_sha256": "2f8c43a3671fe811c752ce736670f1a547214747495fa0be91104f9ec6d0f6f8",
+      "csv_member_sha256": "0bf0428e7b6704f617950d39d2dd2d1f50278ce8422eb28009ee2f2bebe949fd"
+    },
+    {
+      "symbol": "ETHUSDT",
+      "day_utc": "2026-10-16",
+      "filename": "ETHUSDT-1d-2026-10-16.zip",
+      "official_archive_url": "https://data.binance.vision/data/spot/daily/klines/ETHUSDT/1d/ETHUSDT-1d-2026-10-16.zip",
+      "official_checksum_url": "https://data.binance.vision/data/spot/daily/klines/ETHUSDT/1d/ETHUSDT-1d-2026-10-16.zip.CHECKSUM",
+      "archive_sha256": "422f8caf2dcc867ed44b41baf4bf19d4794238b0ccd43fd0d0e0eed0d2cafd59",
+      "checksum_file_sha256": "79c8847fa1015b26c94a7a38cb8926b259806379078bf992992f7bdff8ad6b9e",
+      "csv_member_sha256": "94f3323cb8378050db0907770414e6b8d782b0a0141aa3695d67ae2e36ab3e91"
+    },
+    {
+      "symbol": "ETHUSDT",
+      "day_utc": "2026-10-17",
+      "filename": "ETHUSDT-1d-2026-10-17.zip",
+      "official_archive_url": "https://data.binance.vision/data/spot/daily/klines/ETHUSDT/1d/ETHUSDT-1d-2026-10-17.zip",
+      "official_checksum_url": "https://data.binance.vision/data/spot/daily/klines/ETHUSDT/1d/ETHUSDT-1d-2026-10-17.zip.CHECKSUM",
+      "archive_sha256": "502b1d494ff79d649baefbdaef9de46952eed5b2f5f3e8717ee33704c7eb6dc1",
+      "checksum_file_sha256": "b547cff5b430fe9cb23840be28c09d77384940a118a79ca95c682a2b20fbd6f1",
+      "csv_member_sha256": "582938bf2fd56b3822aad51388823d32467b370e0c977c6506b3c78c8696ce26"
+    },
+    {
+      "symbol": "ETHUSDT",
+      "day_utc": "2026-10-18",
+      "filename": "ETHUSDT-1d-2026-10-18.zip",
+      "official_archive_url": "https://data.binance.vision/data/spot/daily/klines/ETHUSDT/1d/ETHUSDT-1d-2026-10-18.zip",
+      "official_checksum_url": "https://data.binance.vision/data/spot/daily/klines/ETHUSDT/1d/ETHUSDT-1d-2026-10-18.zip.CHECKSUM",
+      "archive_sha256": "0dabe9a7523ce4991f5554afd75d809e472d8105a0c6a69708dd121b611b69c3",
+      "checksum_file_sha256": "979f1f21a8167bfac4aada8700de91c53278a01d3a7633fc27456dc5895a3677",
+      "csv_member_sha256": "227c8d79b44ad274f83af78d5cffe23948e84206a33993563cfb58939697f211"
+    },
+    {
+      "symbol": "SOLUSDT",
+      "day_utc": "2026-10-01",
+      "filename": "SOLUSDT-1d-2026-10-01.zip",
+      "official_archive_url": "https://data.binance.vision/data/spot/daily/klines/SOLUSDT/1d/SOLUSDT-1d-2026-10-01.zip",
+      "official_checksum_url": "https://data.binance.vision/data/spot/daily/klines/SOLUSDT/1d/SOLUSDT-1d-2026-10-01.zip.CHECKSUM",
+      "archive_sha256": "787da22bc62d6192dbdf836d6f4127136559cb7f79ee8789af58cfffe027e3c2",
+      "checksum_file_sha256": "eb2684fc063567088e073bf79338ad298946d87ff131ffcfe58dad772776f68e",
+      "csv_member_sha256": "32a249991506c8099db6a0e02e33d024bc843be5a134e3d3ab024b474833856c"
+    },
+    {
+      "symbol": "SOLUSDT",
+      "day_utc": "2026-10-02",
+      "filename": "SOLUSDT-1d-2026-10-02.zip",
+      "official_archive_url": "https://data.binance.vision/data/spot/daily/klines/SOLUSDT/1d/SOLUSDT-1d-2026-10-02.zip",
+      "official_checksum_url": "https://data.binance.vision/data/spot/daily/klines/SOLUSDT/1d/SOLUSDT-1d-2026-10-02.zip.CHECKSUM",
+      "archive_sha256": "273cd316e03d389dfd6eab9c99f6f8ef866e9548a697f55d0c9710f74b7956e5",
+      "checksum_file_sha256": "45ce4a15b71215dd8e47bfb1129d54d395560dbc1d994d23676ceb51b2d74cdb",
+      "csv_member_sha256": "fa1e7d471412d0f0410d5cf5c8e4b6e23e62b4b2e011e9037c303b1e29c05222"
+    },
+    {
+      "symbol": "SOLUSDT",
+      "day_utc": "2026-10-03",
+      "filename": "SOLUSDT-1d-2026-10-03.zip",
+      "official_archive_url": "https://data.binance.vision/data/spot/daily/klines/SOLUSDT/1d/SOLUSDT-1d-2026-10-03.zip",
+      "official_checksum_url": "https://data.binance.vision/data/spot/daily/klines/SOLUSDT/1d/SOLUSDT-1d-2026-10-03.zip.CHECKSUM",
+      "archive_sha256": "5e23e789764131f86cb127391c6029cb7be803b8d35936be0206e11076c50724",
+      "checksum_file_sha256": "b71968a4928640bb99469e4a7ecf5fb57e00323590572cdf17c95222338efc1c",
+      "csv_member_sha256": "e2917141a808634a1e795f2a3f9123b55a9e6a20200a97de76dff6f1578141bb"
+    },
+    {
+      "symbol": "SOLUSDT",
+      "day_utc": "2026-10-04",
+      "filename": "SOLUSDT-1d-2026-10-04.zip",
+      "official_archive_url": "https://data.binance.vision/data/spot/daily/klines/SOLUSDT/1d/SOLUSDT-1d-2026-10-04.zip",
+      "official_checksum_url": "https://data.binance.vision/data/spot/daily/klines/SOLUSDT/1d/SOLUSDT-1d-2026-10-04.zip.CHECKSUM",
+      "archive_sha256": "a6ccf9cd5c73fc2d5ede10d7635f30b9a3b8b02e50914bcb7e99181006035f45",
+      "checksum_file_sha256": "b4d005e4c3cbc11e872ac9a1e6f24cf2fa820b2a0d5d83a51c0751b73bf3953a",
+      "csv_member_sha256": "282c42aea5840c6e715fa2d4ef69114226afc824e91bc96c6d80cad979f07af4"
+    },
+    {
+      "symbol": "SOLUSDT",
+      "day_utc": "2026-10-05",
+      "filename": "SOLUSDT-1d-2026-10-05.zip",
+      "official_archive_url": "https://data.binance.vision/data/spot/daily/klines/SOLUSDT/1d/SOLUSDT-1d-2026-10-05.zip",
+      "official_checksum_url": "https://data.binance.vision/data/spot/daily/klines/SOLUSDT/1d/SOLUSDT-1d-2026-10-05.zip.CHECKSUM",
+      "archive_sha256": "fab33cc1f4cbdff500cc0f3a4ecf6287659ef9dd0923f656a686d11ffef6b975",
+      "checksum_file_sha256": "a76cc28e417ecb22fea0762814bacc868d04ccac4682fad0da1a49489b784e3b",
+      "csv_member_sha256": "b6186a7a20757f86bd3f6b70940a4ac4784040c3ff18b0d52b736777918d15cb"
+    },
+    {
+      "symbol": "SOLUSDT",
+      "day_utc": "2026-10-06",
+      "filename": "SOLUSDT-1d-2026-10-06.zip",
+      "official_archive_url": "https://data.binance.vision/data/spot/daily/klines/SOLUSDT/1d/SOLUSDT-1d-2026-10-06.zip",
+      "official_checksum_url": "https://data.binance.vision/data/spot/daily/klines/SOLUSDT/1d/SOLUSDT-1d-2026-10-06.zip.CHECKSUM",
+      "archive_sha256": "436cbad41265fba73859829d5e0ad9a17cddcbd994b96c4eee508a8a0f8d3b60",
+      "checksum_file_sha256": "0d2b2dc998f8d7627c1dfac680385058b44a7a4050e4a778b5768c050058269f",
+      "csv_member_sha256": "83819fafa3d3f559293e1cf446c2e173a181a3c2e50ac2ce72c6df7a6d808da2"
+    },
+    {
+      "symbol": "SOLUSDT",
+      "day_utc": "2026-10-07",
+      "filename": "SOLUSDT-1d-2026-10-07.zip",
+      "official_archive_url": "https://data.binance.vision/data/spot/daily/klines/SOLUSDT/1d/SOLUSDT-1d-2026-10-07.zip",
+      "official_checksum_url": "https://data.binance.vision/data/spot/daily/klines/SOLUSDT/1d/SOLUSDT-1d-2026-10-07.zip.CHECKSUM",
+      "archive_sha256": "253ab946aabda056d7038e6d8427389a0ac8e2ae36fbfa5cc08688408a08fffc",
+      "checksum_file_sha256": "3799862f75a386c4542f16f2238137e88f17d02c7fcbc00e0748bb48291a5db7",
+      "csv_member_sha256": "6f1b426c85a05694bf51b5cc78c7c300372075de155d9ffdf2583b83b0e3ba8d"
+    },
+    {
+      "symbol": "SOLUSDT",
+      "day_utc": "2026-10-08",
+      "filename": "SOLUSDT-1d-2026-10-08.zip",
+      "official_archive_url": "https://data.binance.vision/data/spot/daily/klines/SOLUSDT/1d/SOLUSDT-1d-2026-10-08.zip",
+      "official_checksum_url": "https://data.binance.vision/data/spot/daily/klines/SOLUSDT/1d/SOLUSDT-1d-2026-10-08.zip.CHECKSUM",
+      "archive_sha256": "5308e53c17cf3904a0f4f5e314bb4b526e88a8b965cece5195e05d2b38a4f030",
+      "checksum_file_sha256": "67dbb97609f88418cc4a8c4715319629e415bf7ad032939a1b1d5ca803ad05cf",
+      "csv_member_sha256": "7abd433309da15c52bc3bb52d673580e9bf4450db9051575806ba9242d459673"
+    },
+    {
+      "symbol": "SOLUSDT",
+      "day_utc": "2026-10-09",
+      "filename": "SOLUSDT-1d-2026-10-09.zip",
+      "official_archive_url": "https://data.binance.vision/data/spot/daily/klines/SOLUSDT/1d/SOLUSDT-1d-2026-10-09.zip",
+      "official_checksum_url": "https://data.binance.vision/data/spot/daily/klines/SOLUSDT/1d/SOLUSDT-1d-2026-10-09.zip.CHECKSUM",
+      "archive_sha256": "d8d0cbf5ca7687bc13be3a1bcd60ffd841a8c32719c3dd3c76b50942d0987147",
+      "checksum_file_sha256": "ae74cd6cbdf42abca35be3f8e2a6563a3c32311fd02b207f3ff3618210f73ced",
+      "csv_member_sha256": "008f720c1f213fe89356f7a87665aa35eb05f733756bdd9b4ce03ed185ae726e"
+    },
+    {
+      "symbol": "SOLUSDT",
+      "day_utc": "2026-10-10",
+      "filename": "SOLUSDT-1d-2026-10-10.zip",
+      "official_archive_url": "https://data.binance.vision/data/spot/daily/klines/SOLUSDT/1d/SOLUSDT-1d-2026-10-10.zip",
+      "official_checksum_url": "https://data.binance.vision/data/spot/daily/klines/SOLUSDT/1d/SOLUSDT-1d-2026-10-10.zip.CHECKSUM",
+      "archive_sha256": "83f4b2763d38d840fe7889fc4e672b105787ec99e5af33d6635091fa4e180b22",
+      "checksum_file_sha256": "1a284e774d93015f74ac2f006932863cbd71627f6969b06c69b36b663ede1531",
+      "csv_member_sha256": "8e0b2ac1ad237885d54d4a4aaa0ef85e2b9bb06afc6bb0707b67f9634654668b"
+    },
+    {
+      "symbol": "SOLUSDT",
+      "day_utc": "2026-10-11",
+      "filename": "SOLUSDT-1d-2026-10-11.zip",
+      "official_archive_url": "https://data.binance.vision/data/spot/daily/klines/SOLUSDT/1d/SOLUSDT-1d-2026-10-11.zip",
+      "official_checksum_url": "https://data.binance.vision/data/spot/daily/klines/SOLUSDT/1d/SOLUSDT-1d-2026-10-11.zip.CHECKSUM",
+      "archive_sha256": "318a2d42897c63656d6a60a23aef22855ddcfd596c5f7be21211d7ac562bb0ff",
+      "checksum_file_sha256": "b1def1d8cc5bcba137e8d658e92530c1f0ff08e406aca86cc2f572cbf1e9537c",
+      "csv_member_sha256": "f3f53da8b465d5253d3eb38b355d2c9eab55bac4ef9f6f0997d86a076f46cf83"
+    },
+    {
+      "symbol": "SOLUSDT",
+      "day_utc": "2026-10-12",
+      "filename": "SOLUSDT-1d-2026-10-12.zip",
+      "official_archive_url": "https://data.binance.vision/data/spot/daily/klines/SOLUSDT/1d/SOLUSDT-1d-2026-10-12.zip",
+      "official_checksum_url": "https://data.binance.vision/data/spot/daily/klines/SOLUSDT/1d/SOLUSDT-1d-2026-10-12.zip.CHECKSUM",
+      "archive_sha256": "2b1ba8fa5eb1609a7cc6c0df9f843d3780df0b339eb6ac8b8b4ebbb35c9c1fe6",
+      "checksum_file_sha256": "513199d925b84869fee5911fb4de70b4b28e0663432959b05dd5ad399e2fe853",
+      "csv_member_sha256": "58521dfb0297a456d227f012986a0c156faaf191c7d58e67e97f4898885a37ae"
+    },
+    {
+      "symbol": "SOLUSDT",
+      "day_utc": "2026-10-13",
+      "filename": "SOLUSDT-1d-2026-10-13.zip",
+      "official_archive_url": "https://data.binance.vision/data/spot/daily/klines/SOLUSDT/1d/SOLUSDT-1d-2026-10-13.zip",
+      "official_checksum_url": "https://data.binance.vision/data/spot/daily/klines/SOLUSDT/1d/SOLUSDT-1d-2026-10-13.zip.CHECKSUM",
+      "archive_sha256": "17e03a1e1a236e7e49aaf2f1bfd5450b9039f957bdac9a4d4ddefdb312740be0",
+      "checksum_file_sha256": "c349a45d8a46f25bcf6a00bac0b07a6c077a796f5fbae04a0793cd3cc3a1de61",
+      "csv_member_sha256": "0982cfdfcb9bf1dd75276fb71ba5894ce6588d474b6e337d97807800b833f533"
+    },
+    {
+      "symbol": "SOLUSDT",
+      "day_utc": "2026-10-14",
+      "filename": "SOLUSDT-1d-2026-10-14.zip",
+      "official_archive_url": "https://data.binance.vision/data/spot/daily/klines/SOLUSDT/1d/SOLUSDT-1d-2026-10-14.zip",
+      "official_checksum_url": "https://data.binance.vision/data/spot/daily/klines/SOLUSDT/1d/SOLUSDT-1d-2026-10-14.zip.CHECKSUM",
+      "archive_sha256": "02a66d83251ba4889b58f751f8cb259e4cf4506e13d1092d82b2149778771890",
+      "checksum_file_sha256": "364d8a176b4c0c29d1be8835810833859c36dcc4c6bfac656ef2ce6008c3b8fd",
+      "csv_member_sha256": "eec2c09a00a9490308da8de8391248b3d57ce9176f514f5c0a1e0e9e68cdae80"
+    },
+    {
+      "symbol": "SOLUSDT",
+      "day_utc": "2026-10-15",
+      "filename": "SOLUSDT-1d-2026-10-15.zip",
+      "official_archive_url": "https://data.binance.vision/data/spot/daily/klines/SOLUSDT/1d/SOLUSDT-1d-2026-10-15.zip",
+      "official_checksum_url": "https://data.binance.vision/data/spot/daily/klines/SOLUSDT/1d/SOLUSDT-1d-2026-10-15.zip.CHECKSUM",
+      "archive_sha256": "1c876a133b25cd7ff7e283162bbc21eaf57ed72d610431f3c34cadead3973dd5",
+      "checksum_file_sha256": "71e9ee570a7379db1649fc831418f9d5c59c01d21d14a7e755fb61cde49e6cf7",
+      "csv_member_sha256": "e392fcd777f12fdcaee000cb5bf685de4056c9a9ca9bdb25c006dca261238a67"
+    },
+    {
+      "symbol": "SOLUSDT",
+      "day_utc": "2026-10-16",
+      "filename": "SOLUSDT-1d-2026-10-16.zip",
+      "official_archive_url": "https://data.binance.vision/data/spot/daily/klines/SOLUSDT/1d/SOLUSDT-1d-2026-10-16.zip",
+      "official_checksum_url": "https://data.binance.vision/data/spot/daily/klines/SOLUSDT/1d/SOLUSDT-1d-2026-10-16.zip.CHECKSUM",
+      "archive_sha256": "cf88b89a2b7ca57d7922a9c7c410cef962063dce7915bf325cfca919ba2c200f",
+      "checksum_file_sha256": "b58e8d71d3c38bac1ee901f7533ab9de42260630e8f462075a26e632e17ad1f9",
+      "csv_member_sha256": "c7f390d22f110cab4f02e1ef17f2923a76356a29fba2a31a69e3a952984a5712"
+    },
+    {
+      "symbol": "SOLUSDT",
+      "day_utc": "2026-10-17",
+      "filename": "SOLUSDT-1d-2026-10-17.zip",
+      "official_archive_url": "https://data.binance.vision/data/spot/daily/klines/SOLUSDT/1d/SOLUSDT-1d-2026-10-17.zip",
+      "official_checksum_url": "https://data.binance.vision/data/spot/daily/klines/SOLUSDT/1d/SOLUSDT-1d-2026-10-17.zip.CHECKSUM",
+      "archive_sha256": "7309af8f3f214f1aceb5cbd367ff5456787b41af9c613db323709ec6a47bd34e",
+      "checksum_file_sha256": "ae26e82c25ac1ce77ea75d74328dcd35767b3ead0f97ecb241f1b354ad9687c3",
+      "csv_member_sha256": "1b77de0c0773cb55011c641e3760684df914a1c40e333b43069de3bd153059f5"
+    },
+    {
+      "symbol": "SOLUSDT",
+      "day_utc": "2026-10-18",
+      "filename": "SOLUSDT-1d-2026-10-18.zip",
+      "official_archive_url": "https://data.binance.vision/data/spot/daily/klines/SOLUSDT/1d/SOLUSDT-1d-2026-10-18.zip",
+      "official_checksum_url": "https://data.binance.vision/data/spot/daily/klines/SOLUSDT/1d/SOLUSDT-1d-2026-10-18.zip.CHECKSUM",
+      "archive_sha256": "06583c0bcf7e286986b5369efa49daace74c1811f350208911cab830cdd8c37a",
+      "checksum_file_sha256": "7e4cd7670a0fbb6d0643ccf3b1ba9b9c3f6e106d9cd1769d7f652f8dc4e98fe4",
+      "csv_member_sha256": "92aea2a4dd65dc38a059259c226334a48ca32c02185ed086651335b30e371b9e"
+    }
+  ]
+}
