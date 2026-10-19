@@ -12,7 +12,7 @@ category: Y
 return_type: carry
 instruments: stETH, wstETH
 venues: Lido（以太坊主网）、二级市场（Curve/Uniswap/CEX，未逐一核）
-data: Lido APR API免费免密钥，当前2.22%（非12个月历史）；Lido docs/GitHub/Ethereum.org；12个月rebase/汇率/gas/赎回队列历史未取得；PM不适用。
+data: Lido APR API免费免密钥，当前2.22%（非12个月历史）；Lido docs/GitHub/Ethereum.org；现已取得固定12月恒定shares接口两端读数，完整rebase/市场汇率/gas/赎回队列路径未取得；PM不适用。
 test_2w: 前向14天记录APR、stETH/ETH、wstETH汇率、gas、赎回队列；这是12个月持有的前置观察，不是完整持有期；日度rebase不算独立；30个独立结果未知；12个月主检验失败=全期按5000本金计费后纯carry低于预设门槛或无法完成退出；14天往返净carry<0仅否决短持有分支。折价>1%或负rebase作为风险警报。
 status: 草稿
 confidence: 中
@@ -36,6 +36,8 @@ Lido docs：stETH每日rebase，奖励含CL rewards与MEV/EL fees并复投；协
 
 ## 数据
 
+新增2026-10-19核查：[恒定份额历史账面数量](../notes/20261019-staking-share-endpoints.md)。同一10^18 shares在固定365日两端对应ETH数量的接口整数比增长2.48049172%；不是USDT收益或实际提款，也不能拆分全部奖励、捐赠和份额销毁。抽取前冻结区间，不是投资前预注册；两端合约version 2→4、历史源码等价性及完整期间路径未证，完整回测仍0。
+
 Lido APR API `https://eth-api.lido.fi/v1/protocol/steth/apr/last` 免费免密钥，仅当前值。12个月rebase/APR、stETH/ETH二级价、wstETH汇率、gas、赎回队列未取得；GitHub摘要称有reward history API/subgraph，本worker未调用。PM无腿，不适用。
 
 ## 两周内怎么检验
@@ -57,7 +59,7 @@ ETH/USD价格风险独立于staking carry，不能只用APR判总USDT收益；�
 ## 门槛自查
 
 1. 机制说得清：满足。付款方是共识发行+执行费/MEV；罚没是负现金流；小持有者不是32ETH验证者。
-2. 有免费数据能检验：不确定。当前APR已取；12个月rebase/汇率/gas/队列历史缺失。
+2. 有免费数据能检验：不确定。当前APR及固定12月两端shares会计读数已取；完整rebase/市场汇率/gas/队列历史缺失。
 3. 小资金能做：不确定。纸面2,400名义+100缓冲+2,500场外；gas占比、退出路径与可成交性未实测。
 4. 不重复：满足（初步）。LST质押carry与稳定币脱锚、资金费/基差不同；二级LST折价归C28；最终查重待主调度。
 5. 扣成本后粗算够用：不确定。当前低APR纯carry按12个月约定毛约1.07-1.11%/5,000，扣0.60%和gas后可能不足；但总USDT收益含ETH价格，长期全策略未测，不能只用APR判定。
@@ -72,3 +74,5 @@ ETH/USD价格风险独立于staking carry，不能只用APR判总USDT收益；�
 - https://github.com/lidofinance/docs/blob/ff75aae0414ded4e9938bcd6b811aed97777fa00/docs/contracts/accounting.md — 2026-10-19 — 摘要（GitHub检索摘要）
 - https://x.com/LidoFinance/status/2081077386737549616 — 2026-10-19 — 摘要（2026-07-25 rebase 2.04%）
 - https://x.com/LidoFinance/status/1696425806870839412 — 2026-10-19 — 摘要（2023-08周均3.81%）
+
+- 新增数据：2026-10-19已读官方部署/份额接口、固定历史RPC两个端点；[完整单位、原始整数与SHA说明](../notes/20261019-staking-share-endpoints.md)。单RPC提供者、历史实现匹配与提款现金链缺口均保留。
