@@ -1,0 +1,52 @@
+{
+  "package": "c20-conditional-reproduction",
+  "version": "1.1-io-only",
+  "raw_data_included": false,
+  "files": [
+    {
+      "file": "FUNCTION-EQUIVALENCE.json",
+      "bytes": 3463,
+      "sha256": "dfa7cc1ed2361e2f6f912cf3a533c2894ef4524ba33268b7ca500f91b13b3ffc"
+    },
+    {
+      "file": "README.md",
+      "bytes": 7996,
+      "sha256": "1bc7cc160d68cc6127b36be1136650fe8aa7c897636f304436d8c852b190a5b2"
+    },
+    {
+      "file": "VERIFICATION.json",
+      "bytes": 1423,
+      "sha256": "bd1997ab00f017ff1198610b0f6a1e8ff0ad264d27aa69511a5fc72cb461ccc0"
+    },
+    {
+      "file": "conditional_cash_v1_1.py",
+      "bytes": 16373,
+      "sha256": "474419b121470803df17d9345468f3e71db7b6387b78c8a2e98e15d09cf2a666"
+    },
+    {
+      "file": "inputs.json",
+      "bytes": 2173,
+      "sha256": "2ea091eb580af841877601eea776ac456472cb87bb1d9851759f0bebb2fe84e9"
+    },
+    {
+      "file": "official_sources.json",
+      "bytes": 123030,
+      "sha256": "9a9e2102d3ef22acc8a117ffda42106febb742e9066813ba2e5a65a7c4a89cce"
+    },
+    {
+      "file": "prepare_inputs.py",
+      "bytes": 9098,
+      "sha256": "23e7fc901eceedc3931c2565701f0d51f62458885e4732131bc3114028745b85"
+    },
+    {
+      "file": "test_conditional_cash.py",
+      "bytes": 9864,
+      "sha256": "14d1e7238856b9a43ea6acae7cee02ddc8ece755811b8476b7c34a22ca7a963e"
+    },
+    {
+      "file": "test_prepare_inputs.py",
+      "bytes": 3983,
+      "sha256": "b13c921f7398a30e73a76c7e841dfffcb773ab67806328ce5ab364f9df5cc4d6"
+    }
+  ]
+}

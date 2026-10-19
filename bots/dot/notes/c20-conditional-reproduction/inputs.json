@@ -1,0 +1,92 @@
+{
+  "version": "1.1-io-only",
+  "files": {
+    "spot_csv": {
+      "filename": "spot_daily.csv",
+      "sha256": "a008fbd0514f4d01bd477fc008de9fb24b8dfae5e83ebda2ced8bbf2e89bcf0a",
+      "bytes": 921335,
+      "columns_in_order": [
+        "symbol",
+        "open_time_utc",
+        "open_time_raw",
+        "open",
+        "high",
+        "low",
+        "close",
+        "volume",
+        "close_time_utc",
+        "close_time_raw",
+        "quote_volume",
+        "count",
+        "taker_buy_volume",
+        "taker_buy_quote_volume",
+        "ignore"
+      ],
+      "used_symbols": [
+        "BTCUSDT"
+      ],
+      "source_symbols_in_file": [
+        "BTCUSDT",
+        "ETHUSDT",
+        "SOLUSDT"
+      ]
+    },
+    "fixed_futures_csv": {
+      "filename": "FIXED-WINDOW-ROWS.csv",
+      "sha256": "6ed2cfd9f6cbace327b888906524090697ef03598a1d5c77aeb2c30fbffee09b",
+      "bytes": 782239,
+      "columns_in_order": [
+        "symbol",
+        "kind",
+        "date",
+        "open_time_raw",
+        "open_time_us",
+        "open_time_utc",
+        "timestamp_unit",
+        "open",
+        "high",
+        "low",
+        "close",
+        "volume_field",
+        "close_time_raw",
+        "close_time_us",
+        "close_time_utc",
+        "bar_declared_seconds",
+        "quote_volume_field",
+        "count_field",
+        "taker_buy_volume_field",
+        "taker_buy_quote_volume_field",
+        "ignore_field",
+        "source_url",
+        "source_line",
+        "errors",
+        "volume_semantics",
+        "archive_sha256",
+        "in_fixed_window"
+      ],
+      "used_symbols": [
+        "BTCUSDT_241227",
+        "BTCUSDT_250328",
+        "BTCUSDT_250627",
+        "BTCUSDT_250926",
+        "BTCUSDT_251226",
+        "BTCUSDT_260327",
+        "BTCUSDT_260626",
+        "BTCUSDT_260925"
+      ],
+      "source_symbols_in_file": [
+        "BTCUSDT_241227",
+        "BTCUSDT_250328",
+        "BTCUSDT_250627",
+        "BTCUSDT_250926",
+        "BTCUSDT_251226",
+        "BTCUSDT_260327",
+        "BTCUSDT_260626",
+        "BTCUSDT_260925"
+      ]
+    }
+  },
+  "raw_data_included": false,
+  "expected_daily_proxy_rows": 356,
+  "expected_cost_scenarios": 16
+}

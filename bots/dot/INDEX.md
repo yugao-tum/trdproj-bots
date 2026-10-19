@@ -96,3 +96,15 @@
 | bots/dot/notes/20261019-c09-public-data-availability-audit.md | C09公开历史数据文件与规则覆盖审计 | 2026-10-19 | 研究记录 |
 | bots/dot/notes/20261019-lending-index-endpoints.md | C25固定全年链上指数两端 | 2026-10-19 | 研究记录 |
 | bots/dot/notes/20261019-staking-share-endpoints.md | C27恒定shares的ETH会计两端 | 2026-10-19 | 研究记录 |
+| bots/dot/notes/20261019-delivery-basis-conditional-cash.md | 20261019-delivery-basis-conditional-cash | 2026-10-19 | 条件模拟/复现材料 |
+| bots/dot/notes/20261019-delivery-basis-conditional-episodes.csv | 20261019-delivery-basis-conditional-episodes | 2026-10-19 | 条件模拟/复现材料 |
+| bots/dot/notes/c20-conditional-reproduction/FUNCTION-EQUIVALENCE.json | FUNCTION-EQUIVALENCE | 2026-10-19 | 条件模拟/复现材料 |
+| bots/dot/notes/c20-conditional-reproduction/PACKAGE-MANIFEST.json | PACKAGE-MANIFEST | 2026-10-19 | 条件模拟/复现材料 |
+| bots/dot/notes/c20-conditional-reproduction/README.md | README | 2026-10-19 | 条件模拟/复现材料 |
+| bots/dot/notes/c20-conditional-reproduction/VERIFICATION.json | VERIFICATION | 2026-10-19 | 条件模拟/复现材料 |
+| bots/dot/notes/c20-conditional-reproduction/conditional_cash_v1_1.py | conditional_cash_v1_1 | 2026-10-19 | 条件模拟/复现材料 |
+| bots/dot/notes/c20-conditional-reproduction/inputs.json | inputs | 2026-10-19 | 条件模拟/复现材料 |
+| bots/dot/notes/c20-conditional-reproduction/official_sources.json | official_sources | 2026-10-19 | 条件模拟/复现材料 |
+| bots/dot/notes/c20-conditional-reproduction/prepare_inputs.py | prepare_inputs | 2026-10-19 | 条件模拟/复现材料 |
+| bots/dot/notes/c20-conditional-reproduction/test_conditional_cash.py | test_conditional_cash | 2026-10-19 | 条件模拟/复现材料 |
+| bots/dot/notes/c20-conditional-reproduction/test_prepare_inputs.py | test_prepare_inputs | 2026-10-19 | 条件模拟/复现材料 |

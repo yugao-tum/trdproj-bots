@@ -1,0 +1,110 @@
+{
+  "version": "1.1-io-only",
+  "frozen_v1_sha256": "c76a86df510787e81b168e38dfd57b096ceda406973502237071391f6cf4e3c3",
+  "v1_1_sha256": "474419b121470803df17d9345468f3e71db7b6387b78c8a2e98e15d09cf2a666",
+  "common_functions_and_classes": [
+    {
+      "name": "Data",
+      "byte_identical": true,
+      "sha256": "05e9e2275addd2669974ee622433dbb3bc5ba4fadc4ae2a9968b3a809708b34f"
+    },
+    {
+      "name": "capital_diagnostics",
+      "byte_identical": true,
+      "sha256": "d965a4c53541fd54ddd90d743cc1f3316e8b01e2170c37ef6904ab8ef305bba4"
+    },
+    {
+      "name": "ds",
+      "byte_identical": true,
+      "sha256": "11211c3987a8d0a0b4bfaaef83918017d202870e59ae93ebb87a58e5384ba74e"
+    },
+    {
+      "name": "dump_csv",
+      "byte_identical": true,
+      "sha256": "cb1b5ef240d5da8bff41d04963ff2bcd8e9d80d3ee977bb8c29b49145b3b6d8c"
+    },
+    {
+      "name": "dump_json",
+      "byte_identical": true,
+      "sha256": "cb0d640da3bf3ac462ecf3e88ac07c8d39a90eb246fbc4bfab5f2a8285c15530"
+    },
+    {
+      "name": "evaluate",
+      "byte_identical": true,
+      "sha256": "51f9e28e99592ddacd39eecdeb3a8c82576c3d5c65f1a2cfebd56e0f5b2896b6"
+    },
+    {
+      "name": "exit_accounts",
+      "byte_identical": true,
+      "sha256": "84e34bd646ddcd8ffabcddba5a751a734586090f48d077f0acd374800427f6af"
+    },
+    {
+      "name": "exp",
+      "byte_identical": true,
+      "sha256": "bf8f661c685a528d53cf1eb6de71799ac73d81daecd24043207f8d42e4362c0f"
+    },
+    {
+      "name": "initial_accounts",
+      "byte_identical": true,
+      "sha256": "1853c7a6d2e47bc573bf1e89f2698dd9494711771a7618aef7c4d64b7dec610a"
+    },
+    {
+      "name": "load_frozen_data",
+      "byte_identical": true,
+      "sha256": "bbd2b48817f408bd1dc385c168cd70791caa95fb2c099c99de49d5c166254914"
+    },
+    {
+      "name": "normalized_date",
+      "byte_identical": true,
+      "sha256": "0b0356e2d74e4642a6bf9915e95ecd8f7c6d42852315208207297c6cc6cc41b5"
+    },
+    {
+      "name": "number",
+      "byte_identical": true,
+      "sha256": "d9eea89ed0114d8d14691582dc36fc9a47662e605e01f8dd3e18aff82e78afea"
+    },
+    {
+      "name": "planned_quality",
+      "byte_identical": true,
+      "sha256": "f372aacd9969e2c3a75941da9e153a25091e8e1a217b74d204cd2e9db75363f1"
+    },
+    {
+      "name": "price_record",
+      "byte_identical": true,
+      "sha256": "7d16f778c99b909840669847e365d8f3d102b55d27e65ee393a3f67d9d695237"
+    },
+    {
+      "name": "required_dates",
+      "byte_identical": true,
+      "sha256": "785d1ac8aa56d5edc13a5a1dea0c3f7f73ffac9145232f1a27cf0315bff08fa8"
+    },
+    {
+      "name": "sha",
+      "byte_identical": true,
+      "sha256": "ffeb117f171ede54e8f39ab6def61527a95335ebe3f345eaa3e6b9fba1e6c4ec"
+    },
+    {
+      "name": "simulate_episode",
+      "byte_identical": true,
+      "sha256": "22e6923b71e64fde497acfcbd25a9af959aab5fce9bd9db9f16c1e149ea984b9"
+    },
+    {
+      "name": "unique_put",
+      "byte_identical": true,
+      "sha256": "ff7e7f58ce905c94801726535d0f95c68e1408a7e5ea83078febca8bc252e270"
+    }
+  ],
+  "only_replaced_function": {
+    "from": "run",
+    "to": "run_public"
+  },
+  "changes": [
+    "VERSION identifier",
+    "input/output directories as CLI parameters",
+    "public input metadata instead of private approval record",
+    "sanitized top-level output metadata",
+    "Decimal-safe final stdout formatting"
+  ],
+  "economic_function_changes": [],
+  "pre_io_prefix_equal_after_removing_version_and_trailing_blank_lines": true
+}

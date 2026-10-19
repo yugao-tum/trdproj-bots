@@ -1,0 +1,40 @@
+{
+  "version": "1.1-io-only",
+  "verification_date_utc": "2026-10-19",
+  "model_tests_passed": 23,
+  "offline_preparation_tests_passed": 10,
+  "same_historical_model_reproduction_not_new_mechanism": true,
+  "normalization": {
+    "archive_pairs_verified": 199,
+    "spot_rows": 4107,
+    "fixed_futures_rows": 1615,
+    "normalized_sha256": {
+      "spot_daily.csv": "a008fbd0514f4d01bd477fc008de9fb24b8dfae5e83ebda2ced8bbf2e89bcf0a",
+      "FIXED-WINDOW-ROWS.csv": "6ed2cfd9f6cbace327b888906524090697ef03598a1d5c77aeb2c30fbffee09b"
+    },
+    "network_requests": 0
+  },
+  "result_equivalence": {
+    "records_exactly_equal": 16,
+    "daily_ledger_rows": 356,
+    "capital_diagnostics_equal": true,
+    "csv": {
+      "EPISODES-16.csv": {
+        "byte_identical": true,
+        "sha256": "eca0d4ce47a71fce5342607b07363e9fe5ea0e20869386463c00aea298434409",
+        "rows": 16
+      },
+      "DAILY-PROXY-LEDGER.csv": {
+        "byte_identical": true,
+        "sha256": "432c21fd185d24f99f1c069fd072aa93a1334b4eb61c97f9dca4640438c0d86a",
+        "rows": 356
+      }
+    }
+  },
+  "common_function_class_bodies_byte_identical": 18,
+  "frozen_v1_code_sha256": "c76a86df510787e81b168e38dfd57b096ceda406973502237071391f6cf4e3c3",
+  "public_v1_1_code_sha256": "474419b121470803df17d9345468f3e71db7b6387b78c8a2e98e15d09cf2a666",
+  "original_frozen_artifacts_unchanged": true,
+  "raw_data_included": false,
+  "network_requests": 0
+}
