@@ -1,0 +1,123 @@
+--- original/sensitivity.py
++++ release/sensitivity.py
+@@ -2,7 +2,7 @@
+ """Half-capital sensitivity and passive risk benchmarks for frozen spot screen v1.
+ 
+ Read-only local input; no network, trading, keys, wallets, or paid data.
+-Writes only under this worker's results/spot-halfcap directory.
++Default output is the package-local results/spot-halfcap directory.
+ """
+ 
+ from __future__ import annotations
+@@ -21,11 +21,10 @@
+ 
+ 
+ WORKDIR = Path(__file__).resolve().parent
+-FROZEN_DIR = Path("<PRIVATE_SOURCE_ROOT>/plans")
++FROZEN_DIR = WORKDIR
+ FROZEN_PATH = FROZEN_DIR / "spot_screen.py"
+-DEFAULT_CSV = Path(
+-    "<PRIVATE_SOURCE_ROOT>/workers/data-probe/data/history/spot_daily.csv"
+-)
++DEFAULT_CSV = WORKDIR / "inputs" / "spot_daily.csv"
++REFERENCE_ORIGINAL_DIR = WORKDIR / "results" / "spot-screen"
+ OUT_DIR = WORKDIR / "results" / "spot-halfcap"
+ 
+ FROZEN_SPOT_SCREEN_SHA256 = "8e56d8e5c2e73c97710c795ee11a1fbdf86f6d5a2fac1f3688160d68160b3d8c"
+@@ -865,7 +864,7 @@
+         "disclaimer": "Pre-registered half-capital sensitivity and passive risk benchmark; not a profit promise, not a live track record, and not truly unseen OOS.",
+         "status": "draft; pending review; pending verification 0; not a live track record",
+         "generated_by": "sensitivity.py",
+-        "implementation_provenance": "<REMOVED_INTERNAL_IMPLEMENTATION_PROVENANCE>",
++        "implementation_provenance": "Self-written simulator; CLI/report metadata and test fixtures were reviewed before the original execution.",
+         "generated_at_utc": generated_at,
+         "run_command": "python sensitivity.py --execute",
+         "inputs": {
+@@ -996,7 +995,7 @@
+     add("")
+     add("- 机制变体：C21.screen-v1.halfcap、C22.screen-v1.halfcap、C23.screen-v1.halfcap、C24.screen-v1.halfcap。")
+     add("- 被动基准：SOL_HODL、EW_HODL；不是新机制，不参与最佳变体选择。")
+-    add("- 原 v1 输出保持不变；本轮结果只写 `<ORIGINAL_SENSITIVITY_DIR>/results/spot-halfcap/`。")
++    add("- 原 v1 输出保持不变；本轮结果只写 `results/spot-halfcap/`。")
+     add("- 时期：暖机 2023；模拟 2024-01-01 至 2026-09-30；2024 分段；OOS 标签 2025-01-01 起；全段。")
+     add("")
+ 
+
+--- original/test_operator_regression.py
++++ release/test_operator_regression.py
+@@ -36,7 +36,7 @@
+     def setUpClass(cls):
+         s.verify_inputs(s.DEFAULT_CSV)
+         cls.bars, cls.dates, _ = s.frozen.load_and_precheck(s.DEFAULT_CSV)
+-        root = Path('<PRIVATE_SOURCE_ROOT>/results/spot-screen')
++        root = s.REFERENCE_ORIGINAL_DIR
+         cls.old_daily, cls.old_trades = defaultdict(list), defaultdict(list)
+         with (root/'daily_equity.csv').open() as f:
+             for row in csv.DictReader(f): cls.old_daily[(row['strategy'], row['cost_rate'])].append(row)
+
+--- original/c40_screen.py
++++ release/c40_screen.py
+@@ -11,16 +11,17 @@
+ from datetime import date, datetime, timedelta, timezone
+ from pathlib import Path
+ sys.dont_write_bytecode = True
+-ROOT = Path(__file__).resolve().parents[2]
++ROOT = Path(__file__).resolve().parent
+ WORK = Path(__file__).resolve().parent
+-SPOT = ROOT / 'workers/data-probe/data/history/spot_daily.csv'
+-FUND = ROOT / 'workers/data-probe/data/history/funding.csv'
+-LOADER = ROOT / 'plans/spot_screen.py'
++SPOT = ROOT / 'inputs/spot_daily.csv'
++FUND = ROOT / 'inputs/funding.csv'
++LOADER = ROOT / 'spot_screen.py'
++OUT_DIR = ROOT / 'results/c40'
+ SHAS = {
+     SPOT: 'a008fbd0514f4d01bd477fc008de9fb24b8dfae5e83ebda2ced8bbf2e89bcf0a',
+     FUND: '310508098d4b9a30a33823368a80e8fe7c034c05f8cb37513d7de3b101a449a8',
+     LOADER: '8e56d8e5c2e73c97710c795ee11a1fbdf86f6d5a2fac1f3688160d68160b3d8c',
+-    WORK / 'PREREGISTER.md': 'a09d74912129d590e6121670bfc76f530df23a44e15d24e1f8a63a620bd0bdff',
++    WORK / 'C40_PREREGISTRATION.md': 'aad6864bd45d9c3baac5540a559a1357741d9de8a654ffb6c55960d0771ceed6',
+ }
+ SYMBOLS = ('BTCUSDT', 'ETHUSDT', 'SOLUSDT')
+ START, END, OOS = date(2024,1,2), date(2026,9,30), date(2025,1,1)
+@@ -179,7 +180,7 @@
+     bars,dates,quality=load_spot();fund,fquality=load_funding(FUND)
+     if '--preflight-only' in sys.argv:
+         print(json.dumps({'spot':quality,'funding':fquality}));return
+-    out=WORK/'results'
++    out=OUT_DIR
+     if out.exists(): raise ValueError('refusing to overwrite existing result directory')
+     sims={};daily=[];trades=[];episodes=[];months=[]
+     for symbol in SYMBOLS:
+@@ -193,7 +194,7 @@
+             episodes.extend(dict(symbol=symbol,cost_rate=rate,**r) for r in sim['episodes'])
+             months.extend(dict(symbol=symbol,cost_rate=rate,**r) for r in periods['full']['months'])
+     out.mkdir()
+-    summary={'variant':'C40.spot-proxy-v1','operator':'<REMOVED_INTERNAL_ATTRIBUTION>',
++    summary={'variant':'C40.spot-proxy-v1','operator':'reviewed self-written simulation',
+              'executed_utc':datetime.now(timezone.utc).isoformat(),'capital':CAPITAL,
+              'scenario_separate_capital':True,'funding_cashflow_received':0,'scenarios':sims,
+              'data_quality':{'spot':quality,'funding':fquality},
+@@ -204,7 +205,7 @@
+     (out/'summary.json').write_text(json.dumps(summary,indent=2)+'\n')
+     for name,rows in [('daily_equity.csv',daily),('trades.csv',trades),('episodes.csv',episodes),('monthly_returns.csv',months)]: write_csv(out/name,rows)
+     manifest={'files':{p.name:{'sha256':digest(p),'bytes':p.stat().st_size} for p in sorted(out.iterdir())},
+-              'input_and_code':{str(p.relative_to(ROOT)):digest(p) for p in [*SHAS,Path(__file__)]}}
++              'input_and_code':{p.name:digest(p) for p in [*SHAS,Path(__file__)]}}
+     (out/'manifest.json').write_text(json.dumps(manifest,indent=2)+'\n')
+     print(json.dumps({k:{'episodes':v['episodes_total'],'full':v['periods']['full']['net_pnl'],
+                         'oos':v['periods']['oos']['net_pnl']} for k,v in sims.items()},indent=2))
+
+--- original/C40_PREREGISTER.md
++++ release/C40_PREREGISTRATION.md
+@@ -1,8 +1,8 @@
+ # C40.spot-proxy-v1 预注册
+ 
+-冻结于2026-10-19 18:49 UTC，任何该规则损益或信号计数运行之前。<REMOVED_INTERNAL_ATTRIBUTION>
++冻结于2026-10-19 18:49 UTC，任何该规则损益或信号计数运行之前；文件冻结记录为2026-10-19T18:50:05.237985+00:00。
+ 
+-目的：检验资金费负值作为拥挤代理的严格简化现货规则。不是复现CryptoCred完整观点，其原文强调资金费单独不足、需要仓位/成交背景；缺历史OI/CVD时，本检验不能证明拥挤释放或资金费直接付款。<REMOVED_INTERNAL_ACCESS_LOG>
++目的：检验资金费负值作为拥挤代理的严格简化现货规则。不是复现CryptoCred完整观点；资金费单独不足，需要仓位/成交背景。缺历史OI/CVD时，本检验不能证明拥挤释放或资金费直接付款。
+ 
+ - 输入：已冻结官方BTC/ETH/SOL现货日线与8h资金费CSV，仅读本地。先核既有SHA/日历/缺失。三币分别为独立5000资本场景，BTC主检验，ETH/SOL预先声明同机制敏感性，不能汇总成同时部署或三份独立证据。
+ - 开始：2024-01-02开盘（需前一日完整资金费），结束2026-09-30收盘。2023日线只作20日价格暖机。OOS标签2025-01-01起，继承已有仓位/现金，属事后固定规则切分。

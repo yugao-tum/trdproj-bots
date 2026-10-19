@@ -1,0 +1,92 @@
+{
+  "release_status": "reviewed reproduction research package",
+  "file_count_including_manifest": 21,
+  "files": {
+    "C40_PREREGISTRATION.md": {
+      "bytes": 2825,
+      "sha256": "aad6864bd45d9c3baac5540a559a1357741d9de8a654ffb6c55960d0771ceed6"
+    },
+    "DATA_SCHEMA.md": {
+      "bytes": 3638,
+      "sha256": "e38c96e2dd4dad8842ef1dbefceb502d21641ea7f9cabec0756d116f2615a64e"
+    },
+    "INDEX.md": {
+      "bytes": 2494,
+      "sha256": "22741d63a05e0d570263af100f5e38d06509c369dc63ac069044cbede3618cea"
+    },
+    "METHODOLOGY.md": {
+      "bytes": 6491,
+      "sha256": "c5236521f6ca9d2e5760a948e64d498fcb35768d6bc3ee2150a430826de5e2c0"
+    },
+    "PACKAGING.patch": {
+      "bytes": 7289,
+      "sha256": "3e5cdb797eb01704efe653d5f9601012f775260f64f4e4af108b68893eef7845"
+    },
+    "README.md": {
+      "bytes": 7327,
+      "sha256": "432053f66bab370d1a54b352ad55735894a8f4a8bae2f8284ead79d895e3fa74"
+    },
+    "VALIDATION.json": {
+      "bytes": 1691,
+      "sha256": "129786041759d3c219bd394f12f739b6fc34e491f95a30666bc947045d89828a"
+    },
+    "c40_screen.py": {
+      "bytes": 12496,
+      "sha256": "f16a66561aeaa2ca837e654c2c490b78c07b69aa28b58bd03452d3b1ccfea187"
+    },
+    "data_provenance.json": {
+      "bytes": 149164,
+      "sha256": "be17a31c918b59c4a45723466052c224d920cf3f5d596a9f28a2cd993f46e439"
+    },
+    "expected_outputs.json": {
+      "bytes": 5942,
+      "sha256": "f8e34e1f4c1d29d2c205cdb9c1789086f196be5e6fae13a4143fabd7caccbde6"
+    },
+    "fixtures/mini_spot_daily.csv": {
+      "bytes": 1251,
+      "sha256": "91a0c174a187af8a8268d772b197df855b19e2057a4f9f2d4f81a947f0db77eb"
+    },
+    "prepare_inputs.py": {
+      "bytes": 4194,
+      "sha256": "8fca8afb1195bb7cd5dcbc39e66851d31c3d89dc07fefd7f4a0766d8f200a280"
+    },
+    "run.py": {
+      "bytes": 5094,
+      "sha256": "6078095789a0f4f915ba93cbe89848c86363a8811bbb8e489ebff51b7e11ffea"
+    },
+    "sensitivity.py": {
+      "bytes": 57988,
+      "sha256": "37014c6b77f7d9fdbdfe3c362b751996eb2999fb42d380a3b4eea5e96d23f50e"
+    },
+    "source_origins.json": {
+      "bytes": 2619,
+      "sha256": "5c9e8744e3844acdc5550ddb1771a42f847f64bb374eafcaa1ce2fd79f262fb1"
+    },
+    "spot_screen.py": {
+      "bytes": 40972,
+      "sha256": "8e56d8e5c2e73c97710c795ee11a1fbdf86f6d5a2fac1f3688160d68160b3d8c"
+    },
+    "test_c40_screen.py": {
+      "bytes": 6044,
+      "sha256": "74067f743e096433cf663ef82da4dd150dabf02a79a459760d45a1ea8d17a8c5"
+    },
+    "test_operator_regression.py": {
+      "bytes": 4029,
+      "sha256": "203f0842d64125ed3521546f792c24aba127165a8beb3cb1929ed2f163fa157a"
+    },
+    "test_sensitivity.py": {
+      "bytes": 12244,
+      "sha256": "4246984ea6d840638970530b0b0126195a1c14716ab3a7aa6e469ae7366c47bc"
+    },
+    "test_spot_screen.py": {
+      "bytes": 8834,
+      "sha256": "69bdbaddab43030635c2944fb9932528a30d7440b88b0047dcd77b2360a5a2ca"
+    }
+  },
+  "self_hash_note": "This manifest is indexed but is not self-hashed; Git blob and commit identify the published manifest.",
+  "maximum_file_bytes": 149164,
+  "includes_raw_market_data": false,
+  "includes_external_strategy_code": false,
+  "includes_credentials_or_raw_transcripts": false,
+  "economic_logic_changed": false
+}

@@ -1,0 +1,3561 @@
+{
+  "source": "https://data.binance.vision/data/",
+  "retrieval_started_at_utc": "2026-10-19T16:30:55.901525Z",
+  "retrieval_completed_at_utc": "2026-10-19T16:35:06.804032Z",
+  "archive_count": 234,
+  "source_manifest_sha256": "440707c1bf4496f013abace02f8ed388ff7c0605d6e8697900137b962524094e",
+  "archives": [
+    {
+      "asset": "spot",
+      "symbol": "BTCUSDT",
+      "month": "2023-01",
+      "archive_url": "https://data.binance.vision/data/spot/monthly/klines/BTCUSDT/1d/BTCUSDT-1d-2023-01.zip",
+      "checksum_url": "https://data.binance.vision/data/spot/monthly/klines/BTCUSDT/1d/BTCUSDT-1d-2023-01.zip.CHECKSUM",
+      "archive_sha256": "a9fd53b75add7cc42fb4779a545811606260f79810f3826215d6ebecda11bb36",
+      "archive_size_bytes": 2250,
+      "csv_member": "BTCUSDT-1d-2023-01.csv",
+      "csv_uncompressed_bytes": 5259,
+      "row_count": 31,
+      "timestamp_units": [
+        "milliseconds"
+      ]
+    },
+    {
+      "asset": "spot",
+      "symbol": "BTCUSDT",
+      "month": "2023-02",
+      "archive_url": "https://data.binance.vision/data/spot/monthly/klines/BTCUSDT/1d/BTCUSDT-1d-2023-02.zip",
+      "checksum_url": "https://data.binance.vision/data/spot/monthly/klines/BTCUSDT/1d/BTCUSDT-1d-2023-02.zip.CHECKSUM",
+      "archive_sha256": "13df1e3633f15be3eeba4768d0cc323ef221191002657b53936a6d0fb5e6556f",
+      "archive_size_bytes": 2072,
+      "csv_member": "BTCUSDT-1d-2023-02.csv",
+      "csv_uncompressed_bytes": 4766,
+      "row_count": 28,
+      "timestamp_units": [
+        "milliseconds"
+      ]
+    },
+    {
+      "asset": "spot",
+      "symbol": "BTCUSDT",
+      "month": "2023-03",
+      "archive_url": "https://data.binance.vision/data/spot/monthly/klines/BTCUSDT/1d/BTCUSDT-1d-2023-03.zip",
+      "checksum_url": "https://data.binance.vision/data/spot/monthly/klines/BTCUSDT/1d/BTCUSDT-1d-2023-03.zip.CHECKSUM",
+      "archive_sha256": "1cb1209700ec74fa4592048de2e4ea4a38ab2bd622dfe03f1d6195c249501381",
+      "archive_size_bytes": 2265,
+      "csv_member": "BTCUSDT-1d-2023-03.csv",
+      "csv_uncompressed_bytes": 5269,
+      "row_count": 31,
+      "timestamp_units": [
+        "milliseconds"
+      ]
+    },
+    {
+      "asset": "spot",
+      "symbol": "BTCUSDT",
+      "month": "2023-04",
+      "archive_url": "https://data.binance.vision/data/spot/monthly/klines/BTCUSDT/1d/BTCUSDT-1d-2023-04.zip",
+      "checksum_url": "https://data.binance.vision/data/spot/monthly/klines/BTCUSDT/1d/BTCUSDT-1d-2023-04.zip.CHECKSUM",
+      "archive_sha256": "999e86be73731ebc347c6ada94abceb5e291b65e7f1b4df2ce390af1aa2a4a08",
+      "archive_size_bytes": 2108,
+      "csv_member": "BTCUSDT-1d-2023-04.csv",
+      "csv_uncompressed_bytes": 4998,
+      "row_count": 30,
+      "timestamp_units": [
+        "milliseconds"
+      ]
+    },
+    {
+      "asset": "spot",
+      "symbol": "BTCUSDT",
+      "month": "2023-05",
+      "archive_url": "https://data.binance.vision/data/spot/monthly/klines/BTCUSDT/1d/BTCUSDT-1d-2023-05.zip",
+      "checksum_url": "https://data.binance.vision/data/spot/monthly/klines/BTCUSDT/1d/BTCUSDT-1d-2023-05.zip.CHECKSUM",
+      "archive_sha256": "c343e4689784c29f83d25147a096dd44b6ae5c1063c909f8adda82b56414469d",
+      "archive_size_bytes": 2168,
+      "csv_member": "BTCUSDT-1d-2023-05.csv",
+      "csv_uncompressed_bytes": 5144,
+      "row_count": 31,
+      "timestamp_units": [
+        "milliseconds"
+      ]
+    },
+    {
+      "asset": "spot",
+      "symbol": "BTCUSDT",
+      "month": "2023-06",
+      "archive_url": "https://data.binance.vision/data/spot/monthly/klines/BTCUSDT/1d/BTCUSDT-1d-2023-06.zip",
+      "checksum_url": "https://data.binance.vision/data/spot/monthly/klines/BTCUSDT/1d/BTCUSDT-1d-2023-06.zip.CHECKSUM",
+      "archive_sha256": "634919565c55a29729543d730927ca4b547c0e52d118a38de730f37fdd7617ef",
+      "archive_size_bytes": 2099,
+      "csv_member": "BTCUSDT-1d-2023-06.csv",
+      "csv_uncompressed_bytes": 4980,
+      "row_count": 30,
+      "timestamp_units": [
+        "milliseconds"
+      ]
+    },
+    {
+      "asset": "spot",
+      "symbol": "BTCUSDT",
+      "month": "2023-07",
+      "archive_url": "https://data.binance.vision/data/spot/monthly/klines/BTCUSDT/1d/BTCUSDT-1d-2023-07.zip",
+      "checksum_url": "https://data.binance.vision/data/spot/monthly/klines/BTCUSDT/1d/BTCUSDT-1d-2023-07.zip.CHECKSUM",
+      "archive_sha256": "32363d37de02e6ad8d334ac332c685f8cdf5684733a9f2cfbca40e15e591396b",
+      "archive_size_bytes": 2132,
+      "csv_member": "BTCUSDT-1d-2023-07.csv",
+      "csv_uncompressed_bytes": 5122,
+      "row_count": 31,
+      "timestamp_units": [
+        "milliseconds"
+      ]
+    },
+    {
+      "asset": "spot",
+      "symbol": "BTCUSDT",
+      "month": "2023-08",
+      "archive_url": "https://data.binance.vision/data/spot/monthly/klines/BTCUSDT/1d/BTCUSDT-1d-2023-08.zip",
+      "checksum_url": "https://data.binance.vision/data/spot/monthly/klines/BTCUSDT/1d/BTCUSDT-1d-2023-08.zip.CHECKSUM",
+      "archive_sha256": "8c5e47bfe3f0b0273534379e8ba5c93e69c84d67e8b9a03f293d6621bead2a5f",
+      "archive_size_bytes": 2160,
+      "csv_member": "BTCUSDT-1d-2023-08.csv",
+      "csv_uncompressed_bytes": 5121,
+      "row_count": 31,
+      "timestamp_units": [
+        "milliseconds"
+      ]
+    },
+    {
+      "asset": "spot",
+      "symbol": "BTCUSDT",
+      "month": "2023-09",
+      "archive_url": "https://data.binance.vision/data/spot/monthly/klines/BTCUSDT/1d/BTCUSDT-1d-2023-09.zip",
+      "checksum_url": "https://data.binance.vision/data/spot/monthly/klines/BTCUSDT/1d/BTCUSDT-1d-2023-09.zip.CHECKSUM",
+      "archive_sha256": "2fe68ecad48d6927a9280d89700e991cb6481dc2767698c785f2b2d1c0b14744",
+      "archive_size_bytes": 2080,
+      "csv_member": "BTCUSDT-1d-2023-09.csv",
+      "csv_uncompressed_bytes": 4945,
+      "row_count": 30,
+      "timestamp_units": [
+        "milliseconds"
+      ]
+    },
+    {
+      "asset": "spot",
+      "symbol": "BTCUSDT",
+      "month": "2023-10",
+      "archive_url": "https://data.binance.vision/data/spot/monthly/klines/BTCUSDT/1d/BTCUSDT-1d-2023-10.zip",
+      "checksum_url": "https://data.binance.vision/data/spot/monthly/klines/BTCUSDT/1d/BTCUSDT-1d-2023-10.zip.CHECKSUM",
+      "archive_sha256": "358b83bf0c2a5d5390a4bc4d4ae14fa9df0f56139642ad996c0df0f7bc712400",
+      "archive_size_bytes": 2154,
+      "csv_member": "BTCUSDT-1d-2023-10.csv",
+      "csv_uncompressed_bytes": 5152,
+      "row_count": 31,
+      "timestamp_units": [
+        "milliseconds"
+      ]
+    },
+    {
+      "asset": "spot",
+      "symbol": "BTCUSDT",
+      "month": "2023-11",
+      "archive_url": "https://data.binance.vision/data/spot/monthly/klines/BTCUSDT/1d/BTCUSDT-1d-2023-11.zip",
+      "checksum_url": "https://data.binance.vision/data/spot/monthly/klines/BTCUSDT/1d/BTCUSDT-1d-2023-11.zip.CHECKSUM",
+      "archive_sha256": "fac9823cac7bf56a3a6038c3b79417e949b00c172939e62000451c8c25edd7c1",
+      "archive_size_bytes": 2102,
+      "csv_member": "BTCUSDT-1d-2023-11.csv",
+      "csv_uncompressed_bytes": 4988,
+      "row_count": 30,
+      "timestamp_units": [
+        "milliseconds"
+      ]
+    },
+    {
+      "asset": "spot",
+      "symbol": "BTCUSDT",
+      "month": "2023-12",
+      "archive_url": "https://data.binance.vision/data/spot/monthly/klines/BTCUSDT/1d/BTCUSDT-1d-2023-12.zip",
+      "checksum_url": "https://data.binance.vision/data/spot/monthly/klines/BTCUSDT/1d/BTCUSDT-1d-2023-12.zip.CHECKSUM",
+      "archive_sha256": "056dad65795c9264ef90ee668a4c245e8fec73ebcbb272d28f5596c389913979",
+      "archive_size_bytes": 2177,
+      "csv_member": "BTCUSDT-1d-2023-12.csv",
+      "csv_uncompressed_bytes": 5173,
+      "row_count": 31,
+      "timestamp_units": [
+        "milliseconds"
+      ]
+    },
+    {
+      "asset": "spot",
+      "symbol": "BTCUSDT",
+      "month": "2024-01",
+      "archive_url": "https://data.binance.vision/data/spot/monthly/klines/BTCUSDT/1d/BTCUSDT-1d-2024-01.zip",
+      "checksum_url": "https://data.binance.vision/data/spot/monthly/klines/BTCUSDT/1d/BTCUSDT-1d-2024-01.zip.CHECKSUM",
+      "archive_sha256": "474c1ce6fbb09e42cfc7231fee249aecc58af2fb5918570ffeba37998926b4a4",
+      "archive_size_bytes": 2190,
+      "csv_member": "BTCUSDT-1d-2024-01.csv",
+      "csv_uncompressed_bytes": 5179,
+      "row_count": 31,
+      "timestamp_units": [
+        "milliseconds"
+      ]
+    },
+    {
+      "asset": "spot",
+      "symbol": "BTCUSDT",
+      "month": "2024-02",
+      "archive_url": "https://data.binance.vision/data/spot/monthly/klines/BTCUSDT/1d/BTCUSDT-1d-2024-02.zip",
+      "checksum_url": "https://data.binance.vision/data/spot/monthly/klines/BTCUSDT/1d/BTCUSDT-1d-2024-02.zip.CHECKSUM",
+      "archive_sha256": "4dae0b3d6b8ea59e39e6493b7964040c52459ea7b0a50b9c2793dcbfae53800d",
+      "archive_size_bytes": 2053,
+      "csv_member": "BTCUSDT-1d-2024-02.csv",
+      "csv_uncompressed_bytes": 4844,
+      "row_count": 29,
+      "timestamp_units": [
+        "milliseconds"
+      ]
+    },
+    {
+      "asset": "spot",
+      "symbol": "BTCUSDT",
+      "month": "2024-03",
+      "archive_url": "https://data.binance.vision/data/spot/monthly/klines/BTCUSDT/1d/BTCUSDT-1d-2024-03.zip",
+      "checksum_url": "https://data.binance.vision/data/spot/monthly/klines/BTCUSDT/1d/BTCUSDT-1d-2024-03.zip.CHECKSUM",
+      "archive_sha256": "f7cd4fcafe79d1fac0c830d5fe152f7b3b9100e7c97e40352188766388af0ae0",
+      "archive_size_bytes": 2224,
+      "csv_member": "BTCUSDT-1d-2024-03.csv",
+      "csv_uncompressed_bytes": 5202,
+      "row_count": 31,
+      "timestamp_units": [
+        "milliseconds"
+      ]
+    },
+    {
+      "asset": "spot",
+      "symbol": "BTCUSDT",
+      "month": "2024-04",
+      "archive_url": "https://data.binance.vision/data/spot/monthly/klines/BTCUSDT/1d/BTCUSDT-1d-2024-04.zip",
+      "checksum_url": "https://data.binance.vision/data/spot/monthly/klines/BTCUSDT/1d/BTCUSDT-1d-2024-04.zip.CHECKSUM",
+      "archive_sha256": "b4a8542c33e5251fb53f8a3352dd4e6f3cde4ac25f2c24935db8089aa1a2c3a0",
+      "archive_size_bytes": 2141,
+      "csv_member": "BTCUSDT-1d-2024-04.csv",
+      "csv_uncompressed_bytes": 5024,
+      "row_count": 30,
+      "timestamp_units": [
+        "milliseconds"
+      ]
+    },
+    {
+      "asset": "spot",
+      "symbol": "BTCUSDT",
+      "month": "2024-05",
+      "archive_url": "https://data.binance.vision/data/spot/monthly/klines/BTCUSDT/1d/BTCUSDT-1d-2024-05.zip",
+      "checksum_url": "https://data.binance.vision/data/spot/monthly/klines/BTCUSDT/1d/BTCUSDT-1d-2024-05.zip.CHECKSUM",
+      "archive_sha256": "0175f696039b9e30f06c6398d218c99e577661ac30424869c648fe9770507248",
+      "archive_size_bytes": 2185,
+      "csv_member": "BTCUSDT-1d-2024-05.csv",
+      "csv_uncompressed_bytes": 5170,
+      "row_count": 31,
+      "timestamp_units": [
+        "milliseconds"
+      ]
+    },
+    {
+      "asset": "spot",
+      "symbol": "BTCUSDT",
+      "month": "2024-06",
+      "archive_url": "https://data.binance.vision/data/spot/monthly/klines/BTCUSDT/1d/BTCUSDT-1d-2024-06.zip",
+      "checksum_url": "https://data.binance.vision/data/spot/monthly/klines/BTCUSDT/1d/BTCUSDT-1d-2024-06.zip.CHECKSUM",
+      "archive_sha256": "8a0f6416c2a83cfa15ba26c688d716fdafe35bb1748dd244f0550e8b2f7e38f7",
+      "archive_size_bytes": 2095,
+      "csv_member": "BTCUSDT-1d-2024-06.csv",
+      "csv_uncompressed_bytes": 4981,
+      "row_count": 30,
+      "timestamp_units": [
+        "milliseconds"
+      ]
+    },
+    {
+      "asset": "spot",
+      "symbol": "BTCUSDT",
+      "month": "2024-07",
+      "archive_url": "https://data.binance.vision/data/spot/monthly/klines/BTCUSDT/1d/BTCUSDT-1d-2024-07.zip",
+      "checksum_url": "https://data.binance.vision/data/spot/monthly/klines/BTCUSDT/1d/BTCUSDT-1d-2024-07.zip.CHECKSUM",
+      "archive_sha256": "9a2963ef6541b4d7630eff8df7b2eaee48ece33180af03c34b0bf92675692899",
+      "archive_size_bytes": 2203,
+      "csv_member": "BTCUSDT-1d-2024-07.csv",
+      "csv_uncompressed_bytes": 5177,
+      "row_count": 31,
+      "timestamp_units": [
+        "milliseconds"
+      ]
+    },
+    {
+      "asset": "spot",
+      "symbol": "BTCUSDT",
+      "month": "2024-08",
+      "archive_url": "https://data.binance.vision/data/spot/monthly/klines/BTCUSDT/1d/BTCUSDT-1d-2024-08.zip",
+      "checksum_url": "https://data.binance.vision/data/spot/monthly/klines/BTCUSDT/1d/BTCUSDT-1d-2024-08.zip.CHECKSUM",
+      "archive_sha256": "df41fe3260920b85da86855b4880f34618982e689081317d3d63b9b3bbcb1d53",
+      "archive_size_bytes": 2190,
+      "csv_member": "BTCUSDT-1d-2024-08.csv",
+      "csv_uncompressed_bytes": 5169,
+      "row_count": 31,
+      "timestamp_units": [
+        "milliseconds"
+      ]
+    },
+    {
+      "asset": "spot",
+      "symbol": "BTCUSDT",
+      "month": "2024-09",
+      "archive_url": "https://data.binance.vision/data/spot/monthly/klines/BTCUSDT/1d/BTCUSDT-1d-2024-09.zip",
+      "checksum_url": "https://data.binance.vision/data/spot/monthly/klines/BTCUSDT/1d/BTCUSDT-1d-2024-09.zip.CHECKSUM",
+      "archive_sha256": "89e459b2a8f4b138dc742d9358c0084fcabf719d40468e156c3149a3635f3359",
+      "archive_size_bytes": 2106,
+      "csv_member": "BTCUSDT-1d-2024-09.csv",
+      "csv_uncompressed_bytes": 4992,
+      "row_count": 30,
+      "timestamp_units": [
+        "milliseconds"
+      ]
+    },
+    {
+      "asset": "spot",
+      "symbol": "BTCUSDT",
+      "month": "2024-10",
+      "archive_url": "https://data.binance.vision/data/spot/monthly/klines/BTCUSDT/1d/BTCUSDT-1d-2024-10.zip",
+      "checksum_url": "https://data.binance.vision/data/spot/monthly/klines/BTCUSDT/1d/BTCUSDT-1d-2024-10.zip.CHECKSUM",
+      "archive_sha256": "d442a5f158d45d9ff7b1584b35023a4161cf915a3857f5e71a2a2e6aa68c69c5",
+      "archive_size_bytes": 2203,
+      "csv_member": "BTCUSDT-1d-2024-10.csv",
+      "csv_uncompressed_bytes": 5163,
+      "row_count": 31,
+      "timestamp_units": [
+        "milliseconds"
+      ]
+    },
+    {
+      "asset": "spot",
+      "symbol": "BTCUSDT",
+      "month": "2024-11",
+      "archive_url": "https://data.binance.vision/data/spot/monthly/klines/BTCUSDT/1d/BTCUSDT-1d-2024-11.zip",
+      "checksum_url": "https://data.binance.vision/data/spot/monthly/klines/BTCUSDT/1d/BTCUSDT-1d-2024-11.zip.CHECKSUM",
+      "archive_sha256": "b197219d9e8b5e933226e1cd24fe2b7bfc3a2e8a3e74e6f7dc08a48f314da8c3",
+      "archive_size_bytes": 2157,
+      "csv_member": "BTCUSDT-1d-2024-11.csv",
+      "csv_uncompressed_bytes": 5036,
+      "row_count": 30,
+      "timestamp_units": [
+        "milliseconds"
+      ]
+    },
+    {
+      "asset": "spot",
+      "symbol": "BTCUSDT",
+      "month": "2024-12",
+      "archive_url": "https://data.binance.vision/data/spot/monthly/klines/BTCUSDT/1d/BTCUSDT-1d-2024-12.zip",
+      "checksum_url": "https://data.binance.vision/data/spot/monthly/klines/BTCUSDT/1d/BTCUSDT-1d-2024-12.zip.CHECKSUM",
+      "archive_sha256": "82ec90210f492694b9d01722f97f579108ee787968b8485b53d736ea735700da",
+      "archive_size_bytes": 2218,
+      "csv_member": "BTCUSDT-1d-2024-12.csv",
+      "csv_uncompressed_bytes": 5228,
+      "row_count": 31,
+      "timestamp_units": [
+        "milliseconds"
+      ]
+    },
+    {
+      "asset": "spot",
+      "symbol": "BTCUSDT",
+      "month": "2025-01",
+      "archive_url": "https://data.binance.vision/data/spot/monthly/klines/BTCUSDT/1d/BTCUSDT-1d-2025-01.zip",
+      "checksum_url": "https://data.binance.vision/data/spot/monthly/klines/BTCUSDT/1d/BTCUSDT-1d-2025-01.zip.CHECKSUM",
+      "archive_sha256": "3a3eb1b723d944deb4dbef5ae361bbe39340a17fe987fe22e397ef03dca268d2",
+      "archive_size_bytes": 2254,
+      "csv_member": "BTCUSDT-1d-2025-01.csv",
+      "csv_uncompressed_bytes": 5430,
+      "row_count": 31,
+      "timestamp_units": [
+        "microseconds"
+      ]
+    },
+    {
+      "asset": "spot",
+      "symbol": "BTCUSDT",
+      "month": "2025-02",
+      "archive_url": "https://data.binance.vision/data/spot/monthly/klines/BTCUSDT/1d/BTCUSDT-1d-2025-02.zip",
+      "checksum_url": "https://data.binance.vision/data/spot/monthly/klines/BTCUSDT/1d/BTCUSDT-1d-2025-02.zip.CHECKSUM",
+      "archive_sha256": "27cfde08c9eb8e3801fb049e3be351a3e50ab46abd8553c24023fa98ea5e919e",
+      "archive_size_bytes": 2039,
+      "csv_member": "BTCUSDT-1d-2025-02.csv",
+      "csv_uncompressed_bytes": 4853,
+      "row_count": 28,
+      "timestamp_units": [
+        "microseconds"
+      ]
+    },
+    {
+      "asset": "spot",
+      "symbol": "BTCUSDT",
+      "month": "2025-03",
+      "archive_url": "https://data.binance.vision/data/spot/monthly/klines/BTCUSDT/1d/BTCUSDT-1d-2025-03.zip",
+      "checksum_url": "https://data.binance.vision/data/spot/monthly/klines/BTCUSDT/1d/BTCUSDT-1d-2025-03.zip.CHECKSUM",
+      "archive_sha256": "5874e405f55c46f040de1a8ea9daae583dc12b5bcaef6078b21aae9c627cedcc",
+      "archive_size_bytes": 2249,
+      "csv_member": "BTCUSDT-1d-2025-03.csv",
+      "csv_uncompressed_bytes": 5356,
+      "row_count": 31,
+      "timestamp_units": [
+        "microseconds"
+      ]
+    },
+    {
+      "asset": "spot",
+      "symbol": "BTCUSDT",
+      "month": "2025-04",
+      "archive_url": "https://data.binance.vision/data/spot/monthly/klines/BTCUSDT/1d/BTCUSDT-1d-2025-04.zip",
+      "checksum_url": "https://data.binance.vision/data/spot/monthly/klines/BTCUSDT/1d/BTCUSDT-1d-2025-04.zip.CHECKSUM",
+      "archive_sha256": "8068a571425857cb0f5f71f75e733d3bc1e731362a09f84f835bbea6e087aeb2",
+      "archive_size_bytes": 2165,
+      "csv_member": "BTCUSDT-1d-2025-04.csv",
+      "csv_uncompressed_bytes": 5181,
+      "row_count": 30,
+      "timestamp_units": [
+        "microseconds"
+      ]
+    },
+    {
+      "asset": "spot",
+      "symbol": "BTCUSDT",
+      "month": "2025-05",
+      "archive_url": "https://data.binance.vision/data/spot/monthly/klines/BTCUSDT/1d/BTCUSDT-1d-2025-05.zip",
+      "checksum_url": "https://data.binance.vision/data/spot/monthly/klines/BTCUSDT/1d/BTCUSDT-1d-2025-05.zip.CHECKSUM",
+      "archive_sha256": "2b87aa0c63641ba1e954855bcfed96d7fc4eb21efe7936f354ff74e8e06cfcea",
+      "archive_size_bytes": 2253,
+      "csv_member": "BTCUSDT-1d-2025-05.csv",
+      "csv_uncompressed_bytes": 5450,
+      "row_count": 31,
+      "timestamp_units": [
+        "microseconds"
+      ]
+    },
+    {
+      "asset": "spot",
+      "symbol": "BTCUSDT",
+      "month": "2025-06",
+      "archive_url": "https://data.binance.vision/data/spot/monthly/klines/BTCUSDT/1d/BTCUSDT-1d-2025-06.zip",
+      "checksum_url": "https://data.binance.vision/data/spot/monthly/klines/BTCUSDT/1d/BTCUSDT-1d-2025-06.zip.CHECKSUM",
+      "archive_sha256": "dc4bbe2c75f04372b909febe8e6b379b053f88423d78cdb3ad8b0be3a66d6ede",
+      "archive_size_bytes": 2170,
+      "csv_member": "BTCUSDT-1d-2025-06.csv",
+      "csv_uncompressed_bytes": 5271,
+      "row_count": 30,
+      "timestamp_units": [
+        "microseconds"
+      ]
+    },
+    {
+      "asset": "spot",
+      "symbol": "BTCUSDT",
+      "month": "2025-07",
+      "archive_url": "https://data.binance.vision/data/spot/monthly/klines/BTCUSDT/1d/BTCUSDT-1d-2025-07.zip",
+      "checksum_url": "https://data.binance.vision/data/spot/monthly/klines/BTCUSDT/1d/BTCUSDT-1d-2025-07.zip.CHECKSUM",
+      "archive_sha256": "1ea64a346f6be0aaf455eb1ce107e6d38367164d97d0dd3719b9f9bb239796f4",
+      "archive_size_bytes": 2232,
+      "csv_member": "BTCUSDT-1d-2025-07.csv",
+      "csv_uncompressed_bytes": 5454,
+      "row_count": 31,
+      "timestamp_units": [
+        "microseconds"
+      ]
+    },
+    {
+      "asset": "spot",
+      "symbol": "BTCUSDT",
+      "month": "2025-08",
+      "archive_url": "https://data.binance.vision/data/spot/monthly/klines/BTCUSDT/1d/BTCUSDT-1d-2025-08.zip",
+      "checksum_url": "https://data.binance.vision/data/spot/monthly/klines/BTCUSDT/1d/BTCUSDT-1d-2025-08.zip.CHECKSUM",
+      "archive_sha256": "6720b573210cfbb98765f4a0de6826033d203fda42a6c8364455144b703ceace",
+      "archive_size_bytes": 2237,
+      "csv_member": "BTCUSDT-1d-2025-08.csv",
+      "csv_uncompressed_bytes": 5463,
+      "row_count": 31,
+      "timestamp_units": [
+        "microseconds"
+      ]
+    },
+    {
+      "asset": "spot",
+      "symbol": "BTCUSDT",
+      "month": "2025-09",
+      "archive_url": "https://data.binance.vision/data/spot/monthly/klines/BTCUSDT/1d/BTCUSDT-1d-2025-09.zip",
+      "checksum_url": "https://data.binance.vision/data/spot/monthly/klines/BTCUSDT/1d/BTCUSDT-1d-2025-09.zip.CHECKSUM",
+      "archive_sha256": "9934e6d98a90139039bb070a90ba409ff1832ad80116920adcf088090ce4c996",
+      "archive_size_bytes": 2154,
+      "csv_member": "BTCUSDT-1d-2025-09.csv",
+      "csv_uncompressed_bytes": 5263,
+      "row_count": 30,
+      "timestamp_units": [
+        "microseconds"
+      ]
+    },
+    {
+      "asset": "spot",
+      "symbol": "BTCUSDT",
+      "month": "2025-10",
+      "archive_url": "https://data.binance.vision/data/spot/monthly/klines/BTCUSDT/1d/BTCUSDT-1d-2025-10.zip",
+      "checksum_url": "https://data.binance.vision/data/spot/monthly/klines/BTCUSDT/1d/BTCUSDT-1d-2025-10.zip.CHECKSUM",
+      "archive_sha256": "3597639a18f343c768e374157e8bd08dd046bb33693495ff4e13380abac1260e",
+      "archive_size_bytes": 2262,
+      "csv_member": "BTCUSDT-1d-2025-10.csv",
+      "csv_uncompressed_bytes": 5495,
+      "row_count": 31,
+      "timestamp_units": [
+        "microseconds"
+      ]
+    },
+    {
+      "asset": "spot",
+      "symbol": "BTCUSDT",
+      "month": "2025-11",
+      "archive_url": "https://data.binance.vision/data/spot/monthly/klines/BTCUSDT/1d/BTCUSDT-1d-2025-11.zip",
+      "checksum_url": "https://data.binance.vision/data/spot/monthly/klines/BTCUSDT/1d/BTCUSDT-1d-2025-11.zip.CHECKSUM",
+      "archive_sha256": "9eded1225f9e3f3d4f127fad46111eb403553c1125cf6d11995e69d91d037290",
+      "archive_size_bytes": 2185,
+      "csv_member": "BTCUSDT-1d-2025-11.csv",
+      "csv_uncompressed_bytes": 5238,
+      "row_count": 30,
+      "timestamp_units": [
+        "microseconds"
+      ]
+    },
+    {
+      "asset": "spot",
+      "symbol": "BTCUSDT",
+      "month": "2025-12",
+      "archive_url": "https://data.binance.vision/data/spot/monthly/klines/BTCUSDT/1d/BTCUSDT-1d-2025-12.zip",
+      "checksum_url": "https://data.binance.vision/data/spot/monthly/klines/BTCUSDT/1d/BTCUSDT-1d-2025-12.zip.CHECKSUM",
+      "archive_sha256": "b12a106198f3be3ba5916195f75c1c6d34d8e5302ab77b8fd7c4b1b58b6144f4",
+      "archive_size_bytes": 2230,
+      "csv_member": "BTCUSDT-1d-2025-12.csv",
+      "csv_uncompressed_bytes": 5324,
+      "row_count": 31,
+      "timestamp_units": [
+        "microseconds"
+      ]
+    },
+    {
+      "asset": "spot",
+      "symbol": "BTCUSDT",
+      "month": "2026-01",
+      "archive_url": "https://data.binance.vision/data/spot/monthly/klines/BTCUSDT/1d/BTCUSDT-1d-2026-01.zip",
+      "checksum_url": "https://data.binance.vision/data/spot/monthly/klines/BTCUSDT/1d/BTCUSDT-1d-2026-01.zip.CHECKSUM",
+      "archive_sha256": "b7775ddec3ddd3edafc6ad5abcc94d6ab8b8f063a0911d8a3f3daae6a8bbad2e",
+      "archive_size_bytes": 2237,
+      "csv_member": "BTCUSDT-1d-2026-01.csv",
+      "csv_uncompressed_bytes": 5329,
+      "row_count": 31,
+      "timestamp_units": [
+        "microseconds"
+      ]
+    },
+    {
+      "asset": "spot",
+      "symbol": "BTCUSDT",
+      "month": "2026-02",
+      "archive_url": "https://data.binance.vision/data/spot/monthly/klines/BTCUSDT/1d/BTCUSDT-1d-2026-02.zip",
+      "checksum_url": "https://data.binance.vision/data/spot/monthly/klines/BTCUSDT/1d/BTCUSDT-1d-2026-02.zip.CHECKSUM",
+      "archive_sha256": "f8806308002477a1a28d6cc55ec9ea7bd91bfd4b44c04500d9fc4aec50fd9464",
+      "archive_size_bytes": 2030,
+      "csv_member": "BTCUSDT-1d-2026-02.csv",
+      "csv_uncompressed_bytes": 4844,
+      "row_count": 28,
+      "timestamp_units": [
+        "microseconds"
+      ]
+    },
+    {
+      "asset": "spot",
+      "symbol": "BTCUSDT",
+      "month": "2026-03",
+      "archive_url": "https://data.binance.vision/data/spot/monthly/klines/BTCUSDT/1d/BTCUSDT-1d-2026-03.zip",
+      "checksum_url": "https://data.binance.vision/data/spot/monthly/klines/BTCUSDT/1d/BTCUSDT-1d-2026-03.zip.CHECKSUM",
+      "archive_sha256": "b81fb1942f9653564f355e3bd62dc06e0552d1c64bc966f7dce5a9c1f8780c47",
+      "archive_size_bytes": 2242,
+      "csv_member": "BTCUSDT-1d-2026-03.csv",
+      "csv_uncompressed_bytes": 5353,
+      "row_count": 31,
+      "timestamp_units": [
+        "microseconds"
+      ]
+    },
+    {
+      "asset": "spot",
+      "symbol": "BTCUSDT",
+      "month": "2026-04",
+      "archive_url": "https://data.binance.vision/data/spot/monthly/klines/BTCUSDT/1d/BTCUSDT-1d-2026-04.zip",
+      "checksum_url": "https://data.binance.vision/data/spot/monthly/klines/BTCUSDT/1d/BTCUSDT-1d-2026-04.zip.CHECKSUM",
+      "archive_sha256": "1f7da05da9f9a8f30945bde41872ca649c61d6e6e324e916f4c3cbafa0a9276a",
+      "archive_size_bytes": 2151,
+      "csv_member": "BTCUSDT-1d-2026-04.csv",
+      "csv_uncompressed_bytes": 5151,
+      "row_count": 30,
+      "timestamp_units": [
+        "microseconds"
+      ]
+    },
+    {
+      "asset": "spot",
+      "symbol": "BTCUSDT",
+      "month": "2026-05",
+      "archive_url": "https://data.binance.vision/data/spot/monthly/klines/BTCUSDT/1d/BTCUSDT-1d-2026-05.zip",
+      "checksum_url": "https://data.binance.vision/data/spot/monthly/klines/BTCUSDT/1d/BTCUSDT-1d-2026-05.zip.CHECKSUM",
+      "archive_sha256": "978936e8f1f80b570248f8d4478d6fe08d94b98bc1c7d372feb27573ff466cde",
+      "archive_size_bytes": 2223,
+      "csv_member": "BTCUSDT-1d-2026-05.csv",
+      "csv_uncompressed_bytes": 5314,
+      "row_count": 31,
+      "timestamp_units": [
+        "microseconds"
+      ]
+    },
+    {
+      "asset": "spot",
+      "symbol": "BTCUSDT",
+      "month": "2026-06",
+      "archive_url": "https://data.binance.vision/data/spot/monthly/klines/BTCUSDT/1d/BTCUSDT-1d-2026-06.zip",
+      "checksum_url": "https://data.binance.vision/data/spot/monthly/klines/BTCUSDT/1d/BTCUSDT-1d-2026-06.zip.CHECKSUM",
+      "archive_sha256": "7020d4d850a875b93f0b0fa6df4a4c36ab615273e2ab03f9e896852330dad77e",
+      "archive_size_bytes": 2144,
+      "csv_member": "BTCUSDT-1d-2026-06.csv",
+      "csv_uncompressed_bytes": 5161,
+      "row_count": 30,
+      "timestamp_units": [
+        "microseconds"
+      ]
+    },
+    {
+      "asset": "spot",
+      "symbol": "BTCUSDT",
+      "month": "2026-07",
+      "archive_url": "https://data.binance.vision/data/spot/monthly/klines/BTCUSDT/1d/BTCUSDT-1d-2026-07.zip",
+      "checksum_url": "https://data.binance.vision/data/spot/monthly/klines/BTCUSDT/1d/BTCUSDT-1d-2026-07.zip.CHECKSUM",
+      "archive_sha256": "74ddc3e39aae9445b9f9dae00d53fe2ce6ff503ee469417e207a8f5970bad11a",
+      "archive_size_bytes": 2193,
+      "csv_member": "BTCUSDT-1d-2026-07.csv",
+      "csv_uncompressed_bytes": 5318,
+      "row_count": 31,
+      "timestamp_units": [
+        "microseconds"
+      ]
+    },
+    {
+      "asset": "spot",
+      "symbol": "BTCUSDT",
+      "month": "2026-08",
+      "archive_url": "https://data.binance.vision/data/spot/monthly/klines/BTCUSDT/1d/BTCUSDT-1d-2026-08.zip",
+      "checksum_url": "https://data.binance.vision/data/spot/monthly/klines/BTCUSDT/1d/BTCUSDT-1d-2026-08.zip.CHECKSUM",
+      "archive_sha256": "fd8374a811ac7d3f4144d9c857c4f10796402c178316a25ed0c2f0ca6e16a8c1",
+      "archive_size_bytes": 2185,
+      "csv_member": "BTCUSDT-1d-2026-08.csv",
+      "csv_uncompressed_bytes": 5308,
+      "row_count": 31,
+      "timestamp_units": [
+        "microseconds"
+      ]
+    },
+    {
+      "asset": "spot",
+      "symbol": "BTCUSDT",
+      "month": "2026-09",
+      "archive_url": "https://data.binance.vision/data/spot/monthly/klines/BTCUSDT/1d/BTCUSDT-1d-2026-09.zip",
+      "checksum_url": "https://data.binance.vision/data/spot/monthly/klines/BTCUSDT/1d/BTCUSDT-1d-2026-09.zip.CHECKSUM",
+      "archive_sha256": "4944279ced64d3b1822c7c535043f2bbf41bc97d9000b8d857753352c1949769",
+      "archive_size_bytes": 2112,
+      "csv_member": "BTCUSDT-1d-2026-09.csv",
+      "csv_uncompressed_bytes": 5149,
+      "row_count": 30,
+      "timestamp_units": [
+        "microseconds"
+      ]
+    },
+    {
+      "asset": "funding",
+      "symbol": "BTCUSDT",
+      "month": "2024-01",
+      "archive_url": "https://data.binance.vision/data/futures/um/monthly/fundingRate/BTCUSDT/BTCUSDT-fundingRate-2024-01.zip",
+      "checksum_url": "https://data.binance.vision/data/futures/um/monthly/fundingRate/BTCUSDT/BTCUSDT-fundingRate-2024-01.zip.CHECKSUM",
+      "archive_sha256": "3e0d30870672aa8f0f937881056e3cfd55913ae5c780cd50b33f2763aa0ba58e",
+      "archive_size_bytes": 696,
+      "csv_member": "BTCUSDT-fundingRate-2024-01.csv",
+      "csv_uncompressed_bytes": 2562,
+      "row_count": 93,
+      "timestamp_units": [
+        "milliseconds"
+      ]
+    },
+    {
+      "asset": "funding",
+      "symbol": "BTCUSDT",
+      "month": "2024-02",
+      "archive_url": "https://data.binance.vision/data/futures/um/monthly/fundingRate/BTCUSDT/BTCUSDT-fundingRate-2024-02.zip",
+      "checksum_url": "https://data.binance.vision/data/futures/um/monthly/fundingRate/BTCUSDT/BTCUSDT-fundingRate-2024-02.zip.CHECKSUM",
+      "archive_sha256": "daf1e4901e3d6436d82ad60f90d007eb5300be8047cfef121007203a7212cde6",
+      "archive_size_bytes": 776,
+      "csv_member": "BTCUSDT-fundingRate-2024-02.csv",
+      "csv_uncompressed_bytes": 2400,
+      "row_count": 87,
+      "timestamp_units": [
+        "milliseconds"
+      ]
+    },
+    {
+      "asset": "funding",
+      "symbol": "BTCUSDT",
+      "month": "2024-03",
+      "archive_url": "https://data.binance.vision/data/futures/um/monthly/fundingRate/BTCUSDT/BTCUSDT-fundingRate-2024-03.zip",
+      "checksum_url": "https://data.binance.vision/data/futures/um/monthly/fundingRate/BTCUSDT/BTCUSDT-fundingRate-2024-03.zip.CHECKSUM",
+      "archive_sha256": "711dcaf2a341aedfd06447b4117b540f60adb0784c5e64a313c718e4cf092bc3",
+      "archive_size_bytes": 939,
+      "csv_member": "BTCUSDT-fundingRate-2024-03.csv",
+      "csv_uncompressed_bytes": 2562,
+      "row_count": 93,
+      "timestamp_units": [
+        "milliseconds"
+      ]
+    },
+    {
+      "asset": "funding",
+      "symbol": "BTCUSDT",
+      "month": "2024-04",
+      "archive_url": "https://data.binance.vision/data/futures/um/monthly/fundingRate/BTCUSDT/BTCUSDT-fundingRate-2024-04.zip",
+      "checksum_url": "https://data.binance.vision/data/futures/um/monthly/fundingRate/BTCUSDT/BTCUSDT-fundingRate-2024-04.zip.CHECKSUM",
+      "archive_sha256": "6d220b8e2815362a11d294d35dbca28568370d8295351937eceec10f2b359b85",
+      "archive_size_bytes": 842,
+      "csv_member": "BTCUSDT-fundingRate-2024-04.csv",
+      "csv_uncompressed_bytes": 2488,
+      "row_count": 90,
+      "timestamp_units": [
+        "milliseconds"
+      ]
+    },
+    {
+      "asset": "funding",
+      "symbol": "BTCUSDT",
+      "month": "2024-05",
+      "archive_url": "https://data.binance.vision/data/futures/um/monthly/fundingRate/BTCUSDT/BTCUSDT-fundingRate-2024-05.zip",
+      "checksum_url": "https://data.binance.vision/data/futures/um/monthly/fundingRate/BTCUSDT/BTCUSDT-fundingRate-2024-05.zip.CHECKSUM",
+      "archive_sha256": "aef8c5fdce1493fd570b5829a72f2f17c7e459483390f25544d16c2a30be592e",
+      "archive_size_bytes": 830,
+      "csv_member": "BTCUSDT-fundingRate-2024-05.csv",
+      "csv_uncompressed_bytes": 2569,
+      "row_count": 93,
+      "timestamp_units": [
+        "milliseconds"
+      ]
+    },
+    {
+      "asset": "funding",
+      "symbol": "BTCUSDT",
+      "month": "2024-06",
+      "archive_url": "https://data.binance.vision/data/futures/um/monthly/fundingRate/BTCUSDT/BTCUSDT-fundingRate-2024-06.zip",
+      "checksum_url": "https://data.binance.vision/data/futures/um/monthly/fundingRate/BTCUSDT/BTCUSDT-fundingRate-2024-06.zip.CHECKSUM",
+      "archive_sha256": "43fc4473820d1fb4fe340d1b1951a87555f6841aa352e684fa95d6adffce04c6",
+      "archive_size_bytes": 721,
+      "csv_member": "BTCUSDT-fundingRate-2024-06.csv",
+      "csv_uncompressed_bytes": 2481,
+      "row_count": 90,
+      "timestamp_units": [
+        "milliseconds"
+      ]
+    },
+    {
+      "asset": "funding",
+      "symbol": "BTCUSDT",
+      "month": "2024-07",
+      "archive_url": "https://data.binance.vision/data/futures/um/monthly/fundingRate/BTCUSDT/BTCUSDT-fundingRate-2024-07.zip",
+      "checksum_url": "https://data.binance.vision/data/futures/um/monthly/fundingRate/BTCUSDT/BTCUSDT-fundingRate-2024-07.zip.CHECKSUM",
+      "archive_sha256": "acab0593c1452660ce74a6c239fb215c1192b0a9c6e8c1689e6495de40a0174b",
+      "archive_size_bytes": 847,
+      "csv_member": "BTCUSDT-fundingRate-2024-07.csv",
+      "csv_uncompressed_bytes": 2567,
+      "row_count": 93,
+      "timestamp_units": [
+        "milliseconds"
+      ]
+    },
+    {
+      "asset": "funding",
+      "symbol": "BTCUSDT",
+      "month": "2024-08",
+      "archive_url": "https://data.binance.vision/data/futures/um/monthly/fundingRate/BTCUSDT/BTCUSDT-fundingRate-2024-08.zip",
+      "checksum_url": "https://data.binance.vision/data/futures/um/monthly/fundingRate/BTCUSDT/BTCUSDT-fundingRate-2024-08.zip.CHECKSUM",
+      "archive_sha256": "7003d29a43dd5f9357f838da8766834954939e22c1d80af682d9f33984f67b71",
+      "archive_size_bytes": 904,
+      "csv_member": "BTCUSDT-fundingRate-2024-08.csv",
+      "csv_uncompressed_bytes": 2599,
+      "row_count": 93,
+      "timestamp_units": [
+        "milliseconds"
+      ]
+    },
+    {
+      "asset": "funding",
+      "symbol": "BTCUSDT",
+      "month": "2024-09",
+      "archive_url": "https://data.binance.vision/data/futures/um/monthly/fundingRate/BTCUSDT/BTCUSDT-fundingRate-2024-09.zip",
+      "checksum_url": "https://data.binance.vision/data/futures/um/monthly/fundingRate/BTCUSDT/BTCUSDT-fundingRate-2024-09.zip.CHECKSUM",
+      "archive_sha256": "6ef23b02392b481ef9c3855434bf3644289fb6e228b4f7d9a0dfc6d3cdff1116",
+      "archive_size_bytes": 924,
+      "csv_member": "BTCUSDT-fundingRate-2024-09.csv",
+      "csv_uncompressed_bytes": 2495,
+      "row_count": 90,
+      "timestamp_units": [
+        "milliseconds"
+      ]
+    },
+    {
+      "asset": "funding",
+      "symbol": "BTCUSDT",
+      "month": "2024-10",
+      "archive_url": "https://data.binance.vision/data/futures/um/monthly/fundingRate/BTCUSDT/BTCUSDT-fundingRate-2024-10.zip",
+      "checksum_url": "https://data.binance.vision/data/futures/um/monthly/fundingRate/BTCUSDT/BTCUSDT-fundingRate-2024-10.zip.CHECKSUM",
+      "archive_sha256": "26db65ac8020d80ece35df79c254c5f7e24427529bcceeb2972748c4fe2d2707",
+      "archive_size_bytes": 801,
+      "csv_member": "BTCUSDT-fundingRate-2024-10.csv",
+      "csv_uncompressed_bytes": 2567,
+      "row_count": 93,
+      "timestamp_units": [
+        "milliseconds"
+      ]
+    },
+    {
+      "asset": "funding",
+      "symbol": "BTCUSDT",
+      "month": "2024-11",
+      "archive_url": "https://data.binance.vision/data/futures/um/monthly/fundingRate/BTCUSDT/BTCUSDT-fundingRate-2024-11.zip",
+      "checksum_url": "https://data.binance.vision/data/futures/um/monthly/fundingRate/BTCUSDT/BTCUSDT-fundingRate-2024-11.zip.CHECKSUM",
+      "archive_sha256": "e1b19cccfe2cdcba48b022790789b7b01edd86c075f39bc152e44c267d43bd51",
+      "archive_size_bytes": 746,
+      "csv_member": "BTCUSDT-fundingRate-2024-11.csv",
+      "csv_uncompressed_bytes": 2481,
+      "row_count": 90,
+      "timestamp_units": [
+        "milliseconds"
+      ]
+    },
+    {
+      "asset": "funding",
+      "symbol": "BTCUSDT",
+      "month": "2024-12",
+      "archive_url": "https://data.binance.vision/data/futures/um/monthly/fundingRate/BTCUSDT/BTCUSDT-fundingRate-2024-12.zip",
+      "checksum_url": "https://data.binance.vision/data/futures/um/monthly/fundingRate/BTCUSDT/BTCUSDT-fundingRate-2024-12.zip.CHECKSUM",
+      "archive_sha256": "069409f525ebf6370ee1c7defe475167de4b97284c5ac8e68768652968cd3dc9",
+      "archive_size_bytes": 808,
+      "csv_member": "BTCUSDT-fundingRate-2024-12.csv",
+      "csv_uncompressed_bytes": 2559,
+      "row_count": 93,
+      "timestamp_units": [
+        "milliseconds"
+      ]
+    },
+    {
+      "asset": "funding",
+      "symbol": "BTCUSDT",
+      "month": "2025-01",
+      "archive_url": "https://data.binance.vision/data/futures/um/monthly/fundingRate/BTCUSDT/BTCUSDT-fundingRate-2025-01.zip",
+      "checksum_url": "https://data.binance.vision/data/futures/um/monthly/fundingRate/BTCUSDT/BTCUSDT-fundingRate-2025-01.zip.CHECKSUM",
+      "archive_sha256": "df725010d55458866eb5a47e9ee708c6796c9d7e77b14c38342cea11f381815e",
+      "archive_size_bytes": 825,
+      "csv_member": "BTCUSDT-fundingRate-2025-01.csv",
+      "csv_uncompressed_bytes": 2560,
+      "row_count": 93,
+      "timestamp_units": [
+        "milliseconds"
+      ]
+    },
+    {
+      "asset": "funding",
+      "symbol": "BTCUSDT",
+      "month": "2025-02",
+      "archive_url": "https://data.binance.vision/data/futures/um/monthly/fundingRate/BTCUSDT/BTCUSDT-fundingRate-2025-02.zip",
+      "checksum_url": "https://data.binance.vision/data/futures/um/monthly/fundingRate/BTCUSDT/BTCUSDT-fundingRate-2025-02.zip.CHECKSUM",
+      "archive_sha256": "e918b90fb33df3a3317feea13807a892047f1ec86eeac100bdb7b3dd83285d46",
+      "archive_size_bytes": 854,
+      "csv_member": "BTCUSDT-fundingRate-2025-02.csv",
+      "csv_uncompressed_bytes": 2320,
+      "row_count": 84,
+      "timestamp_units": [
+        "milliseconds"
+      ]
+    },
+    {
+      "asset": "funding",
+      "symbol": "BTCUSDT",
+      "month": "2025-03",
+      "archive_url": "https://data.binance.vision/data/futures/um/monthly/fundingRate/BTCUSDT/BTCUSDT-fundingRate-2025-03.zip",
+      "checksum_url": "https://data.binance.vision/data/futures/um/monthly/fundingRate/BTCUSDT/BTCUSDT-fundingRate-2025-03.zip.CHECKSUM",
+      "archive_sha256": "a3b95cfb315641fbfddc61eb32adf2a2588afb7a3973a61f464aca007ad43e3f",
+      "archive_size_bytes": 938,
+      "csv_member": "BTCUSDT-fundingRate-2025-03.csv",
+      "csv_uncompressed_bytes": 2582,
+      "row_count": 93,
+      "timestamp_units": [
+        "milliseconds"
+      ]
+    },
+    {
+      "asset": "funding",
+      "symbol": "BTCUSDT",
+      "month": "2025-04",
+      "archive_url": "https://data.binance.vision/data/futures/um/monthly/fundingRate/BTCUSDT/BTCUSDT-fundingRate-2025-04.zip",
+      "checksum_url": "https://data.binance.vision/data/futures/um/monthly/fundingRate/BTCUSDT/BTCUSDT-fundingRate-2025-04.zip.CHECKSUM",
+      "archive_sha256": "01dbb7bd0135f98bd63bdde6b943cde1accc1770cabf92f68a1ec0653ced3888",
+      "archive_size_bytes": 929,
+      "csv_member": "BTCUSDT-fundingRate-2025-04.csv",
+      "csv_uncompressed_bytes": 2505,
+      "row_count": 90,
+      "timestamp_units": [
+        "milliseconds"
+      ]
+    },
+    {
+      "asset": "funding",
+      "symbol": "BTCUSDT",
+      "month": "2025-05",
+      "archive_url": "https://data.binance.vision/data/futures/um/monthly/fundingRate/BTCUSDT/BTCUSDT-fundingRate-2025-05.zip",
+      "checksum_url": "https://data.binance.vision/data/futures/um/monthly/fundingRate/BTCUSDT/BTCUSDT-fundingRate-2025-05.zip.CHECKSUM",
+      "archive_sha256": "e7355e2775b88009c984db1783bb8ed6b5f24ede2b52bb764151b5722d6a5e42",
+      "archive_size_bytes": 943,
+      "csv_member": "BTCUSDT-fundingRate-2025-05.csv",
+      "csv_uncompressed_bytes": 2567,
+      "row_count": 93,
+      "timestamp_units": [
+        "milliseconds"
+      ]
+    },
+    {
+      "asset": "funding",
+      "symbol": "BTCUSDT",
+      "month": "2025-06",
+      "archive_url": "https://data.binance.vision/data/futures/um/monthly/fundingRate/BTCUSDT/BTCUSDT-fundingRate-2025-06.zip",
+      "checksum_url": "https://data.binance.vision/data/futures/um/monthly/fundingRate/BTCUSDT/BTCUSDT-fundingRate-2025-06.zip.CHECKSUM",
+      "archive_sha256": "a1f4a40953740fa83ee9ad97776ff8325d1958654a67f1325614071a983819d4",
+      "archive_size_bytes": 946,
+      "csv_member": "BTCUSDT-fundingRate-2025-06.csv",
+      "csv_uncompressed_bytes": 2491,
+      "row_count": 90,
+      "timestamp_units": [
+        "milliseconds"
+      ]
+    },
+    {
+      "asset": "funding",
+      "symbol": "BTCUSDT",
+      "month": "2025-07",
+      "archive_url": "https://data.binance.vision/data/futures/um/monthly/fundingRate/BTCUSDT/BTCUSDT-fundingRate-2025-07.zip",
+      "checksum_url": "https://data.binance.vision/data/futures/um/monthly/fundingRate/BTCUSDT/BTCUSDT-fundingRate-2025-07.zip.CHECKSUM",
+      "archive_sha256": "b097dff828f6e43fece23db0d3cb98042a9d7bc19693b8cbfd051d88eb973b7b",
+      "archive_size_bytes": 796,
+      "csv_member": "BTCUSDT-fundingRate-2025-07.csv",
+      "csv_uncompressed_bytes": 2562,
+      "row_count": 93,
+      "timestamp_units": [
+        "milliseconds"
+      ]
+    },
+    {
+      "asset": "funding",
+      "symbol": "BTCUSDT",
+      "month": "2025-08",
+      "archive_url": "https://data.binance.vision/data/futures/um/monthly/fundingRate/BTCUSDT/BTCUSDT-fundingRate-2025-08.zip",
+      "checksum_url": "https://data.binance.vision/data/futures/um/monthly/fundingRate/BTCUSDT/BTCUSDT-fundingRate-2025-08.zip.CHECKSUM",
+      "archive_sha256": "1180129860b6e196e8d70bb9719e81573aa6b4acb423ba5ee7f82f10c836f7ab",
+      "archive_size_bytes": 927,
+      "csv_member": "BTCUSDT-fundingRate-2025-08.csv",
+      "csv_uncompressed_bytes": 2565,
+      "row_count": 93,
+      "timestamp_units": [
+        "milliseconds"
+      ]
+    },
+    {
+      "asset": "funding",
+      "symbol": "BTCUSDT",
+      "month": "2025-09",
+      "archive_url": "https://data.binance.vision/data/futures/um/monthly/fundingRate/BTCUSDT/BTCUSDT-fundingRate-2025-09.zip",
+      "checksum_url": "https://data.binance.vision/data/futures/um/monthly/fundingRate/BTCUSDT/BTCUSDT-fundingRate-2025-09.zip.CHECKSUM",
+      "archive_sha256": "21dc6570fc6bffad0e7b5f9e99211b82ad07c95ab4f18c3a2daa3b95ec98344c",
+      "archive_size_bytes": 941,
+      "csv_member": "BTCUSDT-fundingRate-2025-09.csv",
+      "csv_uncompressed_bytes": 2476,
+      "row_count": 90,
+      "timestamp_units": [
+        "milliseconds"
+      ]
+    },
+    {
+      "asset": "funding",
+      "symbol": "BTCUSDT",
+      "month": "2025-10",
+      "archive_url": "https://data.binance.vision/data/futures/um/monthly/fundingRate/BTCUSDT/BTCUSDT-fundingRate-2025-10.zip",
+      "checksum_url": "https://data.binance.vision/data/futures/um/monthly/fundingRate/BTCUSDT/BTCUSDT-fundingRate-2025-10.zip.CHECKSUM",
+      "archive_sha256": "9ecdedab6344fc4cdb154763266b8e09627a71c3cc5574cf868158b541c259c2",
+      "archive_size_bytes": 944,
+      "csv_member": "BTCUSDT-fundingRate-2025-10.csv",
+      "csv_uncompressed_bytes": 2578,
+      "row_count": 93,
+      "timestamp_units": [
+        "milliseconds"
+      ]
+    },
+    {
+      "asset": "funding",
+      "symbol": "BTCUSDT",
+      "month": "2025-11",
+      "archive_url": "https://data.binance.vision/data/futures/um/monthly/fundingRate/BTCUSDT/BTCUSDT-fundingRate-2025-11.zip",
+      "checksum_url": "https://data.binance.vision/data/futures/um/monthly/fundingRate/BTCUSDT/BTCUSDT-fundingRate-2025-11.zip.CHECKSUM",
+      "archive_sha256": "23735400405627d610123e3a43db3e98ae7addb93459cd670e65a7659a5f081b",
+      "archive_size_bytes": 941,
+      "csv_member": "BTCUSDT-fundingRate-2025-11.csv",
+      "csv_uncompressed_bytes": 2486,
+      "row_count": 90,
+      "timestamp_units": [
+        "milliseconds"
+      ]
+    },
+    {
+      "asset": "funding",
+      "symbol": "BTCUSDT",
+      "month": "2025-12",
+      "archive_url": "https://data.binance.vision/data/futures/um/monthly/fundingRate/BTCUSDT/BTCUSDT-fundingRate-2025-12.zip",
+      "checksum_url": "https://data.binance.vision/data/futures/um/monthly/fundingRate/BTCUSDT/BTCUSDT-fundingRate-2025-12.zip.CHECKSUM",
+      "archive_sha256": "35318b789f020b0e04c9043112480743855554e52e1d188437cbdaa67246d51d",
+      "archive_size_bytes": 963,
+      "csv_member": "BTCUSDT-fundingRate-2025-12.csv",
+      "csv_uncompressed_bytes": 2568,
+      "row_count": 93,
+      "timestamp_units": [
+        "milliseconds"
+      ]
+    },
+    {
+      "asset": "funding",
+      "symbol": "BTCUSDT",
+      "month": "2026-01",
+      "archive_url": "https://data.binance.vision/data/futures/um/monthly/fundingRate/BTCUSDT/BTCUSDT-fundingRate-2026-01.zip",
+      "checksum_url": "https://data.binance.vision/data/futures/um/monthly/fundingRate/BTCUSDT/BTCUSDT-fundingRate-2026-01.zip.CHECKSUM",
+      "archive_sha256": "fcdc796484f395830d418588a34a26baed8849dbef0ff2b56173247e493ff51f",
+      "archive_size_bytes": 965,
+      "csv_member": "BTCUSDT-fundingRate-2026-01.csv",
+      "csv_uncompressed_bytes": 2566,
+      "row_count": 93,
+      "timestamp_units": [
+        "milliseconds"
+      ]
+    },
+    {
+      "asset": "funding",
+      "symbol": "BTCUSDT",
+      "month": "2026-02",
+      "archive_url": "https://data.binance.vision/data/futures/um/monthly/fundingRate/BTCUSDT/BTCUSDT-fundingRate-2026-02.zip",
+      "checksum_url": "https://data.binance.vision/data/futures/um/monthly/fundingRate/BTCUSDT/BTCUSDT-fundingRate-2026-02.zip.CHECKSUM",
+      "archive_sha256": "80df1dd669dc1e3afc360c9da8b9a949a127fce088eedbf5bf708bd37b0a1f58",
+      "archive_size_bytes": 937,
+      "csv_member": "BTCUSDT-fundingRate-2026-02.csv",
+      "csv_uncompressed_bytes": 2352,
+      "row_count": 84,
+      "timestamp_units": [
+        "milliseconds"
+      ]
+    },
+    {
+      "asset": "funding",
+      "symbol": "BTCUSDT",
+      "month": "2026-03",
+      "archive_url": "https://data.binance.vision/data/futures/um/monthly/fundingRate/BTCUSDT/BTCUSDT-fundingRate-2026-03.zip",
+      "checksum_url": "https://data.binance.vision/data/futures/um/monthly/fundingRate/BTCUSDT/BTCUSDT-fundingRate-2026-03.zip.CHECKSUM",
+      "archive_sha256": "5c069d5e9597a44fd0e213395082e59ff223fb99c9eab3a2a5a2a5622ba7867c",
+      "archive_size_bytes": 1008,
+      "csv_member": "BTCUSDT-fundingRate-2026-03.csv",
+      "csv_uncompressed_bytes": 2610,
+      "row_count": 93,
+      "timestamp_units": [
+        "milliseconds"
+      ]
+    },
+    {
+      "asset": "funding",
+      "symbol": "BTCUSDT",
+      "month": "2026-04",
+      "archive_url": "https://data.binance.vision/data/futures/um/monthly/fundingRate/BTCUSDT/BTCUSDT-fundingRate-2026-04.zip",
+      "checksum_url": "https://data.binance.vision/data/futures/um/monthly/fundingRate/BTCUSDT/BTCUSDT-fundingRate-2026-04.zip.CHECKSUM",
+      "archive_sha256": "51cdeb4de7d5ef1d4eece80b6115e391bdf7a2d0803bf9ad8371ab23340b22d3",
+      "archive_size_bytes": 960,
+      "csv_member": "BTCUSDT-fundingRate-2026-04.csv",
+      "csv_uncompressed_bytes": 2539,
+      "row_count": 90,
+      "timestamp_units": [
+        "milliseconds"
+      ]
+    },
+    {
+      "asset": "funding",
+      "symbol": "BTCUSDT",
+      "month": "2026-05",
+      "archive_url": "https://data.binance.vision/data/futures/um/monthly/fundingRate/BTCUSDT/BTCUSDT-fundingRate-2026-05.zip",
+      "checksum_url": "https://data.binance.vision/data/futures/um/monthly/fundingRate/BTCUSDT/BTCUSDT-fundingRate-2026-05.zip.CHECKSUM",
+      "archive_sha256": "445b65fd6b17bfcfb5e4d035db29fad34f729fa078f0449024db42621be84e6e",
+      "archive_size_bytes": 980,
+      "csv_member": "BTCUSDT-fundingRate-2026-05.csv",
+      "csv_uncompressed_bytes": 2581,
+      "row_count": 93,
+      "timestamp_units": [
+        "milliseconds"
+      ]
+    },
+    {
+      "asset": "funding",
+      "symbol": "BTCUSDT",
+      "month": "2026-06",
+      "archive_url": "https://data.binance.vision/data/futures/um/monthly/fundingRate/BTCUSDT/BTCUSDT-fundingRate-2026-06.zip",
+      "checksum_url": "https://data.binance.vision/data/futures/um/monthly/fundingRate/BTCUSDT/BTCUSDT-fundingRate-2026-06.zip.CHECKSUM",
+      "archive_sha256": "cff97ce688329592bccbbf5873b5c7021649e093f5f5806e332c5b4fb7fd6a00",
+      "archive_size_bytes": 964,
+      "csv_member": "BTCUSDT-fundingRate-2026-06.csv",
+      "csv_uncompressed_bytes": 2494,
+      "row_count": 90,
+      "timestamp_units": [
+        "milliseconds"
+      ]
+    },
+    {
+      "asset": "funding",
+      "symbol": "BTCUSDT",
+      "month": "2026-07",
+      "archive_url": "https://data.binance.vision/data/futures/um/monthly/fundingRate/BTCUSDT/BTCUSDT-fundingRate-2026-07.zip",
+      "checksum_url": "https://data.binance.vision/data/futures/um/monthly/fundingRate/BTCUSDT/BTCUSDT-fundingRate-2026-07.zip.CHECKSUM",
+      "archive_sha256": "e36fcc66f493d7d9ec348c852fc22e9f318c79cf7adae17398a3994ae0adc41e",
+      "archive_size_bytes": 914,
+      "csv_member": "BTCUSDT-fundingRate-2026-07.csv",
+      "csv_uncompressed_bytes": 2563,
+      "row_count": 93,
+      "timestamp_units": [
+        "milliseconds"
+      ]
+    },
+    {
+      "asset": "funding",
+      "symbol": "BTCUSDT",
+      "month": "2026-08",
+      "archive_url": "https://data.binance.vision/data/futures/um/monthly/fundingRate/BTCUSDT/BTCUSDT-fundingRate-2026-08.zip",
+      "checksum_url": "https://data.binance.vision/data/futures/um/monthly/fundingRate/BTCUSDT/BTCUSDT-fundingRate-2026-08.zip.CHECKSUM",
+      "archive_sha256": "7c108b3a02bd6dc7345ca7323e3a49664edcea0afdcf780ffb3b44762c45a964",
+      "archive_size_bytes": 896,
+      "csv_member": "BTCUSDT-fundingRate-2026-08.csv",
+      "csv_uncompressed_bytes": 2562,
+      "row_count": 93,
+      "timestamp_units": [
+        "milliseconds"
+      ]
+    },
+    {
+      "asset": "funding",
+      "symbol": "BTCUSDT",
+      "month": "2026-09",
+      "archive_url": "https://data.binance.vision/data/futures/um/monthly/fundingRate/BTCUSDT/BTCUSDT-fundingRate-2026-09.zip",
+      "checksum_url": "https://data.binance.vision/data/futures/um/monthly/fundingRate/BTCUSDT/BTCUSDT-fundingRate-2026-09.zip.CHECKSUM",
+      "archive_sha256": "913cd31b8f924a06717a2fac17f3df6132c24ccded209eb3e4ae7d83e1b247f2",
+      "archive_size_bytes": 924,
+      "csv_member": "BTCUSDT-fundingRate-2026-09.csv",
+      "csv_uncompressed_bytes": 2486,
+      "row_count": 90,
+      "timestamp_units": [
+        "milliseconds"
+      ]
+    },
+    {
+      "asset": "spot",
+      "symbol": "ETHUSDT",
+      "month": "2023-01",
+      "archive_url": "https://data.binance.vision/data/spot/monthly/klines/ETHUSDT/1d/ETHUSDT-1d-2023-01.zip",
+      "checksum_url": "https://data.binance.vision/data/spot/monthly/klines/ETHUSDT/1d/ETHUSDT-1d-2023-01.zip.CHECKSUM",
+      "archive_sha256": "811ff55e20735e6fff55ef37c0c3e922eb6d26d41fe84fc04b2a03c0179549ad",
+      "archive_size_bytes": 2087,
+      "csv_member": "ETHUSDT-1d-2023-01.csv",
+      "csv_uncompressed_bytes": 5053,
+      "row_count": 31,
+      "timestamp_units": [
+        "milliseconds"
+      ]
+    },
+    {
+      "asset": "spot",
+      "symbol": "ETHUSDT",
+      "month": "2023-02",
+      "archive_url": "https://data.binance.vision/data/spot/monthly/klines/ETHUSDT/1d/ETHUSDT-1d-2023-02.zip",
+      "checksum_url": "https://data.binance.vision/data/spot/monthly/klines/ETHUSDT/1d/ETHUSDT-1d-2023-02.zip.CHECKSUM",
+      "archive_sha256": "2f6cdf5aa6613ab3621dbd730a234935e8909f980f1195f7581abf145e422cce",
+      "archive_size_bytes": 1916,
+      "csv_member": "ETHUSDT-1d-2023-02.csv",
+      "csv_uncompressed_bytes": 4569,
+      "row_count": 28,
+      "timestamp_units": [
+        "milliseconds"
+      ]
+    },
+    {
+      "asset": "spot",
+      "symbol": "ETHUSDT",
+      "month": "2023-03",
+      "archive_url": "https://data.binance.vision/data/spot/monthly/klines/ETHUSDT/1d/ETHUSDT-1d-2023-03.zip",
+      "checksum_url": "https://data.binance.vision/data/spot/monthly/klines/ETHUSDT/1d/ETHUSDT-1d-2023-03.zip.CHECKSUM",
+      "archive_sha256": "dbfe653bf62ebac3e4e2bf5c96160de6c76bcbd76e4979ca2105d11cf2bdf77e",
+      "archive_size_bytes": 2098,
+      "csv_member": "ETHUSDT-1d-2023-03.csv",
+      "csv_uncompressed_bytes": 5091,
+      "row_count": 31,
+      "timestamp_units": [
+        "milliseconds"
+      ]
+    },
+    {
+      "asset": "spot",
+      "symbol": "ETHUSDT",
+      "month": "2023-04",
+      "archive_url": "https://data.binance.vision/data/spot/monthly/klines/ETHUSDT/1d/ETHUSDT-1d-2023-04.zip",
+      "checksum_url": "https://data.binance.vision/data/spot/monthly/klines/ETHUSDT/1d/ETHUSDT-1d-2023-04.zip.CHECKSUM",
+      "archive_sha256": "d316aea182914c088b06d03640812bae72e889a347ed9dcc78bb8ad10ed1bdf9",
+      "archive_size_bytes": 2019,
+      "csv_member": "ETHUSDT-1d-2023-04.csv",
+      "csv_uncompressed_bytes": 4905,
+      "row_count": 30,
+      "timestamp_units": [
+        "milliseconds"
+      ]
+    },
+    {
+      "asset": "spot",
+      "symbol": "ETHUSDT",
+      "month": "2023-05",
+      "archive_url": "https://data.binance.vision/data/spot/monthly/klines/ETHUSDT/1d/ETHUSDT-1d-2023-05.zip",
+      "checksum_url": "https://data.binance.vision/data/spot/monthly/klines/ETHUSDT/1d/ETHUSDT-1d-2023-05.zip.CHECKSUM",
+      "archive_sha256": "a86ef09c35c764e6f0066953074ffb0dc93239afe92e3d73e232fbc95cdeab51",
+      "archive_size_bytes": 2087,
+      "csv_member": "ETHUSDT-1d-2023-05.csv",
+      "csv_uncompressed_bytes": 5055,
+      "row_count": 31,
+      "timestamp_units": [
+        "milliseconds"
+      ]
+    },
+    {
+      "asset": "spot",
+      "symbol": "ETHUSDT",
+      "month": "2023-06",
+      "archive_url": "https://data.binance.vision/data/spot/monthly/klines/ETHUSDT/1d/ETHUSDT-1d-2023-06.zip",
+      "checksum_url": "https://data.binance.vision/data/spot/monthly/klines/ETHUSDT/1d/ETHUSDT-1d-2023-06.zip.CHECKSUM",
+      "archive_sha256": "4932a5fd8853ddf99f3853a501e5f35ffad45a07a466bbf4603ddb7fb4c821ac",
+      "archive_size_bytes": 1994,
+      "csv_member": "ETHUSDT-1d-2023-06.csv",
+      "csv_uncompressed_bytes": 4889,
+      "row_count": 30,
+      "timestamp_units": [
+        "milliseconds"
+      ]
+    },
+    {
+      "asset": "spot",
+      "symbol": "ETHUSDT",
+      "month": "2023-07",
+      "archive_url": "https://data.binance.vision/data/spot/monthly/klines/ETHUSDT/1d/ETHUSDT-1d-2023-07.zip",
+      "checksum_url": "https://data.binance.vision/data/spot/monthly/klines/ETHUSDT/1d/ETHUSDT-1d-2023-07.zip.CHECKSUM",
+      "archive_sha256": "f66293651e4a841fe9bc36cc76483bdb9c1faaa085377fbbd2fd064cd401cd5e",
+      "archive_size_bytes": 2036,
+      "csv_member": "ETHUSDT-1d-2023-07.csv",
+      "csv_uncompressed_bytes": 5036,
+      "row_count": 31,
+      "timestamp_units": [
+        "milliseconds"
+      ]
+    },
+    {
+      "asset": "spot",
+      "symbol": "ETHUSDT",
+      "month": "2023-08",
+      "archive_url": "https://data.binance.vision/data/spot/monthly/klines/ETHUSDT/1d/ETHUSDT-1d-2023-08.zip",
+      "checksum_url": "https://data.binance.vision/data/spot/monthly/klines/ETHUSDT/1d/ETHUSDT-1d-2023-08.zip.CHECKSUM",
+      "archive_sha256": "e694749c085b888401f51002dbd21bc8cf0c4d801d2da311e72d6c1ae97627d4",
+      "archive_size_bytes": 2058,
+      "csv_member": "ETHUSDT-1d-2023-08.csv",
+      "csv_uncompressed_bytes": 5028,
+      "row_count": 31,
+      "timestamp_units": [
+        "milliseconds"
+      ]
+    },
+    {
+      "asset": "spot",
+      "symbol": "ETHUSDT",
+      "month": "2023-09",
+      "archive_url": "https://data.binance.vision/data/spot/monthly/klines/ETHUSDT/1d/ETHUSDT-1d-2023-09.zip",
+      "checksum_url": "https://data.binance.vision/data/spot/monthly/klines/ETHUSDT/1d/ETHUSDT-1d-2023-09.zip.CHECKSUM",
+      "archive_sha256": "c1faa848529e17e15deafb208d817155576ef51e556813109cdb60c0153ac73d",
+      "archive_size_bytes": 1985,
+      "csv_member": "ETHUSDT-1d-2023-09.csv",
+      "csv_uncompressed_bytes": 4863,
+      "row_count": 30,
+      "timestamp_units": [
+        "milliseconds"
+      ]
+    },
+    {
+      "asset": "spot",
+      "symbol": "ETHUSDT",
+      "month": "2023-10",
+      "archive_url": "https://data.binance.vision/data/spot/monthly/klines/ETHUSDT/1d/ETHUSDT-1d-2023-10.zip",
+      "checksum_url": "https://data.binance.vision/data/spot/monthly/klines/ETHUSDT/1d/ETHUSDT-1d-2023-10.zip.CHECKSUM",
+      "archive_sha256": "baadc74c685a63d7ba453531c9f4d1df81a5719200501ab229018352a1be9630",
+      "archive_size_bytes": 2059,
+      "csv_member": "ETHUSDT-1d-2023-10.csv",
+      "csv_uncompressed_bytes": 5044,
+      "row_count": 31,
+      "timestamp_units": [
+        "milliseconds"
+      ]
+    },
+    {
+      "asset": "spot",
+      "symbol": "ETHUSDT",
+      "month": "2023-11",
+      "archive_url": "https://data.binance.vision/data/spot/monthly/klines/ETHUSDT/1d/ETHUSDT-1d-2023-11.zip",
+      "checksum_url": "https://data.binance.vision/data/spot/monthly/klines/ETHUSDT/1d/ETHUSDT-1d-2023-11.zip.CHECKSUM",
+      "archive_sha256": "8faf9f53efe268d25d01b987b3a364cd9f1983703ab2f78486192c29218b1faf",
+      "archive_size_bytes": 2022,
+      "csv_member": "ETHUSDT-1d-2023-11.csv",
+      "csv_uncompressed_bytes": 4896,
+      "row_count": 30,
+      "timestamp_units": [
+        "milliseconds"
+      ]
+    },
+    {
+      "asset": "spot",
+      "symbol": "ETHUSDT",
+      "month": "2023-12",
+      "archive_url": "https://data.binance.vision/data/spot/monthly/klines/ETHUSDT/1d/ETHUSDT-1d-2023-12.zip",
+      "checksum_url": "https://data.binance.vision/data/spot/monthly/klines/ETHUSDT/1d/ETHUSDT-1d-2023-12.zip.CHECKSUM",
+      "archive_sha256": "1778c56d995fe5d32a0816a5214feabcd84d594f4e882315b4e225d6e86e5275",
+      "archive_size_bytes": 2086,
+      "csv_member": "ETHUSDT-1d-2023-12.csv",
+      "csv_uncompressed_bytes": 5065,
+      "row_count": 31,
+      "timestamp_units": [
+        "milliseconds"
+      ]
+    },
+    {
+      "asset": "spot",
+      "symbol": "ETHUSDT",
+      "month": "2024-01",
+      "archive_url": "https://data.binance.vision/data/spot/monthly/klines/ETHUSDT/1d/ETHUSDT-1d-2024-01.zip",
+      "checksum_url": "https://data.binance.vision/data/spot/monthly/klines/ETHUSDT/1d/ETHUSDT-1d-2024-01.zip.CHECKSUM",
+      "archive_sha256": "49598e812edcbf446f20d21a3ffc382a6f51fc1982a7e4224b78a416dbe36e8d",
+      "archive_size_bytes": 2109,
+      "csv_member": "ETHUSDT-1d-2024-01.csv",
+      "csv_uncompressed_bytes": 5076,
+      "row_count": 31,
+      "timestamp_units": [
+        "milliseconds"
+      ]
+    },
+    {
+      "asset": "spot",
+      "symbol": "ETHUSDT",
+      "month": "2024-02",
+      "archive_url": "https://data.binance.vision/data/spot/monthly/klines/ETHUSDT/1d/ETHUSDT-1d-2024-02.zip",
+      "checksum_url": "https://data.binance.vision/data/spot/monthly/klines/ETHUSDT/1d/ETHUSDT-1d-2024-02.zip.CHECKSUM",
+      "archive_sha256": "36ebece2c2a6fcccdc4ee2924cd037870e88fa09877208843e2cbdf5f5c93a44",
+      "archive_size_bytes": 1976,
+      "csv_member": "ETHUSDT-1d-2024-02.csv",
+      "csv_uncompressed_bytes": 4761,
+      "row_count": 29,
+      "timestamp_units": [
+        "milliseconds"
+      ]
+    },
+    {
+      "asset": "spot",
+      "symbol": "ETHUSDT",
+      "month": "2024-03",
+      "archive_url": "https://data.binance.vision/data/spot/monthly/klines/ETHUSDT/1d/ETHUSDT-1d-2024-03.zip",
+      "checksum_url": "https://data.binance.vision/data/spot/monthly/klines/ETHUSDT/1d/ETHUSDT-1d-2024-03.zip.CHECKSUM",
+      "archive_sha256": "78f5a6edba263350c1df6d4678596570ae5ce5df38edd4e253ec89431fbddfc0",
+      "archive_size_bytes": 2125,
+      "csv_member": "ETHUSDT-1d-2024-03.csv",
+      "csv_uncompressed_bytes": 5121,
+      "row_count": 31,
+      "timestamp_units": [
+        "milliseconds"
+      ]
+    },
+    {
+      "asset": "spot",
+      "symbol": "ETHUSDT",
+      "month": "2024-04",
+      "archive_url": "https://data.binance.vision/data/spot/monthly/klines/ETHUSDT/1d/ETHUSDT-1d-2024-04.zip",
+      "checksum_url": "https://data.binance.vision/data/spot/monthly/klines/ETHUSDT/1d/ETHUSDT-1d-2024-04.zip.CHECKSUM",
+      "archive_sha256": "d0a5088a3d49cea7269dc3bf7f29912e23a390c87fb7b14acbed210ac9be8177",
+      "archive_size_bytes": 2050,
+      "csv_member": "ETHUSDT-1d-2024-04.csv",
+      "csv_uncompressed_bytes": 4932,
+      "row_count": 30,
+      "timestamp_units": [
+        "milliseconds"
+      ]
+    },
+    {
+      "asset": "spot",
+      "symbol": "ETHUSDT",
+      "month": "2024-05",
+      "archive_url": "https://data.binance.vision/data/spot/monthly/klines/ETHUSDT/1d/ETHUSDT-1d-2024-05.zip",
+      "checksum_url": "https://data.binance.vision/data/spot/monthly/klines/ETHUSDT/1d/ETHUSDT-1d-2024-05.zip.CHECKSUM",
+      "archive_sha256": "d0c98ff2f16913e1c1f9bb72165086056ae9923db5b07f113ca6eaf334b87bbf",
+      "archive_size_bytes": 2109,
+      "csv_member": "ETHUSDT-1d-2024-05.csv",
+      "csv_uncompressed_bytes": 5077,
+      "row_count": 31,
+      "timestamp_units": [
+        "milliseconds"
+      ]
+    },
+    {
+      "asset": "spot",
+      "symbol": "ETHUSDT",
+      "month": "2024-06",
+      "archive_url": "https://data.binance.vision/data/spot/monthly/klines/ETHUSDT/1d/ETHUSDT-1d-2024-06.zip",
+      "checksum_url": "https://data.binance.vision/data/spot/monthly/klines/ETHUSDT/1d/ETHUSDT-1d-2024-06.zip.CHECKSUM",
+      "archive_sha256": "5198557b48b8df354f5dc07e76270e988416f9e8972e577d9c327b31d2cb1db1",
+      "archive_size_bytes": 2014,
+      "csv_member": "ETHUSDT-1d-2024-06.csv",
+      "csv_uncompressed_bytes": 4895,
+      "row_count": 30,
+      "timestamp_units": [
+        "milliseconds"
+      ]
+    },
+    {
+      "asset": "spot",
+      "symbol": "ETHUSDT",
+      "month": "2024-07",
+      "archive_url": "https://data.binance.vision/data/spot/monthly/klines/ETHUSDT/1d/ETHUSDT-1d-2024-07.zip",
+      "checksum_url": "https://data.binance.vision/data/spot/monthly/klines/ETHUSDT/1d/ETHUSDT-1d-2024-07.zip.CHECKSUM",
+      "archive_sha256": "ae4a1a154d9c4e27bb7551293216d6824a0455fef7ecea0efb5084e145ba1ac5",
+      "archive_size_bytes": 2093,
+      "csv_member": "ETHUSDT-1d-2024-07.csv",
+      "csv_uncompressed_bytes": 5078,
+      "row_count": 31,
+      "timestamp_units": [
+        "milliseconds"
+      ]
+    },
+    {
+      "asset": "spot",
+      "symbol": "ETHUSDT",
+      "month": "2024-08",
+      "archive_url": "https://data.binance.vision/data/spot/monthly/klines/ETHUSDT/1d/ETHUSDT-1d-2024-08.zip",
+      "checksum_url": "https://data.binance.vision/data/spot/monthly/klines/ETHUSDT/1d/ETHUSDT-1d-2024-08.zip.CHECKSUM",
+      "archive_sha256": "e41fc2dcefc5d0737fd74e943602327cfdbcde04dec40d94030cfcf01720e593",
+      "archive_size_bytes": 2107,
+      "csv_member": "ETHUSDT-1d-2024-08.csv",
+      "csv_uncompressed_bytes": 5088,
+      "row_count": 31,
+      "timestamp_units": [
+        "milliseconds"
+      ]
+    },
+    {
+      "asset": "spot",
+      "symbol": "ETHUSDT",
+      "month": "2024-09",
+      "archive_url": "https://data.binance.vision/data/spot/monthly/klines/ETHUSDT/1d/ETHUSDT-1d-2024-09.zip",
+      "checksum_url": "https://data.binance.vision/data/spot/monthly/klines/ETHUSDT/1d/ETHUSDT-1d-2024-09.zip.CHECKSUM",
+      "archive_sha256": "6e6add68412a0d89199fb6185b88b24994c32522e4ee67ac88d02ab8b81eb1c1",
+      "archive_size_bytes": 2030,
+      "csv_member": "ETHUSDT-1d-2024-09.csv",
+      "csv_uncompressed_bytes": 4911,
+      "row_count": 30,
+      "timestamp_units": [
+        "milliseconds"
+      ]
+    },
+    {
+      "asset": "spot",
+      "symbol": "ETHUSDT",
+      "month": "2024-10",
+      "archive_url": "https://data.binance.vision/data/spot/monthly/klines/ETHUSDT/1d/ETHUSDT-1d-2024-10.zip",
+      "checksum_url": "https://data.binance.vision/data/spot/monthly/klines/ETHUSDT/1d/ETHUSDT-1d-2024-10.zip.CHECKSUM",
+      "archive_sha256": "cc2ae0b168f8ddd7b45441a30ae9aa95f748ec9ecaa19ab3cf5e9ec21fc63783",
+      "archive_size_bytes": 2084,
+      "csv_member": "ETHUSDT-1d-2024-10.csv",
+      "csv_uncompressed_bytes": 5084,
+      "row_count": 31,
+      "timestamp_units": [
+        "milliseconds"
+      ]
+    },
+    {
+      "asset": "spot",
+      "symbol": "ETHUSDT",
+      "month": "2024-11",
+      "archive_url": "https://data.binance.vision/data/spot/monthly/klines/ETHUSDT/1d/ETHUSDT-1d-2024-11.zip",
+      "checksum_url": "https://data.binance.vision/data/spot/monthly/klines/ETHUSDT/1d/ETHUSDT-1d-2024-11.zip.CHECKSUM",
+      "archive_sha256": "fe8b32f1ab7a3a72316b404ffc9d7002cb75801364f12dc52eddfedbb3e3af43",
+      "archive_size_bytes": 2074,
+      "csv_member": "ETHUSDT-1d-2024-11.csv",
+      "csv_uncompressed_bytes": 4960,
+      "row_count": 30,
+      "timestamp_units": [
+        "milliseconds"
+      ]
+    },
+    {
+      "asset": "spot",
+      "symbol": "ETHUSDT",
+      "month": "2024-12",
+      "archive_url": "https://data.binance.vision/data/spot/monthly/klines/ETHUSDT/1d/ETHUSDT-1d-2024-12.zip",
+      "checksum_url": "https://data.binance.vision/data/spot/monthly/klines/ETHUSDT/1d/ETHUSDT-1d-2024-12.zip.CHECKSUM",
+      "archive_sha256": "e36880cb5d79157599878eb97db2d20a5bc10f904384501f0b3571a09c1b6bcc",
+      "archive_size_bytes": 2128,
+      "csv_member": "ETHUSDT-1d-2024-12.csv",
+      "csv_uncompressed_bytes": 5124,
+      "row_count": 31,
+      "timestamp_units": [
+        "milliseconds"
+      ]
+    },
+    {
+      "asset": "spot",
+      "symbol": "ETHUSDT",
+      "month": "2025-01",
+      "archive_url": "https://data.binance.vision/data/spot/monthly/klines/ETHUSDT/1d/ETHUSDT-1d-2025-01.zip",
+      "checksum_url": "https://data.binance.vision/data/spot/monthly/klines/ETHUSDT/1d/ETHUSDT-1d-2025-01.zip.CHECKSUM",
+      "archive_sha256": "fb1c6329259282a4174c646629515704da03c713bff9106f8da01ec188112a09",
+      "archive_size_bytes": 2157,
+      "csv_member": "ETHUSDT-1d-2025-01.csv",
+      "csv_uncompressed_bytes": 5297,
+      "row_count": 31,
+      "timestamp_units": [
+        "microseconds"
+      ]
+    },
+    {
+      "asset": "spot",
+      "symbol": "ETHUSDT",
+      "month": "2025-02",
+      "archive_url": "https://data.binance.vision/data/spot/monthly/klines/ETHUSDT/1d/ETHUSDT-1d-2025-02.zip",
+      "checksum_url": "https://data.binance.vision/data/spot/monthly/klines/ETHUSDT/1d/ETHUSDT-1d-2025-02.zip.CHECKSUM",
+      "archive_sha256": "ed3cf4f55aa296a25e092d73170c6772fa33e089c8ee5bdd379198fa94675361",
+      "archive_size_bytes": 1988,
+      "csv_member": "ETHUSDT-1d-2025-02.csv",
+      "csv_uncompressed_bytes": 4795,
+      "row_count": 28,
+      "timestamp_units": [
+        "microseconds"
+      ]
+    },
+    {
+      "asset": "spot",
+      "symbol": "ETHUSDT",
+      "month": "2025-03",
+      "archive_url": "https://data.binance.vision/data/spot/monthly/klines/ETHUSDT/1d/ETHUSDT-1d-2025-03.zip",
+      "checksum_url": "https://data.binance.vision/data/spot/monthly/klines/ETHUSDT/1d/ETHUSDT-1d-2025-03.zip.CHECKSUM",
+      "archive_sha256": "37a2a5d88861944141de683f7584d01cfeb23c0a69ba0aa2613fa6ec14b33960",
+      "archive_size_bytes": 2172,
+      "csv_member": "ETHUSDT-1d-2025-03.csv",
+      "csv_uncompressed_bytes": 5289,
+      "row_count": 31,
+      "timestamp_units": [
+        "microseconds"
+      ]
+    },
+    {
+      "asset": "spot",
+      "symbol": "ETHUSDT",
+      "month": "2025-04",
+      "archive_url": "https://data.binance.vision/data/spot/monthly/klines/ETHUSDT/1d/ETHUSDT-1d-2025-04.zip",
+      "checksum_url": "https://data.binance.vision/data/spot/monthly/klines/ETHUSDT/1d/ETHUSDT-1d-2025-04.zip.CHECKSUM",
+      "archive_sha256": "88554fccbad3d445fb7aad16440ef62aeb7b5a0d0d0be26101919753a455e106",
+      "archive_size_bytes": 2107,
+      "csv_member": "ETHUSDT-1d-2025-04.csv",
+      "csv_uncompressed_bytes": 5115,
+      "row_count": 30,
+      "timestamp_units": [
+        "microseconds"
+      ]
+    },
+    {
+      "asset": "spot",
+      "symbol": "ETHUSDT",
+      "month": "2025-05",
+      "archive_url": "https://data.binance.vision/data/spot/monthly/klines/ETHUSDT/1d/ETHUSDT-1d-2025-05.zip",
+      "checksum_url": "https://data.binance.vision/data/spot/monthly/klines/ETHUSDT/1d/ETHUSDT-1d-2025-05.zip.CHECKSUM",
+      "archive_sha256": "05f9099dc0225439cdcd08661281bc958f4984a02c5219ff019c7988140a4511",
+      "archive_size_bytes": 2150,
+      "csv_member": "ETHUSDT-1d-2025-05.csv",
+      "csv_uncompressed_bytes": 5309,
+      "row_count": 31,
+      "timestamp_units": [
+        "microseconds"
+      ]
+    },
+    {
+      "asset": "spot",
+      "symbol": "ETHUSDT",
+      "month": "2025-06",
+      "archive_url": "https://data.binance.vision/data/spot/monthly/klines/ETHUSDT/1d/ETHUSDT-1d-2025-06.zip",
+      "checksum_url": "https://data.binance.vision/data/spot/monthly/klines/ETHUSDT/1d/ETHUSDT-1d-2025-06.zip.CHECKSUM",
+      "archive_sha256": "1a436c3f4e79c6ef65e06749c7be302800f2bbe84b283f36b670688f1fe8e706",
+      "archive_size_bytes": 2077,
+      "csv_member": "ETHUSDT-1d-2025-06.csv",
+      "csv_uncompressed_bytes": 5124,
+      "row_count": 30,
+      "timestamp_units": [
+        "microseconds"
+      ]
+    },
+    {
+      "asset": "spot",
+      "symbol": "ETHUSDT",
+      "month": "2025-07",
+      "archive_url": "https://data.binance.vision/data/spot/monthly/klines/ETHUSDT/1d/ETHUSDT-1d-2025-07.zip",
+      "checksum_url": "https://data.binance.vision/data/spot/monthly/klines/ETHUSDT/1d/ETHUSDT-1d-2025-07.zip.CHECKSUM",
+      "archive_sha256": "507452f08f6df58e28c66a56eb114c274a601908b7a36cca028f4f1fe685c5a0",
+      "archive_size_bytes": 2148,
+      "csv_member": "ETHUSDT-1d-2025-07.csv",
+      "csv_uncompressed_bytes": 5311,
+      "row_count": 31,
+      "timestamp_units": [
+        "microseconds"
+      ]
+    },
+    {
+      "asset": "spot",
+      "symbol": "ETHUSDT",
+      "month": "2025-08",
+      "archive_url": "https://data.binance.vision/data/spot/monthly/klines/ETHUSDT/1d/ETHUSDT-1d-2025-08.zip",
+      "checksum_url": "https://data.binance.vision/data/spot/monthly/klines/ETHUSDT/1d/ETHUSDT-1d-2025-08.zip.CHECKSUM",
+      "archive_sha256": "caaf73478addeaf0d1a1d470284448a8eea201ec8b54acbf4996327ee5fd30d3",
+      "archive_size_bytes": 2173,
+      "csv_member": "ETHUSDT-1d-2025-08.csv",
+      "csv_uncompressed_bytes": 5324,
+      "row_count": 31,
+      "timestamp_units": [
+        "microseconds"
+      ]
+    },
+    {
+      "asset": "spot",
+      "symbol": "ETHUSDT",
+      "month": "2025-09",
+      "archive_url": "https://data.binance.vision/data/spot/monthly/klines/ETHUSDT/1d/ETHUSDT-1d-2025-09.zip",
+      "checksum_url": "https://data.binance.vision/data/spot/monthly/klines/ETHUSDT/1d/ETHUSDT-1d-2025-09.zip.CHECKSUM",
+      "archive_sha256": "2362f78fe5ef79628fe7a16fcd720ba5e2490bd05806943d092d0c2bbc025403",
+      "archive_size_bytes": 2104,
+      "csv_member": "ETHUSDT-1d-2025-09.csv",
+      "csv_uncompressed_bytes": 5130,
+      "row_count": 30,
+      "timestamp_units": [
+        "microseconds"
+      ]
+    },
+    {
+      "asset": "spot",
+      "symbol": "ETHUSDT",
+      "month": "2025-10",
+      "archive_url": "https://data.binance.vision/data/spot/monthly/klines/ETHUSDT/1d/ETHUSDT-1d-2025-10.zip",
+      "checksum_url": "https://data.binance.vision/data/spot/monthly/klines/ETHUSDT/1d/ETHUSDT-1d-2025-10.zip.CHECKSUM",
+      "archive_sha256": "7ac29ddc8e5af97d63293df20ca5fe2d31952754d06fa7592992cd1b9ccc2fbb",
+      "archive_size_bytes": 2174,
+      "csv_member": "ETHUSDT-1d-2025-10.csv",
+      "csv_uncompressed_bytes": 5318,
+      "row_count": 31,
+      "timestamp_units": [
+        "microseconds"
+      ]
+    },
+    {
+      "asset": "spot",
+      "symbol": "ETHUSDT",
+      "month": "2025-11",
+      "archive_url": "https://data.binance.vision/data/spot/monthly/klines/ETHUSDT/1d/ETHUSDT-1d-2025-11.zip",
+      "checksum_url": "https://data.binance.vision/data/spot/monthly/klines/ETHUSDT/1d/ETHUSDT-1d-2025-11.zip.CHECKSUM",
+      "archive_sha256": "ca97638b3e43fa8fc6cfe9e01ebec4cd6b59ac5b37b694f951ae30719424bbed",
+      "archive_size_bytes": 2101,
+      "csv_member": "ETHUSDT-1d-2025-11.csv",
+      "csv_uncompressed_bytes": 5136,
+      "row_count": 30,
+      "timestamp_units": [
+        "microseconds"
+      ]
+    },
+    {
+      "asset": "spot",
+      "symbol": "ETHUSDT",
+      "month": "2025-12",
+      "archive_url": "https://data.binance.vision/data/spot/monthly/klines/ETHUSDT/1d/ETHUSDT-1d-2025-12.zip",
+      "checksum_url": "https://data.binance.vision/data/spot/monthly/klines/ETHUSDT/1d/ETHUSDT-1d-2025-12.zip.CHECKSUM",
+      "archive_sha256": "eaf731c713e58a6d0e7a196c9887c41c5ed6066c73de68f878dfbe4a48de05e8",
+      "archive_size_bytes": 2165,
+      "csv_member": "ETHUSDT-1d-2025-12.csv",
+      "csv_uncompressed_bytes": 5280,
+      "row_count": 31,
+      "timestamp_units": [
+        "microseconds"
+      ]
+    },
+    {
+      "asset": "spot",
+      "symbol": "ETHUSDT",
+      "month": "2026-01",
+      "archive_url": "https://data.binance.vision/data/spot/monthly/klines/ETHUSDT/1d/ETHUSDT-1d-2026-01.zip",
+      "checksum_url": "https://data.binance.vision/data/spot/monthly/klines/ETHUSDT/1d/ETHUSDT-1d-2026-01.zip.CHECKSUM",
+      "archive_sha256": "809eceed4a7a4eddf08f70e4c505f454ecf9d715d72269fa36db37964e4159f4",
+      "archive_size_bytes": 2151,
+      "csv_member": "ETHUSDT-1d-2026-01.csv",
+      "csv_uncompressed_bytes": 5280,
+      "row_count": 31,
+      "timestamp_units": [
+        "microseconds"
+      ]
+    },
+    {
+      "asset": "spot",
+      "symbol": "ETHUSDT",
+      "month": "2026-02",
+      "archive_url": "https://data.binance.vision/data/spot/monthly/klines/ETHUSDT/1d/ETHUSDT-1d-2026-02.zip",
+      "checksum_url": "https://data.binance.vision/data/spot/monthly/klines/ETHUSDT/1d/ETHUSDT-1d-2026-02.zip.CHECKSUM",
+      "archive_sha256": "c853802f359f27a9e935f9ea48cdc66207b0c7bd6d22241e7bf240722d0e1600",
+      "archive_size_bytes": 1965,
+      "csv_member": "ETHUSDT-1d-2026-02.csv",
+      "csv_uncompressed_bytes": 4793,
+      "row_count": 28,
+      "timestamp_units": [
+        "microseconds"
+      ]
+    },
+    {
+      "asset": "spot",
+      "symbol": "ETHUSDT",
+      "month": "2026-03",
+      "archive_url": "https://data.binance.vision/data/spot/monthly/klines/ETHUSDT/1d/ETHUSDT-1d-2026-03.zip",
+      "checksum_url": "https://data.binance.vision/data/spot/monthly/klines/ETHUSDT/1d/ETHUSDT-1d-2026-03.zip.CHECKSUM",
+      "archive_sha256": "ce8ec50be4226da6d0c7724dac25c1a35dac8d75c8f3207d5aa8a0991ee54d9a",
+      "archive_size_bytes": 2149,
+      "csv_member": "ETHUSDT-1d-2026-03.csv",
+      "csv_uncompressed_bytes": 5277,
+      "row_count": 31,
+      "timestamp_units": [
+        "microseconds"
+      ]
+    },
+    {
+      "asset": "spot",
+      "symbol": "ETHUSDT",
+      "month": "2026-04",
+      "archive_url": "https://data.binance.vision/data/spot/monthly/klines/ETHUSDT/1d/ETHUSDT-1d-2026-04.zip",
+      "checksum_url": "https://data.binance.vision/data/spot/monthly/klines/ETHUSDT/1d/ETHUSDT-1d-2026-04.zip.CHECKSUM",
+      "archive_sha256": "c557fd27446c4a07abbfe6afbb8ca7eac8c42ed689bc71f6eacc75764e740668",
+      "archive_size_bytes": 2075,
+      "csv_member": "ETHUSDT-1d-2026-04.csv",
+      "csv_uncompressed_bytes": 5089,
+      "row_count": 30,
+      "timestamp_units": [
+        "microseconds"
+      ]
+    },
+    {
+      "asset": "spot",
+      "symbol": "ETHUSDT",
+      "month": "2026-05",
+      "archive_url": "https://data.binance.vision/data/spot/monthly/klines/ETHUSDT/1d/ETHUSDT-1d-2026-05.zip",
+      "checksum_url": "https://data.binance.vision/data/spot/monthly/klines/ETHUSDT/1d/ETHUSDT-1d-2026-05.zip.CHECKSUM",
+      "archive_sha256": "68144fec96f98d4dee301b12c58de1769024de73d3675edf0897467ea1885f37",
+      "archive_size_bytes": 2124,
+      "csv_member": "ETHUSDT-1d-2026-05.csv",
+      "csv_uncompressed_bytes": 5256,
+      "row_count": 31,
+      "timestamp_units": [
+        "microseconds"
+      ]
+    },
+    {
+      "asset": "spot",
+      "symbol": "ETHUSDT",
+      "month": "2026-06",
+      "archive_url": "https://data.binance.vision/data/spot/monthly/klines/ETHUSDT/1d/ETHUSDT-1d-2026-06.zip",
+      "checksum_url": "https://data.binance.vision/data/spot/monthly/klines/ETHUSDT/1d/ETHUSDT-1d-2026-06.zip.CHECKSUM",
+      "archive_sha256": "d22d6b4c69773795dfa271c571814efe19b6a579366e056e7f740fe937fd408d",
+      "archive_size_bytes": 2065,
+      "csv_member": "ETHUSDT-1d-2026-06.csv",
+      "csv_uncompressed_bytes": 5098,
+      "row_count": 30,
+      "timestamp_units": [
+        "microseconds"
+      ]
+    },
+    {
+      "asset": "spot",
+      "symbol": "ETHUSDT",
+      "month": "2026-07",
+      "archive_url": "https://data.binance.vision/data/spot/monthly/klines/ETHUSDT/1d/ETHUSDT-1d-2026-07.zip",
+      "checksum_url": "https://data.binance.vision/data/spot/monthly/klines/ETHUSDT/1d/ETHUSDT-1d-2026-07.zip.CHECKSUM",
+      "archive_sha256": "6d4ae181331392a59efb8064c24392ccbfc80818bf0261a403900d7143966a10",
+      "archive_size_bytes": 2109,
+      "csv_member": "ETHUSDT-1d-2026-07.csv",
+      "csv_uncompressed_bytes": 5254,
+      "row_count": 31,
+      "timestamp_units": [
+        "microseconds"
+      ]
+    },
+    {
+      "asset": "spot",
+      "symbol": "ETHUSDT",
+      "month": "2026-08",
+      "archive_url": "https://data.binance.vision/data/spot/monthly/klines/ETHUSDT/1d/ETHUSDT-1d-2026-08.zip",
+      "checksum_url": "https://data.binance.vision/data/spot/monthly/klines/ETHUSDT/1d/ETHUSDT-1d-2026-08.zip.CHECKSUM",
+      "archive_sha256": "6c9cc2988041dea44dfd0a16dcc8c201ead6ead44a24e642db279e378239f3f1",
+      "archive_size_bytes": 2121,
+      "csv_member": "ETHUSDT-1d-2026-08.csv",
+      "csv_uncompressed_bytes": 5241,
+      "row_count": 31,
+      "timestamp_units": [
+        "microseconds"
+      ]
+    },
+    {
+      "asset": "spot",
+      "symbol": "ETHUSDT",
+      "month": "2026-09",
+      "archive_url": "https://data.binance.vision/data/spot/monthly/klines/ETHUSDT/1d/ETHUSDT-1d-2026-09.zip",
+      "checksum_url": "https://data.binance.vision/data/spot/monthly/klines/ETHUSDT/1d/ETHUSDT-1d-2026-09.zip.CHECKSUM",
+      "archive_sha256": "89fab70a5619b0da4bddc7d174e1ae6abf6ecd7656c89804d67b649dc716e2c4",
+      "archive_size_bytes": 2074,
+      "csv_member": "ETHUSDT-1d-2026-09.csv",
+      "csv_uncompressed_bytes": 5095,
+      "row_count": 30,
+      "timestamp_units": [
+        "microseconds"
+      ]
+    },
+    {
+      "asset": "funding",
+      "symbol": "ETHUSDT",
+      "month": "2024-01",
+      "archive_url": "https://data.binance.vision/data/futures/um/monthly/fundingRate/ETHUSDT/ETHUSDT-fundingRate-2024-01.zip",
+      "checksum_url": "https://data.binance.vision/data/futures/um/monthly/fundingRate/ETHUSDT/ETHUSDT-fundingRate-2024-01.zip.CHECKSUM",
+      "archive_sha256": "5a71469b0b363886df904e784dddefc484dd943334b1fb7454713ce4ed715a4b",
+      "archive_size_bytes": 685,
+      "csv_member": "ETHUSDT-fundingRate-2024-01.csv",
+      "csv_uncompressed_bytes": 2562,
+      "row_count": 93,
+      "timestamp_units": [
+        "milliseconds"
+      ]
+    },
+    {
+      "asset": "funding",
+      "symbol": "ETHUSDT",
+      "month": "2024-02",
+      "archive_url": "https://data.binance.vision/data/futures/um/monthly/fundingRate/ETHUSDT/ETHUSDT-fundingRate-2024-02.zip",
+      "checksum_url": "https://data.binance.vision/data/futures/um/monthly/fundingRate/ETHUSDT/ETHUSDT-fundingRate-2024-02.zip.CHECKSUM",
+      "archive_sha256": "915fad950c48935f3875d88992b8d78290bc8a6fada44408e3ed14aef9a56670",
+      "archive_size_bytes": 770,
+      "csv_member": "ETHUSDT-fundingRate-2024-02.csv",
+      "csv_uncompressed_bytes": 2400,
+      "row_count": 87,
+      "timestamp_units": [
+        "milliseconds"
+      ]
+    },
+    {
+      "asset": "funding",
+      "symbol": "ETHUSDT",
+      "month": "2024-03",
+      "archive_url": "https://data.binance.vision/data/futures/um/monthly/fundingRate/ETHUSDT/ETHUSDT-fundingRate-2024-03.zip",
+      "checksum_url": "https://data.binance.vision/data/futures/um/monthly/fundingRate/ETHUSDT/ETHUSDT-fundingRate-2024-03.zip.CHECKSUM",
+      "archive_sha256": "e9c1d0f3e7e3b493277c7f826afb223482d56bdc7611144d398ac10e47307907",
+      "archive_size_bytes": 941,
+      "csv_member": "ETHUSDT-fundingRate-2024-03.csv",
+      "csv_uncompressed_bytes": 2562,
+      "row_count": 93,
+      "timestamp_units": [
+        "milliseconds"
+      ]
+    },
+    {
+      "asset": "funding",
+      "symbol": "ETHUSDT",
+      "month": "2024-04",
+      "archive_url": "https://data.binance.vision/data/futures/um/monthly/fundingRate/ETHUSDT/ETHUSDT-fundingRate-2024-04.zip",
+      "checksum_url": "https://data.binance.vision/data/futures/um/monthly/fundingRate/ETHUSDT/ETHUSDT-fundingRate-2024-04.zip.CHECKSUM",
+      "archive_sha256": "b54c9f05af116ccd921b32b25960ae26954c4983992d44f2390bf1de08b2c724",
+      "archive_size_bytes": 834,
+      "csv_member": "ETHUSDT-fundingRate-2024-04.csv",
+      "csv_uncompressed_bytes": 2483,
+      "row_count": 90,
+      "timestamp_units": [
+        "milliseconds"
+      ]
+    },
+    {
+      "asset": "funding",
+      "symbol": "ETHUSDT",
+      "month": "2024-05",
+      "archive_url": "https://data.binance.vision/data/futures/um/monthly/fundingRate/ETHUSDT/ETHUSDT-fundingRate-2024-05.zip",
+      "checksum_url": "https://data.binance.vision/data/futures/um/monthly/fundingRate/ETHUSDT/ETHUSDT-fundingRate-2024-05.zip.CHECKSUM",
+      "archive_sha256": "8350ab4d61b12ec61539611e30809039f54814213bc4c937609360b1ff28b5e0",
+      "archive_size_bytes": 836,
+      "csv_member": "ETHUSDT-fundingRate-2024-05.csv",
+      "csv_uncompressed_bytes": 2559,
+      "row_count": 93,
+      "timestamp_units": [
+        "milliseconds"
+      ]
+    },
+    {
+      "asset": "funding",
+      "symbol": "ETHUSDT",
+      "month": "2024-06",
+      "archive_url": "https://data.binance.vision/data/futures/um/monthly/fundingRate/ETHUSDT/ETHUSDT-fundingRate-2024-06.zip",
+      "checksum_url": "https://data.binance.vision/data/futures/um/monthly/fundingRate/ETHUSDT/ETHUSDT-fundingRate-2024-06.zip.CHECKSUM",
+      "archive_sha256": "def13f4a478c28b0111fb24c57f95fcee80e71982ed74f12e465d20d328e2275",
+      "archive_size_bytes": 758,
+      "csv_member": "ETHUSDT-fundingRate-2024-06.csv",
+      "csv_uncompressed_bytes": 2481,
+      "row_count": 90,
+      "timestamp_units": [
+        "milliseconds"
+      ]
+    },
+    {
+      "asset": "funding",
+      "symbol": "ETHUSDT",
+      "month": "2024-07",
+      "archive_url": "https://data.binance.vision/data/futures/um/monthly/fundingRate/ETHUSDT/ETHUSDT-fundingRate-2024-07.zip",
+      "checksum_url": "https://data.binance.vision/data/futures/um/monthly/fundingRate/ETHUSDT/ETHUSDT-fundingRate-2024-07.zip.CHECKSUM",
+      "archive_sha256": "9d236281ab6430250ad2b472cbbf03812a40aed42e73c8339fc6be55a2417a82",
+      "archive_size_bytes": 831,
+      "csv_member": "ETHUSDT-fundingRate-2024-07.csv",
+      "csv_uncompressed_bytes": 2562,
+      "row_count": 93,
+      "timestamp_units": [
+        "milliseconds"
+      ]
+    },
+    {
+      "asset": "funding",
+      "symbol": "ETHUSDT",
+      "month": "2024-08",
+      "archive_url": "https://data.binance.vision/data/futures/um/monthly/fundingRate/ETHUSDT/ETHUSDT-fundingRate-2024-08.zip",
+      "checksum_url": "https://data.binance.vision/data/futures/um/monthly/fundingRate/ETHUSDT/ETHUSDT-fundingRate-2024-08.zip.CHECKSUM",
+      "archive_sha256": "e17684bc761924eb5e1912c52cfa997eddeb99da303e68e28f6f37369f672b9d",
+      "archive_size_bytes": 944,
+      "csv_member": "ETHUSDT-fundingRate-2024-08.csv",
+      "csv_uncompressed_bytes": 2595,
+      "row_count": 93,
+      "timestamp_units": [
+        "milliseconds"
+      ]
+    },
+    {
+      "asset": "funding",
+      "symbol": "ETHUSDT",
+      "month": "2024-09",
+      "archive_url": "https://data.binance.vision/data/futures/um/monthly/fundingRate/ETHUSDT/ETHUSDT-fundingRate-2024-09.zip",
+      "checksum_url": "https://data.binance.vision/data/futures/um/monthly/fundingRate/ETHUSDT/ETHUSDT-fundingRate-2024-09.zip.CHECKSUM",
+      "archive_sha256": "ffb6e7441053137cb7ca81cc83bcdd996612f7dbb15aa2e168a7ee521f8cbbca",
+      "archive_size_bytes": 908,
+      "csv_member": "ETHUSDT-fundingRate-2024-09.csv",
+      "csv_uncompressed_bytes": 2491,
+      "row_count": 90,
+      "timestamp_units": [
+        "milliseconds"
+      ]
+    },
+    {
+      "asset": "funding",
+      "symbol": "ETHUSDT",
+      "month": "2024-10",
+      "archive_url": "https://data.binance.vision/data/futures/um/monthly/fundingRate/ETHUSDT/ETHUSDT-fundingRate-2024-10.zip",
+      "checksum_url": "https://data.binance.vision/data/futures/um/monthly/fundingRate/ETHUSDT/ETHUSDT-fundingRate-2024-10.zip.CHECKSUM",
+      "archive_sha256": "2124978c335473a5d9c0f0e9f238193d56c21ac7e250e065a36e9d1201beb049",
+      "archive_size_bytes": 748,
+      "csv_member": "ETHUSDT-fundingRate-2024-10.csv",
+      "csv_uncompressed_bytes": 2562,
+      "row_count": 93,
+      "timestamp_units": [
+        "milliseconds"
+      ]
+    },
+    {
+      "asset": "funding",
+      "symbol": "ETHUSDT",
+      "month": "2024-11",
+      "archive_url": "https://data.binance.vision/data/futures/um/monthly/fundingRate/ETHUSDT/ETHUSDT-fundingRate-2024-11.zip",
+      "checksum_url": "https://data.binance.vision/data/futures/um/monthly/fundingRate/ETHUSDT/ETHUSDT-fundingRate-2024-11.zip.CHECKSUM",
+      "archive_sha256": "636a4c7c86445c2774b4eae8598c480fcbc57de7dde5d40f6937c7fac510797c",
+      "archive_size_bytes": 809,
+      "csv_member": "ETHUSDT-fundingRate-2024-11.csv",
+      "csv_uncompressed_bytes": 2481,
+      "row_count": 90,
+      "timestamp_units": [
+        "milliseconds"
+      ]
+    },
+    {
+      "asset": "funding",
+      "symbol": "ETHUSDT",
+      "month": "2024-12",
+      "archive_url": "https://data.binance.vision/data/futures/um/monthly/fundingRate/ETHUSDT/ETHUSDT-fundingRate-2024-12.zip",
+      "checksum_url": "https://data.binance.vision/data/futures/um/monthly/fundingRate/ETHUSDT/ETHUSDT-fundingRate-2024-12.zip.CHECKSUM",
+      "archive_sha256": "11a0847e8aacb32eeb725611fda4fe6a8419c03eb0c16e14dfc3b9287e78ecc9",
+      "archive_size_bytes": 837,
+      "csv_member": "ETHUSDT-fundingRate-2024-12.csv",
+      "csv_uncompressed_bytes": 2562,
+      "row_count": 93,
+      "timestamp_units": [
+        "milliseconds"
+      ]
+    },
+    {
+      "asset": "funding",
+      "symbol": "ETHUSDT",
+      "month": "2025-01",
+      "archive_url": "https://data.binance.vision/data/futures/um/monthly/fundingRate/ETHUSDT/ETHUSDT-fundingRate-2025-01.zip",
+      "checksum_url": "https://data.binance.vision/data/futures/um/monthly/fundingRate/ETHUSDT/ETHUSDT-fundingRate-2025-01.zip.CHECKSUM",
+      "archive_sha256": "88c95b99d2784a7baac529fe578563d7e05038a1b8a498b2f59bf81b216fee20",
+      "archive_size_bytes": 768,
+      "csv_member": "ETHUSDT-fundingRate-2025-01.csv",
+      "csv_uncompressed_bytes": 2563,
+      "row_count": 93,
+      "timestamp_units": [
+        "milliseconds"
+      ]
+    },
+    {
+      "asset": "funding",
+      "symbol": "ETHUSDT",
+      "month": "2025-02",
+      "archive_url": "https://data.binance.vision/data/futures/um/monthly/fundingRate/ETHUSDT/ETHUSDT-fundingRate-2025-02.zip",
+      "checksum_url": "https://data.binance.vision/data/futures/um/monthly/fundingRate/ETHUSDT/ETHUSDT-fundingRate-2025-02.zip.CHECKSUM",
+      "archive_sha256": "9e116dd6754484a19ecc41ced40b8dfa7f62c33d41cdc3317336b1e1f043767f",
+      "archive_size_bytes": 868,
+      "csv_member": "ETHUSDT-fundingRate-2025-02.csv",
+      "csv_uncompressed_bytes": 2336,
+      "row_count": 84,
+      "timestamp_units": [
+        "milliseconds"
+      ]
+    },
+    {
+      "asset": "funding",
+      "symbol": "ETHUSDT",
+      "month": "2025-03",
+      "archive_url": "https://data.binance.vision/data/futures/um/monthly/fundingRate/ETHUSDT/ETHUSDT-fundingRate-2025-03.zip",
+      "checksum_url": "https://data.binance.vision/data/futures/um/monthly/fundingRate/ETHUSDT/ETHUSDT-fundingRate-2025-03.zip.CHECKSUM",
+      "archive_sha256": "62464a8bfb7ba515628acb76d3e2172d33b88805faa2e701a22537c51a17d139",
+      "archive_size_bytes": 934,
+      "csv_member": "ETHUSDT-fundingRate-2025-03.csv",
+      "csv_uncompressed_bytes": 2580,
+      "row_count": 93,
+      "timestamp_units": [
+        "milliseconds"
+      ]
+    },
+    {
+      "asset": "funding",
+      "symbol": "ETHUSDT",
+      "month": "2025-04",
+      "archive_url": "https://data.binance.vision/data/futures/um/monthly/fundingRate/ETHUSDT/ETHUSDT-fundingRate-2025-04.zip",
+      "checksum_url": "https://data.binance.vision/data/futures/um/monthly/fundingRate/ETHUSDT/ETHUSDT-fundingRate-2025-04.zip.CHECKSUM",
+      "archive_sha256": "7db62cb5e9f32397dacabb3d571b96397024bda3810bde0799c90f61cb773679",
+      "archive_size_bytes": 940,
+      "csv_member": "ETHUSDT-fundingRate-2025-04.csv",
+      "csv_uncompressed_bytes": 2506,
+      "row_count": 90,
+      "timestamp_units": [
+        "milliseconds"
+      ]
+    },
+    {
+      "asset": "funding",
+      "symbol": "ETHUSDT",
+      "month": "2025-05",
+      "archive_url": "https://data.binance.vision/data/futures/um/monthly/fundingRate/ETHUSDT/ETHUSDT-fundingRate-2025-05.zip",
+      "checksum_url": "https://data.binance.vision/data/futures/um/monthly/fundingRate/ETHUSDT/ETHUSDT-fundingRate-2025-05.zip.CHECKSUM",
+      "archive_sha256": "996aff38f046b50510301532ac5cbdca115afca971c49cb548f50e5d70e18d99",
+      "archive_size_bytes": 919,
+      "csv_member": "ETHUSDT-fundingRate-2025-05.csv",
+      "csv_uncompressed_bytes": 2572,
+      "row_count": 93,
+      "timestamp_units": [
+        "milliseconds"
+      ]
+    },
+    {
+      "asset": "funding",
+      "symbol": "ETHUSDT",
+      "month": "2025-06",
+      "archive_url": "https://data.binance.vision/data/futures/um/monthly/fundingRate/ETHUSDT/ETHUSDT-fundingRate-2025-06.zip",
+      "checksum_url": "https://data.binance.vision/data/futures/um/monthly/fundingRate/ETHUSDT/ETHUSDT-fundingRate-2025-06.zip.CHECKSUM",
+      "archive_sha256": "ae7ca242249ca3df06d1222a0c264fe83b18c4b2c19fe656e864f7d081d5e198",
+      "archive_size_bytes": 928,
+      "csv_member": "ETHUSDT-fundingRate-2025-06.csv",
+      "csv_uncompressed_bytes": 2484,
+      "row_count": 90,
+      "timestamp_units": [
+        "milliseconds"
+      ]
+    },
+    {
+      "asset": "funding",
+      "symbol": "ETHUSDT",
+      "month": "2025-07",
+      "archive_url": "https://data.binance.vision/data/futures/um/monthly/fundingRate/ETHUSDT/ETHUSDT-fundingRate-2025-07.zip",
+      "checksum_url": "https://data.binance.vision/data/futures/um/monthly/fundingRate/ETHUSDT/ETHUSDT-fundingRate-2025-07.zip.CHECKSUM",
+      "archive_sha256": "5f2d840c5669ca946529c33f6df32433c5d0cd973eb4adfd40459270c460e7f8",
+      "archive_size_bytes": 854,
+      "csv_member": "ETHUSDT-fundingRate-2025-07.csv",
+      "csv_uncompressed_bytes": 2565,
+      "row_count": 93,
+      "timestamp_units": [
+        "milliseconds"
+      ]
+    },
+    {
+      "asset": "funding",
+      "symbol": "ETHUSDT",
+      "month": "2025-08",
+      "archive_url": "https://data.binance.vision/data/futures/um/monthly/fundingRate/ETHUSDT/ETHUSDT-fundingRate-2025-08.zip",
+      "checksum_url": "https://data.binance.vision/data/futures/um/monthly/fundingRate/ETHUSDT/ETHUSDT-fundingRate-2025-08.zip.CHECKSUM",
+      "archive_sha256": "c3fca21c71afb4962e89f8e3d84afe5832019ed8f570ee7c7c299f2436a28b62",
+      "archive_size_bytes": 922,
+      "csv_member": "ETHUSDT-fundingRate-2025-08.csv",
+      "csv_uncompressed_bytes": 2569,
+      "row_count": 93,
+      "timestamp_units": [
+        "milliseconds"
+      ]
+    },
+    {
+      "asset": "funding",
+      "symbol": "ETHUSDT",
+      "month": "2025-09",
+      "archive_url": "https://data.binance.vision/data/futures/um/monthly/fundingRate/ETHUSDT/ETHUSDT-fundingRate-2025-09.zip",
+      "checksum_url": "https://data.binance.vision/data/futures/um/monthly/fundingRate/ETHUSDT/ETHUSDT-fundingRate-2025-09.zip.CHECKSUM",
+      "archive_sha256": "2fa09df245aadc73cf43f837a72c3009fcd7d10c8c4e3db48b2d1021c331841a",
+      "archive_size_bytes": 934,
+      "csv_member": "ETHUSDT-fundingRate-2025-09.csv",
+      "csv_uncompressed_bytes": 2504,
+      "row_count": 90,
+      "timestamp_units": [
+        "milliseconds"
+      ]
+    },
+    {
+      "asset": "funding",
+      "symbol": "ETHUSDT",
+      "month": "2025-10",
+      "archive_url": "https://data.binance.vision/data/futures/um/monthly/fundingRate/ETHUSDT/ETHUSDT-fundingRate-2025-10.zip",
+      "checksum_url": "https://data.binance.vision/data/futures/um/monthly/fundingRate/ETHUSDT/ETHUSDT-fundingRate-2025-10.zip.CHECKSUM",
+      "archive_sha256": "1ae86c5fb1f15d8792906b746cc7598ebe7e6e7194b74501db79c874e37d7e14",
+      "archive_size_bytes": 953,
+      "csv_member": "ETHUSDT-fundingRate-2025-10.csv",
+      "csv_uncompressed_bytes": 2575,
+      "row_count": 93,
+      "timestamp_units": [
+        "milliseconds"
+      ]
+    },
+    {
+      "asset": "funding",
+      "symbol": "ETHUSDT",
+      "month": "2025-11",
+      "archive_url": "https://data.binance.vision/data/futures/um/monthly/fundingRate/ETHUSDT/ETHUSDT-fundingRate-2025-11.zip",
+      "checksum_url": "https://data.binance.vision/data/futures/um/monthly/fundingRate/ETHUSDT/ETHUSDT-fundingRate-2025-11.zip.CHECKSUM",
+      "archive_sha256": "a3a8abb219373ec1e02e8d1a47015665d180d6130cfe1df71d2fa8fc9de59e59",
+      "archive_size_bytes": 956,
+      "csv_member": "ETHUSDT-fundingRate-2025-11.csv",
+      "csv_uncompressed_bytes": 2483,
+      "row_count": 90,
+      "timestamp_units": [
+        "milliseconds"
+      ]
+    },
+    {
+      "asset": "funding",
+      "symbol": "ETHUSDT",
+      "month": "2025-12",
+      "archive_url": "https://data.binance.vision/data/futures/um/monthly/fundingRate/ETHUSDT/ETHUSDT-fundingRate-2025-12.zip",
+      "checksum_url": "https://data.binance.vision/data/futures/um/monthly/fundingRate/ETHUSDT/ETHUSDT-fundingRate-2025-12.zip.CHECKSUM",
+      "archive_sha256": "ef9e84f53a5fa07702958c8700077c8be0a90ec8b3e25110f5611109c3c0090c",
+      "archive_size_bytes": 985,
+      "csv_member": "ETHUSDT-fundingRate-2025-12.csv",
+      "csv_uncompressed_bytes": 2571,
+      "row_count": 93,
+      "timestamp_units": [
+        "milliseconds"
+      ]
+    },
+    {
+      "asset": "funding",
+      "symbol": "ETHUSDT",
+      "month": "2026-01",
+      "archive_url": "https://data.binance.vision/data/futures/um/monthly/fundingRate/ETHUSDT/ETHUSDT-fundingRate-2026-01.zip",
+      "checksum_url": "https://data.binance.vision/data/futures/um/monthly/fundingRate/ETHUSDT/ETHUSDT-fundingRate-2026-01.zip.CHECKSUM",
+      "archive_sha256": "830cf7797ea6ecdc554ac2d9047a141df1a6a544f4ea58e7028227930462b139",
+      "archive_size_bytes": 979,
+      "csv_member": "ETHUSDT-fundingRate-2026-01.csv",
+      "csv_uncompressed_bytes": 2563,
+      "row_count": 93,
+      "timestamp_units": [
+        "milliseconds"
+      ]
+    },
+    {
+      "asset": "funding",
+      "symbol": "ETHUSDT",
+      "month": "2026-02",
+      "archive_url": "https://data.binance.vision/data/futures/um/monthly/fundingRate/ETHUSDT/ETHUSDT-fundingRate-2026-02.zip",
+      "checksum_url": "https://data.binance.vision/data/futures/um/monthly/fundingRate/ETHUSDT/ETHUSDT-fundingRate-2026-02.zip.CHECKSUM",
+      "archive_sha256": "e445f00c81a7fa8361d99b3660f24b4f58e5d952fe301d70bbc72c319bc01a77",
+      "archive_size_bytes": 939,
+      "csv_member": "ETHUSDT-fundingRate-2026-02.csv",
+      "csv_uncompressed_bytes": 2374,
+      "row_count": 84,
+      "timestamp_units": [
+        "milliseconds"
+      ]
+    },
+    {
+      "asset": "funding",
+      "symbol": "ETHUSDT",
+      "month": "2026-03",
+      "archive_url": "https://data.binance.vision/data/futures/um/monthly/fundingRate/ETHUSDT/ETHUSDT-fundingRate-2026-03.zip",
+      "checksum_url": "https://data.binance.vision/data/futures/um/monthly/fundingRate/ETHUSDT/ETHUSDT-fundingRate-2026-03.zip.CHECKSUM",
+      "archive_sha256": "9f5625846c503a1e94fcdecd2deb37dc8852e341add353fa48c2b9a0cc70df6a",
+      "archive_size_bytes": 1002,
+      "csv_member": "ETHUSDT-fundingRate-2026-03.csv",
+      "csv_uncompressed_bytes": 2594,
+      "row_count": 93,
+      "timestamp_units": [
+        "milliseconds"
+      ]
+    },
+    {
+      "asset": "funding",
+      "symbol": "ETHUSDT",
+      "month": "2026-04",
+      "archive_url": "https://data.binance.vision/data/futures/um/monthly/fundingRate/ETHUSDT/ETHUSDT-fundingRate-2026-04.zip",
+      "checksum_url": "https://data.binance.vision/data/futures/um/monthly/fundingRate/ETHUSDT/ETHUSDT-fundingRate-2026-04.zip.CHECKSUM",
+      "archive_sha256": "86160f455478a8b262d96d1516f583355e6e0cec7beeb5784e69dda76f599e98",
+      "archive_size_bytes": 963,
+      "csv_member": "ETHUSDT-fundingRate-2026-04.csv",
+      "csv_uncompressed_bytes": 2525,
+      "row_count": 90,
+      "timestamp_units": [
+        "milliseconds"
+      ]
+    },
+    {
+      "asset": "funding",
+      "symbol": "ETHUSDT",
+      "month": "2026-05",
+      "archive_url": "https://data.binance.vision/data/futures/um/monthly/fundingRate/ETHUSDT/ETHUSDT-fundingRate-2026-05.zip",
+      "checksum_url": "https://data.binance.vision/data/futures/um/monthly/fundingRate/ETHUSDT/ETHUSDT-fundingRate-2026-05.zip.CHECKSUM",
+      "archive_sha256": "ff926ad3fc48493c26c85af16620b19c695cc1854faa1e7f0ea2ab9fdafc2084",
+      "archive_size_bytes": 980,
+      "csv_member": "ETHUSDT-fundingRate-2026-05.csv",
+      "csv_uncompressed_bytes": 2583,
+      "row_count": 93,
+      "timestamp_units": [
+        "milliseconds"
+      ]
+    },
+    {
+      "asset": "funding",
+      "symbol": "ETHUSDT",
+      "month": "2026-06",
+      "archive_url": "https://data.binance.vision/data/futures/um/monthly/fundingRate/ETHUSDT/ETHUSDT-fundingRate-2026-06.zip",
+      "checksum_url": "https://data.binance.vision/data/futures/um/monthly/fundingRate/ETHUSDT/ETHUSDT-fundingRate-2026-06.zip.CHECKSUM",
+      "archive_sha256": "cc6fb028a811bc423b711f6b89de067bf92a2eda61303e1ce0b219b5d3210e47",
+      "archive_size_bytes": 967,
+      "csv_member": "ETHUSDT-fundingRate-2026-06.csv",
+      "csv_uncompressed_bytes": 2507,
+      "row_count": 90,
+      "timestamp_units": [
+        "milliseconds"
+      ]
+    },
+    {
+      "asset": "funding",
+      "symbol": "ETHUSDT",
+      "month": "2026-07",
+      "archive_url": "https://data.binance.vision/data/futures/um/monthly/fundingRate/ETHUSDT/ETHUSDT-fundingRate-2026-07.zip",
+      "checksum_url": "https://data.binance.vision/data/futures/um/monthly/fundingRate/ETHUSDT/ETHUSDT-fundingRate-2026-07.zip.CHECKSUM",
+      "archive_sha256": "ece7f6c64d0e45fbd64929dec40bae525fe365381046e367de5ca0827bc623d3",
+      "archive_size_bytes": 941,
+      "csv_member": "ETHUSDT-fundingRate-2026-07.csv",
+      "csv_uncompressed_bytes": 2569,
+      "row_count": 93,
+      "timestamp_units": [
+        "milliseconds"
+      ]
+    },
+    {
+      "asset": "funding",
+      "symbol": "ETHUSDT",
+      "month": "2026-08",
+      "archive_url": "https://data.binance.vision/data/futures/um/monthly/fundingRate/ETHUSDT/ETHUSDT-fundingRate-2026-08.zip",
+      "checksum_url": "https://data.binance.vision/data/futures/um/monthly/fundingRate/ETHUSDT/ETHUSDT-fundingRate-2026-08.zip.CHECKSUM",
+      "archive_sha256": "8b843307038b3aedf725b1342003cce39f9526451ed92f407ca80bc637487839",
+      "archive_size_bytes": 925,
+      "csv_member": "ETHUSDT-fundingRate-2026-08.csv",
+      "csv_uncompressed_bytes": 2563,
+      "row_count": 93,
+      "timestamp_units": [
+        "milliseconds"
+      ]
+    },
+    {
+      "asset": "funding",
+      "symbol": "ETHUSDT",
+      "month": "2026-09",
+      "archive_url": "https://data.binance.vision/data/futures/um/monthly/fundingRate/ETHUSDT/ETHUSDT-fundingRate-2026-09.zip",
+      "checksum_url": "https://data.binance.vision/data/futures/um/monthly/fundingRate/ETHUSDT/ETHUSDT-fundingRate-2026-09.zip.CHECKSUM",
+      "archive_sha256": "d1916b9181cf3507ad5a6522ac6587cd84a424941f1a2132ab887f768b5dd4de",
+      "archive_size_bytes": 931,
+      "csv_member": "ETHUSDT-fundingRate-2026-09.csv",
+      "csv_uncompressed_bytes": 2482,
+      "row_count": 90,
+      "timestamp_units": [
+        "milliseconds"
+      ]
+    },
+    {
+      "asset": "spot",
+      "symbol": "SOLUSDT",
+      "month": "2023-01",
+      "archive_url": "https://data.binance.vision/data/spot/monthly/klines/SOLUSDT/1d/SOLUSDT-1d-2023-01.zip",
+      "checksum_url": "https://data.binance.vision/data/spot/monthly/klines/SOLUSDT/1d/SOLUSDT-1d-2023-01.zip.CHECKSUM",
+      "archive_sha256": "09fc042c2ab54d9fc09a414a290b74711bd9c8665a58bb520e56432ed7a3041b",
+      "archive_size_bytes": 1846,
+      "csv_member": "SOLUSDT-1d-2023-01.csv",
+      "csv_uncompressed_bytes": 4839,
+      "row_count": 31,
+      "timestamp_units": [
+        "milliseconds"
+      ]
+    },
+    {
+      "asset": "spot",
+      "symbol": "SOLUSDT",
+      "month": "2023-02",
+      "archive_url": "https://data.binance.vision/data/spot/monthly/klines/SOLUSDT/1d/SOLUSDT-1d-2023-02.zip",
+      "checksum_url": "https://data.binance.vision/data/spot/monthly/klines/SOLUSDT/1d/SOLUSDT-1d-2023-02.zip.CHECKSUM",
+      "archive_sha256": "2e0df24a2aa7ac6790da6a09be2448c50b8eb539a4b68003375c853c4a33ab71",
+      "archive_size_bytes": 1664,
+      "csv_member": "SOLUSDT-1d-2023-02.csv",
+      "csv_uncompressed_bytes": 4355,
+      "row_count": 28,
+      "timestamp_units": [
+        "milliseconds"
+      ]
+    },
+    {
+      "asset": "spot",
+      "symbol": "SOLUSDT",
+      "month": "2023-03",
+      "archive_url": "https://data.binance.vision/data/spot/monthly/klines/SOLUSDT/1d/SOLUSDT-1d-2023-03.zip",
+      "checksum_url": "https://data.binance.vision/data/spot/monthly/klines/SOLUSDT/1d/SOLUSDT-1d-2023-03.zip.CHECKSUM",
+      "archive_sha256": "61dabcc011f27759552fd3ff9f43915f40a286b5287619b56ef2f3e088374432",
+      "archive_size_bytes": 1814,
+      "csv_member": "SOLUSDT-1d-2023-03.csv",
+      "csv_uncompressed_bytes": 4816,
+      "row_count": 31,
+      "timestamp_units": [
+        "milliseconds"
+      ]
+    },
+    {
+      "asset": "spot",
+      "symbol": "SOLUSDT",
+      "month": "2023-04",
+      "archive_url": "https://data.binance.vision/data/spot/monthly/klines/SOLUSDT/1d/SOLUSDT-1d-2023-04.zip",
+      "checksum_url": "https://data.binance.vision/data/spot/monthly/klines/SOLUSDT/1d/SOLUSDT-1d-2023-04.zip.CHECKSUM",
+      "archive_sha256": "c91db96b1be0e068cfaaab5c75cca5e9e92171713f44f1856115687a96c828a0",
+      "archive_size_bytes": 1748,
+      "csv_member": "SOLUSDT-1d-2023-04.csv",
+      "csv_uncompressed_bytes": 4645,
+      "row_count": 30,
+      "timestamp_units": [
+        "milliseconds"
+      ]
+    },
+    {
+      "asset": "spot",
+      "symbol": "SOLUSDT",
+      "month": "2023-05",
+      "archive_url": "https://data.binance.vision/data/spot/monthly/klines/SOLUSDT/1d/SOLUSDT-1d-2023-05.zip",
+      "checksum_url": "https://data.binance.vision/data/spot/monthly/klines/SOLUSDT/1d/SOLUSDT-1d-2023-05.zip.CHECKSUM",
+      "archive_sha256": "a3c74635f90344b9af798ce16e45674e8d7c816641db7a825f4317a6be4647d4",
+      "archive_size_bytes": 1777,
+      "csv_member": "SOLUSDT-1d-2023-05.csv",
+      "csv_uncompressed_bytes": 4777,
+      "row_count": 31,
+      "timestamp_units": [
+        "milliseconds"
+      ]
+    },
+    {
+      "asset": "spot",
+      "symbol": "SOLUSDT",
+      "month": "2023-06",
+      "archive_url": "https://data.binance.vision/data/spot/monthly/klines/SOLUSDT/1d/SOLUSDT-1d-2023-06.zip",
+      "checksum_url": "https://data.binance.vision/data/spot/monthly/klines/SOLUSDT/1d/SOLUSDT-1d-2023-06.zip.CHECKSUM",
+      "archive_sha256": "79c2853d97448e168891e429143111c3b0d8f4f54c7faee18ce3aba1414ac5e4",
+      "archive_size_bytes": 1757,
+      "csv_member": "SOLUSDT-1d-2023-06.csv",
+      "csv_uncompressed_bytes": 4647,
+      "row_count": 30,
+      "timestamp_units": [
+        "milliseconds"
+      ]
+    },
+    {
+      "asset": "spot",
+      "symbol": "SOLUSDT",
+      "month": "2023-07",
+      "archive_url": "https://data.binance.vision/data/spot/monthly/klines/SOLUSDT/1d/SOLUSDT-1d-2023-07.zip",
+      "checksum_url": "https://data.binance.vision/data/spot/monthly/klines/SOLUSDT/1d/SOLUSDT-1d-2023-07.zip.CHECKSUM",
+      "archive_sha256": "5a55d12a72e39bd5b8c4e8230914d9537b2a9d5a865ed0ba6ee53212a9abfbf0",
+      "archive_size_bytes": 1838,
+      "csv_member": "SOLUSDT-1d-2023-07.csv",
+      "csv_uncompressed_bytes": 4825,
+      "row_count": 31,
+      "timestamp_units": [
+        "milliseconds"
+      ]
+    },
+    {
+      "asset": "spot",
+      "symbol": "SOLUSDT",
+      "month": "2023-08",
+      "archive_url": "https://data.binance.vision/data/spot/monthly/klines/SOLUSDT/1d/SOLUSDT-1d-2023-08.zip",
+      "checksum_url": "https://data.binance.vision/data/spot/monthly/klines/SOLUSDT/1d/SOLUSDT-1d-2023-08.zip.CHECKSUM",
+      "archive_sha256": "88917ca3c65a50860c51a4b2b63ff0bc8b89764d164deae347feb287db490e67",
+      "archive_size_bytes": 1790,
+      "csv_member": "SOLUSDT-1d-2023-08.csv",
+      "csv_uncompressed_bytes": 4782,
+      "row_count": 31,
+      "timestamp_units": [
+        "milliseconds"
+      ]
+    },
+    {
+      "asset": "spot",
+      "symbol": "SOLUSDT",
+      "month": "2023-09",
+      "archive_url": "https://data.binance.vision/data/spot/monthly/klines/SOLUSDT/1d/SOLUSDT-1d-2023-09.zip",
+      "checksum_url": "https://data.binance.vision/data/spot/monthly/klines/SOLUSDT/1d/SOLUSDT-1d-2023-09.zip.CHECKSUM",
+      "archive_sha256": "bbfb009f933b02c10e79b3b7fa717163af1838d490a57ca4229194149cd52d42",
+      "archive_size_bytes": 1733,
+      "csv_member": "SOLUSDT-1d-2023-09.csv",
+      "csv_uncompressed_bytes": 4615,
+      "row_count": 30,
+      "timestamp_units": [
+        "milliseconds"
+      ]
+    },
+    {
+      "asset": "spot",
+      "symbol": "SOLUSDT",
+      "month": "2023-10",
+      "archive_url": "https://data.binance.vision/data/spot/monthly/klines/SOLUSDT/1d/SOLUSDT-1d-2023-10.zip",
+      "checksum_url": "https://data.binance.vision/data/spot/monthly/klines/SOLUSDT/1d/SOLUSDT-1d-2023-10.zip.CHECKSUM",
+      "archive_sha256": "6daf020274d54de9e3fbaa4f8c4e8f43b549fe15e6a8fb7759b8ef1716d0a235",
+      "archive_size_bytes": 1845,
+      "csv_member": "SOLUSDT-1d-2023-10.csv",
+      "csv_uncompressed_bytes": 4823,
+      "row_count": 31,
+      "timestamp_units": [
+        "milliseconds"
+      ]
+    },
+    {
+      "asset": "spot",
+      "symbol": "SOLUSDT",
+      "month": "2023-11",
+      "archive_url": "https://data.binance.vision/data/spot/monthly/klines/SOLUSDT/1d/SOLUSDT-1d-2023-11.zip",
+      "checksum_url": "https://data.binance.vision/data/spot/monthly/klines/SOLUSDT/1d/SOLUSDT-1d-2023-11.zip.CHECKSUM",
+      "archive_sha256": "66298306327d421adfe227262c4bb5551ad97ad89e3990a72bbd82c2df44d217",
+      "archive_size_bytes": 1843,
+      "csv_member": "SOLUSDT-1d-2023-11.csv",
+      "csv_uncompressed_bytes": 4726,
+      "row_count": 30,
+      "timestamp_units": [
+        "milliseconds"
+      ]
+    },
+    {
+      "asset": "spot",
+      "symbol": "SOLUSDT",
+      "month": "2023-12",
+      "archive_url": "https://data.binance.vision/data/spot/monthly/klines/SOLUSDT/1d/SOLUSDT-1d-2023-12.zip",
+      "checksum_url": "https://data.binance.vision/data/spot/monthly/klines/SOLUSDT/1d/SOLUSDT-1d-2023-12.zip.CHECKSUM",
+      "archive_sha256": "d07143cfcfec4d988590a30b74be234dbd96238da2560190b9e16a633761b480",
+      "archive_size_bytes": 1928,
+      "csv_member": "SOLUSDT-1d-2023-12.csv",
+      "csv_uncompressed_bytes": 4923,
+      "row_count": 31,
+      "timestamp_units": [
+        "milliseconds"
+      ]
+    },
+    {
+      "asset": "spot",
+      "symbol": "SOLUSDT",
+      "month": "2024-01",
+      "archive_url": "https://data.binance.vision/data/spot/monthly/klines/SOLUSDT/1d/SOLUSDT-1d-2024-01.zip",
+      "checksum_url": "https://data.binance.vision/data/spot/monthly/klines/SOLUSDT/1d/SOLUSDT-1d-2024-01.zip.CHECKSUM",
+      "archive_sha256": "521c3949cf679a3054234c8c8eed43babe89b26d337c02d1feb764da28516b27",
+      "archive_size_bytes": 1914,
+      "csv_member": "SOLUSDT-1d-2024-01.csv",
+      "csv_uncompressed_bytes": 4907,
+      "row_count": 31,
+      "timestamp_units": [
+        "milliseconds"
+      ]
+    },
+    {
+      "asset": "spot",
+      "symbol": "SOLUSDT",
+      "month": "2024-02",
+      "archive_url": "https://data.binance.vision/data/spot/monthly/klines/SOLUSDT/1d/SOLUSDT-1d-2024-02.zip",
+      "checksum_url": "https://data.binance.vision/data/spot/monthly/klines/SOLUSDT/1d/SOLUSDT-1d-2024-02.zip.CHECKSUM",
+      "archive_sha256": "27c2a0db505c5eadf66d8efdbd921b01df3bcce41c2e09fb62ca4030495074cf",
+      "archive_size_bytes": 1791,
+      "csv_member": "SOLUSDT-1d-2024-02.csv",
+      "csv_uncompressed_bytes": 4647,
+      "row_count": 29,
+      "timestamp_units": [
+        "milliseconds"
+      ]
+    },
+    {
+      "asset": "spot",
+      "symbol": "SOLUSDT",
+      "month": "2024-03",
+      "archive_url": "https://data.binance.vision/data/spot/monthly/klines/SOLUSDT/1d/SOLUSDT-1d-2024-03.zip",
+      "checksum_url": "https://data.binance.vision/data/spot/monthly/klines/SOLUSDT/1d/SOLUSDT-1d-2024-03.zip.CHECKSUM",
+      "archive_sha256": "25e02203a9571e57f203855ea585a065e8fb499ba31e961f49d0c8011925b30c",
+      "archive_size_bytes": 1947,
+      "csv_member": "SOLUSDT-1d-2024-03.csv",
+      "csv_uncompressed_bytes": 5045,
+      "row_count": 31,
+      "timestamp_units": [
+        "milliseconds"
+      ]
+    },
+    {
+      "asset": "spot",
+      "symbol": "SOLUSDT",
+      "month": "2024-04",
+      "archive_url": "https://data.binance.vision/data/spot/monthly/klines/SOLUSDT/1d/SOLUSDT-1d-2024-04.zip",
+      "checksum_url": "https://data.binance.vision/data/spot/monthly/klines/SOLUSDT/1d/SOLUSDT-1d-2024-04.zip.CHECKSUM",
+      "archive_sha256": "901a98c35bb7a1bf0fdf06c4b2e3fd7062ca55d3459c0127dc7993332cf9b1e8",
+      "archive_size_bytes": 1886,
+      "csv_member": "SOLUSDT-1d-2024-04.csv",
+      "csv_uncompressed_bytes": 4855,
+      "row_count": 30,
+      "timestamp_units": [
+        "milliseconds"
+      ]
+    },
+    {
+      "asset": "spot",
+      "symbol": "SOLUSDT",
+      "month": "2024-05",
+      "archive_url": "https://data.binance.vision/data/spot/monthly/klines/SOLUSDT/1d/SOLUSDT-1d-2024-05.zip",
+      "checksum_url": "https://data.binance.vision/data/spot/monthly/klines/SOLUSDT/1d/SOLUSDT-1d-2024-05.zip.CHECKSUM",
+      "archive_sha256": "552ef6e5be0a3c7fef83480b907678c4b2712148290db0c7d9f8cf86273ce926",
+      "archive_size_bytes": 2012,
+      "csv_member": "SOLUSDT-1d-2024-05.csv",
+      "csv_uncompressed_bytes": 4993,
+      "row_count": 31,
+      "timestamp_units": [
+        "milliseconds"
+      ]
+    },
+    {
+      "asset": "spot",
+      "symbol": "SOLUSDT",
+      "month": "2024-06",
+      "archive_url": "https://data.binance.vision/data/spot/monthly/klines/SOLUSDT/1d/SOLUSDT-1d-2024-06.zip",
+      "checksum_url": "https://data.binance.vision/data/spot/monthly/klines/SOLUSDT/1d/SOLUSDT-1d-2024-06.zip.CHECKSUM",
+      "archive_sha256": "54cc3ff50e1111da33b6fb65ea6ce22b5626e55822787c6d475931e38176b9db",
+      "archive_size_bytes": 1910,
+      "csv_member": "SOLUSDT-1d-2024-06.csv",
+      "csv_uncompressed_bytes": 4819,
+      "row_count": 30,
+      "timestamp_units": [
+        "milliseconds"
+      ]
+    },
+    {
+      "asset": "spot",
+      "symbol": "SOLUSDT",
+      "month": "2024-07",
+      "archive_url": "https://data.binance.vision/data/spot/monthly/klines/SOLUSDT/1d/SOLUSDT-1d-2024-07.zip",
+      "checksum_url": "https://data.binance.vision/data/spot/monthly/klines/SOLUSDT/1d/SOLUSDT-1d-2024-07.zip.CHECKSUM",
+      "archive_sha256": "6a9bfbb2fe8181e35a1fd9b982dab14f4d7146b61ee85cb47abd3dce7253b1ad",
+      "archive_size_bytes": 1999,
+      "csv_member": "SOLUSDT-1d-2024-07.csv",
+      "csv_uncompressed_bytes": 5004,
+      "row_count": 31,
+      "timestamp_units": [
+        "milliseconds"
+      ]
+    },
+    {
+      "asset": "spot",
+      "symbol": "SOLUSDT",
+      "month": "2024-08",
+      "archive_url": "https://data.binance.vision/data/spot/monthly/klines/SOLUSDT/1d/SOLUSDT-1d-2024-08.zip",
+      "checksum_url": "https://data.binance.vision/data/spot/monthly/klines/SOLUSDT/1d/SOLUSDT-1d-2024-08.zip.CHECKSUM",
+      "archive_sha256": "09d69d6b4792fe97757b1b0c95c4527b3d487eca5abd7a7ea0eedc8502595506",
+      "archive_size_bytes": 2003,
+      "csv_member": "SOLUSDT-1d-2024-08.csv",
+      "csv_uncompressed_bytes": 5021,
+      "row_count": 31,
+      "timestamp_units": [
+        "milliseconds"
+      ]
+    },
+    {
+      "asset": "spot",
+      "symbol": "SOLUSDT",
+      "month": "2024-09",
+      "archive_url": "https://data.binance.vision/data/spot/monthly/klines/SOLUSDT/1d/SOLUSDT-1d-2024-09.zip",
+      "checksum_url": "https://data.binance.vision/data/spot/monthly/klines/SOLUSDT/1d/SOLUSDT-1d-2024-09.zip.CHECKSUM",
+      "archive_sha256": "1d0761183c082d09e5a675884c33931bbbc4d56c66516e187aeb2f70240f2fed",
+      "archive_size_bytes": 1923,
+      "csv_member": "SOLUSDT-1d-2024-09.csv",
+      "csv_uncompressed_bytes": 4847,
+      "row_count": 30,
+      "timestamp_units": [
+        "milliseconds"
+      ]
+    },
+    {
+      "asset": "spot",
+      "symbol": "SOLUSDT",
+      "month": "2024-10",
+      "archive_url": "https://data.binance.vision/data/spot/monthly/klines/SOLUSDT/1d/SOLUSDT-1d-2024-10.zip",
+      "checksum_url": "https://data.binance.vision/data/spot/monthly/klines/SOLUSDT/1d/SOLUSDT-1d-2024-10.zip.CHECKSUM",
+      "archive_sha256": "08b9ce2dc300735ad58cb347ee7ea84ed42faffe56fedc659845d8d445596c57",
+      "archive_size_bytes": 2004,
+      "csv_member": "SOLUSDT-1d-2024-10.csv",
+      "csv_uncompressed_bytes": 5009,
+      "row_count": 31,
+      "timestamp_units": [
+        "milliseconds"
+      ]
+    },
+    {
+      "asset": "spot",
+      "symbol": "SOLUSDT",
+      "month": "2024-11",
+      "archive_url": "https://data.binance.vision/data/spot/monthly/klines/SOLUSDT/1d/SOLUSDT-1d-2024-11.zip",
+      "checksum_url": "https://data.binance.vision/data/spot/monthly/klines/SOLUSDT/1d/SOLUSDT-1d-2024-11.zip.CHECKSUM",
+      "archive_sha256": "c13259d17ecf4965fc79c1831d773e3210da69fe364ea5b7c6378cae7b5616a5",
+      "archive_size_bytes": 1969,
+      "csv_member": "SOLUSDT-1d-2024-11.csv",
+      "csv_uncompressed_bytes": 4881,
+      "row_count": 30,
+      "timestamp_units": [
+        "milliseconds"
+      ]
+    },
+    {
+      "asset": "spot",
+      "symbol": "SOLUSDT",
+      "month": "2024-12",
+      "archive_url": "https://data.binance.vision/data/spot/monthly/klines/SOLUSDT/1d/SOLUSDT-1d-2024-12.zip",
+      "checksum_url": "https://data.binance.vision/data/spot/monthly/klines/SOLUSDT/1d/SOLUSDT-1d-2024-12.zip.CHECKSUM",
+      "archive_sha256": "cbe6c4aaf9ec9eba4b5dbac0192b992b3a0d588416789d348fbb24a07d923f47",
+      "archive_size_bytes": 2021,
+      "csv_member": "SOLUSDT-1d-2024-12.csv",
+      "csv_uncompressed_bytes": 5027,
+      "row_count": 31,
+      "timestamp_units": [
+        "milliseconds"
+      ]
+    },
+    {
+      "asset": "spot",
+      "symbol": "SOLUSDT",
+      "month": "2025-01",
+      "archive_url": "https://data.binance.vision/data/spot/monthly/klines/SOLUSDT/1d/SOLUSDT-1d-2025-01.zip",
+      "checksum_url": "https://data.binance.vision/data/spot/monthly/klines/SOLUSDT/1d/SOLUSDT-1d-2025-01.zip.CHECKSUM",
+      "archive_sha256": "48087cf248bb601648b8fe5d942bf5255864bddf08f0e47dcb2622f2cbfe020e",
+      "archive_size_bytes": 2078,
+      "csv_member": "SOLUSDT-1d-2025-01.csv",
+      "csv_uncompressed_bytes": 5219,
+      "row_count": 31,
+      "timestamp_units": [
+        "microseconds"
+      ]
+    },
+    {
+      "asset": "spot",
+      "symbol": "SOLUSDT",
+      "month": "2025-02",
+      "archive_url": "https://data.binance.vision/data/spot/monthly/klines/SOLUSDT/1d/SOLUSDT-1d-2025-02.zip",
+      "checksum_url": "https://data.binance.vision/data/spot/monthly/klines/SOLUSDT/1d/SOLUSDT-1d-2025-02.zip.CHECKSUM",
+      "archive_sha256": "3b84382d78bf1e812c907108c26eba2cf485fb40e8fb52f414be550ecf014b5f",
+      "archive_size_bytes": 1872,
+      "csv_member": "SOLUSDT-1d-2025-02.csv",
+      "csv_uncompressed_bytes": 4710,
+      "row_count": 28,
+      "timestamp_units": [
+        "microseconds"
+      ]
+    },
+    {
+      "asset": "spot",
+      "symbol": "SOLUSDT",
+      "month": "2025-03",
+      "archive_url": "https://data.binance.vision/data/spot/monthly/klines/SOLUSDT/1d/SOLUSDT-1d-2025-03.zip",
+      "checksum_url": "https://data.binance.vision/data/spot/monthly/klines/SOLUSDT/1d/SOLUSDT-1d-2025-03.zip.CHECKSUM",
+      "archive_sha256": "85fa8662e07bb9ab5ceb7b848022e57c5aa164fb0bfa3ffebfb6cff37dcad5f3",
+      "archive_size_bytes": 2041,
+      "csv_member": "SOLUSDT-1d-2025-03.csv",
+      "csv_uncompressed_bytes": 5208,
+      "row_count": 31,
+      "timestamp_units": [
+        "microseconds"
+      ]
+    },
+    {
+      "asset": "spot",
+      "symbol": "SOLUSDT",
+      "month": "2025-04",
+      "archive_url": "https://data.binance.vision/data/spot/monthly/klines/SOLUSDT/1d/SOLUSDT-1d-2025-04.zip",
+      "checksum_url": "https://data.binance.vision/data/spot/monthly/klines/SOLUSDT/1d/SOLUSDT-1d-2025-04.zip.CHECKSUM",
+      "archive_sha256": "bcc78ff9c12dad7d789c63eb907ff8eeb3ed5dfb09a78c63a4c8ac71273da04d",
+      "archive_size_bytes": 1993,
+      "csv_member": "SOLUSDT-1d-2025-04.csv",
+      "csv_uncompressed_bytes": 5038,
+      "row_count": 30,
+      "timestamp_units": [
+        "microseconds"
+      ]
+    },
+    {
+      "asset": "spot",
+      "symbol": "SOLUSDT",
+      "month": "2025-05",
+      "archive_url": "https://data.binance.vision/data/spot/monthly/klines/SOLUSDT/1d/SOLUSDT-1d-2025-05.zip",
+      "checksum_url": "https://data.binance.vision/data/spot/monthly/klines/SOLUSDT/1d/SOLUSDT-1d-2025-05.zip.CHECKSUM",
+      "archive_sha256": "e941f16df00c40ebdead705ca3579e517474d91bc1bb9f1a6cd228ecf261b260",
+      "archive_size_bytes": 2038,
+      "csv_member": "SOLUSDT-1d-2025-05.csv",
+      "csv_uncompressed_bytes": 5207,
+      "row_count": 31,
+      "timestamp_units": [
+        "microseconds"
+      ]
+    },
+    {
+      "asset": "spot",
+      "symbol": "SOLUSDT",
+      "month": "2025-06",
+      "archive_url": "https://data.binance.vision/data/spot/monthly/klines/SOLUSDT/1d/SOLUSDT-1d-2025-06.zip",
+      "checksum_url": "https://data.binance.vision/data/spot/monthly/klines/SOLUSDT/1d/SOLUSDT-1d-2025-06.zip.CHECKSUM",
+      "archive_sha256": "0f07a118614cbd5e9c87ca21fac821fe204b77e32d776cc7406af945665adfa1",
+      "archive_size_bytes": 1960,
+      "csv_member": "SOLUSDT-1d-2025-06.csv",
+      "csv_uncompressed_bytes": 5035,
+      "row_count": 30,
+      "timestamp_units": [
+        "microseconds"
+      ]
+    },
+    {
+      "asset": "spot",
+      "symbol": "SOLUSDT",
+      "month": "2025-07",
+      "archive_url": "https://data.binance.vision/data/spot/monthly/klines/SOLUSDT/1d/SOLUSDT-1d-2025-07.zip",
+      "checksum_url": "https://data.binance.vision/data/spot/monthly/klines/SOLUSDT/1d/SOLUSDT-1d-2025-07.zip.CHECKSUM",
+      "archive_sha256": "077cf97a326946b4745492d505757dea1c0fde94e048f77a53264758e484e90c",
+      "archive_size_bytes": 2038,
+      "csv_member": "SOLUSDT-1d-2025-07.csv",
+      "csv_uncompressed_bytes": 5205,
+      "row_count": 31,
+      "timestamp_units": [
+        "microseconds"
+      ]
+    },
+    {
+      "asset": "spot",
+      "symbol": "SOLUSDT",
+      "month": "2025-08",
+      "archive_url": "https://data.binance.vision/data/spot/monthly/klines/SOLUSDT/1d/SOLUSDT-1d-2025-08.zip",
+      "checksum_url": "https://data.binance.vision/data/spot/monthly/klines/SOLUSDT/1d/SOLUSDT-1d-2025-08.zip.CHECKSUM",
+      "archive_sha256": "0ded6dbc78e2bd4b6034b95e302bb0fd03c1e59a6fe24b665fb9edce80f9ca1c",
+      "archive_size_bytes": 2059,
+      "csv_member": "SOLUSDT-1d-2025-08.csv",
+      "csv_uncompressed_bytes": 5215,
+      "row_count": 31,
+      "timestamp_units": [
+        "microseconds"
+      ]
+    },
+    {
+      "asset": "spot",
+      "symbol": "SOLUSDT",
+      "month": "2025-09",
+      "archive_url": "https://data.binance.vision/data/spot/monthly/klines/SOLUSDT/1d/SOLUSDT-1d-2025-09.zip",
+      "checksum_url": "https://data.binance.vision/data/spot/monthly/klines/SOLUSDT/1d/SOLUSDT-1d-2025-09.zip.CHECKSUM",
+      "archive_sha256": "b426db9acb56eed70f6a25e7bfa2d5ae86b17db54afb2a7abf1a58649a33d20c",
+      "archive_size_bytes": 1988,
+      "csv_member": "SOLUSDT-1d-2025-09.csv",
+      "csv_uncompressed_bytes": 5044,
+      "row_count": 30,
+      "timestamp_units": [
+        "microseconds"
+      ]
+    },
+    {
+      "asset": "spot",
+      "symbol": "SOLUSDT",
+      "month": "2025-10",
+      "archive_url": "https://data.binance.vision/data/spot/monthly/klines/SOLUSDT/1d/SOLUSDT-1d-2025-10.zip",
+      "checksum_url": "https://data.binance.vision/data/spot/monthly/klines/SOLUSDT/1d/SOLUSDT-1d-2025-10.zip.CHECKSUM",
+      "archive_sha256": "d675523daf5ef157c13160e9fe4b84fc02bedb8e513bfca5a85b8d53e38684d4",
+      "archive_size_bytes": 2053,
+      "csv_member": "SOLUSDT-1d-2025-10.csv",
+      "csv_uncompressed_bytes": 5214,
+      "row_count": 31,
+      "timestamp_units": [
+        "microseconds"
+      ]
+    },
+    {
+      "asset": "spot",
+      "symbol": "SOLUSDT",
+      "month": "2025-11",
+      "archive_url": "https://data.binance.vision/data/spot/monthly/klines/SOLUSDT/1d/SOLUSDT-1d-2025-11.zip",
+      "checksum_url": "https://data.binance.vision/data/spot/monthly/klines/SOLUSDT/1d/SOLUSDT-1d-2025-11.zip.CHECKSUM",
+      "archive_sha256": "0eba533d5d1b2a09a3c4126bdf875387992e348d334697667a54a04d4709d7e3",
+      "archive_size_bytes": 1996,
+      "csv_member": "SOLUSDT-1d-2025-11.csv",
+      "csv_uncompressed_bytes": 5037,
+      "row_count": 30,
+      "timestamp_units": [
+        "microseconds"
+      ]
+    },
+    {
+      "asset": "spot",
+      "symbol": "SOLUSDT",
+      "month": "2025-12",
+      "archive_url": "https://data.binance.vision/data/spot/monthly/klines/SOLUSDT/1d/SOLUSDT-1d-2025-12.zip",
+      "checksum_url": "https://data.binance.vision/data/spot/monthly/klines/SOLUSDT/1d/SOLUSDT-1d-2025-12.zip.CHECKSUM",
+      "archive_sha256": "9a0eefcf1eba4ea1731f915f3a49e6fc81a383d599b5c99c56c5d2697039f70d",
+      "archive_size_bytes": 2005,
+      "csv_member": "SOLUSDT-1d-2025-12.csv",
+      "csv_uncompressed_bytes": 5185,
+      "row_count": 31,
+      "timestamp_units": [
+        "microseconds"
+      ]
+    },
+    {
+      "asset": "spot",
+      "symbol": "SOLUSDT",
+      "month": "2026-01",
+      "archive_url": "https://data.binance.vision/data/spot/monthly/klines/SOLUSDT/1d/SOLUSDT-1d-2026-01.zip",
+      "checksum_url": "https://data.binance.vision/data/spot/monthly/klines/SOLUSDT/1d/SOLUSDT-1d-2026-01.zip.CHECKSUM",
+      "archive_sha256": "546a5858cc28a23a3680a257689793ecf6381941363f88338bd6f659e50aa59e",
+      "archive_size_bytes": 2009,
+      "csv_member": "SOLUSDT-1d-2026-01.csv",
+      "csv_uncompressed_bytes": 5183,
+      "row_count": 31,
+      "timestamp_units": [
+        "microseconds"
+      ]
+    },
+    {
+      "asset": "spot",
+      "symbol": "SOLUSDT",
+      "month": "2026-02",
+      "archive_url": "https://data.binance.vision/data/spot/monthly/klines/SOLUSDT/1d/SOLUSDT-1d-2026-02.zip",
+      "checksum_url": "https://data.binance.vision/data/spot/monthly/klines/SOLUSDT/1d/SOLUSDT-1d-2026-02.zip.CHECKSUM",
+      "archive_sha256": "2f2a7010a7902ce0645b998e4f33320a9f394ff6aac080e53442d341f1940b05",
+      "archive_size_bytes": 1830,
+      "csv_member": "SOLUSDT-1d-2026-02.csv",
+      "csv_uncompressed_bytes": 4594,
+      "row_count": 28,
+      "timestamp_units": [
+        "microseconds"
+      ]
+    },
+    {
+      "asset": "spot",
+      "symbol": "SOLUSDT",
+      "month": "2026-03",
+      "archive_url": "https://data.binance.vision/data/spot/monthly/klines/SOLUSDT/1d/SOLUSDT-1d-2026-03.zip",
+      "checksum_url": "https://data.binance.vision/data/spot/monthly/klines/SOLUSDT/1d/SOLUSDT-1d-2026-03.zip.CHECKSUM",
+      "archive_sha256": "254e390e9a69bada245c39990154f4767a2ab1987c3198178dd58fbe1044f6d7",
+      "archive_size_bytes": 1999,
+      "csv_member": "SOLUSDT-1d-2026-03.csv",
+      "csv_uncompressed_bytes": 5058,
+      "row_count": 31,
+      "timestamp_units": [
+        "microseconds"
+      ]
+    },
+    {
+      "asset": "spot",
+      "symbol": "SOLUSDT",
+      "month": "2026-04",
+      "archive_url": "https://data.binance.vision/data/spot/monthly/klines/SOLUSDT/1d/SOLUSDT-1d-2026-04.zip",
+      "checksum_url": "https://data.binance.vision/data/spot/monthly/klines/SOLUSDT/1d/SOLUSDT-1d-2026-04.zip.CHECKSUM",
+      "archive_sha256": "f5534e486c27d46821af2a2fb5ed62201278a88bd569908ad21825ee21307f36",
+      "archive_size_bytes": 1918,
+      "csv_member": "SOLUSDT-1d-2026-04.csv",
+      "csv_uncompressed_bytes": 4872,
+      "row_count": 30,
+      "timestamp_units": [
+        "microseconds"
+      ]
+    },
+    {
+      "asset": "spot",
+      "symbol": "SOLUSDT",
+      "month": "2026-05",
+      "archive_url": "https://data.binance.vision/data/spot/monthly/klines/SOLUSDT/1d/SOLUSDT-1d-2026-05.zip",
+      "checksum_url": "https://data.binance.vision/data/spot/monthly/klines/SOLUSDT/1d/SOLUSDT-1d-2026-05.zip.CHECKSUM",
+      "archive_sha256": "58427ebb87a6df1cd1a9253bb5bdc1ee33fa500bf7a28ead928d6549061f342e",
+      "archive_size_bytes": 1980,
+      "csv_member": "SOLUSDT-1d-2026-05.csv",
+      "csv_uncompressed_bytes": 5026,
+      "row_count": 31,
+      "timestamp_units": [
+        "microseconds"
+      ]
+    },
+    {
+      "asset": "spot",
+      "symbol": "SOLUSDT",
+      "month": "2026-06",
+      "archive_url": "https://data.binance.vision/data/spot/monthly/klines/SOLUSDT/1d/SOLUSDT-1d-2026-06.zip",
+      "checksum_url": "https://data.binance.vision/data/spot/monthly/klines/SOLUSDT/1d/SOLUSDT-1d-2026-06.zip.CHECKSUM",
+      "archive_sha256": "f6a0a60bfd68aabbf1f7e0b8f1f2144fed2ba96ff63df9489f147c3cfa1fd479",
+      "archive_size_bytes": 1928,
+      "csv_member": "SOLUSDT-1d-2026-06.csv",
+      "csv_uncompressed_bytes": 4882,
+      "row_count": 30,
+      "timestamp_units": [
+        "microseconds"
+      ]
+    },
+    {
+      "asset": "spot",
+      "symbol": "SOLUSDT",
+      "month": "2026-07",
+      "archive_url": "https://data.binance.vision/data/spot/monthly/klines/SOLUSDT/1d/SOLUSDT-1d-2026-07.zip",
+      "checksum_url": "https://data.binance.vision/data/spot/monthly/klines/SOLUSDT/1d/SOLUSDT-1d-2026-07.zip.CHECKSUM",
+      "archive_sha256": "b961b1e117dc89b4eeaaa91e9aa5b5f15169a8ef54833aed1c894e2a3a9abc2f",
+      "archive_size_bytes": 1936,
+      "csv_member": "SOLUSDT-1d-2026-07.csv",
+      "csv_uncompressed_bytes": 4991,
+      "row_count": 31,
+      "timestamp_units": [
+        "microseconds"
+      ]
+    },
+    {
+      "asset": "spot",
+      "symbol": "SOLUSDT",
+      "month": "2026-08",
+      "archive_url": "https://data.binance.vision/data/spot/monthly/klines/SOLUSDT/1d/SOLUSDT-1d-2026-08.zip",
+      "checksum_url": "https://data.binance.vision/data/spot/monthly/klines/SOLUSDT/1d/SOLUSDT-1d-2026-08.zip.CHECKSUM",
+      "archive_sha256": "d46f1ad6a295e30d0265a0db7ac9cf56215c66fd8a4931eb9eca41a1910cba53",
+      "archive_size_bytes": 1978,
+      "csv_member": "SOLUSDT-1d-2026-08.csv",
+      "csv_uncompressed_bytes": 5031,
+      "row_count": 31,
+      "timestamp_units": [
+        "microseconds"
+      ]
+    },
+    {
+      "asset": "spot",
+      "symbol": "SOLUSDT",
+      "month": "2026-09",
+      "archive_url": "https://data.binance.vision/data/spot/monthly/klines/SOLUSDT/1d/SOLUSDT-1d-2026-09.zip",
+      "checksum_url": "https://data.binance.vision/data/spot/monthly/klines/SOLUSDT/1d/SOLUSDT-1d-2026-09.zip.CHECKSUM",
+      "archive_sha256": "8a41acebec9cd840944ee4ad1206b1b397ec4d2d42623c0801674dd55000c44a",
+      "archive_size_bytes": 1928,
+      "csv_member": "SOLUSDT-1d-2026-09.csv",
+      "csv_uncompressed_bytes": 4989,
+      "row_count": 30,
+      "timestamp_units": [
+        "microseconds"
+      ]
+    },
+    {
+      "asset": "funding",
+      "symbol": "SOLUSDT",
+      "month": "2024-01",
+      "archive_url": "https://data.binance.vision/data/futures/um/monthly/fundingRate/SOLUSDT/SOLUSDT-fundingRate-2024-01.zip",
+      "checksum_url": "https://data.binance.vision/data/futures/um/monthly/fundingRate/SOLUSDT/SOLUSDT-fundingRate-2024-01.zip.CHECKSUM",
+      "archive_sha256": "6b514b6c2bb67ff04df97d747efb9c6e4bb1bb27e889f1dc51a42ab1419a3d24",
+      "archive_size_bytes": 697,
+      "csv_member": "SOLUSDT-fundingRate-2024-01.csv",
+      "csv_uncompressed_bytes": 2562,
+      "row_count": 93,
+      "timestamp_units": [
+        "milliseconds"
+      ]
+    },
+    {
+      "asset": "funding",
+      "symbol": "SOLUSDT",
+      "month": "2024-02",
+      "archive_url": "https://data.binance.vision/data/futures/um/monthly/fundingRate/SOLUSDT/SOLUSDT-fundingRate-2024-02.zip",
+      "checksum_url": "https://data.binance.vision/data/futures/um/monthly/fundingRate/SOLUSDT/SOLUSDT-fundingRate-2024-02.zip.CHECKSUM",
+      "archive_sha256": "7ccaf8d60ddf07e03eba0589ec4f75abfc2a842217722aaefe996ee1bc095706",
+      "archive_size_bytes": 802,
+      "csv_member": "SOLUSDT-fundingRate-2024-02.csv",
+      "csv_uncompressed_bytes": 2400,
+      "row_count": 87,
+      "timestamp_units": [
+        "milliseconds"
+      ]
+    },
+    {
+      "asset": "funding",
+      "symbol": "SOLUSDT",
+      "month": "2024-03",
+      "archive_url": "https://data.binance.vision/data/futures/um/monthly/fundingRate/SOLUSDT/SOLUSDT-fundingRate-2024-03.zip",
+      "checksum_url": "https://data.binance.vision/data/futures/um/monthly/fundingRate/SOLUSDT/SOLUSDT-fundingRate-2024-03.zip.CHECKSUM",
+      "archive_sha256": "ff3041b6119af926fc55fc722332240037f1aee9b3a2db25f9cb801ba8e2992c",
+      "archive_size_bytes": 946,
+      "csv_member": "SOLUSDT-fundingRate-2024-03.csv",
+      "csv_uncompressed_bytes": 2562,
+      "row_count": 93,
+      "timestamp_units": [
+        "milliseconds"
+      ]
+    },
+    {
+      "asset": "funding",
+      "symbol": "SOLUSDT",
+      "month": "2024-04",
+      "archive_url": "https://data.binance.vision/data/futures/um/monthly/fundingRate/SOLUSDT/SOLUSDT-fundingRate-2024-04.zip",
+      "checksum_url": "https://data.binance.vision/data/futures/um/monthly/fundingRate/SOLUSDT/SOLUSDT-fundingRate-2024-04.zip.CHECKSUM",
+      "archive_sha256": "591e7c4993e59b60966213efd938f48420cd9b63db815240ffc070ec40470e53",
+      "archive_size_bytes": 869,
+      "csv_member": "SOLUSDT-fundingRate-2024-04.csv",
+      "csv_uncompressed_bytes": 2490,
+      "row_count": 90,
+      "timestamp_units": [
+        "milliseconds"
+      ]
+    },
+    {
+      "asset": "funding",
+      "symbol": "SOLUSDT",
+      "month": "2024-05",
+      "archive_url": "https://data.binance.vision/data/futures/um/monthly/fundingRate/SOLUSDT/SOLUSDT-fundingRate-2024-05.zip",
+      "checksum_url": "https://data.binance.vision/data/futures/um/monthly/fundingRate/SOLUSDT/SOLUSDT-fundingRate-2024-05.zip.CHECKSUM",
+      "archive_sha256": "cdd788722e8b85fd6c9d992e7c1c767be87afc91db5b8c07751f898b373cbf29",
+      "archive_size_bytes": 810,
+      "csv_member": "SOLUSDT-fundingRate-2024-05.csv",
+      "csv_uncompressed_bytes": 2567,
+      "row_count": 93,
+      "timestamp_units": [
+        "milliseconds"
+      ]
+    },
+    {
+      "asset": "funding",
+      "symbol": "SOLUSDT",
+      "month": "2024-06",
+      "archive_url": "https://data.binance.vision/data/futures/um/monthly/fundingRate/SOLUSDT/SOLUSDT-fundingRate-2024-06.zip",
+      "checksum_url": "https://data.binance.vision/data/futures/um/monthly/fundingRate/SOLUSDT/SOLUSDT-fundingRate-2024-06.zip.CHECKSUM",
+      "archive_sha256": "8da6c97d67718422a5df9a0d50e37849521fb54de87cbb3b3397e441439dfcc9",
+      "archive_size_bytes": 803,
+      "csv_member": "SOLUSDT-fundingRate-2024-06.csv",
+      "csv_uncompressed_bytes": 2485,
+      "row_count": 90,
+      "timestamp_units": [
+        "milliseconds"
+      ]
+    },
+    {
+      "asset": "funding",
+      "symbol": "SOLUSDT",
+      "month": "2024-07",
+      "archive_url": "https://data.binance.vision/data/futures/um/monthly/fundingRate/SOLUSDT/SOLUSDT-fundingRate-2024-07.zip",
+      "checksum_url": "https://data.binance.vision/data/futures/um/monthly/fundingRate/SOLUSDT/SOLUSDT-fundingRate-2024-07.zip.CHECKSUM",
+      "archive_sha256": "2585a0db933c70b62c87cac509de42ac09b98d370238c0d8c68249a20bd2b9a3",
+      "archive_size_bytes": 850,
+      "csv_member": "SOLUSDT-fundingRate-2024-07.csv",
+      "csv_uncompressed_bytes": 2570,
+      "row_count": 93,
+      "timestamp_units": [
+        "milliseconds"
+      ]
+    },
+    {
+      "asset": "funding",
+      "symbol": "SOLUSDT",
+      "month": "2024-08",
+      "archive_url": "https://data.binance.vision/data/futures/um/monthly/fundingRate/SOLUSDT/SOLUSDT-fundingRate-2024-08.zip",
+      "checksum_url": "https://data.binance.vision/data/futures/um/monthly/fundingRate/SOLUSDT/SOLUSDT-fundingRate-2024-08.zip.CHECKSUM",
+      "archive_sha256": "ef076200aab768d33f71449957f6cd9c96c0da696708a5f561b97e7a0995e8d2",
+      "archive_size_bytes": 940,
+      "csv_member": "SOLUSDT-fundingRate-2024-08.csv",
+      "csv_uncompressed_bytes": 2590,
+      "row_count": 93,
+      "timestamp_units": [
+        "milliseconds"
+      ]
+    },
+    {
+      "asset": "funding",
+      "symbol": "SOLUSDT",
+      "month": "2024-09",
+      "archive_url": "https://data.binance.vision/data/futures/um/monthly/fundingRate/SOLUSDT/SOLUSDT-fundingRate-2024-09.zip",
+      "checksum_url": "https://data.binance.vision/data/futures/um/monthly/fundingRate/SOLUSDT/SOLUSDT-fundingRate-2024-09.zip.CHECKSUM",
+      "archive_sha256": "7666e4d3e6ea6dd28011c508cf01421007521e98e96ea551f809836441b43ca0",
+      "archive_size_bytes": 880,
+      "csv_member": "SOLUSDT-fundingRate-2024-09.csv",
+      "csv_uncompressed_bytes": 2505,
+      "row_count": 90,
+      "timestamp_units": [
+        "milliseconds"
+      ]
+    },
+    {
+      "asset": "funding",
+      "symbol": "SOLUSDT",
+      "month": "2024-10",
+      "archive_url": "https://data.binance.vision/data/futures/um/monthly/fundingRate/SOLUSDT/SOLUSDT-fundingRate-2024-10.zip",
+      "checksum_url": "https://data.binance.vision/data/futures/um/monthly/fundingRate/SOLUSDT/SOLUSDT-fundingRate-2024-10.zip.CHECKSUM",
+      "archive_sha256": "dbece64e8c5bc69c487cc03c00f6a4d4da2cad9152c73860386fcdc7d2ec9d05",
+      "archive_size_bytes": 839,
+      "csv_member": "SOLUSDT-fundingRate-2024-10.csv",
+      "csv_uncompressed_bytes": 2567,
+      "row_count": 93,
+      "timestamp_units": [
+        "milliseconds"
+      ]
+    },
+    {
+      "asset": "funding",
+      "symbol": "SOLUSDT",
+      "month": "2024-11",
+      "archive_url": "https://data.binance.vision/data/futures/um/monthly/fundingRate/SOLUSDT/SOLUSDT-fundingRate-2024-11.zip",
+      "checksum_url": "https://data.binance.vision/data/futures/um/monthly/fundingRate/SOLUSDT/SOLUSDT-fundingRate-2024-11.zip.CHECKSUM",
+      "archive_sha256": "f53a9b637d695a251200e48929a573b4bf04cc2d99d5a3a09fe7bdca622918aa",
+      "archive_size_bytes": 790,
+      "csv_member": "SOLUSDT-fundingRate-2024-11.csv",
+      "csv_uncompressed_bytes": 2482,
+      "row_count": 90,
+      "timestamp_units": [
+        "milliseconds"
+      ]
+    },
+    {
+      "asset": "funding",
+      "symbol": "SOLUSDT",
+      "month": "2024-12",
+      "archive_url": "https://data.binance.vision/data/futures/um/monthly/fundingRate/SOLUSDT/SOLUSDT-fundingRate-2024-12.zip",
+      "checksum_url": "https://data.binance.vision/data/futures/um/monthly/fundingRate/SOLUSDT/SOLUSDT-fundingRate-2024-12.zip.CHECKSUM",
+      "archive_sha256": "bae83020ac2ccfa6dd8d1362d373a92b4d5a7e396cef52e78dc2e7d81e63f621",
+      "archive_size_bytes": 893,
+      "csv_member": "SOLUSDT-fundingRate-2024-12.csv",
+      "csv_uncompressed_bytes": 2583,
+      "row_count": 93,
+      "timestamp_units": [
+        "milliseconds"
+      ]
+    },
+    {
+      "asset": "funding",
+      "symbol": "SOLUSDT",
+      "month": "2025-01",
+      "archive_url": "https://data.binance.vision/data/futures/um/monthly/fundingRate/SOLUSDT/SOLUSDT-fundingRate-2025-01.zip",
+      "checksum_url": "https://data.binance.vision/data/futures/um/monthly/fundingRate/SOLUSDT/SOLUSDT-fundingRate-2025-01.zip.CHECKSUM",
+      "archive_sha256": "314888152c16bc2d846f9aaa9ea3ebeec7c67d235ef2671f1a5e6fe0a8b4dbf2",
+      "archive_size_bytes": 916,
+      "csv_member": "SOLUSDT-fundingRate-2025-01.csv",
+      "csv_uncompressed_bytes": 2598,
+      "row_count": 93,
+      "timestamp_units": [
+        "milliseconds"
+      ]
+    },
+    {
+      "asset": "funding",
+      "symbol": "SOLUSDT",
+      "month": "2025-02",
+      "archive_url": "https://data.binance.vision/data/futures/um/monthly/fundingRate/SOLUSDT/SOLUSDT-fundingRate-2025-02.zip",
+      "checksum_url": "https://data.binance.vision/data/futures/um/monthly/fundingRate/SOLUSDT/SOLUSDT-fundingRate-2025-02.zip.CHECKSUM",
+      "archive_sha256": "eeade74c1ca2a6dc9d78ba0d7a1ff145c323be72cfa2c09fcef9edab88baef9f",
+      "archive_size_bytes": 872,
+      "csv_member": "SOLUSDT-fundingRate-2025-02.csv",
+      "csv_uncompressed_bytes": 2364,
+      "row_count": 84,
+      "timestamp_units": [
+        "milliseconds"
+      ]
+    },
+    {
+      "asset": "funding",
+      "symbol": "SOLUSDT",
+      "month": "2025-03",
+      "archive_url": "https://data.binance.vision/data/futures/um/monthly/fundingRate/SOLUSDT/SOLUSDT-fundingRate-2025-03.zip",
+      "checksum_url": "https://data.binance.vision/data/futures/um/monthly/fundingRate/SOLUSDT/SOLUSDT-fundingRate-2025-03.zip.CHECKSUM",
+      "archive_sha256": "3f77a33779c946da6f3082d14fb9a5497e7e4a4e3fff4d68967e6ddf96cf99ea",
+      "archive_size_bytes": 938,
+      "csv_member": "SOLUSDT-fundingRate-2025-03.csv",
+      "csv_uncompressed_bytes": 2618,
+      "row_count": 93,
+      "timestamp_units": [
+        "milliseconds"
+      ]
+    },
+    {
+      "asset": "funding",
+      "symbol": "SOLUSDT",
+      "month": "2025-04",
+      "archive_url": "https://data.binance.vision/data/futures/um/monthly/fundingRate/SOLUSDT/SOLUSDT-fundingRate-2025-04.zip",
+      "checksum_url": "https://data.binance.vision/data/futures/um/monthly/fundingRate/SOLUSDT/SOLUSDT-fundingRate-2025-04.zip.CHECKSUM",
+      "archive_sha256": "6cd3fb27bae9313e15734d7214f4a83dc37a7a199cfc12c23f7777a5e27f7fd7",
+      "archive_size_bytes": 920,
+      "csv_member": "SOLUSDT-fundingRate-2025-04.csv",
+      "csv_uncompressed_bytes": 2533,
+      "row_count": 90,
+      "timestamp_units": [
+        "milliseconds"
+      ]
+    },
+    {
+      "asset": "funding",
+      "symbol": "SOLUSDT",
+      "month": "2025-05",
+      "archive_url": "https://data.binance.vision/data/futures/um/monthly/fundingRate/SOLUSDT/SOLUSDT-fundingRate-2025-05.zip",
+      "checksum_url": "https://data.binance.vision/data/futures/um/monthly/fundingRate/SOLUSDT/SOLUSDT-fundingRate-2025-05.zip.CHECKSUM",
+      "archive_sha256": "eb03fd0d0b31eef9ee05544ea8dcce097a807d3475f67d0a5f0859c487c5f5c3",
+      "archive_size_bytes": 940,
+      "csv_member": "SOLUSDT-fundingRate-2025-05.csv",
+      "csv_uncompressed_bytes": 2595,
+      "row_count": 93,
+      "timestamp_units": [
+        "milliseconds"
+      ]
+    },
+    {
+      "asset": "funding",
+      "symbol": "SOLUSDT",
+      "month": "2025-06",
+      "archive_url": "https://data.binance.vision/data/futures/um/monthly/fundingRate/SOLUSDT/SOLUSDT-fundingRate-2025-06.zip",
+      "checksum_url": "https://data.binance.vision/data/futures/um/monthly/fundingRate/SOLUSDT/SOLUSDT-fundingRate-2025-06.zip.CHECKSUM",
+      "archive_sha256": "4ccee0a6fd67cb775be49d124b9eb038f26acd09426fcb9aaf9d3de74cf3a24e",
+      "archive_size_bytes": 939,
+      "csv_member": "SOLUSDT-fundingRate-2025-06.csv",
+      "csv_uncompressed_bytes": 2505,
+      "row_count": 90,
+      "timestamp_units": [
+        "milliseconds"
+      ]
+    },
+    {
+      "asset": "funding",
+      "symbol": "SOLUSDT",
+      "month": "2025-07",
+      "archive_url": "https://data.binance.vision/data/futures/um/monthly/fundingRate/SOLUSDT/SOLUSDT-fundingRate-2025-07.zip",
+      "checksum_url": "https://data.binance.vision/data/futures/um/monthly/fundingRate/SOLUSDT/SOLUSDT-fundingRate-2025-07.zip.CHECKSUM",
+      "archive_sha256": "66ce38d1a8bc4bdd53af29d8ea5c72493ed48fe9894ee5e9ff4600ccec864c4f",
+      "archive_size_bytes": 876,
+      "csv_member": "SOLUSDT-fundingRate-2025-07.csv",
+      "csv_uncompressed_bytes": 2576,
+      "row_count": 93,
+      "timestamp_units": [
+        "milliseconds"
+      ]
+    },
+    {
+      "asset": "funding",
+      "symbol": "SOLUSDT",
+      "month": "2025-08",
+      "archive_url": "https://data.binance.vision/data/futures/um/monthly/fundingRate/SOLUSDT/SOLUSDT-fundingRate-2025-08.zip",
+      "checksum_url": "https://data.binance.vision/data/futures/um/monthly/fundingRate/SOLUSDT/SOLUSDT-fundingRate-2025-08.zip.CHECKSUM",
+      "archive_sha256": "fe9efc3abe1e4be2a2fa9a4008e6957856387f6783a06b97cac3ee271746915f",
+      "archive_size_bytes": 917,
+      "csv_member": "SOLUSDT-fundingRate-2025-08.csv",
+      "csv_uncompressed_bytes": 2585,
+      "row_count": 93,
+      "timestamp_units": [
+        "milliseconds"
+      ]
+    },
+    {
+      "asset": "funding",
+      "symbol": "SOLUSDT",
+      "month": "2025-09",
+      "archive_url": "https://data.binance.vision/data/futures/um/monthly/fundingRate/SOLUSDT/SOLUSDT-fundingRate-2025-09.zip",
+      "checksum_url": "https://data.binance.vision/data/futures/um/monthly/fundingRate/SOLUSDT/SOLUSDT-fundingRate-2025-09.zip.CHECKSUM",
+      "archive_sha256": "f953315124d20dab98ba710d108103fb4cf054d1535787fd76d35d6b9c18e534",
+      "archive_size_bytes": 947,
+      "csv_member": "SOLUSDT-fundingRate-2025-09.csv",
+      "csv_uncompressed_bytes": 2498,
+      "row_count": 90,
+      "timestamp_units": [
+        "milliseconds"
+      ]
+    },
+    {
+      "asset": "funding",
+      "symbol": "SOLUSDT",
+      "month": "2025-10",
+      "archive_url": "https://data.binance.vision/data/futures/um/monthly/fundingRate/SOLUSDT/SOLUSDT-fundingRate-2025-10.zip",
+      "checksum_url": "https://data.binance.vision/data/futures/um/monthly/fundingRate/SOLUSDT/SOLUSDT-fundingRate-2025-10.zip.CHECKSUM",
+      "archive_sha256": "d80c5be7660a950ad673a0e82488877c6ca0eb81f084d4c844320f892ad2c020",
+      "archive_size_bytes": 976,
+      "csv_member": "SOLUSDT-fundingRate-2025-10.csv",
+      "csv_uncompressed_bytes": 2602,
+      "row_count": 93,
+      "timestamp_units": [
+        "milliseconds"
+      ]
+    },
+    {
+      "asset": "funding",
+      "symbol": "SOLUSDT",
+      "month": "2025-11",
+      "archive_url": "https://data.binance.vision/data/futures/um/monthly/fundingRate/SOLUSDT/SOLUSDT-fundingRate-2025-11.zip",
+      "checksum_url": "https://data.binance.vision/data/futures/um/monthly/fundingRate/SOLUSDT/SOLUSDT-fundingRate-2025-11.zip.CHECKSUM",
+      "archive_sha256": "5134fdf4319d629473f8cff1e66dc74180844ae2846ab41a8128466ab3682c2f",
+      "archive_size_bytes": 963,
+      "csv_member": "SOLUSDT-fundingRate-2025-11.csv",
+      "csv_uncompressed_bytes": 2525,
+      "row_count": 90,
+      "timestamp_units": [
+        "milliseconds"
+      ]
+    },
+    {
+      "asset": "funding",
+      "symbol": "SOLUSDT",
+      "month": "2025-12",
+      "archive_url": "https://data.binance.vision/data/futures/um/monthly/fundingRate/SOLUSDT/SOLUSDT-fundingRate-2025-12.zip",
+      "checksum_url": "https://data.binance.vision/data/futures/um/monthly/fundingRate/SOLUSDT/SOLUSDT-fundingRate-2025-12.zip.CHECKSUM",
+      "archive_sha256": "01db13c460b0190736e1da019c7fcd7ea0abbf3b047e16d3aa8a9e9acec3101f",
+      "archive_size_bytes": 957,
+      "csv_member": "SOLUSDT-fundingRate-2025-12.csv",
+      "csv_uncompressed_bytes": 2592,
+      "row_count": 93,
+      "timestamp_units": [
+        "milliseconds"
+      ]
+    },
+    {
+      "asset": "funding",
+      "symbol": "SOLUSDT",
+      "month": "2026-01",
+      "archive_url": "https://data.binance.vision/data/futures/um/monthly/fundingRate/SOLUSDT/SOLUSDT-fundingRate-2026-01.zip",
+      "checksum_url": "https://data.binance.vision/data/futures/um/monthly/fundingRate/SOLUSDT/SOLUSDT-fundingRate-2026-01.zip.CHECKSUM",
+      "archive_sha256": "c53be79aae38a1f35e94880f106df4eceab57bfa74a0b5fc5852fdfabf57ab8e",
+      "archive_size_bytes": 962,
+      "csv_member": "SOLUSDT-fundingRate-2026-01.csv",
+      "csv_uncompressed_bytes": 2589,
+      "row_count": 93,
+      "timestamp_units": [
+        "milliseconds"
+      ]
+    },
+    {
+      "asset": "funding",
+      "symbol": "SOLUSDT",
+      "month": "2026-02",
+      "archive_url": "https://data.binance.vision/data/futures/um/monthly/fundingRate/SOLUSDT/SOLUSDT-fundingRate-2026-02.zip",
+      "checksum_url": "https://data.binance.vision/data/futures/um/monthly/fundingRate/SOLUSDT/SOLUSDT-fundingRate-2026-02.zip.CHECKSUM",
+      "archive_sha256": "84cb9bcf44ba1364b37db876e7c852aa1b831371556b610e2387115addec9d5f",
+      "archive_size_bytes": 942,
+      "csv_member": "SOLUSDT-fundingRate-2026-02.csv",
+      "csv_uncompressed_bytes": 2389,
+      "row_count": 84,
+      "timestamp_units": [
+        "milliseconds"
+      ]
+    },
+    {
+      "asset": "funding",
+      "symbol": "SOLUSDT",
+      "month": "2026-03",
+      "archive_url": "https://data.binance.vision/data/futures/um/monthly/fundingRate/SOLUSDT/SOLUSDT-fundingRate-2026-03.zip",
+      "checksum_url": "https://data.binance.vision/data/futures/um/monthly/fundingRate/SOLUSDT/SOLUSDT-fundingRate-2026-03.zip.CHECKSUM",
+      "archive_sha256": "75cfaea075d97779a577c3744ea63e3d83704f281806fb5f76f2d3e0f089fd2c",
+      "archive_size_bytes": 1010,
+      "csv_member": "SOLUSDT-fundingRate-2026-03.csv",
+      "csv_uncompressed_bytes": 2624,
+      "row_count": 93,
+      "timestamp_units": [
+        "milliseconds"
+      ]
+    },
+    {
+      "asset": "funding",
+      "symbol": "SOLUSDT",
+      "month": "2026-04",
+      "archive_url": "https://data.binance.vision/data/futures/um/monthly/fundingRate/SOLUSDT/SOLUSDT-fundingRate-2026-04.zip",
+      "checksum_url": "https://data.binance.vision/data/futures/um/monthly/fundingRate/SOLUSDT/SOLUSDT-fundingRate-2026-04.zip.CHECKSUM",
+      "archive_sha256": "951a280e98b6d20fe4be25bf2b71f3cda1c07c7583a88cb874151e2b1fe941f1",
+      "archive_size_bytes": 944,
+      "csv_member": "SOLUSDT-fundingRate-2026-04.csv",
+      "csv_uncompressed_bytes": 2525,
+      "row_count": 90,
+      "timestamp_units": [
+        "milliseconds"
+      ]
+    },
+    {
+      "asset": "funding",
+      "symbol": "SOLUSDT",
+      "month": "2026-05",
+      "archive_url": "https://data.binance.vision/data/futures/um/monthly/fundingRate/SOLUSDT/SOLUSDT-fundingRate-2026-05.zip",
+      "checksum_url": "https://data.binance.vision/data/futures/um/monthly/fundingRate/SOLUSDT/SOLUSDT-fundingRate-2026-05.zip.CHECKSUM",
+      "archive_sha256": "c13066e5f7c5d161dbebd488cbeaab1205688c6dc7f9fafcc8f94296f2c1e47b",
+      "archive_size_bytes": 979,
+      "csv_member": "SOLUSDT-fundingRate-2026-05.csv",
+      "csv_uncompressed_bytes": 2600,
+      "row_count": 93,
+      "timestamp_units": [
+        "milliseconds"
+      ]
+    },
+    {
+      "asset": "funding",
+      "symbol": "SOLUSDT",
+      "month": "2026-06",
+      "archive_url": "https://data.binance.vision/data/futures/um/monthly/fundingRate/SOLUSDT/SOLUSDT-fundingRate-2026-06.zip",
+      "checksum_url": "https://data.binance.vision/data/futures/um/monthly/fundingRate/SOLUSDT/SOLUSDT-fundingRate-2026-06.zip.CHECKSUM",
+      "archive_sha256": "8d32fa3153d54c58667650e8b2c65e489b3a433b775052a93208bf60541a40d3",
+      "archive_size_bytes": 973,
+      "csv_member": "SOLUSDT-fundingRate-2026-06.csv",
+      "csv_uncompressed_bytes": 2545,
+      "row_count": 90,
+      "timestamp_units": [
+        "milliseconds"
+      ]
+    },
+    {
+      "asset": "funding",
+      "symbol": "SOLUSDT",
+      "month": "2026-07",
+      "archive_url": "https://data.binance.vision/data/futures/um/monthly/fundingRate/SOLUSDT/SOLUSDT-fundingRate-2026-07.zip",
+      "checksum_url": "https://data.binance.vision/data/futures/um/monthly/fundingRate/SOLUSDT/SOLUSDT-fundingRate-2026-07.zip.CHECKSUM",
+      "archive_sha256": "13f655eaa29865b16acc7bd97be74e212bc4c2139fc2f9ead4d150852c2a9ebb",
+      "archive_size_bytes": 964,
+      "csv_member": "SOLUSDT-fundingRate-2026-07.csv",
+      "csv_uncompressed_bytes": 2586,
+      "row_count": 93,
+      "timestamp_units": [
+        "milliseconds"
+      ]
+    },
+    {
+      "asset": "funding",
+      "symbol": "SOLUSDT",
+      "month": "2026-08",
+      "archive_url": "https://data.binance.vision/data/futures/um/monthly/fundingRate/SOLUSDT/SOLUSDT-fundingRate-2026-08.zip",
+      "checksum_url": "https://data.binance.vision/data/futures/um/monthly/fundingRate/SOLUSDT/SOLUSDT-fundingRate-2026-08.zip.CHECKSUM",
+      "archive_sha256": "593e99bb628c0b178a5a2c8f415e1ed489dfd7dea497366f1fee91b8768c704d",
+      "archive_size_bytes": 899,
+      "csv_member": "SOLUSDT-fundingRate-2026-08.csv",
+      "csv_uncompressed_bytes": 2581,
+      "row_count": 93,
+      "timestamp_units": [
+        "milliseconds"
+      ]
+    },
+    {
+      "asset": "funding",
+      "symbol": "SOLUSDT",
+      "month": "2026-09",
+      "archive_url": "https://data.binance.vision/data/futures/um/monthly/fundingRate/SOLUSDT/SOLUSDT-fundingRate-2026-09.zip",
+      "checksum_url": "https://data.binance.vision/data/futures/um/monthly/fundingRate/SOLUSDT/SOLUSDT-fundingRate-2026-09.zip.CHECKSUM",
+      "archive_sha256": "8503ce0767496c63929bedc4f43307efcea8216d181a873b32a695f6d85092ef",
+      "archive_size_bytes": 917,
+      "csv_member": "SOLUSDT-fundingRate-2026-09.csv",
+      "csv_uncompressed_bytes": 2499,
+      "row_count": 90,
+      "timestamp_units": [
+        "milliseconds"
+      ]
+    }
+  ],
+  "normalized_inputs": {
+    "spot_daily.csv": {
+      "sha256": "a008fbd0514f4d01bd477fc008de9fb24b8dfae5e83ebda2ced8bbf2e89bcf0a",
+      "bytes": 921335,
+      "row_count": 4107,
+      "schema": [
+        "symbol",
+        "open_time_utc",
+        "open_time_raw",
+        "open",
+        "high",
+        "low",
+        "close",
+        "volume",
+        "close_time_utc",
+        "close_time_raw",
+        "quote_volume",
+        "count",
+        "taker_buy_volume",
+        "taker_buy_quote_volume",
+        "ignore"
+      ],
+      "encoding": "UTF-8 without BOM; csv.writer default CRLF line endings",
+      "order": "symbol ascending, then timestamp ascending"
+    },
+    "funding.csv": {
+      "sha256": "310508098d4b9a30a33823368a80e8fe7c034c05f8cb37513d7de3b101a449a8",
+      "bytes": 811996,
+      "row_count": 9036,
+      "schema": [
+        "symbol",
+        "calc_time_utc",
+        "calc_time_raw",
+        "calc_time_raw_utc",
+        "funding_interval_hours",
+        "last_funding_rate",
+        "jitter_ms"
+      ],
+      "encoding": "UTF-8 without BOM; csv.writer default CRLF line endings",
+      "order": "symbol ascending, then timestamp ascending"
+    }
+  }
+}

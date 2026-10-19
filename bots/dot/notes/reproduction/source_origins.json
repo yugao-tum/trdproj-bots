@@ -1,0 +1,57 @@
+{
+  "spot_screen.py": {
+    "source_id": "spot_screen.py",
+    "source_sha256": "8e56d8e5c2e73c97710c795ee11a1fbdf86f6d5a2fac1f3688160d68160b3d8c",
+    "release_sha256": "8e56d8e5c2e73c97710c795ee11a1fbdf86f6d5a2fac1f3688160d68160b3d8c",
+    "unchanged": true
+  },
+  "test_spot_screen.py": {
+    "source_id": "test_spot_screen.py",
+    "source_sha256": "69bdbaddab43030635c2944fb9932528a30d7440b88b0047dcd77b2360a5a2ca",
+    "release_sha256": "69bdbaddab43030635c2944fb9932528a30d7440b88b0047dcd77b2360a5a2ca",
+    "unchanged": true
+  },
+  "sensitivity.py": {
+    "source_id": "sensitivity.py",
+    "source_sha256": "0563bf94245a5b7e487a431f749c6f1f5b2becd0a698d16af232588acca53e29",
+    "release_sha256": "37014c6b77f7d9fdbdfe3c362b751996eb2999fb42d380a3b4eea5e96d23f50e",
+    "unchanged": false
+  },
+  "test_sensitivity.py": {
+    "source_id": "test_sensitivity.py",
+    "source_sha256": "4246984ea6d840638970530b0b0126195a1c14716ab3a7aa6e469ae7366c47bc",
+    "release_sha256": "4246984ea6d840638970530b0b0126195a1c14716ab3a7aa6e469ae7366c47bc",
+    "unchanged": true
+  },
+  "test_operator_regression.py": {
+    "source_id": "test_operator_regression.py",
+    "source_sha256": "ceb236196c61d130b76cccc4ca979fdf71dc92cf6075c3bd2cf70136d3160cf7",
+    "release_sha256": "203f0842d64125ed3521546f792c24aba127165a8beb3cb1929ed2f163fa157a",
+    "unchanged": false
+  },
+  "c40_screen.py": {
+    "source_id": "c40_screen.py",
+    "source_sha256": "a46a9219e22ae7ec377a674093a527fd68801e67a7377ff9371250c2827d7caa",
+    "release_sha256": "f16a66561aeaa2ca837e654c2c490b78c07b69aa28b58bd03452d3b1ccfea187",
+    "unchanged": false
+  },
+  "test_c40_screen.py": {
+    "source_id": "test_c40_screen.py",
+    "source_sha256": "74067f743e096433cf663ef82da4dd150dabf02a79a459760d45a1ea8d17a8c5",
+    "release_sha256": "74067f743e096433cf663ef82da4dd150dabf02a79a459760d45a1ea8d17a8c5",
+    "unchanged": true
+  },
+  "fixtures/mini_spot_daily.csv": {
+    "source_id": "mini_spot_daily.csv",
+    "source_sha256": "91a0c174a187af8a8268d772b197df855b19e2057a4f9f2d4f81a947f0db77eb",
+    "release_sha256": "91a0c174a187af8a8268d772b197df855b19e2057a4f9f2d4f81a947f0db77eb",
+    "unchanged": true
+  },
+  "C40_PREREGISTRATION.md": {
+    "source_id": "C40_PREREGISTER.md",
+    "source_sha256": "a09d74912129d590e6121670bfc76f530df23a44e15d24e1f8a63a620bd0bdff",
+    "release_sha256": "aad6864bd45d9c3baac5540a559a1357741d9de8a654ffb6c55960d0771ceed6",
+    "unchanged": false,
+    "change": "Public methodology copy: removes internal attribution and access-log prose; preserves every rule bullet and adds recorded file-freeze timestamp."
+  }
+}

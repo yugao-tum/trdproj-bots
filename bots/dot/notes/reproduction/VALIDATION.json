@@ -1,0 +1,52 @@
+{
+  "passed": true,
+  "scenario_count": 26,
+  "families": {
+    "spot-screen": 8,
+    "spot-halfcap": 12,
+    "c40": 6
+  },
+  "verified_outputs": [
+    "spot-screen/daily_equity.csv",
+    "spot-screen/data_quality.json",
+    "spot-screen/monthly_returns.csv",
+    "spot-screen/summary.json",
+    "spot-screen/trades.csv",
+    "spot-halfcap/R6-SPOT-HALFCAP.csv",
+    "spot-halfcap/daily_equity.csv",
+    "spot-halfcap/data_quality.json",
+    "spot-halfcap/monthly_returns.csv",
+    "spot-halfcap/summary.json",
+    "spot-halfcap/trades.csv",
+    "c40/daily_equity.csv",
+    "c40/episodes.csv",
+    "c40/monthly_returns.csv",
+    "c40/summary.json",
+    "c40/trades.csv"
+  ],
+  "comparison": "Exact SHA256 for CSV bytes and canonical JSON after listed metadata exclusions; no numeric tolerance.",
+  "hand_tests_passed": 43,
+  "half_scale_regression_tests_passed": 1,
+  "python": "3.12.14",
+  "platform": "Linux",
+  "verified_official_archives": 234,
+  "reconstructed_input_hashes_match": true,
+  "original_output_files_unchanged": 21,
+  "original_frozen_manifests_verified": true,
+  "economic_functions_ast_identical": true,
+  "changed_function_names": {
+    "spot_screen.py": [],
+    "sensitivity.py": [
+      "build_summary",
+      "render_markdown"
+    ],
+    "c40_screen.py": [
+      "main"
+    ]
+  },
+  "C40_rule_bullets_unchanged": true,
+  "scope": "Reproduction and packaging regression only; zero new strategy mechanisms or parameter searches",
+  "relocated_archive_run_passed": true,
+  "relocated_run_used_reconstructed_inputs": true,
+  "test_count_interpretation": "43 synthetic/unit-test methods plus one historical half-scale regression; not independent trades or new backtests"
+}
