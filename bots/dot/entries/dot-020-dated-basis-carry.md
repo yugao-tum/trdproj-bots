@@ -12,7 +12,7 @@ category: A
 return_type: convergence
 instruments: BTC（现货 + USDT本位季度交割）
 venues: Binance（Spot + USDⓈ-M Delivery）
-data: 保存S3列表有25个BTCUSDT交割目录（210326–270326）；截至2026-10-19最多23个历史到期候选，文件完整性、同步价格和结算规则未齐；官方归档免费免密钥
+data: 固定八个已到期BTCUSDT合约64对官方日频月档CHECKSUM已核，24条基差筛；260925缺一日mark，实际结算/同步成交/历史维持保证金与完整收益仍缺
 test_2w: 复核历史到期候选与预定30/60/90天入场窗；同到期合并、跨到期依赖另审；可用独立结果数未知且当前候选上限23<30；扣费净基差≤0或独立结果不足30为失败
 status: 草稿
 confidence: 中
@@ -40,7 +40,7 @@ confidence: 中
 
 ## 证据
 
-本稿只复核原研究已保存文本，原访问日期为 2026-10-19 UTC；未新开网页、下载合约文件或执行回测。
+原版复核保存文本；2026-10-19 20:21–20:23 UTC新增取得固定八期官方trade/mark月包与CHECKSUM，并补读交割规则公告。下列BIS/GitHub数字仍为来源自报；本次独立数据核查见[八期基差描述筛](../notes/20261019-delivery-basis-history-screen.md)，不构成盈利回测。
 
 **BIS Working Paper 1087《Crypto carry》，来源自报，未核实**
 
@@ -56,20 +56,20 @@ confidence: 中
 
 - 保存 S3 XML 列出的 25 个后缀为：210326、210625、210924、211231、220325、220624、220930、221230、230331、230630、230929、231229、240329、240628、240927、241227、250328、250627、250926、251226、260327、260626、260925、261225、270326。
 - 截至 2026-10-19，261225 与 270326 在未来；仅按日期过滤得最多 23 个已到期候选，不是 25 个已实现结果。BTCUSDT_260925 与 BTC 现货列表都含 1h 子目录，但前缀/目录存在不证明 CSV 完整、真实可交易跨度或结算结果可复核。
-- 全部候选未逐文件校验，连续至少 12 个月的可交易到期链仍未证；backtest_count=0，observed_net_return=null，Sharpe/最大回撤=未知。
+- 全部23个候选尚未逐文件校验；本次固定八期241227至260925已核64对日频月包，仍缺实际结算、资金路径和完整收益。backtest_count=0，observed_net_return=null，Sharpe/最大回撤=未知。
 
 ## 数据
 
 - **候选目录来源**：[交割合约S3列表](https://s3-ap-northeast-1.amazonaws.com/data.binance.vision?delimiter=/&prefix=data/futures/um/daily/klines/BTCUSDT_) 的 CommonPrefixes 支持上述25个名称，不支持全部文件完整性；先排除访问日之后到期的合约。
-- **已见子目录**：[BTCUSDT_260925列表](https://s3-ap-northeast-1.amazonaws.com/data.binance.vision?delimiter=/&prefix=data/futures/um/daily/klines/BTCUSDT_260925/) 与 [BTC现货列表](https://s3-ap-northeast-1.amazonaws.com/data.binance.vision?delimiter=/&prefix=data/spot/monthly/klines/BTCUSDT/) 均有 1h；本稿未下载各期 ZIP、核 CHECKSUM 或首末 bar，不推断每合约一定有90个日文件。
+- **已见子目录**：[BTCUSDT_260925列表](https://s3-ap-northeast-1.amazonaws.com/data.binance.vision?delimiter=/&prefix=data/futures/um/daily/klines/BTCUSDT_260925/) 与 [BTC现货列表](https://s3-ap-northeast-1.amazonaws.com/data.binance.vision?delimiter=/&prefix=data/spot/monthly/klines/BTCUSDT/) 均有1h目录。新增核验采用另行冻结的1d月包：八期各E−100至E，窗口trade808行、mark807行；不能从1h目录推定完整性。
 - **价格和缺测**：拟用同一 UTC 时段的 spot/futures 1h 或 1d 资料作低频基差代理；成交价、盘口和结算价另列。不得用前向填充证明同步成交或可执行正基差。
-- **mark与风控缺口**：对应 markPriceKlines 路径未核；缺失时只能报告价格代理的描述性统计，不能凭更高缓冲替代 mark/维持保证金、清算路径或宣称安全。
-- **元数据缺口**：合约乘数、最小名义、精度、真实到期时点、官方结算价/交割费用、历史保证金规则、稳定币和钱包资金路径均未齐；文档导航存在不等于这些规则已核。
+- **mark与风控缺口**：八期markPriceKlines已实际取得；260925在2026-06-29缺一天，处于H90路径。到期日日bar末尾标23:59:59.999，不能据此还原08:00前保证金路径；日高仅代理，历史维持保证金仍缺。
+- **元数据缺口**：官方公告已支持UM线性、USDT结算及自2024-11-11起30分钟指数均价结算窗，固定八期均在生效后。逐期真实结算值、实际taker费、最小数量/名义与历史保证金、钱包路径仍未齐，当前文档不能无条件回填历史。
 - 官方归档是免费免密钥来源；本稿不调用受限 fapi 历史、不登录。observed_net_return=null；历史可执行机会数与月频率未知。
 
 ## 两周内怎么检验
 
-1. 这是未执行协议：从25个保存目录先排除两个未来到期，逐一核其余最多23个候选的上市/最后交易/结算时点、完整文件及 CHECKSUM；无规则或关键数据的候选不产出完整收益。
+1. 完整收益检验仍未执行；八期数据与描述筛已完成：从25个保存目录先排除两个未来到期，逐一核其余最多23个候选的上市/最后交易/结算时点、完整文件及 CHECKSUM；无规则或关键数据的候选不产出完整收益。
 2. 到期前30/60/90天是原稿预设入场窗，只作同一到期的规则变体，不是额外样本；不得事后挑收益最高窗口。以当时已知价格形成信号，记录数据可用时间、实际成交缺口和入场可达性。
 3. 同到期的窗口、币种及同时敞口先合并报告；不同到期之间仍要审重叠持仓、共同行情/基差状态和场所依赖，不能每个到期自动算一个独立结果。
 4. 使用实际数量、实际名义成交成本、结算价与现货退出价，并复核逐时现金/保证金路径；14.4/28.8 USDT 只保留为四边等名义费用基准。缺 mark 或资金路径时，结果止于描述性基差/费用可行性筛。
@@ -98,12 +98,12 @@ confidence: 中
 ## 门槛自查
 
 1. **机制说得清：满足。** 说明升水需求、等币数量对冲和终值残差；来源支持机制，不代表具体合约规则完整核验。
-2. **有免费数据能检验：不确定。** 官方目录与1h子目录存在，但25前缀中两份未来到期；最多23个历史候选的文件与连续12个月可交易链未完整核验。
+2. **有免费数据能检验：整体仍不满足。** 固定八期64对日频档已取得，24条基差描述筛完成；一日mark缺失，实际结算、可执行退出与完整12月收益链仍未核。
 3. **小资金能做：不确定。** 总5,000、单场所约2,500已保留；正基差下抵押应随实际期货名义、费用和资金路径计算，原1,200+1,200简化不能证明合规可行。
 4. **不重复：不确定。** 与C19机制描述不同，未补全仓库查重，币种/入场窗不新计数。
-5. **扣成本后粗算够用：不确定。** 总资本口径四季近似所需毛年化17.3%/38.1333%，只是费用假设下的目标门槛算术；实际成本、机会与资金路径未核，observed_net_return=null。
+5. **扣成本后粗算够用：未通过现有描述筛，完整收益未知。** 新增24条按固定5000/1200及实际d的理想化3%/8%年目标全部未覆盖；这不是实际carry收益。 总资本口径四季近似所需毛年化17.3%/38.1333%，只是费用假设下的目标门槛算术；实际成本、机会与资金路径未核，observed_net_return=null。
 6. **两周内能检验：不确定。** 当前已列范围最多23个历史候选，明确不足以证明30个独立结果；实际有效数量和跨到期独立性未知，不把日期过滤当收益验证，亦不把未执行计划当完成。
-7. **出处可查：不确定。** 保存的BIS/README/官方S3资料有公开URL、原访问日与定位；规则、完整文件、结算和费用证据仍缺，来源自报未核实，不能整体判为满足。
+7. **出处可查：不确定。** 保存的BIS/README/官方S3资料有公开URL、原访问日与定位；已补官方规则版本与64对文件验证；实际结算/费用/历史保证金证据仍缺，来源自报未复现，不能整体判为满足。
 
 ## 出处
 
@@ -113,3 +113,5 @@ confidence: 中
 - https://s3-ap-northeast-1.amazonaws.com/data.binance.vision?delimiter=/&prefix=data/futures/um/daily/klines/BTCUSDT_260925/ — 原访问2026-10-19 UTC — 已读（保存XML）— 1h子目录；未下载各期完整文件
 - https://s3-ap-northeast-1.amazonaws.com/data.binance.vision?delimiter=/&prefix=data/spot/monthly/klines/BTCUSDT/ — 原访问2026-10-19 UTC — 已读（保存XML）— 现货1h子目录；未据此认定同步历史齐备
 - https://developers.binance.com/docs/derivatives/usds-margined-futures/market-data/rest-api/Get-Funding-Rate-History — 原访问2026-10-19 UTC — 已读（保存导航/相关正文）— Exchange Information及Quarterly Contract Settlement Price端点线索；不是交割结算方法、乘数或费用已核证据
+
+- [固定八期归档与基差费用筛](../notes/20261019-delivery-basis-history-screen.md) — 访问2026-10-19 UTC — 实际64对官方ZIP/CHECKSUM、24行派生表、规则版本和字段来源；无实现PnL

@@ -91,3 +91,5 @@
 | bots/dot/notes/portfolio-diagnostics/all_correlations.csv | all_correlations | 2026-10-19 | 派生诊断/来源核查/未晋级 |
 | bots/dot/notes/portfolio-diagnostics/all_pairs.csv | all_pairs | 2026-10-19 | 派生诊断/来源核查/未晋级 |
 | bots/dot/notes/portfolio-diagnostics/scaled_legs.csv | scaled_legs | 2026-10-19 | 派生诊断/来源核查/未晋级 |
+| bots/dot/notes/20261019-delivery-basis-history-screen.md | 20261019-delivery-basis-history-screen | 2026-10-19 | 基差描述筛/未晋级 |
+| bots/dot/notes/basis-diagnostics/basis-screen-24.csv | basis-screen-24 | 2026-10-19 | 基差描述筛/未晋级 |
