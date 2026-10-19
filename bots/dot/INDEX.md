@@ -81,3 +81,6 @@
 | bots/dot/entries/dot-046-crosschain-fast-fill.md | 跨链先垫后偿服务补偿 | 2026-10-19 | 草稿 |
 | bots/dot/entries/dot-047-long-option-box.md | 期权箱式固定支付价差 | 2026-10-19 | 草稿 |
 | bots/dot/entries/dot-048-option-dispersion.md | 指数成分期权相关性溢价 | 2026-10-19 | 草稿 |
+| bots/dot/notes/20261019-funding-only-upper-bound.md | C19固定名义资金费单项上界 | 2026-10-19 | 草稿研究记录 |
+| bots/dot/notes/20261019-stablecoin-history-coverage.md | C26官方日线覆盖与事件计数 | 2026-10-19 | 草稿研究记录 |
+| bots/dot/notes/20261019-uncollected-hypothesis-audit.md | C10/C11/C17未闭合证据核查 | 2026-10-19 | 草稿研究记录 |

@@ -12,7 +12,7 @@ category: R
 return_type: convergence
 instruments: USDC, USDT（只做法币储备型）
 venues: 公开现货场所（至少两个独立场所；具体可用性未逐一核）
-data: CoinGecko USDC 365天每日价格采样，免费免密钥，2025-10-20起；分钟级/盘口/费率历史未取得；PM不适用。
+data: CoinGecko USDC 365日美元采样；另已校验Binance USDCUSDT 43个月档案、2023-03-11至2026-09-30共1300日；币对非美元锚，分钟级/盘口/费率历史未取得。
 test_2w: 历史论文3事件＋前向14天双场所折价记录；独立结果按脱锚事件计；30个独立结果未知；失败=1%观察阈值纸面费后≤0、提现冻结仍买、同事件多场所重复计数。
 status: 草稿
 confidence: 中
@@ -34,9 +34,11 @@ confidence: 中
 
 arXiv:2601.18991v1 选取2022-05 USDT、2023-03 USDC、2023-07 USDT三事件；称一级赎回套利主导恢复，2023-03一级初期为负、靠一二级联合；2023-07经验半衰期30.7h、模型45.9h。来源自报，未核实；是模型校准，不是交易回测，无费后P&L；论文选3事件不代表全部历史仅3个。Circle称USDC 1:1可赎回、100%储备，2026-10-15流通约725亿美元；但Circle Mint不对个人/小企业开放。CoinGecko 365个每日价格采样点未见≤0.99，可见最低约0.9987（2025-12-11）；仅每日价格采样，不能排除日内瞬时折价。X摘要：2025-10-10 USDe在Binance约0.65属场所性事件；2026-06 msUSD约-80%。均摘要，来源自报。未测收益：backtest_count=0，observed_net_return=null，Sharpe=null，DD=null。
 
+**2026-10-19后续覆盖核查**：固定2023-01至2026-09共45个月请求，43份官方ZIP校验通过、两份404，取得连续1,300日。未舍入收盘≤0.99为2日/1个七天干净间隔代理簇；日低≤0.99为5日/3簇，首段左删失，代理簇不等于独立结果。USDCUSDT为相对报价；缺美元锚、第二场所、深度和风险过滤，不能当合格入场或利润。见[完整数据验收报告](../notes/20261019-stablecoin-history-coverage.md)。新增回测仍0。
+
 ## 数据
 
-CoinGecko `/coins/usd-coin/market_chart?vs_currency=usd&days=365&interval=daily` 免费免密钥，365个每日价格采样点。arXiv称用Binance 1分钟K线；本次api.binance.com请求返回地域限制、Coinbase candles返回404，未取得相应数据。分钟成交价、点差、费率历史缺失。
+CoinGecko `/coins/usd-coin/market_chart?vs_currency=usd&days=365&interval=daily` 免费免密钥，365个每日价格采样点。arXiv称用Binance 1分钟K线；本次api.binance.com请求返回地域限制、Coinbase candles返回404，未取得相应数据。随后通过官方月档取得上述日线，43个ZIP及CHECKSUM均实核；这不补齐分钟成交价、点差或费率历史。
 
 ## 两周内怎么检验
 
@@ -57,7 +59,7 @@ CoinGecko `/coins/usd-coin/market_chart?vs_currency=usd&days=365&interval=daily`
 ## 门槛自查
 
 1. 机制说得清：满足。付款方是压力下卖出的持有人；收敛靠赎回承诺与二级套利；小资金只赚二级。
-2. 有免费数据能检验：不确定。365天每日价格采样已取；分钟成交价/费率/盘口缺失。
+2. 有免费数据能检验：不确定。365天美元每日采样及43个月相对币对日线已取；美元锚、分钟成交价/费率/盘口和规则风险过滤仍缺失。
 3. 小资金能做：不确定。纸面1,000/2,500；无盘口，实际容量与压力深度未知。
 4. 不重复：满足（初步）。稳定币脱锚收敛，非资金费/基差/LST；最终known/查重待主调度。
 5. 扣成本后粗算够用：不确定（压力情景为负）。1%折价入场、0.25%折价退出的条件算例，按初始持仓名义基准净约0.1553%、压力约−0.4470%；全年收益取决于触发频率/持有/闲置/全部notional费用，未模拟。
@@ -73,3 +75,5 @@ CoinGecko `/coins/usd-coin/market_chart?vs_currency=usd&days=365&interval=daily`
 - https://x.com/mywebacy/article/2070067071367401592 — 2026-10-19 — 摘要（msUSD约-80%）
 - https://api.binance.com/api/v3/klines?symbol=USDCUSDT&interval=1d — 2026-10-19 — 打开失败（地区限制，未绕行）
 - https://api.exchange.coinbase.com/products/USDC-USD/candles — 2026-10-19 — 打开失败（404）
+
+- [官方USDCUSDT月档验收](../notes/20261019-stablecoin-history-coverage.md) — 2026-10-19 — 实际43档内容及CHECKSUM、UTC和OHLC完整性复核；不含交易模拟

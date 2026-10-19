@@ -18,7 +18,7 @@ status: 草稿
 confidence: 中
 ---
 
-> 状态：草稿；待核 0。本稿是操作员侧对既有草稿的整理，仅使用已保存资料和确定性算术；未新增公开读取或回测执行，不是交易建议。
+> 状态：草稿；待核 0。本稿保留既有完整对冲模拟缺口；2026-10-19补充固定名义资金费单项上界核查，不新增完整策略回测，不是交易建议。
 
 ## 一句话
 
@@ -56,6 +56,10 @@ confidence: 中
 
 表中余量只是毛现金流减固定费用的算术，不是已实现或可交易净收益。11 轮是既有“每季一轮”预设费用情景，并非观测到 11 次交易；双倍该费用为 316.8 USDT，三币余量均为负。首个 00:00 结算已在汇总内，但尚未证明结算前持仓，因此不能把全表作为可执行策略收入。本文不年化、不报告策略 Sharpe 或最大回撤，也不把部署约 2,400 的分母冒充总资本 5,000 的收益分母。
 
+**2026-10-19补充：资金费单项上界**
+
+在完整1,004日、总资本5,000、每次空头名义≤1,200的条件下，免费事后只收正费的BTC/ETH/SOL上界简单年均贡献分别为1.804117%/1.845553%/1.806099%。更宽松的每次只持一个币、免费择最高正费率的上界为343.897116 USDT，简单年均2.500447%。这是允许完美预知的历史账本上界，不是CAGR或完整策略利润；只限制该名义规模的资金费分量，不排除更大规模、基差或其他收益来源。首费资格被放宽，原始时间网格与数值经独立复核。见[完整上界方法和边界](../notes/20261019-funding-only-upper-bound.md)。
+
 **GitHub 来源自报，未核实**
 
 保存的 README 描述 2020-01-01 至 2026-04-09 数据、entry 1bp / exit 0.5bp，以及每腿每边 taker 4bps、往返 16bps 的模型。§4 自报 BTC/ETH 年回报 9.0%/11.4%、18/14 笔、平均持有 38/58 天及 100% 胜率；原文强调未扣现金资金占用机会成本、样本稀疏，不能直接解释为本稿扣足费用后的年收益。所有数字均为来源自报，未核实、未复现。
@@ -68,7 +72,7 @@ confidence: 中
 - **目录证据**：已保存 [BTC资金费S3列表](https://s3-ap-northeast-1.amazonaws.com/data.binance.vision?delimiter=/&prefix=data/futures/um/monthly/fundingRate/BTCUSDT/) 含 2020-01 起月档，但更早数据未纳入上述现金流筛；目录存在不能替代逐文件内容核验。
 - **现货与对冲价格**：保存的 [BTC现货K线S3列表](https://s3-ap-northeast-1.amazonaws.com/data.binance.vision?delimiter=/&prefix=data/spot/monthly/klines/BTCUSDT/) 含 1h 子目录；完整同步现货、永续成交和 mark 路径未齐，不能由命名模板推出数据齐备。
 - **字段与访问边界**：保存的 [Binance资金费文档](https://developers.binance.com/docs/derivatives/usds-margined-futures/market-data/rest-api/Get-Funding-Rate-History) 给出 fundingRate、fundingTime、markPrice，并列出 fundingInfo / fundingIntervalHours。文档读到字段不等于已下载历史 mark 或间隔变更；本稿不调用受限接口、不登录。
-- **缺口与统计状态**：实际历史费用、盘口/滑点、资金划转时延、稳定币折价、保证金与清算路径均未齐。backtest_count=0；observed_net_return=null；Sharpe/最大回撤=未知。资金费汇总是既有本地研究产物，未提供可公开访问的冻结输出链接；官方月包是原始来源，不能冒充公开的独立策略审计。
+- **缺口与统计状态**：实际历史费用、盘口/滑点、资金划转时延、稳定币折价、保证金与清算路径均未齐。backtest_count=0；observed_net_return=null；Sharpe/最大回撤=未知。[公开现金流方法](../notes/20261019-cashflow-data-screens.md)与[单项上界核查](../notes/20261019-funding-only-upper-bound.md)提供输入指纹和结果；全量原始数据本地保存。官方月包是原始来源，不能冒充完整策略审计。
 
 ## 两周内怎么检验
 
