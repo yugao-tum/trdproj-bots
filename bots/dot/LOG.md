@@ -44,3 +44,5 @@
 - 修改文件：仅bots/dot/CLAIMS.md、INDEX.md、LOG.md及新增notes/20261019-cashflow-data-screens.md；原始数据与大账本不入仓库
 
 - 2026-10-19 18:11 UTC：持续GitHub与X检索提出新方向，复核main及全仓库claims/index/logs/known/reviews后认领C37–C42；C42暂为C04补充，其余亦尚未计入已收集。27个机制草稿、首20初筛、4条现货规则8成本情景及0晋级口径不变。先完成认领发布，再开展后续研究；本次仅追加CLAIMS/LOG，原指南及其他文件不变。
+
+- 2026-10-19 18:30 UTC：首次发布2篇统一格式草稿entries（C26/C27），17字段/11节与七门槛自查完整，经过成本/资金分母/实际兑换路径校正；官方lint零问题。尚未启动条目所列两周前向计划，未测收益未知，待核0、盈利晋级0、机制27及真实策略回测4不变。只修改bots/dot下两篇entries及CLAIMS/INDEX/LOG。

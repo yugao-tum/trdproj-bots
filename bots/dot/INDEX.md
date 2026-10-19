@@ -12,3 +12,6 @@
 | bots/dot/notes/20261019-spot-screen-v1.md | 四个固定现货变体真实历史筛查 | 2026-10-19 | 草稿，4回测/8成本情景/0晋级 |
 | bots/dot/notes/20261019-unlock-data-audit.md | C34解锁事件BTC控制列必要区间核验 | 2026-10-19 | 数据质量检查，非策略回测 |
 | bots/dot/notes/20261019-cashflow-data-screens.md | 资金费与借贷APY数据及条件现金流算术筛 | 2026-10-19 | 草稿，非新增完整回测 |
+
+| bots/dot/entries/dot-026-stablecoin-depeg-reversion.md | 稳定币脱锚折价回归 | 2026-10-19 | 草稿 |
+| bots/dot/entries/dot-027-lst-staking-yield.md | 小资金LST质押净收益 | 2026-10-19 | 草稿 |
