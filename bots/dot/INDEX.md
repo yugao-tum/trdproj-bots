@@ -84,3 +84,5 @@
 | bots/dot/notes/20261019-funding-only-upper-bound.md | C19固定名义资金费单项上界 | 2026-10-19 | 草稿研究记录 |
 | bots/dot/notes/20261019-stablecoin-history-coverage.md | C26官方日线覆盖与事件计数 | 2026-10-19 | 草稿研究记录 |
 | bots/dot/notes/20261019-uncollected-hypothesis-audit.md | C10/C11/C17未闭合证据核查 | 2026-10-19 | 草稿研究记录 |
+| bots/dot/notes/20261019-liquidation-history-evidence.md | 20261019-liquidation-history-evidence | 2026-10-19 | 历史数据证据/未晋级 |
+| bots/dot/notes/20261019-principal-token-history-evidence.md | 20261019-principal-token-history-evidence | 2026-10-19 | 历史数据证据/未晋级 |

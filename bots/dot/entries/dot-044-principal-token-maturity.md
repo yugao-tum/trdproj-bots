@@ -12,7 +12,7 @@ category: A
 return_type: convergence
 instruments: Pendle PT及对应SY；具体稳定币会计单位市场待冻结
 venues: Pendle及所选SY底层兑换路径
-data: 已读PT、负收益、费用、SY/PY源码与历史API文档；探针未取到历史数据，12月价格/索引/真实赎回/gas联合序列未知
+data: 两个已到期市场933个日频价格点已取回，1笔混合兑付获回执佐证；历史SY/PY水位、可执行价格、最终USDT现金与联合收益仍缺
 test_2w: 先核具体部署与会计单位，取已结束本金周期并还原真实PT→SY→输出资产现金账；按共同底层/到期/压力聚类，不足30独立结果或费后/动态资金超限则不晋级
 status: 草稿
 confidence: 低
@@ -43,9 +43,11 @@ confidence: 低
 
 ## 数据
 
-官方历史路线GET https://api-v2.pendle.finance/core/v3/{chainId}/markets/{address}/historical-data ，文档有time_frame、timestamp_start/end、fields、includeFeeBreakdown，示例含PT/SY价格与池费[S6、S7]。既有2024-10-19至2026-10-19探针返回“not accessible via this tool”，没有HTTP状态或JSON，不能写成已获取数据或403。
+官方历史路线GET https://api-v2.pendle.finance/core/v3/{chainId}/markets/{address}/historical-data ，文档有time_frame、timestamp_start/end、fields、includeFeeBreakdown，示例含PT/SY价格与池费[S6、S7]。早期探针未取到数据；20:02 UTC新增官方免密钥GET已实际取回eUSD市场472日点（2023-09-11至2024-12-25）和S*USDT市场461日点（2023-03-24至2024-06-26），两者均超过12个月。ptPrice/syPrice为USD市场价格，不是SY/PY兑换索引或可成交报价；三项费字段分别缺311/472、221/461行，其中合计38个缺费日有正交易量，不能补0。
 
-至少12个月的真实成交、PY/SY索引、赎回事件、部署版本和gas联合数据未取得；前向采集未启动。只知道API存在，不代表所有到期/停止市场均可覆盖。
+一笔到期交易的公开索引与浏览器回执日志已交叉读取，含PT兑SY及混合LP后的SY兑eUSD；不能将整笔gas或现金归给单买PT。数量单位交叉核验约1 eUSD/PT，eUSD当时约0.9546 USD，不能误算成对保证1 USD的折价。详见[历史价格与到期单位补核](../notes/20261019-principal-token-history-evidence.md)。
+
+目前933点对应2市场、2到期日，1次混合兑付佐证；完整独立PT→USDT策略结果0。至少12个月真实成交、历史PY/SY水位、部署版本、赎回与gas联合收益数据仍未取得；前向未启动，不能推定全部已到期市场均有完整数据。
 
 ## 两周内怎么检验
 
@@ -72,12 +74,12 @@ confidence: 低
 ## 门槛自查
 
 1. 机制说得清：满足定义；分拆本金的条件性到期收敛
-2. 有免费数据能检验：不满足现有证据；历史接口探针未取数，联合数据缺失
+2. 有免费数据能检验：整体仍不满足；两条超过12月日频价格已取回，历史水位/成交/最终回款联合数据缺失
 3. 小资金能做：不确定；部署/深度/gas和锁定期动态限额未验证
 4. 不重复：满足初步去重；区别浮息和无固定到期队列折价
 5. 扣成本后粗算够用：不确定；仅条件算术，实际净收益未知
 6. 两周内能检验：不满足现有证据；历史30独立周期未证，前向两周不足
-7. 出处可查：满足机制/负收益/源码描述；API失败和实证缺口明示
+7. 出处可查：满足机制/负收益/源码描述；新增历史GET与混合兑付出处已保存，实证缺口明示
 
 ## 出处
 
@@ -88,3 +90,5 @@ confidence: 低
 - [S5] https://docs.pendle.finance/pendle-v2/ProtocolMechanics/Mechanisms/Fees — 访问2026-10-19 UTC — 已读（Swap Fees、Trading Fee Calculation、Post-Maturity Yield Redirection）
 - [S6] https://docs.pendle.finance/pendle-v2-dev/Backend/ApiOverview — 访问2026-10-19 UTC — 已读（API Entry Points、Rate Limiting、Market Data Endpoints）
 - [S7] https://github.com/pendle-finance/pendle-examples-public/blob/main/backend-api-demo/src/get-market-historical-data-v3.ts — 访问2026-10-19 UTC — 已读（Query/DataPoint与历史API示例；仅阅读未运行）
+
+- [历史价格可得性与到期单位补核](../notes/20261019-principal-token-history-evidence.md) — 访问2026-10-19 UTC — 实际历史GET、官方schema与混合兑付回执；原始公开地址、时间和SHA详列
