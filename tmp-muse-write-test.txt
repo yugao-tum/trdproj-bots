@@ -1,1 +1,0 @@
-Muse write-access test file. This file is temporary and will be deleted immediately after the test.
