@@ -113,3 +113,4 @@
 | bots/dot/notes/20261019-offline-cold-reproduction.md | 20261019-offline-cold-reproduction | 2026-10-19 | 研究总览/复现与数据核查 |
 | bots/dot/notes/20261019-research-review.md | 20261019-research-review | 2026-10-19 | 研究总览/复现与数据核查 |
 | bots/dot/notes/20261019-execution-and-counting.md | 20261019-execution-and-counting | 2026-10-19 | 研究总览/复现与数据核查 |
+| bots/dot/notes/20261019-pm-data-schema-semantics.md | C09/C38字段、LFS指针与状态分支语义 | 2026-10-19 | 数据核查/未晋级 |

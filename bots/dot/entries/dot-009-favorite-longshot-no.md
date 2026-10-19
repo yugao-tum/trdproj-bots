@@ -56,6 +56,8 @@ confidence: 中
 - 本轮未取得支持本稿的免费历史同步 L2／可成交价差序列；2026-10-17 快照仅能做成本敏感性代理。若前向记录，实际起点须以首条有效采集记录为准；本稿未运行采集。
 - Gamma 的价格与 closed 字段还需配合最终结算核验，不能仅靠 0/1 价格筛为已结算结果。
 
+补读一份公开市场分类schema，91万量级总市场数及n_trades_in_db计数不等于逐笔成交或可执行报价历史；这些统计是来源自报，未复算底层数据。详见[PM数据与状态语义补核](../notes/20261019-pm-data-schema-semantics.md)。
+
 ## 两周内怎么检验
 
 1. 计划按 S1 的月份分层思路抽取历史二元市场，使用事前计划结束时间与当时可用价格，保留缺失和排除记录；未执行，是否取得足够有效样本未知。
@@ -98,3 +100,5 @@ confidence: 中
 - S2：https://gamma-api.polymarket.com/public-search?q=nba&limit_per_type=2 与 https://gamma-api.polymarket.com/public-search?q=bitcoin%20price&limit_per_type=2 — 原访问 2026-10-19 — 已读（沿用既有 JSON／截取记录）；定位为“规则”所列 slug 的 description、resolutionSource、endDate、outcomePrices、closedTime；未验证 final UMA。
 - S3：https://docs.polymarket.com/polymarket-learn/trading/fees — 原访问 2026-10-19 — 摘要；定位为 Fee Structure 的 C×feeRate×p×(1−p) 与按市场读取费率说明；未将摘要标为整页已读。
 - 最新文件级来源/哈希/读取深度见[公开数据可用性审计](../notes/20261019-c09-public-data-availability-audit.md)；历史同步互补侧盘口、真实可成交价差、事前结束时间和最终结算验收仍未闭合。
+
+- [PM数据与状态语义补核](../notes/20261019-pm-data-schema-semantics.md) — 访问2026-10-19 UTC — 原始README/schema与固定提交处理器正文；只核数据字段和静态语义，未新增策略收益验证

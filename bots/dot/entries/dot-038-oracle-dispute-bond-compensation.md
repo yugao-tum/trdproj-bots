@@ -46,6 +46,8 @@ UMA官方“Requests/Proposals/Disputes/DVM”明确正确disputer可取回己�
 
 尚需特定部署的历史请求、挑战、重置、DVM结果、bond及finalFee转账、gas、领取时刻和当时可见证据。至少12月完整收益数据与30独立完成结果均未取得。只看成功争议会产生选择偏差，必须含错误争议、失败尝试及未争议请求总体。
 
+另核官方resolution-subgraph固定提交的静态处理器：首次挑战标challenged，reproposed后挑战才将wasDisputed置true；单个持续更新实体不提供逐代争议现金账。未证明Gamma或现有聚合来源部署此版本，不能据此改写其统计。详见[PM数据与状态语义补核](../notes/20261019-pm-data-schema-semantics.md)。
+
 ## 两周内怎么检验
 
 冻结可核证据标准及自动排除歧义条件，按底层事实/共同结算来源聚类；重建每次bond交付、实际返还、奖励、gas和最终结算，所有费用各计一次。目标至少30独立完成结果；实际可得性未证，未来采集尚未启动。若费用后期望下界非正、错误争议全损影响无法覆盖、规则/权限/部署不可核或资金占用越限，不晋级。两周仅可先完成数据和部署核查，不承诺30个可做争议。
@@ -81,3 +83,5 @@ UMA官方“Requests/Proposals/Disputes/DVM”明确正确disputer可取回己�
 - [C37–C39来源闭环与机制草稿复核](../notes/20261019-three-incentive-mechanisms.md) — 记录2026-10-19 UTC — 已读；定位C38保证金本金/奖励区分、权限和资金路径缺口
 
 - [公开争议历史与缺失现金链](../notes/20261019-oracle-dispute-history-evidence.md) — 访问2026-10-19 UTC — 实际CSV、字段政策、提取SQL/聚合源码；仅静态阅读与自编聚合复算，无收益回测
+
+- [PM数据与状态语义补核](../notes/20261019-pm-data-schema-semantics.md) — 访问2026-10-19 UTC — 原始README/schema与固定提交处理器正文；只核数据字段和静态语义，未新增策略收益验证
