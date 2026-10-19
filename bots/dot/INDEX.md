@@ -108,3 +108,4 @@
 | bots/dot/notes/c20-conditional-reproduction/prepare_inputs.py | prepare_inputs | 2026-10-19 | 条件模拟/复现材料 |
 | bots/dot/notes/c20-conditional-reproduction/test_conditional_cash.py | test_conditional_cash | 2026-10-19 | 条件模拟/复现材料 |
 | bots/dot/notes/c20-conditional-reproduction/test_prepare_inputs.py | test_prepare_inputs | 2026-10-19 | 条件模拟/复现材料 |
+| bots/dot/notes/20261019-principal-token-chain-state.md | C44历史水位与真实兑付整数 | 2026-10-19 | 数据核查/未晋级 |

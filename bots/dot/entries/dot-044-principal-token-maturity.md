@@ -12,7 +12,7 @@ category: A
 return_type: convergence
 instruments: Pendle PT及对应SY；具体稳定币会计单位市场待冻结
 venues: Pendle及所选SY底层兑换路径
-data: 两个已到期市场933个日频价格点已取回，1笔混合兑付获回执佐证；历史SY/PY水位、可执行价格、最终USDT现金与联合收益仍缺
+data: 两个已到期市场933个日频价格点已取回，1笔混合兑付获回执佐证；同一历史区块SY/PY水位已补，完整历史路径、可执行价格、最终USDT现金与联合收益仍缺
 test_2w: 先核具体部署与会计单位，取已结束本金周期并还原真实PT→SY→输出资产现金账；按共同底层/到期/压力聚类，不足30独立结果或费后/动态资金超限则不晋级
 status: 草稿
 confidence: 低
@@ -47,7 +47,9 @@ confidence: 低
 
 一笔到期交易的公开索引与浏览器回执日志已交叉读取，含PT兑SY及混合LP后的SY兑eUSD；不能将整笔gas或现金归给单买PT。数量单位交叉核验约1 eUSD/PT，eUSD当时约0.9546 USD，不能误算成对保证1 USD的折价。详见[历史价格与到期单位补核](../notes/20261019-principal-token-history-evidence.md)。
 
-目前933点对应2市场、2到期日，1次混合兑付佐证；完整独立PT→USDT策略结果0。至少12个月真实成交、历史PY/SY水位、部署版本、赎回与gas联合收益数据仍未取得；前向未启动，不能推定全部已到期市场均有完整数据。
+20:51 UTC补取同一交易的原始RPC回执、历史区块头与区块结束状态。SY.exchangeRate、YT.pyIndexStored及firstPYIndex一致为1.072305936185707886；PT→SY整数换算精确匹配，历史previewRedeem也与混合兑付日志一致。区块结束状态不等于交易执行中状态，当前源码未证明与历史字节码相同，单节点响应亦非状态证明；详见[历史会计状态与整数换算](../notes/20261019-principal-token-chain-state.md)。
+
+目前933点对应2市场、2到期日，仍只有1次混合兑付佐证；完整独立PT→USDT策略结果0。至少12个月真实成交、连续历史PY/SY水位、部署版本、赎回与gas联合收益数据仍未取得；前向未启动，不能推定全部已到期市场均有完整数据。
 
 ## 两周内怎么检验
 
@@ -74,7 +76,7 @@ confidence: 低
 ## 门槛自查
 
 1. 机制说得清：满足定义；分拆本金的条件性到期收敛
-2. 有免费数据能检验：整体仍不满足；两条超过12月日频价格已取回，历史水位/成交/最终回款联合数据缺失
+2. 有免费数据能检验：整体仍不满足；两条超过12月日频价格及一个历史水位截面已取回，连续水位/成交/最终回款联合数据缺失
 3. 小资金能做：不确定；部署/深度/gas和锁定期动态限额未验证
 4. 不重复：满足初步去重；区别浮息和无固定到期队列折价
 5. 扣成本后粗算够用：不确定；仅条件算术，实际净收益未知
@@ -92,3 +94,5 @@ confidence: 低
 - [S7] https://github.com/pendle-finance/pendle-examples-public/blob/main/backend-api-demo/src/get-market-historical-data-v3.ts — 访问2026-10-19 UTC — 已读（Query/DataPoint与历史API示例；仅阅读未运行）
 
 - [历史价格可得性与到期单位补核](../notes/20261019-principal-token-history-evidence.md) — 访问2026-10-19 UTC — 实际历史GET、官方schema与混合兑付回执；原始公开地址、时间和SHA详列
+
+- [历史会计状态与整数换算](../notes/20261019-principal-token-chain-state.md) — 访问2026-10-19 UTC — 同一交易原始回执、13次历史只读RPC、整数与preview核对；仍无独立策略现金收益
