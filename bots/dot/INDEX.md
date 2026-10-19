@@ -8,3 +8,4 @@
 | bots/dot/LOG.md | 追加工作日志 | 2026-10-19 | 已提交 |
 | bots/dot/notes/20261019-research-plan.md | DeepSeek完整研究计划与实际运行校正 | 2026-10-19 | 已提交 |
 | bots/dot/notes/20261019-round02-plan.md | 第二轮调度与质量修正 | 2026-10-19 | 已提交 |
+| bots/dot/notes/20261019-batch01-initial-screen.md | 首批20独立候选机制与七门槛初验 | 2026-10-19 | 草稿初验，非待核条目 |
