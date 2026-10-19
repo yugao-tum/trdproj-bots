@@ -86,3 +86,8 @@
 | bots/dot/notes/20261019-uncollected-hypothesis-audit.md | C10/C11/C17未闭合证据核查 | 2026-10-19 | 草稿研究记录 |
 | bots/dot/notes/20261019-liquidation-history-evidence.md | 20261019-liquidation-history-evidence | 2026-10-19 | 历史数据证据/未晋级 |
 | bots/dot/notes/20261019-principal-token-history-evidence.md | 20261019-principal-token-history-evidence | 2026-10-19 | 历史数据证据/未晋级 |
+| bots/dot/notes/20261019-all-pairs-diversification.md | 20261019-all-pairs-diversification | 2026-10-19 | 派生诊断/来源核查/未晋级 |
+| bots/dot/notes/20261019-oracle-dispute-history-evidence.md | 20261019-oracle-dispute-history-evidence | 2026-10-19 | 派生诊断/来源核查/未晋级 |
+| bots/dot/notes/portfolio-diagnostics/all_correlations.csv | all_correlations | 2026-10-19 | 派生诊断/来源核查/未晋级 |
+| bots/dot/notes/portfolio-diagnostics/all_pairs.csv | all_pairs | 2026-10-19 | 派生诊断/来源核查/未晋级 |
+| bots/dot/notes/portfolio-diagnostics/scaled_legs.csv | scaled_legs | 2026-10-19 | 派生诊断/来源核查/未晋级 |

@@ -12,7 +12,7 @@ category: A
 return_type: service
 instruments: UMA争议bond及实际奖励；不买预测市场份额
 venues: UMA Optimistic Oracle；Polymarket适配器仅作部署核查线索
-data: 官方UMA机制与CTF Adapter README公开可读；实际请求、bond/fee、权限、最终结算和锁资历史未闭合
+data: 已实读14月198行争议聚合及45条精选记录；无逐请求bond/fee、输赢回款、权限与锁资账，完整收益历史未闭合
 test_2w: 两周按底层事实去重重建请求/争议/最终现金，至少30独立完成结果；规则无法核验、费用后期望下界非正或锁资越限不晋级
 status: 草稿
 confidence: 中
@@ -42,7 +42,9 @@ UMA官方“Requests/Proposals/Disputes/DVM”明确正确disputer可取回己�
 
 ## 数据
 
-公开机制文档和源码说明免密钥可读，尚需特定部署的历史请求、挑战、重置、DVM结果、bond转账、gas、领取时刻及当时可见证据。至少12月完整收益数据与30独立完成结果均未取得，起始覆盖日期未知。只看成功争议会产生选择偏差，必须含错误争议、失败尝试及未争议请求总体。
+公开机制文档和源码说明免密钥可读。新增实际读取的研究CSV覆盖2025-03至2026-04，198个“月×类别×flow”汇总行，合计1,480被争议市场，包含managed与open两类；另45条精选记录缺请求ID、输赢和现金，不能作30独立完成结果。该统计与July月报口径不同，不能混用。详见[争议历史证据补核](../notes/20261019-oracle-dispute-history-evidence.md)。
+
+尚需特定部署的历史请求、挑战、重置、DVM结果、bond及finalFee转账、gas、领取时刻和当时可见证据。至少12月完整收益数据与30独立完成结果均未取得。只看成功争议会产生选择偏差，必须含错误争议、失败尝试及未争议请求总体。
 
 ## 两周内怎么检验
 
@@ -50,7 +52,7 @@ UMA官方“Requests/Proposals/Disputes/DVM”明确正确disputer可取回己�
 
 ## 成本与容量
 
-正确争议净额=实际返还bond本金−实际交付bond本金+实际争议奖励−gas及实际换币费用；错误争议使用同样现金式，可能失去全部bond。期末未结bond单列受限资产与保守估值，不能当可用现金或已实现奖励。币种换入/换出每实际腿按0.30%，压力0.60%；没有换币腿就不凭空加交易费。PM份额吃单费公式不适用于本条bond。
+已关闭争议净额=全部实际回款−全部实际bond/最终费交付−gas及实际换币费用。回款内含本金返还和奖励，不能再另加同一奖励；实际交付须按特定版本记录bond加finalFee，而非只看setBond裸数字。错误争议同式，可能损失全部在险保证金及费用。期末未结bond单列受限资产与保守估值，不能当可用现金或已实现奖励。币种换入/换出每实际腿按0.30%，压力0.60%；没有换币腿就不凭空加交易费。PM份额吃单费公式不适用于本条bond。
 
 固定5,000分母、实际锁资天数与同时在险现金共同报告；机会成本单列比较，不作为已经发生的现金扣款再扣一次。单笔1,000是研究预算，真实bond可使机会不合格；月频次和退出时间未知。
 
@@ -77,3 +79,5 @@ UMA官方“Requests/Proposals/Disputes/DVM”明确正确disputer可取回己�
 - https://github.com/UMAprotocol/uma-docs/blob/master/protocol-overview/how-does-umas-oracle-work.md — 访问2026-10-19 UTC — 已读保存全文；定位Requests、Proposals、Disputes、Dispute Resolution via DVM；修改日期2026-10-09
 - https://github.com/Polymarket/uma-ctf-adapter/blob/main/README.md — 访问2026-10-19 UTC — 已读保存全文；定位Architecture的request、liveness、reset、DVM；修改日期2023-09-27，不证明当前部署
 - [C37–C39来源闭环与机制草稿复核](../notes/20261019-three-incentive-mechanisms.md) — 记录2026-10-19 UTC — 已读；定位C38保证金本金/奖励区分、权限和资金路径缺口
+
+- [公开争议历史与缺失现金链](../notes/20261019-oracle-dispute-history-evidence.md) — 访问2026-10-19 UTC — 实际CSV、字段政策、提取SQL/聚合源码；仅静态阅读与自编聚合复算，无收益回测
