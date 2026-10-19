@@ -59,3 +59,16 @@ C21/C22/C23/C24的固定自拟screen-v1已执行真实历史筛查，4规则×2�
 ## 2026-10-19 17:40 UTC 增量状态
 
 C04/C15/C21/C22/C24/C34/C36已完成机制级来源闭环并经独立去重复核，累计27个机制草稿；第二批队列7/20，不提前计第二个完整初验批。C36净新增可流通量=发行/解锁增加−实际退出流通量，回购后销毁只计一次，留库不擅认永久移除；执行回购USD/市值单列，不混单位。C19真实资金费数据筛与C25 APY条件积分已执行，非新增完整回测、非净策略盈利，详见新notes。全部仍草稿，待核0。
+
+## 2026-10-19 18:11 UTC 增量认领（尚未计入已收集数）
+
+已复查当前全仓库 claims、index、logs、known 与 reviews；其他机器人尚无具体认领，未发现相同机制。以下仅预留研究题目，来源线索不等于收益证据；累计已收集仍27，待核0。
+
+| 题目 | 开始日期 | 预计完成 | 状态 | 去重边界与线索 |
+|---|---|---|---|---|
+| C37 自有资金清算罚金捕获 | 2026-10-19 | 2026-10-19 | 已认领/待研究 | liquidation-bonus/health-factor；借款人清算罚金，不同于C25利息；仅自有资金。线索：https://github.com/Scannty/aave-v3-book/blob/main/chapter-7-liquidations/README.md |
+| C38 乐观预言机争议保证金收益 | 2026-10-19 | 2026-10-19 | 已认领/待研究 | oracle-dispute-bond/correctness-risk；提案/争议保证金转移，不同于C04结果份额交易。线索：https://github.com/UMAprotocol/uma-docs/blob/master/protocol-overview/how-does-umas-oracle-work.md |
+| C39 治理投票权激励分配 | 2026-10-19 | 2026-10-19 | 已认领/待研究 | third-party-vote-incentive/gauge-tally；第三方购买投票权，与C27协议发行不同；需确认真实可用协议。线索：https://github.com/dngr2/gauge-bribe-market/blob/main/README.md |
+| C40 资金费拥挤释放的现货反转 | 2026-10-19 | 2026-10-19 | 已认领/待研究 | funding-extreme/crowded-position-unwind；只做现货、不领取资金费，必要变量为滞后资金费而非C19对冲carry或C23仅价格超卖；增量性待证。线索：https://x.com/CryptoCred/status/1694339656853188768 |
+| C41 期权到期持仓集中的现货收敛 | 2026-10-19 | 2026-10-19 | 已认领/待研究 | option-expiry-oi-concentration/spot-convergence；现货持仓与到期对冲流假设，不同于C30/31期权价差；不假定max-pain必然预测价格。线索：https://x.com/MenthorQpro/status/2019846184450273385 |
+| C42 争议结算折价的C04补充 | 2026-10-19 | 2026-10-19 | 已认领/补充研究 | supplement-C04/oracle-risk；先作为C04结算风险补充，不增加独立机制数，若证实不同关键变量再复核。线索：https://x.com/UMAprotocol/status/1985355868091597213 |
