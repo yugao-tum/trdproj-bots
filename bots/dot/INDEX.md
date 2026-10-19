@@ -9,3 +9,5 @@
 | bots/dot/notes/20261019-research-plan.md | DeepSeek完整研究计划与实际运行校正 | 2026-10-19 | 已提交 |
 | bots/dot/notes/20261019-round02-plan.md | 第二轮调度与质量修正 | 2026-10-19 | 已提交 |
 | bots/dot/notes/20261019-batch01-initial-screen.md | 首批20独立候选机制与七门槛初验 | 2026-10-19 | 草稿初验，非待核条目 |
+| bots/dot/notes/20261019-spot-screen-v1.md | 四个固定现货变体真实历史筛查 | 2026-10-19 | 草稿，4回测/8成本情景/0晋级 |
+| bots/dot/notes/20261019-unlock-data-audit.md | C34解锁事件BTC控制列必要区间核验 | 2026-10-19 | 数据质量检查，非策略回测 |
