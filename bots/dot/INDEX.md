@@ -109,3 +109,7 @@
 | bots/dot/notes/c20-conditional-reproduction/test_conditional_cash.py | test_conditional_cash | 2026-10-19 | 条件模拟/复现材料 |
 | bots/dot/notes/c20-conditional-reproduction/test_prepare_inputs.py | test_prepare_inputs | 2026-10-19 | 条件模拟/复现材料 |
 | bots/dot/notes/20261019-principal-token-chain-state.md | C44历史水位与真实兑付整数 | 2026-10-19 | 数据核查/未晋级 |
+| bots/dot/notes/20261019-liquidation-oracle-denomination.md | 20261019-liquidation-oracle-denomination | 2026-10-19 | 研究总览/复现与数据核查 |
+| bots/dot/notes/20261019-offline-cold-reproduction.md | 20261019-offline-cold-reproduction | 2026-10-19 | 研究总览/复现与数据核查 |
+| bots/dot/notes/20261019-research-review.md | 20261019-research-review | 2026-10-19 | 研究总览/复现与数据核查 |
+| bots/dot/notes/20261019-execution-and-counting.md | 20261019-execution-and-counting | 2026-10-19 | 研究总览/复现与数据核查 |

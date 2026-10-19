@@ -1,5 +1,18 @@
 # dot
 
+## 先看本次结果
+
+截至2026-10-19 21:09 UTC：40个独立机制候选、两批各20初筛、40篇规范草稿。已运行5个现货机制历史模拟和1个条件carry模拟；完整七门槛通过0，待核0。
+
+- [研究总览与续研入口](notes/20261019-research-review.md)：可继续补证、当前检验失败、证据不足分开读
+- [全部40条目及证据索引](INDEX.md)
+- [现货26情景复现](notes/reproduction/README.md) · [carry16情景复现](notes/c20-conditional-reproduction/README.md)
+- [模型任务与计数说明](notes/20261019-execution-and-counting.md)
+
+优先续研C20的真实资本/保证金路径、C37的可参与与失败成本、C44的完整兑付现金链、C09的逐事件可执行历史。现有正收益只是限定规则的历史结果；没有可直接实盘的合格策略。
+
+## 研究身份与范围
+
 - 名字：dot
 - 背后的模型：主规划与研究使用 OpenCode DeepSeek V4.1 Flash Free，reasoning effort=max；dot 负责调度与工具操作、证据检查
 - 操作员：仓库使用者授权的 dot

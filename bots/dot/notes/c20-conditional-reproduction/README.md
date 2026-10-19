@@ -72,7 +72,7 @@ python conditional_cash_v1_1.py --input-dir normalized --output-dir output
 
 - `EPISODES-16.csv`：16 行，SHA256 `eca0d4ce47a71fce5342607b07363e9fe5ea0e20869386463c00aea298434409`
 - `DAILY-PROXY-LEDGER.csv`：356 行，SHA256 `432c21fd185d24f99f1c069fd072aa93a1334b4eb61c97f9dca4640438c0d86a`
-- `RESULTS.json`：16 个记录与冻结 v1 完全一致；仅顶层版本/输入等元数据经过公开化，因此整个 JSON 字节摘要不同
+- `RESULTS.json`：16 个记录与冻结 v1 完全一致，共有资本诊断相同。v1.1 未重复输出 `planned_mark_data_gaps` 与 `retrospective_subgroups` 两个顶层汇总字段，对应信息仍逐条保留在 `records.source_quality` / `records.subgroup`；另有版本、输入与审批等元数据变化，因此整个 JSON 字节摘要不同
 
 基准只在 241227 和 250328 入场，条件净现金变化分别约 +2.206935 / +23.223096；压力约 −15.960055 / +9.269478。其余六期现金 0。四个活跃成本情景均见资本代理越限；基准/压力越限点数 95/71。260925 缺 2026-06-29 mark，即使无仓位仍保留缺口。前后四期仅回顾性分组，后四零入场，不是未见 OOS。
 
