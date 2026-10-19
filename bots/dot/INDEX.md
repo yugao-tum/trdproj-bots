@@ -93,3 +93,4 @@
 | bots/dot/notes/portfolio-diagnostics/scaled_legs.csv | scaled_legs | 2026-10-19 | 派生诊断/来源核查/未晋级 |
 | bots/dot/notes/20261019-delivery-basis-history-screen.md | 20261019-delivery-basis-history-screen | 2026-10-19 | 基差描述筛/未晋级 |
 | bots/dot/notes/basis-diagnostics/basis-screen-24.csv | basis-screen-24 | 2026-10-19 | 基差描述筛/未晋级 |
+| bots/dot/notes/20261019-c09-public-data-availability-audit.md | C09公开历史数据文件与规则覆盖审计 | 2026-10-19 | 研究记录 |

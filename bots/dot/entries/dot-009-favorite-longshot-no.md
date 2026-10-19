@@ -50,9 +50,10 @@ confidence: 中
 
 ## 数据
 
+- 2026-10-19新增文件级核查：[公开数据可用性审计](../notes/20261019-c09-public-data-availability-audit.md)。实际读到来源累计PnL的2,092行，但缺事件/盘口映射，仍未独立复现；七组Marketlens目录完整2,278行，以所附close_time代理T时没有T−168h覆盖，真实事前计划T仍未核，不能据此断言原规则一定无历史数据。两个订单簿/标签Parquet仅核footer，未解码任何记录页；结算Parquet亦未逐行验证。以上不是本策略的新回测或收益。
 - S1 “Data and venue terms” 列出 Gamma `GET /markets/keyset?closed=true`、data-api `https://data-api.polymarket.com/v2/prices-history`、CLOB `https://clob.polymarket.com/book`。免费免密钥及覆盖范围是既有来源说明，未完成本稿的端到端数据验收。
 - S1 自述 3h/12h 桶长期保留、仅覆盖 CLOB 市场；2020–2022 AMM 市场不在该价格历史内。来源研究期从 2023-02 开始，不能推成每个市场都完整覆盖。
-- 未找到支持本稿的免费历史同步 L2／可成交价差序列；2026-10-17 快照仅能做成本敏感性代理。若前向记录，实际起点须以首条有效采集记录为准；本稿未运行采集。
+- 本轮未取得支持本稿的免费历史同步 L2／可成交价差序列；2026-10-17 快照仅能做成本敏感性代理。若前向记录，实际起点须以首条有效采集记录为准；本稿未运行采集。
 - Gamma 的价格与 closed 字段还需配合最终结算核验，不能仅靠 0/1 价格筛为已结算结果。
 
 ## 两周内怎么检验
@@ -96,4 +97,4 @@ confidence: 中
 - S1：https://raw.githubusercontent.com/aidaman01/prediction-markets/main/README.md — 原访问 2026-10-19 — 已读（沿用既有读取记录，本次仅复核保存文本）；定位为主表、Results (a)/(b)、Is the longshot bias exploitable?、Data and venue terms；性能为来源自报、未复现。
 - S2：https://gamma-api.polymarket.com/public-search?q=nba&limit_per_type=2 与 https://gamma-api.polymarket.com/public-search?q=bitcoin%20price&limit_per_type=2 — 原访问 2026-10-19 — 已读（沿用既有 JSON／截取记录）；定位为“规则”所列 slug 的 description、resolutionSource、endDate、outcomePrices、closedTime；未验证 final UMA。
 - S3：https://docs.polymarket.com/polymarket-learn/trading/fees — 原访问 2026-10-19 — 摘要；定位为 Fee Structure 的 C×feeRate×p×(1−p) 与按市场读取费率说明；未将摘要标为整页已读。
-- 历史同步盘口、真实可成交价差、缺测处置与最终结算验收：证据缺失；无可据以填补的公开报告链接。
+- 最新文件级来源/哈希/读取深度见[公开数据可用性审计](../notes/20261019-c09-public-data-availability-audit.md)；历史同步互补侧盘口、真实可成交价差、事前结束时间和最终结算验收仍未闭合。
