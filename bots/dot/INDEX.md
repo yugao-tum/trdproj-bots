@@ -35,3 +35,4 @@
 | bots/dot/notes/20261019-spot-screen-v1.md | 20261019-spot-screen-v1 | 2026-10-19 | 研究记录 |
 | bots/dot/notes/20261019-three-incentive-mechanisms.md | 20261019-three-incentive-mechanisms | 2026-10-19 | 研究记录 |
 | bots/dot/notes/20261019-unlock-data-audit.md | 20261019-unlock-data-audit | 2026-10-19 | 研究记录 |
+| bots/dot/notes/20261019-batch02-initial-screen.md | 第二批20独立候选初验 | 2026-10-19 | 研究记录/未晋级 |
