@@ -16,13 +16,22 @@
 | bots/dot/entries/dot-013-nba-injury-repricing.md | dot-013-nba-injury-repricing | 2026-10-19 | 草稿 |
 | bots/dot/entries/dot-016-order-flow-imbalance.md | dot-016-order-flow-imbalance | 2026-10-19 | 草稿 |
 | bots/dot/entries/dot-018-option-implied-pm-relative-value.md | dot-018-option-implied-pm-relative-value | 2026-10-19 | 草稿 |
+| bots/dot/entries/dot-019-perp-funding-carry.md | dot-019-perp-funding-carry | 2026-10-19 | 草稿 |
+| bots/dot/entries/dot-020-dated-basis-carry.md | dot-020-dated-basis-carry | 2026-10-19 | 草稿 |
+| bots/dot/entries/dot-023-sol-rsi14-oversold.md | dot-023-sol-rsi14-oversold | 2026-10-19 | 草稿 |
+| bots/dot/entries/dot-025-aave-usdc-supply-carry.md | dot-025-aave-usdc-supply-carry | 2026-10-19 | 草稿 |
 | bots/dot/entries/dot-026-stablecoin-depeg-reversion.md | dot-026-stablecoin-depeg-reversion | 2026-10-19 | 草稿 |
 | bots/dot/entries/dot-027-lst-staking-yield.md | dot-027-lst-staking-yield | 2026-10-19 | 草稿 |
-| bots/dot/notes/20261019-batch01-initial-screen.md | 首批20个独立候选机制：初步验证 | 2026-10-19 | 草稿 |
-| bots/dot/notes/20261019-cashflow-data-screens.md | 资金费与借贷APY：可得数据和现金流算术筛 | 2026-10-19 | 草稿 |
-| bots/dot/notes/20261019-halfcap-sensitivity.md | 冻结规则的半资金敏感性与被动持有基准 | 2026-10-19 | 草稿 |
-| bots/dot/notes/20261019-research-plan.md | 2026-10-19 七小时研究计划 | 2026-10-19 | 草稿 |
-| bots/dot/notes/20261019-round02-plan.md | 第二轮调度与质量修正 | 2026-10-19 | 草稿 |
-| bots/dot/notes/20261019-spot-screen-v1.md | 四个固定现货变体：首次真实历史筛查 | 2026-10-19 | 草稿 |
-| bots/dot/notes/20261019-three-incentive-mechanisms.md | C37–C39 来源闭环与机制草稿复核 | 2026-10-19 | 草稿 |
-| bots/dot/notes/20261019-unlock-data-audit.md | 解锁事件数据的BTC控制列核验 | 2026-10-19 | 草稿 |
+| bots/dot/entries/dot-028-lst-discount-redemption.md | dot-028-lst-discount-redemption | 2026-10-19 | 草稿 |
+| bots/dot/entries/dot-029-amm-fees-lvr-screen.md | dot-029-amm-fees-lvr-screen | 2026-10-19 | 草稿 |
+| bots/dot/entries/dot-032-polymarket-liquidity-rewards.md | dot-032-polymarket-liquidity-rewards | 2026-10-19 | 草稿 |
+| bots/dot/entries/dot-033-polymarket-holding-rewards.md | dot-033-polymarket-holding-rewards | 2026-10-19 | 草稿 |
+| bots/dot/notes/20261019-batch01-initial-screen.md | 20261019-batch01-initial-screen | 2026-10-19 | 研究记录 |
+| bots/dot/notes/20261019-c40-spot-proxy.md | 20261019-c40-spot-proxy | 2026-10-19 | 研究记录 |
+| bots/dot/notes/20261019-cashflow-data-screens.md | 20261019-cashflow-data-screens | 2026-10-19 | 研究记录 |
+| bots/dot/notes/20261019-halfcap-sensitivity.md | 20261019-halfcap-sensitivity | 2026-10-19 | 研究记录 |
+| bots/dot/notes/20261019-research-plan.md | 20261019-research-plan | 2026-10-19 | 研究记录 |
+| bots/dot/notes/20261019-round02-plan.md | 20261019-round02-plan | 2026-10-19 | 研究记录 |
+| bots/dot/notes/20261019-spot-screen-v1.md | 20261019-spot-screen-v1 | 2026-10-19 | 研究记录 |
+| bots/dot/notes/20261019-three-incentive-mechanisms.md | 20261019-three-incentive-mechanisms | 2026-10-19 | 研究记录 |
+| bots/dot/notes/20261019-unlock-data-audit.md | 20261019-unlock-data-audit | 2026-10-19 | 研究记录 |
