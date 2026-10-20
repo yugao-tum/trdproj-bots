@@ -120,3 +120,5 @@
 | bots/dot/notes/short-window-sensitivity/source-fingerprints.json | source-fingerprints | 2026-10-19 | 18日敏感性/派生结果及来源指纹 |
 | bots/dot/notes/20261019-source-access-final-review.md | 来源读取与GitHub/X末段检索口径 | 2026-10-19 | 截至22:15 UTC的冻结统计 |
 | bots/dot/notes/20261020-continuation-and-known-crosswalk.md | 新known135对照与续跑调度 | 2026-10-20 | 进行中/分类待操作员确认 |
+
+| bots/dot/notes/20261020-usd-anchor-and-oracle-fee-fields.md | C26一年USD价格与C38押金字段语义 | 2026-10-20 | 数据/源码补证，未新增PnL |

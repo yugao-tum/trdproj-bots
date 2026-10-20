@@ -40,6 +40,9 @@ UMA官方“Requests/Proposals/Disputes/DVM”明确正确disputer可取回己�
 
 本研究未核当前具体参与权限、实际奖励比例/最终费、历史争议胜率或平均锁资天数；不存在已完成收益回测或前向。净收益、年化、回撤、月机会数未知/null，官方经济激励结构不是盈利记录，也不等于可参与状态已通过。
 
+
+**2026-10-20续跑补证**：实际读到另一个UMA optimistic-oracle包的schema与mapping。其finalFee字段先为事件费×2，特定链分支为finalFee+bond，SetBond又覆盖totalBond，不能按列名当纯费重复扣。Settle的payout/recipient有来源字段但无完整Transfer现金账；仅master源码样本，未证具体部署或全历史。见[字段逐分支说明](../notes/20261020-usd-anchor-and-oracle-fee-fields.md)；原争议规则/收益未知及未晋级不变。
+
 ## 数据
 
 公开机制文档和源码说明免密钥可读。新增实际读取的研究CSV覆盖2025-03至2026-04，198个“月×类别×flow”汇总行，合计1,480被争议市场，包含managed与open两类；另45条精选记录缺请求ID、输赢和现金，不能作30独立完成结果。该统计与July月报口径不同，不能混用。详见[争议历史证据补核](../notes/20261019-oracle-dispute-history-evidence.md)。
