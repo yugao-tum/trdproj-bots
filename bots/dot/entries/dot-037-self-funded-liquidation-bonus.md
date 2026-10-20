@@ -3,7 +3,7 @@ id: dot-037
 name_zh: 自有资金清算罚金补偿
 name_en: Self-Funded Collateral-Liquidation Bonus
 bot: dot
-date: 2026-10-19
+date: 2026-10-20
 market: crypto
 pm_category: -
 kind: supplement
@@ -12,9 +12,9 @@ category: A
 return_type: service
 instruments: 自有偿债资产与清算所得抵押品；拟Aave合格资产
 venues: Aave具体链与部署待核；抵押品退出场所待定
-data: 已冻结两年22,872条免密钥成功事件并核12笔回执80日志；原样本24资产×区块已补历史oracle价格与储备精度，资格/失败成本/退出现金/完整收益仍缺
+data: 保留两年成功事件及12完整回执；完整解码1295日志、80清算事件，3笔borrowed/9笔unknown/0笔自有资金已证；完整净收益与执行资格仍缺
 test_2w: 两周重建清算本金、实际可接资格、卖出现金与失败gas，按同一市场冲击/清算瀑布聚类；净额非正或不足30独立簇不晋级
-status: 草稿
+status: 待核
 confidence: 中
 ---
 
@@ -68,19 +68,21 @@ Aave FAQ“Liquidations”和V3 Pool“liquidationCall”确认代偿换取抵�
 
 本条提供的研究补充：整理自有资本清算的实际代偿、抵押品回收、预言机单位与历史事件证据；成功事件和 bonus 不等于完整资格、竞争、失败与净收益账。
 
-补充材料相对既有实现的新增性与采纳价值仍待核；本次不主张新机制、已证改进、盈利或已采纳，状态保持草稿。
+补充材料相对既有实现的新增性与采纳价值仍待核；本次不主张新机制、已证改进、盈利或已采纳；现仅申请关键证据补充待核。
 
 已有C37整理；付款驱动是条件清算罚金，区别于借贷利息、共识质押发行和AMM手续费。不同链/抵押币不增加机制数。
 
 ## 门槛自查
 
-1. 机制说得清：满足；借款人条件罚金补偿执行与市场风险
-2. 有免费数据能检验：整体仍不满足；两年成功事件已取得，至少12月完整资格/竞争/失败/回款账未取得
-3. 小资金能做：不确定；要求全额代偿与费用缓冲，min-lot/dust及深度未核
-4. 不重复：同机制补充，非新策略——对应 `A-A5-onchain-mev`；补充材料的新增性与采纳价值仍待核，不据 dot 内部区别主张全局新颖性。
-5. 扣成本后粗算够用：不满足证据要求；bonus不等净利，净收益未知
-6. 两周内能检验：不满足；30独立冲击簇可得性未知
-7. 出处可查：机制官方正文已读；两页参数口径冲突和实际部署仍待核
+1. 机制：满足解释层面。借款人清算罚金补偿执行与市场风险；融资解码不证明赚钱。
+2. 免费数据：部分满足，整体不满足。冻结两年成功事件和12完整回执存在；至少12月完整可接资格、失败成本和退出净现金尚缺。
+3. 小资金：不确定。3笔已证借入资金，排除出“自有资金已证”候选；9笔未知不能加入。总5000、场所2500及自有偿债资金的实际可执行性未证。
+4. 不重复：非新机制。supplement → A-A5-onchain-mev，沿用 dot-037，不新增ID、不争新路分。
+5. 扣成本收益：不满足证据要求。没有完整净PnL、年化、回撤，raw token units不是USD收益。
+6. 两周检验：不满足保证条件。80 LiquidationCall 来自12交易，其中首笔68条；交易也未做冲击聚类，不能称80或12独立盈利结果。30独立结果未证。
+7. 来源：此补证满足可追溯要求。官方ABI和部署地址哈希、回执哈希、事件索引、正反测试完整；66未知事件仍未解释，9笔融资未知保留。
+
+结论：可申请“关键证据补充”待核，不申请七门槛全过、收录、阶段晋级或盈利达标。
 
 ## 出处
 
@@ -91,3 +93,27 @@ Aave FAQ“Liquidations”和V3 Pool“liquidationCall”确认代偿换取抵�
 - [两年清算事件与可参与性缺口](../notes/20261019-liquidation-history-evidence.md) — 记录2026-10-19 UTC — 已执行原CSV单位/时间审计与12笔回执核对；来源、哈希、抽样和证据边界详列
 
 - [历史预言机计价核对](../notes/20261019-liquidation-oracle-denomination.md) — 访问2026-10-19 UTC — 45次历史只读RPC与固定样本解码；未新增资本资格、PnL或独立样本
+
+## 2026-10-20 完整回执融资补证（仅申请关键证据补充）
+
+本条沿用 dot-037，kind: supplement，improves: A-A5-onchain-mev。原“自有资金”是待检验规则，不是已经观察到的历史事实。本次补充识别误用借入资金案例的风险，不改变策略执行规则，也不主张 improvement 或新增机制。
+
+对原12笔完整回执作离线重解码：共1,295条日志，其中1,229条与已读官方事件schema相容，66条/29种topic保持未知，schema mismatch为0。共80条LiquidationCall，其中第一笔68条。不能把事件条数等同独立交易、可参与机会或盈利样本。
+
+相对 r12 截断输入的12笔融资unknown，本次结果为3笔 borrowed /9笔 unknown /0笔自有资金已证。三笔正证据均绑定官方Ethereum Balancer Vault地址、FlashLoan签名、recipient=清算付款地址，并存在等额拨款和返还到Vault的Transfer链：
+- 0xf02dce79fc5e8ce80e658c167bc32f0f248d3c3e6984bb164842582d2b5c5cb9：WETH借出日志231，换入USDT后债务付款245、清算246、归还253、FlashLoan254；不是同币偿债。
+- 0x72d4ff6861ee338250d0f3a9f08a5d94c24984beb72d058491dd74aa300b36e0：USDC借出540、偿债550、清算551、归还558、FlashLoan561；归还可由swap pool直接转至Vault。
+- 0x61206dc84f45aa8eea92203fe7dbb4bbf2e2ce0ff6ea22420ccefb07de023f6c：USDT借出46、偿债56、清算57、归还62、FlashLoan63。
+
+FlashLoan日志晚于还款，不应误认贷款此时才发生。事件链证明借入参与，不证明所有可替代代币的排他来源、最终所有权或trace级因果。未知事件或未匹配贷款事件均不能证明自有资金。3笔借入案例不得当作禁止借钱规则下的已证可执行案例；剩余9笔也不升级资格。
+
+r14只作一次离线冷启动，17项测试全过，重现CSV、完整解码和ABI绑定哈希与r13一致。仍无新收益回测、条件收益模拟或达标；完整回执和源码缓存只留本地。公开小包本身不足以脱离保留输入独立重建全量日志，须使用对应哈希输入。
+
+官方来源（r13实际访问2026-10-20 08:48–08:51 UTC，r14离线读保留原文）：
+- https://github.com/balancer/balancer-v2-monorepo/blob/e91a2b643a49856f51a648d175667c1b48cf3377/pkg/interfaces/contracts/vault/IVault.sol ：已读，655–676行，FlashLoan参数/事件。
+- https://github.com/balancer/balancer-deployments/blob/master/v2/tasks/20210418-vault/output/mainnet.json ：已读，第2行Vault，冻结Git blob 609ec8f9c52e777ed030619233dee0f4a0f420e9；master后续可能变动，以冻结hash核对。
+- https://github.com/aave/aave-v3-core/blob/v1.19.3/contracts/interfaces/IPool.sol ：已读，178行起LiquidationCall；事件签名匹配不等同所有发射合约历史字节码均已绑定。
+
+七门槛仍只有机制说明和本项来源可追溯闭合；完整收益数据、小资金可行性、成本后收益和30独立结果未闭合。补充评审请求不等于收录或采纳，官方reviews确认前已得分仍为0。
+
+附件：[r14 融资证据定位](../notes/20261020-r14-evidence/01-submit_c37_financing_evidence/README.md)。

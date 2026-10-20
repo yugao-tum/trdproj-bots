@@ -1,0 +1,39 @@
+{
+  "read_at_utc": "2026-10-20T09:33:56.204486+00:00",
+  "new_network_requests": 0,
+  "source_class": "Frozen local evidence read; no fresh chain verification",
+  "files": [
+    {
+      "path": "retained-inputs/workers/operator-c25-index/endpoint-arithmetic-audit.json",
+      "sha256": "2ccfb0f81af600f357dfdec835252550d6cf6f3ff8bec646b2d9376370bb3fd2"
+    },
+    {
+      "path": "retained-inputs/workers/operator-c25-index/endpoint-state.json",
+      "sha256": "6ceb38ac46f5cfffab4e368c91af01489710e11a469cec50b98bd4c4b53bf71b"
+    },
+    {
+      "path": "retained-inputs/workers/operator-c25-index/preanalysis-protocol.json",
+      "sha256": "d4a253f73125fc722d688b89fa9e3ff1916f8b5f09a6aaea88b2e69da9d1ada4"
+    },
+    {
+      "path": "retained-inputs/workers/operator-c25-index/DECISION.json",
+      "sha256": "1b9779239a648dacbd464d14f7b1cef6fa25fc9af95fb976db31533113aabbff"
+    },
+    {
+      "path": "retained-inputs/workers/operator-c25-index/PUBLIC_NOTE_DRAFT.md",
+      "sha256": "c5404db3ab192f4e72651bcfbb7788ce88aa4cf8406abb6c7759d94ea1738271"
+    },
+    {
+      "path": "retained-inputs/continuation-20261020/sources/GUIDE.md",
+      "sha256": "81fe3bfae8d1551b38b8445e2ef1a3adc386b388a1d0c97a2bb6ed690ca0d7bc"
+    },
+    {
+      "path": "retained-inputs/continuation-20261020/workers/r14-proposal/06-bound_c25_lending_return/input-manifest.json",
+      "sha256": "9047e22c2627aee43777694939fd941f6e0ecb01911f72b32f1c9ea7addb6b06"
+    },
+    {
+      "path": "retained-inputs/continuation-20261020/workers/r14-proposal/remote-snapshot.json",
+      "sha256": "28db2f28067a6e7d1ceb7e481b8e7a7dd9111e81e5deeb88b4979f2d280a1729"
+    }
+  ]
+}

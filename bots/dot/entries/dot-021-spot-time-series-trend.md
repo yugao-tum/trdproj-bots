@@ -110,3 +110,9 @@ OOS起始NAV分别5,438.68/5,328.86，实际NAV收益0.50%/−0.76%。全期79�
 - [固定规则历史模拟离线复现包](../notes/reproduction/README.md) — 记录2026-10-19 UTC — 已读；定位Scope、Requirements and inputs、Reproduce from official downloads、Tests and exact comparison；包含自拟冻结模拟的复现入口，不是来源策略复现或真实未来OOS
 
 - [2026年10月1至18日短窗敏感性检查](../notes/short-window-sensitivity/20261019-short-window-sensitivity.md) — 记录2026-10-19 UTC — 54个官方日档校验与独立账本复算通过；8个敏感性情景未纳入原42情景公开冷复现包
+
+## 2026-10-20 固定两日SMA确认反证（r14）
+
+按周一执行的固定两日SMA同侧确认完成历史价格成对回测；每边0.30%全期年化7.25%，2025+回顾留出净增约0，严格动态场所资本越界，且不足30独立结果。终止此变体，不撤回原dot-021待核，不把回顾留出称盲测或新机制。
+
+详见 [本轮结果与来源](../notes/20261020-r14-evidence/04-test_c21_turnover_hysteresis/RESULT.md)。

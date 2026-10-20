@@ -1,0 +1,23 @@
+{
+  "freeze_utc": "2026-10-20T09:31:16Z",
+  "known_before_freeze": "Prior coverage reports and terminal quote/receipt already read. Retrospective analysis, not out-of-sample. No entry prices inspected.",
+  "selection": "Largest complete daily history by row count, tie earliest registry timestamp; eUSD 472 versus Stargate461. No return ranking.",
+  "entry": "Earliest daily row whose UTC date is strictly after deployment date:2023-09-12. Daily mark only; execution/availability unknown.",
+  "terminal": "Fixed2024-12-26 expiry; same retained redemption tx; no date/asset optimization.",
+  "capital_usdt": "5000",
+  "venue_all_in_cap_usdt": "2500",
+  "cost_rule": "Unknown costs remain variables, never zero-filled. Zero-cost ceiling only explicitly conditional. No grid or fee fitting.",
+  "usd_rule": "Missing synchronized redeemable asset USD and USDT conversion path prohibits full cash backtest. Existing terminal indexed assetUsd may be valuation proxy only.",
+  "external_requests": 0,
+  "selected_input_hashes": {
+    "workers/operator-c44-history/evidence/09-history-eusd.body": "f851f19fed3eb573c0bc99b748ea9a160e6138897927491567f8dc3c6e3294c3",
+    "workers/operator-c44-history/evidence/10-history-stargate.body": "41405c99ce6de9ccddbf9051e511a0578993182d7dff2a6f6c7ec48f9eeb93f8",
+    "workers/operator-c44-history/evidence/16-eusd-public-participant-pnl.body": "b617e813459b68c1cf1b9741771ed6e96b1659d7b281b87a54b411811af21903",
+    "workers/operator-c44-history/redemption-observation.json": "52fc06852a551ca51aa318dc14cb437f7822d3576dbb58553a3aba8a17514954",
+    "workers/operator-c44-history/coverage-audit.json": "9993286f86a5bb6e676f5ca5e5c0a21cef4100237bd5e491927f25c0fb694770",
+    "workers/operator-c44-chain/receipt-decoded.json": "5062f65b2d7a12b920ba90619fe418ca770dc8409e73afc181a882567d022d95",
+    "workers/operator-c44-chain/historical-state.json": "e4c6a38e9735bf774c5c4ff016c796331d955df57d0e37e462401e101fb667ea",
+    "workers/operator-c44-chain/arithmetic-audit.json": "6df94ee7a92586fe619cf2721ac033fea88947a4cf77287a5ebdc140b42007e7"
+  },
+  "guide_cost_scenario": "GUIDE prescribed0.003 per side, fixed not fit. Added09:31:52UTC after reading entry mark but before any returns computation. Gas remains G>=0 unknown. Assume USDT/USD=1 solely for conditional table."
+}

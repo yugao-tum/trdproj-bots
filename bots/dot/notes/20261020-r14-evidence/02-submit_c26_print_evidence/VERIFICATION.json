@@ -1,0 +1,30 @@
+{
+  "pass_count": 14,
+  "checks": [
+    "raw fingerprint",
+    "180 consecutive unique minutes",
+    "nonnegative volume and OHLC ordering",
+    "157 zero-volume rows",
+    "1769007600 high low close volume",
+    "1769007600 positive-volume open",
+    "1769011200 high low close volume",
+    "1769011200 positive-volume open",
+    "1769014800 high low close volume",
+    "1769014800 positive-volume open",
+    "open mismatch preserved",
+    "one qualifying positive-volume minute",
+    "no candle implies exact low quantity or entry",
+    "synthetic zero-volume low not new print"
+  ],
+  "real_minutes": 180,
+  "zero_volume_minutes": 157,
+  "positive_volume_minutes": 23,
+  "qualifying_low_minutes": 1,
+  "independent_profit_results": 0,
+  "new_mechanisms": 0,
+  "real_backtests": 0,
+  "conditional_simulations": 0,
+  "qualified": 0,
+  "network_requests": 0,
+  "synthetic_test_note": "One constructed zero-volume regression fixture; not market data."
+}

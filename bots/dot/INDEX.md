@@ -68,7 +68,7 @@
 | bots/dot/entries/dot-024-spot-fixed-weight-rebalance.md | 固定权重现货再平衡 | 2026-10-20 | 待核 / supplement → X-X1-btc-stable-rebal（补充评审申请，未采纳/未晋级） |
 | bots/dot/entries/dot-034-scheduled-unlock-supply-avoidance.md | 预告解锁供给冲击规避 | 2026-10-20 | 草稿 / supplement → E-E1-unlock-short（分类纠正，未晋级） |
 | bots/dot/entries/dot-036-executed-buyback-demand.md | 协议执行回购需求 | 2026-10-19 | 草稿 |
-| bots/dot/entries/dot-037-self-funded-liquidation-bonus.md | 自有资金清算罚金补偿 | 2026-10-20 | 草稿 / supplement → A-A5-onchain-mev（分类纠正，未晋级） |
+| bots/dot/entries/dot-037-self-funded-liquidation-bonus.md | 自有资金清算罚金补偿 | 2026-10-20 | 待核 / supplement → A-A5-onchain-mev（分类纠正，未晋级） |
 | bots/dot/entries/dot-038-oracle-dispute-bond-compensation.md | 预言机争议保证金补偿 | 2026-10-19 | 草稿 |
 | bots/dot/entries/dot-039-gauge-voting-incentives.md | 第三方投票权激励 | 2026-10-19 | 草稿 |
 | bots/dot/entries/dot-030-option-skew-premium.md | 同期限期权偏斜溢价 | 2026-10-19 | 草稿 |
@@ -189,3 +189,50 @@
 | bots/dot/notes/20261020-r13-evidence/c45-events/test_signed_units.py | r13 补证：test_signed_units.py | 2026-10-20 | 研究附件 / 未晋级 |
 | bots/dot/notes/20261020-r13-evidence/c45-events/upstream-source-manifest.json | r13 补证：upstream-source-manifest.json | 2026-10-20 | 研究附件 / 未晋级 |
 | bots/dot/notes/20261020-r13-evidence/c46-repayment/RESULT.md | r13 补证：RESULT.md | 2026-10-20 | 研究附件 / 未晋级 |
+
+| bots/dot/notes/20261020-r14-evidence/01-submit_c37_financing_evidence/README.md | r14证据：README.md | 2026-10-20 | 研究附件 / 非达标 |
+| bots/dot/notes/20261020-r14-evidence/01-submit_c37_financing_evidence/borrowed-evidence-chain.csv | r14证据：borrowed-evidence-chain.csv | 2026-10-20 | 研究附件 / 非达标 |
+| bots/dot/notes/20261020-r14-evidence/01-submit_c37_financing_evidence/source-manifest.json | r14证据：source-manifest.json | 2026-10-20 | 研究附件 / 非达标 |
+| bots/dot/notes/20261020-r14-evidence/01-submit_c37_financing_evidence/verify-summary.py | r14证据：verify-summary.py | 2026-10-20 | 研究附件 / 非达标 |
+| bots/dot/notes/20261020-r14-evidence/02-submit_c26_print_evidence/RESULT.md | r14证据：RESULT.md | 2026-10-20 | 研究附件 / 非达标 |
+| bots/dot/notes/20261020-r14-evidence/02-submit_c26_print_evidence/VERIFICATION.json | r14证据：VERIFICATION.json | 2026-10-20 | 研究附件 / 非达标 |
+| bots/dot/notes/20261020-r14-evidence/02-submit_c26_print_evidence/public-source-fingerprints.json | r14证据：public-source-fingerprints.json | 2026-10-20 | 研究附件 / 非达标 |
+| bots/dot/notes/20261020-r14-evidence/02-submit_c26_print_evidence/verify_and_filter.py | r14证据：verify_and_filter.py | 2026-10-20 | 研究附件 / 非达标 |
+| bots/dot/notes/20261020-r14-evidence/03-test_c24_cost_band/PREREGISTRATION.md | r14证据：PREREGISTRATION.md | 2026-10-20 | 研究附件 / 非达标 |
+| bots/dot/notes/20261020-r14-evidence/03-test_c24_cost_band/RESULT.md | r14证据：RESULT.md | 2026-10-20 | 研究附件 / 非达标 |
+| bots/dot/notes/20261020-r14-evidence/03-test_c24_cost_band/VERIFICATION.json | r14证据：VERIFICATION.json | 2026-10-20 | 研究附件 / 非达标 |
+| bots/dot/notes/20261020-r14-evidence/03-test_c24_cost_band/reproduce.py | r14证据：reproduce.py | 2026-10-20 | 研究附件 / 非达标 |
+| bots/dot/notes/20261020-r14-evidence/03-test_c24_cost_band/source-manifest.json | r14证据：source-manifest.json | 2026-10-20 | 研究附件 / 非达标 |
+| bots/dot/notes/20261020-r14-evidence/03-test_c24_cost_band/summary.json | r14证据：summary.json | 2026-10-20 | 研究附件 / 非达标 |
+| bots/dot/notes/20261020-r14-evidence/03-test_c24_cost_band/test-log.txt | r14证据：test-log.txt | 2026-10-20 | 研究附件 / 非达标 |
+| bots/dot/notes/20261020-r14-evidence/03-test_c24_cost_band/test_reproduce.py | r14证据：test_reproduce.py | 2026-10-20 | 研究附件 / 非达标 |
+| bots/dot/notes/20261020-r14-evidence/04-test_c21_turnover_hysteresis/PREREGISTRATION.md | r14证据：PREREGISTRATION.md | 2026-10-20 | 研究附件 / 非达标 |
+| bots/dot/notes/20261020-r14-evidence/04-test_c21_turnover_hysteresis/RESULT.md | r14证据：RESULT.md | 2026-10-20 | 研究附件 / 非达标 |
+| bots/dot/notes/20261020-r14-evidence/04-test_c21_turnover_hysteresis/TEST-RESULTS.json | r14证据：TEST-RESULTS.json | 2026-10-20 | 研究附件 / 非达标 |
+| bots/dot/notes/20261020-r14-evidence/04-test_c21_turnover_hysteresis/reproduce.py | r14证据：reproduce.py | 2026-10-20 | 研究附件 / 非达标 |
+| bots/dot/notes/20261020-r14-evidence/04-test_c21_turnover_hysteresis/source-manifest.json | r14证据：source-manifest.json | 2026-10-20 | 研究附件 / 非达标 |
+| bots/dot/notes/20261020-r14-evidence/04-test_c21_turnover_hysteresis/summary.json | r14证据：summary.json | 2026-10-20 | 研究附件 / 非达标 |
+| bots/dot/notes/20261020-r14-evidence/05-test_c44_maturity_cash/RESULT.md | r14证据：RESULT.md | 2026-10-20 | 研究附件 / 非达标 |
+| bots/dot/notes/20261020-r14-evidence/05-test_c44_maturity_cash/preregister.json | r14证据：preregister.json | 2026-10-20 | 研究附件 / 非达标 |
+| bots/dot/notes/20261020-r14-evidence/05-test_c44_maturity_cash/reproduce.py | r14证据：reproduce.py | 2026-10-20 | 研究附件 / 非达标 |
+| bots/dot/notes/20261020-r14-evidence/05-test_c44_maturity_cash/results.json | r14证据：results.json | 2026-10-20 | 研究附件 / 非达标 |
+| bots/dot/notes/20261020-r14-evidence/05-test_c44_maturity_cash/source-manifest.json | r14证据：source-manifest.json | 2026-10-20 | 研究附件 / 非达标 |
+| bots/dot/notes/20261020-r14-evidence/05-test_c44_maturity_cash/test_accounting.py | r14证据：test_accounting.py | 2026-10-20 | 研究附件 / 非达标 |
+| bots/dot/notes/20261020-r14-evidence/05-test_c44_maturity_cash/tests.txt | r14证据：tests.txt | 2026-10-20 | 研究附件 / 非达标 |
+| bots/dot/notes/20261020-r14-evidence/06-bound_c25_lending_return/RESULT.md | r14证据：RESULT.md | 2026-10-20 | 研究附件 / 非达标 |
+| bots/dot/notes/20261020-r14-evidence/06-bound_c25_lending_return/reproduce.py | r14证据：reproduce.py | 2026-10-20 | 研究附件 / 非达标 |
+| bots/dot/notes/20261020-r14-evidence/06-bound_c25_lending_return/results.json | r14证据：results.json | 2026-10-20 | 研究附件 / 非达标 |
+| bots/dot/notes/20261020-r14-evidence/06-bound_c25_lending_return/source-manifest.json | r14证据：source-manifest.json | 2026-10-20 | 研究附件 / 非达标 |
+| bots/dot/notes/20261020-r14-evidence/06-bound_c25_lending_return/test_reproduce.py | r14证据：test_reproduce.py | 2026-10-20 | 研究附件 / 非达标 |
+| bots/dot/notes/20261020-r14-evidence/06-bound_c25_lending_return/tests.log | r14证据：tests.log | 2026-10-20 | 研究附件 / 非达标 |
+| bots/dot/notes/20261020-r14-evidence/07-discover_keeper_service_rewards/RESULT.md | r14证据：RESULT.md | 2026-10-20 | 研究附件 / 非达标 |
+| bots/dot/notes/20261020-r14-evidence/07-discover_keeper_service_rewards/source-manifest.json | r14证据：source-manifest.json | 2026-10-20 | 研究附件 / 非达标 |
+| bots/dot/notes/20261020-r14-evidence/08-discover_oracle_publication_rewards/RESULT.md | r14证据：RESULT.md | 2026-10-20 | 研究附件 / 非达标 |
+| bots/dot/notes/20261020-r14-evidence/08-discover_oracle_publication_rewards/source-manifest.json | r14证据：source-manifest.json | 2026-10-20 | 研究附件 / 非达标 |
+| bots/dot/notes/20261020-r14-evidence/09-discover_batch_solver_rewards/RESULT.md | r14证据：RESULT.md | 2026-10-20 | 研究附件 / 非达标 |
+| bots/dot/notes/20261020-r14-evidence/09-discover_batch_solver_rewards/source-manifest.json | r14证据：source-manifest.json | 2026-10-20 | 研究附件 / 非达标 |
+| bots/dot/notes/20261020-r14-evidence/10-rank_scoring_ready_results/RESULT.md | r14证据：RESULT.md | 2026-10-20 | 研究附件 / 非达标 |
+| bots/dot/notes/20261020-r14-evidence/10-rank_scoring_ready_results/source-manifest.json | r14证据：source-manifest.json | 2026-10-20 | 研究附件 / 非达标 |
+| bots/dot/notes/20261020-r14-evidence/10-rank_scoring_ready_results/tests.log | r14证据：tests.log | 2026-10-20 | 研究附件 / 非达标 |
+| bots/dot/notes/20261020-r14-evidence/10-rank_scoring_ready_results/verify_independent.py | r14证据：verify_independent.py | 2026-10-20 | 研究附件 / 非达标 |
+| bots/dot/notes/20261020-r14-evidence/README.md | r14证据：README.md | 2026-10-20 | 研究附件 / 非达标 |

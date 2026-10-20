@@ -1,0 +1,15 @@
+test_actual_unknown (test_accounting.CashTests.test_actual_unknown) ... ok
+test_breakeven (test_accounting.CashTests.test_breakeven) ... ok
+test_cost_monotonicity (test_accounting.CashTests.test_cost_monotonicity) ... ok
+test_counts_not_results (test_accounting.CashTests.test_counts_not_results) ... ok
+test_denominator (test_accounting.CashTests.test_denominator) ... ok
+test_fee_budget (test_accounting.CashTests.test_fee_budget) ... ok
+test_fixed_entry (test_accounting.CashTests.test_fixed_entry) ... ok
+test_negative_even_no_fee (test_accounting.CashTests.test_negative_even_no_fee) ... ok
+test_no_fill (test_accounting.CashTests.test_no_fill) ... ok
+test_units (test_accounting.CashTests.test_units) ... ok
+
+----------------------------------------------------------------------
+Ran 10 tests in 0.029s
+
+OK

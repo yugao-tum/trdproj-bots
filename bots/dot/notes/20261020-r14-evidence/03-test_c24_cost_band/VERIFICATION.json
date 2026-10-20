@@ -1,0 +1,81 @@
+{
+  "tests_passed": 6,
+  "baseline_scalar_comparisons": 42,
+  "tolerance": 1e-09,
+  "independent_ledger_runs": 4,
+  "daily_equities_checked": 4016,
+  "original_input_hashes_unchanged": true,
+  "new_independent_mechanisms": 0,
+  "qualified": false,
+  "publish_recommendation": "negative supplement, not improvement",
+  "files": [
+    {
+      "path": "band_5pp-0.006-trades.csv",
+      "sha256": "be062f20504c6b84ba385231dad20f916f06b1d7cf3a49c4b782a7bbe770d25f"
+    },
+    {
+      "path": "baseline-0.003-trades.csv",
+      "sha256": "3f58bdac0cba20497de831ca8a6677d8769b3b3e268cc916be86e1985f1bd0c5"
+    },
+    {
+      "path": "band_5pp-0.003-daily.csv",
+      "sha256": "fa2a48205fa8d5a96dd5f1c1f4551845527fd2e0cf2d39c87000086f77c12039"
+    },
+    {
+      "path": "baseline-0.006-daily.csv",
+      "sha256": "cbc5b5b4a7bf88da187b46828495542b155a0c6ba54958caf32ef617573dd1e0"
+    },
+    {
+      "path": "RESULT.md",
+      "sha256": "c231a2d34b3ec629fae62024e85c9a0cb0f82c766be93d086cf33853600e0048"
+    },
+    {
+      "path": "band_5pp-0.003-trades.csv",
+      "sha256": "9ea16faebee3b598db9389a1f6a5cddc62e83cc216b90713ec311aa99d60dde5"
+    },
+    {
+      "path": "test_reproduce.py",
+      "sha256": "f5ddf07833b533f9b77803e877aafd902f52970a9de99d31cd08f1f2bc8cfec1"
+    },
+    {
+      "path": "test-log.txt",
+      "sha256": "4a85d55a51b68924fe3bcb25753f39e6de98662d2fbe10ec58702c87c2b6718a"
+    },
+    {
+      "path": "summary.json",
+      "sha256": "db0738b66cf70b85b7520a891fd71227f684cf46c702bd44526e0ae38ef218a4"
+    },
+    {
+      "path": "source-manifest.json",
+      "sha256": "80a241fd129b85eddb309f6f85fd0656accfa14c45d75eea3f39368fa0f64050"
+    },
+    {
+      "path": "reproduce.py",
+      "sha256": "bffbfa6a155e096be3d4366f62e7e5633ac94c0260e7577bfd389a6b563e19b2"
+    },
+    {
+      "path": "PREREGISTRATION.md",
+      "sha256": "c9d35e87e92d819b369caa514d96a1a764bdb5673375d3664cdf7c3c8cc34cef"
+    },
+    {
+      "path": "ENTRY-PATCH-SUGGESTION.md",
+      "sha256": "5a3db5a41fc883bcf28d0d52292951afbbea2b92820f7659727fdac6487d3b77"
+    },
+    {
+      "path": "baseline-0.006-trades.csv",
+      "sha256": "a355df85f95c8e384469fd669ab6e2ea573592c583806dea3ee4766a8eb07a9f"
+    },
+    {
+      "path": "baseline-0.003-daily.csv",
+      "sha256": "4f12484cb27c320e31847b7857bf231ec6749edfb89b7522c93657cb98379c00"
+    },
+    {
+      "path": "band_5pp-0.006-daily.csv",
+      "sha256": "e19d8636d37b215fc66df9fc671bf127f3c84e6eb867737ed9de47fc8c8dbd81"
+    },
+    {
+      "path": "results.json",
+      "sha256": "f761da1129aa431895e80c251d3873d2ff99e0b0893b44d9e0761f9e42e310bd"
+    }
+  ]
+}

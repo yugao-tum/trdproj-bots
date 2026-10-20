@@ -1,0 +1,18 @@
+{
+  "reproduction_exit_code": 0,
+  "byte_identical_derived_files": {
+    "paired-execution-events.csv": "0b99cea296915b899d9ca8631e2c6f9ac0177f6eabc31a25cafa3aef1542f8cb",
+    "baseline-daily.csv": "bee82b6d15888e4b86422591d5620a5556c141e6f20751414b2bca2afd198f8a",
+    "variant-trades.csv": "fbc21ea9591151cee90330bdd99a08264f2d14c2979007ba5f9d5d7e64e285ed",
+    "baseline-trades.csv": "46a705632e2037bc175d88d3f89939c097d6240bcbebf1342ea32fda62fff103",
+    "paired-daily-pnl.csv": "c0d845b2cbce229b60020fc45de8a4c18a44efed70828c75ec146fa4836c78b4",
+    "weekly-decisions.csv": "d18f689983a8514bad9b7b1e9ed5e42fc1aaf43cf842912279e879a646cb2a7a",
+    "variant-daily.csv": "81e2fd0d99ac060f508162da01247680297b6022a91f72637c5b661af9b8abbf",
+    "results.json": "cc66ec4112b313b69c8096fbef587a882b117477e8ee25b0f6c9271db92c1a93"
+  },
+  "frozen_baseline_exact_match": true,
+  "signal_future_invariance_checks": 144,
+  "weekly_position_checks": 288,
+  "signal_edge_checks": 4,
+  "input_hashes_unchanged": true
+}

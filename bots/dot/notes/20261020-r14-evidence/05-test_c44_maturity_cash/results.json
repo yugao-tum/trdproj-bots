@@ -1,0 +1,36 @@
+{
+  "stage": "conditional accounting; no complete historical executable backtest",
+  "entry_date": "2023-09-12T00:00:00.000Z",
+  "entry_mark_usd": "0.9669544817760126",
+  "entry_daily_volume_usd": "0",
+  "entry_pool_tvl_usd": "100008.83210710289",
+  "terminal_date": "2024-12-26T01:42:59.000Z",
+  "terminal_indexed_eusd_usd": "0.9546049953885288",
+  "receipt_eusd_per_pt_unit_check": "1.0000000000000000005620319647132018075981418270689",
+  "mixed_tx_gas_eth": "0.0018152506547615",
+  "scenarios": {
+    "zero_cost_ceiling": {
+      "pt_quantity": "2585.4371091059334227607979089312416523314130483315",
+      "terminal_indexed_mark_usd": "2468.0711796154008069813017596764638914671848930358",
+      "conditional_pnl_before_gas_usdt": "-31.9288203845991930186982403235361085328151069642",
+      "capital_return_before_gas": "-0.00638576407691983860373964806470722170656302139284",
+      "venue_return_before_gas": "-0.01277152815383967720747929612941444341312604278568",
+      "breakeven_eusd_usd_before_gas": "0.9669544817760126",
+      "peg_loss_tolerance_before_gas": "0.0330455182239874"
+    },
+    "guide_cost_proxy": {
+      "pt_quantity": "2577.7039971145896537993997098018361438997139066117",
+      "terminal_indexed_mark_usd": "2453.3070449417294163114235836464950147485377251812",
+      "conditional_pnl_before_gas_usdt": "-46.6929550582705836885764163535049852514622748188",
+      "capital_return_before_gas": "-0.00933859101165411673771528327070099705029245496376",
+      "venue_return_before_gas": "-0.01867718202330823347543056654140199410058490992752",
+      "breakeven_eusd_usd_before_gas": "0.97277366622000063971915747241725175526579739217653",
+      "peg_loss_tolerance_before_gas": "0.02722633377999936028084252758274824473420260782347"
+    }
+  },
+  "actual_executable_cash_pnl": null,
+  "independent_complete_outcomes": 0,
+  "total_daily_rows": 933,
+  "selected_maturities": 1,
+  "external_requests": 0
+}

@@ -1,0 +1,61 @@
+{
+  "generated_utc": "2026-10-20T09:30:59.099386+00:00",
+  "baseline_head": "e068c98ad3f5a9aa7834e55ac2ef6caf210b7dd9",
+  "official_sources": [
+    {
+      "url": "https://github.com/balancer/balancer-deployments/blob/master/v2/tasks/20210418-vault/output/mainnet.json",
+      "git_blob_sha": "609ec8f9c52e777ed030619233dee0f4a0f420e9",
+      "content_sha256": "b6b5902fded10153635612749027f3d26aee76f9e8ae8fa1f0feb2ed947da49f",
+      "location": "line 2: Vault",
+      "accessed_utc": "2026-10-20 08:48–08:51",
+      "read_mode": "r13 official-source read; r14 reads retained exact body offline; no new fetch"
+    },
+    {
+      "url": "https://github.com/balancer/balancer-v2-monorepo/blob/e91a2b643a49856f51a648d175667c1b48cf3377/pkg/interfaces/contracts/vault/IVault.sol",
+      "git_blob_sha": "c55f9d25c1a0b76975ca03229302f0c76a7608c7",
+      "content_sha256": "95ff30b5a5a72ec7287a734738231422e4688052daeab0a18f2a2a6129f0300a",
+      "location": "lines 655–676: flashLoan and FlashLoan event",
+      "accessed_utc": "2026-10-20 08:48–08:51",
+      "read_mode": "r13 official-source read; r14 reads retained exact body offline; no new fetch"
+    },
+    {
+      "url": "https://github.com/aave/aave-v3-core/blob/v1.19.3/contracts/interfaces/IPool.sol",
+      "git_blob_sha": "ef306e737f93a6ae9a4e54fb2ed3684aee35b64f",
+      "content_sha256": "d708ba2c3cf29fe81083b7b8127ef61b7d750dc017399ebaa2951d6f61a93dda",
+      "location": "line 178: LiquidationCall",
+      "accessed_utc": "2026-10-20 08:48–08:51",
+      "read_mode": "r13 official-source read; r14 reads retained exact body offline; no new fetch"
+    }
+  ],
+  "local_evidence": [
+    {
+      "name": "RESULT.md",
+      "sha256": "96f3881541e66d4a6df9a011d7af6670eeb04977436a8fe8879e9ab470ad1e62"
+    },
+    {
+      "name": "decoded-events.json",
+      "sha256": "47a88c6641cb910c860cf99a557871c7681ef386b620defa6599025130bebcdf"
+    },
+    {
+      "name": "financing-classification.csv",
+      "sha256": "a26a8491b195b49c2c2087dcdd7372dade373d8c2f9ca18f2903b2602183f2b2"
+    },
+    {
+      "name": "abi-source-bindings.json",
+      "sha256": "a07f8dc714ecd51685801becbd503aac48897a9e1c3970b21cd1790efa7ea69b"
+    },
+    {
+      "name": "complete-log-decoder.py",
+      "sha256": "81908ddaec0a8bcaec3b119edb98d2953bd7754e64bb06018228e2f75beeecea"
+    },
+    {
+      "name": "test-decoder.py",
+      "sha256": "e4f2be823e550810fbe18e849b593250dbbd05a42131116a4a0d1bf812f97e7c"
+    }
+  ],
+  "guide": {
+    "sha256": "81fe3bfae8d1551b38b8445e2ef1a3adc386b388a1d0c97a2bb6ed690ca0d7bc",
+    "location": "sections 2,3.1,3.3,4,6,7; retained copy, publisher must recheck latest"
+  },
+  "explorer_links": "Transaction links identify public receipts; no new explorer fetch was performed. Raw receipts and sources remain local."
+}

@@ -1,0 +1,17 @@
+test_cash_identity (test_reproduce.BoundTests.test_cash_identity) ... ok
+test_end_cap (test_reproduce.BoundTests.test_end_cap) ... ok
+test_exact_365_days (test_reproduce.BoundTests.test_exact_365_days) ... ok
+test_factor_two_denominator (test_reproduce.BoundTests.test_factor_two_denominator) ... ok
+test_frozen_gross (test_reproduce.BoundTests.test_frozen_gross) ... ok
+test_full_allocation_violates_end_cap (test_reproduce.BoundTests.test_full_allocation_violates_end_cap) ... ok
+test_gas_monotone (test_reproduce.BoundTests.test_gas_monotone) ... ok
+test_inputs_unchanged (test_reproduce.BoundTests.test_inputs_unchanged) ... ok
+test_leg_fails (test_reproduce.BoundTests.test_leg_fails) ... ok
+test_total_fails_even_without_cost (test_reproduce.BoundTests.test_total_fails_even_without_cost) ... ok
+test_zero_cost_matches (test_reproduce.BoundTests.test_zero_cost_matches) ... ok
+test_zero_interest_loses (test_reproduce.BoundTests.test_zero_interest_loses) ... ok
+
+----------------------------------------------------------------------
+Ran 12 tests in 0.003s
+
+OK

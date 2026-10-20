@@ -1,0 +1,15 @@
+{
+  "accessed_utc": "2026-10-20T09:31:48.418256+00:00",
+  "local_cached_inputs": {
+    "retained-inputs/workers/operator-cold-reproduction/packages/reproduction/spot_screen.py": "8e56d8e5c2e73c97710c795ee11a1fbdf86f6d5a2fac1f3688160d68160b3d8c",
+    "retained-inputs/workers/data-probe/data/history/spot_daily.csv": "a008fbd0514f4d01bd477fc008de9fb24b8dfae5e83ebda2ced8bbf2e89bcf0a",
+    "retained-inputs/results/spot-screen/summary.json": "a9a2d45fdee6f39ac9f6802b6b0cb179a24da838fffb7c8ff58cf6785de33408",
+    "retained-inputs/workers/data-probe/data/history/manifest.json": "440707c1bf4496f013abace02f8ed388ff7c0605d6e8697900137b962524094e",
+    "retained-inputs/continuation-20261020/workers/r14-proposal/04-test_c21_turnover_hysteresis/output/PREREGISTRATION.md": "cdf2e6378e59ef7bada6d418cd79c5e7ef01516de288a05a6dcae782acb4c477"
+  },
+  "data_fetch": "none; reused frozen official-data cache; no new external retrieval",
+  "original_source_url": "https://data.binance.vision/data/",
+  "original_acquisition_utc": "2026-10-19T16:35:06.804032Z",
+  "model": "native OpenAI assistant; exact model identifier unavailable",
+  "task_count": 1
+}

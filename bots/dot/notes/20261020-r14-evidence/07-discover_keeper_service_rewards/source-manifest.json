@@ -1,0 +1,75 @@
+{
+  "access_window_utc": [
+    "2026-10-20T09:33:21Z",
+    "2026-10-20T09:35:25.383666+00:00"
+  ],
+  "method": "web search/open/find; excerpt observations only, no preserved raw HTTP payload",
+  "queries": {
+    "github": [
+      "site:github.com keep3r network KeeperWork payment csv",
+      "site:github.com gelatodigital TaskExecuted fee automation",
+      "site:github.com chainlink automation \"UpkeepPerformed\" \"totalPayment\""
+    ],
+    "x": [
+      "site:x.com/gelatonetwork keeper execution fees transactions",
+      "site:x.com keep3r \"payments\" keepers"
+    ]
+  },
+  "query_results_note": "X returned irrelevant X platform pages, no relevant engineering post read. Chainlink query produced no usable primary candidate in returned combined results. Search snippets not counted as read evidence.",
+  "unique_body_attempts": 6,
+  "sources": [
+    {
+      "id": "gelato_code",
+      "url": "https://github.com/gelatodigital/gelato-network/blob/master/contracts/gelato_core/GelatoCore.sol",
+      "status": "read",
+      "observation": "Lines 1644–1700: success payment and conditional refund event branches; source code only, no historical receipt."
+    },
+    {
+      "id": "keep3r_v2_interface",
+      "url": "https://github.com/keep3r-network/keep3r-network-v2/blob/main/solidity/interfaces/peripherals/IKeep3rJobs.sol",
+      "status": "read",
+      "observation": "Lines 1694–1783: KeeperWork, worked, bondedPayment, directTokenPayment; interface not payment history."
+    },
+    {
+      "id": "keep3r_v1_code",
+      "url": "https://github.com/keep3r-network/keep3r.network/blob/master/contracts/Keep3r.sol",
+      "status": "read",
+      "observation": "Lines 3385–3423: KeeperWorked event; BOND code is 3 days despite one-day comment; UNBOND is 14 days."
+    },
+    {
+      "id": "gelato_readme",
+      "url": "https://github.com/gelatodigital/gelato-network/blob/master/README.md",
+      "status": "read",
+      "observation": "Lines 115,226–251: archived 2022-09-13; user/provider pays execution from deposit; historic initial 2% gas-cost markup is illustrative, not current quote or payment sample."
+    },
+    {
+      "id": "keep3r_explorer",
+      "url": "https://etherscan.io/address/0x1cEB5cB57C4D4E2b2433641b95Dd330A33185A44#events",
+      "status": "403_forbidden",
+      "observation": "One read denied; stopped, no retry, no alternate route to same target."
+    },
+    {
+      "id": "keep3r_v2_repo",
+      "url": "https://github.com/keep3r-network/keep3r-network-v2",
+      "status": "read",
+      "observation": "Lines 244–255: credits funded with tokens or staking liquidity; Ethereum deployment listed as 0xeb02addCfD8B773A5FFA6B9d1FE99c566f8c44CC. Listing is not runtime or historical payment verification."
+    }
+  ],
+  "input_hashes": {
+    "prompt.txt": "9f368104ee4e9c64ae584072492803a076c9735829d5e11c80c37829f8aaf8fe",
+    "input-manifest.json": "c150f323c3812066ecf4978dfe4f242d60b3184d38ec5f5532c4e15af727e7bc",
+    "remote-snapshot.json": "28db2f28067a6e7d1ceb7e481b8e7a7dd9111e81e5deeb88b4979f2d280a1729"
+  },
+  "fresh_remote_claims": {
+    "read_at_utc": "2026-10-20T09:33:40Z",
+    "dot": "da9fd9aef1c272d9ad095b93addac7c41dea7a71",
+    "muse": "5940a9fb469baa81d4a7e2e16bbfae2be5172e86",
+    "quant": "cdb86b274a1baec8a48351e16229c57d2c57e6e3",
+    "result": "same as preparation snapshot; no new explicit keeper claim"
+  },
+  "provider": "native OpenAI agent",
+  "actual_model_id": "not exposed in task tool metadata",
+  "opencode_calls": 0,
+  "pi_calls": 0,
+  "meiying_calls": 0
+}

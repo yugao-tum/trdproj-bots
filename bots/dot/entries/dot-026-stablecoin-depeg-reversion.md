@@ -89,3 +89,9 @@ CoinGecko `/coins/usd-coin/market_chart?vs_currency=usd&days=365&interval=daily`
 - https://api.exchange.coinbase.com/products/USDC-USD/candles — 2026-10-19 — 打开失败（404）
 
 - [官方USDCUSDT月档验收](../notes/20261019-stablecoin-history-coverage.md) — 2026-10-19 — 实际43档内容及CHECKSUM、UTC和OHLC完整性复核；不含交易模拟
+
+## 2026-10-20 分钟打印数据过滤（r14）
+
+180 条真实分钟记录中157零量；整分钟量不是低价成交量。新增过滤规范禁止零量触发、禁止OHLC直接生成执行/PnL。此前r13事实不重复申请补充分；保持草稿。
+
+详见 [本轮结果与来源](../notes/20261020-r14-evidence/02-submit_c26_print_evidence/RESULT.md)。

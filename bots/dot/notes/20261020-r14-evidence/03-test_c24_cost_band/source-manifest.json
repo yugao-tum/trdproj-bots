@@ -1,0 +1,29 @@
+{
+  "read_utc": "2026-10-20T09:28:32.008357+00:00",
+  "inputs": [
+    {
+      "path": "retained-inputs/workers/operator-cold-reproduction/packages/reproduction/spot_screen.py",
+      "sha256": "8e56d8e5c2e73c97710c795ee11a1fbdf86f6d5a2fac1f3688160d68160b3d8c",
+      "bytes": 40972
+    },
+    {
+      "path": "retained-inputs/workers/operator-cold-reproduction/inputs/spot/spot_daily.csv",
+      "sha256": "a008fbd0514f4d01bd477fc008de9fb24b8dfae5e83ebda2ced8bbf2e89bcf0a",
+      "bytes": 921335
+    },
+    {
+      "path": "retained-inputs/results/spot-screen/summary.json",
+      "sha256": "a9a2d45fdee6f39ac9f6802b6b0cb179a24da838fffb7c8ff58cf6785de33408",
+      "bytes": 289842
+    },
+    {
+      "path": "retained-inputs/continuation-20261020/workers/r14-proposal/03-test_c24_cost_band/output/PREREGISTRATION.md",
+      "sha256": "c9d35e87e92d819b369caa514d96a1a764bdb5673375d3664cdf7c3c8cc34cef",
+      "bytes": 1976
+    }
+  ],
+  "source": "https://data.binance.vision/data/spot/monthly/klines/{symbol}/1d/{symbol}-1d-{YYYY-MM}.zip",
+  "network_reads_this_task": 0,
+  "upstream_access": "2026-10-19; cached verified official archives",
+  "raw_data_publish": false
+}

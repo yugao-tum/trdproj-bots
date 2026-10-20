@@ -1,0 +1,430 @@
+{
+  "stage": "real historical price simulation / retrospective holdout, not real execution",
+  "variant_count": 1,
+  "cost_cases": 2,
+  "genuine_oos": false,
+  "comparisons": [
+    {
+      "cost": 0.003,
+      "period": "2024",
+      "net_pnl_usdt": {
+        "baseline": 1834.7283388027736,
+        "variant": 1739.0051231027874,
+        "delta": -95.72321569998621
+      },
+      "fees_usdt": {
+        "baseline": 32.056253169911656,
+        "variant": 21.574638237705106,
+        "delta": -10.48161493220655
+      },
+      "notional_traded_usdt": {
+        "baseline": 10685.417723303886,
+        "variant": 7191.546079235035,
+        "delta": -3493.8716440688513
+      },
+      "max_drawdown": {
+        "baseline": 0.11091690027297607,
+        "variant": 0.10726354501926333,
+        "delta": -0.0036533552537127423
+      },
+      "average_risky_holdings_usdt": {
+        "baseline": 2221.54944060697,
+        "variant": 2154.437110662983,
+        "delta": -67.11232994398733
+      },
+      "gross_mark_pnl_before_costs_usdt": {
+        "baseline": 1866.7845919726851,
+        "variant": 1760.5797613404925,
+        "delta": -106.20483063219262
+      },
+      "turnover_over_initial_5000": {
+        "baseline": 2.1370835446607774,
+        "variant": 1.438309215847007,
+        "delta": -0.6987743288137704
+      },
+      "trade_count": {
+        "baseline": 159,
+        "variant": 66,
+        "delta": -93
+      },
+      "capital": {
+        "baseline": {
+          "venue_limit_usdt": 2500.0,
+          "confirmed_open_breach_days": 346,
+          "confirmed_close_breach_days": 347,
+          "possible_high_bound_breach_days": 359,
+          "max_open_on_exchange_usdt": 4657.42518199193,
+          "max_close_on_exchange_usdt": 4657.425106534602,
+          "max_high_upper_bound_usdt": 4710.8209491640555,
+          "confirmed_open_breach": true,
+          "confirmed_close_breach": true,
+          "possible_high_bound_breach": true
+        },
+        "variant": {
+          "venue_limit_usdt": 2500.0,
+          "confirmed_open_breach_days": 345,
+          "confirmed_close_breach_days": 346,
+          "possible_high_bound_breach_days": 355,
+          "max_open_on_exchange_usdt": 4563.566808384435,
+          "max_close_on_exchange_usdt": 4563.5667329271055,
+          "max_high_upper_bound_usdt": 4616.962575556561,
+          "confirmed_open_breach": true,
+          "confirmed_close_breach": true,
+          "possible_high_bound_breach": true
+        }
+      }
+    },
+    {
+      "cost": 0.003,
+      "period": "oos_2025",
+      "net_pnl_usdt": {
+        "baseline": 121.34457973490225,
+        "variant": 91.97723557809422,
+        "delta": -29.36734415680803
+      },
+      "fees_usdt": {
+        "baseline": 44.06346805692158,
+        "variant": 25.381507360014904,
+        "delta": -18.681960696906675
+      },
+      "notional_traded_usdt": {
+        "baseline": 14687.822685640525,
+        "variant": 8460.5024533383,
+        "delta": -6227.320232302225
+      },
+      "max_drawdown": {
+        "baseline": 0.2629433453505329,
+        "variant": 0.25022329874182975,
+        "delta": -0.012720046608703128
+      },
+      "average_risky_holdings_usdt": {
+        "baseline": 2198.353705953859,
+        "variant": 2082.0796923723456,
+        "delta": -116.27401358151337
+      },
+      "gross_mark_pnl_before_costs_usdt": {
+        "baseline": 165.40804779182383,
+        "variant": 117.35874293810913,
+        "delta": -48.0493048537147
+      },
+      "turnover_over_initial_5000": {
+        "baseline": 2.937564537128105,
+        "variant": 1.69210049066766,
+        "delta": -1.2454640464604452
+      },
+      "trade_count": {
+        "baseline": 276,
+        "variant": 90,
+        "delta": -186
+      },
+      "capital": {
+        "baseline": {
+          "venue_limit_usdt": 2500.0,
+          "confirmed_open_breach_days": 638,
+          "confirmed_close_breach_days": 638,
+          "possible_high_bound_breach_days": 638,
+          "max_open_on_exchange_usdt": 5344.015938949266,
+          "max_close_on_exchange_usdt": 5344.01431448903,
+          "max_high_upper_bound_usdt": 5379.054900080824,
+          "confirmed_open_breach": true,
+          "confirmed_close_breach": true,
+          "possible_high_bound_breach": true
+        },
+        "variant": {
+          "venue_limit_usdt": 2500.0,
+          "confirmed_open_breach_days": 638,
+          "confirmed_close_breach_days": 638,
+          "possible_high_bound_breach_days": 638,
+          "max_open_on_exchange_usdt": 5118.136762776079,
+          "max_close_on_exchange_usdt": 5118.1351383158435,
+          "max_high_upper_bound_usdt": 5153.175723907638,
+          "confirmed_open_breach": true,
+          "confirmed_close_breach": true,
+          "possible_high_bound_breach": true
+        }
+      }
+    },
+    {
+      "cost": 0.003,
+      "period": "full",
+      "net_pnl_usdt": {
+        "baseline": 1956.0729185376758,
+        "variant": 1830.9823586808816,
+        "delta": -125.09055985679424
+      },
+      "fees_usdt": {
+        "baseline": 76.11972122683324,
+        "variant": 46.95614559772001,
+        "delta": -29.163575629113225
+      },
+      "notional_traded_usdt": {
+        "baseline": 25373.24040894441,
+        "variant": 15652.048532573335,
+        "delta": -9721.191876371075
+      },
+      "max_drawdown": {
+        "baseline": 0.2629433453505329,
+        "variant": 0.25022329874182975,
+        "delta": -0.012720046608703128
+      },
+      "average_risky_holdings_usdt": {
+        "baseline": 2206.809521574415,
+        "variant": 2108.4569982432354,
+        "delta": -98.35252333117978
+      },
+      "gross_mark_pnl_before_costs_usdt": {
+        "baseline": 2032.192639764509,
+        "variant": 1877.9385042786016,
+        "delta": -154.25413548590745
+      },
+      "turnover_over_initial_5000": {
+        "baseline": 5.074648081788882,
+        "variant": 3.130409706514667,
+        "delta": -1.9442383752742152
+      },
+      "trade_count": {
+        "baseline": 435,
+        "variant": 156,
+        "delta": -279
+      },
+      "capital": {
+        "baseline": {
+          "venue_limit_usdt": 2500.0,
+          "confirmed_open_breach_days": 984,
+          "confirmed_close_breach_days": 985,
+          "possible_high_bound_breach_days": 997,
+          "max_open_on_exchange_usdt": 5344.015938949266,
+          "max_close_on_exchange_usdt": 5344.01431448903,
+          "max_high_upper_bound_usdt": 5379.054900080824,
+          "confirmed_open_breach": true,
+          "confirmed_close_breach": true,
+          "possible_high_bound_breach": true
+        },
+        "variant": {
+          "venue_limit_usdt": 2500.0,
+          "confirmed_open_breach_days": 983,
+          "confirmed_close_breach_days": 984,
+          "possible_high_bound_breach_days": 993,
+          "max_open_on_exchange_usdt": 5118.136762776079,
+          "max_close_on_exchange_usdt": 5118.1351383158435,
+          "max_high_upper_bound_usdt": 5153.175723907638,
+          "confirmed_open_breach": true,
+          "confirmed_close_breach": true,
+          "possible_high_bound_breach": true
+        }
+      }
+    },
+    {
+      "cost": 0.006,
+      "period": "2024",
+      "net_pnl_usdt": {
+        "baseline": 1802.4765095128414,
+        "variant": 1717.4304848650818,
+        "delta": -85.04602464775962
+      },
+      "fees_usdt": {
+        "baseline": 64.08622709431732,
+        "variant": 43.14927647541021,
+        "delta": -20.93695061890711
+      },
+      "notional_traded_usdt": {
+        "baseline": 10681.037849052887,
+        "variant": 7191.546079235035,
+        "delta": -3489.4917698178524
+      },
+      "max_drawdown": {
+        "baseline": 0.11192524616075862,
+        "variant": 0.10801179462569785,
+        "delta": -0.003913451535060772
+      },
+      "average_risky_holdings_usdt": {
+        "baseline": 2221.4271597074835,
+        "variant": 2154.437110662983,
+        "delta": -66.99004904450067
+      },
+      "gross_mark_pnl_before_costs_usdt": {
+        "baseline": 1866.5627366071587,
+        "variant": 1760.579761340492,
+        "delta": -105.9829752666667
+      },
+      "turnover_over_initial_5000": {
+        "baseline": 2.1362075698105776,
+        "variant": 1.438309215847007,
+        "delta": -0.6978983539635706
+      },
+      "trade_count": {
+        "baseline": 159,
+        "variant": 66,
+        "delta": -93
+      },
+      "capital": {
+        "baseline": {
+          "venue_limit_usdt": 2500.0,
+          "confirmed_open_breach_days": 345,
+          "confirmed_close_breach_days": 346,
+          "possible_high_bound_breach_days": 357,
+          "max_open_on_exchange_usdt": 4626.855375652941,
+          "max_close_on_exchange_usdt": 4626.855300195612,
+          "max_high_upper_bound_usdt": 4680.251142825067,
+          "confirmed_open_breach": true,
+          "confirmed_close_breach": true,
+          "possible_high_bound_breach": true
+        },
+        "variant": {
+          "venue_limit_usdt": 2500.0,
+          "confirmed_open_breach_days": 344,
+          "confirmed_close_breach_days": 345,
+          "possible_high_bound_breach_days": 354,
+          "max_open_on_exchange_usdt": 4542.259104338686,
+          "max_close_on_exchange_usdt": 4542.259028881357,
+          "max_high_upper_bound_usdt": 4595.654871510811,
+          "confirmed_open_breach": true,
+          "confirmed_close_breach": true,
+          "possible_high_bound_breach": true
+        }
+      }
+    },
+    {
+      "cost": 0.006,
+      "period": "oos_2025",
+      "net_pnl_usdt": {
+        "baseline": 77.28111167798124,
+        "variant": 66.59572821807797,
+        "delta": -10.685383459903278
+      },
+      "fees_usdt": {
+        "baseline": 88.12693611384316,
+        "variant": 50.76301472002981,
+        "delta": -37.36392139381335
+      },
+      "notional_traded_usdt": {
+        "baseline": 14687.822685640525,
+        "variant": 8460.5024533383,
+        "delta": -6227.320232302225
+      },
+      "max_drawdown": {
+        "baseline": 0.26618289363808667,
+        "variant": 0.2517952197811583,
+        "delta": -0.014387673856928351
+      },
+      "average_risky_holdings_usdt": {
+        "baseline": 2198.353705953859,
+        "variant": 2082.0796923723456,
+        "delta": -116.27401358151337
+      },
+      "gross_mark_pnl_before_costs_usdt": {
+        "baseline": 165.4080477918244,
+        "variant": 117.35874293810778,
+        "delta": -48.04930485371662
+      },
+      "turnover_over_initial_5000": {
+        "baseline": 2.937564537128105,
+        "variant": 1.69210049066766,
+        "delta": -1.2454640464604452
+      },
+      "trade_count": {
+        "baseline": 276,
+        "variant": 90,
+        "delta": -186
+      },
+      "capital": {
+        "baseline": {
+          "venue_limit_usdt": 2500.0,
+          "confirmed_open_breach_days": 638,
+          "confirmed_close_breach_days": 638,
+          "possible_high_bound_breach_days": 638,
+          "max_open_on_exchange_usdt": 5293.047402738031,
+          "max_close_on_exchange_usdt": 5293.045778277796,
+          "max_high_upper_bound_usdt": 5328.08636386959,
+          "confirmed_open_breach": true,
+          "confirmed_close_breach": true,
+          "possible_high_bound_breach": true
+        },
+        "variant": {
+          "venue_limit_usdt": 2500.0,
+          "confirmed_open_breach_days": 638,
+          "confirmed_close_breach_days": 638,
+          "possible_high_bound_breach_days": 638,
+          "max_open_on_exchange_usdt": 5087.482194182431,
+          "max_close_on_exchange_usdt": 5087.480569722195,
+          "max_high_upper_bound_usdt": 5122.521155313989,
+          "confirmed_open_breach": true,
+          "confirmed_close_breach": true,
+          "possible_high_bound_breach": true
+        }
+      }
+    },
+    {
+      "cost": 0.006,
+      "period": "full",
+      "net_pnl_usdt": {
+        "baseline": 1879.7576211908226,
+        "variant": 1784.0262130831597,
+        "delta": -95.7314081076629
+      },
+      "fees_usdt": {
+        "baseline": 152.2131632081605,
+        "variant": 93.91229119544002,
+        "delta": -58.300872012720475
+      },
+      "notional_traded_usdt": {
+        "baseline": 25368.860534693413,
+        "variant": 15652.048532573335,
+        "delta": -9716.812002120078
+      },
+      "max_drawdown": {
+        "baseline": 0.26618289363808667,
+        "variant": 0.2517952197811583,
+        "delta": -0.014387673856928351
+      },
+      "average_risky_holdings_usdt": {
+        "baseline": 2206.764945071216,
+        "variant": 2108.4569982432354,
+        "delta": -98.30794682798069
+      },
+      "gross_mark_pnl_before_costs_usdt": {
+        "baseline": 2031.9707843989831,
+        "variant": 1877.9385042785998,
+        "delta": -154.03228012038335
+      },
+      "turnover_over_initial_5000": {
+        "baseline": 5.073772106938683,
+        "variant": 3.130409706514667,
+        "delta": -1.9433624004240158
+      },
+      "trade_count": {
+        "baseline": 435,
+        "variant": 156,
+        "delta": -279
+      },
+      "capital": {
+        "baseline": {
+          "venue_limit_usdt": 2500.0,
+          "confirmed_open_breach_days": 983,
+          "confirmed_close_breach_days": 984,
+          "possible_high_bound_breach_days": 995,
+          "max_open_on_exchange_usdt": 5293.047402738031,
+          "max_close_on_exchange_usdt": 5293.045778277796,
+          "max_high_upper_bound_usdt": 5328.08636386959,
+          "confirmed_open_breach": true,
+          "confirmed_close_breach": true,
+          "possible_high_bound_breach": true
+        },
+        "variant": {
+          "venue_limit_usdt": 2500.0,
+          "confirmed_open_breach_days": 982,
+          "confirmed_close_breach_days": 983,
+          "possible_high_bound_breach_days": 992,
+          "max_open_on_exchange_usdt": 5087.482194182431,
+          "max_close_on_exchange_usdt": 5087.480569722195,
+          "max_high_upper_bound_usdt": 5122.521155313989,
+          "confirmed_open_breach": true,
+          "confirmed_close_breach": true,
+          "possible_high_bound_breach": true
+        }
+      }
+    }
+  ],
+  "independent_episodes_per_run": 1,
+  "recommend_improvement": false
+}

@@ -1,0 +1,60 @@
+{
+  "sources": [
+    {
+      "url": "https://docs.cow.fi/cow-protocol/reference/core/auctions/bonding-pools",
+      "accessed_at_utc": "2026-10-20T09:35:46Z",
+      "status": "body_read",
+      "location": "Setting up a bonding pool; Setting up a reduced bonding pool",
+      "role": "capital and approval exclusion"
+    },
+    {
+      "url": "https://docs.cow.fi/cow-protocol/tutorials/solvers/onboard",
+      "accessed_at_utc": "2026-10-20T09:35:40Z",
+      "status": "body_read",
+      "location": "sections 1,4,5,7",
+      "role": "permission and cost conditions"
+    },
+    {
+      "url": "https://github.com/cowprotocol/solver-rewards",
+      "accessed_at_utc": "2026-10-20T09:35:29Z",
+      "status": "body_read",
+      "location": "README quickstart and payout verification",
+      "role": "code exists, payment unverified"
+    },
+    {
+      "url": "https://docs.cow.fi/category/solver",
+      "accessed_at_utc": "2026-10-20T09:35:29Z",
+      "status": "navigation_read",
+      "role": "official onboarding link"
+    }
+  ],
+  "search_queries": [
+    "site.docs.cow.fi solver bonding rewards 500000",
+    "site:github.com/cowprotocol solver rewards payout",
+    "site:x.com CoW solver rewards bonding",
+    "site:docs.cow.fi \"bond\" \"500\"",
+    "site:x.com \"solver\" \"CoW\" \"bond\"",
+    "site:github.com/cowprotocol \"bond\" \"500,000\"",
+    "site:docs.cow.fi \"bond\" solver"
+  ],
+  "search_counts": {
+    "github": 2,
+    "x": 2,
+    "official_docs": 3
+  },
+  "body_urls": 4,
+  "actual_payment_samples": 0,
+  "input_sha256": {
+    "retained-inputs/continuation-20261020/workers/r14-proposal/remote-snapshot.json": "28db2f28067a6e7d1ceb7e481b8e7a7dd9111e81e5deeb88b4979f2d280a1729",
+    "retained-inputs/continuation-20261020/workers/r14-proposal/09-discover_batch_solver_rewards/prompt.txt": "9e2953c9901d62fb49d2a50ce7b97cc5f24bd7aa2cac4b221200792bff34f6e3",
+    "retained-inputs/continuation-20261020/workers/r14-proposal/09-discover_batch_solver_rewards/input-manifest.json": "c150f323c3812066ecf4978dfe4f242d60b3184d38ec5f5532c4e15af727e7bc",
+    "retained-inputs/continuation-20261020/sources/GUIDE.md": "81fe3bfae8d1551b38b8445e2ef1a3adc386b388a1d0c97a2bb6ed690ca0d7bc"
+  },
+  "exact_model": "not_exposed",
+  "native_tasks": 1,
+  "opencode_calls": 0,
+  "pi_calls": 0,
+  "meiying_calls": 0,
+  "stop_reason": "selected_protocol_eligibility_failure",
+  "raw_chain_data_collected": false
+}

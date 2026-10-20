@@ -110,3 +110,9 @@ OOS起始NAV为6,834.73/6,802.48，实际NAV收益1.78%/1.14%。435成交腿，�
 - [固定规则历史模拟离线复现包](../notes/reproduction/README.md) — 记录2026-10-19 UTC — 已读；定位Scope、Requirements and inputs、Reproduce from official downloads、Tests and exact comparison；包含自拟冻结模拟的复现入口，不是来源策略复现或真实未来OOS
 
 - [2026年10月1至18日短窗敏感性检查](../notes/short-window-sensitivity/20261019-short-window-sensitivity.md) — 记录2026-10-19 UTC — 54个官方日档校验与独立账本复算通过；8个敏感性情景未纳入原42情景公开冷复现包
+
+## 2026-10-20 固定5pp成本带反证（r14）
+
+原规则与固定变体同窗比较，基础/压力成本全期费用降低29.16/58.30 USDT，但净PnL降低125.09/95.73；回顾留出亦降低29.37/10.69。风险暴露较低，回撤改善不证明等风险优势。动态场所资金仍越限，仅1连续有仓段。停止本轮变体，不撤回原条目待核、不改旧冻结结果，不申请improvement。
+
+详见 [本轮结果与来源](../notes/20261020-r14-evidence/03-test_c24_cost_band/RESULT.md)。

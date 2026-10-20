@@ -1,0 +1,69 @@
+{
+  "prepared_at": "2026-10-20T09:32:09.003094+00:00",
+  "mode": "offline retained evidence only; no fresh external requests",
+  "base_head": "e068c98ad3f5a9aa7834e55ac2ef6caf210b7dd9",
+  "official_sources": [
+    {
+      "url": "https://www.bitstamp.net/api/v2/ohlc/usdcusd/?step=60&limit=180&end=1769018399&exclude_current_candle=true",
+      "accessed_at": "2026-10-20T08:50:16.213431+00:00",
+      "status": 200,
+      "sha256": "22bd444a5f33bd149a6af5984dbbc66379030810e716b51eac83a4c43c4074a9",
+      "bytes": 22779
+    },
+    {
+      "url": "https://www.bitstamp.net/api/",
+      "accessed_at": "2026-10-20T08:50:45.320209+00:00",
+      "status": 200,
+      "sha256": "7eb2ceec6160dd86cb07bfbd46aad6b403c021f34ccb754561021067916f263f",
+      "bytes": 2018462,
+      "purpose": "official documentation archive; public OHLC resolution and transaction parameter limits"
+    }
+  ],
+  "inputs": [
+    {
+      "filename": "minute-response.json",
+      "sha256": "22bd444a5f33bd149a6af5984dbbc66379030810e716b51eac83a4c43c4074a9",
+      "bytes": 22779
+    },
+    {
+      "filename": "official-api-documentation.html",
+      "sha256": "7eb2ceec6160dd86cb07bfbd46aad6b403c021f34ccb754561021067916f263f",
+      "bytes": 2018462
+    },
+    {
+      "filename": "frozen-window.json",
+      "sha256": "0d4ad73c96e7e27cebd669e15af70b8b75f81ea5170c6393de631af9eb758136",
+      "bytes": 1200
+    },
+    {
+      "filename": "resolution-reconciliation.json",
+      "sha256": "e57d4b259b6c76842d6dee339a7813c37122f41a97e3d311f9760ffa0c52ff64",
+      "bytes": 3829
+    },
+    {
+      "filename": "reconcile.py",
+      "sha256": "d2fc2ee94a443f99b0ac9d310826ca29ea22f34c55ad239ec1eb3c7d99b0f7f6",
+      "bytes": 3799
+    },
+    {
+      "filename": "tests.log",
+      "sha256": "0ce672c079c5e1931589e69b76630936861aecd44d6b1d8b101f44f8fdf71ecc",
+      "bytes": 826
+    },
+    {
+      "filename": "RESULT.md",
+      "sha256": "d4832026d64809f66d947c7dc897fff801a1150ce38800998be20925887cd66f",
+      "bytes": 2701
+    },
+    {
+      "filename": "source-manifest.json",
+      "sha256": "4661f7cfa09d7050113951026bb5ebdd9de699b661b0c60a62703246d819af46",
+      "bytes": 643
+    }
+  ],
+  "publish_exclusions": [
+    "raw/",
+    "intrahour-evidence.csv"
+  ],
+  "source_access_note": "Official source access timestamps belong to r13 acquisition, not r14. R14 only read retained bytes."
+}

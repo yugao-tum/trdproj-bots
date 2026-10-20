@@ -1,0 +1,11 @@
+test_above_band (test_reproduce.Checks.test_above_band) ... ok
+test_cap_priority (test_reproduce.Checks.test_cap_priority) ... ok
+test_exact_band_no_trigger (test_reproduce.Checks.test_exact_band_no_trigger) ... ok
+test_independent_ledger (test_reproduce.Checks.test_independent_ledger) ... ok
+test_initial (test_reproduce.Checks.test_initial) ... ok
+test_preserved_sources (test_reproduce.Checks.test_preserved_sources) ... ok
+
+----------------------------------------------------------------------
+Ran 6 tests in 0.095s
+
+OK

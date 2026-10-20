@@ -100,3 +100,9 @@ confidence: 低
 - [历史价格可得性与到期单位补核](../notes/20261019-principal-token-history-evidence.md) — 访问2026-10-19 UTC — 实际历史GET、官方schema与混合兑付回执；原始公开地址、时间和SHA详列
 
 - [历史会计状态与整数换算](../notes/20261019-principal-token-chain-state.md) — 访问2026-10-19 UTC — 同一交易原始回执、13次历史只读RPC、整数与preview核对；仍无独立策略现金收益
+
+## 2026-10-20 到期兑付单位与条件现金反证（r14）
+
+固定eUSD最长完整472日序列的入场日标记0.96695448 USD且成交量0；到期约1 eUSD/PT并不等于1 USD/PT。USDT=USD、标记可成交、零gas且双边0.30%条件下2500预算亏46.69，总5000回报−0.934%。实际成交、gas与USDT退出未知；零gas保本eUSD价0.972774。仅条件会计算术，保持草稿，933日不是933独立结果。
+
+详见 [本轮结果与来源](../notes/20261020-r14-evidence/05-test_c44_maturity_cash/RESULT.md)。
