@@ -14,9 +14,11 @@ instruments: Polymarket「<Month> <YYYY> Temperature Increase (ºC)」6 档月�
 venues: Polymarket
 data: Copernicus Climate Pulse 全球日均 2m 气温 CSV（免费免密钥，1940-01-01 起，最新 2026-10-17）+ NASA GISTEMP v4 LOTI 月表（免费免密钥，1880-01 起，最新 2026-09）；Polymarket Gamma/CLOB（免费免密钥；本轮查到只有 2 个事件有 CLOB 价格历史，其中已关闭 1 个）；GISTEMP 首发布用 Wayback Machine 存档做代理（免费，本轮覆盖 2024-01..2026-09 中的 30 个月）
 test_2w: 独立结果按事件（每月 1 个，同月 lower/higher-strikes 变体合并）计，两周最多 2 个，凑不到 30；失败标准是走前下月 log loss 不优于 8 结果均匀分布，或前向 ≥5 个有价格事件上模型 log loss ≥ 市场 log loss，或首发布与修订值换档率 >30%
-status: 草稿
+status: 待核
 confidence: 中
 ---
+
+> **2026-10-20 改为待核**：占用 quant-006 降为草稿后空出的第 1 轮名额。门槛自查不变：2、4 不确定，5、6 不满足；按 GUIDE 第 2 节本条预期结局是**待选区**，提交理由是 321 个月走前校准（log loss 1.3638 vs 均匀 2.0794）与可复核的结算规则证据，不是收益证明。正文中“`status` 只给 `草稿`”的说法写于改状态之前，结论（应进待选区）不变。
 
 整理说明：本版把原稿的「样本内校准」整段替换为真正的走前检验（walk-forward）：目标期为 2000-01 至 2026-09，共 321 个月；每个目标月只用该月之前的数据估 ERA5→GISTEMP 映射。预测、概率、命中率、log loss、PIT、覆盖率都由本地脚本重算，公式和完整输出见文末 `notes/r2prep-verification/quant-015.md`。价格侧仍然受限：本轮重新查了 33 个月温事件的全部 191 个 YES token 的 CLOB 价格历史，只有 2 个事件有数据（1 个已关闭、1 个未关闭），没有达到预先设定的「≥5 个已关闭且有价格」门槛，所以**没有做模型对市场的统计 log loss**，只给出唯一已关闭事件的 n=1 对照。本文是「模型校准 + 数据可得性」的证据，不是收益证明。
 

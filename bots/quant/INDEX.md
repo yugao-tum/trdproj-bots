@@ -17,7 +17,7 @@
 | bots/quant/entries/quant-003-three-coin-breadth-gate.md | 十币广度闸门时序动量（补充 T-T2-tsmom；已放弃） | 2026-10-20 | 草稿 |
 | bots/quant/entries/quant-004-pm-mention-base-rates.md | 提及市场：按历史词频给单词定价 | 2026-10-20 | 草稿 |
 | bots/quant/entries/quant-005-post-count-bracket-model.md | 发帖数分档：部分计数加计数过程 | 2026-10-20 | 待核 |
-| bots/quant/entries/quant-006-tennis-elo-pm-pricing.md | 网球Elo给PM比赛盘定价 | 2026-10-20 | 待核 |
+| bots/quant/entries/quant-006-tennis-elo-pm-pricing.md | 网球Elo给PM比赛盘定价 | 2026-10-20 | 草稿 |
 | bots/quant/entries/quant-007-ai-leaderboard-monthly.md | 月度AI榜首市场：按榜单排名定价 | 2026-10-20 | 待核 |
 | bots/quant/entries/quant-008-token-fdv-ladder-premarket.md | 代币上线FDV阶梯用外盘定价 | 2026-10-20 | 草稿 |
 | bots/quant/entries/quant-009-listing-deadline-base-rate.md | 交易所上币截止日市场：按基准率定价 | 2026-10-20 | 待核 |
@@ -36,7 +36,7 @@
 | bots/quant/notes/batch1-verification/quant-012.md | 第1批原稿核对日志 + glm-5.3 事实核查 | 2026-10-20 | 笔记 |
 | bots/quant/notes/batch1-verification/quant-013.md | 第1批原稿核对日志 + glm-5.3 事实核查 | 2026-10-20 | 笔记 |
 | bots/quant/entries/quant-014-pm-spx-lognormal-calibration.md | SPX收盘价：已实现波动率定价 | 2026-10-20 | 待核 |
-| bots/quant/entries/quant-015-global-temp-era5-nowcast.md | 全球月均温距平：ERA5抢跑NASA | 2026-10-20 | 草稿 |
+| bots/quant/entries/quant-015-global-temp-era5-nowcast.md | 全球月均温距平：ERA5抢跑NASA | 2026-10-20 | 待核 |
 | bots/quant/entries/quant-016-rotten-tomatoes-beta-model.md | 烂番茄开分：早期评论二项定价 | 2026-10-20 | 待核 |
 | bots/quant/entries/quant-017-app-store-rank-markets.md | App Store榜首榜：按Apple免费榜单定价 | 2026-10-20 | 草稿 |
 | bots/quant/entries/quant-018-strait-transit-count-base-rate.md | 海峡周通行：PortWatch基准率 | 2026-10-20 | 待核 |
@@ -71,3 +71,9 @@
 | bots/quant/notes/r2prep-verification/quant-021.md | 第2轮准备：加强版核对日志与 glm-5.3 核查 | 2026-10-20 | 笔记 |
 | bots/quant/notes/batch3-shortlist-glm-review.md | 第3批短名单的 glm-5.3 核查 | 2026-10-20 | 笔记 |
 | bots/quant/notes/r2prep-verification/quant-017.md | 第2轮准备：加强版核对日志与 glm-5.3 核查 | 2026-10-20 | 笔记 |
+| bots/quant/notes/q006-hist/REPORT.md | quant-006 历史可成交价回测（data-api 成交 + 时点 Elo；FAIL） | 2026-10-20 | 笔记 |
+| bots/quant/notes/q006-hist/q006_hist.py | quant-006 历史可成交价回测（data-api 成交 + 时点 Elo；FAIL） | 2026-10-20 | 笔记 |
+| bots/quant/notes/q006-hist/run_output.txt | quant-006 历史可成交价回测（data-api 成交 + 时点 Elo；FAIL） | 2026-10-20 | 笔记 |
+| bots/quant/notes/q006-hist/matches.csv | quant-006 历史可成交价回测（data-api 成交 + 时点 Elo；FAIL） | 2026-10-20 | 笔记 |
+| bots/quant/notes/q006-hist/lint_output.txt | quant-006 历史可成交价回测（data-api 成交 + 时点 Elo；FAIL） | 2026-10-20 | 笔记 |
+| bots/quant/notes/q006-hist/.gitignore | quant-006 历史可成交价回测（data-api 成交 + 时点 Elo；FAIL） | 2026-10-20 | 笔记 |
