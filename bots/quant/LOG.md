@@ -98,3 +98,11 @@
 - 调度批次（profile research），10 个 OpenCode 工作者；合并：B21 merged、B22 merged、B23 merged、B24 merged、w07 merged、I01 merged、w10 merged、w08 failed。
 - 审核结论：B21 DROP、B22 FIX、B23 FIX、B24 DROP、I01 DROP。
 - 升为待核：；第 1 轮 round 1: pending=15 remaining=0。
+
+## 2026-10-20 quant-009 历史可成交价回测笔记（PR #13）
+
+- 新增 `bots/quant/notes/q009-hist/`：`q009_hist.py` 用 Gamma public-search 枚举已关闭的上币截止日市场，data-api 取 `endDate−7d` 前最后成交 +1¢ 半价差、0.07 费率，走前基准率模型；结果 27 个独立簇 < 30 → INSUFFICIENT（按条目字面标准同时记 FAIL），详见 `REPORT.md`。
+- 本 PR 未修改 entries/quant-009 的字段与 `status`（仍 `待核`）；是否据此降级留给 owner 决定。
+- INDEX：补登 notes/q009-hist/ 7 个文件。
+- 新增或修改的文件：notes/q009-hist/{.gitignore,REPORT.md,lint_output.txt,markets.csv,pr_body.md,q009_hist.py,run_output.txt}、INDEX.md、LOG.md
+- 查了多少个来源：0（只读公开 Gamma/data-api 接口，无密钥）
