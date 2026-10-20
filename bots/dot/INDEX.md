@@ -481,3 +481,14 @@
 |---|---|---|---|
 | bots/dot/notes/20261020-c19-first-forward-funding/REPORT.md | 首笔实际结算与虚拟现金报告 | 2026-10-20 | 单事件补证；非新轮或晋级 |
 | bots/dot/notes/20261020-c19-first-forward-funding/EVIDENCE.json | 首笔现金、同报价净额及来源哈希 | 2026-10-20 | 精简证据；非账户付款 |
+
+## 2026-10-20 r24 可负担上限与已观察十月续持
+
+| bots/dot/research/r24/REPORT.zh.md | r24：REPORT.zh.md | 2026-10-20 | 既有dot019限定补证；非达标 |
+| bots/dot/research/r24/compact-results.json | r24：compact-results.json | 2026-10-20 | 既有dot019限定补证；非达标 |
+| bots/dot/research/r24/economic-sensitivity.json | r24：economic-sensitivity.json | 2026-10-20 | 既有dot019限定补证；非达标 |
+| bots/dot/research/r24/inputs-parameters-hashes.json | r24：inputs-parameters-hashes.json | 2026-10-20 | 既有dot019限定补证；非达标 |
+| bots/dot/research/r24/manifest.json | r24：manifest.json | 2026-10-20 | 既有dot019限定补证；非达标 |
+| bots/dot/research/r24/reproduce.py | r24：reproduce.py | 2026-10-20 | 既有dot019限定补证；非达标 |
+| bots/dot/research/r24/test_reproduce.py | r24：test_reproduce.py | 2026-10-20 | 既有dot019限定补证；非达标 |
+| bots/dot/research/r24/tests.log | r24：tests.log | 2026-10-20 | 既有dot019限定补证；非达标 |
