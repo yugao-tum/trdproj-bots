@@ -16,9 +16,9 @@
 | bots/dot/entries/dot-013-nba-injury-repricing.md | dot-013-nba-injury-repricing | 2026-10-19 | 草稿 |
 | bots/dot/entries/dot-016-order-flow-imbalance.md | dot-016-order-flow-imbalance | 2026-10-20 | 草稿 / supplement → S-S1-orderflow（分类纠正，未晋级） |
 | bots/dot/entries/dot-018-option-implied-pm-relative-value.md | dot-018-option-implied-pm-relative-value | 2026-10-19 | 草稿 |
-| bots/dot/entries/dot-019-perp-funding-carry.md | dot-019-perp-funding-carry | 2026-10-20 | 草稿 / supplement → A-A1-funding-carry（分类纠正，未晋级） |
-| bots/dot/entries/dot-020-dated-basis-carry.md | dot-020-dated-basis-carry | 2026-10-20 | 草稿 / supplement → A-A2-basis（分类纠正，未晋级） |
-| bots/dot/entries/dot-023-sol-rsi14-oversold.md | dot-023-sol-rsi14-oversold | 2026-10-20 | 草稿 / supplement → R-R1-rsi2（分类纠正，未晋级） |
+| bots/dot/entries/dot-019-perp-funding-carry.md | dot-019-perp-funding-carry | 2026-10-20 | 待核 / supplement → A-A1-funding-carry（补充评审申请，未采纳/未晋级） |
+| bots/dot/entries/dot-020-dated-basis-carry.md | dot-020-dated-basis-carry | 2026-10-20 | 待核 / supplement → A-A2-basis（补充评审申请，未采纳/未晋级） |
+| bots/dot/entries/dot-023-sol-rsi14-oversold.md | dot-023-sol-rsi14-oversold | 2026-10-20 | 待核 / supplement → R-R1-rsi2（补充评审申请，未采纳/未晋级） |
 | bots/dot/entries/dot-025-aave-usdc-supply-carry.md | dot-025-aave-usdc-supply-carry | 2026-10-20 | 草稿 / supplement → Y-Y1-stable-lending（分类纠正，未晋级） |
 | bots/dot/entries/dot-026-stablecoin-depeg-reversion.md | dot-026-stablecoin-depeg-reversion | 2026-10-20 | 草稿 / supplement → E-E1-depeg-buy（分类纠正，未晋级） |
 | bots/dot/entries/dot-027-lst-staking-yield.md | dot-027-lst-staking-yield | 2026-10-20 | 草稿 / supplement → Y-Y2-lst-hold（分类纠正，未晋级） |
@@ -65,7 +65,7 @@
 | bots/dot/entries/dot-015-poll-vintage-probability-update.md | 民调发布批次概率更新 | 2026-10-19 | 草稿 |
 | bots/dot/entries/dot-021-spot-time-series-trend.md | 现货自身时间序列趋势 | 2026-10-20 | 草稿 / supplement → T-T2-ema-cross（分类纠正，未晋级） |
 | bots/dot/entries/dot-022-spot-cross-sectional-momentum.md | 现货横截面相对动量 | 2026-10-20 | 草稿 / supplement → T-T3-xsmom（分类纠正，未晋级） |
-| bots/dot/entries/dot-024-spot-fixed-weight-rebalance.md | 固定权重现货再平衡 | 2026-10-20 | 草稿 / supplement → X-X1-btc-stable-rebal（分类纠正，未晋级） |
+| bots/dot/entries/dot-024-spot-fixed-weight-rebalance.md | 固定权重现货再平衡 | 2026-10-20 | 待核 / supplement → X-X1-btc-stable-rebal（补充评审申请，未采纳/未晋级） |
 | bots/dot/entries/dot-034-scheduled-unlock-supply-avoidance.md | 预告解锁供给冲击规避 | 2026-10-20 | 草稿 / supplement → E-E1-unlock-short（分类纠正，未晋级） |
 | bots/dot/entries/dot-036-executed-buyback-demand.md | 协议执行回购需求 | 2026-10-19 | 草稿 |
 | bots/dot/entries/dot-037-self-funded-liquidation-bonus.md | 自有资金清算罚金补偿 | 2026-10-20 | 草稿 / supplement → A-A5-onchain-mev（分类纠正，未晋级） |
@@ -73,7 +73,7 @@
 | bots/dot/entries/dot-039-gauge-voting-incentives.md | 第三方投票权激励 | 2026-10-19 | 草稿 |
 | bots/dot/entries/dot-030-option-skew-premium.md | 同期限期权偏斜溢价 | 2026-10-19 | 草稿 |
 | bots/dot/entries/dot-031-option-term-structure.md | 期权跨到期期限结构价差 | 2026-10-19 | 草稿 |
-| bots/dot/entries/dot-040-negative-funding-spot-reversal.md | 负资金费背离后的现货反转 | 2026-10-20 | 草稿 / supplement → R-R4-funding-extreme（分类纠正，未晋级） |
+| bots/dot/entries/dot-040-negative-funding-spot-reversal.md | 负资金费背离后的现货反转 | 2026-10-20 | 待核 / supplement → R-R4-funding-extreme（补充评审申请，未采纳/未晋级） |
 | bots/dot/entries/dot-041-expiry-oi-spot-pinning.md | 到期持仓集中的现货钉价假说 | 2026-10-20 | 草稿 / supplement → E-E2-max-pain（分类纠正，未晋级） |
 | bots/dot/entries/dot-043-cointegration-pairs.md | 跨资产协整残差回复 | 2026-10-20 | 草稿 / supplement → R-R3-pairs（分类纠正，未晋级） |
 | bots/dot/entries/dot-044-principal-token-maturity.md | 本金代币折价到期 | 2026-10-20 | 草稿 / supplement → Y-Y1-pendle-pt（分类纠正，未晋级） |
