@@ -1,0 +1,262 @@
+{
+  "schema_version": 1,
+  "scope": "C26 exploratory postselected printed-price hourly/daily reconciliation; not execution, liquidity, independence, risk, or profit evidence",
+  "threshold_usd_per_token": "0.99",
+  "counts": {
+    "selected_days": 6,
+    "hourly_rows": 144,
+    "low_threshold_hours": 6,
+    "low_threshold_event_dates": 5,
+    "close_threshold_hours": 0,
+    "zero_volume_hours": 3,
+    "new_strategies": 0,
+    "new_pnl_backtests": 0
+  },
+  "samples": [
+    {
+      "pair": "USDC/USD",
+      "date": "2026-01-21",
+      "sample_role": "postselected_daily_low_trigger",
+      "hour_count": 24,
+      "hour_aggregate": {
+        "open": "0.99975",
+        "high": "1.01596",
+        "low": "0.98298",
+        "close": "0.99969",
+        "volume": "8427423.43497"
+      },
+      "frozen_daily": {
+        "open": "0.99975",
+        "high": "1.01596",
+        "low": "0.98298",
+        "close": "0.99969",
+        "volume": "8427423.43497"
+      },
+      "aggregate_minus_daily": {
+        "open": "0.00000",
+        "high": "0.00000",
+        "low": "0.00000",
+        "close": "0.00000",
+        "volume": "0.00000"
+      },
+      "low_at_or_below_0_99": [
+        {
+          "timestamp": 1769011200,
+          "utc": "2026-01-21T16:00:00+00:00",
+          "open": "0.99978",
+          "high": "0.99978",
+          "low": "0.98558",
+          "close": "0.99970",
+          "volume": "326215.03334"
+        },
+        {
+          "timestamp": 1769029200,
+          "utc": "2026-01-21T21:00:00+00:00",
+          "open": "0.99972",
+          "high": "0.99972",
+          "low": "0.98298",
+          "close": "0.99967",
+          "volume": "1985592.37963"
+        }
+      ],
+      "close_at_or_below_0_99": [],
+      "zero_volume_hours": [
+        "2026-01-21T01:00:00+00:00"
+      ]
+    },
+    {
+      "pair": "USDC/USD",
+      "date": "2026-03-25",
+      "sample_role": "postselected_daily_low_trigger",
+      "hour_count": 24,
+      "hour_aggregate": {
+        "open": "0.99998",
+        "high": "1.00019",
+        "low": "0.98562",
+        "close": "0.99976",
+        "volume": "2097753.17707"
+      },
+      "frozen_daily": {
+        "open": "0.99998",
+        "high": "1.00019",
+        "low": "0.98562",
+        "close": "0.99976",
+        "volume": "2097753.17707"
+      },
+      "aggregate_minus_daily": {
+        "open": "0.00000",
+        "high": "0.00000",
+        "low": "0.00000",
+        "close": "0.00000",
+        "volume": "0.00000"
+      },
+      "low_at_or_below_0_99": [
+        {
+          "timestamp": 1774454400,
+          "utc": "2026-03-25T16:00:00+00:00",
+          "open": "0.99983",
+          "high": "1.00007",
+          "low": "0.98562",
+          "close": "0.99991",
+          "volume": "478906.41519"
+        }
+      ],
+      "close_at_or_below_0_99": [],
+      "zero_volume_hours": []
+    },
+    {
+      "pair": "USDC/USD",
+      "date": "2026-03-30",
+      "sample_role": "postselected_daily_low_trigger",
+      "hour_count": 24,
+      "hour_aggregate": {
+        "open": "0.99977",
+        "high": "0.99996",
+        "low": "0.97777",
+        "close": "0.99966",
+        "volume": "12955607.85006"
+      },
+      "frozen_daily": {
+        "open": "0.99977",
+        "high": "0.99996",
+        "low": "0.97777",
+        "close": "0.99966",
+        "volume": "12955607.85006"
+      },
+      "aggregate_minus_daily": {
+        "open": "0.00000",
+        "high": "0.00000",
+        "low": "0.00000",
+        "close": "0.00000",
+        "volume": "0.00000"
+      },
+      "low_at_or_below_0_99": [
+        {
+          "timestamp": 1774868400,
+          "utc": "2026-03-30T11:00:00+00:00",
+          "open": "0.99971",
+          "high": "0.99973",
+          "low": "0.97777",
+          "close": "0.99956",
+          "volume": "2240835.84663"
+        }
+      ],
+      "close_at_or_below_0_99": [],
+      "zero_volume_hours": []
+    },
+    {
+      "pair": "USDC/USD",
+      "date": "2026-06-02",
+      "sample_role": "postselected_daily_low_trigger",
+      "hour_count": 24,
+      "hour_aggregate": {
+        "open": "0.99965",
+        "high": "0.99973",
+        "low": "0.97953",
+        "close": "0.99973",
+        "volume": "5069327.01531"
+      },
+      "frozen_daily": {
+        "open": "0.99965",
+        "high": "0.99973",
+        "low": "0.97953",
+        "close": "0.99973",
+        "volume": "5069327.01531"
+      },
+      "aggregate_minus_daily": {
+        "open": "0.00000",
+        "high": "0.00000",
+        "low": "0.00000",
+        "close": "0.00000",
+        "volume": "0.00000"
+      },
+      "low_at_or_below_0_99": [
+        {
+          "timestamp": 1780398000,
+          "utc": "2026-06-02T11:00:00+00:00",
+          "open": "0.99970",
+          "high": "0.99970",
+          "low": "0.97953",
+          "close": "0.99962",
+          "volume": "1542739.84052"
+        }
+      ],
+      "close_at_or_below_0_99": [],
+      "zero_volume_hours": [
+        "2026-06-02T03:00:00+00:00"
+      ]
+    },
+    {
+      "pair": "USDT/USD",
+      "date": "2026-06-08",
+      "sample_role": "postselected_daily_low_trigger",
+      "hour_count": 24,
+      "hour_aggregate": {
+        "open": "0.99956",
+        "high": "0.99976",
+        "low": "0.98452",
+        "close": "0.99964",
+        "volume": "11134263.51556"
+      },
+      "frozen_daily": {
+        "open": "0.99956",
+        "high": "0.99976",
+        "low": "0.98452",
+        "close": "0.99964",
+        "volume": "11134263.51556"
+      },
+      "aggregate_minus_daily": {
+        "open": "0.00000",
+        "high": "0.00000",
+        "low": "0.00000",
+        "close": "0.00000",
+        "volume": "0.00000"
+      },
+      "low_at_or_below_0_99": [
+        {
+          "timestamp": 1780930800,
+          "utc": "2026-06-08T15:00:00+00:00",
+          "open": "0.99955",
+          "high": "0.99964",
+          "low": "0.98452",
+          "close": "0.99948",
+          "volume": "1323292.31865"
+        }
+      ],
+      "close_at_or_below_0_99": [],
+      "zero_volume_hours": []
+    },
+    {
+      "pair": "USDT/USD",
+      "date": "2026-06-07",
+      "sample_role": "background_previous_day",
+      "hour_count": 24,
+      "hour_aggregate": {
+        "open": "0.99954",
+        "high": "0.99964",
+        "low": "0.99951",
+        "close": "0.99956",
+        "volume": "286435.38974"
+      },
+      "frozen_daily": {
+        "open": "0.99954",
+        "high": "0.99964",
+        "low": "0.99951",
+        "close": "0.99956",
+        "volume": "286435.38974"
+      },
+      "aggregate_minus_daily": {
+        "open": "0.00000",
+        "high": "0.00000",
+        "low": "0.00000",
+        "close": "0.00000",
+        "volume": "0.00000"
+      },
+      "low_at_or_below_0_99": [],
+      "close_at_or_below_0_99": [],
+      "zero_volume_hours": [
+        "2026-06-07T04:00:00+00:00"
+      ]
+    }
+  ]
+}

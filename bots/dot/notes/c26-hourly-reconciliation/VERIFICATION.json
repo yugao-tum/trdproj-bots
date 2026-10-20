@@ -1,0 +1,115 @@
+{
+  "status": "PASS",
+  "sources_verified": 8,
+  "counts": {
+    "selected_days": 6,
+    "hourly_rows": 144,
+    "low_threshold_hours": 6,
+    "low_threshold_event_dates": 5,
+    "close_threshold_hours": 0,
+    "zero_volume_hours": 3,
+    "new_strategies": 0,
+    "new_pnl_backtests": 0
+  },
+  "sources": [
+    {
+      "id": "usdcusd-2026-01-21-hourly",
+      "rows": 24,
+      "capture_bytes_match": true,
+      "semantic_sha256_match": true
+    },
+    {
+      "id": "usdcusd-2026-03-25-hourly",
+      "rows": 24,
+      "capture_bytes_match": true,
+      "semantic_sha256_match": true
+    },
+    {
+      "id": "usdcusd-2026-03-30-hourly",
+      "rows": 24,
+      "capture_bytes_match": true,
+      "semantic_sha256_match": true
+    },
+    {
+      "id": "usdcusd-2026-06-02-hourly",
+      "rows": 24,
+      "capture_bytes_match": true,
+      "semantic_sha256_match": true
+    },
+    {
+      "id": "usdtusd-2026-06-08-hourly",
+      "rows": 24,
+      "capture_bytes_match": true,
+      "semantic_sha256_match": true
+    },
+    {
+      "id": "usdtusd-2026-06-07-hourly",
+      "rows": 24,
+      "capture_bytes_match": true,
+      "semantic_sha256_match": true
+    },
+    {
+      "id": "usdcusd-daily",
+      "rows": 366,
+      "capture_bytes_match": true,
+      "semantic_sha256_match": true
+    },
+    {
+      "id": "usdtusd-daily",
+      "rows": 366,
+      "capture_bytes_match": true,
+      "semantic_sha256_match": true
+    }
+  ],
+  "samples": [
+    {
+      "pair": "USDC/USD",
+      "day": "2026-01-21",
+      "hour_count": 24,
+      "low_hits": 2,
+      "close_hits": 0,
+      "all_ohlcv_deltas_zero": true
+    },
+    {
+      "pair": "USDC/USD",
+      "day": "2026-03-25",
+      "hour_count": 24,
+      "low_hits": 1,
+      "close_hits": 0,
+      "all_ohlcv_deltas_zero": true
+    },
+    {
+      "pair": "USDC/USD",
+      "day": "2026-03-30",
+      "hour_count": 24,
+      "low_hits": 1,
+      "close_hits": 0,
+      "all_ohlcv_deltas_zero": true
+    },
+    {
+      "pair": "USDC/USD",
+      "day": "2026-06-02",
+      "hour_count": 24,
+      "low_hits": 1,
+      "close_hits": 0,
+      "all_ohlcv_deltas_zero": true
+    },
+    {
+      "pair": "USDT/USD",
+      "day": "2026-06-08",
+      "hour_count": 24,
+      "low_hits": 1,
+      "close_hits": 0,
+      "all_ohlcv_deltas_zero": true
+    },
+    {
+      "pair": "USDT/USD",
+      "day": "2026-06-07",
+      "hour_count": 24,
+      "low_hits": 0,
+      "close_hits": 0,
+      "all_ohlcv_deltas_zero": true
+    }
+  ],
+  "limitations": "Verifies printed-price data only. Dates are not proven independent shocks; no execution or PnL proof."
+}

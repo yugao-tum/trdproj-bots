@@ -126,3 +126,9 @@
 | bots/dot/notes/20261020-two-venue-usd-history.md | C26两场所USD完整日线与阈值日期对照 | 2026-10-20 | 描述性数据补证/无新增PnL |
 
 | bots/dot/entries/dot-049-avs-service-fee-restaking.md | 再质押服务费分成 | 2026-10-20 | 草稿/条件机制/未晋级 |
+
+| bots/dot/notes/20261020-bitstamp-hourly-reconciliation.md | C26小时打印价与冻结日线逐字段核对 | 2026-10-20 | 探索性数据补证/无新增PnL |
+| bots/dot/notes/c26-hourly-reconciliation/summary.json | C26小时核查派生摘要 | 2026-10-20 | 数据核查/未晋级 |
+| bots/dot/notes/c26-hourly-reconciliation/provenance.json | C26小时核查来源与冻结指纹 | 2026-10-20 | 来源记录/无原始行情 |
+| bots/dot/notes/c26-hourly-reconciliation/verify.py | C26小时核查只读独立验证器 | 2026-10-20 | 自编复核材料/无PnL |
+| bots/dot/notes/c26-hourly-reconciliation/VERIFICATION.json | C26八份冻结响应复核结果 | 2026-10-20 | 数据核查PASS/非策略通过 |

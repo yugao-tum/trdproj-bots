@@ -1,0 +1,173 @@
+{
+  "schema_version": 1,
+  "created_utc": "2026-10-20T03:16:46.573015+00:00",
+  "protocol": {
+    "frozen_utc": "2026-10-20T03:06:00+00:00",
+    "scope": "Exploratory diagnosis after seeing daily prices; fixed before hourly response acquisition. No strategy rules changed.",
+    "utc_intervals": "[day 00:00, next day 00:00); exact ordered 24-hour grid",
+    "aggregate": "first open, max high, min low, last close, sum volume using Decimal",
+    "selection": "All five Bitstamp daily low <= 0.99 dates in the frozen 366-day window, plus USDT/USD 2026-06-07 as previous-day background. Dates are not established independent shocks.",
+    "planning_sha256": "5b3a86ebc0c12df10c223277f9397b97367a6d7f22459559848e2cbd1e60779f"
+  },
+  "input_files_verified": [
+    {
+      "role": "reconciliation.json",
+      "sha256": "6c7f4a4ce8e72ff088977a0e5e0c168bfb743062c92340e735a2c8e4c65964bc",
+      "bytes": 47741
+    },
+    {
+      "role": "reconcile_bitstamp_hourly.py",
+      "sha256": "b861b2318b1a197e404f8abcf7a12788b23d442fde88c94f264007432b0b927e",
+      "bytes": 4762
+    },
+    {
+      "role": "test_reconcile_bitstamp_hourly.py",
+      "sha256": "bd2019f8a882de113d84f26084fec107f54c93d94eb76fbc029f484d64167d57",
+      "bytes": 2526
+    },
+    {
+      "role": "c26-hourly-reconciliation.md",
+      "sha256": "5b3a86ebc0c12df10c223277f9397b97367a6d7f22459559848e2cbd1e60779f",
+      "bytes": 1667
+    },
+    {
+      "role": "frozen-daily-screen.json",
+      "sha256": "b21e40c6a8f1ebb5fc3dca5e7408f39633abaff209006213724cc29ccfbdc4c9",
+      "bytes": 182300
+    },
+    {
+      "role": "independent-audit.py",
+      "sha256": "8920180f1e38461e9fae2d429c4affb49bfa2cd0a09d3c6f113ea129627db01e",
+      "bytes": 4807
+    },
+    {
+      "role": "independent-verification.json",
+      "sha256": "1766e5b15b0a54e515f5dc9c33f9a296e1099516d415726f9df288da2d1045dd",
+      "bytes": 2298
+    }
+  ],
+  "independent_qa": {
+    "checks": 2199,
+    "errors": [],
+    "replayed_during_packaging": true,
+    "report_matches_frozen_report": true,
+    "scope": "Independent original raw JSON replay without producer import; hashes, 144-hour UTC grid, OHLCV, frozen daily fields and aggregates, threshold membership; check count is not sample size."
+  },
+  "raw_data_policy": "No complete raw response or 144-row dataset is included. Fetch official URLs or provide eight archived response files under filenames below. Later fetches may be revised/unavailable. Capture hashes are tool-returned JSON text, not claimed wire hashes. Semantic hashes cover pair plus ordered timestamp/OHLCV with canonical finite Decimal values; object layout and irrelevant fields are excluded.",
+  "sources": [
+    {
+      "id": "usdcusd-2026-01-21-hourly",
+      "pair": "USDC/USD",
+      "day": "2026-01-21",
+      "resolution_seconds": 3600,
+      "expected_rows": 24,
+      "url": "https://www.bitstamp.net/api/v2/ohlc/usdcusd/?step=3600&limit=24&end=1769039999&exclude_current_candle=true",
+      "retrieved_utc": "2026-10-20T03:07:09.934000+00:00",
+      "capture_sha256": "7977ad19d7283ee58204b3205608bf4e64d58e62e4abafb85376420929e7ec5f",
+      "capture_bytes": 3163,
+      "semantic_sha256": "a519794a6308dcf33cf0be3d6686caf597f036cb68303b5ebb6bc13b95e82ef6",
+      "filename": "usdcusd-2026-01-21-hourly.json",
+      "capture_kind": "complete tool-returned JSON text; not original HTTP wire bytes"
+    },
+    {
+      "id": "usdcusd-2026-03-25-hourly",
+      "pair": "USDC/USD",
+      "day": "2026-03-25",
+      "resolution_seconds": 3600,
+      "expected_rows": 24,
+      "url": "https://www.bitstamp.net/api/v2/ohlc/usdcusd/?step=3600&limit=24&end=1774483199&exclude_current_candle=true",
+      "retrieved_utc": "2026-10-20T03:07:10.363000+00:00",
+      "capture_sha256": "6c6fc8cfb8aa9309fe4110c13a5fb56bf73f80945ddcfc9d27c37b2968136371",
+      "capture_bytes": 3148,
+      "semantic_sha256": "5a44a5d9cff7311a687fd367156d733de230732a5b5a2d969b8bcd4a3e707974",
+      "filename": "usdcusd-2026-03-25-hourly.json",
+      "capture_kind": "complete tool-returned JSON text; not original HTTP wire bytes"
+    },
+    {
+      "id": "usdcusd-2026-03-30-hourly",
+      "pair": "USDC/USD",
+      "day": "2026-03-30",
+      "resolution_seconds": 3600,
+      "expected_rows": 24,
+      "url": "https://www.bitstamp.net/api/v2/ohlc/usdcusd/?step=3600&limit=24&end=1774915199&exclude_current_candle=true",
+      "retrieved_utc": "2026-10-20T03:07:09.939000+00:00",
+      "capture_sha256": "6935d8f20b55010a4eac4afa7070a29027606d6453dbb4585b59ea532adbfba6",
+      "capture_bytes": 3177,
+      "semantic_sha256": "4bc0ce4e8ef8fbc5e58d0e6eabb0e2caa7ddc67070bdb665ddf1130601501ee9",
+      "filename": "usdcusd-2026-03-30-hourly.json",
+      "capture_kind": "complete tool-returned JSON text; not original HTTP wire bytes"
+    },
+    {
+      "id": "usdcusd-2026-06-02-hourly",
+      "pair": "USDC/USD",
+      "day": "2026-06-02",
+      "resolution_seconds": 3600,
+      "expected_rows": 24,
+      "url": "https://www.bitstamp.net/api/v2/ohlc/usdcusd/?step=3600&limit=24&end=1780444799&exclude_current_candle=true",
+      "retrieved_utc": "2026-10-20T03:07:10.408000+00:00",
+      "capture_sha256": "db68f97997bdecb72e666e9b269c348679d7cb037d855263d7cecb503bbbc495",
+      "capture_bytes": 3150,
+      "semantic_sha256": "451bba94ad6abddccf6006c004a71e959d7bf56304b35395acd395c9c017d6bc",
+      "filename": "usdcusd-2026-06-02-hourly.json",
+      "capture_kind": "complete tool-returned JSON text; not original HTTP wire bytes"
+    },
+    {
+      "id": "usdtusd-2026-06-08-hourly",
+      "pair": "USDT/USD",
+      "day": "2026-06-08",
+      "resolution_seconds": 3600,
+      "expected_rows": 24,
+      "url": "https://www.bitstamp.net/api/v2/ohlc/usdtusd/?step=3600&limit=24&end=1780963199&exclude_current_candle=true",
+      "retrieved_utc": "2026-10-20T03:07:10.378000+00:00",
+      "capture_sha256": "38f2bb1396ce04eed54a70e138e0ce53fc3d0f887e0e1b4e697bf663e9a8a56c",
+      "capture_bytes": 3167,
+      "semantic_sha256": "a29b87f0b8ac3b105aa5d4deffba75b064c9600483525fd41d600f3c9ee3774e",
+      "filename": "usdtusd-2026-06-08-hourly.json",
+      "capture_kind": "complete tool-returned JSON text; not original HTTP wire bytes"
+    },
+    {
+      "id": "usdtusd-2026-06-07-hourly",
+      "pair": "USDT/USD",
+      "day": "2026-06-07",
+      "resolution_seconds": 3600,
+      "expected_rows": 24,
+      "url": "https://www.bitstamp.net/api/v2/ohlc/usdtusd/?step=3600&limit=24&end=1780876799&exclude_current_candle=true",
+      "retrieved_utc": "2026-10-20T03:07:10.370000+00:00",
+      "capture_sha256": "0760ad6e5ff304b9b4542bc43bee1039fc82f58f6c4b2742c2ed58f921c88454",
+      "capture_bytes": 3137,
+      "semantic_sha256": "bf4513981df22af95d18f2d2b930b7145501c7a4b54841f9480d03a491f6aeef",
+      "filename": "usdtusd-2026-06-07-hourly.json",
+      "capture_kind": "complete tool-returned JSON text; not original HTTP wire bytes"
+    },
+    {
+      "id": "usdcusd-daily",
+      "pair": "USDC/USD",
+      "resolution_seconds": 86400,
+      "expected_rows": 366,
+      "window_start_utc": "2025-10-19T00:00:00+00:00",
+      "window_end_utc_exclusive": "2026-10-20T00:00:00+00:00",
+      "url": "https://www.bitstamp.net/api/v2/ohlc/usdcusd/?step=86400&limit=366&end=1792454399&exclude_current_candle=true",
+      "retrieved_utc": "2026-10-20T01:55:50.707000+00:00",
+      "capture_sha256": "b2b84771cbbf6867488fec81ebb9c333f1fcad9d1a2f85fab98c81c423be3244",
+      "capture_bytes": 48233,
+      "semantic_sha256": "5248bcbd484947d761b72de1c8479bbc9f91c5e2b8d4adaf11baae6ec2567f17",
+      "filename": "usdcusd-daily.json",
+      "capture_kind": "complete tool-returned JSON text; not original HTTP wire bytes"
+    },
+    {
+      "id": "usdtusd-daily",
+      "pair": "USDT/USD",
+      "resolution_seconds": 86400,
+      "expected_rows": 366,
+      "window_start_utc": "2025-10-19T00:00:00+00:00",
+      "window_end_utc_exclusive": "2026-10-20T00:00:00+00:00",
+      "url": "https://www.bitstamp.net/api/v2/ohlc/usdtusd/?step=86400&limit=366&end=1792454399&exclude_current_candle=true",
+      "retrieved_utc": "2026-10-20T01:55:51.157000+00:00",
+      "capture_sha256": "c4020c965a58661966a6217f61b3afba5604f055ba35e1302187dc5cb395c1df",
+      "capture_bytes": 48508,
+      "semantic_sha256": "5cf6395cd8ceed231beb3769920652b58939346bf6b354d96d2873a7900f78d8",
+      "filename": "usdtusd-daily.json",
+      "capture_kind": "complete tool-returned JSON text; not original HTTP wire bytes"
+    }
+  ]
+}
