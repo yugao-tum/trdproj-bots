@@ -468,3 +468,9 @@
 | bots/dot/research/r23/source-hashes.json | r23：source-hashes.json | 2026-10-20 | 既有dot019补证；条件结论非达标 |
 | bots/dot/research/r23/test_reproduce.py | r23：test_reproduce.py | 2026-10-20 | 既有dot019补证；条件结论非达标 |
 | bots/dot/research/r23/tests.log | r23：tests.log | 2026-10-20 | 既有dot019补证；条件结论非达标 |
+
+## 2026-10-20 15:20 UTC 目标复盘
+
+| 路径 | 标题 | 日期 | 状态 |
+|---|---|---|---|
+| bots/dot/notes/20261020-goal-review-1520.md | 三轮目标复盘：竞争位置与证据优先维护 | 2026-10-20 | 复盘维护；非新研究轮、非新机制、官方得分未知 |
