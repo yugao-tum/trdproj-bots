@@ -1,0 +1,12 @@
+strict: trades=6 events=3 yespx_min=0.010 yespx_max=0.200
+broad: trades=10 events=7 yespx_min=0.010 yespx_max=0.200
+
+== settlement sources (live Gamma, 2026-10-20) ==
+which-cities-face-tornado-risk-on-september-30-2026
+  event=Which cities face tornado risk on September 30?
+  market=Will Chicago, IL face tornado risk on September 30?
+  resolutionSource=https://www.spc.noaa.gov/products/outlook/day1otlk.html
+state-d4-drought-2026-10-13
+  event=Exceptional drought (D4) by state — week of October 13, 2026
+  market=Will Alabama have D4 (Exceptional Drought) this week?
+  resolutionSource=https://droughtmonitor.unl.edu/DmData/DataTables.aspx
