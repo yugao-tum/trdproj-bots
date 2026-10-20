@@ -1,0 +1,204 @@
+entry_id,url,http_status,final_url,error,class
+quant-001,https://data.binance.vision/?prefix=data/spot/monthly/klines/BTCUSDT/1d/,200,https://data.binance.vision/?prefix=data/spot/monthly/klines/BTCUSDT/1d/,,alive
+quant-001,https://ideas.repec.org/a/eee/jfinec/v116y2015i1p111-120.html,200,https://ideas.repec.org/a/eee/jfinec/v116y2015i1p111-120.html,,alive
+quant-001,https://www.sciencedirect.com/science/article/abs/pii/S0304405X14002566,403,https://www.sciencedirect.com/science/article/abs/pii/S0304405X14002566,,manual
+quant-002,https://data.binance.vision/?prefix=data/spot/monthly/klines/ETHUSDT/1d/,200,https://data.binance.vision/?prefix=data/spot/monthly/klines/ETHUSDT/1d/,,alive
+quant-005,https://clob.polymarket.com/book?token_id=22442061711236593150409027149743058571520366316242909612280801414810466891148,200,https://clob.polymarket.com/book?token_id=22442061711236593150409027149743058571520366316242909612280801414810466891148,,alive
+quant-005,https://clob.polymarket.com/prices-history?market=34767215645050247279179635677802776215709078037234086703701315748816860889727&interval=max&fidelity=60,200,https://clob.polymarket.com/prices-history?market=34767215645050247279179635677802776215709078037234086703701315748816860889727&interval=max&fidelity=60,,alive
+quant-005,https://gamma-api.polymarket.com/events?series_id=10816&closed=true&limit=500,200,https://gamma-api.polymarket.com/events?series_id=10816&closed=true&limit=500,,alive
+quant-005,https://gamma-api.polymarket.com/events?series_id=10816&limit=500&closed=true,200,https://gamma-api.polymarket.com/events?series_id=10816&limit=500&closed=true,,alive
+quant-005,https://gamma-api.polymarket.com/events?slug=donald-trump-of-truth-social-posts-october-20-october-27-2026,200,https://gamma-api.polymarket.com/events?slug=donald-trump-of-truth-social-posts-october-20-october-27-2026,,alive
+quant-005,https://gamma-api.polymarket.com/events?slug=elon-musk-of-tweets-october-17-october-19-2026,200,https://gamma-api.polymarket.com/events?slug=elon-musk-of-tweets-october-17-october-19-2026,,alive
+quant-005,https://gamma-api.polymarket.com/events?slug=elon-musk-of-tweets-october-19-october-21-2026,200,https://gamma-api.polymarket.com/events?slug=elon-musk-of-tweets-october-19-october-21-2026,,alive
+quant-005,https://gamma-api.polymarket.com/public-search?q=elon%20musk%20tweets&limit_per_type=25&events_status=closed,200,https://gamma-api.polymarket.com/public-search?q=elon%20musk%20tweets&limit_per_type=25&events_status=closed,,alive
+quant-005,https://gamma-api.polymarket.com/public-search?q=elon%20musk%20tweets&limit_per_type=25&events_status=closed&page=1,200,https://gamma-api.polymarket.com/public-search?q=elon%20musk%20tweets&limit_per_type=25&events_status=closed&page=1,,alive
+quant-005,https://gamma-api.polymarket.com/public-search?q=truth%20social%20posts&limit_per_type=10&events_status=active,200,https://gamma-api.polymarket.com/public-search?q=truth%20social%20posts&limit_per_type=10&events_status=active,,alive
+quant-005,https://x.com/elonmusk,200,https://x.com/elonmusk,,alive
+quant-005,https://x.com/elonmusk/status/1786073478711353576,200,https://x.com/elonmusk/status/1786073478711353576,,alive
+quant-005,https://xtracker.polymarket.com,200,https://xtracker.polymarket.com/,,alive
+quant-005,https://xtracker.polymarket.com/api/users/elonmusk,200,https://xtracker.polymarket.com/api/users/elonmusk,,alive
+quant-005,https://xtracker.polymarket.com/api/users/elonmusk/posts?limit=100&offset=0,200,https://xtracker.polymarket.com/api/users/elonmusk/posts?limit=100&offset=0,,alive
+quant-005,https://clob.polymarket.com/book?token_id=<id>,,,template placeholder; not requested,template
+quant-005,https://clob.polymarket.com/prices-history?market=<token_id>&interval=max&fidelity=60,,,template placeholder; not requested,template
+quant-005,https://gamma-api.polymarket.com/events?slug=<slug>,,,template placeholder; not requested,template
+quant-006,https://data-api.polymarket.com/trades?market=0x5a9641cc6e3a60a0e729493ef4d9fe81d5aacfc06d5c49511248462afe969be9&limit=3,200,https://data-api.polymarket.com/trades?market=0x5a9641cc6e3a60a0e729493ef4d9fe81d5aacfc06d5c49511248462afe969be9&limit=3,,alive
+quant-006,https://docs.polymarket.com/trading/fees,200,https://docs.polymarket.com/trading/fees,,alive
+quant-006,https://gamma-api.polymarket.com/events?closed=false&limit=8&tag_slug=tennis&order=startDate&ascending=false,200,https://gamma-api.polymarket.com/events?closed=false&limit=8&tag_slug=tennis&order=startDate&ascending=false,,alive
+quant-006,https://gamma-api.polymarket.com/events?slug=atp-friend-geerts-2026-08-25,200,https://gamma-api.polymarket.com/events?slug=atp-friend-geerts-2026-08-25,,alive
+quant-006,https://gamma-api.polymarket.com/public-search?q=Counter-Strike&limit_per_type=3&events_status=active,200,https://gamma-api.polymarket.com/public-search?q=Counter-Strike&limit_per_type=3&events_status=active,,alive
+quant-006,https://gamma-api.polymarket.com/public-search?q=tennis&limit_per_type=5,200,https://gamma-api.polymarket.com/public-search?q=tennis&limit_per_type=5,,alive
+quant-006,https://tennisabstract.com/reports/atp_elo_ratings.html,200,https://tennisabstract.com/reports/atp_elo_ratings.html,,alive
+quant-006,https://tennisabstract.com/reports/wta_elo_ratings.html,200,https://tennisabstract.com/reports/wta_elo_ratings.html,,alive
+quant-006,https://www.wtatennis.com/scores,200,https://www.wtatennis.com/scores,,alive
+quant-006,https://api.github.com/repos/JeffSackmann/tennis_atp,404,https://api.github.com/repos/JeffSackmann/tennis_atp,,dead
+quant-006,https://polymarket.com/api/rewards/markets/current,404,https://polymarket.com/api/rewards/markets/current,,dead
+quant-006,https://www.atptour.com/en/scores/current,403,https://www.atptour.com/en/scores/current,,manual
+quant-006,https://clob.polymarket.com/prices-history?market=0x5a9641cc...&interval=max,,,template placeholder; not requested,template
+quant-006,https://clob.polymarket.com/prices-history?market=<conditionId>&interval=max,,,template placeholder; not requested,template
+quant-006,https://data-api.polymarket.com/trades?market=<conditionId>&limit=N,,,template placeholder; not requested,template
+quant-006,https://gamma-api.polymarket.com/events?closed=true&tag_slug=tennis&end_date_min=2026-09-01T00:00:00Z&end_date_max=2026-10-01T00:00:00Z&limit=100&offset=0..800,,,template placeholder; not requested,template
+quant-006,https://gamma-api.polymarket.com/events?slug=<event-slug>,,,template placeholder; not requested,template
+quant-006,"https://raw.githubusercontent.com/JeffSackmann/tennis_atp/{main,master}/atp_matches_2026.csv",,,template placeholder; not requested,template
+quant-007,https://clob.polymarket.com/book?token_id=111088620532234518037120406087772586039940496346205331791940213760503764823657,200,https://clob.polymarket.com/book?token_id=111088620532234518037120406087772586039940496346205331791940213760503764823657,,alive
+quant-007,https://clob.polymarket.com/book?token_id=17398972530137600675762712744895375915722542439211248541948693649429200536957,200,https://clob.polymarket.com/book?token_id=17398972530137600675762712744895375915722542439211248541948693649429200536957,,alive
+quant-007,https://gamma-api.polymarket.com/events?series_id=10030&limit=60&closed=false,200,https://gamma-api.polymarket.com/events?series_id=10030&limit=60&closed=false,,alive
+quant-007,https://gamma-api.polymarket.com/events?series_id=10030&limit=60&closed=true,200,https://gamma-api.polymarket.com/events?series_id=10030&limit=60&closed=true,,alive
+quant-007,https://gamma-api.polymarket.com/events?slug=which-company-has-the-best-ai-model-end-of-november,200,https://gamma-api.polymarket.com/events?slug=which-company-has-the-best-ai-model-end-of-november,,alive
+quant-007,https://gamma-api.polymarket.com/events?slug=which-company-has-the-best-ai-model-end-of-october,200,https://gamma-api.polymarket.com/events?slug=which-company-has-the-best-ai-model-end-of-october,,alive
+quant-007,https://gamma-api.polymarket.com/series/10030,200,https://gamma-api.polymarket.com/series/10030,,alive
+quant-007,https://lmarena.ai/,200,https://arena.ai/,,alive
+quant-007,https://web.archive.org/cdx/search/cdx?url=arena.ai/leaderboard/text/overall-no-style-control,200,https://web.archive.org/cdx/search/cdx?url=arena.ai/leaderboard/text/overall-no-style-control,,alive
+quant-007,https://arena.ai/leaderboard/text/overall-no-style-control,403,https://arena.ai/leaderboard/text/overall-no-style-control,,manual
+quant-007,https://lmarena.ai/leaderboard/text,403,https://arena.ai/leaderboard/text,,manual
+quant-007,https://clob.polymarket.com/book?token_id=<id>,,,template placeholder; not requested,template
+quant-007,https://gamma-api.polymarket.com/events?series_id=10030&limit=60&closed=true|false,,,template placeholder; not requested,template
+quant-007,https://gamma-api.polymarket.com/events?slug=<slug>,,,template placeholder; not requested,template
+quant-009,https://archive.org/wayback/available?url=www.coinbase.com/blog/listing,200,https://archive.org/wayback/available?url=www.coinbase.com/blog/listing,,alive
+quant-009,https://clob.polymarket.com/prices-history?market=72111237001093028212763921723631481836210139498389057357896030642910594584975&startTs=1766707200&endTs=1767225600&fidelity=60,200,https://clob.polymarket.com/prices-history?market=72111237001093028212763921723631481836210139498389057357896030642910594584975&startTs=1766707200&endTs=1767225600&fidelity=60,,alive
+quant-009,https://gamma-api.polymarket.com/events?slug=hyperliquid-listed-on-binance-by,200,https://gamma-api.polymarket.com/events?slug=hyperliquid-listed-on-binance-by,,alive
+quant-009,https://gamma-api.polymarket.com/events?slug=hyperliquid-listed-on-coinbase-before-2027,200,https://gamma-api.polymarket.com/events?slug=hyperliquid-listed-on-coinbase-before-2027,,alive
+quant-009,https://gamma-api.polymarket.com/events?slug=will-coinbase-list-hype-in-2025,200,https://gamma-api.polymarket.com/events?slug=will-coinbase-list-hype-in-2025,,alive
+quant-009,https://gamma-api.polymarket.com/markets?slug=will-coinbase-list-hype-in-2025&closed=true,200,https://gamma-api.polymarket.com/markets?slug=will-coinbase-list-hype-in-2025&closed=true,,alive
+quant-009,https://gamma-api.polymarket.com/public-search?q=be%20listed&limit_per_type=50,200,https://gamma-api.polymarket.com/public-search?q=be%20listed&limit_per_type=50,,alive
+quant-009,https://gamma-api.polymarket.com/public-search?q=listed%20on%20binance&limit_per_type=50,200,https://gamma-api.polymarket.com/public-search?q=listed%20on%20binance&limit_per_type=50,,alive
+quant-009,https://gamma-api.polymarket.com/public-search?q=listed%20on%20coinbase&limit_per_type=50,200,https://gamma-api.polymarket.com/public-search?q=listed%20on%20coinbase&limit_per_type=50,,alive
+quant-009,https://gamma-api.polymarket.com/public-search?q=listed%20on%20robinhood&limit_per_type=50,200,https://gamma-api.polymarket.com/public-search?q=listed%20on%20robinhood&limit_per_type=50,,alive
+quant-009,https://www.binance.com/bapi/composite/v1/public/cms/article/detail/query?articleCode=d49de208bb6d4a26b02677d7c3d89b5d,200,https://www.binance.com/bapi/composite/v1/public/cms/article/detail/query?articleCode=d49de208bb6d4a26b02677d7c3d89b5d,,alive
+quant-009,https://www.binance.com/bapi/composite/v1/public/cms/article/list/query?type=1&pageNo=1&pageSize=20,200,https://www.binance.com/bapi/composite/v1/public/cms/article/list/query?type=1&pageNo=1&pageSize=20,,alive
+quant-009,https://archive.org/wayback/cdx/,404,https://archive.org/wayback/cdx/,,dead
+quant-009,https://www.coinbase.com/rss/blog?category=listing,404,https://www.coinbase.com/rss/blog?category=listing,,dead
+quant-009,https://clob.polymarket.com/prices-history,400,https://clob.polymarket.com/prices-history,,manual
+quant-009,https://gamma-api.polymarket.com/public-search,422,https://gamma-api.polymarket.com/public-search,,manual
+quant-009,https://www.coinbase.com/blog/listing,403,https://www.coinbase.com/blog/listing,,manual
+quant-009,https://www.coinbase.com/blog/rss,403,https://www.coinbase.com/blog/rss,,manual
+quant-009,https://clob.polymarket.com/prices-history?market=<clobTokenId>&startTs=<unix>&endTs=<unix>&fidelity=60,,,template placeholder; not requested,template
+quant-009,https://gamma-api.polymarket.com/events?slug=<slug>,,,template placeholder; not requested,template
+quant-009,https://gamma-api.polymarket.com/markets?slug=<slug>&closed=true,,,template placeholder; not requested,template
+quant-010,https://charts.spotify.com/charts/view/regional-global-weekly/latest,200,https://charts.spotify.com/charts/view/regional-global-weekly/latest,,alive
+quant-010,https://gamma-api.polymarket.com/events?slug=1-song-on-spotify-this-week-april-3,200,https://gamma-api.polymarket.com/events?slug=1-song-on-spotify-this-week-april-3,,alive
+quant-010,https://gamma-api.polymarket.com/events?slug=1-spotify-song-in-the-us-this-week-october-23-10172026,200,https://gamma-api.polymarket.com/events?slug=1-spotify-song-in-the-us-this-week-october-23-10172026,,alive
+quant-010,https://gamma-api.polymarket.com/events?slug=1-spotify-song-this-week-october-16-20261012,200,https://gamma-api.polymarket.com/events?slug=1-spotify-song-this-week-october-16-20261012,,alive
+quant-010,https://gamma-api.polymarket.com/events?slug=top-netflix-show-this-week,200,https://gamma-api.polymarket.com/events?slug=top-netflix-show-this-week,,alive
+quant-010,https://gamma-api.polymarket.com/events?slug=what-will-be-the-top-global-netflix-show-this-week-october-20,200,https://gamma-api.polymarket.com/events?slug=what-will-be-the-top-global-netflix-show-this-week-october-20,,alive
+quant-010,https://gamma-api.polymarket.com/events?slug=what-will-be-the-top-us-netflix-show-this-week-october-20,200,https://gamma-api.polymarket.com/events?slug=what-will-be-the-top-us-netflix-show-this-week-october-20,,alive
+quant-010,https://gamma-api.polymarket.com/public-search?q=netflix,200,https://gamma-api.polymarket.com/public-search?q=netflix,,alive
+quant-010,https://gamma-api.polymarket.com/public-search?q=spotify,200,https://gamma-api.polymarket.com/public-search?q=spotify,,alive
+quant-010,https://gamma-api.polymarket.com/public-search?q=spotify%20song%20this%20week%20october%2016,200,https://gamma-api.polymarket.com/public-search?q=spotify%20song%20this%20week%20october%2016,,alive
+quant-010,https://gamma-api.polymarket.com/public-search?q=spotify%20song%20this%20week%20october%2023,200,https://gamma-api.polymarket.com/public-search?q=spotify%20song%20this%20week%20october%2023,,alive
+quant-010,https://kworb.net/spotify/,200,https://kworb.net/spotify/,,alive
+quant-010,https://kworb.net/spotify/country/global_daily.html,200,https://kworb.net/spotify/country/global_daily.html,,alive
+quant-010,https://kworb.net/spotify/country/us_daily.html,200,https://kworb.net/spotify/country/us_daily.html,,alive
+quant-010,https://www.netflix.com/tudum/top10/tv,200,https://www.netflix.com/tudum/top10/tv,,alive
+quant-010,https://www.netflix.com/tudum/top10/united-states/tv,200,https://www.netflix.com/tudum/top10/united-states/tv,,alive
+quant-010,https://open.spotify.com/charts,404,https://open.spotify.com/charts,,dead
+quant-010,https://flixpatrol.com/top10/netflix/world/,403,https://flixpatrol.com/top10/netflix/world/,,manual
+quant-010,https://gamma-api.polymarket.com/events?slug=<event-slug>,,,template placeholder; not requested,template
+quant-010,https://gamma-api.polymarket.com/public-search?q=<关键词>,,,template placeholder; not requested,template
+quant-011,https://clob.polymarket.com/prices-history?market=115347507753485536976403009642719279973942206992108120088763998979109693996472&interval=max&fidelity=60,200,https://clob.polymarket.com/prices-history?market=115347507753485536976403009642719279973942206992108120088763998979109693996472&interval=max&fidelity=60,,alive
+quant-011,https://docs.polymarket.com/trading/fees,200,https://docs.polymarket.com/trading/fees,,alive
+quant-011,https://gamma-api.polymarket.com/events?tag_slug=soccer&closed=false&limit=20&order=startDate&ascending=false,200,https://gamma-api.polymarket.com/events?tag_slug=soccer&closed=false&limit=20&order=startDate&ascending=false,,alive
+quant-011,https://gamma-api.polymarket.com/markets?slug=epl-liv-ars-2026-11-01-draw,200,https://gamma-api.polymarket.com/markets?slug=epl-liv-ars-2026-11-01-draw,,alive
+quant-011,https://gamma-api.polymarket.com/markets?slug=sea-ata-par-2026-11-02-draw,200,https://gamma-api.polymarket.com/markets?slug=sea-ata-par-2026-11-02-draw,,alive
+quant-011,https://www.football-data.co.uk/mmz4281/2223/E0.csv,200,https://football-data.co.uk/mmz4281/2223/E0.csv,,alive
+quant-011,https://clob.polymarket.com/prices-history?market=<tokenId>&interval=max&fidelity=60,,,template placeholder; not requested,template
+quant-011,https://gamma-api.polymarket.com/events?tag_slug=soccer&closed=false&limit=100&offset=0..500,,,template placeholder; not requested,template
+quant-011,https://gamma-api.polymarket.com/events?tag_slug=soccer&closed=false&limit=N&offset=K,,,template placeholder; not requested,template
+quant-011,https://gamma-api.polymarket.com/markets?slug=<market-slug>,,,template placeholder; not requested,template
+quant-012,https://clob.polymarket.com/prices-history?market=101519993085150541985963030400073395102135944737997204045298260898135285026732&interval=max&fidelity=60,200,https://clob.polymarket.com/prices-history?market=101519993085150541985963030400073395102135944737997204045298260898135285026732&interval=max&fidelity=60,,alive
+quant-012,https://clob.polymarket.com/prices-history?market=2500092545816023700094480893694885475686508335314406123382468585117526026802&interval=max&fidelity=60,200,https://clob.polymarket.com/prices-history?market=2500092545816023700094480893694885475686508335314406123382468585117526026802&interval=max&fidelity=60,,alive
+quant-012,https://earthquake.usgs.gov/earthquakes/search/,200,https://earthquake.usgs.gov/earthquakes/search/,,alive
+quant-012,https://earthquake.usgs.gov/fdsnws/event/1/count?format=geojson&starttime=2015-01-01&endtime=2026-01-01&minmagnitude=5.5,200,https://earthquake.usgs.gov/fdsnws/event/1/count?format=geojson&starttime=2015-01-01&endtime=2026-01-01&minmagnitude=5.5,,alive
+quant-012,https://earthquake.usgs.gov/fdsnws/event/1/count?format=geojson&starttime=2015-01-01&endtime=2026-01-01&minmagnitude=6.5,200,https://earthquake.usgs.gov/fdsnws/event/1/count?format=geojson&starttime=2015-01-01&endtime=2026-01-01&minmagnitude=6.5,,alive
+quant-012,https://earthquake.usgs.gov/fdsnws/event/1/count?format=geojson&starttime=2015-01-01&endtime=2026-01-01&minmagnitude=7.0,200,https://earthquake.usgs.gov/fdsnws/event/1/count?format=geojson&starttime=2015-01-01&endtime=2026-01-01&minmagnitude=7.0,,alive
+quant-012,https://earthquake.usgs.gov/fdsnws/event/1/query?format=csv&starttime=2000-01-01&endtime=2026-10-01&minmagnitude=6.4&orderby=time-asc,200,https://earthquake.usgs.gov/fdsnws/event/1/query?format=csv&starttime=2000-01-01&endtime=2026-10-01&minmagnitude=6.4&orderby=time-asc,,alive
+quant-012,https://earthquake.usgs.gov/fdsnws/event/1/query?format=text&starttime=2026-10-12&endtime=2026-10-19&minmagnitude=6.5,200,https://earthquake.usgs.gov/fdsnws/event/1/query?format=text&starttime=2026-10-12&endtime=2026-10-19&minmagnitude=6.5,,alive
+quant-012,https://gamma-api.polymarket.com/events?slug=how-many-6pt5-or-above-earthquakes-worldwide-october-12-october-18,200,https://gamma-api.polymarket.com/events?slug=how-many-6pt5-or-above-earthquakes-worldwide-october-12-october-18,,alive
+quant-012,https://gamma-api.polymarket.com/events?slug=how-many-6pt5-or-above-earthquakes-worldwide-october-19-october-25,200,https://gamma-api.polymarket.com/events?slug=how-many-6pt5-or-above-earthquakes-worldwide-october-19-october-25,,alive
+quant-012,https://gamma-api.polymarket.com/events?tag_slug=earthquake&limit=500&closed=true&order=endDate&ascending=false,200,https://gamma-api.polymarket.com/events?tag_slug=earthquake&limit=500&closed=true&order=endDate&ascending=false,,alive
+quant-012,https://gamma-api.polymarket.com/markets?slug=how-many-6pt5-or-above-earthquakes-worldwide-october-19-october-25,200,https://gamma-api.polymarket.com/markets?slug=how-many-6pt5-or-above-earthquakes-worldwide-october-19-october-25,,alive
+quant-012,https://gamma-api.polymarket.com/public-search?q=earthquake&limit_per_type=50&events_status=all,200,https://gamma-api.polymarket.com/public-search?q=earthquake&limit_per_type=50&events_status=all,,alive
+quant-012,https://gamma-api.polymarket.com/public-search?q=magnitude&limit_per_type=50&events_status=all,200,https://gamma-api.polymarket.com/public-search?q=magnitude&limit_per_type=50&events_status=all,,alive
+quant-012,https://clob.polymarket.com/prices-history?market=<clobTokenId>&interval=max&fidelity=60,,,template placeholder; not requested,template
+quant-012,https://earthquake.usgs.gov/fdsnws/event/1/query?format=csv&starttime=...&endtime=...&minmagnitude=6.4,,,template placeholder; not requested,template
+quant-012,https://gamma-api.polymarket.com/events?slug=<event-slug>,,,template placeholder; not requested,template
+quant-013,https://api.crossref.org/works?query.bibliographic=coinbase+premium+bitcoin,200,https://api.crossref.org/works?query.bibliographic=coinbase+premium+bitcoin,,alive
+quant-013,https://api.exchange.coinbase.com/products/BTC-USD/candles?granularity=86400&start=2026-09-01T00:00:00Z&end=2026-09-06T00:00:00Z,200,https://api.exchange.coinbase.com/products/BTC-USD/candles?granularity=86400&start=2026-09-01T00:00:00Z&end=2026-09-06T00:00:00Z,,alive
+quant-013,https://api.exchange.coinbase.com/products/USDT-USD/candles?granularity=86400&start=2026-08-01T00:00:00Z&end=2026-08-05T00:00:00Z,200,https://api.exchange.coinbase.com/products/USDT-USD/candles?granularity=86400&start=2026-08-01T00:00:00Z&end=2026-08-05T00:00:00Z,,alive
+quant-013,https://crypto.news/what-is-the-coinbase-premium-index/,200,https://crypto.news/what-is-the-coinbase-premium-index/,,alive
+quant-013,https://data.binance.vision/data/spot/monthly/klines/BTCUSDT/1d/BTCUSDT-1d-2026-08.zip,200,https://data.binance.vision/data/spot/monthly/klines/BTCUSDT/1d/BTCUSDT-1d-2026-08.zip,,alive
+quant-013,https://data.binance.vision/data/spot/monthly/klines/SOLUSDT/1d/SOLUSDT-1d-2026-08.zip,200,https://data.binance.vision/data/spot/monthly/klines/SOLUSDT/1d/SOLUSDT-1d-2026-08.zip,,alive
+quant-013,https://export.arxiv.org/api/query?search_query=all:%22coinbase+premium%22,200,https://export.arxiv.org/api/query?search_query=all:%22coinbase+premium%22,,alive
+quant-013,https://html.duckduckgo.com/html/?q=coinbase+premium+bitcoin+predictive+returns+study,202,https://html.duckduckgo.com/html/?q=coinbase+premium+bitcoin+predictive+returns+study,,alive
+quant-013,https://api.semanticscholar.org/graph/v1/paper/search?query=coinbase%20premium%20bitcoin,429,https://api.semanticscholar.org/graph/v1/paper/search?query=coinbase%20premium%20bitcoin,,manual
+quant-013,https://export.arxiv.org/api/query?search_query=abs:%22Coinbase%22+AND+abs:%22Bitcoin%22,429,https://export.arxiv.org/api/query?search_query=abs:%22Coinbase%22+AND+abs:%22Bitcoin%22,,manual
+quant-014,https://clob.polymarket.com/prices-history?market=37867517699597038332707589432698261528449111760519164430714310172860137405315&interval=max&fidelity=60,200,https://clob.polymarket.com/prices-history?market=37867517699597038332707589432698261528449111760519164430714310172860137405315&interval=max&fidelity=60,,alive
+quant-014,https://finance.yahoo.com/quote/%5EGSPC/history,200,https://finance.yahoo.com/quote/%5EGSPC/history/,,alive
+quant-014,https://gamma-api.polymarket.com/events?series_id=10383&limit=100&closed=true&order=endDate&ascending=false,200,https://gamma-api.polymarket.com/events?series_id=10383&limit=100&closed=true&order=endDate&ascending=false,,alive
+quant-014,https://gamma-api.polymarket.com/events?slug=nvda-close-above-on-october-20-2026,200,https://gamma-api.polymarket.com/events?slug=nvda-close-above-on-october-20-2026,,alive
+quant-014,https://gamma-api.polymarket.com/events?slug=spx-close-dec-2026,200,https://gamma-api.polymarket.com/events?slug=spx-close-dec-2026,,alive
+quant-014,https://gamma-api.polymarket.com/events?slug=spx-up-or-down-on-october-20-2026,200,https://gamma-api.polymarket.com/events?slug=spx-up-or-down-on-october-20-2026,,alive
+quant-014,https://gamma-api.polymarket.com/public-search?q=NVDA&limit_per_type=10&events_status=active,200,https://gamma-api.polymarket.com/public-search?q=NVDA&limit_per_type=10&events_status=active,,alive
+quant-014,https://gamma-api.polymarket.com/public-search?q=SPX&limit_per_type=20&events_status=all,200,https://gamma-api.polymarket.com/public-search?q=SPX&limit_per_type=20&events_status=all,,alive
+quant-014,https://stooq.com/q/d/l/?s=%5Espx&i=d,200,https://stooq.com/q/d/l/?s=%5Espx&i=d,,alive
+quant-014,https://stooq.com/q/d/l/?s=^spx&i=d,200,https://stooq.com/q/d/l/?s=%5Espx&i=d,,alive
+quant-014,https://www.wsj.com/market-data/stocks,200,https://www.wsj.com/market-data/stocks,,alive
+quant-014,https://query1.finance.yahoo.com/v8/finance/chart/%5ESPX?range=5y&interval=1d,429,https://query1.finance.yahoo.com/v8/finance/chart/%5ESPX?range=5y&interval=1d,,manual
+quant-014,https://clob.polymarket.com/prices-history?market=<2026-09-18,,,template placeholder; not requested,template
+quant-016,https://clob.polymarket.com/prices-history?market=115247292569760568274899790090301720359959003343471261064290162154153281032682&interval=max&fidelity=60,200,https://clob.polymarket.com/prices-history?market=115247292569760568274899790090301720359959003343471261064290162154153281032682&interval=max&fidelity=60,,alive
+quant-016,https://docs.polymarket.com/,200,https://docs.polymarket.com/,,alive
+quant-016,https://gamma-api.polymarket.com/events?slug=clayface-rotten-tomatoes-score-20261026,200,https://gamma-api.polymarket.com/events?slug=clayface-rotten-tomatoes-score-20261026,,alive
+quant-016,https://gamma-api.polymarket.com/events?slug=sense-and-sensibility-rotten-tomatoes-score-20261019,200,https://gamma-api.polymarket.com/events?slug=sense-and-sensibility-rotten-tomatoes-score-20261019,,alive
+quant-016,https://gamma-api.polymarket.com/events?tag_slug=culture&limit=3,200,https://gamma-api.polymarket.com/events?tag_slug=culture&limit=3,,alive
+quant-016,https://gamma-api.polymarket.com/events?tag_slug=rotten-tomatoes&limit=500&closed=false&order=endDate&ascending=false,200,https://gamma-api.polymarket.com/events?tag_slug=rotten-tomatoes&limit=500&closed=false&order=endDate&ascending=false,,alive
+quant-016,https://gamma-api.polymarket.com/events?tag_slug=rotten-tomatoes&limit=500&closed=true&order=endDate&ascending=false,200,https://gamma-api.polymarket.com/events?tag_slug=rotten-tomatoes&limit=500&closed=true&order=endDate&ascending=false,,alive
+quant-016,https://gamma-api.polymarket.com/public-search?q=rotten%20tomatoes&limit_per_type=100,200,https://gamma-api.polymarket.com/public-search?q=rotten%20tomatoes&limit_per_type=100,,alive
+quant-016,https://gamma-api.polymarket.com/tags?limit=200,200,https://gamma-api.polymarket.com/tags?limit=200,,alive
+quant-016,https://www.rottentomatoes.com/m/by_any_means,200,https://www.rottentomatoes.com/m/by_any_means,,alive
+quant-016,https://www.rottentomatoes.com/m/clayface,200,https://www.rottentomatoes.com/m/clayface,,alive
+quant-016,https://www.rottentomatoes.com/m/other_mommy,200,https://www.rottentomatoes.com/m/other_mommy,,alive
+quant-016,https://www.rottentomatoes.com/m/sense_and_sensibility_2026,200,https://www.rottentomatoes.com/m/sense_and_sensibility_2026,,alive
+quant-016,https://www.rottentomatoes.com/m/sense_and_sensibility_2026/reviews,200,https://www.rottentomatoes.com/m/sense_and_sensibility_2026/reviews,,alive
+quant-016,https://clob.polymarket.com/prices-history?market=<tokenId>&interval=max&fidelity=60,,,template placeholder; not requested,template
+quant-016,https://gamma-api.polymarket.com/events?slug=<event-slug>,,,template placeholder; not requested,template
+quant-016,https://gamma-api.polymarket.com/events?tag_slug=rotten-tomatoes&limit=500&closed=true|false&order=endDate&ascending=false,,,template placeholder; not requested,template
+quant-016,https://www.rottentomatoes.com/m/<slug>,,,template placeholder; not requested,template
+quant-018,https://clob.polymarket.com/prices-history?market=83323157431384565919039651171113228419822107706617450318634509280075717583619&interval=max&fidelity=60,200,https://clob.polymarket.com/prices-history?market=83323157431384565919039651171113228419822107706617450318634509280075717583619&interval=max&fidelity=60,,alive
+quant-018,https://gamma-api.polymarket.com/events?slug=how-many-ships-transit-bab-el-mandeb-strait-week-of-october-19,200,https://gamma-api.polymarket.com/events?slug=how-many-ships-transit-bab-el-mandeb-strait-week-of-october-19,,alive
+quant-018,https://gamma-api.polymarket.com/events?slug=how-many-ships-transit-bab-el-mandeb-strait-week-of-october-5,200,https://gamma-api.polymarket.com/events?slug=how-many-ships-transit-bab-el-mandeb-strait-week-of-october-5,,alive
+quant-018,https://gamma-api.polymarket.com/events?slug=how-many-ships-transit-the-strait-of-hormuz-week-of-october-19,200,https://gamma-api.polymarket.com/events?slug=how-many-ships-transit-the-strait-of-hormuz-week-of-october-19,,alive
+quant-018,https://gamma-api.polymarket.com/events?tag_slug=geopolitics&limit=100&closed=true&offset=100&order=endDate&ascending=false,200,https://gamma-api.polymarket.com/events?tag_slug=geopolitics&limit=100&closed=true&offset=100&order=endDate&ascending=false,,alive
+quant-018,https://gamma-api.polymarket.com/events?tag_slug=geopolitics&limit=500&closed=false&order=endDate&ascending=true,200,https://gamma-api.polymarket.com/events?tag_slug=geopolitics&limit=500&closed=false&order=endDate&ascending=true,,alive
+quant-018,https://gamma-api.polymarket.com/events?tag_slug=geopolitics&limit=500&closed=true&order=endDate&ascending=false,200,https://gamma-api.polymarket.com/events?tag_slug=geopolitics&limit=500&closed=true&order=endDate&ascending=false,,alive
+quant-018,https://gamma-api.polymarket.com/public-search?q=Bab%20el-Mandeb&limit_per_type=50&events_status=all,200,https://gamma-api.polymarket.com/public-search?q=Bab%20el-Mandeb&limit_per_type=50&events_status=all,,alive
+quant-018,https://gamma-api.polymarket.com/public-search?q=Strait%20of%20Hormuz&limit_per_type=50&events_status=all,200,https://gamma-api.polymarket.com/public-search?q=Strait%20of%20Hormuz&limit_per_type=50&events_status=all,,alive
+quant-018,https://gamma-api.polymarket.com/public-search?q=UKMTO&limit_per_type=50&events_status=all,200,https://gamma-api.polymarket.com/public-search?q=UKMTO&limit_per_type=50&events_status=all,,alive
+quant-018,https://gamma-api.polymarket.com/public-search?q=how%20many%20ships%20transit&limit_per_type=100&events_status=all,200,https://gamma-api.polymarket.com/public-search?q=how%20many%20ships%20transit&limit_per_type=100&events_status=all,,alive
+quant-018,https://portwatch.imf.org/pages/6b1814d64903461b98144a6cc25eb79c,200,https://portwatch.imf.org/pages/6b1814d64903461b98144a6cc25eb79c,,alive
+quant-018,https://services9.arcgis.com/weJ1QsnbMYJlCHdG/arcgis/rest/services/Daily_Chokepoints_Data/FeatureServer/0/query,200,https://services9.arcgis.com/weJ1QsnbMYJlCHdG/arcgis/rest/services/Daily_Chokepoints_Data/FeatureServer/0/query,,alive
+quant-018,https://services9.arcgis.com/weJ1QsnbMYJlCHdG/arcgis/rest/services/Daily_Chokepoints_Data/FeatureServer/0/query?where=portname,200,https://services9.arcgis.com/weJ1QsnbMYJlCHdG/arcgis/rest/services/Daily_Chokepoints_Data/FeatureServer/0/query?where=portname,,alive
+quant-018,https://services9.arcgis.com/weJ1QsnbMYJlCHdG/arcgis/rest/services/Daily_Chokepoints_Data/FeatureServer/0?f=json,200,https://services9.arcgis.com/weJ1QsnbMYJlCHdG/arcgis/rest/services/Daily_Chokepoints_Data/FeatureServer/0?f=json,,alive
+quant-018,https://services9.arcgis.com/weJ1QsnbMYJlCHdG/arcgis/rest/services?f=json,200,https://services9.arcgis.com/weJ1QsnbMYJlCHdG/arcgis/rest/services?f=json,,alive
+quant-018,https://clob.polymarket.com/prices-history?market=<tokenId>&interval=max&fidelity=60,,,template placeholder; not requested,template
+quant-019,https://gamma-api.polymarket.com/events?slug=measles-cases-in-uptspt-by-october-31-20260928t160000000z,200,https://gamma-api.polymarket.com/events?slug=measles-cases-in-uptspt-by-october-31-20260928t160000000z,,alive
+quant-019,https://gamma-api.polymarket.com/events?slug=measles-cases-in-us-in-2026,200,https://gamma-api.polymarket.com/events?slug=measles-cases-in-us-in-2026,,alive
+quant-019,https://gamma-api.polymarket.com/events?tag_slug=measles&limit=100&closed=true&order=endDate&ascending=false,200,https://gamma-api.polymarket.com/events?tag_slug=measles&limit=100&closed=true&order=endDate&ascending=false,,alive
+quant-019,https://gamma-api.polymarket.com/markets?slug=how-many-,200,https://gamma-api.polymarket.com/markets?slug=how-many-,,alive
+quant-019,https://gamma-api.polymarket.com/markets?slug=will-there-be-at-least-7500-measles-cases-in-the-us-in-2026-287-181-314-511-633,200,https://gamma-api.polymarket.com/markets?slug=will-there-be-at-least-7500-measles-cases-in-the-us-in-2026-287-181-314-511-633,,alive
+quant-019,https://gamma-api.polymarket.com/public-search?q=bird%20flu&limit_per_type=30&events_status=all,200,https://gamma-api.polymarket.com/public-search?q=bird%20flu&limit_per_type=30&events_status=all,,alive
+quant-019,https://gamma-api.polymarket.com/public-search?q=measles&limit_per_type=100&events_status=all,200,https://gamma-api.polymarket.com/public-search?q=measles&limit_per_type=100&events_status=all,,alive
+quant-019,https://www.cdc.gov/measles/data-research/index.html,403,https://www.cdc.gov/measles/data-research/index.html,,manual
+quant-019,https://clob.polymarket.com/prices-history?market=<clobTokenId>&interval=max,,,template placeholder; not requested,template
+quant-019,https://gamma-api.polymarket.com/events?slug=<event-slug>,,,template placeholder; not requested,template
+quant-019,https://gamma-api.polymarket.com/markets?slug=<market-slug>,,,template placeholder; not requested,template
+quant-020,https://docs.polymarket.com/,200,https://docs.polymarket.com/,,alive
+quant-020,https://efts.sec.gov/LATEST/search-index?q=form%3A8-K%20items%3A2.02&forms=8-K,200,https://efts.sec.gov/LATEST/search-index?q=form%3A8-K%20items%3A2.02&forms=8-K,,alive
+quant-020,https://gamma-api.polymarket.com/events?slug=hims-quarterly-earnings-gaap-eps-02-23-2026-0pt05,200,https://gamma-api.polymarket.com/events?slug=hims-quarterly-earnings-gaap-eps-02-23-2026-0pt05,,alive
+quant-020,https://gamma-api.polymarket.com/events?tag_slug=earnings&limit=100&closed=false&order=endDate&ascending=true,200,https://gamma-api.polymarket.com/events?tag_slug=earnings&limit=100&closed=false&order=endDate&ascending=true,,alive
+quant-020,https://gamma-api.polymarket.com/public-search?q=earnings&limit_per_type=20&events_status=all,200,https://gamma-api.polymarket.com/public-search?q=earnings&limit_per_type=20&events_status=all,,alive
+quant-020,https://seekingalpha.com/,200,https://seekingalpha.com/,,alive
+quant-020,https://clob.polymarket.com/prices-history?market=<clobTokenId>&startTs=&endTs=&fidelity=60,,,template placeholder; not requested,template
+quant-020,https://clob.polymarket.com/prices-history?market=<clobTokenId>&startTs=<endDate-72h>&endTs=<endDate>&fidelity=60,,,template placeholder; not requested,template
+quant-020,https://clob.polymarket.com/prices-history?market=<clobTokenId[0]>&startTs=<endDate−72h>&endTs=<endDate>&fidelity=60,,,template placeholder; not requested,template
+quant-020,https://gamma-api.polymarket.com/events?tag_slug=earnings&limit=100&offset=0..1400&closed=true&order=endDate&ascending=false,,,template placeholder; not requested,template
+quant-020,https://gamma-api.polymarket.com/events?tag_slug=earnings&limit=100&offset=<0..1400>&closed=true&order=endDate&ascending=false,,,template placeholder; not requested,template
+quant-020,https://gamma-api.polymarket.com/events?tag_slug=earnings&limit=100&offset=…&closed=true&order=endDate&ascending=false,,,template placeholder; not requested,template
