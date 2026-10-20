@@ -13,7 +13,7 @@ return_type: direction
 instruments: Polymarket「Will <state> have D4 (Exceptional Drought) this week?」州级二元（每周约 40 个州）+「How many states will be in D4」6 档州数（negRisk）
 venues: Polymarket
 data: US Drought Monitor StateStatistics REST（免费免密钥，2000-01-04 起周度，D4 为州面积百分比）；Polymarket Gamma（规则、费率、结算）+ data-api trades（免费免密钥，已关闭市场逐笔成交，最早 2026-08-25）；历史盘口无公开来源
-test_2w: 独立结果按 weekly USDM release 计（州名单与州数同一结算源，合并为 1 个），历史只有 8 个、两周最多 2 个，凑不到 30；失败标准是已成交仓位扣 0.05 吃单费 + 1¢ 滑点后中位净额 ≤0，或分桶延续率跌破可成交 ask，或连续 8 周无正 edge
+test_2w: 独立结果按 weekly USDM release 计（州名单与州数同一结算源，合并为 1 个），历史只有 8 个、两周最多 2 个，凑不到 30；失败标准是已成交仓位扣 0.05 吃单费 + 1¢ 滑点后中位净额 ≤0，或分桶延续率跌破可成交 ask，或连续 8 周无正 edge，或前向 30 个周里 0→D4 进入率 >5%
 status: 草稿
 confidence: 中
 ---
@@ -214,7 +214,7 @@ confidence: 中
 - **USDM 发布节奏与地图页（免费、免密钥）**：`https://droughtmonitor.unl.edu/`（HTTP 200，约 121 KB；2026-10-20 快照，页面会变）。原文：“The maps, which are based on analysis of the data, are released each Thursday at 8:30 a.m. Eastern Time.”；首页同时给出 “Map released: October 15, 2026 / Data valid: October 13, 2026”。
 - **USDM 综合统计下载页**：`https://droughtmonitor.unl.edu/DmData/DataDownload/ComprehensiveStatistics.aspx`（HTTP 200，约 586 KB；2026-10-20 快照，页面会变）。短名单里猜的直连 `.../data/csv/20260901_dmstatistics.csv` 返回 404；可编程取数用上面的 REST，不用猜 CSV 路径。
 - **Polymarket Gamma（免费、免密钥）**：`https://gamma-api.polymarket.com/events?series_id=12688&closed=true&limit=100`（16 个已关闭事件）；`https://gamma-api.polymarket.com/events?slug=state-d4-drought-2026-10-13`（HTTP 200，约 197 KB 快照，规则、40 个市场、费率）；`https://gamma-api.polymarket.com/events?slug=states-in-d4-drought-2026-10-13`（HTTP 200，约 34 KB 快照，6 档）。
-- **Polymarket data-api 成交（免费、免密钥）**：`https://data-api.polymarket.com/trades?market=<conditionId>&limit=1000`；已关闭市场可取到逐笔 `size/price/side/outcome/timestamp`。8 周 320 个州市场共 2,158 笔成交（另有州数档 186 笔，未用于交易），原始缓存 `_cache/trades_all.json.gz`（252 KB gzip）。
+- **Polymarket data-api 成交（免费、免密钥）**：`https://data-api.polymarket.com/trades?market=<conditionId>&limit=1000`；已关闭市场可取到逐笔 `size/price/side/outcome/timestamp`。8 周 320 个州市场共 2,158 笔成交（另有州数档 186 笔，未用于交易），原始缓存 `_cache/trades_all.json.gz`（约 250–256 KB gzip；2026-10-20 快照，缓存会变）。
 - **缺失，必须写清**：历史盘口（bid/ask 快照）没有公开来源；本文只能用最后成交价做代理。USDM 的“当时首发布值”也没有单独的归档，REST 返回的是当前值；不过 320/320 与 Polymarket 结算一致，说明至少在这 8 周里修订没有改变结果。
 
 ## 两周内怎么检验
@@ -268,8 +268,8 @@ confidence: 中
 
 ## 门槛自查
 
-1. **机制说得清：满足** — 一句话：上周已经在 D4 的州下周仍在 D4 的概率 95.66%（25 年 5,411 个州-周转移），上周为 0 的州下周进入 D4 只有 0.38%；市场在新模板初期给前者的报价低到 0.50–0.89。付钱方是把周度名单当独立事件、不查上一周地图的对手方。**但“为什么持续”只有薄市场/新模板的弱解释，8 周内 edge 已在收敛。**
-2. **有免费数据能检验：不确定** — USDM REST 免费免密钥、2000 年起周度，Polymarket Gamma/data-api 也免费；但**独立历史结果只有 8 个周发布**（州名单 + 州数同一结算源合并），达不到“预测市场至少 30 个独立结果”。只能从 2026-10-22 起前向记录，约 5 个月才够 30 个（总样本约 7 个月）。
+1. **机制说得清：满足（持续解释弱）** — 一句话：上周已经在 D4 的州下周仍在 D4 的概率 95.66%（25 年 5,411 个州-周转移），上周为 0 的州下周进入 D4 只有 0.38%；市场在新模板初期给前者的报价低到 0.50–0.89。付钱方是把周度名单当独立事件、不查上一周地图的对手方。**但“为什么持续”只有薄市场/新模板的弱解释，8 周内 edge 已在收敛。**
+2. **有免费数据能检验：满足（仅前向记录替代口径）** — USDM REST 免费免密钥、2000 年起周度，Polymarket Gamma/data-api 也免费；但**历史只有 8 个 weekly 独立结果**（州名单 + 州数同一结算源合并，<30），门 6 仍不满足。只能从 2026-10-22 起前向记录，约 5 个月才够 30 个（总样本约 7 个月）。
 3. **小资金能做：满足（形式：小资金可做）** — 单州 20–200 USD、单周 ≤400 USD、专线 ≤1,000 USD，远低于 5,000 总资金和 2,500 单场所；不加杠杆、不借钱，买 YES/NO 的最大亏损就是权利金。**经济容量很小：8 周总名义额约 750 USD，5,000 用不满。**
 4. **不重复：满足** — 见“改进了什么”。与 quant-015 的月温 nowcast、quant-012/019 的计数阶梯、dot-001/002 的日最高温、muse 的临到期热门都不是同一机制；本条做的是 USDM 周度州级 D4 名单的延续率，仓库内除本条外没有同模板条目（`grep -rilE "Drought Monitor|Exceptional Drought|USDM" bots/*/entries known/` 只命中本条自己）。
 5. **扣成本后粗算够用：不确定** — 23 笔按最后成交份数计，成本 766.93 USD、净 245.64 USD（+32.03%）；按每份等价计 +24.22%；加 5¢ 滑点后 YES +23.08%、NO +11.92%；加 10¢ 滑点后 YES +15.62%。**但只有 4 个活跃周、8/25 一周贡献 63.3% 的净额，且价格是成交价代理，不是盘口；样本内为正不能当扣成本后粗算够用。**

@@ -1,4 +1,5 @@
 import json, statistics, datetime as dt
+import numpy as np
 from urllib.request import Request, urlopen
 
 cache = '_cache'
@@ -31,9 +32,9 @@ print('state markets', sum(len(e['markets']) for e in ev if e['slug'].startswith
 print('zero-trade (all history)', zero_all, '| zero before cutoff', zero_pre)
 print('markets with trades >=1 lifetime', len(all_vol))
 print('all-trade notional: n=%d median=%.2f p90=%.2f max=%.2f' % (
-    len(all_vol), statistics.median(all_vol), statistics.quantiles(all_vol, n=10)[8], max(all_vol)))
+    len(all_vol), np.median(all_vol), np.quantile(all_vol, 0.9, method='linear'), max(all_vol)))
 print('pre-cutoff notional: n=%d median=%.2f p90=%.2f max=%.2f' % (
-    len(pre_vol), statistics.median(pre_vol), statistics.quantiles(pre_vol, n=10)[8], max(pre_vol)))
+    len(pre_vol), np.median(pre_vol), np.quantile(pre_vol, 0.9, method='linear'), max(pre_vol)))
 
 # --- snapshot byte sizes (pages drift) ---
 for u in ['https://droughtmonitor.unl.edu/',
