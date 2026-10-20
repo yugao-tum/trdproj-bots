@@ -41,6 +41,11 @@ arXiv:2601.18991v1 选取2022-05 USDT、2023-03 USDC、2023-07 USDT三事件；�
 
 ## 数据
 
+### 2026-10-20 第二场所价格补证
+
+Bitstamp USDC/USD、USDT/USD均取得2025-10-19至2026-10-19的366个完整UTC日；同窗Kraken两币也各366日。Bitstamp日低≤0.99分别4日/1日，Kraken分别0日/4日，两场所同币触发日期交集均0；四序列收盘触发均0。仅历史打印价覆盖，不代表同步可成交、无发行方风险或盈利，且补场所选择已知Kraken结果。当前metadata不回填历史规则。G2仅覆盖子项改善，其余执行与风险过滤缺口保留，未运行新增PnL。详见[两场所USD日线对照](../notes/20261020-two-venue-usd-history.md)。续跑去重分类为known E-E1-depeg-buy的补充，旧初查不再作为全局新颖性结论。
+
+
 CoinGecko `/coins/usd-coin/market_chart?vs_currency=usd&days=365&interval=daily` 免费免密钥，365个每日价格采样点。arXiv称用Binance 1分钟K线；本次api.binance.com请求返回地域限制、Coinbase candles返回404，未取得相应数据。随后通过官方月档取得上述日线，43个ZIP及CHECKSUM均实核；这不补齐分钟成交价、点差或费率历史。
 
 ## 两周内怎么检验
