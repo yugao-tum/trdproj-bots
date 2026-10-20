@@ -1,0 +1,180 @@
+{
+  "task": "continuation-r13-01",
+  "claim": "C34",
+  "finished_at": "2026-10-20T09:31:56.032321+00:00",
+  "outcome": "partial source replacement; one actual market panel, zero execution-confirmed unlocks, three-event target unmet",
+  "runtime": [
+    {
+      "provider": "OpenCode Go",
+      "model": "deepseek-v4.1-flash",
+      "task_count": 1,
+      "status": "aborted idle before native takeover; retained evidence reused"
+    },
+    {
+      "provider": "OpenAI native assistant",
+      "model": "runtime model identifier not exposed to child; parent should attach verified dispatcher metadata if available",
+      "task_count": 1,
+      "role": "continuation of same task, not additional independent mechanism"
+    }
+  ],
+  "cost": "unknown",
+  "input_hashes_verified": 4,
+  "retained_hashes_verified": 26,
+  "searches": {
+    "prior": 8,
+    "native": 0,
+    "total": 8,
+    "limit": 8
+  },
+  "source_attempts": {
+    "prior": 19,
+    "native": 6,
+    "total": 25,
+    "limit": 32
+  },
+  "dataset_requests": {
+    "prior": 0,
+    "native": 4,
+    "total": 4,
+    "limit": 64
+  },
+  "new_denials": [
+    {
+      "target": "https://docs.bitdao.io/litepaper-1/tokenomics",
+      "result": "403",
+      "action": "stopped; no alternate route or retry"
+    }
+  ],
+  "transport_failures": [
+    {
+      "target": "Wayback CDX for linked OP public sheet",
+      "result": "20-second timeout; outcome no body",
+      "action": "no repeat"
+    }
+  ],
+  "sources": [
+    {
+      "file": "bit_tokenomics.html",
+      "url": "https://docs.bitdao.io/litepaper-1/tokenomics",
+      "at": "2026-10-20T09:26:45Z",
+      "error": "HTTP Error 403: Forbidden"
+    },
+    {
+      "file": "op_public_allocations.csv",
+      "url": "https://docs.google.com/spreadsheets/d/1qVMhLmmch3s6XSbiBe8hgD4ntMkPIOhc1WrhsYsQc7M/export?format=csv",
+      "at": "2026-10-20T09:26:52Z",
+      "status": 200,
+      "sha256": "a7ca8e8ba0033aa3e57965a470de1e5a621aa96fd1fce9ec544fc97035b4a8de",
+      "bytes": 5925
+    },
+    {
+      "file": "op_allocations_cdx.json",
+      "url": "https://web.archive.org/cdx/search/cdx?url=community.optimism.io%2Fdocs%2Fgovernance%2Fallocations%2A&from=2022&to=20230530&output=json&filter=statuscode%3A200&collapse=timestamp%3A8&limit=50",
+      "at": "2026-10-20T09:29:52Z",
+      "status": 200,
+      "bytes": 6373,
+      "sha256": "3f5ac4747d58955f1d5ef93de4ece08708d4a6dc09e0e0cc9e974deebe45a524"
+    },
+    {
+      "file": "op_sheet_cdx.json",
+      "url": "https://web.archive.org/cdx/search/cdx?url=docs.google.com%2Fspreadsheets%2Fd%2F1qVMhLmmch3s6XSbiBe8hgD4ntMkPIOhc1WrhsYsQc7M%2A&from=2022&to=20230530&output=json&filter=statuscode%3A200&collapse=timestamp%3A8&limit=50",
+      "at": "2026-10-20T09:29:58Z",
+      "error": "<urlopen error timed out>"
+    },
+    {
+      "file": "op_allocations_20230530.html",
+      "url": "https://web.archive.org/web/20230530143802id_/https://community.optimism.io/docs/governance/allocations/",
+      "at": "2026-10-20T09:30:27Z",
+      "status": 200,
+      "bytes": 10099,
+      "sha256": "a7b30d40f10495187eb94e38525445b9977ac0ec93aa64cbc61b9fdb400fc130"
+    },
+    {
+      "file": "binance_public_data_readme.md",
+      "url": "https://raw.githubusercontent.com/binance/binance-public-data/master/README.md",
+      "kind": "source",
+      "at": "2026-10-20T09:28:05Z",
+      "status": 200,
+      "bytes": 5282,
+      "sha256": "2e133d9945a9263a02781369078e72805eff074680f305cd5460016471c6caad"
+    },
+    {
+      "file": "APEUSDT-1h-2023-05.zip",
+      "url": "https://data.binance.vision/data/spot/monthly/klines/APEUSDT/1h/APEUSDT-1h-2023-05.zip",
+      "kind": "dataset",
+      "at": "2026-10-20T09:28:12Z",
+      "status": 200,
+      "bytes": 33508,
+      "sha256": "e6b2f409da39142c91045992736e2d76201cc19fcea3cf9e71062a185ae43a4a"
+    },
+    {
+      "file": "APEUSDT-1h-2023-05.zip.CHECKSUM",
+      "url": "https://data.binance.vision/data/spot/monthly/klines/APEUSDT/1h/APEUSDT-1h-2023-05.zip.CHECKSUM",
+      "kind": "dataset",
+      "at": "2026-10-20T09:28:18Z",
+      "status": 200,
+      "bytes": 88,
+      "sha256": "96e08e693ab5d9d01dbf5b0dd381d86c1fb7ea8adcf715ae6cb93230f9ec4e88"
+    },
+    {
+      "file": "BTCUSDT-1h-2023-05.zip",
+      "url": "https://data.binance.vision/data/spot/monthly/klines/BTCUSDT/1h/BTCUSDT-1h-2023-05.zip",
+      "kind": "dataset",
+      "at": "2026-10-20T09:28:22Z",
+      "status": 200,
+      "bytes": 43095,
+      "sha256": "16b33557a4a4040fc56c711f4b1a750ebafb5a7f8dd46c060d9fc8c66cdc1982"
+    },
+    {
+      "file": "BTCUSDT-1h-2023-05.zip.CHECKSUM",
+      "url": "https://data.binance.vision/data/spot/monthly/klines/BTCUSDT/1h/BTCUSDT-1h-2023-05.zip.CHECKSUM",
+      "kind": "dataset",
+      "at": "2026-10-20T09:28:26Z",
+      "status": 200,
+      "bytes": 88,
+      "sha256": "d617401ef04d25a6b4aa03d2a7f5e0a69aa534f7abe991416d6a74748ee1752d"
+    },
+    {
+      "file": "ape_about_20230514.html",
+      "url": "https://web.archive.org/web/20230514114329id_/https://apecoin.com/about",
+      "sha256": "4c57e9ae7b91c3182c4e6b11159237d472957885aaf45bfad7b01d118696296a",
+      "bytes": 34287,
+      "retrieval": "Prior Go work reused; fetch time retained in original tool records, not fabricated"
+    },
+    {
+      "file": "sandbox_wp_2020.pdf",
+      "url": "https://installers.sandbox.game/The_Sandbox_Whitepaper_2020.pdf",
+      "sha256": "52e08183b4acd1147b88b5b0bccd862c4d7b6c2b2aaa7f4ece888caf5376c656",
+      "bytes": 12647096,
+      "retrieval": "Prior Go work reused; fetch time retained in original tool records, not fabricated"
+    },
+    {
+      "file": "aptos_tokenomics.html",
+      "url": "https://aptosfoundation.org/currents/aptos-tokenomics-overview",
+      "sha256": "4fac0863d369f4ee25242864e39b373e13b6e7c63a31f9fe561b52b5aac1d724",
+      "bytes": 324467,
+      "retrieval": "Prior Go work reused; fetch time retained in original tool records, not fabricated"
+    },
+    {
+      "file": "op_unlock_update.json",
+      "url": "https://gov.optimism.io/t/5995.json",
+      "sha256": "9b6361622ada36ca62faecf5a395c8938f44b936bb50b7cea0bd897631156f9e",
+      "bytes": 22708,
+      "retrieval": "Prior Go work reused; fetch time retained in original tool records, not fabricated"
+    },
+    {
+      "file": "listing_ape.xml",
+      "url": "https://s3-ap-northeast-1.amazonaws.com/data.binance.vision?delimiter=/&prefix=data/spot/monthly/klines/APEUSDT/1h/",
+      "sha256": "db98349655772eb5ebce69460a42bdec988a1043203ee570684a5b8076664f25",
+      "bytes": 32557,
+      "retrieval": "Prior Go work reused; fetch time retained in original tool records, not fabricated"
+    }
+  ],
+  "event_selection_sha256": "9962eee10da25b6f058cbab5f51f8f12a7dfeaaea412819e7f0abcbd2fe2a148",
+  "event_freeze_before_first_price_request": true,
+  "post_freeze_addendum": "Archived OP allocations May30 2023 fetched successfully (gzip bytes preserved despite html suffix). Text provides allocations19%/17% and generic lockups, not May31 quantity or hour; links same live sheet. Thus no second event promoted. Source-body limit not exhausted, but fixed search leads fail exact event requirements; 47 later calendar leads not assessed.",
+  "real_data": "Two official monthly archives,744 rows each, checksums verified.146 joined hours,292 underlying rows used; no source truncation.50 hourly candidate origins across timezone-unknown inferred date.",
+  "synthetic_data": "Only adversarial parser test mutations, segregated in test_join_checks.py; never panel evidence.",
+  "classification": "descriptive real market evidence plus inferred scheduled event. No causal result, historical trading backtest, conditional trade simulation or qualified status.",
+  "publication": "Do not publish raw/, real-price-panel.csv, native fetch logs or full third-party bodies. Publish allowlist only."
+}

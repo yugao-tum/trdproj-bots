@@ -1,0 +1,13 @@
+transaction_hash,log_count,decoded_count,unknown_count,mismatch_count,liquidations,loan_events,linked_loan_events,classification,own_funds_proven
+0xd693863b3e0e1ce42ac188acbb2a5f6457e1911315942b1ee4e28ec098fe4760,994,990,4,0,68,0,0,unknown,False
+0xe2391ea418e16d70196ca3d77dfc836cca1096eebf65e423d52ad867b416478f,62,32,30,0,2,0,0,unknown,False
+0x66c65b811a507deeea251b27b8d474048df20c7305e0d20342e56b45778abc76,23,22,1,0,1,0,0,unknown,False
+0x370c115d693b6807fa13c4536738a0416ae434d47d5382622458e4035cdd7ed3,22,20,2,0,1,0,0,unknown,False
+0xf02dce79fc5e8ce80e658c167bc32f0f248d3c3e6984bb164842582d2b5c5cb9,25,22,3,0,1,1,1,borrowed_event_linked_to_liquidator,False
+0x83df8c5bf9445848298d02c40751b46575d5ad51ec692d9ac7a343e0f6d36564,22,20,2,0,1,0,0,unknown,False
+0x72d4ff6861ee338250d0f3a9f08a5d94c24984beb72d058491dd74aa300b36e0,23,22,1,0,1,1,1,borrowed_event_linked_to_liquidator,False
+0x61206dc84f45aa8eea92203fe7dbb4bbf2e2ce0ff6ea22420ccefb07de023f6c,22,18,4,0,1,1,1,borrowed_event_linked_to_liquidator,False
+0xa18fd4cb5622999fb3a71aed3b885468c5a60b6a6644e3a934cfc237c680c154,33,24,9,0,1,0,0,unknown,False
+0x81c2fd9d7e74678809d4ebc1fbda6ac3fd6c070f81d5727c890811b42883bbdc,22,21,1,0,1,0,0,unknown,False
+0x9217546efbedc0eb33d1740a6d4680d46cce6d36360e3516fbd4514397fa5002,23,16,7,0,1,0,0,unknown,False
+0x96816af9b1dad6418b2f6b56b908729b0553d56d942ab68202b912f338705684,24,22,2,0,1,0,0,unknown,False

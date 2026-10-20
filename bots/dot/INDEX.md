@@ -147,3 +147,45 @@
 | bots/dot/notes/20261020-r12-evidence/c46-repayment/source-map.json | 既有证据补充：source-map.json | 2026-10-20 | 草稿 / 验证附件，非新策略或收益 |
 | bots/dot/notes/20261020-r12-evidence/c46-repayment/test_matcher.py | 既有证据补充：test_matcher.py | 2026-10-20 | 草稿 / 验证附件，非新策略或收益 |
 | bots/dot/notes/20261020-r12-evidence/short-window-replay-record.json | 既有证据补充：short-window-replay-record.json | 2026-10-20 | 草稿 / 验证附件，非新策略或收益 |
+
+| bots/dot/notes/20261020-r13-evidence/QUALITY-NOTE.md | r13 补证：QUALITY-NOTE.md | 2026-10-20 | 研究附件 / 未晋级 |
+| bots/dot/notes/20261020-r13-evidence/README.md | r13 补证：README.md | 2026-10-20 | 研究附件 / 未晋级 |
+| bots/dot/notes/20261020-r13-evidence/c01-timezone/RESULT.md | r13 补证：RESULT.md | 2026-10-20 | 研究附件 / 未晋级 |
+| bots/dot/notes/20261020-r13-evidence/c19-hedge/RESULT.md | r13 补证：RESULT.md | 2026-10-20 | 研究附件 / 未晋级 |
+| bots/dot/notes/20261020-r13-evidence/c19-hedge/archive-source-manifest.json | r13 补证：archive-source-manifest.json | 2026-10-20 | 研究附件 / 未晋级 |
+| bots/dot/notes/20261020-r13-evidence/c19-hedge/reconciliation.json | r13 补证：reconciliation.json | 2026-10-20 | 研究附件 / 未晋级 |
+| bots/dot/notes/20261020-r13-evidence/c26-intrahour/RESULT.md | r13 补证：RESULT.md | 2026-10-20 | 研究附件 / 未晋级 |
+| bots/dot/notes/20261020-r13-evidence/c26-intrahour/source-manifest.json | r13 补证：source-manifest.json | 2026-10-20 | 研究附件 / 未晋级 |
+| bots/dot/notes/20261020-r13-evidence/c28-queue/RESULT.md | r13 补证：RESULT.md | 2026-10-20 | 研究附件 / 未晋级 |
+| bots/dot/notes/20261020-r13-evidence/c28-queue/reconcile.py | r13 补证：reconcile.py | 2026-10-20 | 研究附件 / 未晋级 |
+| bots/dot/notes/20261020-r13-evidence/c28-queue/source-manifest.json | r13 补证：source-manifest.json | 2026-10-20 | 研究附件 / 未晋级 |
+| bots/dot/notes/20261020-r13-evidence/c28-queue/test_reconcile.py | r13 补证：test_reconcile.py | 2026-10-20 | 研究附件 / 未晋级 |
+| bots/dot/notes/20261020-r13-evidence/c34-real-panel/RESULT.md | r13 补证：RESULT.md | 2026-10-20 | 研究附件 / 未晋级 |
+| bots/dot/notes/20261020-r13-evidence/c34-real-panel/event-ledger.json | r13 补证：event-ledger.json | 2026-10-20 | 研究附件 / 未晋级 |
+| bots/dot/notes/20261020-r13-evidence/c34-real-panel/join_checks.py | r13 补证：join_checks.py | 2026-10-20 | 研究附件 / 未晋级 |
+| bots/dot/notes/20261020-r13-evidence/c34-real-panel/provenance.json | r13 补证：provenance.json | 2026-10-20 | 研究附件 / 未晋级 |
+| bots/dot/notes/20261020-r13-evidence/c34-real-panel/test-results.json | r13 补证：test-results.json | 2026-10-20 | 研究附件 / 未晋级 |
+| bots/dot/notes/20261020-r13-evidence/c34-real-panel/test_join_checks.py | r13 补证：test_join_checks.py | 2026-10-20 | 研究附件 / 未晋级 |
+| bots/dot/notes/20261020-r13-evidence/c34-real-panel/time-sensitivity.json | r13 补证：time-sensitivity.json | 2026-10-20 | 研究附件 / 未晋级 |
+| bots/dot/notes/20261020-r13-evidence/c34-real-panel/unit-test-results.txt | r13 补证：unit-test-results.txt | 2026-10-20 | 研究附件 / 未晋级 |
+| bots/dot/notes/20261020-r13-evidence/c36-buyback/RESULT.md | r13 补证：RESULT.md | 2026-10-20 | 研究附件 / 未晋级 |
+| bots/dot/notes/20261020-r13-evidence/c36-buyback/buyback-daily-summary.csv | r13 补证：buyback-daily-summary.csv | 2026-10-20 | 研究附件 / 未晋级 |
+| bots/dot/notes/20261020-r13-evidence/c36-buyback/code/reconcile_native.py | r13 补证：reconcile_native.py | 2026-10-20 | 研究附件 / 未晋级 |
+| bots/dot/notes/20261020-r13-evidence/c36-buyback/code/test_reconcile_native.py | r13 补证：test_reconcile_native.py | 2026-10-20 | 研究附件 / 未晋级 |
+| bots/dot/notes/20261020-r13-evidence/c36-buyback/reconciliation-summary.json | r13 补证：reconciliation-summary.json | 2026-10-20 | 研究附件 / 未晋级 |
+| bots/dot/notes/20261020-r13-evidence/c36-buyback/source-body-manifest.json | r13 补证：source-body-manifest.json | 2026-10-20 | 研究附件 / 未晋级 |
+| bots/dot/notes/20261020-r13-evidence/c36-buyback/supply-bridge.csv | r13 补证：supply-bridge.csv | 2026-10-20 | 研究附件 / 未晋级 |
+| bots/dot/notes/20261020-r13-evidence/c36-buyback/test-results.txt | r13 补证：test-results.txt | 2026-10-20 | 研究附件 / 未晋级 |
+| bots/dot/notes/20261020-r13-evidence/c37-financing/RESULT.md | r13 补证：RESULT.md | 2026-10-20 | 研究附件 / 未晋级 |
+| bots/dot/notes/20261020-r13-evidence/c37-financing/abi-source-bindings.json | r13 补证：abi-source-bindings.json | 2026-10-20 | 研究附件 / 未晋级 |
+| bots/dot/notes/20261020-r13-evidence/c37-financing/complete-log-decoder.py | r13 补证：complete-log-decoder.py | 2026-10-20 | 研究附件 / 未晋级 |
+| bots/dot/notes/20261020-r13-evidence/c37-financing/financing-classification.csv | r13 补证：financing-classification.csv | 2026-10-20 | 研究附件 / 未晋级 |
+| bots/dot/notes/20261020-r13-evidence/c37-financing/test-decoder.py | r13 补证：test-decoder.py | 2026-10-20 | 研究附件 / 未晋级 |
+| bots/dot/notes/20261020-r13-evidence/c38-settlement/RESULT.md | r13 补证：RESULT.md | 2026-10-20 | 研究附件 / 未晋级 |
+| bots/dot/notes/20261020-r13-evidence/c45-events/RESULT.md | r13 补证：RESULT.md | 2026-10-20 | 研究附件 / 未晋级 |
+| bots/dot/notes/20261020-r13-evidence/c45-events/event-reconstruction.json | r13 补证：event-reconstruction.json | 2026-10-20 | 研究附件 / 未晋级 |
+| bots/dot/notes/20261020-r13-evidence/c45-events/reconstruct.py | r13 补证：reconstruct.py | 2026-10-20 | 研究附件 / 未晋级 |
+| bots/dot/notes/20261020-r13-evidence/c45-events/test-results.txt | r13 补证：test-results.txt | 2026-10-20 | 研究附件 / 未晋级 |
+| bots/dot/notes/20261020-r13-evidence/c45-events/test_signed_units.py | r13 补证：test_signed_units.py | 2026-10-20 | 研究附件 / 未晋级 |
+| bots/dot/notes/20261020-r13-evidence/c45-events/upstream-source-manifest.json | r13 补证：upstream-source-manifest.json | 2026-10-20 | 研究附件 / 未晋级 |
+| bots/dot/notes/20261020-r13-evidence/c46-repayment/RESULT.md | r13 补证：RESULT.md | 2026-10-20 | 研究附件 / 未晋级 |

@@ -1,0 +1,8 @@
+{
+  "interpretation": "Descriptive real-price sensitivity to inferred day/timezone; not causal alpha or realized profit. Does not prove unlock occurred.",
+  "candidate_hours": 50,
+  "ape_return_min": "-0.0109668109668109668109668110",
+  "ape_return_max": "0.028998505231689088191330344",
+  "relative_min": "0.0005087521197106567861474419",
+  "relative_max": "0.0263132566280254299162244132"
+}

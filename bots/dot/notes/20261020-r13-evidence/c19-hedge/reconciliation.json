@@ -1,0 +1,128 @@
+{
+  "status": "conditional candle accounting only; not execution/backtest qualification",
+  "rows": 507,
+  "hourly_rows_per_symbol_including_exit": 169,
+  "funding_events_btc_included": 20,
+  "funding_proxy_usdt": "4.804743541501085917435600750702868527243",
+  "ending_cash_usdt": "4999.896940657401325005144301647468652459",
+  "net_conditional_pnl_usdt": "-0.103059342598674994855698352531347541",
+  "entry_fees": "1.799831525331016720060552843550563862484",
+  "exit_fees": "1.868627574397292827581552097000565099332",
+  "quantity_btc": "0.02836562797781254478733211874881827464206",
+  "initial_venue_capital": "2401.462882187364456841166239944678288830",
+  "min_full_collateral_surplus": "-197.310448323232482426874742484862468114",
+  "actual_settlement_mark_unknown": true,
+  "historical_margin_rules_unknown": true,
+  "raw_funding_timestamp_max_offset_ms": 1,
+  "tests": {
+    "nine_checksums": true,
+    "nine_unique_timestamp_grids": true,
+    "nine_complete_169_hour_grids": true,
+    "timestamp_duration_ms": true,
+    "entry_and_exit_funding_excluded": true,
+    "169_equity_identities": true,
+    "exit_cash_reconciliation": true,
+    "funding_input_hash_unchanged": true
+  },
+  "archive_stats": [
+    {
+      "symbol": "BTCUSDT",
+      "kind": "spot",
+      "archive_rows": 744,
+      "pilot_rows_including_exit": 169,
+      "duplicates": 0,
+      "missing_hour_slots": 0,
+      "timestamp_unit": "ms",
+      "price_unit": "USDT per base coin",
+      "sha256_verified": true
+    },
+    {
+      "symbol": "BTCUSDT",
+      "kind": "perp",
+      "archive_rows": 744,
+      "pilot_rows_including_exit": 169,
+      "duplicates": 0,
+      "missing_hour_slots": 0,
+      "timestamp_unit": "ms",
+      "price_unit": "USDT per base coin",
+      "sha256_verified": true
+    },
+    {
+      "symbol": "BTCUSDT",
+      "kind": "mark",
+      "archive_rows": 744,
+      "pilot_rows_including_exit": 169,
+      "duplicates": 0,
+      "missing_hour_slots": 0,
+      "timestamp_unit": "ms",
+      "price_unit": "USDT per base coin",
+      "sha256_verified": true
+    },
+    {
+      "symbol": "ETHUSDT",
+      "kind": "spot",
+      "archive_rows": 744,
+      "pilot_rows_including_exit": 169,
+      "duplicates": 0,
+      "missing_hour_slots": 0,
+      "timestamp_unit": "ms",
+      "price_unit": "USDT per base coin",
+      "sha256_verified": true
+    },
+    {
+      "symbol": "ETHUSDT",
+      "kind": "perp",
+      "archive_rows": 744,
+      "pilot_rows_including_exit": 169,
+      "duplicates": 0,
+      "missing_hour_slots": 0,
+      "timestamp_unit": "ms",
+      "price_unit": "USDT per base coin",
+      "sha256_verified": true
+    },
+    {
+      "symbol": "ETHUSDT",
+      "kind": "mark",
+      "archive_rows": 744,
+      "pilot_rows_including_exit": 169,
+      "duplicates": 0,
+      "missing_hour_slots": 0,
+      "timestamp_unit": "ms",
+      "price_unit": "USDT per base coin",
+      "sha256_verified": true
+    },
+    {
+      "symbol": "SOLUSDT",
+      "kind": "spot",
+      "archive_rows": 744,
+      "pilot_rows_including_exit": 169,
+      "duplicates": 0,
+      "missing_hour_slots": 0,
+      "timestamp_unit": "ms",
+      "price_unit": "USDT per base coin",
+      "sha256_verified": true
+    },
+    {
+      "symbol": "SOLUSDT",
+      "kind": "perp",
+      "archive_rows": 744,
+      "pilot_rows_including_exit": 169,
+      "duplicates": 0,
+      "missing_hour_slots": 0,
+      "timestamp_unit": "ms",
+      "price_unit": "USDT per base coin",
+      "sha256_verified": true
+    },
+    {
+      "symbol": "SOLUSDT",
+      "kind": "mark",
+      "archive_rows": 744,
+      "pilot_rows_including_exit": 169,
+      "duplicates": 0,
+      "missing_hour_slots": 0,
+      "timestamp_unit": "ms",
+      "price_unit": "USDT per base coin",
+      "sha256_verified": true
+    }
+  ]
+}

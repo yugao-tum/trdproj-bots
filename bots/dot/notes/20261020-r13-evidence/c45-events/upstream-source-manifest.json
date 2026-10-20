@@ -1,0 +1,286 @@
+{
+  "fixed_sql_commit": "dd51f6190adb6cf95a0bc4d769c106bb698916d4",
+  "sources": [
+    {
+      "file": "raw/factory-logs.json",
+      "url": "https://eth.blockscout.com/api/v2/addresses/0xcafeafb97BF8831D95C0FC659b8eB3946B101CB3/logs",
+      "kind": "actual_public_response",
+      "bytes": 47918,
+      "sha256": "a78d37da748331a15e09156dc5b2dac3fc1514826be1e8e31392139030f78859",
+      "retrieval_or_inspection_records": [
+        {
+          "record": "results/r13-opencode-go/continuation-r13-03/tool-19.json",
+          "start": "2026-10-20T09:14:19.920000+00:00"
+        },
+        {
+          "record": "results/r13-opencode-go/continuation-r13-03/tool-17.json",
+          "start": "2026-10-20T09:13:35.250000+00:00"
+        }
+      ]
+    },
+    {
+      "file": "raw/staking-events-root.sql",
+      "url": "https://raw.githubusercontent.com/NexusMutual/dune-queries/dd51f6190adb6cf95a0bc4d769c106bb698916d4/staking/base/staking-events-root.sql",
+      "kind": "fixed_commit_query_definition",
+      "bytes": 96,
+      "sha256": "878e75f3e777284dbd1d6f7dd1de72bdb60504e15a665bb8aaecab8941d0847c",
+      "retrieval_or_inspection_records": [
+        {
+          "record": "results/r13-opencode-go/continuation-r13-03/tool-10.json",
+          "start": "2026-10-20T09:05:12.419000+00:00"
+        },
+        {
+          "record": "results/r13-opencode-go/continuation-r13-03/tool-11.json",
+          "start": "2026-10-20T09:06:12+00:00"
+        },
+        {
+          "record": "results/r13-opencode-go/continuation-r13-03/tool-12.json",
+          "start": "2026-10-20T09:07:45.450000+00:00"
+        }
+      ]
+    },
+    {
+      "file": "raw/staking-pools-list.sql",
+      "url": "https://raw.githubusercontent.com/NexusMutual/dune-queries/dd51f6190adb6cf95a0bc4d769c106bb698916d4/staking/base/staking-pools-list.sql",
+      "kind": "fixed_commit_query_definition",
+      "bytes": 204,
+      "sha256": "b036accdc37f4de8af18dabeef182f3793406b303a2a67a99b4de08c622e398c",
+      "retrieval_or_inspection_records": [
+        {
+          "record": "results/r13-opencode-go/continuation-r13-03/tool-13.json",
+          "start": "2026-10-20T09:08:46.855000+00:00"
+        }
+      ]
+    },
+    {
+      "file": "raw/pool1-abi.json",
+      "url": "https://eth.blockscout.com/api?module=contract&action=getabi&address=0x4AB04d7333293ab5E752fD4D2dE0c0E88c2cA0F8",
+      "kind": "actual_public_response",
+      "bytes": 396,
+      "sha256": "ca1963cc516fd465ceaaca6968105f4d4ba90cbe9dc48c133f51b0aeff6187fc",
+      "retrieval_or_inspection_records": [
+        {
+          "record": "results/r13-opencode-go/continuation-r13-03/tool-20.json",
+          "start": "2026-10-20T09:14:58.157000+00:00"
+        },
+        {
+          "record": "results/r13-opencode-go/continuation-r13-03/tool-21.json",
+          "start": "2026-10-20T09:15:45.347000+00:00"
+        }
+      ]
+    },
+    {
+      "file": "raw/staking-events-v1.sql",
+      "url": "https://raw.githubusercontent.com/NexusMutual/dune-queries/dd51f6190adb6cf95a0bc4d769c106bb698916d4/staking/base/staking-events-v1.sql",
+      "kind": "fixed_commit_query_definition",
+      "bytes": 2042,
+      "sha256": "ef0d1d3b31ba9e5c31df75a5683badd0152c3b7f02f699ed2909d160fabb923d",
+      "retrieval_or_inspection_records": [
+        {
+          "record": "results/r13-opencode-go/continuation-r13-03/tool-13.json",
+          "start": "2026-10-20T09:08:46.855000+00:00"
+        }
+      ]
+    },
+    {
+      "file": "raw/pool1-logs-p1.json",
+      "url": "https://eth.blockscout.com/api/v2/addresses/0x4AB04d7333293ab5E752fD4D2dE0c0E88c2cA0F8/logs",
+      "kind": "actual_public_response",
+      "bytes": 70539,
+      "sha256": "bf645fdddba06711aa5721c33f690e3dd1bc98f19167970921febba6fbcd6513",
+      "retrieval_or_inspection_records": [
+        {
+          "record": "results/r13-opencode-go/continuation-r13-03/tool-24.json",
+          "start": "2026-10-20T09:16:55.249000+00:00"
+        }
+      ]
+    },
+    {
+      "file": "raw/staking-pools-base.sql",
+      "url": "https://raw.githubusercontent.com/NexusMutual/dune-queries/dd51f6190adb6cf95a0bc4d769c106bb698916d4/staking/base/staking-pools-base.sql",
+      "kind": "fixed_commit_query_definition",
+      "bytes": 8597,
+      "sha256": "05466187b9fe8d8b8b3fac706d8a12f3542fc820051829997771ae39a0188825",
+      "retrieval_or_inspection_records": [
+        {
+          "record": "results/r13-opencode-go/continuation-r13-03/tool-13.json",
+          "start": "2026-10-20T09:08:46.855000+00:00"
+        },
+        {
+          "record": "results/r13-opencode-go/continuation-r13-03/tool-14.json",
+          "start": "2026-10-20T09:09:34.188000+00:00"
+        }
+      ]
+    },
+    {
+      "file": "raw/stakingpool-commits.json",
+      "url": "https://api.github.com/repos/NexusMutual/smart-contracts/commits?path=contracts/modules/staking/StakingPool.sol&per_page=1",
+      "kind": "rate_limit_error_body",
+      "bytes": 278,
+      "sha256": "61339df6137ea4927babafa9b4bfcd2fbb8e824993e2b9a077fb09bef42b8610",
+      "retrieval_or_inspection_records": [
+        {
+          "record": "results/r13-opencode-go/continuation-r13-03/tool-25.json",
+          "start": "2026-10-20T09:17:30.833000+00:00"
+        }
+      ]
+    },
+    {
+      "file": "raw/staking-rewards.sql",
+      "url": "https://raw.githubusercontent.com/NexusMutual/dune-queries/dd51f6190adb6cf95a0bc4d769c106bb698916d4/staking/base/staking-rewards.sql",
+      "kind": "fixed_commit_query_definition",
+      "bytes": 1720,
+      "sha256": "994bfde845e0719cef7b52605ac2cd98cac42fe5715790613f967bb30b33faaf",
+      "retrieval_or_inspection_records": [
+        {
+          "record": "results/r13-opencode-go/continuation-r13-03/tool-10.json",
+          "start": "2026-10-20T09:05:12.419000+00:00"
+        },
+        {
+          "record": "results/r13-opencode-go/continuation-r13-03/tool-11.json",
+          "start": "2026-10-20T09:06:12+00:00"
+        },
+        {
+          "record": "results/r13-opencode-go/continuation-r13-03/tool-12.json",
+          "start": "2026-10-20T09:07:45.450000+00:00"
+        }
+      ]
+    },
+    {
+      "file": "raw/staking-events.sql",
+      "url": "https://raw.githubusercontent.com/NexusMutual/dune-queries/dd51f6190adb6cf95a0bc4d769c106bb698916d4/staking/base/staking-events.sql",
+      "kind": "fixed_commit_query_definition",
+      "bytes": 3332,
+      "sha256": "71c03a14980ac98d27fbd6f1d717790413c4bb506afa4c180f7a539076740839",
+      "retrieval_or_inspection_records": [
+        {
+          "record": "results/r13-opencode-go/continuation-r13-03/tool-10.json",
+          "start": "2026-10-20T09:05:12.419000+00:00"
+        },
+        {
+          "record": "results/r13-opencode-go/continuation-r13-03/tool-11.json",
+          "start": "2026-10-20T09:06:12+00:00"
+        },
+        {
+          "record": "results/r13-opencode-go/continuation-r13-03/tool-12.json",
+          "start": "2026-10-20T09:07:45.450000+00:00"
+        }
+      ]
+    },
+    {
+      "file": "raw/StakingPool.sol",
+      "url": "https://raw.githubusercontent.com/NexusMutual/smart-contracts/master/contracts/modules/staking/StakingPool.sol",
+      "kind": "mutable_master_snapshot_not_historical_proof",
+      "bytes": 49634,
+      "sha256": "79753888dc242674e3eee0663d9560298ed51ebf11f7a6e531915e9a285e4ed6",
+      "retrieval_or_inspection_records": [
+        {
+          "record": "results/r13-opencode-go/continuation-r13-03/tool-25.json",
+          "start": "2026-10-20T09:17:30.833000+00:00"
+        },
+        {
+          "record": "results/r13-opencode-go/continuation-r13-03/tool-28.json",
+          "start": "2026-10-20T09:18:33.258000+00:00"
+        },
+        {
+          "record": "results/r13-opencode-go/continuation-r13-03/tool-26.json",
+          "start": "2026-10-20T09:17:53.900000+00:00"
+        },
+        {
+          "record": "results/r13-opencode-go/continuation-r13-03/tool-27.json",
+          "start": "2026-10-20T09:18:33.160000+00:00"
+        }
+      ]
+    },
+    {
+      "file": "raw/staking-origins-chain.sql",
+      "url": "https://raw.githubusercontent.com/NexusMutual/dune-queries/dd51f6190adb6cf95a0bc4d769c106bb698916d4/staking/base/staking-origins-chain.sql",
+      "kind": "fixed_commit_query_definition",
+      "bytes": 6912,
+      "sha256": "dd2cd01ab007ef60d4a0b83876c90d29ab798992388e880e727ea4970d24f9d2",
+      "retrieval_or_inspection_records": [
+        {
+          "record": "results/r13-opencode-go/continuation-r13-03/tool-10.json",
+          "start": "2026-10-20T09:05:12.419000+00:00"
+        },
+        {
+          "record": "results/r13-opencode-go/continuation-r13-03/tool-11.json",
+          "start": "2026-10-20T09:06:12+00:00"
+        },
+        {
+          "record": "results/r13-opencode-go/continuation-r13-03/tool-12.json",
+          "start": "2026-10-20T09:07:45.450000+00:00"
+        }
+      ]
+    },
+    {
+      "file": "raw/blockscout-stats.json",
+      "url": "https://eth.blockscout.com/api/v2/stats",
+      "kind": "actual_public_response",
+      "bytes": 657,
+      "sha256": "7ec06fd9b4227296400b3ba67df24df890a548189f612c45309be9d1fc824a5b",
+      "retrieval_or_inspection_records": [
+        {
+          "record": "results/r13-opencode-go/continuation-r13-03/tool-16.json",
+          "start": "2026-10-20T09:09:47.206000+00:00"
+        }
+      ]
+    },
+    {
+      "file": "raw/staking-events-v0.sql",
+      "url": "https://raw.githubusercontent.com/NexusMutual/dune-queries/dd51f6190adb6cf95a0bc4d769c106bb698916d4/staking/base/staking-events-v0.sql",
+      "kind": "fixed_commit_query_definition",
+      "bytes": 1445,
+      "sha256": "428ee0a6e76db3f67eaa261ab2b1b09e73135702393375236da0139607d0bf8c",
+      "retrieval_or_inspection_records": [
+        {
+          "record": "results/r13-opencode-go/continuation-r13-03/tool-13.json",
+          "start": "2026-10-20T09:08:46.855000+00:00"
+        }
+      ]
+    },
+    {
+      "file": "raw/staked-nxm-per-token-tranche.sql",
+      "url": "https://raw.githubusercontent.com/NexusMutual/dune-queries/dd51f6190adb6cf95a0bc4d769c106bb698916d4/staking/base/staked-nxm-per-token-tranche.sql",
+      "kind": "fixed_commit_query_definition",
+      "bytes": 2091,
+      "sha256": "8b5089be0c1283430085564800286aeb2fe7f50c70c8474b6648ba2a3aef7eca",
+      "retrieval_or_inspection_records": [
+        {
+          "record": "results/r13-opencode-go/continuation-r13-03/tool-13.json",
+          "start": "2026-10-20T09:08:46.855000+00:00"
+        },
+        {
+          "record": "results/r13-opencode-go/continuation-r13-03/tool-14.json",
+          "start": "2026-10-20T09:09:34.188000+00:00"
+        }
+      ]
+    },
+    {
+      "file": "raw/pool1-info.json",
+      "url": "https://eth.blockscout.com/api/v2/addresses/0x4AB04d7333293ab5E752fD4D2dE0c0E88c2cA0F8",
+      "kind": "actual_public_response",
+      "bytes": 738,
+      "sha256": "4478d81d282d4ea82099b74c701a2c099c3dd843ed5ff4cd653d57135df8c7b5",
+      "retrieval_or_inspection_records": [
+        {
+          "record": "results/r13-opencode-go/continuation-r13-03/tool-22.json",
+          "start": "2026-10-20T09:15:51.529000+00:00"
+        }
+      ]
+    }
+  ],
+  "network_accounting": {
+    "prior_go_search_queries": 1,
+    "prior_go_source_attempts": 18,
+    "prior_go_dataset_requests": 2,
+    "native_search_queries": 0,
+    "native_source_attempts": 0,
+    "native_dataset_requests": 1,
+    "total_dataset_requests": 3,
+    "native_no_new_external_model_calls": true,
+    "runtime": "OpenAI native agent (exact model identifier not exposed)",
+    "cost": null
+  },
+  "access_note": "Tool timestamps include inspection records, not necessarily retrieval; exact retained records listed. Full bodies retained, no downloaded body truncation. New native403 headers/body not captured, reset unknown."
+}

@@ -1,0 +1,17 @@
+[
+  {
+    "url": "https://www.bitstamp.net/api/v2/ohlc/usdcusd/?step=60&limit=180&end=1769018399&exclude_current_candle=true",
+    "accessed_at": "2026-10-20T08:50:16.213431+00:00",
+    "status": 200,
+    "sha256": "22bd444a5f33bd149a6af5984dbbc66379030810e716b51eac83a4c43c4074a9",
+    "bytes": 22779
+  },
+  {
+    "url": "https://www.bitstamp.net/api/",
+    "accessed_at": "2026-10-20T08:50:45.320209+00:00",
+    "status": 200,
+    "sha256": "7eb2ceec6160dd86cb07bfbd46aad6b403c021f34ccb754561021067916f263f",
+    "bytes": 2018462,
+    "purpose": "official documentation archive; public OHLC resolution and transaction parameter limits"
+  }
+]

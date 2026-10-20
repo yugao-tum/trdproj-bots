@@ -1,0 +1,17 @@
+test_actual_burn (__main__.SignedTests.test_actual_burn) ... ok
+test_actual_no_withdraw (__main__.SignedTests.test_actual_no_withdraw) ... ok
+test_burn_not_cash (__main__.SignedTests.test_burn_not_cash) ... ok
+test_conflict (__main__.SignedTests.test_conflict) ... ok
+test_deposit (__main__.SignedTests.test_deposit) ... ok
+test_duplicate (__main__.SignedTests.test_duplicate) ... ok
+test_extension_topup_only (__main__.SignedTests.test_extension_topup_only) ... ok
+test_manager_separate (__main__.SignedTests.test_manager_separate) ... ok
+test_negative_precision (__main__.SignedTests.test_negative_precision) ... ok
+test_precision (__main__.SignedTests.test_precision) ... ok
+test_reward_only (__main__.SignedTests.test_reward_only) ... ok
+test_withdraw_sign (__main__.SignedTests.test_withdraw_sign) ... ok
+
+----------------------------------------------------------------------
+Ran 12 tests in 0.004s
+
+OK

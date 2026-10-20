@@ -1,0 +1,75 @@
+{
+  "claim": "C45",
+  "status": "draft_partial_authentic_events",
+  "complete_origin_lifecycles": 0,
+  "actual_holder_return": null,
+  "qualified": false,
+  "raw_factory_rows": 32,
+  "raw_pool_rows": 50,
+  "pool_rows_actually_normalized": 50,
+  "factory_rows_used_for_holder_cashflow": 0,
+  "new_native_actual_rows": 0,
+  "event_counts": {
+    "ActiveStakeUpdated": 33,
+    "Deallocated": 12,
+    "TrancheExpired": 1,
+    "BucketExpired": 3,
+    "StakeBurned": 1
+  },
+  "pool_burns": [
+    {
+      "block_number": 26196115,
+      "log_index": 1169,
+      "tx_hash": "0xe20af45fc716800f39dcd717be58a982fba5445a0abf4d5ef484172dcf14a68c",
+      "timestamp": "2026-10-15T06:27:11.000000Z",
+      "pool_address": "0x4AB04d7333293ab5E752fD4D2dE0c0E88c2cA0F8",
+      "event": "StakeBurned",
+      "token_id": null,
+      "tranche_id": null,
+      "user": null,
+      "parameters": {
+        "amount": "10467512119445769616653"
+      },
+      "pool_principal_delta_base": "-10467512119445769616653",
+      "holder_principal_cash_base": null,
+      "holder_reward_cash_base": null,
+      "manager_reward_cash_base": null,
+      "amount_nxm": "10467.512119445769616653"
+    }
+  ],
+  "pagination_complete": false,
+  "next_page_params": {
+    "index": 19,
+    "block_number": 25504772,
+    "items_count": 50
+  },
+  "ordering": [
+    "block_number",
+    "log_index"
+  ],
+  "units": "NXM base units; 1 NXM = 10^18; integer calculations",
+  "semantics": {
+    "pool_delta": "deposit positive; withdrawal/burn negative",
+    "holder_cash": "deposit negative; withdrawn principal and rewards positive; pool burn is not an immediate holder cash movement",
+    "manager_fee": "tokenId 0 reward withdrawals separate; no observed fee rows",
+    "reward": "expected minted/accrued reward is not holder receipt; genuine Withdraw still requires receipt success and NXM transfer reconciliation"
+  },
+  "missing": [
+    "origin StakeDeposited and DepositExtended history keyed by token/tranche",
+    "Withdraw including zero-principal reward-only rows",
+    "NFT ownership/transfer chain and origin ownership continuity",
+    "complete pool share history to allocate pool-level burn",
+    "historical implementation identity and successful receipts/actual NXM transfers",
+    "manager fee actual withdrawal rows and fee-state history"
+  ],
+  "source_limits": [
+    "Blockscout pagination denied HTTP403; stopped after one request; no alternative route",
+    "GitHub commit metadata rate-limited403 earlier; reset unknown; no native retry",
+    "StakingPool.sol is master snapshot only, not fixed commit or historical implementation proof",
+    "fixed staking-events.sql excludes Withdraw rows when amountStakeWithdrawn=0 and does not select rewards",
+    "fixed reward SQL describes expected accrual, not actual recipient cash"
+  ],
+  "native_requests": 1,
+  "native_model": "inherited OpenAI native agent; exact model identifier not exposed",
+  "native_cost": null
+}

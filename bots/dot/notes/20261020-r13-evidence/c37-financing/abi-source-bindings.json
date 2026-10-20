@@ -1,0 +1,1588 @@
+{
+  "sources": [
+    {
+      "file": "atoken.json",
+      "url": "https://github.com/aave/aave-v3-core/blob/v1.19.3/contracts/interfaces/IAToken.sol",
+      "git_blob_sha": "1379dff683f64ac5d67f039d20ba17928f030d93",
+      "content_sha256": "733f1d6bb69f95d7a67b2eab85df53f25f63c7de109b673de7159d235488e127"
+    },
+    {
+      "file": "balancer-address.json",
+      "url": "https://github.com/balancer/balancer-deployments/blob/master/v2/tasks/20210418-vault/output/mainnet.json",
+      "git_blob_sha": "609ec8f9c52e777ed030619233dee0f4a0f420e9",
+      "content_sha256": "b6b5902fded10153635612749027f3d26aee76f9e8ae8fa1f0feb2ed947da49f"
+    },
+    {
+      "file": "erc20.json",
+      "url": "https://github.com/OpenZeppelin/openzeppelin-contracts/blob/v4.9.6/contracts/token/ERC20/IERC20.sol",
+      "git_blob_sha": "6d5b4e9f1968c2af847980b1bdbfd75511f26f22",
+      "content_sha256": "7ebde70853ccafcf1876900dad458f46eb9444d591d39bfc58e952e2582f5587"
+    },
+    {
+      "file": "gho.json",
+      "url": "https://github.com/aave/gho-core/blob/main/src/contracts/gho/interfaces/IGhoToken.sol",
+      "git_blob_sha": "dcbd9780b9c0ac9569ebe36a9f71d13f2863abe3",
+      "content_sha256": "63f2b1178d27594d464fd3ea6b06ec3d71f465e444da688afb967e6aad1262cf"
+    },
+    {
+      "file": "ipool-origin.json",
+      "url": "https://github.com/aave-dao/aave-v3-origin/blob/main/src/contracts/interfaces/IPool.sol",
+      "git_blob_sha": "2f2b88e7c55ff989f9b6c02850be2eaec66d6690",
+      "content_sha256": "ee58bacafc0b033adeaf673da3b08130d9f3a9a3eb563f7f19a03240e488eba7"
+    },
+    {
+      "file": "ipool.json",
+      "url": "https://github.com/aave/aave-v3-core/blob/v1.19.3/contracts/interfaces/IPool.sol",
+      "git_blob_sha": "ef306e737f93a6ae9a4e54fb2ed3684aee35b64f",
+      "content_sha256": "d708ba2c3cf29fe81083b7b8127ef61b7d750dc017399ebaa2951d6f61a93dda"
+    },
+    {
+      "file": "scaled.json",
+      "url": "https://github.com/aave/aave-v3-core/blob/v1.19.3/contracts/interfaces/IScaledBalanceToken.sol",
+      "git_blob_sha": "fe311fbb124e44d7ebef02987d88610bc80aabd5",
+      "content_sha256": "6dbe39f0e2e0855e1fe4d8944a068b365d19132d817e38352011ce865448fc21"
+    },
+    {
+      "file": "uni-v2.json",
+      "url": "https://github.com/Uniswap/v2-core/blob/v1.0.1/contracts/interfaces/IUniswapV2Pair.sol",
+      "git_blob_sha": "762dd4d008025b3cec782c8a87981c749ae4d2f4",
+      "content_sha256": "29c75e69ce173ff8b498584700fef76bc81498c1d98120e2877a1439f0c31b5a"
+    },
+    {
+      "file": "uni-v3.json",
+      "url": "https://github.com/Uniswap/v3-core/blob/v1.0.0/contracts/interfaces/pool/IUniswapV3PoolEvents.sol",
+      "git_blob_sha": "9d915dde934fc7a0430195f29bb2172c47783a3d",
+      "content_sha256": "2c2b798ca4288dfdf746bca8516b4e725b79ca6636af3d38a5a64801e50020a7"
+    },
+    {
+      "file": "vault-pinned.json",
+      "url": "https://github.com/balancer/balancer-v2-monorepo/blob/e91a2b643a49856f51a648d175667c1b48cf3377/pkg/interfaces/contracts/vault/IVault.sol",
+      "git_blob_sha": "c55f9d25c1a0b76975ca03229302f0c76a7608c7",
+      "content_sha256": "95ff30b5a5a72ec7287a734738231422e4688052daeab0a18f2a2a6129f0300a"
+    }
+  ],
+  "schemas": {
+    "0x4beccb90f994c31aced7a23b5611020728a23d8ec5cddd1a3e9d97b96fda8666": {
+      "name": "BalanceTransfer",
+      "signature": "BalanceTransfer(address,address,uint256,uint256)",
+      "fields": [
+        [
+          "address",
+          "from",
+          true
+        ],
+        [
+          "address",
+          "to",
+          true
+        ],
+        [
+          "uint256",
+          "value",
+          false
+        ],
+        [
+          "uint256",
+          "index",
+          false
+        ]
+      ],
+      "source_file": "atoken.json"
+    },
+    "0xddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3ef": {
+      "name": "Transfer",
+      "signature": "Transfer(address,address,uint256)",
+      "fields": [
+        [
+          "address",
+          "from",
+          true
+        ],
+        [
+          "address",
+          "to",
+          true
+        ],
+        [
+          "uint256",
+          "value",
+          false
+        ]
+      ],
+      "source_file": "erc20.json"
+    },
+    "0x8c5be1e5ebec7d5bd14f71427d1e84f3dd0314c0f7b2291e5b200ac8c7c3b925": {
+      "name": "Approval",
+      "signature": "Approval(address,address,uint256)",
+      "fields": [
+        [
+          "address",
+          "owner",
+          true
+        ],
+        [
+          "address",
+          "spender",
+          true
+        ],
+        [
+          "uint256",
+          "value",
+          false
+        ]
+      ],
+      "source_file": "erc20.json"
+    },
+    "0xdabd62626ada7b13e299389e94d768b294e5e24285ed2ffa1e5cd447c99c54ad": {
+      "name": "FacilitatorAdded",
+      "signature": "FacilitatorAdded(address,bytes32,uint256)",
+      "fields": [
+        [
+          "address",
+          "facilitatorAddress",
+          true
+        ],
+        [
+          "bytes32",
+          "label",
+          true
+        ],
+        [
+          "uint256",
+          "bucketCapacity",
+          false
+        ]
+      ],
+      "source_file": "gho.json"
+    },
+    "0xa8fe5b89f35f2ebd6f3f95a7ef215f4bd89179e10c101073ae76cffad14734cf": {
+      "name": "FacilitatorRemoved",
+      "signature": "FacilitatorRemoved(address)",
+      "fields": [
+        [
+          "address",
+          "facilitatorAddress",
+          true
+        ]
+      ],
+      "source_file": "gho.json"
+    },
+    "0xc795c0a4927c3b6645e4e49a5a519af936b3c1c0e4c323a3f7251063f3f4bb0e": {
+      "name": "FacilitatorBucketCapacityUpdated",
+      "signature": "FacilitatorBucketCapacityUpdated(address,uint256,uint256)",
+      "fields": [
+        [
+          "address",
+          "facilitatorAddress",
+          true
+        ],
+        [
+          "uint256",
+          "oldCapacity",
+          false
+        ],
+        [
+          "uint256",
+          "newCapacity",
+          false
+        ]
+      ],
+      "source_file": "gho.json"
+    },
+    "0xacb6de9209e4f34974cb165eef5738f0cf0b4ea9819ef30d30f0f7d81272ab82": {
+      "name": "FacilitatorBucketLevelUpdated",
+      "signature": "FacilitatorBucketLevelUpdated(address,uint256,uint256)",
+      "fields": [
+        [
+          "address",
+          "facilitatorAddress",
+          true
+        ],
+        [
+          "uint256",
+          "oldLevel",
+          false
+        ],
+        [
+          "uint256",
+          "newLevel",
+          false
+        ]
+      ],
+      "source_file": "gho.json"
+    },
+    "0x2b627736bca15cd5381dcf80b0bf11fd197d01a037c52b927a881a10fb73ba61": {
+      "name": "Supply",
+      "signature": "Supply(address,address,address,uint256,uint16)",
+      "fields": [
+        [
+          "address",
+          "reserve",
+          true
+        ],
+        [
+          "address",
+          "user",
+          false
+        ],
+        [
+          "address",
+          "onBehalfOf",
+          true
+        ],
+        [
+          "uint256",
+          "amount",
+          false
+        ],
+        [
+          "uint16",
+          "referralCode",
+          true
+        ]
+      ],
+      "source_file": "ipool.json"
+    },
+    "0x3115d1449a7b732c986cba18244e897a450f61e1bb8d589cd2e69e6c8924f9f7": {
+      "name": "Withdraw",
+      "signature": "Withdraw(address,address,address,uint256)",
+      "fields": [
+        [
+          "address",
+          "reserve",
+          true
+        ],
+        [
+          "address",
+          "user",
+          true
+        ],
+        [
+          "address",
+          "to",
+          true
+        ],
+        [
+          "uint256",
+          "amount",
+          false
+        ]
+      ],
+      "source_file": "ipool.json"
+    },
+    "0xb3d084820fb1a9decffb176436bd02558d15fac9b0ddfed8c465bc7359d7dce0": {
+      "name": "Borrow",
+      "signature": "Borrow(address,address,address,uint256,uint8,uint256,uint16)",
+      "fields": [
+        [
+          "address",
+          "reserve",
+          true
+        ],
+        [
+          "address",
+          "user",
+          false
+        ],
+        [
+          "address",
+          "onBehalfOf",
+          true
+        ],
+        [
+          "uint256",
+          "amount",
+          false
+        ],
+        [
+          "uint8",
+          "interestRateMode",
+          false
+        ],
+        [
+          "uint256",
+          "borrowRate",
+          false
+        ],
+        [
+          "uint16",
+          "referralCode",
+          true
+        ]
+      ],
+      "source_file": "ipool.json"
+    },
+    "0xa534c8dbe71f871f9f3530e97a74601fea17b426cae02e1c5aee42c96c784051": {
+      "name": "Repay",
+      "signature": "Repay(address,address,address,uint256,bool)",
+      "fields": [
+        [
+          "address",
+          "reserve",
+          true
+        ],
+        [
+          "address",
+          "user",
+          true
+        ],
+        [
+          "address",
+          "repayer",
+          true
+        ],
+        [
+          "uint256",
+          "amount",
+          false
+        ],
+        [
+          "bool",
+          "useATokens",
+          false
+        ]
+      ],
+      "source_file": "ipool.json"
+    },
+    "0xd728da875fc88944cbf17638bcbe4af0eedaef63becd1d1c57cc097eb4608d84": {
+      "name": "UserEModeSet",
+      "signature": "UserEModeSet(address,uint8)",
+      "fields": [
+        [
+          "address",
+          "user",
+          true
+        ],
+        [
+          "uint8",
+          "categoryId",
+          false
+        ]
+      ],
+      "source_file": "ipool.json"
+    },
+    "0x00058a56ea94653cdf4f152d227ace22d4c00ad99e2a43f58cb7d9e3feb295f2": {
+      "name": "ReserveUsedAsCollateralEnabled",
+      "signature": "ReserveUsedAsCollateralEnabled(address,address)",
+      "fields": [
+        [
+          "address",
+          "reserve",
+          true
+        ],
+        [
+          "address",
+          "user",
+          true
+        ]
+      ],
+      "source_file": "ipool.json"
+    },
+    "0x44c58d81365b66dd4b1a7f36c25aa97b8c71c361ee4937adc1a00000227db5dd": {
+      "name": "ReserveUsedAsCollateralDisabled",
+      "signature": "ReserveUsedAsCollateralDisabled(address,address)",
+      "fields": [
+        [
+          "address",
+          "reserve",
+          true
+        ],
+        [
+          "address",
+          "user",
+          true
+        ]
+      ],
+      "source_file": "ipool.json"
+    },
+    "0xefefaba5e921573100900a3ad9cf29f222d995fb3b6045797eaea7521bd8d6f0": {
+      "name": "FlashLoan",
+      "signature": "FlashLoan(address,address,address,uint256,uint8,uint256,uint16)",
+      "fields": [
+        [
+          "address",
+          "target",
+          true
+        ],
+        [
+          "address",
+          "initiator",
+          false
+        ],
+        [
+          "address",
+          "asset",
+          true
+        ],
+        [
+          "uint256",
+          "amount",
+          false
+        ],
+        [
+          "uint8",
+          "interestRateMode",
+          false
+        ],
+        [
+          "uint256",
+          "premium",
+          false
+        ],
+        [
+          "uint16",
+          "referralCode",
+          true
+        ]
+      ],
+      "source_file": "ipool.json"
+    },
+    "0xe413a321e8681d831f4dbccbca790d2952b56f977908e45be37335533e005286": {
+      "name": "LiquidationCall",
+      "signature": "LiquidationCall(address,address,address,uint256,uint256,address,bool)",
+      "fields": [
+        [
+          "address",
+          "collateralAsset",
+          true
+        ],
+        [
+          "address",
+          "debtAsset",
+          true
+        ],
+        [
+          "address",
+          "user",
+          true
+        ],
+        [
+          "uint256",
+          "debtToCover",
+          false
+        ],
+        [
+          "uint256",
+          "liquidatedCollateralAmount",
+          false
+        ],
+        [
+          "address",
+          "liquidator",
+          false
+        ],
+        [
+          "bool",
+          "receiveAToken",
+          false
+        ]
+      ],
+      "source_file": "ipool.json"
+    },
+    "0x804c9b842b2748a22bb64b345453a3de7ca54a6ca45ce00d415894979e22897a": {
+      "name": "ReserveDataUpdated",
+      "signature": "ReserveDataUpdated(address,uint256,uint256,uint256,uint256,uint256)",
+      "fields": [
+        [
+          "address",
+          "reserve",
+          true
+        ],
+        [
+          "uint256",
+          "liquidityRate",
+          false
+        ],
+        [
+          "uint256",
+          "stableBorrowRate",
+          false
+        ],
+        [
+          "uint256",
+          "variableBorrowRate",
+          false
+        ],
+        [
+          "uint256",
+          "liquidityIndex",
+          false
+        ],
+        [
+          "uint256",
+          "variableBorrowIndex",
+          false
+        ]
+      ],
+      "source_file": "ipool.json"
+    },
+    "0x84b203e49f1a4b553088061534231969a68ad1c81be192205e96d23a206cb26a": {
+      "name": "DeficitCovered",
+      "signature": "DeficitCovered(address,address,uint256)",
+      "fields": [
+        [
+          "address",
+          "reserve",
+          true
+        ],
+        [
+          "address",
+          "caller",
+          false
+        ],
+        [
+          "uint256",
+          "amountCovered",
+          false
+        ]
+      ],
+      "source_file": "ipool-origin.json"
+    },
+    "0xbfa21aa5d5f9a1f0120a95e7c0749f389863cbdbfff531aa7339077a5bc919de": {
+      "name": "MintedToTreasury",
+      "signature": "MintedToTreasury(address,uint256)",
+      "fields": [
+        [
+          "address",
+          "reserve",
+          true
+        ],
+        [
+          "uint256",
+          "amountMinted",
+          false
+        ]
+      ],
+      "source_file": "ipool.json"
+    },
+    "0x2bccfb3fad376d59d7accf970515eb77b2f27b082c90ed0fb15583dd5a942699": {
+      "name": "DeficitCreated",
+      "signature": "DeficitCreated(address,address,uint256)",
+      "fields": [
+        [
+          "address",
+          "user",
+          true
+        ],
+        [
+          "address",
+          "debtAsset",
+          true
+        ],
+        [
+          "uint256",
+          "amountCreated",
+          false
+        ]
+      ],
+      "source_file": "ipool-origin.json"
+    },
+    "0x540e692f36c2fa13e7583c4deeffd91ce6bc04f91e7d84f295d9d858372875fc": {
+      "name": "PositionManagerApproved",
+      "signature": "PositionManagerApproved(address,address)",
+      "fields": [
+        [
+          "address",
+          "user",
+          true
+        ],
+        [
+          "address",
+          "positionManager",
+          true
+        ]
+      ],
+      "source_file": "ipool-origin.json"
+    },
+    "0x08c92c3870d10c79e9673fecea8f4ff261f8e6b661067d9ca63fd777882bff15": {
+      "name": "PositionManagerRevoked",
+      "signature": "PositionManagerRevoked(address,address)",
+      "fields": [
+        [
+          "address",
+          "user",
+          true
+        ],
+        [
+          "address",
+          "positionManager",
+          true
+        ]
+      ],
+      "source_file": "ipool-origin.json"
+    },
+    "0xf25af37b3d3ec226063dc9bdc103ece7eb110a50f340fe854bb7bc1b0676d7d0": {
+      "name": "MintUnbacked",
+      "signature": "MintUnbacked(address,address,address,uint256,uint16)",
+      "fields": [
+        [
+          "address",
+          "reserve",
+          true
+        ],
+        [
+          "address",
+          "user",
+          false
+        ],
+        [
+          "address",
+          "onBehalfOf",
+          true
+        ],
+        [
+          "uint256",
+          "amount",
+          false
+        ],
+        [
+          "uint16",
+          "referralCode",
+          true
+        ]
+      ],
+      "source_file": "ipool.json"
+    },
+    "0x281596e92b2d974beb7d4f124df30a0b39067b096893e95011ce4bdad798b759": {
+      "name": "BackUnbacked",
+      "signature": "BackUnbacked(address,address,uint256,uint256)",
+      "fields": [
+        [
+          "address",
+          "reserve",
+          true
+        ],
+        [
+          "address",
+          "backer",
+          true
+        ],
+        [
+          "uint256",
+          "amount",
+          false
+        ],
+        [
+          "uint256",
+          "fee",
+          false
+        ]
+      ],
+      "source_file": "ipool.json"
+    },
+    "0x7962b394d85a534033ba2efcf43cd36de57b7ebeb3de0ca4428965d9b3ddc481": {
+      "name": "SwapBorrowRateMode",
+      "signature": "SwapBorrowRateMode(address,address,uint8)",
+      "fields": [
+        [
+          "address",
+          "reserve",
+          true
+        ],
+        [
+          "address",
+          "user",
+          true
+        ],
+        [
+          "uint8",
+          "interestRateMode",
+          false
+        ]
+      ],
+      "source_file": "ipool.json"
+    },
+    "0xaef84d3b40895fd58c561f3998000f0583abb992a52fbdc99ace8e8de4d676a5": {
+      "name": "IsolationModeTotalDebtUpdated",
+      "signature": "IsolationModeTotalDebtUpdated(address,uint256)",
+      "fields": [
+        [
+          "address",
+          "asset",
+          true
+        ],
+        [
+          "uint256",
+          "totalDebt",
+          false
+        ]
+      ],
+      "source_file": "ipool.json"
+    },
+    "0x9f439ae0c81e41a04d3fdfe07aed54e6a179fb0db15be7702eb66fa8ef6f5300": {
+      "name": "RebalanceStableBorrowRate",
+      "signature": "RebalanceStableBorrowRate(address,address)",
+      "fields": [
+        [
+          "address",
+          "reserve",
+          true
+        ],
+        [
+          "address",
+          "user",
+          true
+        ]
+      ],
+      "source_file": "ipool.json"
+    },
+    "0x458f5fa412d0f69b08dd84872b0215675cc67bc1d5b6fd93300a1c3878b86196": {
+      "name": "Mint",
+      "signature": "Mint(address,address,uint256,uint256,uint256)",
+      "fields": [
+        [
+          "address",
+          "caller",
+          true
+        ],
+        [
+          "address",
+          "onBehalfOf",
+          true
+        ],
+        [
+          "uint256",
+          "value",
+          false
+        ],
+        [
+          "uint256",
+          "balanceIncrease",
+          false
+        ],
+        [
+          "uint256",
+          "index",
+          false
+        ]
+      ],
+      "source_file": "scaled.json"
+    },
+    "0x4cf25bc1d991c17529c25213d3cc0cda295eeaad5f13f361969b12ea48015f90": {
+      "name": "Burn",
+      "signature": "Burn(address,address,uint256,uint256,uint256)",
+      "fields": [
+        [
+          "address",
+          "from",
+          true
+        ],
+        [
+          "address",
+          "target",
+          true
+        ],
+        [
+          "uint256",
+          "value",
+          false
+        ],
+        [
+          "uint256",
+          "balanceIncrease",
+          false
+        ],
+        [
+          "uint256",
+          "index",
+          false
+        ]
+      ],
+      "source_file": "scaled.json"
+    },
+    "0x79236a0cb516e4a8800fe3ac58e17c1eeb924b29658a461c9e65ed41d7db88f4": {
+      "name": "Approval",
+      "signature": "Approval(address,address,uint)",
+      "fields": [
+        [
+          "address",
+          "owner",
+          true
+        ],
+        [
+          "address",
+          "spender",
+          true
+        ],
+        [
+          "uint",
+          "value",
+          false
+        ]
+      ],
+      "source_file": "uni-v2.json"
+    },
+    "0x930a61a57a70a73c2a503615b87e2e54fe5b9cdeacda518270b852296ab1a377": {
+      "name": "Transfer",
+      "signature": "Transfer(address,address,uint)",
+      "fields": [
+        [
+          "address",
+          "from",
+          true
+        ],
+        [
+          "address",
+          "to",
+          true
+        ],
+        [
+          "uint",
+          "value",
+          false
+        ]
+      ],
+      "source_file": "uni-v2.json"
+    },
+    "0x92fc9586b1c52be041e5a4c98ac9a8dc37bc10a02742e25db11495ec9818f018": {
+      "name": "Mint",
+      "signature": "Mint(address,uint,uint)",
+      "fields": [
+        [
+          "address",
+          "sender",
+          true
+        ],
+        [
+          "uint",
+          "amount0",
+          false
+        ],
+        [
+          "uint",
+          "amount1",
+          false
+        ]
+      ],
+      "source_file": "uni-v2.json"
+    },
+    "0x9997fadbe0b8ea492821e9b2299fde163716fa1d2b3630ba49a36339959ef74f": {
+      "name": "Burn",
+      "signature": "Burn(address,uint,uint,address)",
+      "fields": [
+        [
+          "address",
+          "sender",
+          true
+        ],
+        [
+          "uint",
+          "amount0",
+          false
+        ],
+        [
+          "uint",
+          "amount1",
+          false
+        ],
+        [
+          "address",
+          "to",
+          true
+        ]
+      ],
+      "source_file": "uni-v2.json"
+    },
+    "0x6d5619a2e2e254d510791e7e32a52f62c4286d0e0088bae5664c642b9a513f02": {
+      "name": "Swap",
+      "signature": "Swap(address,uint,uint,uint,uint,address)",
+      "fields": [
+        [
+          "address",
+          "sender",
+          true
+        ],
+        [
+          "uint",
+          "amount0In",
+          false
+        ],
+        [
+          "uint",
+          "amount1In",
+          false
+        ],
+        [
+          "uint",
+          "amount0Out",
+          false
+        ],
+        [
+          "uint",
+          "amount1Out",
+          false
+        ],
+        [
+          "address",
+          "to",
+          true
+        ]
+      ],
+      "source_file": "uni-v2.json"
+    },
+    "0x1c411e9a96e071241c2f21f7726b17ae89e3cab4c78be50e062b03a9fffbbad1": {
+      "name": "Sync",
+      "signature": "Sync(uint112,uint112)",
+      "fields": [
+        [
+          "uint112",
+          "reserve0",
+          false
+        ],
+        [
+          "uint112",
+          "reserve1",
+          false
+        ]
+      ],
+      "source_file": "uni-v2.json"
+    },
+    "0x98636036cb66a9c19a37435efc1e90142190214e8abeb821bdba3f2990dd4c95": {
+      "name": "Initialize",
+      "signature": "Initialize(uint160,int24)",
+      "fields": [
+        [
+          "uint160",
+          "sqrtPriceX96",
+          false
+        ],
+        [
+          "int24",
+          "tick",
+          false
+        ]
+      ],
+      "source_file": "uni-v3.json"
+    },
+    "0x7a53080ba414158be7ec69b987b5fb7d07dee101fe85488f0853ae16239d0bde": {
+      "name": "Mint",
+      "signature": "Mint(address,address,int24,int24,uint128,uint256,uint256)",
+      "fields": [
+        [
+          "address",
+          "sender",
+          false
+        ],
+        [
+          "address",
+          "owner",
+          true
+        ],
+        [
+          "int24",
+          "tickLower",
+          true
+        ],
+        [
+          "int24",
+          "tickUpper",
+          true
+        ],
+        [
+          "uint128",
+          "amount",
+          false
+        ],
+        [
+          "uint256",
+          "amount0",
+          false
+        ],
+        [
+          "uint256",
+          "amount1",
+          false
+        ]
+      ],
+      "source_file": "uni-v3.json"
+    },
+    "0x70935338e69775456a85ddef226c395fb668b63fa0115f5f20610b388e6ca9c0": {
+      "name": "Collect",
+      "signature": "Collect(address,address,int24,int24,uint128,uint128)",
+      "fields": [
+        [
+          "address",
+          "owner",
+          true
+        ],
+        [
+          "address",
+          "recipient",
+          false
+        ],
+        [
+          "int24",
+          "tickLower",
+          true
+        ],
+        [
+          "int24",
+          "tickUpper",
+          true
+        ],
+        [
+          "uint128",
+          "amount0",
+          false
+        ],
+        [
+          "uint128",
+          "amount1",
+          false
+        ]
+      ],
+      "source_file": "uni-v3.json"
+    },
+    "0x0c396cd989a39f4459b5fa1aed6a9a8dcdbc45908acfd67e028cd568da98982c": {
+      "name": "Burn",
+      "signature": "Burn(address,int24,int24,uint128,uint256,uint256)",
+      "fields": [
+        [
+          "address",
+          "owner",
+          true
+        ],
+        [
+          "int24",
+          "tickLower",
+          true
+        ],
+        [
+          "int24",
+          "tickUpper",
+          true
+        ],
+        [
+          "uint128",
+          "amount",
+          false
+        ],
+        [
+          "uint256",
+          "amount0",
+          false
+        ],
+        [
+          "uint256",
+          "amount1",
+          false
+        ]
+      ],
+      "source_file": "uni-v3.json"
+    },
+    "0xc42079f94a6350d7e6235f29174924f928cc2ac818eb64fed8004e115fbcca67": {
+      "name": "Swap",
+      "signature": "Swap(address,address,int256,int256,uint160,uint128,int24)",
+      "fields": [
+        [
+          "address",
+          "sender",
+          true
+        ],
+        [
+          "address",
+          "recipient",
+          true
+        ],
+        [
+          "int256",
+          "amount0",
+          false
+        ],
+        [
+          "int256",
+          "amount1",
+          false
+        ],
+        [
+          "uint160",
+          "sqrtPriceX96",
+          false
+        ],
+        [
+          "uint128",
+          "liquidity",
+          false
+        ],
+        [
+          "int24",
+          "tick",
+          false
+        ]
+      ],
+      "source_file": "uni-v3.json"
+    },
+    "0xbdbdb71d7860376ba52b25a5028beea23581364a40522f6bcfb86bb1f2dca633": {
+      "name": "Flash",
+      "signature": "Flash(address,address,uint256,uint256,uint256,uint256)",
+      "fields": [
+        [
+          "address",
+          "sender",
+          true
+        ],
+        [
+          "address",
+          "recipient",
+          true
+        ],
+        [
+          "uint256",
+          "amount0",
+          false
+        ],
+        [
+          "uint256",
+          "amount1",
+          false
+        ],
+        [
+          "uint256",
+          "paid0",
+          false
+        ],
+        [
+          "uint256",
+          "paid1",
+          false
+        ]
+      ],
+      "source_file": "uni-v3.json"
+    },
+    "0xac49e518f90a358f652e4400164f05a5d8f7e35e7747279bc3a93dbf584e125a": {
+      "name": "IncreaseObservationCardinalityNext",
+      "signature": "IncreaseObservationCardinalityNext(uint16,uint16)",
+      "fields": [
+        [
+          "uint16",
+          "observationCardinalityNextOld",
+          false
+        ],
+        [
+          "uint16",
+          "observationCardinalityNextNew",
+          false
+        ]
+      ],
+      "source_file": "uni-v3.json"
+    },
+    "0x973d8d92bb299f4af6ce49b52a8adb85ae46b9f214c4c4fc06ac77401237b133": {
+      "name": "SetFeeProtocol",
+      "signature": "SetFeeProtocol(uint8,uint8,uint8,uint8)",
+      "fields": [
+        [
+          "uint8",
+          "feeProtocol0Old",
+          false
+        ],
+        [
+          "uint8",
+          "feeProtocol1Old",
+          false
+        ],
+        [
+          "uint8",
+          "feeProtocol0New",
+          false
+        ],
+        [
+          "uint8",
+          "feeProtocol1New",
+          false
+        ]
+      ],
+      "source_file": "uni-v3.json"
+    },
+    "0x596b573906218d3411850b26a6b437d6c4522fdb43d2d2386263f86d50b8b151": {
+      "name": "CollectProtocol",
+      "signature": "CollectProtocol(address,address,uint128,uint128)",
+      "fields": [
+        [
+          "address",
+          "sender",
+          true
+        ],
+        [
+          "address",
+          "recipient",
+          true
+        ],
+        [
+          "uint128",
+          "amount0",
+          false
+        ],
+        [
+          "uint128",
+          "amount1",
+          false
+        ]
+      ],
+      "source_file": "uni-v3.json"
+    },
+    "0x94b979b6831a51293e2641426f97747feed46f17779fed9cd18d1ecefcfe92ef": {
+      "name": "AuthorizerChanged",
+      "signature": "AuthorizerChanged(address)",
+      "fields": [
+        [
+          "address",
+          "newAuthorizer",
+          true
+        ]
+      ],
+      "source_file": "vault-pinned.json"
+    },
+    "0x46961fdb4502b646d5095fba7600486a8ac05041d55cdf0f16ed677180b5cad8": {
+      "name": "RelayerApprovalChanged",
+      "signature": "RelayerApprovalChanged(address,address,bool)",
+      "fields": [
+        [
+          "address",
+          "relayer",
+          true
+        ],
+        [
+          "address",
+          "sender",
+          true
+        ],
+        [
+          "bool",
+          "approved",
+          false
+        ]
+      ],
+      "source_file": "vault-pinned.json"
+    },
+    "0x18e1ea4139e68413d7d08aa752e71568e36b2c5bf940893314c2c5b01eaa0c42": {
+      "name": "InternalBalanceChanged",
+      "signature": "InternalBalanceChanged(address,address,int256)",
+      "fields": [
+        [
+          "address",
+          "user",
+          true
+        ],
+        [
+          "address",
+          "token",
+          true
+        ],
+        [
+          "int256",
+          "delta",
+          false
+        ]
+      ],
+      "source_file": "vault-pinned.json"
+    },
+    "0x540a1a3f28340caec336c81d8d7b3df139ee5cdc1839a4f283d7ebb7eaae2d5c": {
+      "name": "ExternalBalanceTransfer",
+      "signature": "ExternalBalanceTransfer(address,address,address,uint256)",
+      "fields": [
+        [
+          "address",
+          "token",
+          true
+        ],
+        [
+          "address",
+          "sender",
+          true
+        ],
+        [
+          "address",
+          "recipient",
+          false
+        ],
+        [
+          "uint256",
+          "amount",
+          false
+        ]
+      ],
+      "source_file": "vault-pinned.json"
+    },
+    "0x3c13bc30b8e878c53fd2a36b679409c073afd75950be43d8858768e956fbc20e": {
+      "name": "PoolRegistered",
+      "signature": "PoolRegistered(bytes32,address,uint8)",
+      "fields": [
+        [
+          "bytes32",
+          "poolId",
+          true
+        ],
+        [
+          "address",
+          "poolAddress",
+          true
+        ],
+        [
+          "uint8",
+          "specialization",
+          false
+        ]
+      ],
+      "source_file": "vault-pinned.json"
+    },
+    "0xf5847d3f2197b16cdcd2098ec95d0905cd1abdaf415f07bb7cef2bba8ac5dec4": {
+      "name": "TokensRegistered",
+      "signature": "TokensRegistered(bytes32,address[],address[])",
+      "fields": [
+        [
+          "bytes32",
+          "poolId",
+          true
+        ],
+        [
+          "address[]",
+          "tokens",
+          false
+        ],
+        [
+          "address[]",
+          "assetManagers",
+          false
+        ]
+      ],
+      "source_file": "vault-pinned.json"
+    },
+    "0x7dcdc6d02ef40c7c1a7046a011b058bd7f988fa14e20a66344f9d4e60657d610": {
+      "name": "TokensDeregistered",
+      "signature": "TokensDeregistered(bytes32,address[])",
+      "fields": [
+        [
+          "bytes32",
+          "poolId",
+          true
+        ],
+        [
+          "address[]",
+          "tokens",
+          false
+        ]
+      ],
+      "source_file": "vault-pinned.json"
+    },
+    "0xe5ce249087ce04f05a957192435400fd97868dba0e6a4b4c049abf8af80dae78": {
+      "name": "PoolBalanceChanged",
+      "signature": "PoolBalanceChanged(bytes32,address,address[],int256[],uint256[])",
+      "fields": [
+        [
+          "bytes32",
+          "poolId",
+          true
+        ],
+        [
+          "address",
+          "liquidityProvider",
+          true
+        ],
+        [
+          "address[]",
+          "tokens",
+          false
+        ],
+        [
+          "int256[]",
+          "deltas",
+          false
+        ],
+        [
+          "uint256[]",
+          "protocolFeeAmounts",
+          false
+        ]
+      ],
+      "source_file": "vault-pinned.json"
+    },
+    "0x2170c741c41531aec20e7c107c24eecfdd15e69c9bb0a8dd37b1840b9e0b207b": {
+      "name": "Swap",
+      "signature": "Swap(bytes32,address,address,uint256,uint256)",
+      "fields": [
+        [
+          "bytes32",
+          "poolId",
+          true
+        ],
+        [
+          "address",
+          "tokenIn",
+          true
+        ],
+        [
+          "address",
+          "tokenOut",
+          true
+        ],
+        [
+          "uint256",
+          "amountIn",
+          false
+        ],
+        [
+          "uint256",
+          "amountOut",
+          false
+        ]
+      ],
+      "source_file": "vault-pinned.json"
+    },
+    "0x0d7d75e01ab95780d3cd1c8ec0dd6c2ce19e3a20427eec8bf53283b6fb8e95f0": {
+      "name": "FlashLoan",
+      "signature": "FlashLoan(address,address,uint256,uint256)",
+      "fields": [
+        [
+          "address",
+          "recipient",
+          true
+        ],
+        [
+          "address",
+          "token",
+          true
+        ],
+        [
+          "uint256",
+          "amount",
+          false
+        ],
+        [
+          "uint256",
+          "feeAmount",
+          false
+        ]
+      ],
+      "source_file": "vault-pinned.json"
+    },
+    "0x6edcaf6241105b4c94c2efdbf3a6b12458eb3d07be3a0e81d24b13c44045fe7a": {
+      "name": "PoolBalanceManaged",
+      "signature": "PoolBalanceManaged(bytes32,address,address,int256,int256)",
+      "fields": [
+        [
+          "bytes32",
+          "poolId",
+          true
+        ],
+        [
+          "address",
+          "assetManager",
+          true
+        ],
+        [
+          "address",
+          "token",
+          true
+        ],
+        [
+          "int256",
+          "cashDelta",
+          false
+        ],
+        [
+          "int256",
+          "managedDelta",
+          false
+        ]
+      ],
+      "source_file": "vault-pinned.json"
+    }
+  },
+  "input_verification": [
+    {
+      "path": "independent-receipts.json",
+      "sha256": "437c441cad9f0699844197e6bfa2343f19f8df4a52138e8643da25fc5c360ea8",
+      "verified": true
+    },
+    {
+      "path": "expanded-receipt-gas-context.json",
+      "sha256": "a958a108a2e80765f5e6bff933a89f1f4208a889cd1865e9336fc98b71284706",
+      "verified": true
+    },
+    {
+      "path": "expanded-receipt-audit-summary.json",
+      "sha256": "ed038ea4977f0bd1f61b906c1788d67acfaff1175a3462d4fee34121fe7b5de0",
+      "verified": true
+    },
+    {
+      "path": "verified-sample-cashflow-fields.json",
+      "sha256": "e7955586ed31322e392c4e800828b531b557f79950108840056b2ddf914122a3",
+      "verified": true
+    },
+    {
+      "path": "receipt-manifest-frozen.json",
+      "sha256": "398732beb12016ae6b571bdd8b54a3f5018861c0b3fe1bbe408d41d9b9303e4c",
+      "verified": true
+    },
+    {
+      "path": "temporal-audit-receipt-manifest-frozen.json",
+      "sha256": "fc937d32ecd4e24447db90299bf86a28e53ed7990ff8bde1b78b3876046c8851",
+      "verified": true
+    },
+    {
+      "path": "temporal-audit-serial-manifest.json",
+      "sha256": "b4971184f389c10c9c299a72b32260f02b2fe42da12610175f34c497a7d4e5d4",
+      "verified": true
+    },
+    {
+      "path": "temporal-stratum-01-receipt.json",
+      "sha256": "e99066844e417103706ca84acd11eb6392d86d32492ac01ad503b491c27f84bc",
+      "verified": true
+    },
+    {
+      "path": "temporal-stratum-02-receipt.json",
+      "sha256": "a3fcdf4fee17ee30592405b82041a49f42b08e540bcf8f4590dabf2d256743d7",
+      "verified": true
+    },
+    {
+      "path": "temporal-stratum-03-receipt.json",
+      "sha256": "f230c377c275e8ab4b019be0e0286d9da06d5b399603b23998c66d9a8c6d586e",
+      "verified": true
+    },
+    {
+      "path": "temporal-stratum-04-receipt.json",
+      "sha256": "378611bd6b1024a5b7b1a4b329483912ec207cc72b9a1c0eda4183b721c98b26",
+      "verified": true
+    },
+    {
+      "path": "temporal-stratum-05-receipt.json",
+      "sha256": "103729be14ad42abef7580f0e03293e43e8c759a72a675f7ee63b10c6b121524",
+      "verified": true
+    },
+    {
+      "path": "temporal-stratum-06-receipt.json",
+      "sha256": "9aaa94ffa9d01b317320c186884fa8497977df9c516dc85f65590ef9ed8d437c",
+      "verified": true
+    },
+    {
+      "path": "temporal-stratum-07-receipt.json",
+      "sha256": "3f8a7ef6c16295bc447686f7d200f12498543beb9919825af62452859575a066",
+      "verified": true
+    },
+    {
+      "path": "temporal-stratum-08-receipt.json",
+      "sha256": "9a3419c8f3b8de681473b6df0fe58aa17d7bb267fe1761eb483c1b00fb8699a5",
+      "verified": true
+    },
+    {
+      "path": "temporal-stratum-09-receipt.json",
+      "sha256": "d485601a7e92cc55f7d398bf9ee481617ff2ee234aeab8629710bfac1d3c093a",
+      "verified": true
+    },
+    {
+      "path": "temporal-stratum-10-receipt.json",
+      "sha256": "ffcd5659c67c3fa61d67a723dcbf08a44e8e27dc243950e6ac7cf5d938f5ff0e",
+      "verified": true
+    },
+    {
+      "path": "continuation-r12-02.md",
+      "sha256": "66e3913f79492d8a6e8ba5b63bece98201364bda1898092e1f532be835954b3a",
+      "verified": true
+    },
+    {
+      "path": "remote-dedup-snapshot.json",
+      "sha256": "92ddc1dd74247e2941c120eb5da58c6412adee8d5ae99c623330017ad3753d15",
+      "verified": true
+    }
+  ]
+}

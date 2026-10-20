@@ -1,0 +1,18 @@
+test_actual_reconciliation (__main__.ActualRetainedInput.test_actual_reconciliation) ... ok
+test_base_fee_units (__main__.Synthetic.test_base_fee_units) ... ok
+test_before_start (__main__.Synthetic.test_before_start) ... ok
+test_conflicting_identity (__main__.Synthetic.test_conflicting_identity) ... ok
+test_decimal_exact_not_float (__main__.Synthetic.test_decimal_exact_not_float) ... ok
+test_exact_duplicate (__main__.Synthetic.test_exact_duplicate) ... ok
+test_gap_visible (__main__.Synthetic.test_gap_visible) ... ok
+test_halfopen_end_excluded (__main__.Synthetic.test_halfopen_end_excluded) ... ok
+test_halfopen_start_included (__main__.Synthetic.test_halfopen_start_included) ... ok
+test_other_fee_rejected (__main__.Synthetic.test_other_fee_rejected) ... ok
+test_quote_fee_cash (__main__.Synthetic.test_quote_fee_cash) ... ok
+test_sell_rejected (__main__.Synthetic.test_sell_rejected) ... ok
+test_tie_order (__main__.Synthetic.test_tie_order) ... ok
+
+----------------------------------------------------------------------
+Ran 13 tests in 0.091s
+
+OK

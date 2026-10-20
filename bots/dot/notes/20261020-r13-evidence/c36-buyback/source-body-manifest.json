@@ -1,0 +1,202 @@
+{
+  "sources": [
+    {
+      "sha256": "95c1975a8315632e6cc47f57d4937e8bc2569088d214bf9c886e8c747101c939",
+      "bytes": 638445,
+      "url": "https://api.hyperliquid.xyz/info",
+      "http_date_headers": [
+        "Tue, 20 Oct 2026 09:08:32 GMT",
+        "Tue, 20 Oct 2026 09:08:33 GMT"
+      ],
+      "matching_capture_records": [
+        {
+          "record": "tool-18.json",
+          "start_utc": "2026-10-20T09:07:42.756000+00:00",
+          "end_utc": "2026-10-20T09:08:33.649000+00:00"
+        },
+        {
+          "record": "tool-19.json",
+          "start_utc": "2026-10-20T09:08:50.075000+00:00",
+          "end_utc": "2026-10-20T09:09:34.339000+00:00"
+        }
+      ],
+      "publish_body": false,
+      "notes": "actual retained body; capture record may span several requests"
+    },
+    {
+      "sha256": "38025bd2abc876a383347210476e0ce5ce98e196cdf9bd252466eb02bcd4889e",
+      "bytes": 66688,
+      "url": "https://api.hyperliquid.xyz/info",
+      "http_date_headers": [
+        "Tue, 20 Oct 2026 09:14:47 GMT",
+        "Tue, 20 Oct 2026 09:14:47 GMT"
+      ],
+      "matching_capture_records": [
+        {
+          "record": "tool-22.json",
+          "start_utc": "2026-10-20T09:14:06.673000+00:00",
+          "end_utc": "2026-10-20T09:14:48.177000+00:00"
+        }
+      ],
+      "publish_body": false,
+      "notes": "actual retained body; capture record may span several requests"
+    },
+    {
+      "sha256": "5ce935589628a4e00c3813c237c80e176c500621fdc7fe576df3eecd1684a854",
+      "bytes": 2977,
+      "url": "https://api.hyperliquid.xyz/info",
+      "http_date_headers": [
+        "Tue, 20 Oct 2026 09:17:52 GMT",
+        "Tue, 20 Oct 2026 09:17:52 GMT"
+      ],
+      "matching_capture_records": [
+        {
+          "record": "tool-26.json",
+          "start_utc": "2026-10-20T09:17:29.701000+00:00",
+          "end_utc": "2026-10-20T09:17:52.958000+00:00"
+        }
+      ],
+      "publish_body": false,
+      "notes": "actual retained body; capture record may span several requests"
+    },
+    {
+      "sha256": "75e55504b1b887a89e1668a9544d09b013242747bcc29f8648a5410142a71258",
+      "bytes": 12174,
+      "url": "https://hyperliquid.gitbook.io/hyperliquid-docs/trading/fees",
+      "http_date_headers": [],
+      "matching_capture_records": [
+        {
+          "record": "tool-15.json",
+          "start_utc": "2026-10-20T09:05:15.367000+00:00",
+          "end_utc": "2026-10-20T09:06:04.448000+00:00"
+        }
+      ],
+      "publish_body": false,
+      "notes": "actual retained body; capture record may span several requests"
+    },
+    {
+      "sha256": "95c1975a8315632e6cc47f57d4937e8bc2569088d214bf9c886e8c747101c939",
+      "bytes": 638445,
+      "url": "https://api.hyperliquid.xyz/info",
+      "http_date_headers": [],
+      "matching_capture_records": [],
+      "publish_body": false,
+      "notes": "actual retained body; capture record may span several requests"
+    },
+    {
+      "sha256": "3f6f765e9f1c931f843f494137bfb1600597e74821de210089c1dd365cb8916e",
+      "bytes": 638575,
+      "url": "https://api.hyperliquid.xyz/info",
+      "http_date_headers": [
+        "Tue, 20 Oct 2026 09:09:28 GMT",
+        "Tue, 20 Oct 2026 09:09:28 GMT"
+      ],
+      "matching_capture_records": [],
+      "publish_body": false,
+      "notes": "actual retained body; capture record may span several requests"
+    },
+    {
+      "sha256": "26f3603a1bc2e467255fa007bc7b9e29e679095086b1d198c131b907bacd391e",
+      "bytes": 638382,
+      "url": "https://api.hyperliquid.xyz/info",
+      "http_date_headers": [
+        "Tue, 20 Oct 2026 09:09:29 GMT",
+        "Tue, 20 Oct 2026 09:09:30 GMT"
+      ],
+      "matching_capture_records": [],
+      "publish_body": false,
+      "notes": "actual retained body; capture record may span several requests"
+    },
+    {
+      "sha256": "374ec6566672c0ff88822748d19072bf77743b502f466341f032ac9364bda63b",
+      "bytes": 210442,
+      "url": "https://api.hyperliquid.xyz/info",
+      "http_date_headers": [
+        "Tue, 20 Oct 2026 09:09:33 GMT",
+        "Tue, 20 Oct 2026 09:09:33 GMT"
+      ],
+      "matching_capture_records": [],
+      "publish_body": false,
+      "notes": "actual retained body; capture record may span several requests"
+    },
+    {
+      "sha256": "f4228fc7734af5dbf420e5bdf2b25c248a5b5287035ab2d8a645dc14ce64f0bd",
+      "bytes": 55013,
+      "url": "https://hyperliquid.gitbook.io/hyperliquid-docs/for-developers/api/info-endpoint",
+      "http_date_headers": [],
+      "matching_capture_records": [
+        {
+          "record": "tool-27.json",
+          "start_utc": "2026-10-20T09:18:07.812000+00:00",
+          "end_utc": "2026-10-20T09:18:27.835000+00:00"
+        }
+      ],
+      "publish_body": false,
+      "notes": "actual retained body; capture record may span several requests"
+    },
+    {
+      "sha256": "7b3003a7d090e94052bc8e5fc666ddfa6bb6294b389038065361d55e719741d8",
+      "bytes": 327,
+      "url": "https://api.hyperliquid.xyz/info",
+      "http_date_headers": [],
+      "matching_capture_records": [
+        {
+          "record": "tool-19.json",
+          "start_utc": "2026-10-20T09:08:50.075000+00:00",
+          "end_utc": "2026-10-20T09:09:34.339000+00:00"
+        }
+      ],
+      "publish_body": false,
+      "notes": "local retained body; pagination log is acquisition metadata, not server response"
+    },
+    {
+      "sha256": "6a26d366ecaa3d3801a6cdae0ebc5e00d5f6c2dff36929e7737d8fd4b240ec0b",
+      "bytes": 347609,
+      "url": "https://api.hyperliquid.xyz/info",
+      "http_date_headers": [
+        "Tue, 20 Oct 2026 09:18:29 GMT",
+        "Tue, 20 Oct 2026 09:18:29 GMT"
+      ],
+      "matching_capture_records": [
+        {
+          "record": "tool-28.json",
+          "start_utc": "2026-10-20T09:18:07.955000+00:00",
+          "end_utc": "2026-10-20T09:18:29.580000+00:00"
+        }
+      ],
+      "publish_body": false,
+      "notes": "actual retained body; capture record may span several requests"
+    },
+    {
+      "sha256": "25585467197035c3e412db5c9106d115291e20c32999c8ecc8f297a8d858d306",
+      "bytes": 138369,
+      "url": "https://api.hyperliquid.xyz/info",
+      "http_date_headers": [
+        "Tue, 20 Oct 2026 09:17:50 GMT",
+        "Tue, 20 Oct 2026 09:17:51 GMT"
+      ],
+      "matching_capture_records": [
+        {
+          "record": "tool-26.json",
+          "start_utc": "2026-10-20T09:17:29.701000+00:00",
+          "end_utc": "2026-10-20T09:17:52.958000+00:00"
+        }
+      ],
+      "publish_body": false,
+      "notes": "actual retained body; capture record may span several requests"
+    }
+  ],
+  "retained_verification": {
+    "files": 24,
+    "all_sha256_match": true
+  },
+  "freeze_evidence": {
+    "freeze_write_start": "2026-10-20T09:06:30.127000+00:00",
+    "freeze_write_end": "2026-10-20T09:07:39.053000+00:00",
+    "first_fill_request_start": "2026-10-20T09:07:42.756000+00:00",
+    "first_fill_request_end": "2026-10-20T09:08:33.649000+00:00",
+    "written_timestamp_is_manual": true,
+    "window_preserved": true,
+    "wording_correction": "Oct19 is not the most recent completed midnight on Oct20; this is the original frozen seven-day interval, not a reselected interval."
+  }
+}

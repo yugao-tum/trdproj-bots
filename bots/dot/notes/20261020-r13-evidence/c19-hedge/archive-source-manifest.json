@@ -1,0 +1,172 @@
+{
+  "task_id": "continuation-r13-10",
+  "provider": "OpenAI native",
+  "actual_model": "not exposed to worker",
+  "reasoning": "xhigh assigned",
+  "cost": "unknown",
+  "requests": [
+    {
+      "url": "https://data.binance.vision/data/spot/monthly/klines/BTCUSDT/1h/BTCUSDT-1h-2024-01.zip",
+      "access_utc": "2026-10-20T08:54:07.492189+00:00",
+      "status": 200,
+      "bytes": 43482,
+      "sha256": "cf873a185bd5b24b8e00034e49583fcb49928e0c3a45c6fc27a632a683655417"
+    },
+    {
+      "url": "https://data.binance.vision/data/spot/monthly/klines/BTCUSDT/1h/BTCUSDT-1h-2024-01.zip.CHECKSUM",
+      "access_utc": "2026-10-20T08:54:16.390094+00:00",
+      "status": 200,
+      "bytes": 88,
+      "sha256": "2a3a18a6694096a33a7ebf3342e10b1b0a13adbae2e6f63f2fc5de01f3766988"
+    },
+    {
+      "url": "https://data.binance.vision/data/futures/um/monthly/klines/BTCUSDT/1h/BTCUSDT-1h-2024-01.zip",
+      "access_utc": "2026-10-20T08:54:20.332989+00:00",
+      "status": 200,
+      "bytes": 38890,
+      "sha256": "bf673f3d10804a951e8bac56dd2473486f113025971d43ebe5258ec40f9bfeb3"
+    },
+    {
+      "url": "https://data.binance.vision/data/futures/um/monthly/klines/BTCUSDT/1h/BTCUSDT-1h-2024-01.zip.CHECKSUM",
+      "access_utc": "2026-10-20T08:54:25.220791+00:00",
+      "status": 200,
+      "bytes": 89,
+      "sha256": "ee1d42fdcdb8dea97af0f4e33a583691a89b3e1c8dd6085724e84ac7607dce8d"
+    },
+    {
+      "url": "https://data.binance.vision/data/futures/um/monthly/markPriceKlines/BTCUSDT/1h/BTCUSDT-1h-2024-01.zip",
+      "access_utc": "2026-10-20T08:54:29.746293+00:00",
+      "status": 200,
+      "bytes": 23278,
+      "sha256": "759f86a22dadb455c87a3f90f6a9134c73d24a55a7596f0b96e193b5d45cdb49"
+    },
+    {
+      "url": "https://data.binance.vision/data/futures/um/monthly/markPriceKlines/BTCUSDT/1h/BTCUSDT-1h-2024-01.zip.CHECKSUM",
+      "access_utc": "2026-10-20T08:54:34.614373+00:00",
+      "status": 200,
+      "bytes": 89,
+      "sha256": "3d2abfc58096b7bd7049298454f2cdf326e446c14906b52141c8521fc416f617"
+    },
+    {
+      "url": "https://data.binance.vision/data/spot/monthly/klines/ETHUSDT/1h/ETHUSDT-1h-2024-01.zip",
+      "access_utc": "2026-10-20T08:54:39.197125+00:00",
+      "status": 200,
+      "bytes": 41245,
+      "sha256": "1fdb3a8fa6b77ef30ef17ed4b71b184172ef1f812d83bd0f50bbd08e71a92057"
+    },
+    {
+      "url": "https://data.binance.vision/data/spot/monthly/klines/ETHUSDT/1h/ETHUSDT-1h-2024-01.zip.CHECKSUM",
+      "access_utc": "2026-10-20T08:54:45.472459+00:00",
+      "status": 200,
+      "bytes": 88,
+      "sha256": "f924c2fb1cce60a22750826fc8e2d3838e00cba707082beb3ec6847af27e34d7"
+    },
+    {
+      "url": "https://data.binance.vision/data/futures/um/monthly/klines/ETHUSDT/1h/ETHUSDT-1h-2024-01.zip",
+      "access_utc": "2026-10-20T08:54:49.939925+00:00",
+      "status": 200,
+      "bytes": 38917,
+      "sha256": "2f3d1a6d9292f13b1d6cf86716cbda5b3f6119a310daed1dde5ee3d0d71e2fab"
+    },
+    {
+      "url": "https://data.binance.vision/data/futures/um/monthly/klines/ETHUSDT/1h/ETHUSDT-1h-2024-01.zip.CHECKSUM",
+      "access_utc": "2026-10-20T08:54:54.085125+00:00",
+      "status": 200,
+      "bytes": 89,
+      "sha256": "a2418d5aead464940c65e384b7364e7c288753d7b99fe54c0f2814a07475e716"
+    },
+    {
+      "url": "https://data.binance.vision/data/futures/um/monthly/markPriceKlines/ETHUSDT/1h/ETHUSDT-1h-2024-01.zip",
+      "access_utc": "2026-10-20T08:54:58.705784+00:00",
+      "status": 200,
+      "bytes": 21653,
+      "sha256": "69cbd7f53ebf1ce8f7a10181830a931e08e843d7ce0060e9f173f932f3b7510a"
+    },
+    {
+      "url": "https://data.binance.vision/data/futures/um/monthly/markPriceKlines/ETHUSDT/1h/ETHUSDT-1h-2024-01.zip.CHECKSUM",
+      "access_utc": "2026-10-20T08:55:03.134488+00:00",
+      "status": 200,
+      "bytes": 89,
+      "sha256": "6748bcdea4cff5cce0b4b607b178159dd95d3435f2b720adccd882f6c9fda306"
+    },
+    {
+      "url": "https://data.binance.vision/data/spot/monthly/klines/SOLUSDT/1h/SOLUSDT-1h-2024-01.zip",
+      "access_utc": "2026-10-20T08:55:07.407251+00:00",
+      "status": 200,
+      "bytes": 36429,
+      "sha256": "f2a90d8c6ed9f666b95e85e048ac4f6ba424c7fe143a982f671ad0b7f0c8cbdc"
+    },
+    {
+      "url": "https://data.binance.vision/data/spot/monthly/klines/SOLUSDT/1h/SOLUSDT-1h-2024-01.zip.CHECKSUM",
+      "access_utc": "2026-10-20T08:55:11.778492+00:00",
+      "status": 200,
+      "bytes": 88,
+      "sha256": "0a7a7e6b91be8c3cf18d61f73e9ec50559b2695b97af276c54d19c071117afe1"
+    },
+    {
+      "url": "https://data.binance.vision/data/futures/um/monthly/klines/SOLUSDT/1h/SOLUSDT-1h-2024-01.zip",
+      "access_utc": "2026-10-20T08:55:16.071823+00:00",
+      "status": 200,
+      "bytes": 34837,
+      "sha256": "eb8a8dc7685761609f19b403db0eb6655d757f720f71da9b8c1ab638ddfc85b9"
+    },
+    {
+      "url": "https://data.binance.vision/data/futures/um/monthly/klines/SOLUSDT/1h/SOLUSDT-1h-2024-01.zip.CHECKSUM",
+      "access_utc": "2026-10-20T08:55:20.967618+00:00",
+      "status": 200,
+      "bytes": 89,
+      "sha256": "0c44f9412569eb674a73231056edde54a5dcf200ed85e2664c70e1fb372854cd"
+    },
+    {
+      "url": "https://data.binance.vision/data/futures/um/monthly/markPriceKlines/SOLUSDT/1h/SOLUSDT-1h-2024-01.zip",
+      "access_utc": "2026-10-20T08:55:25.596216+00:00",
+      "status": 200,
+      "bytes": 20978,
+      "sha256": "c988b4cb56850cdf3f053ba96b58b7eee279e63032e9bce1c452910d0f17b1e0"
+    },
+    {
+      "url": "https://data.binance.vision/data/futures/um/monthly/markPriceKlines/SOLUSDT/1h/SOLUSDT-1h-2024-01.zip.CHECKSUM",
+      "access_utc": "2026-10-20T08:55:30.815414+00:00",
+      "status": 200,
+      "bytes": 89,
+      "sha256": "5611897e2a8b5597a33a2edb4e4dd89a89d740dca6bbce5dee3495429fcc46ae"
+    },
+    {
+      "url": "https://github.com/binance/binance-public-data",
+      "access_utc": "2026-10-20T08:56:10.419362+00:00",
+      "kind": "documentation",
+      "status": 200,
+      "bytes": 298662,
+      "sha256": "e00b3be4dd081c8be4b6a0b9eddd46273780e1c3c87caa7d1a3a1d443d638ad5"
+    },
+    {
+      "url": "https://developers.binance.com/en/docs/catalog/core-trading-derivatives-trading-usd-s-m-futures/api/rest-api/market-data",
+      "access_utc": "2026-10-20T08:56:17.473668+00:00",
+      "kind": "documentation",
+      "status": 200,
+      "bytes": 1558056,
+      "sha256": "95b5f95a5301c775b9785f977f168ed9faafeae318eba577b3a315d80ed915d1"
+    }
+  ],
+  "funding_input_sha256": "310508098d4b9a30a33823368a80e8fe7c034c05f8cb37513d7de3b101a449a8",
+  "dedup_ref": "e068c98ad3f5a9aa7834e55ac2ef6caf210b7dd9",
+  "classification": "existing C19 supplement; known A-A1-funding-carry",
+  "external_counts": {
+    "dataset_requests": 18,
+    "documentation_http_requests": 2,
+    "web_open_calls": 1,
+    "web_open_source_bodies": 2,
+    "web_find_calls": 1,
+    "web_find_operations": 2,
+    "search_queries": 0,
+    "external_models": 0
+  },
+  "next_cursor": null,
+  "extension_estimate": {
+    "additional_months": 32,
+    "additional_archives": 288,
+    "additional_checksum_reads": 288,
+    "additional_no_key_requests": 576,
+    "action": "not started; exceeds current envelope and exact funding mark/margin gap remains"
+  }
+}

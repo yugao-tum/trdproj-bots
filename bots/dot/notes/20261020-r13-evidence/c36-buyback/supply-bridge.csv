@@ -1,0 +1,15 @@
+component,amount,unit,evidence_scope
+executed_purchases,156264.38,HYPE,"observed fills; adds AF holdings, not automatically a separate supply burn"
+execution_cash_paid,12644608.32880,USDC,executed notional plus reported USDC fee; not profit
+reported_execution_fee,0.0,HYPE,API reported fee
+trade_boundary_inventory_delta,156264.3800000006,HYPE,not exact midnight states
+inventory_rounding_residual,6E-10,HYPE,preserved Decimal source residual
+economically_inaccessible_or_burned_inventory,,HYPE,official policy assertion; actual incremental burn not independently verified
+observed_destruction,,HYPE,unknown; missing explicit destruction/supply records; do not encode as zero
+circulating_supply_start,,HYPE,unknown
+circulating_supply_end,,HYPE,unknown
+mints_and_unlocks,,HYPE,unknown; unlock affects circulating but not necessarily total supply
+redistributions,,HYPE,unknown; absent from returned token-specific ledger is not proof of absence
+protocol_fee_cash_inflows,,USDC,unknown; 162 KNTQ sends cannot establish fee revenue
+midnight_cash_start,,USDC,unknown
+midnight_cash_end,,USDC,unknown

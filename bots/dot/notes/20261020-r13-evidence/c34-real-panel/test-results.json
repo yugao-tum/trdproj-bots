@@ -1,0 +1,20 @@
+{
+  "checks_passed": 8,
+  "checks": [
+    "both checksums",
+    "12-column rows",
+    "744 rows each",
+    "unique timestamps",
+    "contiguous UTC grid",
+    "OHLC ordering and nonnegative volumes",
+    "close time=open+3599999",
+    "exact APE-BTC join with 50 candidate origins and +72h coverage"
+  ],
+  "raw_rows_per_symbol": 744,
+  "raw_rows_total": 1488,
+  "panel_joined_hours": 146,
+  "used_raw_symbol_rows": 292,
+  "missing_join_rows": 0,
+  "candidate_event_hours": 50,
+  "classification": "Real historical market observations; scheduled-event date inference. No backtest, simulation or qualification."
+}

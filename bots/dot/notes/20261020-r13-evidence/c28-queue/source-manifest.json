@@ -1,0 +1,47 @@
+{
+  "sources": [
+    {
+      "url": "https://docs.lido.fi/contracts/withdrawal-queue-erc721/",
+      "accessed_at": "2026-10-20T08:52:45.617698+00:00",
+      "http_status": 200,
+      "sha256": "56f0d3050d6d22a954dccb074f1691c7dc6e43f33181e382ea1d7bbfe7cf1ecc",
+      "bytes": 176663
+    },
+    {
+      "url": "https://raw.githubusercontent.com/lidofinance/core/v4.1.0/contracts/0.8.9/WithdrawalQueueERC721.sol",
+      "accessed_at": "2026-10-20T08:53:07.869923+00:00",
+      "http_status": 200,
+      "sha256": "f28f0974b484f26cc8b37672c6579fd05585d82e41c8e58aa4bdd6e0c0383542",
+      "bytes": 17218,
+      "claim_level": "current version source, not historical deployment proof"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/lidofinance/core/v4.1.0/contracts/0.8.9/WithdrawalQueueBase.sol",
+      "accessed_at": "2026-10-20T08:53:11.586219+00:00",
+      "http_status": 200,
+      "sha256": "68d8919f89198c3d39272b2259a3144bf87a4aa48c570624b025fd86da47d2bb",
+      "bytes": 28146,
+      "claim_level": "current version source, not historical deployment proof"
+    },
+    {
+      "url": "https://etherscan.io/tx/0x97110add3bf62bd5f7c30ee5820422a6951ce2e2e99df22592d052fde3be1545",
+      "accessed_at": "2026-10-20T08:52:09Z",
+      "http_status": 403,
+      "sha256": null,
+      "content_retained": false,
+      "reason": "web tool returned Forbidden, no response body available",
+      "claim_level": "denied transaction body; search snippet not evidence"
+    }
+  ],
+  "search_queries": [
+    {
+      "query": "Lido WithdrawalClaimed WithdrawalRequested transaction etherscan requestId",
+      "accessed_at": "2026-10-20T08:52:05Z",
+      "used_as": "discovery only"
+    }
+  ],
+  "notes": [
+    "Web opened official documentation once before its independent raw retention; no denied Etherscan route was retried.",
+    "Input manifest and complete dedup snapshot loaded as JSON; existing C28 only, no new claim."
+  ]
+}
