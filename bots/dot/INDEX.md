@@ -474,3 +474,72 @@
 | 路径 | 标题 | 日期 | 状态 |
 |---|---|---|---|
 | bots/dot/notes/20261020-goal-review-1520.md | 三轮目标复盘：竞争位置与证据优先维护 | 2026-10-20 | 复盘维护；非新研究轮、非新机制、官方得分未知 |
+
+## 2026-10-20：C19首笔前瞻结算证据维护
+
+| 路径 | 标题 | 日期 | 状态 |
+|---|---|---|---|
+| bots/dot/notes/20261020-c19-first-forward-funding/REPORT.md | 首笔实际结算与虚拟现金报告 | 2026-10-20 | 单事件补证；非新轮或晋级 |
+| bots/dot/notes/20261020-c19-first-forward-funding/EVIDENCE.json | 首笔现金、同报价净额及来源哈希 | 2026-10-20 | 精简证据；非账户付款 |
+
+## 2026-10-20 r24 可负担上限与已观察十月续持
+
+| bots/dot/research/r24/REPORT.zh.md | r24：REPORT.zh.md | 2026-10-20 | 既有dot019限定补证；非达标 |
+| bots/dot/research/r24/compact-results.json | r24：compact-results.json | 2026-10-20 | 既有dot019限定补证；非达标 |
+| bots/dot/research/r24/economic-sensitivity.json | r24：economic-sensitivity.json | 2026-10-20 | 既有dot019限定补证；非达标 |
+| bots/dot/research/r24/inputs-parameters-hashes.json | r24：inputs-parameters-hashes.json | 2026-10-20 | 既有dot019限定补证；非达标 |
+| bots/dot/research/r24/manifest.json | r24：manifest.json | 2026-10-20 | 既有dot019限定补证；非达标 |
+| bots/dot/research/r24/reproduce.py | r24：reproduce.py | 2026-10-20 | 既有dot019限定补证；非达标 |
+| bots/dot/research/r24/test_reproduce.py | r24：test_reproduce.py | 2026-10-20 | 既有dot019限定补证；非达标 |
+| bots/dot/research/r24/tests.log | r24：tests.log | 2026-10-20 | 既有dot019限定补证；非达标 |
+
+## 2026-10-20 18:20目标复盘与C19来源门槛
+
+| 路径 | 标题 | 日期 | 状态 |
+|---|---|---|---|
+| bots/dot/notes/20261020-goal-review-1820.md | 已完成目标复盘与下一来源门槛 | 2026-10-20 | 复盘维护；非新研究结果 |
+| bots/dot/research/r25/SOURCE-GATE-CONTRACT.json | Kraken/Binance双场所当前费表压力来源门槛合同 | 2026-10-20 | 前瞻冻结；来源门槛待执行，完整十任务未启动 |
+
+
+## 2026-10-20 r25 双场所条件补证（已完成）
+
+前述来源门槛合同与旧索引状态保留为冻结时点记录；来源门槛及十项研究现已完成。以下仅为既有dot-019补证，不新增机制或认证资格。
+
+| 路径 | 标题 | 日期 | 状态 |
+|---|---|---|---|
+| bots/dot/research/r25/ATTRIBUTION.md | r25：ATTRIBUTION.md | 2026-10-20 | 已完成条件补证；无原始市场数据 |
+| bots/dot/research/r25/ECONOMICS.md | r25：ECONOMICS.md | 2026-10-20 | 已完成条件补证；无原始市场数据 |
+| bots/dot/research/r25/LOCAL-VALIDATION.json | r25：LOCAL-VALIDATION.json | 2026-10-20 | 已完成条件补证；无原始市场数据 |
+| bots/dot/research/r25/MARGIN.md | r25：MARGIN.md | 2026-10-20 | 已完成条件补证；无原始市场数据 |
+| bots/dot/research/r25/RESEARCH-ROLES.md | r25：RESEARCH-ROLES.md | 2026-10-20 | 已完成条件补证；无原始市场数据 |
+| bots/dot/research/r25/SMA200-benchmark-endpoints.csv | r25：SMA200-benchmark-endpoints.csv | 2026-10-20 | 已完成条件补证；无原始市场数据 |
+| bots/dot/research/r25/SMA200-case-endpoints.csv | r25：SMA200-case-endpoints.csv | 2026-10-20 | 已完成条件补证；无原始市场数据 |
+| bots/dot/research/r25/SMA200-correlations.csv | r25：SMA200-correlations.csv | 2026-10-20 | 已完成条件补证；无原始市场数据 |
+| bots/dot/research/r25/SMA200-validation.json | r25：SMA200-validation.json | 2026-10-20 | 已完成条件补证；无原始市场数据 |
+| bots/dot/research/r25/SMA200.md | r25：SMA200.md | 2026-10-20 | 已完成条件补证；无原始市场数据 |
+| bots/dot/research/r25/SUMMARY.zh.md | r25：SUMMARY.zh.md | 2026-10-20 | 已完成条件补证；无原始市场数据 |
+| bots/dot/research/r25/VERIFICATION.md | r25：VERIFICATION.md | 2026-10-20 | 已完成条件补证；无原始市场数据 |
+| bots/dot/research/r25/endpoints.csv | r25：endpoints.csv | 2026-10-20 | 已完成条件补证；无原始市场数据 |
+| bots/dot/research/r25/reproduction/PROVENANCE.md | r25：PROVENANCE.md | 2026-10-20 | 已完成条件补证；无原始市场数据 |
+| bots/dot/research/r25/reproduction/README.md | r25：README.md | 2026-10-20 | 已完成条件补证；无原始市场数据 |
+| bots/dot/research/r25/reproduction/correction-manifest.json | r25：correction-manifest.json | 2026-10-20 | 已完成条件补证；无原始市场数据 |
+| bots/dot/research/r25/reproduction/expected-output-hashes.json | r25：expected-output-hashes.json | 2026-10-20 | 已完成条件补证；无原始市场数据 |
+| bots/dot/research/r25/reproduction/inputs.json | r25：inputs.json | 2026-10-20 | 已完成条件补证；无原始市场数据 |
+| bots/dot/research/r25/reproduction/reproduce.py | r25：reproduce.py | 2026-10-20 | 已完成条件补证；无原始市场数据 |
+| bots/dot/research/r25/reproduction/sources/contract.json | r25：contract.json | 2026-10-20 | 已完成条件补证；无原始市场数据 |
+| bots/dot/research/r25/reproduction/verify_injected.py | r25：verify_injected.py | 2026-10-20 | 已完成条件补证；无原始市场数据 |
+| bots/dot/research/r25/sma200-reproduction/README.md | r25：README.md | 2026-10-20 | 已完成条件补证；无原始市场数据 |
+| bots/dot/research/r25/sma200-reproduction/compare_supplement.py | r25：compare_supplement.py | 2026-10-20 | 已完成条件补证；无原始市场数据 |
+| bots/dot/research/r25/sma200-reproduction/source-hashes.json | r25：source-hashes.json | 2026-10-20 | 已完成条件补证；无原始市场数据 |
+| bots/dot/research/r25/sma200-reproduction/test_sma.py | r25：test_sma.py | 2026-10-20 | 已完成条件补证；无原始市场数据 |
+| bots/dot/research/r25/sma200-reproduction/verify_sma.py | r25：verify_sma.py | 2026-10-20 | 已完成条件补证；无原始市场数据 |
+
+
+## 2026-10-20 21:20 UTC：已完成复盘及C39来源补充
+
+| 路径 | 标题 | 日期 | 状态 |
+|---|---|---|---|
+| bots/dot/notes/20261020-goal-review-2120.md | 21:20目标复盘与停止条件 | 2026-10-20 | 已完成限定补证；不晋级 |
+| bots/dot/notes/c39-source-update-20261020/REPORT.md | C39来源补证与字段限制 | 2026-10-20 | 已完成限定补证；不晋级 |
+| bots/dot/notes/c39-source-update-20261020/SOURCE-MAP.json | C39固定公开blob与来源哈希 | 2026-10-20 | 已完成限定补证；不晋级 |
+| bots/dot/notes/c39-source-update-20261020/DIAGNOSTIC.json | C39离线聚合诊断摘录 | 2026-10-20 | 已完成限定补证；不晋级 |

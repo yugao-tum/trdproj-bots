@@ -77,3 +77,10 @@ CVX价格下跌、长期锁定、最终票权稀释、激励买方撤改、奖�
 - https://docs.votium.app/general-information/why-votium — 访问2026-10-19 UTC — 已读保存正文；定位行3–11的vlCVX、第三方激励、维护费；不采用无风险营销表述
 - https://docs.votium.app/faq/vlcvx-faq — 访问2026-10-19 UTC — 已读保存正文；定位行9–33的双周窗口、事前锁定/委托资格、24–48小时分配及领取时点；不是CVX解锁条款
 - [C37–C39来源闭环与机制草稿复核](../notes/20261019-three-incentive-mechanisms.md) — 记录2026-10-19 UTC — 已读；定位C39资本假设、库存/现金去重与历史缺口
+
+
+## 2026-10-20：已完成有界来源补充，仍为草稿
+
+Stake DAO自报的同报告期四份分配JSON已核字节完整性，361钱包仅1期，不是独立支付结果。360/361键与Curve forwarder关联、另1条FXN-only标签一致，只是来源关联。认证权益到支付链路和有效票权分母仍均0；proposal5/snapshot240本次映射未证，1e14 raw资金残差未解释。另发现token 0x04acaf8d2865c0714f79da09645c13fd2888977f逐delegate forwarders比顶层组额多3827334553302359074 raw，nonForwarders反向差同量，总token守恒；原因未知，无损失/欺诈/支付错误指控。
+
+该池化委托变体不是原手动投票策略；10月15报告期使用10月20抓取价格，不能回填事前选择。无收益回测、无资格晋级、不增加机制/条目/待核。见[补证与限制](../notes/c39-source-update-20261020/REPORT.md)、[固定来源映射](../notes/c39-source-update-20261020/SOURCE-MAP.json)及[聚合检查摘录](../notes/c39-source-update-20261020/DIAGNOSTIC.json)。旧正文为原记录，本次仅更新已取得来源的范围，不声称补齐12月完整收益账。

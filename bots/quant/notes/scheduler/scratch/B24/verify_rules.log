@@ -1,0 +1,46 @@
+
+==== ipl-rcb-rr-2025-04-24 | fee None False | src 'https://www.iplt20.com/'
+In the upcoming IPL game, scheduled for April 24 at 10:00AM ET:
+If the Royal Challengers Bangalore win, the market will resolve to “Royal Challengers Bangalore”.
+If the Rajasthan Royals win, the market will resolve to “Rajasthan Royals”.
+If the game is postponed, this market will remain open until the game has been completed.
+If the game is canceled entirely, with no make-up game, this market will resolve 50-50.
+
+==== usa-vs-india-cricket-t20-world-cup | fee None False | src ''
+This market will resolve to whichever national team wins the ICC Men’s T20 World Cup 2024 match between USA and India, scheduled to begin June 12, 2024, 10:30 AM ET.
+
+If the game is declared tied, abandoned, has "no result", or doesn't finish before June 30, 2024, 11:59 PM ET - this market will resolve 50-50.
+
+==== crint-gbr-nzl-2026-02-27 | fee None False | src 'https://www.espncricinfo.com/'
+This market refers to the cricket match between England and New Zealand scheduled for February 27 2026 in T20 World Cup.
+
+This market resolves according to the finalized match result as published by https://www.espncricinfo.com/.  
+
+DLS/DRS, over-rate penalties, forfeit/walkover, or any other on-field ruling that leads the competition to declare a winner are treated as ordinary wins.
+
+If the match ends tied and the playing conditions provide an on-field tiebreak (e.g., Super Over), the winner determined by that tiebreak will be used for resolution. If the match ends tied and no on-field tiebreak is used or available under the playing conditions (e.g., group-stage ODI with no Super Over), the
+
+==== intt20-aus-ind-2025-10-29 | fee None False | src 'https://www.icc-cricket.com/fixtures-results'
+This market refers to the cricket match between Australia and India scheduled for Wed Oct 29 2025 04:15:00 GMT-0400 (Eastern Daylight Time) in Australia T20 Series.
+
+This market resolves according to the finalized match result as published by https://www.icc-cricket.com/fixtures-results.  
+
+DLS/DRS, over-rate penalties, forfeit/walkover, or any other on-field ruling that leads the competition to declare a winner are treated as ordinary wins.
+
+If the match ends tied and the playing conditions provide an on-field tiebreak (e.g., Super Over), the winner determined by that tiebreak will be used for resolution. If the match ends tied and no on-field tiebreak is used or available under the playing
+
+==== crint-mex-arg-2026-03-14 | fee None False | src 'https://www.espncricinfo.com/'
+This market refers to the cricket match between Mexico and Argentina scheduled for March 14 2026 in T20 World Cup Sub Regional Americas Qualifier B.
+
+This market resolves according to the finalized match result as published by https://www.espncricinfo.com/.  
+
+DLS/DRS, over-rate penalties, forfeit/walkover, or any other on-field ruling that leads the competition to declare a winner are treated as ordinary wins.
+
+If the match ends tied and the playing conditions provide an on-field tiebreak (e.g., Super Over), the winner determined by that tiebreak will be used for resolution. If the match ends tied and no on-field tiebreak is used or available under the playing conditions (e.g., group-stage 
+
+==== asia-cup-india-vs-pakistan-2025-09-14 | fee None False | src ''
+In the upcoming Asia Cup game, scheduled for 2025-09-14 at 10:30 AM ET:
+If the India win, the market will resolve to "India".
+If the Pakistan win, the market will resolve to "Pakistan".
+If the game is postponed, this market will remain open until the game has been completed.
+If the game is canceled entirely, with no make-up game, this market will resolve 50-50.

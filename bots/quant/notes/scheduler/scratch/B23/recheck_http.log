@@ -1,0 +1,5 @@
+https://droughtmonitor.unl.edu/ -> HTTP 200 121070 bytes
+https://gamma-api.polymarket.com/events?slug=state-d4-drought-2026-10-13 -> HTTP 200 197265 bytes
+https://gamma-api.polymarket.com/events?slug=states-in-d4-drought-2026-10-13 -> HTTP 200 34031 bytes
+state-d4-drought-2026-10-13 event.resolutionSource= None market.resolutionSource= 'https://droughtmonitor.unl.edu/DmData/DataTables.aspx' markets= 40
+states-in-d4-drought-2026-10-13 event.resolutionSource= None market.resolutionSource= 'https://droughtmonitor.unl.edu/DmData/DataTables.aspx' markets= 6

@@ -1,0 +1,20 @@
+gamma events fetched 2100
+T20 moneyline markets (unique conditionId) 522
+by month {'2024-06': 19, '2024-07': 3, '2025-03': 9, '2025-04': 42, '2025-05': 34, '2025-06': 2, '2025-09': 21, '2025-10': 13, '2025-11': 50, '2025-12': 78, '2026-01': 92, '2026-02': 80, '2026-03': 79}
+matched to Cricsheet 231 unique Cricsheet files 210
+price records 210 with pre-match trade 209
+unique priced matches 203 outcome rows 405
+clean matches (decisive, both sides, |sum-1|<=0.10) 198
+clean by src {'ipl': 67, 't20i': 131}
+clean by year {'2024': 13, '2025': 104, '2026': 81}
+stale hours q50/q75/q90/q95/q99 {0.5: 0.039, 0.75: 0.19, 0.9: 0.502, 0.95: 2.006, 0.99: 9.409}
+50-50/no-result excluded: 6; one-sided/missing: 1; both-side sum>0.10: 4
+MODEL ll 0.6553 brier 0.2322
+MARKET ll 0.5107 brier 0.1745
+CONST ll 0.6919
+bets 117 net mean -0.0414 total -4.85 win 0.299 mean entry 0.322
+zero-fee, half1c net mean -0.0326
+zero-fee, half0 net mean -0.0226
+posthoc balanced 39 net mean 0.0258 total 1.01 win 0.513
+posthoc by year {'size': {'2024': 1, '2025': 23, '2026': 15}, 'mean': {'2024': -0.422, '2025': -0.047, '2026': 0.167}}
+posthoc by src {'size': {'ipl': 18, 't20i': 21}, 'mean': {'ipl': -0.085, 't20i': 0.121}}

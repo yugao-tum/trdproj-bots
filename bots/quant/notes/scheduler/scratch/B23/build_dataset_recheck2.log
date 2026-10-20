@@ -1,0 +1,14 @@
+rows 368
+state rows 320 with price 181 price<=72h 85
+resolved yes 91
+mismatch USDM vs market 0
+
+week state transitions:
+(False, False) [224, 0]
+(False, True) [5, 5]
+(True, False) [5, 0]
+(True, True) [86, 86]
+
+price stats (age<=72h):
+prior_d4>=.05 True n 42 min [0.264, 0.48000015549999997, 0.5] max [0.99, 0.999, 0.999]
+prior_d4>=.05 False n 43 min [0.001, 0.0045008319, 0.0046] max [0.45777777779999995, 0.45999999999999996, 0.47]

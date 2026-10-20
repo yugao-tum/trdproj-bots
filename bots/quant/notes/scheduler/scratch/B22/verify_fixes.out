@@ -1,0 +1,17 @@
+events=62 markets=1550
+volume_sum=410598.793553
+restricted_values=['true']
+restricted_true=1550/1550
+chicago.resolutionSource=https://www.spc.noaa.gov/products/outlook/day1otlk.html
+chicago.feeSchedule={"exponent": 1, "rate": 0.05, "rebateRate": 0.25, "takerOnly": true}
+chicago.restricted=True
+chicago.desc_has_01:00_UTC=True
+chicago.desc_has_hatched_SIGN=True
+chicago.desc_has_coords=True
+chicago.desc_has_NOAA_SPC=True
+
+capacity arithmetic
+broad_cost_x10=$169.30 over 62d = $2.73/day
+strict_cost_x10=$160.30 over 62d = $2.59/day
+max_day_x10=$96.10/day (upper bound, not average)
+strict_2026-09-30_pnl_share=623.63/658.23=0.9474

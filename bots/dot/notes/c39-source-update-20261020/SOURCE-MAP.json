@@ -1,0 +1,62 @@
+{
+  "publisher": "stake-dao/bounties-report",
+  "access_date_utc": "2026-10-20",
+  "period": "1792022400",
+  "evidence_type": "publisher-reported allocation files; not authenticated payments",
+  "data": [
+    {
+      "path": "bounties-reports/1792022400/vlCVX/votium_thursday_withdrawal.json",
+      "url": "https://api.github.com/repos/stake-dao/bounties-report/git/blobs/b8e81ba6d69265a41a8ee93c960bc42ed6f653b2",
+      "bytes": 988,
+      "sha256": "4e89a19b68ebce52ab317e32633bdbf44aaf83ea8e6188de67ea413a75431dc6",
+      "git_blob": "b8e81ba6d69265a41a8ee93c960bc42ed6f653b2",
+      "git_blob_matches_requested": true
+    },
+    {
+      "path": "bounties-reports/1792022400/vlCVX/curve/repartition.json",
+      "url": "https://api.github.com/repos/stake-dao/bounties-report/git/blobs/62e2bfb71d71fb31c985b35d1d41ca7f92cf500e",
+      "bytes": 924,
+      "sha256": "4b7d543883d069ad1050b68339597c5965102951a168cf62f467c1ad03388446",
+      "git_blob": "62e2bfb71d71fb31c985b35d1d41ca7f92cf500e",
+      "git_blob_matches_requested": true
+    },
+    {
+      "path": "bounties-reports/1792022400/vlCVX/curve/repartition_delegation.json",
+      "url": "https://api.github.com/repos/stake-dao/bounties-report/git/blobs/92e0815d98da3c1e5c5b93e21dc4d2a96934545a",
+      "bytes": 431530,
+      "sha256": "11f165d49174b24f6a491bee475cd8f455993f85649ed3b2cf5bdf94a5cbb7b7",
+      "git_blob": "92e0815d98da3c1e5c5b93e21dc4d2a96934545a",
+      "git_blob_matches_requested": true
+    },
+    {
+      "path": "bounties-reports/1792022400/vlCVX/delegators_split_breakdown.json",
+      "url": "https://api.github.com/repos/stake-dao/bounties-report/git/blobs/2db90de56da67e8c1f65db67259bd30501a83e52",
+      "bytes": 85311,
+      "sha256": "dbfa482a33301f86b10129aca966f87e6dbb124cd03ea9eb408fcae92743aca3",
+      "git_blob": "2db90de56da67e8c1f65db67259bd30501a83e52",
+      "git_blob_matches_requested": true
+    }
+  ],
+  "source_code": [
+    {
+      "name": "generateConvexVotium.ts",
+      "manifest_reported_git_blob": "027646961ed4922e5e8292ec732f1b806efe5ecb",
+      "url": "https://api.github.com/repos/stake-dao/bounties-report/git/blobs/027646961ed4922e5e8292ec732f1b806efe5ecb",
+      "limit": "Version reference only, not proof this code produced the dated data; saved source text added a terminal newline."
+    },
+    {
+      "name": "votiumClaims.ts",
+      "manifest_reported_git_blob": "719efaad7dcd793849785b1169a3b4c3a1143316",
+      "url": "https://api.github.com/repos/stake-dao/bounties-report/git/blobs/719efaad7dcd793849785b1169a3b4c3a1143316",
+      "limit": "Version reference only, not proof this code produced the dated data; saved source text added a terminal newline."
+    }
+  ],
+  "field_locations": {
+    "proposal": "repartition and repartition_delegation: $.proposalId, $.snapshotBlock",
+    "funding": "delegators_split_breakdown: $.received, $.availableForDistribution, $.votium.withheld, $.votium.carriedIn",
+    "receipts": "delegators_split_breakdown: $.votium.votiumTxs (pointers only)",
+    "allocation": "delegators_split_breakdown: $.perWallet, $.totalValuePico",
+    "groups": "repartition_delegation: $.distribution.perDelegate, $.distribution.totalPerGroup, $.distribution.totalTokens"
+  },
+  "reproduction": "Compact derived output only; original four JSON bodies and source texts are not bundled. No standalone replay claimed."
+}

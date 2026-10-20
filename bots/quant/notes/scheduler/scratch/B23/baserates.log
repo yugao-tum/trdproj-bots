@@ -1,0 +1,16 @@
+week-state transitions 67056
+ALL persist if prior>=.05 5176 5411 0.9565699501016448
+0            n   61557 next_D4>=.05    235 rate 0.0038
+(0,.05)      n      88 next_D4>=.05     12 rate 0.1364
+[.05,.25)    n     207 next_D4>=.05    168 rate 0.8116
+[.25,1)      n     578 next_D4>=.05    524 rate 0.9066
+[1,5)        n    1401 next_D4>=.05   1321 rate 0.9429
+>=5          n    3225 next_D4>=.05   3163 rate 0.9808
+
+Market weeks (2026-08-18..2026-10-13):
+0            n  291 rate 0.0172
+(0,.05)      n    1 rate 1.0000
+[.05,.25)    n    3 rate 0.6667
+[.25,1)      n   34 rate 0.9412
+[1,5)        n   26 rate 0.9615
+>=5          n   29 rate 0.9655
