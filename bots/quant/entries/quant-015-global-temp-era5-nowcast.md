@@ -12,7 +12,7 @@ category: S
 return_type: direction
 instruments: Polymarket「<Month> <YYYY> Temperature Increase (ºC)」6 档月距平阶梯（<x.xx / 0.05 宽区间 ×4 / >x.xx，negRisk）
 venues: Polymarket
-data: Copernicus Climate Pulse 全球日均 2m 气温 CSV（免费免密钥，1940-01-01 起，最新 2026-10-17）+ NASA GISTEMP v4 LOTI 月表（免费免密钥，1880-01 起，最新 2026-09）；Polymarket Gamma/CLOB（免费免密钥；本轮查到只有 2 个事件有 CLOB 价格历史，其中已关闭 1 个）；GISTEMP 首发布用 Wayback Machine 存档做代理（免费，本轮覆盖 2024-01..2026-09 中的 30 个月）
+data: Copernicus Climate Pulse 全球日均 2m 气温 CSV（免费免密钥，1940-01-01 起，最新 2026-10-18）+ NASA GISTEMP v4 LOTI 月表（免费免密钥，1880-01 起，最新 2026-09）；Polymarket Gamma/CLOB（免费免密钥；本轮查到只有 2 个事件有 CLOB 价格历史，其中已关闭 1 个）；GISTEMP 首发布用 Wayback Machine 存档做代理（免费，本轮覆盖 2024-01..2026-09 中的 30 个月）
 test_2w: 独立结果按事件（每月 1 个，同月 lower/higher-strikes 变体合并）计，两周最多 2 个，凑不到 30；失败标准是走前下月 log loss 不优于 8 结果均匀分布，或前向 ≥5 个有价格事件上模型 log loss ≥ 市场 log loss，或首发布与修订值换档率 >30%
 status: 待核
 confidence: 中
@@ -130,9 +130,9 @@ NASA 没有公开的「首发布月表归档」；我改用 Wayback Machine 的 
 
 ### 7）Polymarket 月温事件与 CLOB 价格历史（本轮重查）
 
-- `public-search?q=temperature increase&limit_per_type=100&events_status=all`（HTTP 200，829,034 bytes）返回 **33 个事件**：**32 个 closed、1 个 open**。
+- `public-search?q=temperature increase&limit_per_type=100&events_status=all`（HTTP 200，829,059 bytes）返回 **33 个事件**：**32 个 closed、1 个 open**。
 - 按 slug 归并到日历月：**29 个不同月份（2024-04 … 2026-10）**；其中已关闭的 **28 个月**。重复/变体包括 2025-04 的 lower-ranges、2025-07 的两个 slug、2025-10 的两个 slug、2026-08 的 higher-strikes；按 GUIDE 第 2 节第 6 条，同月同一结算源只算 1 个独立结果。
-- 对 33 个事件的 **191 个 YES token** 逐个查 `https://clob.polymarket.com/prices-history?market=<token>&interval=max&fidelity=60`：**只有 2 个事件返回非空 history** —— `september-2026-temperature-increase-c`（6/6 档，约 466–468 点）和 `october-2026-temperature-increase-c-20260928t160000000z`（6/6 档，约 454–460 点，未关闭）。其余 **31 个事件的所有 token 全部返回 `history=[]`**。
+- 对 33 个事件的 **191 个 YES token** 逐个查 `https://clob.polymarket.com/prices-history?market=<token>&interval=max&fidelity=60`：**只有 2 个事件返回非空 history** —— `september-2026-temperature-increase-c`（6/6 档，约 454–458 点）和 `october-2026-temperature-increase-c-20260928t160000000z`（6/6 档，约 465–471 点，未关闭）。其余 **31 个事件的所有 token 全部返回 `history=[]`**。
 - 因此「≥5 个已关闭且有价格」不成立（只有 **1 个**已关闭事件有价格），按预先规则**不计算模型对市场的统计 log loss**。这不是遗漏，是数据可得性限制。
 - 唯一已关闭事件（2026-09）的 n=1 对照：在 **2026-10-05 00:00Z**（月末后 5 天，ERA5 整月已齐）取 6 档最近价格并归一化，模型给结算档 0.3301，市场给 0.6880；实际结算在该档，**模型 log loss 1.1083，市场 0.3740**。到 **2026-10-09 16:00Z**，市场该档 0.9050（归一化 0.9972），模型仍是 0.3301。单事件不能做统计，但方向和「市场已经消化了 ERA5」一致，**对策略不利**。
 - 成交额（来源自报，未核实）：`september-2026` 11,127.86、`october-2026` 2,522.64、`august-2026` 15,901.87；更早的 2025-01 是 4,925,571.47、2025-09 是 2,415,315.78。同一模板成交额在 18 个月里掉了两个数量级，容量假设不能拿 2025 年的数。
@@ -144,9 +144,9 @@ NASA 没有公开的「首发布月表归档」；我改用 Wayback Machine 的 
 
 ## 数据
 
-- **Copernicus Climate Pulse，全球日均 2m 气温 CSV（免费、免密钥、无需注册）**：`https://sites.ecmwf.int/data/climatepulse/data/series/era5_daily_series_2t_global.csv`。文件头原文：「This file contains daily global mean near-surface (2m) air temperature data from ERA5 from 1940 to 2026 as well as daily temperature anomalies relative to the 1991-2020 reference period.」列为 `date,2t,clim_91-20,ano_91-20,status`，单位 deg. C。2026-10-20 抓取 HTTP 200，1,198,225 bytes，31,721 行；末行 `2026-10-17,15.303,14.409,0.894,PRELIMINARY`；注释写「Last updated: 19 Oct 2026」。
+- **Copernicus Climate Pulse，全球日均 2m 气温 CSV（免费、免密钥、无需注册）**：`https://sites.ecmwf.int/data/climatepulse/data/series/era5_daily_series_2t_global.csv`。文件头原文：「This file contains daily global mean near-surface (2m) air temperature data from ERA5 from 1940 to 2026 as well as daily temperature anomalies relative to the 1991-2020 reference period.」列为 `date,2t,clim_91-20,ano_91-20,status`，单位 deg. C。2026-10-20 抓取 HTTP 200，1,198,262 bytes，31,722 行；末行 `2026-10-18,15.260,14.371,0.889,PRELIMINARY`；注释写「Last updated: 20 Oct 2026」。
 - **发布时滞（原文）**：「The ERA5 data available in the CDS are updated with a 5-day delay (120 hours) behind real-time. Note that the time series below includes values based on ERA5 data not yet available in the CDS (for days 2 to 5 behind real-time).」以及「If preliminary, the values will likely change (slightly) once the final ERA5 data for the day are available (typically 3 days behind real-time).」
-- **Pulse 状态文件**：`https://sites.ecmwf.int/data/climatepulse/status/climpulse_status.json` → `{"daily": 20261017, "monthly": 202609, "annual": 2025}`（2026-10-20，HTTP 200，63 bytes）。即整月 ERA5 到 2026-09 已可用。
+- **Pulse 状态文件**：`https://sites.ecmwf.int/data/climatepulse/status/climpulse_status.json` → `{"daily": 20261018, "monthly": 202609, "annual": 2025}`（2026-10-20，HTTP 200，63 bytes）。即整月 ERA5 到 2026-09 已可用。
 - **NASA GISTEMP v4 月表（免费、免密钥）**：`https://data.giss.nasa.gov/gistemp/tabledata_v4/GLB.Ts+dSST.txt`（HTTP 200，17,039 bytes；2026 行到 Sep 有值；表头来源行写 `GHCN-v4 1880-09/2026 + SST: ERSST v5 1880-09/2026`）。发布节奏原文（`https://data.giss.nasa.gov/gistemp/updates_v4/`，HTTP 200，19,967 bytes）：「Graphs and tables are updated around the middle of every month using the current data files provided by NOAA/NCEI (GHCN v4: meteorological stations, ERSST v5: ocean).」
 - **GISTEMP 首发布代理**：Wayback CDX `https://web.archive.org/cdx/search/cdx?url=data.giss.nasa.gov%2Fgistemp%2Ftabledata_v4%2FGLB.Ts%2BdSST.txt&from=1999&to=2026&output=json&filter=statuscode%3A200&collapse=timestamp%3A6`（HTTP 200，16,974 bytes），取快照正文 `https://web.archive.org/web/<timestamp>id_/https://data.giss.nasa.gov/gistemp/tabledata_v4/GLB.Ts+dSST.txt`。这是第三方存档，不是 NASA 官方首发布。
 - **Polymarket**：`https://gamma-api.polymarket.com/events?slug=<slug>`（规则原文、`feeSchedule`、`outcomePrices`）；`https://gamma-api.polymarket.com/public-search?q=temperature%20increase&limit_per_type=100&events_status=all`（找同族）；`https://clob.polymarket.com/prices-history?market=<YES token>&interval=max&fidelity=60`。
@@ -207,14 +207,14 @@ NASA 没有公开的「首发布月表归档」；我改用 Wayback Machine 的 
 
 - https://gamma-api.polymarket.com/events?slug=september-2026-temperature-increase-c — 访问 2026-10-20 — 已读（HTTP 200，26,352 bytes；规则原文、6 档标题与 `outcomePrices`、`feeSchedule` rate 0.05、`negRisk=true`、`restricted=true`、`endDate=2026-11-02T04:59:00Z`、volume 11127.859859、openInterest 8452.463409）
 - https://gamma-api.polymarket.com/events?slug=august-2026-temperature-increase-c-20260728155540489 — 访问 2026-10-20 — 已读（HTTP 200，25,839 bytes；`>1.29ºC` 档 `["1","0"]`；档位为 `<1.10 … >1.29`）
-- https://gamma-api.polymarket.com/public-search?q=temperature%20increase&limit_per_type=100&events_status=all — 访问 2026-10-20 — 已读（HTTP 200，829,034 bytes；33 个事件、32 closed、1 open；29 个不同月份）
+- https://gamma-api.polymarket.com/public-search?q=temperature%20increase&limit_per_type=100&events_status=all — 访问 2026-10-20 — 已读（HTTP 200，829,059 bytes；33 个事件、32 closed、1 open；29 个不同月份）
 - https://gamma-api.polymarket.com/events?tag_slug=weather&limit=100&offset=0..400&closed=true&order=endDate&ascending=false — 访问 2026-10-20 — 已读（5 页各 HTTP 200，约 5.8–6.1 MB；扫描 500 个已关闭 weather 事件，标题/ slug 含 `temperature increase|how hot will` 的只有 1 个，说明 tag 覆盖不全，事件计数以 public-search 为准）
-- https://sites.ecmwf.int/data/climatepulse/data/series/era5_daily_series_2t_global.csv — 访问 2026-10-20 — 已读（HTTP 200，1,198,225 bytes，31,721 行；表头注释含 5 天/3 天时滞原文；末行 `2026-10-17,…,0.894,PRELIMINARY`）
-- https://sites.ecmwf.int/data/climatepulse/status/climpulse_status.json — 访问 2026-10-20 — 已读（HTTP 200，63 bytes；`{"daily":20261017,"monthly":202609,"annual":2025}`）
+- https://sites.ecmwf.int/data/climatepulse/data/series/era5_daily_series_2t_global.csv — 访问 2026-10-20 — 已读（HTTP 200，1,198,262 bytes，31,722 行；表头注释含 5 天/3 天时滞原文；末行 `2026-10-18,…,0.889,PRELIMINARY`）
+- https://sites.ecmwf.int/data/climatepulse/status/climpulse_status.json — 访问 2026-10-20 — 已读（HTTP 200，63 bytes；`{"daily":20261018,"monthly":202609,"annual":2025}`）
 - https://data.giss.nasa.gov/gistemp/tabledata_v4/GLB.Ts+dSST.txt — 访问 2026-10-20 — 已读（HTTP 200，17,039 bytes；2026 行：108 123 130 116 113 117 124 142 138 **** …）
 - https://data.giss.nasa.gov/gistemp/updates_v4/ — 访问 2026-10-20 — 已读（HTTP 200，19,967 bytes；「Graphs and tables are updated around the middle of every month …」）
 - https://web.archive.org/cdx/search/cdx?url=data.giss.nasa.gov%2Fgistemp%2Ftabledata_v4%2FGLB.Ts%2BdSST.txt&from=1999&to=2026&output=json&filter=statuscode%3A200&collapse=timestamp%3A6 — 访问 2026-10-20 — 已读（HTTP 200，16,974 bytes；82 个快照）
 - https://web.archive.org/web/20251112105542id_/https://data.giss.nasa.gov/gistemp/tabledata_v4/GLB.Ts+dSST.txt — 访问 2026-10-20 — 已读（HTTP 200，16,934 bytes；2025 行含 Jan–Aug 值）
 - https://clob.polymarket.com/prices-history?market=<YES token>&interval=max&fidelity=60（对 191 个 token 逐一请求）— 访问 2026-10-20 — 已读（脚本 `pm_histcheck.py`；只有 2 个事件非空，其余 `history=[]`）
-- https://clob.polymarket.com/prices-history?market=9561250571098553460692263040980922664627749350602993898138030564733182354111&interval=max&fidelity=60 — 访问 2026-10-20 — 已读（HTTP 200，12,380 bytes；2026-09 `1.35–1.39` 档 468 点，`2026-09-20T06:00Z` p=0.47 至 `2026-10-09T16:00Z` p=0.905）
+- https://clob.polymarket.com/prices-history?market=9561250571098553460692263040980922664627749350602993898138030564733182354111&interval=max&fidelity=60 — 访问 2026-10-20 — 已读（HTTP 200，12,119 bytes；2026-09 `1.35–1.39` 档 458 点，`2026-09-20T16:00Z` p=0.45 至 `2026-10-09T16:00Z` p=0.905）
 - 本地脚本 `walkforward.py`、`pm_histcheck.py`、`pm_count.py`、`pm_model_market.py`、`firstrelease_local.py` — 2026-10-20 运行 — 自己算（走前回归、321 月命中/log loss/PIT/覆盖、191 个 token 查询、首发布代理）
