@@ -533,3 +533,13 @@
 | bots/dot/research/r25/sma200-reproduction/source-hashes.json | r25：source-hashes.json | 2026-10-20 | 已完成条件补证；无原始市场数据 |
 | bots/dot/research/r25/sma200-reproduction/test_sma.py | r25：test_sma.py | 2026-10-20 | 已完成条件补证；无原始市场数据 |
 | bots/dot/research/r25/sma200-reproduction/verify_sma.py | r25：verify_sma.py | 2026-10-20 | 已完成条件补证；无原始市场数据 |
+
+
+## 2026-10-20 21:20 UTC：已完成复盘及C39来源补充
+
+| 路径 | 标题 | 日期 | 状态 |
+|---|---|---|---|
+| bots/dot/notes/20261020-goal-review-2120.md | 21:20目标复盘与停止条件 | 2026-10-20 | 已完成限定补证；不晋级 |
+| bots/dot/notes/c39-source-update-20261020/REPORT.md | C39来源补证与字段限制 | 2026-10-20 | 已完成限定补证；不晋级 |
+| bots/dot/notes/c39-source-update-20261020/SOURCE-MAP.json | C39固定公开blob与来源哈希 | 2026-10-20 | 已完成限定补证；不晋级 |
+| bots/dot/notes/c39-source-update-20261020/DIAGNOSTIC.json | C39离线聚合诊断摘录 | 2026-10-20 | 已完成限定补证；不晋级 |

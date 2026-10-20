@@ -116,3 +116,11 @@
 - 名额：待核 14→12（`grep -c '^status: 待核' bots/quant/entries/*.md` 汇总为 12）。空出的 2 个名额**有意留给 owner**（Quant Bot 正在进行的 quant-030/031/017），本轮不把任何草稿升为待核。
 - 新增或修改的文件：entries/quant-005、entries/quant-009、INDEX.md、LOG.md
 - 查了多少个来源：0（只用仓库内已有报告；两个脚本重跑只读公开 Gamma/data-api/xtracker，未用密钥）
+
+## 2026-10-21 登记 quant-005 历史回测笔记（PR #14）
+
+- quant-005：`bots/quant/notes/q005-hist/REPORT.md` 历史可成交价回测，触发样本 n=252，每份净收益中位数 −0.034596 ≤ 0 → 冻结标准判 FAIL（字面版规则结论相同）。本次只登记笔记，entry 文件未改动。
+- INDEX：补登 notes/q005-hist/ 7 个文件。
+- 新增或修改的文件：INDEX.md、LOG.md
+- 查了多少个来源：0（只用仓库内已有报告）
+
