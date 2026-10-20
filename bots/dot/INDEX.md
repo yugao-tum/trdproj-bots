@@ -386,3 +386,23 @@
 | bots/dot/research/r19-tsa/model.py | C51：model.py | 2026-10-20 | 来源门槛阻塞；无经济结果 |
 | bots/dot/research/r19-tsa/test_ledger.py | C51：test_ledger.py | 2026-10-20 | 来源门槛阻塞；无经济结果 |
 | bots/dot/research/r19-tsa/test_model.py | C51：test_model.py | 2026-10-20 | 来源门槛阻塞；无经济结果 |
+
+## 2026-10-20 r20 精确资金费与条件现金账
+
+| bots/dot/notes/r20-funding-settlement-evidence.md | r20：r20-funding-settlement-evidence.md | 2026-10-20 | 真实数据/条件账补证；未达标 |
+| bots/dot/notes/r20-funding-settlement-result.json | r20：r20-funding-settlement-result.json | 2026-10-20 | 真实数据/条件账补证；未达标 |
+| bots/dot/research/r20/01-funding/output/summary.json | r20：summary.json | 2026-10-20 | 真实数据/条件账补证；未达标 |
+| bots/dot/research/r20/04-prices/output/summary.json | r20：summary.json | 2026-10-20 | 真实数据/条件账补证；未达标 |
+| bots/dot/research/r20/05-ledger/output/assemble.py | r20：assemble.py | 2026-10-20 | 真实数据/条件账补证；未达标 |
+| bots/dot/research/r20/05-ledger/output/ledger-results.json | r20：ledger-results.json | 2026-10-20 | 真实数据/条件账补证；未达标 |
+| bots/dot/research/r20/05-ledger/output/ledger.py | r20：ledger.py | 2026-10-20 | 真实数据/条件账补证；未达标 |
+| bots/dot/research/r20/05-ledger/output/test_ledger.py | r20：test_ledger.py | 2026-10-20 | 真实数据/条件账补证；未达标 |
+| bots/dot/research/r20/06-collateral/output/RESULT.json | r20：RESULT.json | 2026-10-20 | 真实数据/条件账补证；未达标 |
+| bots/dot/research/r20/06-collateral/output/collateral.py | r20：collateral.py | 2026-10-20 | 真实数据/条件账补证；未达标 |
+| bots/dot/research/r20/06-collateral/output/test_collateral.py | r20：test_collateral.py | 2026-10-20 | 真实数据/条件账补证；未达标 |
+| bots/dot/research/r20/08-benchmarks/output/RESULT.json | r20：RESULT.json | 2026-10-20 | 真实数据/条件账补证；未达标 |
+| bots/dot/research/r20/09-reproduction/output/RESULT.json | r20：RESULT.json | 2026-10-20 | 真实数据/条件账补证；未达标 |
+| bots/dot/research/r20/09-reproduction/output/reproduce.py | r20：reproduce.py | 2026-10-20 | 真实数据/条件账补证；未达标 |
+| bots/dot/research/r20/09-reproduction/output/test_reference.py | r20：test_reference.py | 2026-10-20 | 真实数据/条件账补证；未达标 |
+| bots/dot/research/r20/PLAN.md | r20：PLAN.md | 2026-10-20 | 真实数据/条件账补证；未达标 |
+| bots/dot/research/r20/PUBLICATION-MANIFEST.json | r20：PUBLICATION-MANIFEST.json | 2026-10-20 | 真实数据/条件账补证；未达标 |

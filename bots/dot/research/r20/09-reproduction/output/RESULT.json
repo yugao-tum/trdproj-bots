@@ -1,0 +1,234 @@
+{
+  "schema": "r20.independent-reproduction.v1",
+  "method": "Independent Fraction implementation from frozen economic identities; no primary-code imports",
+  "assertions": 24336,
+  "scenarios": [
+    {
+      "scenario_id": "BTCUSDT-b1250-c0.003",
+      "quantity": "0.02947388126433351098758493769544770249602987173056002778999362740261572",
+      "net_pnl": "426.5504505512186871448408212983879729395080414125499164878323987520057",
+      "cagr_total5000": 0.030230262908712557,
+      "cagr_venue2500": 0.05898397654023868,
+      "funding_mark_negative_count": 897,
+      "first_funding_negative_ms": 1731513600000,
+      "minimum_funding_mark_equity": "-820.4051234493164864752797839657122048838686234951453831897581901333926",
+      "daily_high_margin_bound_counts": {
+        "nonnegative_lower_bound_not_liquidation_proof": 693,
+        "guaranteed_negative_at_recorded_high": 311
+      },
+      "minimum_daily_high_lower_bound": "-857.4049666276102364222297450780383184573144941371090634671540240055576",
+      "minimum_equity_to_notional_bound": "-0.2305461095896565325499028769195776513095171108597948487915289336432607",
+      "maintenance_tolerance_after_assumed_close_cost": "-0.2335461095896565325499028769195776513095171108597948487915289336432607",
+      "interpretation": "Counterfactual endpoint after observed insolvency"
+    },
+    {
+      "scenario_id": "BTCUSDT-b1250-c0.006",
+      "quantity": "0.02938598698620925598463985338820481670329817231188042532143499829505325",
+      "net_pnl": "403.0804260088850171097017646083949979776657791249145900990003745768287",
+      "cagr_total5000": 0.028607036801544306,
+      "cagr_venue2500": 0.05588645168963824,
+      "funding_mark_negative_count": 897,
+      "first_funding_negative_ms": 1731513600000,
+      "minimum_funding_mark_equity": "-817.9612690610614627834463106362104078683121336131046050101272245195675",
+      "daily_high_margin_bound_counts": {
+        "nonnegative_lower_bound_not_liquidation_proof": 693,
+        "guaranteed_negative_at_recorded_high": 311
+      },
+      "minimum_daily_high_lower_bound": "-854.8507747348473784860216694788178550990936527521598448890815201197479",
+      "minimum_equity_to_notional_bound": "-0.2305468328415797755969443676142276000732286628398614361535614569967848",
+      "maintenance_tolerance_after_assumed_close_cost": "-0.2365468328415797755969443676142276000732286628398614361535614569967848",
+      "interpretation": "Counterfactual endpoint after observed insolvency"
+    },
+    {
+      "scenario_id": "BTCUSDT-b625-c0.003",
+      "quantity": "0.01473694063216675549379246884772385124801493586528001389499681370130786",
+      "net_pnl": "213.2752252756093435724204106491939864697540207062749582439161993760028",
+      "cagr_total5000": 0.015311894770801304,
+      "cagr_venue2500": 0.030230262908712557,
+      "funding_mark_negative_count": 0,
+      "first_funding_negative_ms": null,
+      "minimum_funding_mark_equity": "839.7974382753417567623601080171438975580656882524273084051209049333037",
+      "daily_high_margin_bound_counts": {
+        "nonnegative_lower_bound_not_liquidation_proof": 1004
+      },
+      "minimum_daily_high_lower_bound": "821.2975166861948817888851274609808407713427529314454682664229879972212",
+      "minimum_equity_to_notional_bound": "0.4416744820884289975772724859149739142701582896193615316519799873355624",
+      "maintenance_tolerance_after_assumed_close_cost": "0.4386744820884289975772724859149739142701582896193615316519799873355624",
+      "interpretation": "Conditional endpoint; not continuous liquidation certification"
+    },
+    {
+      "scenario_id": "BTCUSDT-b625-c0.006",
+      "quantity": "0.01469299349310462799231992669410240835164908615594021266071749914752662",
+      "net_pnl": "201.5402130044425085548508823041974989888328895624572950495001872884144",
+      "cagr_total5000": 0.014479862586633585,
+      "cagr_venue2500": 0.028607036801544306,
+      "funding_mark_negative_count": 0,
+      "first_funding_negative_ms": null,
+      "minimum_funding_mark_equity": "841.0193654694692686082768446818947960658439331934476974949363877402163",
+      "daily_high_margin_bound_counts": {
+        "nonnegative_lower_bound_not_liquidation_proof": 1004
+      },
+      "minimum_daily_high_lower_bound": "822.5746126325763107569891652605910724504531736239200775554592399401260",
+      "minimum_equity_to_notional_bound": "0.4436843887218838767539413901241162433695963151083253222972560649420947",
+      "maintenance_tolerance_after_assumed_close_cost": "0.4376843887218838767539413901241162433695963151083253222972560649420947",
+      "interpretation": "Conditional endpoint; not continuous liquidation certification"
+    },
+    {
+      "scenario_id": "ETHUSDT-b1250-c0.003",
+      "quantity": "0.5461578513898456785550564755400082232147662941836622506367228386230127",
+      "net_pnl": "323.3144301940584095767145136918081316358916256965626236105411104352978",
+      "cagr_total5000": 0.023056517552609623,
+      "cagr_venue2500": 0.04523842208922191,
+      "funding_mark_negative_count": 0,
+      "first_funding_negative_ms": null,
+      "minimum_funding_mark_equity": "143.7975031082413917188252148112014668349293077963495866574703005586614",
+      "daily_high_margin_bound_counts": {
+        "nonnegative_lower_bound_not_liquidation_proof": 1004
+      },
+      "minimum_daily_high_lower_bound": "76.16588088988504468451630825378081814192720955837759152610489688581274",
+      "minimum_equity_to_notional_bound": "0.02814431385454606335828812083950320233983046041435340994838273247501832",
+      "maintenance_tolerance_after_assumed_close_cost": "0.02514431385454606335828812083950320233983046041435340994838273247501832",
+      "interpretation": "Conditional endpoint; not continuous liquidation certification"
+    },
+    {
+      "scenario_id": "ETHUSDT-b1250-c0.006",
+      "quantity": "0.5445291500437526993943555118952567076385791183560767767282634265794053",
+      "net_pnl": "306.1182935140352350306736755206206175586116583725874233055740504276336",
+      "cagr_total5000": 0.02185300191364381,
+      "cagr_venue2500": 0.042917893384890826,
+      "funding_mark_negative_count": 0,
+      "first_funding_negative_ms": null,
+      "minimum_funding_mark_equity": "143.3654653491905534433971662929555849527724640687212863789361278720330",
+      "daily_high_margin_bound_counts": {
+        "nonnegative_lower_bound_not_liquidation_proof": 1004
+      },
+      "minimum_daily_high_lower_bound": "75.93552788894063686744106959604414296561430846962992343981137649641947",
+      "minimum_equity_to_notional_bound": "0.02814312114180616017327558272733445789561491969924022999317603793087951",
+      "maintenance_tolerance_after_assumed_close_cost": "0.02214312114180616017327558272733445789561491969924022999317603793087951",
+      "interpretation": "Conditional endpoint; not continuous liquidation certification"
+    },
+    {
+      "scenario_id": "ETHUSDT-b625-c0.003",
+      "quantity": "0.2730789256949228392775282377700041116073831470918311253183614193115063",
+      "net_pnl": "161.6572150970292047883572568459040658179458128482813118052705552176489",
+      "cagr_total5000": 0.011643131282772279,
+      "cagr_venue2500": 0.023056517552609623,
+      "funding_mark_negative_count": 0,
+      "first_funding_negative_ms": null,
+      "minimum_funding_mark_equity": "1321.898751554120695859412607405600733417464653898174793328735150279331",
+      "daily_high_margin_bound_counts": {
+        "nonnegative_lower_bound_not_liquidation_proof": 1004
+      },
+      "minimum_daily_high_lower_bound": "1288.082940444942522342258154126890409070963604779188795763052448442906",
+      "minimum_equity_to_notional_bound": "0.9519278218282480690821537859956330083913496719533991699018783914733014",
+      "maintenance_tolerance_after_assumed_close_cost": "0.9489278218282480690821537859956330083913496719533991699018783914733014",
+      "interpretation": "Conditional endpoint; not continuous liquidation certification"
+    },
+    {
+      "scenario_id": "ETHUSDT-b625-c0.006",
+      "quantity": "0.2722645750218763496971777559476283538192895591780383883641317132897026",
+      "net_pnl": "153.0591467570176175153368377603103087793058291862937116527870252138168",
+      "cagr_total5000": 0.011029756588000428,
+      "cagr_venue2500": 0.02185300191364381,
+      "funding_mark_negative_count": 0,
+      "first_funding_negative_ms": null,
+      "minimum_funding_mark_equity": "1321.682732674595276721698583146477792476386232034360643189468063936016",
+      "daily_high_margin_bound_counts": {
+        "nonnegative_lower_bound_not_liquidation_proof": 1004
+      },
+      "minimum_daily_high_lower_bound": "1287.967763944470318433720534798022071482807154234814961719905688248210",
+      "minimum_equity_to_notional_bound": "0.9546896904554095677088776357154367359492822445330189284111387826489979",
+      "maintenance_tolerance_after_assumed_close_cost": "0.9486896904554095677088776357154367359492822445330189284111387826489979",
+      "interpretation": "Conditional endpoint; not continuous liquidation certification"
+    },
+    {
+      "scenario_id": "SOLUSDT-b1250-c0.003",
+      "quantity": "12.25187983042614194381072276681555804470191470417689126878115162965684",
+      "net_pnl": "254.0365828012820379306437745356145484113918566753534128248365403200544",
+      "cagr_total5000": 0.018192720963688735,
+      "cagr_venue2500": 0.03583405646648674,
+      "funding_mark_negative_count": 164,
+      "first_funding_negative_ms": 1731369600002,
+      "minimum_funding_mark_equity": "-563.2941098530275093418133331033247093167998952415266979243159236407961",
+      "daily_high_margin_bound_counts": {
+        "nonnegative_lower_bound_not_liquidation_proof": 933,
+        "guaranteed_negative_at_recorded_high": 70,
+        "ambiguous": 1
+      },
+      "minimum_daily_high_lower_bound": "-857.9461335332158079928519592618134585625741728804933998633278301156303",
+      "minimum_equity_to_notional_bound": "-0.2370376861285158977049624263760070408232347166745650260645860131338433",
+      "maintenance_tolerance_after_assumed_close_cost": "-0.2400376861285158977049624263760070408232347166745650260645860131338433",
+      "interpretation": "Counterfactual endpoint after observed insolvency"
+    },
+    {
+      "scenario_id": "SOLUSDT-b1250-c0.006",
+      "quantity": "12.21534340946065643105582001502584962110936426271314308408299710193421",
+      "net_pnl": "237.1670415586900160675741070681690431535834149644015576224133766023599",
+      "cagr_total5000": 0.017002189711152305,
+      "cagr_venue2500": 0.033521307485678165,
+      "funding_mark_negative_count": 164,
+      "first_funding_negative_ms": 1731369600002,
+      "minimum_funding_mark_equity": "-561.6163218761820360280315746105357630074839988773610792969278313602459",
+      "daily_high_margin_bound_counts": {
+        "nonnegative_lower_bound_not_liquidation_proof": 933,
+        "guaranteed_negative_at_recorded_high": 70,
+        "ambiguous": 1
+      },
+      "minimum_daily_high_lower_bound": "-855.3896615891331926353792307108978062415909575969272841128611735016562",
+      "minimum_equity_to_notional_bound": "-0.2370382446553590362873197481551689120574097894523051926071356035474917",
+      "maintenance_tolerance_after_assumed_close_cost": "-0.2430382446553590362873197481551689120574097894523051926071356035474917",
+      "interpretation": "Counterfactual endpoint after observed insolvency"
+    },
+    {
+      "scenario_id": "SOLUSDT-b625-c0.003",
+      "quantity": "6.125939915213070971905361383407779022350957352088445634390575814828421",
+      "net_pnl": "127.0182914006410189653218872678072742056959283376767064124182701600272",
+      "cagr_total5000": 0.00916805498268869,
+      "cagr_venue2500": 0.018192720963688735,
+      "funding_mark_negative_count": 0,
+      "first_funding_negative_ms": null,
+      "minimum_funding_mark_equity": "968.3529450734862453290933334483376453416000523792366510378420381796020",
+      "daily_high_margin_bound_counts": {
+        "nonnegative_lower_bound_not_liquidation_proof": 1004
+      },
+      "minimum_daily_high_lower_bound": "821.0269332333920960035740203690932707187129135597533000683360849421848",
+      "minimum_equity_to_notional_bound": "0.4536749264231055226457247308916119423194096540518583711326247376616343",
+      "maintenance_tolerance_after_assumed_close_cost": "0.4506749264231055226457247308916119423194096540518583711326247376616343",
+      "interpretation": "Conditional endpoint; not continuous liquidation certification"
+    },
+    {
+      "scenario_id": "SOLUSDT-b625-c0.006",
+      "quantity": "6.107671704730328215527910007512924810554682131356571542041498550967103",
+      "net_pnl": "118.5835207793450080337870535340845215767917074822007788112066883011799",
+      "cagr_total5000": 0.00856375046619351,
+      "cagr_venue2500": 0.017002189711152305,
+      "funding_mark_negative_count": 0,
+      "first_funding_negative_ms": null,
+      "minimum_funding_mark_equity": "969.1918390619089819859842126947321184962580005613194603515360843198770",
+      "daily_high_margin_bound_counts": {
+        "nonnegative_lower_bound_not_liquidation_proof": 1004
+      },
+      "minimum_daily_high_lower_bound": "822.3051692054334036823103846445510968792045212015363579435694132491719",
+      "minimum_equity_to_notional_bound": "0.4557403079138644421501590955250152325502674158824724121589601245684111",
+      "maintenance_tolerance_after_assumed_close_cost": "0.4497403079138644421501590955250152325502674158824724121589601245684111",
+      "interpretation": "Conditional endpoint; not continuous liquidation certification"
+    }
+  ],
+  "synthetic_tests_passed": 16,
+  "network_requests": 0,
+  "input_hashes": {
+    "PLAN.md": "c4efe0e3420acc9c81e0f8d9efee78db712061e80e8ed64269b292aa517b2803",
+    "01-funding/output/funding.csv": "0f0fca8b9c4133d3f37855f8789e14a92f9fdbff44851cbdb353eaf30bcc2062",
+    "04-prices/output/daily_prices.csv": "6b68f5edfac0d8e8e71622ba95c00e9db9a34516e64b21b61178a84fd5aa3d8a",
+    "05-ledger/output/ledger-results.json": "0670cd26484b8d9dec1cbdc714097db908f71a700c169efa1a0980c25431169d",
+    "05-ledger/output/daily-ledger.csv": "0bc05513edfc797213254b21d0bf0b0242ef1a3dfa83ddd6450bacfcacfd8f8d",
+    "06-collateral/output/RESULT.json": "7204512ff71e1811819eb70b86e29a7e8517a3d2a9106213e6f2dee95151c027"
+  },
+  "qualification_claimed": false,
+  "limitations": [
+    "Candle prices are conditional proxies, not own fills.",
+    "Negative margin invalidates path; nonnegative daily bounds do not prove survival absent maintenance tiers, fills and full mark path.",
+    "2500 venue denominator is distinct from 5000 total and spot purchase budget.",
+    "Approximate venue rule is not an invented daily forced-liquidation rule."
+  ]
+}

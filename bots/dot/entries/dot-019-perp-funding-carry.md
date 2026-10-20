@@ -131,3 +131,11 @@ confidence: 中
 - https://s3-ap-northeast-1.amazonaws.com/data.binance.vision?delimiter=/&prefix=data/spot/monthly/klines/BTCUSDT/ — 原访问 2026-10-19 UTC — 已读（保存 XML）— CommonPrefixes 的 1h 子目录，未据此认定同步对冲数据齐备
 - https://developers.binance.com/docs/derivatives/usds-margined-futures/market-data/rest-api/Get-Funding-Rate-History — 原访问 2026-10-19 UTC — 已读（保存正文相关段落）— Get Funding Rate History 的 fundingRate/fundingTime/markPrice，Get Funding Rate Info 的 fundingIntervalHours；不是历史 mark 下载记录
 - https://www.binance.com/en/fee/futureFee — 原访问 2026-10-19 UTC — 摘要/读取不足（保存内容仅导航壳）— 未取得可核费率，0.30%/0.60% 是研究费用假设，非该页证实数字
+
+## 2026-10-20 r20：实际结算 mark 与固定数量现金账补证
+
+本次另行冻结两个购买预算（1,250/625，均含现货买入成本）及0.30%/0.60%成本情景，实际取得9,036笔资金费结算mark，和99个月包的精确时间/费率一致，并补齐1,004日现货、永续、mark观察。每币严格排除入场同刻首费，资金费使用q×真实mark×rate。旧1,200固定名义上界及初始全额抵押测试原样保留，不把新情景回填成旧配置通过。
+
+条件账中BTC/SOL的1,250预算出现负保证金，其正终值不可作为可执行收益。ETH1,250在主成本下场内2,500分母CAGR4.5238%、总5,000分母2.3057%；压力成本腿CAGR4.2918%。日高保证金界非负但未核实历史清算规则，主成本后可容纳维持保证金及其他平仓摩擦约2.5144%的条件名义比例，不是已验证档位。日频趋势参照相关−0.0513、月频+0.3822，不能只选低者宣布低相关。
+
+已完成独立现金账与资金守恒复现；真实数据、条件模拟和实际可执行结果严格分开。3,011个共同结算事件或1,004个日聚合是待评审认可的操作性结果计数，不是IID或独立策略数。历史成交、数量过滤、维护率及稳定相关性仍有缺口。保留现有supplement待核身份，不新增条目/待核、不主张收录、已证改进或阶段分。详见[完整证据与全部12情景](../notes/r20-funding-settlement-evidence.md)。

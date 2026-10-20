@@ -1,0 +1,207 @@
+{
+  "schema": "r20.daily-prices.v1",
+  "window_utc": [
+    "2024-01-01T00:00:00Z",
+    "2026-09-30T23:59:59.999Z"
+  ],
+  "symbols": [
+    "BTCUSDT",
+    "ETHUSDT",
+    "SOLUSDT"
+  ],
+  "days_per_symbol": 1004,
+  "joined_rows": 3012,
+  "dataset_calls": 6,
+  "dataset_call_budget": 6,
+  "retries": 0,
+  "source_403": false,
+  "source_429": false,
+  "spot_sha256": "a008fbd0514f4d01bd477fc008de9fb24b8dfae5e83ebda2ced8bbf2e89bcf0a",
+  "daily_prices_sha256": "6b68f5edfac0d8e8e71622ba95c00e9db9a34516e64b21b61178a84fd5aa3d8a",
+  "daily_prices_path": "output/daily_prices.csv",
+  "columns": [
+    "symbol",
+    "date_utc",
+    "open_time_ms",
+    "close_time_ms",
+    "spot_open",
+    "spot_high",
+    "spot_low",
+    "spot_close",
+    "perp_open",
+    "perp_high",
+    "perp_low",
+    "perp_close",
+    "mark_open",
+    "mark_high",
+    "mark_low",
+    "mark_close"
+  ],
+  "sources": [
+    {
+      "symbol": "BTCUSDT",
+      "kind": "perp",
+      "path": "raw/BTCUSDT-perp.json",
+      "sha256": "5ac296a6389a161f22b59cae02c5219624a01ec6b5c2c2c7245914c8bb0f96b0",
+      "rows": 1004,
+      "first_open_ms": 1704067200000,
+      "last_close_ms": 1790812799999,
+      "tool": "mcp__codex_apps__binance_get_futures_usds_kline_candlestick_data",
+      "request": {
+        "symbol": "BTCUSDT",
+        "interval": "1d",
+        "startTime": 1704067200000,
+        "endTime": 1790812799999,
+        "limit": 1500
+      },
+      "retrieved_utc": "2026-10-20T11:34:00.266Z"
+    },
+    {
+      "symbol": "BTCUSDT",
+      "kind": "mark",
+      "path": "raw/BTCUSDT-mark.json",
+      "sha256": "04c746e33c405345ea13b43a3b83491b528dd2425cbfe978a23d0587d94f1b90",
+      "rows": 1004,
+      "first_open_ms": 1704067200000,
+      "last_close_ms": 1790812799999,
+      "tool": "mcp__codex_apps__binance_get_futures_usds_mark_price_kline_candlestick_data",
+      "request": {
+        "symbol": "BTCUSDT",
+        "interval": "1d",
+        "startTime": 1704067200000,
+        "endTime": 1790812799999,
+        "limit": 1500
+      },
+      "retrieved_utc": "2026-10-20T11:34:38.475Z"
+    },
+    {
+      "symbol": "ETHUSDT",
+      "kind": "perp",
+      "path": "raw/ETHUSDT-perp.json",
+      "sha256": "c559b9f8064659ae59cc86ed151acfcb9c8315bcb77d608a64e1e96965d7964a",
+      "rows": 1004,
+      "first_open_ms": 1704067200000,
+      "last_close_ms": 1790812799999,
+      "tool": "mcp__codex_apps__binance_get_futures_usds_kline_candlestick_data",
+      "request": {
+        "symbol": "ETHUSDT",
+        "interval": "1d",
+        "startTime": 1704067200000,
+        "endTime": 1790812799999,
+        "limit": 1500
+      },
+      "retrieved_utc": "2026-10-20T11:34:54.612Z"
+    },
+    {
+      "symbol": "ETHUSDT",
+      "kind": "mark",
+      "path": "raw/ETHUSDT-mark.json",
+      "sha256": "8e672691481b907f40fde172899187ad0121fad43b61ca957ddea9af927ae56e",
+      "rows": 1004,
+      "first_open_ms": 1704067200000,
+      "last_close_ms": 1790812799999,
+      "tool": "mcp__codex_apps__binance_get_futures_usds_mark_price_kline_candlestick_data",
+      "request": {
+        "symbol": "ETHUSDT",
+        "interval": "1d",
+        "startTime": 1704067200000,
+        "endTime": 1790812799999,
+        "limit": 1500
+      },
+      "retrieved_utc": "2026-10-20T11:34:59.327Z"
+    },
+    {
+      "symbol": "SOLUSDT",
+      "kind": "perp",
+      "path": "raw/SOLUSDT-perp.json",
+      "sha256": "ff390bc334a4f99e32099c6d8fbf6b680186f7e65f5b4b5825b639939f6a7e09",
+      "rows": 1004,
+      "first_open_ms": 1704067200000,
+      "last_close_ms": 1790812799999,
+      "tool": "mcp__codex_apps__binance_get_futures_usds_kline_candlestick_data",
+      "request": {
+        "symbol": "SOLUSDT",
+        "interval": "1d",
+        "startTime": 1704067200000,
+        "endTime": 1790812799999,
+        "limit": 1500
+      },
+      "retrieved_utc": "2026-10-20T11:35:03.902Z"
+    },
+    {
+      "symbol": "SOLUSDT",
+      "kind": "mark",
+      "path": "raw/SOLUSDT-mark.json",
+      "sha256": "4711ddfebade19492f8b9571a6c61ec712b584ae7c74f511dc9ca74434abf27f",
+      "rows": 1004,
+      "first_open_ms": 1704067200000,
+      "last_close_ms": 1790812799999,
+      "tool": "mcp__codex_apps__binance_get_futures_usds_mark_price_kline_candlestick_data",
+      "request": {
+        "symbol": "SOLUSDT",
+        "interval": "1d",
+        "startTime": 1704067200000,
+        "endTime": 1790812799999,
+        "limit": 1500
+      },
+      "retrieved_utc": "2026-10-20T11:35:08.426Z"
+    }
+  ],
+  "checks": [
+    {
+      "symbol": "BTCUSDT",
+      "kind": "perp",
+      "rows": 1004,
+      "unique": true,
+      "complete_daily_grid": true,
+      "utc_open_and_close_verified": true,
+      "ohlc_order_valid": true
+    },
+    {
+      "symbol": "BTCUSDT",
+      "kind": "mark",
+      "rows": 1004,
+      "unique": true,
+      "complete_daily_grid": true,
+      "utc_open_and_close_verified": true,
+      "ohlc_order_valid": true
+    },
+    {
+      "symbol": "ETHUSDT",
+      "kind": "perp",
+      "rows": 1004,
+      "unique": true,
+      "complete_daily_grid": true,
+      "utc_open_and_close_verified": true,
+      "ohlc_order_valid": true
+    },
+    {
+      "symbol": "ETHUSDT",
+      "kind": "mark",
+      "rows": 1004,
+      "unique": true,
+      "complete_daily_grid": true,
+      "utc_open_and_close_verified": true,
+      "ohlc_order_valid": true
+    },
+    {
+      "symbol": "SOLUSDT",
+      "kind": "perp",
+      "rows": 1004,
+      "unique": true,
+      "complete_daily_grid": true,
+      "utc_open_and_close_verified": true,
+      "ohlc_order_valid": true
+    },
+    {
+      "symbol": "SOLUSDT",
+      "kind": "mark",
+      "rows": 1004,
+      "unique": true,
+      "complete_daily_grid": true,
+      "utc_open_and_close_verified": true,
+      "ohlc_order_valid": true
+    }
+  ],
+  "meaning": "Real historical market-data observations. Perp and spot OHLC opens/closes are conditional execution proxies, not actual fills. Daily mark extrema are not exact funding-charge marks or complete intraday liquidation proof. Mark-volume fields are not trading capacity. Raw data and normalized panel local only."
+}

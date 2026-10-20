@@ -1,0 +1,65 @@
+{
+  "schema": "r20.funding.v1",
+  "rows": 9036,
+  "unique_symbol_time_rows": 9036,
+  "normalized_csv_sha256": "0f0fca8b9c4133d3f37855f8789e14a92f9fdbff44851cbdb353eaf30bcc2062",
+  "normalized_csv_bytes": 959685,
+  "columns": [
+    "symbol",
+    "fundingTime",
+    "fundingTime_utc",
+    "fundingRate",
+    "markPrice",
+    "rateType",
+    "source_page"
+  ],
+  "by_symbol": {
+    "BTCUSDT": {
+      "rows": 3012,
+      "first_actual_ms": 1704067200000,
+      "last_actual_ms": 1790784000002,
+      "payments_strictly_after_entry": 3011,
+      "grid_slots_missing": 0,
+      "grid_slot_collisions": 0,
+      "actual_timestamp_jitter_count": 1079,
+      "maximum_grid_offset_ms": 26,
+      "nonempty_positive_marks": 3012
+    },
+    "ETHUSDT": {
+      "rows": 3012,
+      "first_actual_ms": 1704067200000,
+      "last_actual_ms": 1790784000002,
+      "payments_strictly_after_entry": 3011,
+      "grid_slots_missing": 0,
+      "grid_slot_collisions": 0,
+      "actual_timestamp_jitter_count": 1079,
+      "maximum_grid_offset_ms": 26,
+      "nonempty_positive_marks": 3012
+    },
+    "SOLUSDT": {
+      "rows": 3012,
+      "first_actual_ms": 1704067200000,
+      "last_actual_ms": 1790784000002,
+      "payments_strictly_after_entry": 3011,
+      "grid_slots_missing": 0,
+      "grid_slot_collisions": 0,
+      "actual_timestamp_jitter_count": 1079,
+      "maximum_grid_offset_ms": 26,
+      "nonempty_positive_marks": 3012
+    }
+  },
+  "duplicates_removed": 0,
+  "actual_calls": 13,
+  "unique_successful_pages": 12,
+  "repeat_due_only_to_local_write_failure": 1,
+  "service_errors": 0,
+  "original_tool_text_envelope_omitted_as_duplicate_of_structuredContent": true,
+  "timestamps_preserved_without_rounding": true,
+  "coverage_grid_used_for_diagnostics_only": true,
+  "source_tool": "mcp__codex_apps__binance_get_futures_usds_funding_rate_history",
+  "source_public_endpoint": "https://fapi.binance.com/fapi/v1/fundingRate",
+  "window_start_ms": 1704067200000,
+  "window_end_ms": 1790812799999,
+  "new_mechanisms": 0,
+  "pnl_calculated": false
+}

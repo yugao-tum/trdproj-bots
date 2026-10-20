@@ -1,0 +1,102 @@
+{
+  "files": [
+    {
+      "target": "bots/dot/notes/r20-funding-settlement-evidence.md",
+      "source_sha256": "34a22278afb397d65fa64ba32c5fcb48927d6f4d45c5bf3a470ff6507adbed26",
+      "published_sha256": "81540e49a5886e7d4a6696fb37b66fa04467e4286bafdd4b60c709e8977fbf61",
+      "changed": false
+    },
+    {
+      "target": "bots/dot/notes/r20-funding-settlement-result.json",
+      "source_sha256": "b951a4faccdf4b1c6df2b853fcba717a485fdf315981d181e0fb6c23be5087c0",
+      "published_sha256": "b951a4faccdf4b1c6df2b853fcba717a485fdf315981d181e0fb6c23be5087c0",
+      "changed": false
+    },
+    {
+      "target": "bots/dot/research/r20/PLAN.md",
+      "source_sha256": "c4efe0e3420acc9c81e0f8d9efee78db712061e80e8ed64269b292aa517b2803",
+      "published_sha256": "9be71555c0c4c87443217211d010e4d8bf876d44f714065f80ca7a990d40efdc",
+      "changed": true
+    },
+    {
+      "target": "bots/dot/research/r20/01-funding/output/summary.json",
+      "source_sha256": "758aafbbd57ac914c2c43dfed87ce46a4271974e7c471c57eae89084aa2540a5",
+      "published_sha256": "758aafbbd57ac914c2c43dfed87ce46a4271974e7c471c57eae89084aa2540a5",
+      "changed": false
+    },
+    {
+      "target": "bots/dot/research/r20/04-prices/output/summary.json",
+      "source_sha256": "40fe769b5a818c11a9b2157d802f86ded2f2ed51f4e3dce5aa1fccda7d5e2169",
+      "published_sha256": "40fe769b5a818c11a9b2157d802f86ded2f2ed51f4e3dce5aa1fccda7d5e2169",
+      "changed": false
+    },
+    {
+      "target": "bots/dot/research/r20/05-ledger/output/ledger.py",
+      "source_sha256": "6e3e9a7fcb564ec0bf2065bb2226edff63a0a7b8058ad77373f50130a2138b51",
+      "published_sha256": "6e3e9a7fcb564ec0bf2065bb2226edff63a0a7b8058ad77373f50130a2138b51",
+      "changed": false
+    },
+    {
+      "target": "bots/dot/research/r20/05-ledger/output/test_ledger.py",
+      "source_sha256": "17cd32afd5d2f56356b887e27285e7ed24044d13a6fd6033e0cd7914e2907f1f",
+      "published_sha256": "17cd32afd5d2f56356b887e27285e7ed24044d13a6fd6033e0cd7914e2907f1f",
+      "changed": false
+    },
+    {
+      "target": "bots/dot/research/r20/05-ledger/output/assemble.py",
+      "source_sha256": "76ff4fde66325ff1250492f7458847cdc852b48da24ade363254cdf327554db5",
+      "published_sha256": "76ff4fde66325ff1250492f7458847cdc852b48da24ade363254cdf327554db5",
+      "changed": false
+    },
+    {
+      "target": "bots/dot/research/r20/05-ledger/output/ledger-results.json",
+      "source_sha256": "0670cd26484b8d9dec1cbdc714097db908f71a700c169efa1a0980c25431169d",
+      "published_sha256": "2e50264b1ab857807d7a7e83b0f3754912ecc2d0b4c15b9276f57586832728db",
+      "changed": true
+    },
+    {
+      "target": "bots/dot/research/r20/06-collateral/output/collateral.py",
+      "source_sha256": "21d5511efb290528c0b3669d065162c0cc3209ba09ae369f14d47671c05d52a8",
+      "published_sha256": "21d5511efb290528c0b3669d065162c0cc3209ba09ae369f14d47671c05d52a8",
+      "changed": false
+    },
+    {
+      "target": "bots/dot/research/r20/06-collateral/output/test_collateral.py",
+      "source_sha256": "08eb9f4b93abe2253c4a79cf57c22ca0b09e1e67b8c467326ba12d54020b44a7",
+      "published_sha256": "08eb9f4b93abe2253c4a79cf57c22ca0b09e1e67b8c467326ba12d54020b44a7",
+      "changed": false
+    },
+    {
+      "target": "bots/dot/research/r20/06-collateral/output/RESULT.json",
+      "source_sha256": "7204512ff71e1811819eb70b86e29a7e8517a3d2a9106213e6f2dee95151c027",
+      "published_sha256": "7204512ff71e1811819eb70b86e29a7e8517a3d2a9106213e6f2dee95151c027",
+      "changed": false
+    },
+    {
+      "target": "bots/dot/research/r20/08-benchmarks/output/RESULT.json",
+      "source_sha256": "0da407f9a93da5c62e0e04972a43a06f27eacb33ddf84e1995e7a99c969501c0",
+      "published_sha256": "22e28efcc7c6b8d360683f42663a5fd56e507e45b3cb007dc0f2f5eaab2a0cff",
+      "changed": true
+    },
+    {
+      "target": "bots/dot/research/r20/09-reproduction/output/reproduce.py",
+      "source_sha256": "903d3604d79244829c2d6d7dcc0814ded74f95d0dd7bc37fd1d713e5037f1fee",
+      "published_sha256": "903d3604d79244829c2d6d7dcc0814ded74f95d0dd7bc37fd1d713e5037f1fee",
+      "changed": false
+    },
+    {
+      "target": "bots/dot/research/r20/09-reproduction/output/test_reference.py",
+      "source_sha256": "04916c34605132eea974230f5b4b09d950df57b2fff9b914ef1ae45d7fb14b11",
+      "published_sha256": "04916c34605132eea974230f5b4b09d950df57b2fff9b914ef1ae45d7fb14b11",
+      "changed": false
+    },
+    {
+      "target": "bots/dot/research/r20/09-reproduction/output/RESULT.json",
+      "source_sha256": "f60a4d502ecee77d9302dd5e3d7df63a9f3b6ef2e68d8644320775a191451dd2",
+      "published_sha256": "f60a4d502ecee77d9302dd5e3d7df63a9f3b6ef2e68d8644320775a191451dd2",
+      "changed": false
+    }
+  ],
+  "input_policy": "Raw funding/candle/daily ledger excluded; fixed inputs required at sibling paths. PLAN coordination removed; absolute roots replaced with retained-inputs.",
+  "integration_manifest_sha256": "d966bc7b2c34db5e04a2bc26d49f67f095efc3f1d3abc1d44e559fb45c071e4a"
+}
