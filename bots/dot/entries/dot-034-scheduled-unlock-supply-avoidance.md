@@ -6,8 +6,8 @@ bot: dot
 date: 2026-10-19
 market: crypto
 pm_category: -
-kind: new
-improves: -
+kind: supplement
+improves: E-E1-unlock-short
 category: E
 return_type: direction
 instruments: 提前公告解锁且已有现货的代币；具体事件真实性待核
@@ -62,14 +62,20 @@ confidence: 中
 
 ## 改进了什么
 
-不适用（kind为new）。已有C34正式化；不同token、解锁次数和时间窗不增加机制数；本次数据一致性检查不计策略回测。
+本条改按 `kind: supplement`，`improves: E-E1-unlock-short` 归类。分类依据是 [known 中的 E-E1-unlock-short](https://github.com/yugao-tum/trdproj-bots/blob/bc5dd79aa7da5e07cdd3ed2d22a158ab620222fb/known/KNOWN.md#L34)（2026-10-20 UTC 核对，仅含名称，不含既有规则或绩效）。同一预告解锁供给冲击；持币转现金而非做空改变表达而非关键变量。
+
+本条提供的研究补充：整理预告解锁的供给冲击假说、持币转现金表达与来源数据一致性限制；真实 vintage、token 账和净收益仍未闭合，避免损失不当作绝对盈利。
+
+补充材料相对既有实现的新增性与采纳价值仍待核；本次不主张新机制、已证改进、盈利或已采纳，状态保持草稿。
+
+已有C34正式化；不同token、解锁次数和时间窗不增加机制数；本次数据一致性检查不计策略回测。
 
 ## 门槛自查
 
 1. 机制说得清：满足描述要求；预告供给及潜在卖压假说，利润未证
 2. 有免费数据能检验：不满足；源收益列存在条件性不一致，真实解锁vintage与token账未齐
 3. 小资金能做：不确定；无杠杆预算有，事件深度及同步占资未核
-4. 不重复：满足初步分类；预告供给冲击不同于无条件价格反转与已执行回购
+4. 不重复：同机制补充，非新策略——对应 `E-E1-unlock-short`；补充材料的新增性与采纳价值仍待核，不据 dot 内部区别主张全局新颖性。
 5. 扣成本后粗算够用：不满足证据要求；策略净额未知，不把相对少亏冒充绝对利润
 6. 两周内能检验：不满足；52行不是30已证独立结果，修复与联合样本未闭合
 7. 出处可查：论文/CSV不可变blob和官方价格路径可查；事件真实性与时间定义仍缺

@@ -6,8 +6,8 @@ bot: dot
 date: 2026-10-19
 market: crypto
 pm_category: -
-kind: new
-improves: -
+kind: supplement
+improves: M-M2-amm-lp
 category: M
 return_type: service
 instruments: ETH/USDC、ETH/USDT（Uniswap v2/v3 池）；参照 BTC/ETH/SOL 日线
@@ -79,14 +79,18 @@ confidence: 低
 
 ## 改进了什么
 
-不适用。
+本条改按 `kind: supplement`，`improves: M-M2-amm-lp` 归类。分类依据是 [known 中的 M-M2-amm-lp](https://github.com/yugao-tum/trdproj-bots/blob/bc5dd79aa7da5e07cdd3ed2d22a158ab620222fb/known/KNOWN.md#L57)（2026-10-20 UTC 核对，仅含名称，不含既有规则或绩效）。AMM/集中流动性赚费，LVR筛选尚无优于基线的证据。
+
+本条提供的研究补充：整理做市手续费、LVR、gas 与持仓库存的会计边界和筛查计划；逐 swap、外部价与净现金账仍缺，LVR 筛选优于既有实现尚未证明。
+
+补充材料相对既有实现的新增性与采纳价值仍待核；本次不主张新机制、已证改进、盈利或已采纳，状态保持草稿。
 
 ## 门槛自查
 
 1. 机制说得清：满足（付款方=付 swap 费的交易者；成本=套利者提取的 LVR；论文+实测出处支持机制存在，但"能持续赚"未证）。
 2. 有免费数据能检验：不确定（GeckoTerminal/本地日线可通，但精确费/LVR 需链上 swap+区块级外部价+gas，未取得；日线只够粗筛）。
 3. 小资金能做：不确定（2500为含费设计预算，不是已测深度；逐tick份额、进出gas和动态上限未验证）。
-4. 不重复：不确定（机制层与 C28 不同：做市费 vs 折价赎回；受限于本轮边界，未做全仓库查重）。
+4. 不重复：同机制补充，非新策略——对应 `M-M2-amm-lp`；补充材料的新增性与采纳价值仍待核，不据 dot 内部区别主张全局新颖性。
 5. 扣成本后粗算够用：不确定（没有费后粗算数值，不能声称够用）。
 6. 两周内能检验：不确定（当前365天/14日仅26完整总窗口，首窗筛选且无更早数据时最多25后续评价窗且仍相关；更长历史可另预注册核验，不推断整个机制不可测；前向尚未启动）。
 7. 出处可查：不确定（部分完成）（本稿所引数字/结论有链接+UTC 访问日期+位置；来源自报与摘要级已显式标注；GitHub 检索已按 site:github.com 执行，结果摘要级）。

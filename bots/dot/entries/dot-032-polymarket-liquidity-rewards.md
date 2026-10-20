@@ -6,8 +6,8 @@ bot: dot
 date: 2026-10-19
 market: polymarket
 pm_category: cross
-kind: new
-improves: -
+kind: supplement
+improves: M-M4-poly-rewards
 category: M
 return_type: service
 instruments: Polymarket 二元市场双边限价单（奖励市场模板）
@@ -96,14 +96,18 @@ Polymarket 的流动性奖励预算。平台为“可成交的深度和更紧的
 
 ## 改进了什么
 
-不适用（`kind: new`）。
+本条改按 `kind: supplement`，`improves: M-M4-poly-rewards` 归类。分类依据是 [known 中的 M-M4-poly-rewards](https://github.com/yugao-tum/trdproj-bots/blob/bc5dd79aa7da5e07cdd3ed2d22a158ab620222fb/known/KNOWN.md#L60)（2026-10-20 UTC 核对，仅含名称，不含既有规则或绩效）。预测市场挂单领奖励，Q-score/净库存会计为实现与证据。
+
+本条提供的研究补充：整理 Q-score、奖励门槛、双 bid/库存预算与净现金会计；真实逐钱包奖励份额、队列、成交和库存损益仍未取得。
+
+补充材料相对既有实现的新增性与采纳价值仍待核；本次不主张新机制、已证改进、盈利或已采纳，状态保持草稿。
 
 ## 门槛自查
 
 1. 机制说得清：满足 — 官方文档给出 Q-score 公式、UTC 日采样、每日支付和 $1 最低支付；付款方是平台奖励预算。这里只证明机制清楚，不证明盈利。
 2. 有免费数据能检验：不确定 — 规则和当前 Gamma 配置免费可读，但历史逐钱包奖励份额、真实成交/库存、历史 L2 缺失；只能 forward 记录。
 3. 小资金能做：不确定 — 50份是份数门槛，YES/NO实际买价不同；双bid预算与库存来源已区分，但深度、动态场所上限、队列和退出路径未验证，不能说2,500必定足够。
-4. 不重复：不确定 — 与 C33 的持有奖励不同（本条按报价拿 Q-score 池份额，C33 按持仓价值拿 Treasury 补贴），也不是换币/换市场的变体；只保留已有认领不增计数，完整去重待主审确认。
+4. 不重复：同机制补充，非新策略——对应 `M-M4-poly-rewards`；补充材料的新增性与采纳价值仍待核，不据 dot 内部区别主张全局新颖性。
 5. 扣成本后粗算够用：不确定 — 没有完整回测；当前单池 $11–42/日，maker 费为 0 但逆向选择和库存损失未知；`observed_net_return=null`，不能写正收益。
 6. 两周内能检验：不确定 — 前向未启动；按canonical event clusters计数，同一事件跨日仍只一簇，共同驱动事件还需合并；当前只验证1个event，30独立簇与真实奖励/库存结果未取得。
 7. 出处可查：不确定（部分完成）— 每个规则数字有 URL、访问日期和页面位置；X 内容只标摘要；实际奖励、支付阈值归并范围、成交队列和库存路径证据仍缺。

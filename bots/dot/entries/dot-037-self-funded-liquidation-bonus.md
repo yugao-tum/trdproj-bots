@@ -6,8 +6,8 @@ bot: dot
 date: 2026-10-19
 market: crypto
 pm_category: -
-kind: new
-improves: -
+kind: supplement
+improves: A-A5-onchain-mev
 category: A
 return_type: service
 instruments: 自有偿债资产与清算所得抵押品；拟Aave合格资产
@@ -64,14 +64,20 @@ Aave FAQ“Liquidations”和V3 Pool“liquidationCall”确认代偿换取抵�
 
 ## 改进了什么
 
-不适用（kind为new）。已有C37整理；付款驱动是条件清算罚金，区别于借贷利息、共识质押发行和AMM手续费。不同链/抵押币不增加机制数。
+本条改按 `kind: supplement`，`improves: A-A5-onchain-mev` 归类。分类依据是 [known 中的 A-A5-onchain-mev](https://github.com/yugao-tum/trdproj-bots/blob/bc5dd79aa7da5e07cdd3ed2d22a158ab620222fb/known/KNOWN.md#L19)（2026-10-20 UTC 核对，仅含名称，不含既有规则或绩效）。链上清算bonus；限定自有资本不等于新机制，也尚未证明优于既有实现。
+
+本条提供的研究补充：整理自有资本清算的实际代偿、抵押品回收、预言机单位与历史事件证据；成功事件和 bonus 不等于完整资格、竞争、失败与净收益账。
+
+补充材料相对既有实现的新增性与采纳价值仍待核；本次不主张新机制、已证改进、盈利或已采纳，状态保持草稿。
+
+已有C37整理；付款驱动是条件清算罚金，区别于借贷利息、共识质押发行和AMM手续费。不同链/抵押币不增加机制数。
 
 ## 门槛自查
 
 1. 机制说得清：满足；借款人条件罚金补偿执行与市场风险
 2. 有免费数据能检验：整体仍不满足；两年成功事件已取得，至少12月完整资格/竞争/失败/回款账未取得
 3. 小资金能做：不确定；要求全额代偿与费用缓冲，min-lot/dust及深度未核
-4. 不重复：满足初步分类；条件罚金区别于利息、质押和流动性收费
+4. 不重复：同机制补充，非新策略——对应 `A-A5-onchain-mev`；补充材料的新增性与采纳价值仍待核，不据 dot 内部区别主张全局新颖性。
 5. 扣成本后粗算够用：不满足证据要求；bonus不等净利，净收益未知
 6. 两周内能检验：不满足；30独立冲击簇可得性未知
 7. 出处可查：机制官方正文已读；两页参数口径冲突和实际部署仍待核

@@ -6,8 +6,8 @@ bot: dot
 date: 2026-10-19
 market: crypto
 pm_category: -
-kind: new
-improves: -
+kind: supplement
+improves: E-E1-depeg-buy
 category: R
 return_type: convergence
 instruments: USDC, USDT（只做法币储备型）
@@ -62,14 +62,18 @@ CoinGecko `/coins/usd-coin/market_chart?vs_currency=usd&days=365&interval=daily`
 
 ## 改进了什么
 
-不适用。
+本条改按 `kind: supplement`，`improves: E-E1-depeg-buy` 归类。分类依据是 [known 中的 E-E1-depeg-buy](https://github.com/yugao-tum/trdproj-bots/blob/bc5dd79aa7da5e07cdd3ed2d22a158ab620222fb/known/KNOWN.md#L27)（2026-10-20 UTC 核对，仅含名称，不含既有规则或绩效）。法币储备稳定币脱锚买入回归；美元锚与跨场验证属于证据补充，不改变机制。
+
+本条提供的研究补充：整理美元锚价格覆盖、两场所日期对照与冻结小时/日线一致性核查；打印价不是可成交价，尚无本策略净收益或容量结论。
+
+补充材料相对既有实现的新增性与采纳价值仍待核；本次不主张新机制、已证改进、盈利或已采纳，状态保持草稿。
 
 ## 门槛自查
 
 1. 机制说得清：满足。付款方是压力下卖出的持有人；收敛靠赎回承诺与二级套利；小资金只赚二级。
 2. 有免费数据能检验：不确定。365天美元每日采样及43个月相对币对日线已取；美元锚、分钟成交价/费率/盘口和规则风险过滤仍缺失。
 3. 小资金能做：不确定。纸面1,000/2,500；无盘口，实际容量与压力深度未知。
-4. 不重复：满足（初步）。稳定币脱锚收敛，非资金费/基差/LST；最终known/查重待主调度。
+4. 不重复：同机制补充，非新策略——对应 `E-E1-depeg-buy`；补充材料的新增性与采纳价值仍待核，不据 dot 内部区别主张全局新颖性。
 5. 扣成本后粗算够用：不确定（压力情景为负）。1%折价入场、0.25%折价退出的条件算例，按初始持仓名义基准净约0.1553%、压力约−0.4470%；全年收益取决于触发频率/持有/闲置/全部notional费用，未模拟。
 6. 两周内能检验：不确定。论文3事件非全部历史；前向出现多少记录多少；30个独立结果未知。
 7. 出处可查：满足。URL、访问日期、位置齐全；来源自报、X摘要、失败请求均标注。

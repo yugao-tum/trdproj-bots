@@ -6,8 +6,8 @@ bot: dot
 date: 2026-10-19
 market: crypto
 pm_category: -
-kind: new
-improves: -
+kind: supplement
+improves: A-A5-lst-discount
 category: A
 return_type: convergence
 instruments: stETH、wstETH（ETH 计价）
@@ -80,14 +80,18 @@ confidence: 低
 
 ## 改进了什么
 
-不适用。
+本条改按 `kind: supplement`，`improves: A-A5-lst-discount` 归类。分类依据是 [known 中的 A-A5-lst-discount](https://github.com/yugao-tum/trdproj-bots/blob/bc5dd79aa7da5e07cdd3ed2d22a158ab620222fb/known/KNOWN.md#L18)（2026-10-20 UTC 核对，仅含名称，不含既有规则或绩效）。二级LST折价买入后赎回；不同队列/场所只是实现差异。
+
+本条提供的研究补充：整理 LST 赎回队列、finalization 比率、gas 与折价持有期的条件约束；队列点值与当前规则不足以证明历史可执行净收益。
+
+补充材料相对既有实现的新增性与采纳价值仍待核；本次不主张新机制、已证改进、盈利或已采纳，状态保持草稿。
 
 ## 门槛自查
 
 1. 机制说得清：满足（付款方=急需流动性折价卖出的 LST 持有者；真实规则已从 Lido 文档核验：FIFO/1:1/限额/finalization 比率；持续盈利未证）。
 2. 有免费数据能检验：不确定（仅ETH七天market_chart和amount=32队列点值已验证；但可成交深度、队列历史、gas 历史未齐；比价序列是近似而非收益本身）。
 3. 小资金能做：不确定（2500 上限与请求限额兼容，但 2500 规模的实际成交价、gas、队列时点未验证）。
-4. 不重复：不确定（与C27质押发行/执行层收益的差别已写；仅修已有C28，不新计机制，完整查重待主审确认）。
+4. 不重复：同机制补充，非新策略——对应 `A-A5-lst-discount`；补充材料的新增性与采纳价值仍待核，不据 dot 内部区别主张全局新颖性。
 5. 扣成本后粗算够用：不确定（缺折价幅度/频率实测，无法费后粗算）。
 6. 两周内能检验：不确定（目前仅条件框架，T/尾险参数、真实as-of数据和独立事件数未齐；前向未开始，不由一个拟定窗口外推所有路径不可能）。
 7. 出处可查：不确定（部分完成）（本稿所引数字/规则均有链接、UTC 访问日期与位置；来源自报项已显式标注未复现）。

@@ -6,8 +6,8 @@ bot: dot
 date: 2026-10-19
 market: polymarket
 pm_category: economics
-kind: new
-improves: -
+kind: supplement
+improves: A-A3-poly-cross-market
 category: A
 return_type: convergence
 instruments: Polymarket FOMC分档 + Kalshi KXFED阈值合约
@@ -84,14 +84,20 @@ confidence: 低
 
 ## 改进了什么
 
-不适用。C08已合并进C05，本条保留一条跨场机制，不反向并回C08；不等价配对属于失败/排除样本，不能另计新策略。全库去重仍未完成。
+本条改按 `kind: supplement`，`improves: A-A3-poly-cross-market` 归类。分类依据是 [known 中的 A-A3-poly-cross-market](https://github.com/yugao-tum/trdproj-bots/blob/bc5dd79aa7da5e07cdd3ed2d22a158ab620222fb/known/KNOWN.md#L16)（2026-10-20 UTC 核对，仅含名称，不含既有规则或绩效）。同真值命题跨场支付价差，换PM/Kalshi或FOMC模板不产生新机制。
+
+本条提供的研究补充：整理 FOMC 分档与绝对阈值的条件支付映射、单腿不等价反例、异步报价与费用算术；完整异常结局、同步执行与净收益仍未证明。
+
+补充材料相对既有实现的新增性与采纳价值仍待核；本次不主张新机制、已证改进、盈利或已采纳，状态保持草稿。
+
+C08已合并进C05，本条保留一条跨场机制，不反向并回C08；不等价配对属于失败/排除样本，不能另计新策略。全库去重仍未完成。
 
 ## 门槛自查
 
 1. 机制说得清：满足——报价分割和潜在付款方已说明；没有证明样本无风险或持续盈利
 2. 有免费数据能检验：不确定——公开规则/快照已可读，历史同步深度、完整费用与独立exact结果缺失
 3. 小资金能做：不确定——资金边界含费用与缓冲，但逐腿可匹配份数、资金路径与容量未核
-4. 不重复：不确定——C08已合并，仅机制级初步去重，全库复核未完成
+4. 不重复：同机制补充，非新策略——对应 `A-A3-poly-cross-market`；补充材料的新增性与采纳价值仍待核，不据 dot 内部区别主张全局新颖性。
 5. 扣成本后粗算够用：不确定——A/B为不同更新时间对象的条件静态算术，不是同步可执行组合，也非实测净收益
 6. 两周内能检验：不确定——当前方案缺30个可用独立exact事件；历史/其他前向方案尚未穷尽
 7. 出处可查：不确定——已有原文与位置可追溯，但会前上沿、完整fallback、Kalshi费用和同步执行证据缺失

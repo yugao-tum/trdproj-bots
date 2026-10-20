@@ -9,22 +9,22 @@
 | bots/dot/entries/dot-001-late-day-observed-max-tail.md | dot-001-late-day-observed-max-tail | 2026-10-19 | 草稿 |
 | bots/dot/entries/dot-002-ensemble-calibration.md | dot-002-ensemble-calibration | 2026-10-19 | 草稿 |
 | bots/dot/entries/dot-003-macro-nowcast-vintage-surprise.md | dot-003-macro-nowcast-vintage-surprise | 2026-10-19 | 草稿 |
-| bots/dot/entries/dot-005-cross-venue-equivalent-payout.md | dot-005-cross-venue-equivalent-payout | 2026-10-19 | 草稿 |
-| bots/dot/entries/dot-006-negative-risk-complete-set.md | dot-006-negative-risk-complete-set | 2026-10-19 | 草稿 |
+| bots/dot/entries/dot-005-cross-venue-equivalent-payout.md | dot-005-cross-venue-equivalent-payout | 2026-10-20 | 草稿 / supplement → A-A3-poly-cross-market（分类纠正，未晋级） |
+| bots/dot/entries/dot-006-negative-risk-complete-set.md | dot-006-negative-risk-complete-set | 2026-10-20 | 草稿 / supplement → A-A5-poly-complete-set（分类纠正，未晋级） |
 | bots/dot/entries/dot-007-ladder-monotonicity.md | dot-007-ladder-monotonicity | 2026-10-19 | 草稿 |
-| bots/dot/entries/dot-009-favorite-longshot-no.md | dot-009-favorite-longshot-no | 2026-10-19 | 草稿 |
+| bots/dot/entries/dot-009-favorite-longshot-no.md | dot-009-favorite-longshot-no | 2026-10-20 | 草稿 / supplement → V-V2-poly-longshot（分类纠正，未晋级） |
 | bots/dot/entries/dot-013-nba-injury-repricing.md | dot-013-nba-injury-repricing | 2026-10-19 | 草稿 |
-| bots/dot/entries/dot-016-order-flow-imbalance.md | dot-016-order-flow-imbalance | 2026-10-19 | 草稿 |
+| bots/dot/entries/dot-016-order-flow-imbalance.md | dot-016-order-flow-imbalance | 2026-10-20 | 草稿 / supplement → S-S1-orderflow（分类纠正，未晋级） |
 | bots/dot/entries/dot-018-option-implied-pm-relative-value.md | dot-018-option-implied-pm-relative-value | 2026-10-19 | 草稿 |
-| bots/dot/entries/dot-019-perp-funding-carry.md | dot-019-perp-funding-carry | 2026-10-19 | 草稿 |
-| bots/dot/entries/dot-020-dated-basis-carry.md | dot-020-dated-basis-carry | 2026-10-19 | 草稿 |
-| bots/dot/entries/dot-023-sol-rsi14-oversold.md | dot-023-sol-rsi14-oversold | 2026-10-19 | 草稿 |
-| bots/dot/entries/dot-025-aave-usdc-supply-carry.md | dot-025-aave-usdc-supply-carry | 2026-10-19 | 草稿 |
-| bots/dot/entries/dot-026-stablecoin-depeg-reversion.md | dot-026-stablecoin-depeg-reversion | 2026-10-19 | 草稿 |
-| bots/dot/entries/dot-027-lst-staking-yield.md | dot-027-lst-staking-yield | 2026-10-19 | 草稿 |
-| bots/dot/entries/dot-028-lst-discount-redemption.md | dot-028-lst-discount-redemption | 2026-10-19 | 草稿 |
-| bots/dot/entries/dot-029-amm-fees-lvr-screen.md | dot-029-amm-fees-lvr-screen | 2026-10-19 | 草稿 |
-| bots/dot/entries/dot-032-polymarket-liquidity-rewards.md | dot-032-polymarket-liquidity-rewards | 2026-10-19 | 草稿 |
+| bots/dot/entries/dot-019-perp-funding-carry.md | dot-019-perp-funding-carry | 2026-10-20 | 草稿 / supplement → A-A1-funding-carry（分类纠正，未晋级） |
+| bots/dot/entries/dot-020-dated-basis-carry.md | dot-020-dated-basis-carry | 2026-10-20 | 草稿 / supplement → A-A2-basis（分类纠正，未晋级） |
+| bots/dot/entries/dot-023-sol-rsi14-oversold.md | dot-023-sol-rsi14-oversold | 2026-10-20 | 草稿 / supplement → R-R1-rsi2（分类纠正，未晋级） |
+| bots/dot/entries/dot-025-aave-usdc-supply-carry.md | dot-025-aave-usdc-supply-carry | 2026-10-20 | 草稿 / supplement → Y-Y1-stable-lending（分类纠正，未晋级） |
+| bots/dot/entries/dot-026-stablecoin-depeg-reversion.md | dot-026-stablecoin-depeg-reversion | 2026-10-20 | 草稿 / supplement → E-E1-depeg-buy（分类纠正，未晋级） |
+| bots/dot/entries/dot-027-lst-staking-yield.md | dot-027-lst-staking-yield | 2026-10-20 | 草稿 / supplement → Y-Y2-lst-hold（分类纠正，未晋级） |
+| bots/dot/entries/dot-028-lst-discount-redemption.md | dot-028-lst-discount-redemption | 2026-10-20 | 草稿 / supplement → A-A5-lst-discount（分类纠正，未晋级） |
+| bots/dot/entries/dot-029-amm-fees-lvr-screen.md | dot-029-amm-fees-lvr-screen | 2026-10-20 | 草稿 / supplement → M-M2-amm-lp（分类纠正，未晋级） |
+| bots/dot/entries/dot-032-polymarket-liquidity-rewards.md | dot-032-polymarket-liquidity-rewards | 2026-10-20 | 草稿 / supplement → M-M4-poly-rewards（分类纠正，未晋级） |
 | bots/dot/entries/dot-033-polymarket-holding-rewards.md | dot-033-polymarket-holding-rewards | 2026-10-19 | 草稿 |
 | bots/dot/notes/20261019-batch01-initial-screen.md | 20261019-batch01-initial-screen | 2026-10-19 | 研究记录 |
 | bots/dot/notes/20261019-c40-spot-proxy.md | 20261019-c40-spot-proxy | 2026-10-19 | 研究记录 |
@@ -63,20 +63,20 @@
 | bots/dot/notes/reproduction/test_spot_screen.py | test_spot_screen | 2026-10-19 | 研究记录/自编复现材料 |
 | bots/dot/entries/dot-004-confirmed-fact-price-convergence.md | 已定事实后的报价收敛 | 2026-10-19 | 草稿 |
 | bots/dot/entries/dot-015-poll-vintage-probability-update.md | 民调发布批次概率更新 | 2026-10-19 | 草稿 |
-| bots/dot/entries/dot-021-spot-time-series-trend.md | 现货自身时间序列趋势 | 2026-10-19 | 草稿 |
-| bots/dot/entries/dot-022-spot-cross-sectional-momentum.md | 现货横截面相对动量 | 2026-10-19 | 草稿 |
-| bots/dot/entries/dot-024-spot-fixed-weight-rebalance.md | 固定权重现货再平衡 | 2026-10-19 | 草稿 |
-| bots/dot/entries/dot-034-scheduled-unlock-supply-avoidance.md | 预告解锁供给冲击规避 | 2026-10-19 | 草稿 |
+| bots/dot/entries/dot-021-spot-time-series-trend.md | 现货自身时间序列趋势 | 2026-10-20 | 草稿 / supplement → T-T2-ema-cross（分类纠正，未晋级） |
+| bots/dot/entries/dot-022-spot-cross-sectional-momentum.md | 现货横截面相对动量 | 2026-10-20 | 草稿 / supplement → T-T3-xsmom（分类纠正，未晋级） |
+| bots/dot/entries/dot-024-spot-fixed-weight-rebalance.md | 固定权重现货再平衡 | 2026-10-20 | 草稿 / supplement → X-X1-btc-stable-rebal（分类纠正，未晋级） |
+| bots/dot/entries/dot-034-scheduled-unlock-supply-avoidance.md | 预告解锁供给冲击规避 | 2026-10-20 | 草稿 / supplement → E-E1-unlock-short（分类纠正，未晋级） |
 | bots/dot/entries/dot-036-executed-buyback-demand.md | 协议执行回购需求 | 2026-10-19 | 草稿 |
-| bots/dot/entries/dot-037-self-funded-liquidation-bonus.md | 自有资金清算罚金补偿 | 2026-10-19 | 草稿 |
+| bots/dot/entries/dot-037-self-funded-liquidation-bonus.md | 自有资金清算罚金补偿 | 2026-10-20 | 草稿 / supplement → A-A5-onchain-mev（分类纠正，未晋级） |
 | bots/dot/entries/dot-038-oracle-dispute-bond-compensation.md | 预言机争议保证金补偿 | 2026-10-19 | 草稿 |
 | bots/dot/entries/dot-039-gauge-voting-incentives.md | 第三方投票权激励 | 2026-10-19 | 草稿 |
 | bots/dot/entries/dot-030-option-skew-premium.md | 同期限期权偏斜溢价 | 2026-10-19 | 草稿 |
 | bots/dot/entries/dot-031-option-term-structure.md | 期权跨到期期限结构价差 | 2026-10-19 | 草稿 |
-| bots/dot/entries/dot-040-negative-funding-spot-reversal.md | 负资金费背离后的现货反转 | 2026-10-19 | 草稿 |
-| bots/dot/entries/dot-041-expiry-oi-spot-pinning.md | 到期持仓集中的现货钉价假说 | 2026-10-19 | 草稿 |
-| bots/dot/entries/dot-043-cointegration-pairs.md | 跨资产协整残差回复 | 2026-10-19 | 草稿 |
-| bots/dot/entries/dot-044-principal-token-maturity.md | 本金代币折价到期 | 2026-10-19 | 草稿 |
+| bots/dot/entries/dot-040-negative-funding-spot-reversal.md | 负资金费背离后的现货反转 | 2026-10-20 | 草稿 / supplement → R-R4-funding-extreme（分类纠正，未晋级） |
+| bots/dot/entries/dot-041-expiry-oi-spot-pinning.md | 到期持仓集中的现货钉价假说 | 2026-10-20 | 草稿 / supplement → E-E2-max-pain（分类纠正，未晋级） |
+| bots/dot/entries/dot-043-cointegration-pairs.md | 跨资产协整残差回复 | 2026-10-20 | 草稿 / supplement → R-R3-pairs（分类纠正，未晋级） |
+| bots/dot/entries/dot-044-principal-token-maturity.md | 本金代币折价到期 | 2026-10-20 | 草稿 / supplement → Y-Y1-pendle-pt（分类纠正，未晋级） |
 | bots/dot/entries/dot-045-protocol-underwriting.md | 协议保险资本承保费 | 2026-10-19 | 草稿 |
 | bots/dot/entries/dot-046-crosschain-fast-fill.md | 跨链先垫后偿服务补偿 | 2026-10-19 | 草稿 |
 | bots/dot/entries/dot-047-long-option-box.md | 期权箱式固定支付价差 | 2026-10-19 | 草稿 |

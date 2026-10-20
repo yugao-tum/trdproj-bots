@@ -6,8 +6,8 @@ bot: dot
 date: 2026-10-19
 market: crypto
 pm_category: -
-kind: new
-improves: -
+kind: supplement
+improves: Y-Y2-lst-hold
 category: Y
 return_type: carry
 instruments: stETH, wstETH
@@ -54,14 +54,18 @@ ETH/USD价格风险独立于staking carry，不能只用APR判总USDT收益；�
 
 ## 改进了什么
 
-不适用。
+本条改按 `kind: supplement`，`improves: Y-Y2-lst-hold` 归类。分类依据是 [known 中的 Y-Y2-lst-hold](https://github.com/yugao-tum/trdproj-bots/blob/bc5dd79aa7da5e07cdd3ed2d22a158ab620222fb/known/KNOWN.md#L141)（2026-10-20 UTC 核对，仅含名称，不含既有规则或绩效）。持有流动质押币收基础质押收益；shares会计核查是补充。
+
+本条提供的研究补充：整理基础质押付款来源与恒定 shares 的固定全年两端会计读数；ETH 数量增长不等于 USDT 净收益，完整价格、gas 和退出路径仍缺。
+
+补充材料相对既有实现的新增性与采纳价值仍待核；本次不主张新机制、已证改进、盈利或已采纳，状态保持草稿。
 
 ## 门槛自查
 
 1. 机制说得清：满足。付款方是共识发行+执行费/MEV；罚没是负现金流；小持有者不是32ETH验证者。
 2. 有免费数据能检验：不确定。当前APR及固定12月两端shares会计读数已取；完整rebase/市场汇率/gas/队列历史缺失。
 3. 小资金能做：不确定。纸面2,400名义+100缓冲+2,500场外；gas占比、退出路径与可成交性未实测。
-4. 不重复：满足（初步）。LST质押carry与稳定币脱锚、资金费/基差不同；二级LST折价归C28；最终查重待主调度。
+4. 不重复：同机制补充，非新策略——对应 `Y-Y2-lst-hold`；补充材料的新增性与采纳价值仍待核，不据 dot 内部区别主张全局新颖性。
 5. 扣成本后粗算够用：不确定。当前低APR纯carry按12个月约定毛约1.07-1.11%/5,000，扣0.60%和gas后可能不足；但总USDT收益含ETH价格，长期全策略未测，不能只用APR判定。
 6. 两周内能检验：不确定。日度rebase不独立，两周只是1个前置观察；30个独立结果未知，不硬说不可能。
 7. 出处可查：满足。URL/日期/位置齐全；来源自报、摘要、未取得历史均标注。

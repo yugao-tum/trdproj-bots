@@ -6,8 +6,8 @@ bot: dot
 date: 2026-10-19
 market: polymarket
 pm_category: politics
-kind: new
-improves: -
+kind: supplement
+improves: A-A5-poly-complete-set
 category: A
 return_type: convergence
 instruments: "多结果互斥事件的完整 YES 篮子或互斥 NO 子集；示例为 2028 民主党总统提名事件（128 个市场，含 1 个 Other）"
@@ -106,14 +106,18 @@ A/B 以下按一套（每腿一份）报价，费用均用 USD/share；若做 Q 
 
 ## 改进了什么
 
-不适用（kind: new）。
+本条改按 `kind: supplement`，`improves: A-A5-poly-complete-set` 归类。分类依据是 [known 中的 A-A5-poly-complete-set](https://github.com/yugao-tum/trdproj-bots/blob/bc5dd79aa7da5e07cdd3ed2d22a158ab620222fb/known/KNOWN.md#L20)（2026-10-20 UTC 核对，仅含名称，不含既有规则或绩效）。互斥且穷尽结果全买/负风险转换，属于已知完整集套利。
+
+本条提供的研究补充：整理完整 YES 篮子、互斥 NO 子集和负风险转换的支付恒等式、逐腿费用与非原子执行风险；历史可成交 L2、转换成本和独立结果仍缺。
+
+补充材料相对既有实现的新增性与采纳价值仍待核；本次不主张新机制、已证改进、盈利或已采纳，状态保持草稿。
 
 ## 门槛自查
 
 1. 机制说得清：满足 — 完整 YES 篮子支付 1、互斥 NO 子集支付至少 |S|−1、NO_A 转换其余 YES 的恒等式均已写出；付钱方是逐腿错价的对手方。
 2. 有免费数据能检验：不确定 — Gamma/CLOB 可免密钥取当前规则和盘口，但本轮未取得免费免密钥历史可成交 L2；仅有拟定前向方案，尚未启动且未取得 30 个独立结果。
 3. 小资金能做：不确定 — 3–8 腿事件可以按 2,500 USDT 含费总预算设计纸面规模，但真实深度、成交率和转换 gas 未测；128 腿示例不可执行。
-4. 不重复：不确定 — 与 C07 的嵌套阈值单调性机制不同；仅保留已有认领，不增加机制计数，完整查重结论待主审确认。
+4. 不重复：同机制补充，非新策略——对应 `A-A5-poly-complete-set`；补充材料的新增性与采纳价值仍待核，不据 dot 内部区别主张全局新颖性。
 5. 扣成本后粗算够用：不确定 — 已给出逐腿费用公式和均匀 3–8 腿在 Σp=1 时 2.67%–3.5% 的费用基准，但没有费后成交回测；`observed_net_return=null`，不能称够用。
 6. 两周内能检验：不确定 — 已列拟定前向起点、独立事件簇计数法和失败标准，尚未运行；30 个独立 neg-risk 事件在两周内是否出现未知，预计可能不足。
 7. 出处可查：满足 — 官方文档、Gamma 事件与市场对象均由原研究 打开；URL、UTC 访问日期和位置在出处列明；GitHub 仅摘要且已标注。

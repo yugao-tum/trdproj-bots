@@ -6,8 +6,8 @@ bot: dot
 date: 2026-10-19
 market: crypto
 pm_category: -
-kind: new
-improves: -
+kind: supplement
+improves: E-E2-max-pain
 category: E
 return_type: direction
 instruments: BTC现货；BTC期权OI仅作信号
@@ -64,14 +64,18 @@ Deribit/Genesis Volatility讨论ATM临到期gamma和净多/净空对冲方向；
 
 ## 改进了什么
 
-不适用。
+本条改按 `kind: supplement`，`improves: E-E2-max-pain` 归类。分类依据是 [known 中的 E-E2-max-pain](https://github.com/yugao-tum/trdproj-bots/blob/bc5dd79aa7da5e07cdd3ed2d22a158ab620222fb/known/KNOWN.md#L39)（2026-10-20 UTC 核对，仅含名称，不含既有规则或绩效）。到期期权OI/最大痛点钉价是已知同一假说。
+
+本条提供的研究补充：整理到期 OI 单次官方快照、单位换算与钉价假说的库存方向限制；缺少点时联合历史和可成交净收益，代理有效性未证。
+
+补充材料相对既有实现的新增性与采纳价值仍待核；本次不主张新机制、已证改进、盈利或已采纳，状态保持草稿。
 
 ## 门槛自查
 
 1. 机制说得清：满足条件性解释；对冲库存方向未知，代理有效性未证
 2. 有免费数据能检验：不满足现有证据；只有当前单快照，缺12个月点时联合数据
 3. 小资金能做：不确定；纸面现货预算明确，实际深度和跳空成本未核
-4. 不重复：满足初步去重；关键变量为到期OI结构，币种/到期不加机制数
+4. 不重复：同机制补充，非新策略——对应 `E-E2-max-pain`；补充材料的新增性与采纳价值仍待核，不据 dot 内部区别主张全局新颖性。
 5. 扣成本后粗算够用：不确定；只有条件成本算例，真实净收益未知
 6. 两周内能检验：不满足现有证据；30独立事件未证，前向未启动
 7. 出处可查：满足机制/快照描述；已区分来源、代理假设和单位算术

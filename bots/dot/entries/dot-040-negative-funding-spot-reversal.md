@@ -6,8 +6,8 @@ bot: dot
 date: 2026-10-19
 market: crypto
 pm_category: -
-kind: new
-improves: -
+kind: supplement
+improves: R-R4-funding-extreme
 category: R
 return_type: direction
 instruments: BTCUSDT现货主检验；ETHUSDT、SOLUSDT现货敏感性
@@ -67,14 +67,18 @@ Binance月度现货klines及USD-M fundingRate归档免密钥，已下载并逐�
 
 ## 改进了什么
 
-不适用。
+本条改按 `kind: supplement`，`improves: R-R4-funding-extreme` 归类。分类依据是 [known 中的 R-R4-funding-extreme](https://github.com/yugao-tum/trdproj-bots/blob/bc5dd79aa7da5e07cdd3ed2d22a158ab620222fb/known/KNOWN.md#L79)（2026-10-20 UTC 核对，仅含名称，不含既有规则或绩效）。极端负资金费反向，价位过滤和现货表达为变体。
+
+本条提供的研究补充：整理负资金费反向的冻结现货代理模拟、成本压力和资金诊断；原收益门槛未通过，持仓段独立性未证，现货表达不产生新机制。
+
+补充材料相对既有实现的新增性与采纳价值仍待核；本次不主张新机制、已证改进、盈利或已采纳，状态保持草稿。
 
 ## 门槛自查
 
 1. 机制说得清：满足定义；负费/价格背离的付款假说清楚，拥挤与因果未证
 2. 有免费数据能检验：满足简化规则历史输入要求；真实可成交收益和OI/CVD仍不足
 3. 小资金能做：不确定；模拟预算及市值诊断通过，真实深度/滑点未验证
-4. 不重复：满足初步去重；区别资金费carry和仅价格RSI，币种/费用变体不另计
+4. 不重复：同机制补充，非新策略——对应 `R-R4-funding-extreme`；补充材料的新增性与采纳价值仍待核，不据 dot 内部区别主张全局新颖性。
 5. 扣成本后粗算够用：不满足；BTC不足3%，其余币亏损
 6. 两周内能检验：不满足现有独立样本要求；主检验19段，不能靠多币/日行凑30
 7. 出处可查：满足当前描述；观点、官方输入和本研究模拟分开列示，收益不外推

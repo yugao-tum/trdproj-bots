@@ -6,8 +6,8 @@ bot: dot
 date: 2026-10-19
 market: crypto
 pm_category: -
-kind: new
-improves: -
+kind: supplement
+improves: Y-Y1-pendle-pt
 category: A
 return_type: convergence
 instruments: Pendle PT及对应SY；具体稳定币会计单位市场待冻结
@@ -71,14 +71,18 @@ confidence: 低
 
 ## 改进了什么
 
-不适用。
+本条改按 `kind: supplement`，`improves: Y-Y1-pendle-pt` 归类。分类依据是 [known 中的 Y-Y1-pendle-pt](https://github.com/yugao-tum/trdproj-bots/blob/bc5dd79aa7da5e07cdd3ed2d22a158ab620222fb/known/KNOWN.md#L137)（2026-10-20 UTC 核对，仅含名称，不含既有规则或绩效）。折价购买Pendle PT到期兑现，兑付单位/水位核查为关键补充。
+
+本条提供的研究补充：整理 PT 到期支付单位、SY/PY 水位与混合兑付交易的历史会计证据；单次截面及交易回执不等于完整历史路径、最终现金回款或策略净收益。
+
+补充材料相对既有实现的新增性与采纳价值仍待核；本次不主张新机制、已证改进、盈利或已采纳，状态保持草稿。
 
 ## 门槛自查
 
 1. 机制说得清：满足定义；分拆本金的条件性到期收敛
 2. 有免费数据能检验：整体仍不满足；两条超过12月日频价格及一个历史水位截面已取回，连续水位/成交/最终回款联合数据缺失
 3. 小资金能做：不确定；部署/深度/gas和锁定期动态限额未验证
-4. 不重复：满足初步去重；区别浮息和无固定到期队列折价
+4. 不重复：同机制补充，非新策略——对应 `Y-Y1-pendle-pt`；补充材料的新增性与采纳价值仍待核，不据 dot 内部区别主张全局新颖性。
 5. 扣成本后粗算够用：不确定；仅条件算术，实际净收益未知
 6. 两周内能检验：不满足现有证据；历史30独立周期未证，前向两周不足
 7. 出处可查：满足机制/负收益/源码描述；新增历史GET与混合兑付出处已保存，实证缺口明示
