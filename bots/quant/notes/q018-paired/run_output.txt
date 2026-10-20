@@ -1,0 +1,104 @@
+quant-018 same-time paired executable-price test | as_of=2026-10-20
+T=event window start (Mon 00:00 UTC) | model uses PortWatch date<T only
+market=last data-api YES-implied trade in [T-24h,T] | no trade = no price
+fee_rate=0.00 (entry/GUIDE 8) | half_spread=0.01 | stress cost=0.05 | safety=0.01
+bootstrap=calendar-week block, B=10000, seed=20261020
+
+== discovery ==
+public-search slugs=47, closed weekly events=43
+by strait: Bab el-Mandeb Strait=12, Strait of Hormuz=31
+  Bab el-Mandeb Strait: n=12, week span 2026-07-20 .. 2026-10-05
+  Strait of Hormuz: n=31, week span 2026-03-10 .. 2026-10-05
+date span: 2026-03-10 .. 2026-10-05
+exactly one resolved bucket: 43/43
+PortWatch: rows=5696, coverage=2019-01-01..2026-10-18 (current revised vintage)
+recompute current PortWatch vs Gamma settlement: MATCH=34, MISMATCH=9, NO_DATA=0
+revision proxy: 9 event weeks are affected (MISMATCH)
+trade pagination truncations: 0 buckets
+
+== coverage ==
+main [T-24h,T]: complete events 24/43 (Hormuz 19/31, Bab 5/12)
+sens [T-6h,T]: complete events 15/43
+sens [T,T+24h] first trade (look-ahead): complete events 37/43
+bucket prices in main window: 152/242
+
+== per-event same-time scores (complete main prices) ==
+2026-03-10 | Strait of Hormuz    | 9b | 35-39  | Brier model 1.2562 mkt 5.7377 (renorm 1.1675) | logloss model 3.0445 mkt 3.2189
+2026-04-06 | Strait of Hormuz    | 6b | 40-49  | Brier model 1.1667 mkt 0.8704 (renorm 0.8734) | logloss model 2.8904 mkt 2.1203
+2026-04-20 | Strait of Hormuz    | 7b | 25-49  | Brier model 0.7867 mkt 0.6554 (renorm 0.6506) | logloss model 1.5581 mkt 1.3863
+2026-05-04 | Strait of Hormuz    | 5b | <25    | Brier model 0.7543 mkt 1.3060 (renorm 1.2795) | logloss model 1.4469 mkt 3.9120
+2026-05-11 | Strait of Hormuz    | 5b | 40-59  | Brier model 0.8789 mkt 1.1460 (renorm 1.1787) | logloss model 1.7346 mkt 2.3026
+2026-05-25 | Strait of Hormuz    | 5b | 25-49  | Brier model 0.4637 mkt 1.0416 (renorm 1.0532) | logloss model 0.8873 mkt 2.4870
+2026-06-08 | Strait of Hormuz    | 5b | <25    | Brier model 0.8374 mkt 1.1294 (renorm 1.0832) | logloss model 1.4469 mkt 1.4964
+2026-06-15 | Strait of Hormuz    | 5b | 75-99  | Brier model 1.0727 mkt 0.9968 (renorm 1.0440) | logloss model 2.1401 mkt 2.4326
+2026-06-29 | Strait of Hormuz    | 5b | 150+   | Brier model 1.1626 mkt 0.0386 (renorm 0.0253) | logloss model 2.1401 mkt 0.1985
+2026-07-06 | Strait of Hormuz    | 5b | <150   | Brier model 0.1592 mkt 0.8428 (renorm 0.8441) | logloss model 0.4353 mkt 1.7148
+2026-07-13 | Strait of Hormuz    | 5b | <100   | Brier model 0.1592 mkt 0.1130 (renorm 0.1092) | logloss model 0.4353 mkt 0.3567
+2026-07-20 | Strait of Hormuz    | 5b | <50    | Brier model 0.3737 mkt 0.1219 (renorm 0.1074) | logloss model 0.7538 mkt 0.3711
+2026-07-27 | Strait of Hormuz    | 5b | 25-49  | Brier model 0.5398 mkt 0.7669 (renorm 0.7545) | logloss model 1.0415 mkt 1.6607
+2026-08-03 | Strait of Hormuz    | 5b | 25-49  | Brier model 0.4429 mkt 1.0270 (renorm 1.0184) | logloss model 0.8873 mkt 2.1203
+2026-08-10 | Bab el-Mandeb Strai | 4b | 200-219 | Brier model 1.1875 mkt 1.0586 (renorm 1.0586) | logloss model 2.0794 mkt 2.0402
+2026-08-10 | Strait of Hormuz    | 5b | 25-49  | Brier model 0.4429 mkt 0.4510 (renorm 0.4562) | logloss model 0.8873 mkt 0.8675
+2026-08-17 | Bab el-Mandeb Strai | 4b | 200+   | Brier model 0.1328 mkt 0.8560 (renorm 0.8596) | logloss model 0.3747 mkt 1.6094
+2026-08-24 | Strait of Hormuz    | 5b | 25-49  | Brier model 0.3599 mkt 0.2653 (renorm 0.2604) | logloss model 0.7538 mkt 0.5798
+2026-08-31 | Bab el-Mandeb Strai | 5b | 170-189 | Brier model 0.8927 mkt 0.6614 (renorm 0.6613) | logloss model 1.7346 mkt 1.1087
+2026-08-31 | Strait of Hormuz    | 5b | 20-39  | Brier model 0.4637 mkt 0.1131 (renorm 0.1227) | logloss model 0.8873 mkt 0.3147
+2026-09-07 | Bab el-Mandeb Strai | 5b | 190-209 | Brier model 0.7612 mkt 0.6289 (renorm 0.6232) | logloss model 1.4469 mkt 1.1712
+2026-09-07 | Strait of Hormuz    | 6b | 35-39  | Brier model 0.7716 mkt 1.0064 (renorm 1.0064) | logloss model 1.5041 mkt 2.3026
+2026-09-14 | Bab el-Mandeb Strai | 5b | 170-189 | Brier model 0.7612 mkt 0.6501 (renorm 0.6510) | logloss model 1.4469 mkt 1.2379
+2026-09-28 | Strait of Hormuz    | 6b | <20    | Brier model 1.0864 mkt 0.8784 (renorm 0.8903) | logloss model 2.8904 mkt 1.8326
+
+== Brier (raw market prices, main window) ==
+all: n=24, 模型均值=0.7047, 市场均值=0.9318, 配对差(市场-模型)=+0.2270 (sd=0.9955), t=1.117, p=0.2754, 模型更好=11/24, 符号检验p=0.8388
+Hormuz: n=19, 模型均值=0.6936, 市场均值=0.9741, 配对差(市场-模型)=+0.2805 (sd=1.1034), t=1.108, p=0.2824, 模型更好=10/19, 符号检验p=1.0000
+Bab: n=5, 模型均值=0.7471, 市场均值=0.7710, 配对差(市场-模型)=+0.0239 (sd=0.3938), t=0.136, p=0.8986, 模型更好=1/5, 符号检验p=0.3750
+all renormalised market: n=24, 模型均值=0.7047, 市场均值=0.7408, 配对差(市场-模型)=+0.0360 (sd=0.4128), t=0.428, p=0.6729, 模型更好=10/24, 符号检验p=0.5413
+[T-6h,T] sensitivity: n=15, 模型均值=0.6770, 市场均值=1.0006, 配对差(市场-模型)=+0.3236 (sd=1.1990), t=1.045, p=0.3136, 模型更好=5/15, 符号检验p=0.3018
+[T,T+24h] first trade exploratory: n=37, 模型均值=0.7358, 市场均值=0.7478, 配对差(市场-模型)=+0.0120 (sd=0.4863), t=0.150, p=0.8814, 模型更好=14/37, 符号检验p=0.1877
+
+== log loss (raw market prices, main window) ==
+all: n=24, 模型均值=1.4520, 市场均值=1.6184, 配对差(市场-模型)=+0.1665 (sd=0.9475), t=0.861, p=0.3983, 模型更好=11/24, 符号检验p=0.8388
+Hormuz: n=19, 模型均值=1.4613, 市场均值=1.6671, 配对差(市场-模型)=+0.2058 (sd=1.0131), t=0.886, p=0.3876, 模型更好=10/19, 符号检验p=1.0000
+Bab: n=5, 模型均值=1.4165, 市场均值=1.4335, 配对差(市场-模型)=+0.0170 (sd=0.7135), t=0.053, p=0.9602, 模型更好=1/5, 符号检验p=0.3750
+all renormalised market: n=24, 模型均值=1.4520, 市场均值=1.6474, 配对差(市场-模型)=+0.1955 (sd=1.0265), t=0.933, p=0.3606, 模型更好=11/24, 符号检验p=0.8388
+[T-6h,T] sensitivity: n=15, 模型均值=1.4203, 市场均值=1.6162, 配对差(市场-模型)=+0.1958 (sd=0.8842), t=0.858, p=0.4054, 模型更好=6/15, 符号检验p=0.6072
+[T,T+24h] first trade exploratory: n=37, 模型均值=1.5425, 市场均值=1.4626, 配对差(市场-模型)=-0.0800 (sd=0.9666), t=-0.503, p=0.6179, 模型更好=14/37, 符号检验p=0.1877
+week-cluster bootstrap brier_all: n_weeks=21, mean=+0.2270, SE=0.2066, 95%CI=[-0.0847,+0.6937], p=0.2216
+week-cluster bootstrap brier_all_renorm: n_weeks=21, mean=+0.0360, SE=0.0846, 95%CI=[-0.1283,+0.2011], p=0.6498
+week-cluster bootstrap logloss_all: n_weeks=21, mean=+0.1665, SE=0.1949, 95%CI=[-0.2014,+0.5592], p=0.3948
+week-cluster bootstrap logloss_all_renorm: n_weeks=21, mean=+0.1955, SE=0.2117, 95%CI=[-0.1989,+0.6349], p=0.3402
+strict week-cluster diff_brier: n_weeks=21, mean=+0.2738, t=1.189, p=0.2486, model better=10/21, sign p=1.0000
+strict week-cluster diff_logloss: n_weeks=21, mean=+0.2077, t=0.967, p=0.3453, model better=11/21, sign p=1.0000
+
+== executable trade rule, base cost 1c (fee rate 0) ==
+all triggered shares: 70
+[Bab] shares: n=18, NO胜=13, 中位毛利=+0.2400/份, 中位净利=+0.2400/份, 总净利=+0.1216, 总投入=12.8784, 每美元投入P&L=+0.0094, 命中率=0.7222
+[Bab] events: n_events=9, 总净利=+0.1216, 每事件中位净利=-0.1800, 总投入=12.8784, 每美元投入P&L=+0.0094, 事件命中率=0.4444
+[Bab] calendar weeks: n_weeks=9, 总净利=+0.1216, 每周中位净利=-0.1800, 总投入=12.8784, 每美元投入P&L=+0.0094, 周命中率=0.4444
+[Bab] week-cluster bootstrap event cash: n_weeks=9 mean=+0.0135 SE=0.1918 95%CI=[-0.3641,+0.3859] p=0.9324
+[Hormuz (exploratory, entry excludes it)] shares: n=52, NO胜=40, 中位毛利=+0.2050/份, 中位净利=+0.2050/份, 总净利=+6.6268, 总投入=33.3732, 每美元投入P&L=+0.1986, 命中率=0.7692
+[Hormuz (exploratory, entry excludes it)] events: n_events=23, 总净利=+6.6268, 每事件中位净利=-0.0600, 总投入=33.3732, 每美元投入P&L=+0.1986, 事件命中率=0.4783
+[Hormuz (exploratory, entry excludes it)] calendar weeks: n_weeks=23, 总净利=+6.6268, 每周中位净利=-0.0600, 总投入=33.3732, 每美元投入P&L=+0.1986, 周命中率=0.4783
+[Hormuz (exploratory, entry excludes it)] week-cluster bootstrap event cash: n_weeks=23 mean=+0.2881 SE=0.2306 95%CI=[-0.0752,+0.8148] p=0.1592
+[pooled (exploratory)] shares: n=70, NO胜=53, 中位毛利=+0.2250/份, 中位净利=+0.2250/份, 总净利=+6.7483, 总投入=46.2517, 每美元投入P&L=+0.1459, 命中率=0.7571
+[pooled (exploratory)] events: n_events=32, 总净利=+6.7483, 每事件中位净利=-0.0950, 总投入=46.2517, 每美元投入P&L=+0.1459, 事件命中率=0.4688
+[pooled (exploratory)] calendar weeks: n_weeks=23, 总净利=+6.7483, 每周中位净利=+0.2300, 总投入=46.2517, 每美元投入P&L=+0.1459, 周命中率=0.5652
+[pooled (exploratory)] week-cluster bootstrap event cash: n_weeks=23 mean=+0.2934 SE=0.2477 95%CI=[-0.1194,+0.8366] p=0.2048
+
+== extra stress: 5c total cost ==
+[Bab] shares: n=15, NO胜=11, 中位毛利=+0.2000/份, 中位净利=+0.2000/份, 总净利=-0.2284, 总投入=11.2284, 每美元投入P&L=-0.0203, 命中率=0.7333
+[Bab] events: n_events=9, 总净利=-0.2284, 每事件中位净利=+0.2000, 总投入=11.2284, 每美元投入P&L=-0.0203, 事件命中率=0.5556
+[Bab] calendar weeks: n_weeks=9, 总净利=-0.2284, 每周中位净利=+0.2000, 总投入=11.2284, 每美元投入P&L=-0.0203, 周命中率=0.5556
+[Hormuz (exploratory)] shares: n=42, NO胜=33, 中位毛利=+0.1900/份, 中位净利=+0.1900/份, 总净利=+6.0771, 总投入=26.9229, 每美元投入P&L=+0.2257, 命中率=0.7857
+[Hormuz (exploratory)] events: n_events=22, 总净利=+6.0771, 每事件中位净利=+0.1450, 总投入=26.9229, 每美元投入P&L=+0.2257, 事件命中率=0.5909
+[Hormuz (exploratory)] calendar weeks: n_weeks=22, 总净利=+6.0771, 每周中位净利=+0.1450, 总投入=26.9229, 每美元投入P&L=+0.2257, 周命中率=0.5909
+[pooled (exploratory)] shares: n=57, NO胜=44, 中位毛利=+0.2000/份, 中位净利=+0.2000/份, 总净利=+5.8486, 总投入=38.1514, 每美元投入P&L=+0.1533, 命中率=0.7719
+[pooled (exploratory)] events: n_events=31, 总净利=+5.8486, 每事件中位净利=+0.1900, 总投入=38.1514, 每美元投入P&L=+0.1533, 事件命中率=0.5806
+[pooled (exploratory)] calendar weeks: n_weeks=22, 总净利=+5.8486, 每周中位净利=+0.2808, 总投入=38.1514, 每美元投入P&L=+0.1533, 周命中率=0.6364
+
+== frozen fail criteria (entry, not tuned) ==
+(1) Bab 已成交 NO 份额中位已实现毛利 <= 0 ? PASS (Bab 主口径 n=18，中位毛利 +0.2400/份，中位净利 +0.2400/份)
+(3) >=30 个同时点完整事件上基准率平均 Brier 优于市场价 ? INSUFFICIENT (同时点价格完整事件 n=24 < 30)
+overall verdict: INSUFFICIENT
+
+wrote events.csv (43 rows), buckets.csv (242 rows)
