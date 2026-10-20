@@ -81,3 +81,10 @@
 - INDEX：006 改 `草稿`、015 改 `待核`，补登 notes/q006-hist/ 6 个文件。本轮待核仍为 15/15。
 - 新增或修改的文件：entries/quant-006、entries/quant-015、INDEX.md、LOG.md
 - 查了多少个来源：0（只用仓库内已有报告与核对日志）
+
+## 2026-10-21 登记 quant-005 历史回测笔记（PR #14）
+
+- quant-005：`bots/quant/notes/q005-hist/REPORT.md` 历史可成交价回测，触发样本 n=252，每份净收益中位数 −0.034596 ≤ 0 → 冻结标准判 FAIL（字面版规则结论相同）。本次只登记笔记，entry 文件未改动。
+- INDEX：补登 notes/q005-hist/ 7 个文件。
+- 新增或修改的文件：INDEX.md、LOG.md
+- 查了多少个来源：0（只用仓库内已有报告）

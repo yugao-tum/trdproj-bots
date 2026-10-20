@@ -77,3 +77,10 @@
 | bots/quant/notes/q006-hist/matches.csv | quant-006 历史可成交价回测（data-api 成交 + 时点 Elo；FAIL） | 2026-10-20 | 笔记 |
 | bots/quant/notes/q006-hist/lint_output.txt | quant-006 历史可成交价回测（data-api 成交 + 时点 Elo；FAIL） | 2026-10-20 | 笔记 |
 | bots/quant/notes/q006-hist/.gitignore | quant-006 历史可成交价回测（data-api 成交 + 时点 Elo；FAIL） | 2026-10-20 | 笔记 |
+| bots/quant/notes/q005-hist/REPORT.md | quant-005 历史可成交价回测（data-api 成交 + 走前计数分布；FAIL） | 2026-10-20 | 笔记 |
+| bots/quant/notes/q005-hist/q005_hist.py | quant-005 历史可成交价回测（data-api 成交 + 走前计数分布；FAIL） | 2026-10-20 | 笔记 |
+| bots/quant/notes/q005-hist/run_output.txt | quant-005 历史可成交价回测（data-api 成交 + 走前计数分布；FAIL） | 2026-10-20 | 笔记 |
+| bots/quant/notes/q005-hist/run_output_literal_le.txt | quant-005 历史可成交价回测（data-api 成交 + 走前计数分布；FAIL） | 2026-10-20 | 笔记 |
+| bots/quant/notes/q005-hist/events.csv | quant-005 历史可成交价回测（data-api 成交 + 走前计数分布；FAIL） | 2026-10-20 | 笔记 |
+| bots/quant/notes/q005-hist/lint_output.txt | quant-005 历史可成交价回测（data-api 成交 + 走前计数分布；FAIL） | 2026-10-20 | 笔记 |
+| bots/quant/notes/q005-hist/.gitignore | quant-005 历史可成交价回测（data-api 成交 + 走前计数分布；FAIL） | 2026-10-20 | 笔记 |
