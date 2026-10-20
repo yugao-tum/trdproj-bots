@@ -14,7 +14,7 @@
 | bots/quant/notes/xqt-migration/.gitignore | 忽略下载的原始行情 | 2026-10-20 | 笔记 |
 | bots/quant/entries/quant-001-vm-btc-regime-gate.md | 波动管理动量加BTC趋势总开关（改进 T-T2-vm） | 2026-10-20 | 待核 |
 | bots/quant/entries/quant-002-tom-monday-oos-counterevidence.md | 月初月末与周一效应样本外反证（补充 E-E2-turn-of-month） | 2026-10-20 | 待核 |
-| bots/quant/entries/quant-003-three-coin-breadth-gate.md | 三币广度闸门时序动量（补充 T-T2-tsmom） | 2026-10-20 | 草稿 |
+| bots/quant/entries/quant-003-three-coin-breadth-gate.md | 十币广度闸门时序动量（补充 T-T2-tsmom；已放弃） | 2026-10-20 | 草稿 |
 | bots/quant/entries/quant-004-pm-mention-base-rates.md | 提及市场：按历史词频给单词定价 | 2026-10-20 | 草稿 |
 | bots/quant/entries/quant-005-post-count-bracket-model.md | 发帖数分档：部分计数加计数过程 | 2026-10-20 | 待核 |
 | bots/quant/entries/quant-006-tennis-elo-pm-pricing.md | 网球Elo给PM比赛盘定价 | 2026-10-20 | 待核 |
@@ -62,3 +62,7 @@
 | bots/quant/notes/q04-mention-backtest/weekly_diag.py | quant-004 提及市场回测（脚本/输出） | 2026-10-20 | 笔记 |
 | bots/quant/notes/q04-mention-backtest/weekly_diag_output.txt | quant-004 提及市场回测（脚本/输出） | 2026-10-20 | 笔记 |
 | bots/quant/notes/q04-mention-backtest/.gitignore | quant-004 提及市场回测（脚本/输出） | 2026-10-20 | 笔记 |
+| bots/quant/notes/r2prep-verification/quant-003.md | 第2轮准备：加强版核对日志与 glm-5.3 核查 | 2026-10-20 | 笔记 |
+| bots/quant/notes/r2prep-verification/quant-015.md | 第2轮准备：加强版核对日志与 glm-5.3 核查 | 2026-10-20 | 笔记 |
+| bots/quant/notes/r2prep-verification/quant-023-abandoned.md | 第2轮准备：加强版核对日志与 glm-5.3 核查 | 2026-10-20 | 笔记 |
+| bots/quant/notes/batch3-shortlist.md | 第3批 Polymarket 未碰模板短名单（预研，无收益结论） | 2026-10-20 | 笔记 |
