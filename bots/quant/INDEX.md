@@ -24,7 +24,7 @@
 | bots/quant/entries/quant-010-streaming-chart-nowcast.md | 周榜日更抢跑 | 2026-10-20 | 待核 |
 | bots/quant/entries/quant-011-soccer-draw-pricing.md | 足球三向盘平局基准率检验 | 2026-10-20 | 待核 |
 | bots/quant/entries/quant-012-earthquake-count-base-rate.md | 地震周计数：按USGS基率定价 | 2026-10-20 | 待核 |
-| bots/quant/entries/quant-013-coinbase-premium-signal.md | Coinbase溢价z分数方向信号 | 2026-10-20 | 待核 |
+| bots/quant/entries/quant-013-coinbase-premium-signal.md | Coinbase溢价z分数方向信号 | 2026-10-20 | 草稿 |
 | bots/quant/notes/batch1-verification/quant-004.md | 第1批原稿核对日志 + glm-5.3 事实核查 | 2026-10-20 | 笔记 |
 | bots/quant/notes/batch1-verification/quant-005.md | 第1批原稿核对日志 + glm-5.3 事实核查 | 2026-10-20 | 笔记 |
 | bots/quant/notes/batch1-verification/quant-006.md | 第1批原稿核对日志 + glm-5.3 事实核查 | 2026-10-20 | 笔记 |
@@ -42,7 +42,7 @@
 | bots/quant/entries/quant-018-strait-transit-count-base-rate.md | 海峡周通行：PortWatch基准率 | 2026-10-20 | 待核 |
 | bots/quant/entries/quant-019-measles-cdc-count-ladder.md | 麻疹病例阶梯：按官方计数流定价 | 2026-10-20 | 待核 |
 | bots/quant/entries/quant-020-earnings-beat-base-rate.md | 财报超预期市场：中价带的基准率缺口 | 2026-10-20 | 待核 |
-| bots/quant/entries/quant-021-f1-pole-winner-base-rate.md | F1杆位与分站冠军：免费用时定价 | 2026-10-20 | 草稿 |
+| bots/quant/entries/quant-021-f1-pole-winner-base-rate.md | F1杆位与分站冠军：免费用时定价 | 2026-10-20 | 待核 |
 | bots/quant/entries/quant-022-bnb-hodler-airdrop-hedged.md | BNB空投+永续对冲：成本吃掉收益 | 2026-10-20 | 草稿 |
 | bots/quant/entries/quant-023-mstr-mnav-btc-switch.md | MSTR溢价mNAV作BTC仓位开关 | 2026-10-20 | 草稿 |
 | bots/quant/notes/batch2-verification/quant-014.md | 第2批原稿核对日志（含脚本）+ glm-5.3 事实核查 | 2026-10-20 | 笔记 |
