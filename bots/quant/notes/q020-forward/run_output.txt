@@ -1,0 +1,35 @@
+quant-020 pre-registered forward check
+window: [2026-10-21T00:00:00Z, 2026-10-26T00:00:00Z)  frozen band=[0.40,0.55] fee_rate=0.05 half_spread=0.01
+window events after dedupe: 29
+  cme-quarterly-earnings-nongaap-eps-10-21-2026-2pt97 | 2026-10-21T13:00:00Z | y=? | p24=0.8749 | in_band=False
+  iart-quarterly-earnings-nongaap-eps-10-21-2026-0pt57 | 2026-10-21T13:00:00Z | y=? | p24=NA | in_band=False
+  mco-quarterly-earnings-nongaap-eps-10-21-2026-4pt29 | 2026-10-21T13:00:00Z | y=? | p24=0.7800 | in_band=False
+  mktx-quarterly-earnings-gaap-eps-10-21-2026-2pt03 | 2026-10-21T13:00:00Z | y=? | p24=NA | in_band=False
+  t-quarterly-earnings-nongaap-eps-10-21-2026-0pt61 | 2026-10-21T13:00:00Z | y=? | p24=0.7300 | in_band=False
+  imax-quarterly-earnings-nongaap-eps-10-22-2026-0pt88 | 2026-10-21T20:00:00Z | y=? | p24=0.9300 | in_band=False
+  ubsi-quarterly-earnings-gaap-eps-10-21-2026-0pt95 | 2026-10-21T20:00:00Z | y=? | p24=0.9900 | in_band=False
+  ibm-quarterly-earnings-nongaap-eps-10-21-2026-2pt89 | 2026-10-21T21:00:00Z | y=? | p24=0.9060 | in_band=False
+  kmi-quarterly-earnings-nongaap-eps-10-21-2026-0pt33 | 2026-10-21T21:00:00Z | y=? | p24=NA | in_band=False
+  meta-quarterly-earnings-gaap-eps-10-21-2026-6pt31 | 2026-10-21T21:00:00Z | y=? | p24=0.0717 | in_band=False
+  tsla-quarterly-earnings-nongaap-eps-10-20-2026-0pt43 | 2026-10-21T21:00:00Z | y=? | p24=0.4500 | in_band=True
+  txn-quarterly-earnings-gaap-eps-10-21-2026-2pt44 | 2026-10-21T21:00:00Z | y=? | p24=0.8500 | in_band=False
+  wdfc-quarterly-earnings-gaap-eps-10-21-2026-1pt16 | 2026-10-21T21:00:00Z | y=? | p24=NA | in_band=False
+  aal-quarterly-earnings-nongaap-eps-10-22-2026-neg0pt34 | 2026-10-22T13:00:00Z | y=? | p24=0.4800 | in_band=True
+  bx-quarterly-earnings-gaap-eps-10-22-2026-1pt40 | 2026-10-22T13:00:00Z | y=? | p24=0.2100 | in_band=False
+  cbre-quarterly-earnings-gaap-eps-10-22-2026-2pt01 | 2026-10-22T13:00:00Z | y=? | p24=0.1800 | in_band=False
+  dow-quarterly-earnings-nongaap-eps-10-22-2026-0pt65 | 2026-10-22T13:00:00Z | y=? | p24=0.7200 | in_band=False
+  gd-quarterly-earnings-gaap-eps-10-22-2026-4pt26 | 2026-10-22T13:00:00Z | y=? | p24=0.6800 | in_band=False
+  hon-quarterly-earnings-nongaap-eps-10-22-2026-2pt19 | 2026-10-22T13:00:00Z | y=? | p24=0.7900 | in_band=False
+  lmt-quarterly-earnings-gaap-eps-10-22-2026-7pt51 | 2026-10-22T13:00:00Z | y=? | p24=0.5900 | in_band=False
+  pcg-quarterly-earnings-nongaap-eps-10-22-2026-0pt43 | 2026-10-22T13:00:00Z | y=? | p24=NA | in_band=False
+  pg-quarterly-earnings-nongaap-eps-10-22-2026-1pt94 | 2026-10-22T13:00:00Z | y=? | p24=0.1734 | in_band=False
+  stba-quarterly-earnings-gaap-eps-10-22-2026-1pt00 | 2026-10-22T13:00:00Z | y=? | p24=NA | in_band=False
+  tfx-quarterly-earnings-nongaap-eps-10-22-2026-1pt92 | 2026-10-22T13:00:00Z | y=? | p24=NA | in_band=False
+  tsco-quarterly-earnings-gaap-eps-10-22-2026-0pt41 | 2026-10-22T13:00:00Z | y=? | p24=0.1840 | in_band=False
+  unp-quarterly-earnings-gaap-eps-10-22-2026-3pt50 | 2026-10-22T13:00:00Z | y=? | p24=0.2800 | in_band=False
+  ssnc-quarterly-earnings-nongaap-eps-10-22-2026-1pt80 | 2026-10-22T21:00:00Z | y=? | p24=0.6600 | in_band=False
+  axp-quarterly-earnings-gaap-eps-10-23-2026-4pt53 | 2026-10-23T13:00:00Z | y=? | p24=NA | in_band=False
+  xom-quarterly-earnings-nongaap-eps-10-23-2026-3pt87 | 2026-10-23T20:00:00Z | y=? | p24=NA | in_band=False
+
+counts: window=29 resolved=0 unresolved=29 priced=20 in_band=2 in_band_resolved=0
+PENDING (29/29 window events unresolved; no verdict until all resolve)

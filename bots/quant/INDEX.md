@@ -22,7 +22,7 @@
 | bots/quant/entries/quant-008-token-fdv-ladder-premarket.md | 代币上线FDV阶梯用外盘定价 | 2026-10-20 | 草稿 |
 | bots/quant/entries/quant-009-listing-deadline-base-rate.md | 交易所上币截止日市场：按基准率定价 | 2026-10-20 | 待核 |
 | bots/quant/entries/quant-010-streaming-chart-nowcast.md | 周榜日更抢跑 | 2026-10-20 | 待核 |
-| bots/quant/entries/quant-011-soccer-draw-pricing.md | 足球三向盘平局基准率检验 | 2026-10-20 | 待核 |
+| bots/quant/entries/quant-011-soccer-draw-pricing.md | 足球三向盘平局基准率检验 | 2026-10-20 | 草稿 |
 | bots/quant/entries/quant-012-earthquake-count-base-rate.md | 地震周计数：按USGS基率定价 | 2026-10-20 | 待核 |
 | bots/quant/entries/quant-013-coinbase-premium-signal.md | Coinbase溢价z分数方向信号 | 2026-10-20 | 草稿 |
 | bots/quant/notes/batch1-verification/quant-004.md | 第1批原稿核对日志 + glm-5.3 事实核查 | 2026-10-20 | 笔记 |
@@ -77,3 +77,29 @@
 | bots/quant/notes/q006-hist/matches.csv | quant-006 历史可成交价回测（data-api 成交 + 时点 Elo；FAIL） | 2026-10-20 | 笔记 |
 | bots/quant/notes/q006-hist/lint_output.txt | quant-006 历史可成交价回测（data-api 成交 + 时点 Elo；FAIL） | 2026-10-20 | 笔记 |
 | bots/quant/notes/q006-hist/.gitignore | quant-006 历史可成交价回测（data-api 成交 + 时点 Elo；FAIL） | 2026-10-20 | 笔记 |
+| bots/quant/notes/q011-hist/.gitignore | quant-011 历史可成交价回测（data-api 成交 + 赔率桶基准率；FAIL） | 2026-10-20 | 笔记 |
+| bots/quant/notes/q011-hist/REPORT.md | quant-011 历史可成交价回测（data-api 成交 + 赔率桶基准率；FAIL） | 2026-10-20 | 笔记 |
+| bots/quant/notes/q011-hist/lint_output.txt | quant-011 历史可成交价回测（data-api 成交 + 赔率桶基准率；FAIL） | 2026-10-20 | 笔记 |
+| bots/quant/notes/q011-hist/matches.csv | quant-011 历史可成交价回测（data-api 成交 + 赔率桶基准率；FAIL） | 2026-10-20 | 笔记 |
+| bots/quant/notes/q011-hist/pr_body.md | quant-011 历史可成交价回测（data-api 成交 + 赔率桶基准率；FAIL） | 2026-10-20 | 笔记 |
+| bots/quant/notes/q011-hist/q011_hist.py | quant-011 历史可成交价回测（data-api 成交 + 赔率桶基准率；FAIL） | 2026-10-20 | 笔记 |
+| bots/quant/notes/q011-hist/run_output.txt | quant-011 历史可成交价回测（data-api 成交 + 赔率桶基准率；FAIL） | 2026-10-20 | 笔记 |
+| bots/quant/notes/q018-paired/.gitignore | quant-018 同时点可成交价配对检验（data-api 成交；INSUFFICIENT） | 2026-10-20 | 笔记 |
+| bots/quant/notes/q018-paired/REPORT.md | quant-018 同时点可成交价配对检验（data-api 成交；INSUFFICIENT） | 2026-10-20 | 笔记 |
+| bots/quant/notes/q018-paired/buckets.csv | quant-018 同时点可成交价配对检验（data-api 成交；INSUFFICIENT） | 2026-10-20 | 笔记 |
+| bots/quant/notes/q018-paired/events.csv | quant-018 同时点可成交价配对检验（data-api 成交；INSUFFICIENT） | 2026-10-20 | 笔记 |
+| bots/quant/notes/q018-paired/lint_output.txt | quant-018 同时点可成交价配对检验（data-api 成交；INSUFFICIENT） | 2026-10-20 | 笔记 |
+| bots/quant/notes/q018-paired/pr_body.md | quant-018 同时点可成交价配对检验（data-api 成交；INSUFFICIENT） | 2026-10-20 | 笔记 |
+| bots/quant/notes/q018-paired/q018_paired.py | quant-018 同时点可成交价配对检验（data-api 成交；INSUFFICIENT） | 2026-10-20 | 笔记 |
+| bots/quant/notes/q018-paired/run_output.txt | quant-018 同时点可成交价配对检验（data-api 成交；INSUFFICIENT） | 2026-10-20 | 笔记 |
+| bots/quant/notes/q020-oos/.gitignore | quant-020 可成交价时间切分样本外回测（data-api 成交；HOLDOUT PASS/证据弱） | 2026-10-20 | 笔记 |
+| bots/quant/notes/q020-oos/REPORT.md | quant-020 可成交价时间切分样本外回测（data-api 成交；HOLDOUT PASS/证据弱） | 2026-10-20 | 笔记 |
+| bots/quant/notes/q020-oos/events.csv | quant-020 可成交价时间切分样本外回测（data-api 成交；HOLDOUT PASS/证据弱） | 2026-10-20 | 笔记 |
+| bots/quant/notes/q020-oos/lint_output.txt | quant-020 可成交价时间切分样本外回测（data-api 成交；HOLDOUT PASS/证据弱） | 2026-10-20 | 笔记 |
+| bots/quant/notes/q020-oos/pr_body.md | quant-020 可成交价时间切分样本外回测（data-api 成交；HOLDOUT PASS/证据弱） | 2026-10-20 | 笔记 |
+| bots/quant/notes/q020-oos/q020_oos.py | quant-020 可成交价时间切分样本外回测（data-api 成交；HOLDOUT PASS/证据弱） | 2026-10-20 | 笔记 |
+| bots/quant/notes/q020-oos/run_output.txt | quant-020 可成交价时间切分样本外回测（data-api 成交；HOLDOUT PASS/证据弱） | 2026-10-20 | 笔记 |
+| bots/quant/notes/q020-forward/.gitignore | quant-020 前向复核预注册（仅窗口事件；未结算只报 PENDING） | 2026-10-20 | 笔记 |
+| bots/quant/notes/q020-forward/README.md | quant-020 前向复核预注册（仅窗口事件；未结算只报 PENDING） | 2026-10-20 | 笔记 |
+| bots/quant/notes/q020-forward/q020_forward.py | quant-020 前向复核预注册（仅窗口事件；未结算只报 PENDING） | 2026-10-20 | 笔记 |
+| bots/quant/notes/q020-forward/run_output.txt | quant-020 前向复核预注册（仅窗口事件；未结算只报 PENDING） | 2026-10-20 | 笔记 |
