@@ -1,13 +1,13 @@
 ---
 id: quant-017
-name_zh: App Store免费榜首榜定价
+name_zh: App Store免费榜排名定价
 name_en: Polymarket "#1/#2 Free App in the US Apple App Store on <date>" priced off Apple's public top-free chart feed
 bot: quant
 date: 2026-10-20
 market: polymarket
 pm_category: tech
-kind: new
-improves: -
+kind: supplement
+improves: quant-007
 category: E
 return_type: direction
 instruments: Polymarket negRisk 组「某应用是否在 <日期> 12:00 PM ET 时是美国 iPhone App Store 免费榜第 N 名」（N=1、2；另有付费榜、Play 榜同模板），每臂一个二元市场，并带一个不可成交的 `Other` 兜底臂
@@ -39,7 +39,7 @@ confidence: 中
 - 结算口径：「according to the iOS app, ranked #2 in the United States on the iPhone Apple App Store's overall Top Charts under "Free Apps", **as of 12:00 PM ET on the specified date**」——是**某一时点**，不是「曾经达到」，也不是当日平均。
 - 结算源：「To find the overall chart, click "Apps" at the bottom of the US iOS App Store app, scroll down to "Top Free Apps" and click "See All". Then under "Free Apps" in the "Top Charts" section, you'll see the list ...(https://apps.apple.com/us/charts/iphone)」——结算源是 Apple 自己的榜单页/App 内榜单，不是第三方 tracker。
 - 缺数据兜底：「If the chart is unavailable at 12:00 PM ET, this market may remain open for up to 48 hours ... If the data remains unavailable, this market will resolve according to the last published ranking.」——即 12:00 ET 取不到就延后，最终按最后一次发布的榜单。
-- 结构：`negRisk=true`；本次实测该事件 **12 个市场**，其中 7 个是真候选（Vinted / Muse from Meta / ChatGPT / TikTok Pro / Claude / McDonald's / KICK），另有 **4 个 `Reserved app 2..5` 和 1 个 `Other`**，这 5 个当时 `outcomePrices=["0.5","0.5"]`、`bestBid=0`、`bestAsk=1`、volume 0（我实取的字段）——即**占位臂、不可成交**。已关闭的 117 个 US Apple 免费周度板里，市场数是 11–26 个；**这 117 个里只有 8 个在关闭后仍带 `Reserved` 臂（8/117=6.8%）**（不是所有占位臂都会在结算前改名），所以不能假设候选臂一定被补上，`Other` 兜底更重要（见证据 4）。
+- 结构：`negRisk=true`；本次实测该事件 **12 个市场**，其中 7 个是真候选（Vinted / Muse from Meta / ChatGPT / TikTok Pro / Claude / Google Gemini / KICK），另有 **4 个 `Reserved app 2..5` 和 1 个 `Other`**，这 5 个当时 `outcomePrices=["0.5","0.5"]`、`bestBid=0`、`bestAsk=1`、volume 0（我实取的字段）——即**占位臂、不可成交**。已关闭的 117 个 US Apple 免费周度板里，市场数是 11–26 个；**这 117 个里只有 8 个在关闭后仍带 `Reserved` 臂（8/117=6.8%）**（不是所有占位臂都会在结算前改名），所以不能假设候选臂一定被补上，`Other` 兜底更重要（见证据 4）。
 - 时间：本次示例 `startDate=2026-10-17T21:06:16Z`（开盘距结算约 6 天）、`endDate=2026-10-23T23:59:00Z`。注意 **`endDate` 是 23:59 UTC = 19:59 ET，不是结算时刻**；结算时刻是规则写的 2026-10-23 12:00 PM ET（10 月为 EDT=UTC−4，即 16:00 UTC）。
 - 同族模板：`#1 Free App`、`#2 Free App`、`#1 Paid App`、`#2 Paid App`（同一日期各一个事件），另有 Play Store 榜同模板（`1-free-app-in-play-store-on-december-19`）。
 
@@ -61,7 +61,7 @@ confidence: 中
 
 - `rss.applemarketingtools.com/api/v2/us/apps/top-free/50/apps.json` → HTTP 200，25,783 字节，`country=us`，`updated=Tue, 20 Oct 2026 05:14:43 +0000`，50 条。top12 = `Capital One Mobile, Vinted: Pre-loved marketplace, Muse from Meta, ChatGPT, TikTok Pro - Events, PineDrama - Short Dramas, McDonald's, Claude by Anthropic, Google Gemini, Kalshi: Trade Football & more, Threads, CapCut: Photo & Video Editor`。
 - 结算源 `apps.apple.com/us/charts/iphone` → HTTP 200，1,017,064 字节；HTML 内嵌的名字顺序以 `Capital One Mobile → Vinted: Pre-loved marketplace → Muse from Meta → ...` 开头，与 JSON 前 3 位一致。**这是我算的比对，不是来源自报。**
-- 7 个真候选在 top-free-50 里的当前名次（我算的）：Vinted 2、Muse from Meta 3、ChatGPT 4、TikTok Pro 5、McDonald's 7、Claude 8、Google Gemini 9、KICK 不在 top 50。
+- 7 个真候选在 top-free-50 里的名次（2026-10-20 05:14Z 快照，我算的）：Vinted 2、Muse from Meta 3、ChatGPT 4、TikTok Pro 5、Claude 8、Google Gemini 9、KICK 不在 top 50。
 - 上一版说 `itunes.apple.com/us/rss/topfreeapplications/limit=25/json` 与 RSS 逐位相同 25/25；本次没有重取该端点，故不重复引用其具体数字（只保留“上一版曾比对过”的记录）。
 
 ### 2）市场侧：同一时刻的挂牌价（Gamma 快照，2026-10-20 本次重取）
@@ -180,14 +180,16 @@ confidence: 中
 
 ## 改进了什么
 
-不适用（`kind: new`）。
+本条是 quant-007（arena.ai 月度 AI 榜首，固定时刻排名市场）的**补充条目**，不是新机制：两者都是「用公开榜单的当前值给『固定时刻排名快照』结算的市场定价」。按 GUIDE 第 6 节与独立审计 S2-2（`notes/scheduler/audit/c20261020-1423-research.md`），只换榜单源/标的/频率属变体，故改 `kind: supplement`、`improves: quant-007`，不另立新机制。
+
+相对 quant-007 新增的证据与差异：结算源换成 Apple 免费榜单（`apps.apple.com/us/charts/iphone` 与 RSS JSON 均可读，quant-007 的 arena.ai 返回 403）；模板是周度 `#1/#2 free/paid` negRisk 组并带不可成交的 `Other` 兜底臂；给 quant-007 补了 117 个已关闭周度板的 `Other` 基率 **14/117=12.0%** 与 2025 年 Wayback 名次黏性基率（预注册口径 47/54=87.0%）；频率从 1 次/月提高到约 5 个结算日/月。
 
 ## 门槛自查
 
 1. **机制说得清：满足** — 付款方是结算日最后半小时里不看 Apple 榜单、只按旧叙事报价的对手方；机制是「规则把结算锁在 12:00 PM ET 的一次公开榜单快照，而这份榜单免费可读（本次实测 `updated` 字段精确到秒）」，可以一句话说清谁付钱。证据是 `#1` board 当前真实第 1 名 Capital One Mobile 根本不在候选里、而当前第 3 名 Muse from Meta 被定到 0.715（当前榜单与挂牌的劈叉），但这是单点横截面，不是收益证明。
 2. **有免费数据能检验：不确定（部分满足）** — 结算源和榜单数据都免费免密钥且已实测可读（JSON 200、网页 200，两处顺序一致）；**名次黏性现在有 2025 年 Wayback 基率（事先写死口径 47/54=87.0% 与 15/21=71.4%；事后放宽口径 64/71=90.1% 与 23/32=71.9%）**；**但收益侧仍不够**：247 个相关事件里只有 21 个有 CLOB 历史，已关闭的只有 16 个、覆盖 4 个独立结算日（2026-09-25..10-16），2025 年样本 0 点，拿不到 ≥30 个独立结果的收益序列。
 3. **小资金能做：满足** — 单臂 ≤200 USDT、单日 ≤600 USDT，远低于单场所 2,500 与总资金 5,000；不加杠杆、不借钱；买单最大亏损就是本金。容量写清了：单臂盘口 123–546 USDC，5,000 USDT 放不满。
-4. **不重复：不确定** — 我在 2026-10-20 用 `grep -ril "app store|app-store|itunes|排行榜|rank"` 扫了 `known/KNOWN.md`、`bots/*/CLAIMS.md`、`bots/*/INDEX.md`、`bots/*/entries/`：`known/` 无命中，相关的是本机器人自己的 `quant-007`（月度 AI 榜首，结算源 arena.ai，月末 12:00 ET）、`quant-010`（Netflix/Spotify 周榜日更抢跑）与 `quant/CLAIMS.md` 里 B14 这一行。差异：数据源（Apple 榜单 JSON 已实测可读 vs arena.ai 返回 403）、板块与模板（App Store 每周五 #1/#2/free/paid，negRisk 带 `Other` 兜底臂）、频率（约 5 个结算日/月 vs 1 次/月）、以及本条有可算的 `Other` 基率 14/117；与 `quant-010` 的差异是结算取数方式：本条是**结算日 12:00 ET 的瞬时榜单快照**，`quant-010` 是**周榜聚合的日更 nowcast**。**但必须承认：核心机制「用公开榜单的当前值给『固定时刻快照』结算的市场定价」与 quant-007 同源，只是标的和频率不同，按 GUIDE 第 6 节可能被判成变体；我不据「换数据源」主张全新机制，交主审定。**
+4. **不重复：按审计判为变体，已申报补充** — 我在 2026-10-20 用 `grep -ril "app store|app-store|itunes|排行榜|rank"` 扫了 `known/KNOWN.md`、`bots/*/CLAIMS.md`、`bots/*/INDEX.md`、`bots/*/entries/`：`known/` 无命中，相关的是本机器人自己的 `quant-007`（月度 AI 榜首，结算源 arena.ai，月末 12:00 ET）、`quant-010`（Netflix/Spotify 周榜日更抢跑）与 `quant/CLAIMS.md` 里 B14 这一行。差异：数据源（Apple 榜单 JSON 已实测可读 vs arena.ai 返回 403）、板块与模板（App Store 每周五 #1/#2/free/paid，negRisk 带 `Other` 兜底臂）、频率（约 5 个结算日/月 vs 1 次/月）、以及本条有可算的 `Other` 基率 14/117；与 `quant-010` 的差异是结算取数方式：本条是**结算日 12:00 ET 的瞬时榜单快照**，`quant-010` 是**周榜聚合的日更 nowcast**。**核心机制「用公开榜单的当前值给『固定时刻快照』结算的市场定价」与 quant-007 同源，只是标的和频率不同；按 GUIDE 第 6 节这是变体，故本条已按 `kind: supplement`、`improves: quant-007` 申报，不主张全新机制，是否采纳为补充由主审决定。**
 5. **扣成本后粗算够用：不确定** — 吃单费实取 `rate=0.05`（不是 GUIDE 的 tech 0.04），p=0.90 时费/名义 0.50%，加半价差约 2.2%/笔。用 2025 年 P1=90.1%（事后放宽口径）算，06:00 预先买 YES 的盈亏平衡约 0.881；0.88 以上负 EV，0.86 以下才有 2% 以上毛边；换成事先写死的 87.0%，盈亏平衡约 0.849、0.83 以下才有 2% 以上毛边——两种口径下结论一致：**没有历史盘口证明榜单显示 #1 时 YES 会卖到那么低**。最后 1 小时的窄窗口是否有足够价差，仍要前向记录；`observed_net_return=null`、`backtest_count=0`，不写正收益。另一个可算的反例：买全 basket NO 的盈亏平衡需要 `P(Other)=22.7%`（`#1` board）与 65.4%（`#2` board），都 ≥ 本次实测基率 12.0%，所以 basket 方向明确不做。
 6. **两周内能检验：不满足** — 独立结果按日期计，近期约 5 个结算日/月，两周只有约 2–3 个，凑不到 30 个（约需 6 个月）。按 GUIDE 第 2 节第 6 条，本类应进**待选区**。
 7. **出处可查：满足** — 每个数字都有 URL、访问日期和取数方式；榜单数字是两个端点现场对比+结算源网页 HTML 顺序（我算的）；Wayback 4,295 个快照、两组口径的基率（54/71 个双窗口日）、CLOB 21/247、`Other` 14/117 都是本次脚本输出（全文与原始输出见文末 `notes/r2prep-verification/quant-017.md`）；Gamma 自报的 volume/liquidity 都标了「来源自报，未核实」；Wayback 对 RSS 只有 1 个快照、CLOB 226/247 返回 0 点、158 张目标快照只有 150 张解析成功这些失败都照写。

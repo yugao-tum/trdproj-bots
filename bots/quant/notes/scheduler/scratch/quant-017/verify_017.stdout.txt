@@ -1,0 +1,54 @@
+=== quant-017 re-fetch / recompute, 2026-10-20 ===
+RSS: HTTP 200, 25755 bytes, effective=https://rss.marketingtools.apple.com/api/v2/us/apps/top-free/50/apps.json
+  updated= Tue, 20 Oct 2026 15:17:24 +0000
+  top12= ['Capital One Mobile', 'Muse from Meta', 'Vinted: Pre-loved marketplace', 'ChatGPT', 'TikTok Pro - Events', 'PineDrama - Short Dramas', 'Claude by Anthropic', 'Google Gemini', 'Threads', "McDonald's", 'Kalshi: Trade Football & more', 'CapCut: Photo & Video Editor']
+CHARTS: HTTP 200, 1018732 bytes, effective=https://apps.apple.com/us/iphone/charts
+  parsed 50 ranked apps; top12:
+     1 Capital One Mobile
+     1 Meowdoku!
+     2 Muse from Meta
+     2 Magic Sort!
+     3 Vinted: Pre-loved marketplace
+     3 Block Out! - Color Sort Puzzle
+     4 ChatGPT
+     4 Bus Fever Party!
+     5 TikTok Pro - Events
+     5 Vita Mahjong
+     6 PineDrama - Short Dramas
+     6 Rotate Rings
+EVENT 1-free-app-in-the-us-apple-app-store-on-october-23-10172026: HTTP 200, 47350 bytes, endDate=2026-10-23T23:59:00Z, negRisk=True, restricted=True
+  volume=6376.271943999999 liquidity=4326.72914
+  real candidates: 7 ['Muse from Meta', 'Vinted: Pre-loved marketplace', 'ChatGPT', 'TikTok Pro - Events', 'Claude by Anthropic', 'Google Gemini', 'KICK - Live Streaming']
+  placeholders: 5 ['Reserved app 2', 'Reserved app 3', 'Reserved app 4', 'Reserved app 5', 'Other']
+    Muse from Meta               YES=0.765    bid=0.7 ask=0.83
+    Vinted: Pre-loved marketplace YES=0.0575   bid=0.016 ask=0.099
+    ChatGPT                      YES=0.1055   bid=0.011 ask=0.2
+    TikTok Pro - Events          YES=0.0045   bid=0.001 ask=0.008
+    Claude by Anthropic          YES=0.0335   bid=0.007 ask=0.06
+    Google Gemini                YES=0.005    bid=0.001 ask=0.009
+    KICK - Live Streaming        YES=0.01     bid=0.002 ask=0.018
+  sums: YES=0.9810 bestBid=0.7380 bestAsk=1.2240
+  basket NO: cost=6.2620 fee=0.0124 net=6.2744 breakeven P(Other)=0.2744
+EVENT 2-free-app-in-the-us-apple-app-store-on-october-23-10172026: HTTP 200, 48031 bytes, endDate=2026-10-23T23:59:00Z, negRisk=True, restricted=True
+  volume=3197.808697 liquidity=1850.85587
+  real candidates: 7 ['Vinted: Pre-loved marketplace', 'Muse from Meta', 'ChatGPT', 'TikTok Pro - Events', 'Claude by Anthropic', "McDonald's", 'KICK - Live Streaming']
+  placeholders: 5 ['Reserved app 2', 'Reserved app 3', 'Reserved app 4', 'Reserved app 5', 'Other']
+    Vinted: Pre-loved marketplace YES=0.315    bid=0.15 ask=0.48
+    Muse from Meta               YES=0.156    bid=0.034 ask=0.278
+    ChatGPT                      YES=0.137    bid=0.127 ask=0.147
+    TikTok Pro - Events          YES=0.0975   bid=0.005 ask=0.19
+    Claude by Anthropic          YES=0.024    bid=0.01 ask=0.038
+    McDonald's                   YES=0.0285   bid=0.008 ask=0.049
+    KICK - Live Streaming        YES=0.0795   bid=0.011 ask=0.148
+  sums: YES=0.8375 bestBid=0.3450 bestAsk=1.3300
+  basket NO: cost=6.6550 fee=0.0152 net=6.6702 breakeven P(Other)=0.6702
+RANKS for #1-board real candidates (from charts page):
+  Muse from Meta               rank=2
+  Vinted: Pre-loved marketplace rank=3
+  ChatGPT                      rank=4
+  TikTok Pro - Events          rank=5
+  Claude by Anthropic          rank=7
+  Google Gemini                rank=8
+  KICK - Live Streaming        rank=>50
+CHECK: #1 board candidates = ['Muse from Meta', 'Vinted: Pre-loved marketplace', 'ChatGPT', 'TikTok Pro - Events', 'Claude by Anthropic', 'Google Gemini', 'KICK - Live Streaming']
+CHECK: #2 board candidates = ['Vinted: Pre-loved marketplace', 'Muse from Meta', 'ChatGPT', 'TikTok Pro - Events', 'Claude by Anthropic', "McDonald's", 'KICK - Live Streaming']
