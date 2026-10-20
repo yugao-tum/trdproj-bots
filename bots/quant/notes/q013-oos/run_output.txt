@@ -1,0 +1,116 @@
+===== quant-013 true out-of-sample backtest =====
+rules: p=(CB_BTC/(BN_BTC*CB_USDT)-1)*1e4; z=30d excl today, population sd;
+       enter z>=+1 next open; exit z<0 next open or 10 held days; depeg>100bp blocks entries;
+       cost 0.30%/side (0.60% round trip); no parameter tuning
+
+[data] Coinbase BTC-USD: cache hit rows=1999 first=2021-05-01 last=2026-10-20
+[data] Coinbase USDT-USD: cache hit rows=1996 first=2021-05-04 last=2026-10-20
+[data] Binance BTCUSDT: cache hit rows=1979 first=2021-05-01 last=2026-09-30
+[data] Binance SOLUSDT: cache hit rows=1979 first=2021-05-01 last=2026-09-30
+[data] aligned (CB BTC-USD & CB USDT-USD & BN BTCUSDT): rows=1976 first=2021-05-04 last=2026-09-30 calendar_days=1976 missing=0
+[data] dates missing from either Coinbase series in aligned span: 0
+[data] aligned dates with no Binance SOLUSDT row: 0
+
+===== 2. Premium / signal =====
+[premium] n=1976 mean=+0.35bp median=+0.33bp sd=1.99bp min=-19.72bp max=+32.60bp
+[z] valid n=1946 first=2021-06-03 last=2026-09-30
+[depeg] days with |U-1|>100bp: n=0 []
+[events] total merged events (signal-index difference<=3 trading days, whole aligned sample): 140
+[events] first=2021-06-22 last=2026-09-25
+[events] event return: entry=open(signal+1), exit=close(signal+4), cost=0.60% round trip
+
+===== PERIOD TRUE_OOS 2021-05-04..2025-08-14 =====
+[period] aligned rows=1564 events_starting=109
+[BTC] events_starting=109 full3d=109 blocked_by_depeg=0 tradeable_event_n=109
+[BTC] event 3d net: mean=+0.09% median=-0.40% win=+45.87%
+[BTC] unconditional 3d net: n=1560 mean=-0.23% median=-0.44%
+[BTC] rule: trades=140 total=-33.27% maxdd=-63.61% exposure=+20.72% mean/trade=-0.16% hit=+42.14% forced_close=False
+[BTC] buy&hold: total=+122.36% maxdd=-76.63% (2021-05-04..2025-08-14)
+[BTC] criteria: events>=30=Y median>0=N rule>bh=N -> FAIL(事件中位数<=0)
+[SOL] events_starting=109 full3d=109 blocked_by_depeg=0 tradeable_event_n=109
+[SOL] event 3d net: mean=+0.14% median=-0.25% win=+48.62%
+[SOL] unconditional 3d net: n=1560 mean=+0.42% median=-0.62%
+[SOL] rule: trades=140 total=-74.03% maxdd=-84.31% exposure=+20.72% mean/trade=-0.61% hit=+38.57% forced_close=False
+[SOL] buy&hold: total=+351.43% maxdd=-96.27% (2021-05-04..2025-08-14)
+[SOL] criteria: events>=30=Y median>0=N rule>bh=N -> FAIL(事件中位数<=0)
+
+===== PERIOD IN_SAMPLE 2025-08-15..2026-09-30 =====
+[period] aligned rows=412 events_starting=31
+[BTC] events_starting=31 full3d=31 blocked_by_depeg=0 tradeable_event_n=31
+[BTC] event 3d net: mean=+0.57% median=-0.49% win=+45.16%
+[BTC] unconditional 3d net: n=408 mean=-0.83% median=-0.88%
+[BTC] rule: trades=41 total=+31.77% maxdd=-13.19% exposure=+24.27% mean/trade=+0.75% hit=+43.90% forced_close=False
+[BTC] buy&hold: total=-28.74% maxdd=-52.97% (2025-08-15..2026-09-30)
+[BTC] criteria: events>=30=Y median>0=N rule>bh=Y -> FAIL(事件中位数<=0)
+[SOL] events_starting=31 full3d=31 blocked_by_depeg=0 tradeable_event_n=31
+[SOL] event 3d net: mean=+1.21% median=-0.23% win=+48.39%
+[SOL] unconditional 3d net: n=408 mean=-0.80% median=-0.71%
+[SOL] rule: trades=41 total=+39.12% maxdd=-13.90% exposure=+24.27% mean/trade=+0.94% hit=+48.78% forced_close=False
+[SOL] buy&hold: total=-36.40% maxdd=-74.87% (2025-08-15..2026-09-30)
+[SOL] criteria: events>=30=Y median>0=N rule>bh=Y -> FAIL(事件中位数<=0)
+
+===== PERIOD FULL 2021-05-04..2026-09-30 =====
+[period] aligned rows=1976 events_starting=140
+[BTC] events_starting=140 full3d=140 blocked_by_depeg=0 tradeable_event_n=140
+[BTC] event 3d net: mean=+0.19% median=-0.41% win=+45.71%
+[BTC] unconditional 3d net: n=1972 mean=-0.36% median=-0.52%
+[BTC] rule: trades=181 total=-12.08% maxdd=-63.61% exposure=+21.46% mean/trade=+0.05% hit=+42.54% forced_close=False
+[BTC] buy&hold: total=+57.19% maxdd=-76.63% (2021-05-04..2026-09-30)
+[BTC] criteria: events>=30=Y median>0=N rule>bh=N -> FAIL(事件中位数<=0)
+[SOL] events_starting=140 full3d=140 blocked_by_depeg=0 tradeable_event_n=140
+[SOL] event 3d net: mean=+0.38% median=-0.24% win=+48.57%
+[SOL] unconditional 3d net: n=1972 mean=+0.16% median=-0.67%
+[SOL] rule: trades=181 total=-63.87% maxdd=-84.31% exposure=+21.46% mean/trade=-0.26% hit=+40.88% forced_close=False
+[SOL] buy&hold: total=+177.04% maxdd=-96.27% (2021-05-04..2026-09-30)
+[SOL] criteria: events>=30=Y median>0=N rule>bh=N -> FAIL(事件中位数<=0)
+
+===== 3. Summary table =====
+period     asset events  ev_n   ev_mean    ev_med  ev_win  unc_mean   unc_med trades      rule   ruleDD    expo       B&H     BHDD verdict           
+TRUE_OOS   BTC     109   109   0.0879%  -0.4019%  45.87%  -0.2328%  -0.4354%    140  -33.272% -63.6052%  20.72% 122.3591% -76.6293% FAIL(事件中位数<=0)    
+TRUE_OOS   SOL     109   109   0.1417%   -0.246%  48.62%   0.4209%  -0.6211%    140 -74.0305% -84.3106%  20.72%  351.426% -96.2699% FAIL(事件中位数<=0)    
+IN_SAMPLE  BTC      31    31   0.5696%  -0.4926%  45.16%   -0.825%   -0.875%     41  31.7655% -13.1933%  24.27% -28.7352% -52.9718% FAIL(事件中位数<=0)    
+IN_SAMPLE  SOL      31    31   1.2111%  -0.2288%  48.39%  -0.7966%  -0.7129%     41  39.1232% -13.903%  24.27% -36.3989% -74.8687% FAIL(事件中位数<=0)    
+FULL       BTC     140   140   0.1946%  -0.4089%  45.71%  -0.3611%  -0.5225%    181 -12.0755% -63.6052%  21.46%  57.1872% -76.6293% FAIL(事件中位数<=0)    
+FULL       SOL     140   140   0.3785%  -0.2374%  48.57%   0.1643%  -0.6667%    181 -63.8705% -84.3106%  21.46% 177.0429% -96.2699% FAIL(事件中位数<=0)    
+
+===== 4. Yearly breakdown =====
+period     asset year events       rule        B&H
+TRUE_OOS   BTC  2021     11   -15.493%  -13.1261%
+TRUE_OOS   BTC  2022     28  -42.9693%  -64.2071%
+TRUE_OOS   BTC  2023     26    5.1762%  155.6073%
+TRUE_OOS   BTC  2024     26   36.8928%  121.3058%
+TRUE_OOS   BTC  2025     18   -3.8368%   26.4161%
+TRUE_OOS   SOL  2021     11  -26.3202%  298.7006%
+TRUE_OOS   SOL  2022     28  -61.1307%  -94.1349%
+TRUE_OOS   SOL  2023     26  -25.3194%  920.2608%
+TRUE_OOS   SOL  2024     26   52.8309%   86.1089%
+TRUE_OOS   SOL  2025     18  -20.5508%    1.6692%
+IN_SAMPLE  BTC  2025      7    5.0019%  -25.3054%
+IN_SAMPLE  BTC  2026     24   25.4887%   -4.5918%
+IN_SAMPLE  SOL  2025      7   15.1607%  -32.8828%
+IN_SAMPLE  SOL  2026     24   20.8079%   -5.2387%
+FULL       BTC  2021     11   -15.493%  -13.1261%
+FULL       BTC  2022     28  -42.9693%  -64.2071%
+FULL       BTC  2023     26    5.1762%  155.6073%
+FULL       BTC  2024     26   36.8928%  121.3058%
+FULL       BTC  2025     25    0.9731%   -6.3347%
+FULL       BTC  2026     24   25.4887%   -4.5918%
+FULL       SOL  2021     11  -26.3202%  298.7006%
+FULL       SOL  2022     28  -61.1307%  -94.1349%
+FULL       SOL  2023     26  -25.3194%  920.2608%
+FULL       SOL  2024     26   52.8309%   86.1089%
+FULL       SOL  2025     25   -8.5058%  -34.1556%
+FULL       SOL  2026     24   20.8079%   -5.2387%
+
+===== 5. In-sample replication of the entry's own setup =====
+[replication] z computed only inside 2025-08-15..2026-09-30: rows=412 z_first=2025-09-14 events=29
+[replication] entry text (bots/quant/entries/quant-013-coinbase-premium-signal.md line 57-59):
+[replication]   29 events; BTC mean=+0.79% median=-0.41% win=48%; SOL mean=+1.43% median=-0.23% win=48%
+[replication]   BTC rule 39 trades +32.69%; SOL rule 39 trades +30.25%; BTC B&H -28.74%
+[replication] BTC events=29 event_n=29 mean=+0.79% median=-0.41% win=+48.28% | rule trades=39 total=+32.69% maxdd=-13.19% | B&H -28.74%
+[replication] SOL events=29 event_n=29 mean=+1.43% median=-0.23% win=+48.28% | rule trades=39 total=+30.25% maxdd=-13.90% | B&H -36.40%
+
+===== 6. Verdict on TRUE_OOS =====
+[verdict] BTC: FAIL(事件中位数<=0)
+[verdict] SOL: FAIL(事件中位数<=0)
+[out] wrote results.csv rows=34
