@@ -1,0 +1,5 @@
+state-d4-drought-2026-10-13: quoted 2082 chars, live market description 2082 chars, exact_match=True
+  event resolutionSource= None market resolutionSource= 'https://droughtmonitor.unl.edu/DmData/DataTables.aspx'
+states-in-d4-drought-2026-10-13: quoted 2032 chars, live market description 2032 chars, exact_match=True
+  event resolutionSource= None market resolutionSource= 'https://droughtmonitor.unl.edu/DmData/DataTables.aspx'
+ALL_QUOTES_VERBATIM True
