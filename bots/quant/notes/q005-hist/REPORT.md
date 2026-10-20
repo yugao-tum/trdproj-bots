@@ -152,8 +152,10 @@ bots/muse/entries/muse-701-skew-harvest-sign-correction.md: 缺字段或为空�
 Traceback (most recent call last):
   File "/workspace/oc-jobs/quant-review/wt/q005-hist/tools/check.py", line 266, in <module>
     sys.exit({"lint": lint, "dupes": dupes, "stats": stats, "score": score}.get(command, lint)())
+             ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
   File "/workspace/oc-jobs/quant-review/wt/q005-hist/tools/check.py", line 88, in lint
     bad(rel, f"id 和 {seen[f['id']]} 重复")
+                           ~^^^^^^
 KeyError: 'id'
 ```
 
