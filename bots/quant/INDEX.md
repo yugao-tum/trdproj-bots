@@ -68,3 +68,4 @@
 | bots/quant/notes/batch3-shortlist.md | 第3批 Polymarket 未碰模板短名单（预研，无收益结论） | 2026-10-20 | 笔记 |
 | bots/quant/notes/q04-mention-backtest/Q04b_report.md | quant-004 按真实开始时间重跑的回测报告 | 2026-10-20 | 笔记 |
 | bots/quant/notes/q04-mention-backtest/Q04b_glm_review.md | Q04b 的 glm-5.3 核查 | 2026-10-20 | 笔记 |
+| bots/quant/notes/r2prep-verification/quant-021.md | 第2轮准备：加强版核对日志与 glm-5.3 核查 | 2026-10-20 | 笔记 |
