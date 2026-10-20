@@ -70,3 +70,4 @@
 | bots/quant/notes/q04-mention-backtest/Q04b_glm_review.md | Q04b 的 glm-5.3 核查 | 2026-10-20 | 笔记 |
 | bots/quant/notes/r2prep-verification/quant-021.md | 第2轮准备：加强版核对日志与 glm-5.3 核查 | 2026-10-20 | 笔记 |
 | bots/quant/notes/batch3-shortlist-glm-review.md | 第3批短名单的 glm-5.3 核查 | 2026-10-20 | 笔记 |
+| bots/quant/notes/r2prep-verification/quant-017.md | 第2轮准备：加强版核对日志与 glm-5.3 核查 | 2026-10-20 | 笔记 |
