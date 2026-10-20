@@ -1,0 +1,19 @@
+N 638
+PMhome(0.2,0.35] n=104 buy AWAY {'n': 104, 'win': np.float64(0.745), 'profit': np.float64(0.0098), 'ret': np.float64(0.0168), 'total': np.float64(1.02), 'med': np.float64(0.323)}
+                buy HOME {'n': 104, 'win': np.float64(0.255), 'profit': np.float64(-0.0495), 'ret': np.float64(-0.1361), 'total': np.float64(-5.15), 'med': np.float64(-1.0)}
+PMhome(0.35,0.5] n=146 buy AWAY {'n': 146, 'win': np.float64(0.623), 'profit': np.float64(0.0292), 'ret': np.float64(0.0451), 'total': np.float64(4.26), 'med': np.float64(0.554)}
+                buy HOME {'n': 146, 'win': np.float64(0.377), 'profit': np.float64(-0.072), 'ret': np.float64(-0.1718), 'total': np.float64(-10.51), 'med': np.float64(-1.0)}
+PMhome(0.5,0.65] n=166 buy AWAY {'n': 166, 'win': np.float64(0.401), 'profit': np.float64(-0.0368), 'ret': np.float64(-0.0897), 'total': np.float64(-6.11), 'med': np.float64(-1.0)}
+                buy HOME {'n': 166, 'win': np.float64(0.599), 'profit': np.float64(-0.0062), 'ret': np.float64(-0.0114), 'total': np.float64(-1.03), 'med': np.float64(0.522)}
+PMhome(0.65,0.8] n=148 buy AWAY {'n': 148, 'win': np.float64(0.304), 'profit': np.float64(0.0098), 'ret': np.float64(0.0811), 'total': np.float64(1.46), 'med': np.float64(-1.0)}
+                buy HOME {'n': 148, 'win': np.float64(0.696), 'profit': np.float64(-0.0505), 'ret': np.float64(-0.0626), 'total': np.float64(-7.47), 'med': np.float64(0.29)}
+PMhome(0.2,0.8] n=564 buy AWAY {'n': 564, 'win': np.float64(0.496), 'profit': np.float64(0.0011), 'ret': np.float64(0.0097), 'total': np.float64(0.63), 'med': np.float64(-1.0)}
+                buy HOME {'n': 564, 'win': np.float64(0.504), 'profit': np.float64(-0.0428), 'ret': np.float64(-0.0894), 'total': np.float64(-24.15), 'med': np.float64(0.228)}
+PMhome(0.35,0.8] n=460 buy AWAY {'n': 460, 'win': np.float64(0.44), 'profit': np.float64(-0.0008), 'ret': np.float64(0.0081), 'total': np.float64(-0.39), 'med': np.float64(-1.0)}
+                buy HOME {'n': 460, 'win': np.float64(0.56), 'profit': np.float64(-0.0413), 'ret': np.float64(-0.0788), 'total': np.float64(-19.0), 'med': np.float64(0.29)}
+PMhome(0.3,0.7] n=395 buy AWAY {'n': 395, 'win': np.float64(0.505), 'profit': np.float64(-0.0061), 'ret': np.float64(-0.03), 'total': np.float64(-2.41), 'med': np.float64(0.396)}
+                buy HOME {'n': 395, 'win': np.float64(0.495), 'profit': np.float64(-0.0365), 'ret': np.float64(-0.0901), 'total': np.float64(-14.43), 'med': np.float64(-1.0)}
+2024 188 {'n': 188, 'win': np.float64(0.436), 'profit': np.float64(-0.0031), 'ret': np.float64(-0.024), 'total': np.float64(-0.59), 'med': np.float64(-1.0)}
+2025 199 {'n': 199, 'win': np.float64(0.432), 'profit': np.float64(-0.0114), 'ret': np.float64(0.0046), 'total': np.float64(-2.27), 'med': np.float64(-1.0)}
+2026 73 {'n': 73, 'win': np.float64(0.473), 'profit': np.float64(0.0339), 'ret': np.float64(0.0999), 'total': np.float64(2.47), 'med': np.float64(-1.0)}
+away 0.35-0.8 profit bootstrap 95% -0.0445 0.0433
