@@ -1,0 +1,7 @@
+{
+  "status": "PASS file arithmetic only, not historical execution validation",
+  "assertions": 38,
+  "max_lp_terminal_difference_usd": 4.547473508864641e-13,
+  "engine_summary_sha256": "d0268646c3bdde586d6bba9bbc32591bb3c3c2b9123bb168eb16599d0216a821",
+  "benchmark_sha256": "3eae384bd98b1e33a2797a9e5877ca6e051fca23f87e0708ca0680e0e2e78214"
+}

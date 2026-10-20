@@ -1,0 +1,63 @@
+{
+  "classification": "synthetic_offline_integer_formula_tests",
+  "historical_backtest": false,
+  "evm_execution": false,
+  "model": "OpenAI native agent; exact model ID not exposed",
+  "seed": 1802,
+  "random_cases": 20000,
+  "tests": [
+    {
+      "name": "fee_off_and_zero_kLast_no_pending",
+      "pass": true
+    },
+    {
+      "name": "no_root_growth_no_pending",
+      "pass": true
+    },
+    {
+      "name": "fee_mint_rounds_down",
+      "pass": true
+    },
+    {
+      "name": "initial_minimum_locked",
+      "pass": true
+    },
+    {
+      "name": "initial_zero_reverts",
+      "pass": true
+    },
+    {
+      "name": "entry_uses_post_fee_supply",
+      "pass": true
+    },
+    {
+      "name": "burn_actual_balances_post_fee_supply",
+      "pass": true
+    },
+    {
+      "name": "skim_excess_changes_redemption",
+      "pass": true
+    },
+    {
+      "name": "fee_off_clears_kLast_after_burn",
+      "pass": true
+    },
+    {
+      "name": "floor_dust_can_revert_not_5_6_integer_payout",
+      "pass": true
+    },
+    {
+      "name": "zero_burn_reverts_atomically",
+      "pass": true
+    },
+    {
+      "name": "20000_seeded_single_event_integer_bound_cases",
+      "pass": true
+    },
+    {
+      "name": "two_trigger_bound_is_not_global",
+      "pass": true
+    }
+  ],
+  "passed": 13
+}

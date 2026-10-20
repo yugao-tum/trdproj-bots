@@ -1,0 +1,30 @@
+[
+  {
+    "url": "https://www.bitstamp.net/api/v2/ohlc/usdcusd/?step=86400&limit=999&start=1623715200",
+    "file": "retained-inputs/trdproj-research-20261019/continuation-20261020/workers/r18-proposal/03-usd-prices/local-data/usdcusd-1623715200.json",
+    "sha256": "416281cc6d70377f396214e78e23eac726787e7a3049322fe5a38d94a32cdf6d",
+    "rows": 999,
+    "status": 200
+  },
+  {
+    "url": "https://www.bitstamp.net/api/v2/ohlc/usdcusd/?step=86400&limit=31&start=1710028800",
+    "file": "retained-inputs/trdproj-research-20261019/continuation-20261020/workers/r18-proposal/03-usd-prices/local-data/usdcusd-1710028800.json",
+    "sha256": "8a58e12d922ac4ecd6735ea90d7f3291610ee0218a98925ee611cbeaaa30d949",
+    "rows": 31,
+    "status": 200
+  },
+  {
+    "url": "https://www.bitstamp.net/api/v2/ohlc/usdtusd/?step=86400&limit=999&start=1623715200",
+    "file": "retained-inputs/trdproj-research-20261019/continuation-20261020/workers/r18-proposal/03-usd-prices/local-data/usdtusd-1623715200.json",
+    "sha256": "0118ffc4b8e1e92a34bab6b76892737ad87e5edc800676238f07c1efc7ffc8b2",
+    "rows": 999,
+    "status": 200
+  },
+  {
+    "url": "https://www.bitstamp.net/api/v2/ohlc/usdtusd/?step=86400&limit=31&start=1710028800",
+    "file": "retained-inputs/trdproj-research-20261019/continuation-20261020/workers/r18-proposal/03-usd-prices/local-data/usdtusd-1710028800.json",
+    "sha256": "47d562ffc86920e44daeb7d219c125cf11e268d3dc901c9f77efbfeb4d90379a",
+    "rows": 31,
+    "status": 200
+  }
+]

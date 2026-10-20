@@ -1,0 +1,20 @@
+{
+  "usdcusd": {
+    "rows": 1030,
+    "first": 1623715200,
+    "last": 1712620800,
+    "missing": [],
+    "zero_volume": [],
+    "csv": "retained-inputs/trdproj-research-20261019/continuation-20261020/workers/r18-proposal/03-usd-prices/local-data/usdcusd-daily.csv",
+    "sha256": "3a980a2ee9e2a25b63206a9f496184fd4ed2ff11437d1af32cc5f9d11ec9275b"
+  },
+  "usdtusd": {
+    "rows": 1030,
+    "first": 1623715200,
+    "last": 1712620800,
+    "missing": [],
+    "zero_volume": [],
+    "csv": "retained-inputs/trdproj-research-20261019/continuation-20261020/workers/r18-proposal/03-usd-prices/local-data/usdtusd-daily.csv",
+    "sha256": "a24cb8445af375e395b37502f56a3cbc44fc8c228100d295c7e186d1e576e401"
+  }
+}

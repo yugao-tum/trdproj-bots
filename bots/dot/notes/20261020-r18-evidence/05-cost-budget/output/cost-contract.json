@@ -1,0 +1,30 @@
+{
+  "status": "PREREGISTERED_CONDITIONAL_COST_INTERFACE",
+  "mechanism": "C29 / M-M2-amm-lp, existing mechanism",
+  "initial_total_USD": 5000,
+  "venue_budget_USD": 2500,
+  "idle_cash_USD": 2500,
+  "each_side_haircuts": [0, 0.003, 0.006],
+  "haircut_definition": "fraction of pre-operation USD notional deducted; not commission charged on post-fee trade notional",
+  "gas_definition": "additional USD opportunity cost external to aggregate execution haircut; no actual estimate available",
+  "entry_gas_funding": "inside 2500 venue budget before entry haircut",
+  "exit_gas_funding": "deduct from exit proceeds",
+  "net_exit_formula": "(2500-G_entry)*(1-c_entry)*gross_factor_R*(1-c_exit)-G_exit",
+  "total_final_formula": "2500 + net_exit",
+  "aggregate_exclusions": "gas excluded; execution commissions, spread and slippage included and must not be added again",
+  "pool_swap_fee": "embedded in observed pool balance/supply path, not another direct LP account deduction",
+  "currency_warning": "USD valuation, not USDT units; starting exactly 5000 USDT needs contemporaneous USDT/USD valuation and conversion costs",
+  "gas_items": [
+    {"item":"entry underlying-token approvals", "conditions":"0, 1 or 2 or more transactions depending on existing allowances and token approval behavior; unknown"},
+    {"item":"entry conversions to proportional token mix", "conditions":"only if starting holdings differ; bundling/router path unknown"},
+    {"item":"add liquidity", "conditions":"required in hypothetical mint branch; gas amount unknown"},
+    {"item":"LP token approval or permit", "conditions":"allowance and execution route dependent; not assume separate transaction if permit bundled"},
+    {"item":"remove liquidity", "conditions":"required in hypothetical redemption branch; gas amount unknown"},
+    {"item":"exit conversion to chosen cash numeraire", "conditions":"required only for liquidation rather than mark-to-market USD NAV"}
+  ],
+  "gas_pricing_formula": "sum(receipt_gasUsed * effectiveGasPrice_wei * contemporaneous_ETH_USD / 1e18)",
+  "missing": ["actual route and allowance", "receipt gasUsed and gas prices", "contemporaneous ETH/USD", "funding/conversion costs for native gas", "entry/exit historical protocol state"],
+  "interval_policy": "G_entry and G_exit nonnegative, unknown with no defensible finite historical upper estimate; G_entry<=2500 for funded entry. Report zero gas sensitivity and threshold budget, not actual fee range.",
+  "thresholds": ["0% leg/full-capital break-even", "3% investment-leg CAGR", "3% total-capital CAGR", "8% total-capital CAGR"],
+  "threshold_interpretation": "equality boundary; strict greater-than hurdle requires strict less-than cost inequality"
+}

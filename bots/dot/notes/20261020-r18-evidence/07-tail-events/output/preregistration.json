@@ -1,0 +1,17 @@
+{
+  "recorded_utc": "2026-10-20T10:50:25Z",
+  "stage": "before reading 04 NAV outputs; 03 published price-extreme fact already known",
+  "evidence_class": "conditional_simulation_of_token_rights; observed_external_daily_OHLC",
+  "fixed_event": {"cluster_id":"2023-US-banking-USDC-depeg", "source_candle_start":"2023-03-10", "source_candle_end_inclusive":"2023-03-20", "nav_start":"2023-03-11T00:00:00Z", "nav_end_exclusive":"2023-03-22T00:00:00Z", "baseline":"last LP snapshot strictly before 2023-03-11T00:00:00Z", "recovery_end_exclusive":"2023-04-20T00:00:00Z"},
+  "valuation":"Only latest completed prior UTC daily close; require exact previous day, no carrying across missing candle. No price interpolation. Event dates distinguish candle from next-day observed NAV.",
+  "daily_sampling":"Last LP snapshot of each UTC day; retain its actual timestamp. Missing LP days remain missing; daily returns only adjacent UTC dates. Intraday drawdown is sampled-close mark-to-model, not executable value.",
+  "event_metrics":"Fixed-baseline maximum sampled loss and quantity changes, event peak-to-trough, first recovery to baseline sustained for three consecutive daily observations within fixed recovery horizon. Right-censor if not recovered. Report no-pending and static single-exit lower-envelope sensitivity separately.",
+  "other_periods":"Entire frozen common window descriptive peak-to-trough and 1%/5% empirical daily return quantiles; calendar-year buckets if useful. Never optimize start/end or rank candidate windows. Quantiles are descriptive, not future loss guarantees.",
+  "event_clustering":"March 2023 USDC/USDT/LP and all venues are one shared risk-event complex. Calendar bins, rows, coins and daily losses are not independent trials; no automatic claim of 30 independent results.",
+  "recovery_price_marker":"First three consecutive source-candle closes with USDC >=0.995 after event start; merely a fixed USD quote marker, distinct from LP recovery.",
+  "missing":"Any required missing price invalidates that NAV row; missing days break sustained-recovery runs. No substitute parity or interpolation. Disclose all gaps.",
+  "correlation":"Do not infer low trend correlation from stablecoin low volatility. Without independently aligned frozen trend benchmark return series, report not identified rather than construct a proxy.",
+  "ohlc_sensitivity":"Daily lows/highs are non-synchronous source sensitivities only, not jointly executable portfolio prices; 2023-03-11 USDC 0.80526 is not own fill.",
+  "mechanism_count":0,
+  "input_mutation":"none"
+}

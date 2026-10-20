@@ -1,0 +1,49 @@
+{
+  "frozen_before_calculation_utc": "2026-10-20T10:50:24.143845+00:00",
+  "window_rule": "all LP observations from 2021-06-16T00:00:00Z through last available LP row; no selection by return",
+  "price_rule": "UTC prior calendar day close only; source bar end <= valuation timestamp; fail on missing price, no filling",
+  "entry_exit": "first eligible LP snapshot, last eligible LP snapshot; proportional deposit, hold fixed LP units, single exit; no reinvestment, no withdrawals, no borrowing",
+  "capital": {
+    "deployed_budget": 2500,
+    "idle_zero_yield": 2500,
+    "total": 5000
+  },
+  "cost_per_side": [
+    0,
+    0.003,
+    0.006
+  ],
+  "pending_supply_fraction_entry": [
+    0,
+    0.2
+  ],
+  "pending_supply_fraction_exit": [
+    0,
+    0.2
+  ],
+  "pending_semantics": "0.2 is continuous limiting sensitivity, not reachable exact maximum; separate endpoint hypotheticals, not joint actual-history bounds",
+  "capital_formula": "D=2500*(1-c); V_e=B0*p0+B1*p1; alpha=D/V_e; L=alpha*S_e*(1+d_e); terminal=D*(NAV_x/NAV_e)*(1+d_e)/(1+d_x)*(1-c); total_terminal=2500+terminal",
+  "capital_conditions": [
+    "balance=reserve at entry",
+    "standard token transfers",
+    "floating point no integer floors",
+    "external daily closes proxy executable USD prices",
+    "historical postentry balances/supply unchanged: price-taker approximation, not exact finite capital replay",
+    "unknown entry protocol issuance can itself change subsequent supply; four endpoint sensitivities are not jointly verified paths"
+  ],
+  "exact_mint_status": "STOP missing reserves, raw integer states, historical fee state and counterfactual evolution",
+  "inputs": [
+    {
+      "path": "retained-inputs/trdproj-research-20261019/continuation-20261020/workers/r16-proposal/07-github-data/local-data/pool-balances.csv",
+      "sha256": "531dd907a5337c9bbeda5dba592ce1dfec3122803c1e98e9c59cf6913333adf6"
+    },
+    {
+      "path": "retained-inputs/trdproj-research-20261019/continuation-20261020/workers/r18-proposal/03-usd-prices/local-data/usdcusd-daily.csv",
+      "sha256": "3a980a2ee9e2a25b63206a9f496184fd4ed2ff11437d1af32cc5f9d11ec9275b"
+    },
+    {
+      "path": "retained-inputs/trdproj-research-20261019/continuation-20261020/workers/r18-proposal/03-usd-prices/local-data/usdtusd-daily.csv",
+      "sha256": "a24cb8445af375e395b37502f56a3cbc44fc8c228100d295c7e186d1e576e401"
+    }
+  ]
+}

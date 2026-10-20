@@ -1,0 +1,200 @@
+[
+  {
+    "file": "01-balance-semantics/output/source-registry.json",
+    "source_sha256": "ae04defb612456448d4eb7d49038e7be578d00fc408a20cf2bcbffe914a9a6c6",
+    "published_sha256": "ae04defb612456448d4eb7d49038e7be578d00fc408a20cf2bcbffe914a9a6c6",
+    "path_redaction_only": false
+  },
+  {
+    "file": "01-balance-semantics/output/inspection.json",
+    "source_sha256": "b7092aa3692f0b83e10579462f3d83bee8d3a27bf7e050b2439877a889c6069b",
+    "published_sha256": "b7092aa3692f0b83e10579462f3d83bee8d3a27bf7e050b2439877a889c6069b",
+    "path_redaction_only": false
+  },
+  {
+    "file": "01-balance-semantics/output/inspect_local.py",
+    "source_sha256": "ebfb757a79227d8dc8251bb957523031c871d05e1e34517991602bf2cf24a7f8",
+    "published_sha256": "f4e9ad3f4721e6d5988f3387f8b084b96c81f7d52febcf000f3e9f66ce73e0ad",
+    "path_redaction_only": true
+  },
+  {
+    "file": "02-protocol-dilution/output/reproduce.py",
+    "source_sha256": "12dcc6f101fd7ceb1389dfcca88aa00bc1b9e99e0d0e68536c2d6eb1201196ce",
+    "published_sha256": "12dcc6f101fd7ceb1389dfcca88aa00bc1b9e99e0d0e68536c2d6eb1201196ce",
+    "path_redaction_only": false
+  },
+  {
+    "file": "02-protocol-dilution/output/synthetic-tests.json",
+    "source_sha256": "a0bb4cd4bab9fdd2c49aa5ca5248f3534c7b0db8324d326f3be5740c12e6fea9",
+    "published_sha256": "a0bb4cd4bab9fdd2c49aa5ca5248f3534c7b0db8324d326f3be5740c12e6fea9",
+    "path_redaction_only": false
+  },
+  {
+    "file": "03-usd-prices/output/acquire_daily.py",
+    "source_sha256": "66cc935c297e4859f5bd47e4e18440041005e566adaa8d9be29814d9024ebd9d",
+    "published_sha256": "8a25ebe7045bf5623e01547788a420cfa8ca16d5844800e7c8eddcf242a58759",
+    "path_redaction_only": true
+  },
+  {
+    "file": "03-usd-prices/output/verify.py",
+    "source_sha256": "3952937efe9ea6e5fb6224770d40431058feb1fe4be706e3294c3ed789b0fa5c",
+    "published_sha256": "3952937efe9ea6e5fb6224770d40431058feb1fe4be706e3294c3ed789b0fa5c",
+    "path_redaction_only": false
+  },
+  {
+    "file": "03-usd-prices/output/coverage-summary.json",
+    "source_sha256": "ada7449fe3911062c7abe65608ce3c334bf040e86e18994da082e2991e877e65",
+    "published_sha256": "e3ea448216a88026800e349b184e934902f33e3f52ae3999704307a344dac56c",
+    "path_redaction_only": true
+  },
+  {
+    "file": "03-usd-prices/output/coverage-plan.json",
+    "source_sha256": "97b955da409b383a782e7849825475be8ce53edb834b6f23ad633a09422a2159",
+    "published_sha256": "97b955da409b383a782e7849825475be8ce53edb834b6f23ad633a09422a2159",
+    "path_redaction_only": false
+  },
+  {
+    "file": "03-usd-prices/output/coverage-manifest.json",
+    "source_sha256": "1bee76a4b958d6fb79ececa2d8da7ce8ffd30d2c791f64ab7ff97855a5de2728",
+    "published_sha256": "ab98857db97fcb869bcf7007761353b97a6d5911a3aa7defb5e2620dd9d99dd4",
+    "path_redaction_only": true
+  },
+  {
+    "file": "04-nav-engine/output/reproduce.py",
+    "source_sha256": "94778fc54fc66450ad929d99ec28dc33b4bd21dcd5a8386e70fc8376ab21db61",
+    "published_sha256": "94778fc54fc66450ad929d99ec28dc33b4bd21dcd5a8386e70fc8376ab21db61",
+    "path_redaction_only": false
+  },
+  {
+    "file": "04-nav-engine/output/INTERFACE.md",
+    "source_sha256": "f4b05e964476c1195e5771ee48dc9d65844d20a5854e11c1c8783161c1046a6b",
+    "published_sha256": "f4b05e964476c1195e5771ee48dc9d65844d20a5854e11c1c8783161c1046a6b",
+    "path_redaction_only": false
+  },
+  {
+    "file": "04-nav-engine/output/frozen-config.json",
+    "source_sha256": "cfc16ce43c380c46780e2034e20bcaea6843565516d7c63d5ed96dbbcbbfaf51",
+    "published_sha256": "71faf20ba6eef78498f8a26eb1261475b6b1bdf1834f324ff37199e20b3703eb",
+    "path_redaction_only": true
+  },
+  {
+    "file": "04-nav-engine/output/summary.json",
+    "source_sha256": "d0268646c3bdde586d6bba9bbc32591bb3c3c2b9123bb168eb16599d0216a821",
+    "published_sha256": "d0268646c3bdde586d6bba9bbc32591bb3c3c2b9123bb168eb16599d0216a821",
+    "path_redaction_only": false
+  },
+  {
+    "file": "05-cost-budget/output/reproduce.py",
+    "source_sha256": "816d7f4131584d85fb1f5652c3192fda720ce2b7f5270cd1d6c0918f7ae561c8",
+    "published_sha256": "816d7f4131584d85fb1f5652c3192fda720ce2b7f5270cd1d6c0918f7ae561c8",
+    "path_redaction_only": false
+  },
+  {
+    "file": "05-cost-budget/output/cost-results.json",
+    "source_sha256": "8fcee5ff2ad2c459899882a16d3f15e9713aa11c195a353b7bcc4e771585b7f9",
+    "published_sha256": "8fcee5ff2ad2c459899882a16d3f15e9713aa11c195a353b7bcc4e771585b7f9",
+    "path_redaction_only": false
+  },
+  {
+    "file": "05-cost-budget/output/cost-contract.json",
+    "source_sha256": "bffafbee0723ce5444841d6cc6a087232c22fd891770156b4dedf1fba73a446f",
+    "published_sha256": "bffafbee0723ce5444841d6cc6a087232c22fd891770156b4dedf1fba73a446f",
+    "path_redaction_only": false
+  },
+  {
+    "file": "05-cost-budget/output/capital-input.json",
+    "source_sha256": "a5984a2873fe2fd9e4bed29173976e9973f7d18ce9a83e4d2c88c77b0b907d56",
+    "published_sha256": "a5984a2873fe2fd9e4bed29173976e9973f7d18ce9a83e4d2c88c77b0b907d56",
+    "path_redaction_only": false
+  },
+  {
+    "file": "06-capital-capacity/output/reproduce.py",
+    "source_sha256": "ff2e82b14201d6b081965a86d01ef471a22488ae10c468b510583c04bc98adb7",
+    "published_sha256": "ff2e82b14201d6b081965a86d01ef471a22488ae10c468b510583c04bc98adb7",
+    "path_redaction_only": false
+  },
+  {
+    "file": "06-capital-capacity/output/capital-capacity.json",
+    "source_sha256": "45d23ef316390d7a72455869e129ffdc91198a4799a2bad0d6f1bc435e9c9c97",
+    "published_sha256": "afbed79ba76a9f44e087dae1ec4f0ab128afa4b99e7db916dc65a38622e046bc",
+    "path_redaction_only": true
+  },
+  {
+    "file": "06-capital-capacity/output/preregistration.json",
+    "source_sha256": "1a04a14c01bb7c52533ff957e42dcbe3acda7c2862fb4091ac92e73426f85142",
+    "published_sha256": "1a04a14c01bb7c52533ff957e42dcbe3acda7c2862fb4091ac92e73426f85142",
+    "path_redaction_only": false
+  },
+  {
+    "file": "07-tail-events/output/diagnose.py",
+    "source_sha256": "9ba1570db12bf3fea71594cb670684a8d922dacea98ff33aa33d921ff2463852",
+    "published_sha256": "9ba1570db12bf3fea71594cb670684a8d922dacea98ff33aa33d921ff2463852",
+    "path_redaction_only": false
+  },
+  {
+    "file": "07-tail-events/output/diagnostics.json",
+    "source_sha256": "05c7a8ae0fbb8cae00bf6f03cd0ea2732b76142e83bb21660b8ffe98f9837bdf",
+    "published_sha256": "05c7a8ae0fbb8cae00bf6f03cd0ea2732b76142e83bb21660b8ffe98f9837bdf",
+    "path_redaction_only": false
+  },
+  {
+    "file": "07-tail-events/output/preregistration.json",
+    "source_sha256": "28e32867ddab465daef3bf65092fdf11f79ab2ed6cbb09f963369a4bb3f94013",
+    "published_sha256": "28e32867ddab465daef3bf65092fdf11f79ab2ed6cbb09f963369a4bb3f94013",
+    "path_redaction_only": false
+  },
+  {
+    "file": "07-tail-events/output/test_diagnostics.py",
+    "source_sha256": "48f7b995ab428365168190a806d5fddcde5472773d3b0d8839802f475c9aa250",
+    "published_sha256": "48f7b995ab428365168190a806d5fddcde5472773d3b0d8839802f475c9aa250",
+    "path_redaction_only": false
+  },
+  {
+    "file": "08-hold-benchmark/output/benchmark.py",
+    "source_sha256": "63cc8daebb9a3c6d778c5b7cbef86910dd12c5b8526f54642232674db14cd1f6",
+    "published_sha256": "63cc8daebb9a3c6d778c5b7cbef86910dd12c5b8526f54642232674db14cd1f6",
+    "path_redaction_only": false
+  },
+  {
+    "file": "08-hold-benchmark/output/benchmark-results.json",
+    "source_sha256": "3eae384bd98b1e33a2797a9e5877ca6e051fca23f87e0708ca0680e0e2e78214",
+    "published_sha256": "8067feaddb22d5ad7382a5d460bb3fc7ede70c1af9c4334d1fc71363d1cf6cf2",
+    "path_redaction_only": true
+  },
+  {
+    "file": "08-hold-benchmark/output/crosscheck.py",
+    "source_sha256": "e1e0fd492cc13cde874108d5ee4ee4b86411573adffbbbad583a57d77a4aacb6",
+    "published_sha256": "e1e0fd492cc13cde874108d5ee4ee4b86411573adffbbbad583a57d77a4aacb6",
+    "path_redaction_only": false
+  },
+  {
+    "file": "08-hold-benchmark/output/crosscheck-results.json",
+    "source_sha256": "4f738826737bc02fe1c605e8b247bd40df93fdc51819e094c24a02871873c2b9",
+    "published_sha256": "4f738826737bc02fe1c605e8b247bd40df93fdc51819e094c24a02871873c2b9",
+    "path_redaction_only": false
+  },
+  {
+    "file": "09-independent-nav/output/verify_independent.py",
+    "source_sha256": "cadfb7cbce6e9d58ebcbfc5066e3b455d1b2d5a05e599151a2a90fc6771319bf",
+    "published_sha256": "cadfb7cbce6e9d58ebcbfc5066e3b455d1b2d5a05e599151a2a90fc6771319bf",
+    "path_redaction_only": false
+  },
+  {
+    "file": "09-independent-nav/output/comparison.json",
+    "source_sha256": "f92ad425c643755e451821e606587bb08c2de7edb6b1fd1dc41d9d3ed327dbd2",
+    "published_sha256": "f92ad425c643755e451821e606587bb08c2de7edb6b1fd1dc41d9d3ed327dbd2",
+    "path_redaction_only": false
+  },
+  {
+    "file": "09-independent-nav/output/cross-checks.json",
+    "source_sha256": "9f42c8bd5c9e0efa9444bf06b2cc0d763e43f5fa876eb6615752822aafd97cd2",
+    "published_sha256": "9f42c8bd5c9e0efa9444bf06b2cc0d763e43f5fa876eb6615752822aafd97cd2",
+    "path_redaction_only": false
+  },
+  {
+    "file": "10-decision/output/decision.json",
+    "source_sha256": "2e4c613c7303b3860631482f75912225512fc19fe36733f22a3895402595fd91",
+    "published_sha256": "2e4c613c7303b3860631482f75912225512fc19fe36733f22a3895402595fd91",
+    "path_redaction_only": false
+  }
+]

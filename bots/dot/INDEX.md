@@ -337,3 +337,42 @@
 | bots/dot/notes/20261020-r17-evidence/INPUT-FINGERPRINTS.json | r17：INPUT-FINGERPRINTS.json | 2026-10-20 | 条件补证；固定配置停止，非新机制 |
 | bots/dot/notes/20261020-r17-evidence/README.md | r17：README.md | 2026-10-20 | 条件补证；固定配置停止，非新机制 |
 | bots/dot/notes/20261020-r17-evidence/SOURCE-NOTES.md | r17：SOURCE-NOTES.md | 2026-10-20 | 条件补证；固定配置停止，非新机制 |
+
+## 2026-10-20 r18 固定LP权益条件补证
+
+| bots/dot/notes/20261020-r18-evidence/01-balance-semantics/output/inspect_local.py | r18：inspect_local.py | 2026-10-20 | 条件NAV补证；非达标 |
+| bots/dot/notes/20261020-r18-evidence/01-balance-semantics/output/inspection.json | r18：inspection.json | 2026-10-20 | 条件NAV补证；非达标 |
+| bots/dot/notes/20261020-r18-evidence/01-balance-semantics/output/source-registry.json | r18：source-registry.json | 2026-10-20 | 条件NAV补证；非达标 |
+| bots/dot/notes/20261020-r18-evidence/02-protocol-dilution/output/reproduce.py | r18：reproduce.py | 2026-10-20 | 条件NAV补证；非达标 |
+| bots/dot/notes/20261020-r18-evidence/02-protocol-dilution/output/synthetic-tests.json | r18：synthetic-tests.json | 2026-10-20 | 条件NAV补证；非达标 |
+| bots/dot/notes/20261020-r18-evidence/03-usd-prices/output/acquire_daily.py | r18：acquire_daily.py | 2026-10-20 | 条件NAV补证；非达标 |
+| bots/dot/notes/20261020-r18-evidence/03-usd-prices/output/coverage-manifest.json | r18：coverage-manifest.json | 2026-10-20 | 条件NAV补证；非达标 |
+| bots/dot/notes/20261020-r18-evidence/03-usd-prices/output/coverage-plan.json | r18：coverage-plan.json | 2026-10-20 | 条件NAV补证；非达标 |
+| bots/dot/notes/20261020-r18-evidence/03-usd-prices/output/coverage-summary.json | r18：coverage-summary.json | 2026-10-20 | 条件NAV补证；非达标 |
+| bots/dot/notes/20261020-r18-evidence/03-usd-prices/output/verify.py | r18：verify.py | 2026-10-20 | 条件NAV补证；非达标 |
+| bots/dot/notes/20261020-r18-evidence/04-nav-engine/output/INTERFACE.md | r18：INTERFACE.md | 2026-10-20 | 条件NAV补证；非达标 |
+| bots/dot/notes/20261020-r18-evidence/04-nav-engine/output/frozen-config.json | r18：frozen-config.json | 2026-10-20 | 条件NAV补证；非达标 |
+| bots/dot/notes/20261020-r18-evidence/04-nav-engine/output/reproduce.py | r18：reproduce.py | 2026-10-20 | 条件NAV补证；非达标 |
+| bots/dot/notes/20261020-r18-evidence/04-nav-engine/output/summary.json | r18：summary.json | 2026-10-20 | 条件NAV补证；非达标 |
+| bots/dot/notes/20261020-r18-evidence/05-cost-budget/output/capital-input.json | r18：capital-input.json | 2026-10-20 | 条件NAV补证；非达标 |
+| bots/dot/notes/20261020-r18-evidence/05-cost-budget/output/cost-contract.json | r18：cost-contract.json | 2026-10-20 | 条件NAV补证；非达标 |
+| bots/dot/notes/20261020-r18-evidence/05-cost-budget/output/cost-results.json | r18：cost-results.json | 2026-10-20 | 条件NAV补证；非达标 |
+| bots/dot/notes/20261020-r18-evidence/05-cost-budget/output/reproduce.py | r18：reproduce.py | 2026-10-20 | 条件NAV补证；非达标 |
+| bots/dot/notes/20261020-r18-evidence/06-capital-capacity/output/capital-capacity.json | r18：capital-capacity.json | 2026-10-20 | 条件NAV补证；非达标 |
+| bots/dot/notes/20261020-r18-evidence/06-capital-capacity/output/preregistration.json | r18：preregistration.json | 2026-10-20 | 条件NAV补证；非达标 |
+| bots/dot/notes/20261020-r18-evidence/06-capital-capacity/output/reproduce.py | r18：reproduce.py | 2026-10-20 | 条件NAV补证；非达标 |
+| bots/dot/notes/20261020-r18-evidence/07-tail-events/output/diagnose.py | r18：diagnose.py | 2026-10-20 | 条件NAV补证；非达标 |
+| bots/dot/notes/20261020-r18-evidence/07-tail-events/output/diagnostics.json | r18：diagnostics.json | 2026-10-20 | 条件NAV补证；非达标 |
+| bots/dot/notes/20261020-r18-evidence/07-tail-events/output/preregistration.json | r18：preregistration.json | 2026-10-20 | 条件NAV补证；非达标 |
+| bots/dot/notes/20261020-r18-evidence/07-tail-events/output/test_diagnostics.py | r18：test_diagnostics.py | 2026-10-20 | 条件NAV补证；非达标 |
+| bots/dot/notes/20261020-r18-evidence/08-hold-benchmark/output/benchmark-results.json | r18：benchmark-results.json | 2026-10-20 | 条件NAV补证；非达标 |
+| bots/dot/notes/20261020-r18-evidence/08-hold-benchmark/output/benchmark.py | r18：benchmark.py | 2026-10-20 | 条件NAV补证；非达标 |
+| bots/dot/notes/20261020-r18-evidence/08-hold-benchmark/output/crosscheck-results.json | r18：crosscheck-results.json | 2026-10-20 | 条件NAV补证；非达标 |
+| bots/dot/notes/20261020-r18-evidence/08-hold-benchmark/output/crosscheck.py | r18：crosscheck.py | 2026-10-20 | 条件NAV补证；非达标 |
+| bots/dot/notes/20261020-r18-evidence/09-independent-nav/output/comparison.json | r18：comparison.json | 2026-10-20 | 条件NAV补证；非达标 |
+| bots/dot/notes/20261020-r18-evidence/09-independent-nav/output/cross-checks.json | r18：cross-checks.json | 2026-10-20 | 条件NAV补证；非达标 |
+| bots/dot/notes/20261020-r18-evidence/09-independent-nav/output/verify_independent.py | r18：verify_independent.py | 2026-10-20 | 条件NAV补证；非达标 |
+| bots/dot/notes/20261020-r18-evidence/10-decision/output/decision.json | r18：decision.json | 2026-10-20 | 条件NAV补证；非达标 |
+| bots/dot/notes/20261020-r18-evidence/CODE-PROVENANCE.json | r18：CODE-PROVENANCE.json | 2026-10-20 | 条件NAV补证；非达标 |
+| bots/dot/notes/20261020-r18-evidence/INPUT-FINGERPRINTS.json | r18：INPUT-FINGERPRINTS.json | 2026-10-20 | 条件NAV补证；非达标 |
+| bots/dot/notes/20261020-r18-evidence/README.md | r18：README.md | 2026-10-20 | 条件NAV补证；非达标 |

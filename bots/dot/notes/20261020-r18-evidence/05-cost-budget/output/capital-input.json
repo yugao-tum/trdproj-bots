@@ -1,0 +1,25 @@
+{
+  "source": "04-nav-engine/output/summary.json",
+  "source_sha256": "d0268646c3bdde586d6bba9bbc32591bb3c3c2b9123bb168eb16599d0216a821",
+  "years": 2.817387095343119,
+  "first_utc": "2021-06-16T00:20:40+00:00",
+  "last_utc": "2024-04-10T01:33:35+00:00",
+  "scenarios": [
+    {
+      "scenario": "entry0_exit0",
+      "R": 1.1051367243925136
+    },
+    {
+      "scenario": "entry0_exit0.2",
+      "R": 0.9209472703270948
+    },
+    {
+      "scenario": "entry0.2_exit0",
+      "R": 1.3261640692710164
+    },
+    {
+      "scenario": "entry0.2_exit0.2",
+      "R": 1.1051367243925136
+    }
+  ]
+}

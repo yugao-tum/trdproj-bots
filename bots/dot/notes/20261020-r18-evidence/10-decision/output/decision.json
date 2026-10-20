@@ -1,0 +1,91 @@
+{
+  "role": "r18-native10",
+  "classification": "CONDITIONAL_NAV_SUPPLEMENT_NOT_QUALIFIED",
+  "mechanism": "C29/M-M2-amm-lp",
+  "actual_model": "native agent; exact model ID not exposed",
+  "task_count": 1,
+  "roles_terminal": 9,
+  "terminal_evidence": "04/06/07/08/09 completed statuses; parent confirmed FINAL_ANSWER received for 01/02/03/05 on 2026-10-20",
+  "new_mechanisms": 0,
+  "actual_execution_backtests": 0,
+  "qualified_results": 0,
+  "decision": "retain conditional NAV supplement; stop exact finite-capital execution and current qualification branch pending identified evidence",
+  "evidence": [
+    {
+      "path": "01-balance-semantics/output/RESULT.md",
+      "sha256": "abfbc6389d8bc85ff2fee021d6632d2238531bb565f777aa20ec5d703ec63836"
+    },
+    {
+      "path": "02-protocol-dilution/output/RESULT.md",
+      "sha256": "ea23f44929f384099c21d04525a0bc4a136f054f59e4d4ac5ce50c843a788df0"
+    },
+    {
+      "path": "03-usd-prices/output/RESULT.md",
+      "sha256": "ec80c46271bcd03ea8f0fc3239aade50f9954ceb3d9e542733dfbafd3ecc1cf3"
+    },
+    {
+      "path": "04-nav-engine/output/RESULT.md",
+      "sha256": "663a2a2ca959c38a04ec4bc690d49e085ba7ce795e0c3f464632ce36379df299"
+    },
+    {
+      "path": "05-cost-budget/output/RESULT.md",
+      "sha256": "beadab1de322394f9ea5e52fc0175256c7c930f8c7b5457c314aeb9fffe90808"
+    },
+    {
+      "path": "06-capital-capacity/output/RESULT.md",
+      "sha256": "205bed4e33f383505c3f1a1539f1bc7794a815e2fafe3e7e452714aeb97554ef"
+    },
+    {
+      "path": "07-tail-events/output/RESULT.md",
+      "sha256": "1e5eb30bf911c84566691317157ed860172b345f87074a1d13237c628ebae46f"
+    },
+    {
+      "path": "08-hold-benchmark/output/RESULT.md",
+      "sha256": "5900698317396c00f957980c57b5bc924efa2082062242c4ba66da904f5b6337"
+    },
+    {
+      "path": "09-independent-nav/output/RESULT.md",
+      "sha256": "07d98191c1fbc4cf247ec1e6fbff257f489955744a9dafa2a6f1f88ecb3c0985"
+    },
+    {
+      "path": "04-nav-engine/output/summary.json",
+      "sha256": "d0268646c3bdde586d6bba9bbc32591bb3c3c2b9123bb168eb16599d0216a821"
+    },
+    {
+      "path": "04-nav-engine/output/frozen-config.json",
+      "sha256": "cfc16ce43c380c46780e2034e20bcaea6843565516d7c63d5ed96dbbcbbfaf51"
+    },
+    {
+      "path": "05-cost-budget/output/cost-results.json",
+      "sha256": "8fcee5ff2ad2c459899882a16d3f15e9713aa11c195a353b7bcc4e771585b7f9"
+    },
+    {
+      "path": "06-capital-capacity/output/capital-capacity.json",
+      "sha256": "45d23ef316390d7a72455869e129ffdc91198a4799a2bad0d6f1bc435e9c9c97"
+    },
+    {
+      "path": "07-tail-events/output/diagnostics.json",
+      "sha256": "05c7a8ae0fbb8cae00bf6f03cd0ea2732b76142e83bb21660b8ffe98f9837bdf"
+    },
+    {
+      "path": "08-hold-benchmark/output/benchmark-results.json",
+      "sha256": "3eae384bd98b1e33a2797a9e5877ca6e051fca23f87e0708ca0680e0e2e78214"
+    },
+    {
+      "path": "09-independent-nav/output/comparison.json",
+      "sha256": "f92ad425c643755e451821e606587bb08c2de7edb6b1fd1dc41d9d3ed327dbd2"
+    },
+    {
+      "path": "09-independent-nav/output/cross-checks.json",
+      "sha256": "9f42c8bd5c9e0efa9444bf06b2cc0d763e43f5fa876eb6615752822aafd97cd2"
+    }
+  ],
+  "publication_allowlist": [
+    "RESULT.md",
+    "decision.json",
+    "verify_decision.py",
+    "checks.json",
+    "manifest.json"
+  ],
+  "raw_data_publish": false
+}

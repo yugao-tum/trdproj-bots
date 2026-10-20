@@ -1,0 +1,40 @@
+{
+  "cost_budget": {
+    "status": "PASS signed headroom formula, gas not estimated",
+    "checks": 48,
+    "sha256": "8fcee5ff2ad2c459899882a16d3f15e9713aa11c195a353b7bcc4e771585b7f9"
+  },
+  "fixed_token_hold": {
+    "status": "PASS fixed initial tokens and two cost deductions",
+    "sha256": "3eae384bd98b1e33a2797a9e5877ca6e051fca23f87e0708ca0680e0e2e78214",
+    "scenarios": [
+      {
+        "cost": "0.0",
+        "terminal": "2502.091435510174709877384996092123415791927640828668972"
+      },
+      {
+        "cost": "0.003",
+        "terminal": "2487.101405720033253190509582580535504407918202332464416"
+      },
+      {
+        "cost": "0.006",
+        "terminal": "2472.156413575730979648411961998877251245393018533794776"
+      }
+    ]
+  },
+  "capacity": {
+    "status": "PASS entry TVL, alpha and postmint share; not proof of finite-path accuracy",
+    "sha256": "45d23ef316390d7a72455869e129ffdc91198a4799a2bad0d6f1bc435e9c9c97"
+  },
+  "tail_event": {
+    "status": "PASS independently computed all fixed-event observations and three-day recovery, no parameter/window search",
+    "sha256": "05c7a8ae0fbb8cae00bf6f03cd0ea2732b76142e83bb21660b8ffe98f9837bdf",
+    "fixed_baseline_loss": "-0.0056682764620820297348968865429372733390176365596040774",
+    "event_mdd": "-0.0132937789412921678968041607918768348708582239634967850",
+    "trough_timestamp": 1678579451,
+    "recovery": {
+      "first_day": "2023-03-13",
+      "confirmed_day": "2023-03-15"
+    }
+  }
+}

@@ -1,0 +1,642 @@
+{
+  "classification": "CONDITIONAL_PRICE_TAKER_SENSITIVITY_NOT_ACTUAL_NET_RETURN",
+  "source": {
+    "source": "04-nav-engine/output/summary.json",
+    "source_sha256": "d0268646c3bdde586d6bba9bbc32591bb3c3c2b9123bb168eb16599d0216a821",
+    "years": 2.817387095343119,
+    "first_utc": "2021-06-16T00:20:40+00:00",
+    "last_utc": "2024-04-10T01:33:35+00:00",
+    "scenarios": [
+      {
+        "scenario": "entry0_exit0",
+        "R": 1.1051367243925136
+      },
+      {
+        "scenario": "entry0_exit0.2",
+        "R": 0.9209472703270948
+      },
+      {
+        "scenario": "entry0.2_exit0",
+        "R": 1.3261640692710164
+      },
+      {
+        "scenario": "entry0.2_exit0.2",
+        "R": 1.1051367243925136
+      }
+    ]
+  },
+  "rows": [
+    {
+      "scenario": "entry0_exit0",
+      "gross_factor_R": 1.1051367243925136,
+      "years": 2.817387095343119,
+      "each_side_haircut": 0.0,
+      "net_factor_before_gas_k": 1.1051367243925136,
+      "entry_gas_USD": 0.0,
+      "exit_gas_USD": 0.0,
+      "investment_end_USD": 2762.841810981284,
+      "total_end_USD": 5262.841810981285,
+      "investment_CAGR": 0.03611992857231083,
+      "total_CAGR": 0.01835101143151463,
+      "budgets": {
+        "break_even": {
+          "target_investment_terminal_USD": 2500.0,
+          "signed_terminal_headroom_USD": 262.8418109812842,
+          "zero_gas_meets_equality_hurdle": true,
+          "inequality": "k*G_entry + G_exit <= signed_terminal_headroom_USD",
+          "entry_only_max_USD": 237.83646419475076,
+          "exit_only_max_USD": 262.8418109812842,
+          "allocation_unknown_guaranteed_total_budget_USD": 237.83646419475076
+        },
+        "investment_3pct": {
+          "target_investment_terminal_USD": 2717.1113705341068,
+          "signed_terminal_headroom_USD": 45.73044044717744,
+          "zero_gas_meets_equality_hurdle": true,
+          "inequality": "k*G_entry + G_exit <= signed_terminal_headroom_USD",
+          "entry_only_max_USD": 41.379893942367325,
+          "exit_only_max_USD": 45.73044044717744,
+          "allocation_unknown_guaranteed_total_budget_USD": 41.379893942367325
+        },
+        "total_3pct": {
+          "target_investment_terminal_USD": 2934.2227410682135,
+          "signed_terminal_headroom_USD": -171.3809300869293,
+          "zero_gas_meets_equality_hurdle": false,
+          "inequality": "k*G_entry + G_exit <= signed_terminal_headroom_USD",
+          "entry_only_max_USD": null,
+          "exit_only_max_USD": null,
+          "allocation_unknown_guaranteed_total_budget_USD": null
+        },
+        "total_8pct": {
+          "target_investment_terminal_USD": 3710.658671440069,
+          "signed_terminal_headroom_USD": -947.816860458785,
+          "zero_gas_meets_equality_hurdle": false,
+          "inequality": "k*G_entry + G_exit <= signed_terminal_headroom_USD",
+          "entry_only_max_USD": null,
+          "exit_only_max_USD": null,
+          "allocation_unknown_guaranteed_total_budget_USD": null
+        }
+      }
+    },
+    {
+      "scenario": "entry0_exit0",
+      "gross_factor_R": 1.1051367243925136,
+      "years": 2.817387095343119,
+      "each_side_haircut": 0.003,
+      "net_factor_before_gas_k": 1.098515850276678,
+      "entry_gas_USD": 0.0,
+      "exit_gas_USD": 0.0,
+      "investment_end_USD": 2746.289625691695,
+      "total_end_USD": 5246.289625691696,
+      "investment_CAGR": 0.033912412078604515,
+      "total_CAGR": 0.017213051204386653,
+      "budgets": {
+        "break_even": {
+          "target_investment_terminal_USD": 2500.0,
+          "signed_terminal_headroom_USD": 246.28962569169516,
+          "zero_gas_meets_equality_hurdle": true,
+          "inequality": "k*G_entry + G_exit <= signed_terminal_headroom_USD",
+          "entry_only_max_USD": 224.20215933130444,
+          "exit_only_max_USD": 246.28962569169516,
+          "allocation_unknown_guaranteed_total_budget_USD": 224.20215933130444
+        },
+        "investment_3pct": {
+          "target_investment_terminal_USD": 2717.1113705341068,
+          "signed_terminal_headroom_USD": 29.17825515758841,
+          "zero_gas_meets_equality_hurdle": true,
+          "inequality": "k*G_entry + G_exit <= signed_terminal_headroom_USD",
+          "entry_only_max_USD": 26.561524032847974,
+          "exit_only_max_USD": 29.17825515758841,
+          "allocation_unknown_guaranteed_total_budget_USD": 26.561524032847974
+        },
+        "total_3pct": {
+          "target_investment_terminal_USD": 2934.2227410682135,
+          "signed_terminal_headroom_USD": -187.93311537651834,
+          "zero_gas_meets_equality_hurdle": false,
+          "inequality": "k*G_entry + G_exit <= signed_terminal_headroom_USD",
+          "entry_only_max_USD": null,
+          "exit_only_max_USD": null,
+          "allocation_unknown_guaranteed_total_budget_USD": null
+        },
+        "total_8pct": {
+          "target_investment_terminal_USD": 3710.658671440069,
+          "signed_terminal_headroom_USD": -964.369045748374,
+          "zero_gas_meets_equality_hurdle": false,
+          "inequality": "k*G_entry + G_exit <= signed_terminal_headroom_USD",
+          "entry_only_max_USD": null,
+          "exit_only_max_USD": null,
+          "allocation_unknown_guaranteed_total_budget_USD": null
+        }
+      }
+    },
+    {
+      "scenario": "entry0_exit0",
+      "gross_factor_R": 1.1051367243925136,
+      "years": 2.817387095343119,
+      "each_side_haircut": 0.006,
+      "net_factor_before_gas_k": 1.0919148686218818,
+      "entry_gas_USD": 0.0,
+      "exit_gas_USD": 0.0,
+      "investment_end_USD": 2729.7871715547044,
+      "total_end_USD": 5229.787171554704,
+      "investment_CAGR": 0.0317029676088223,
+      "total_CAGR": 0.016076202112611737,
+      "budgets": {
+        "break_even": {
+          "target_investment_terminal_USD": 2500.0,
+          "signed_terminal_headroom_USD": 229.7871715547044,
+          "zero_gas_meets_equality_hurdle": true,
+          "inequality": "k*G_entry + G_exit <= signed_terminal_headroom_USD",
+          "entry_only_max_USD": 210.44421882881895,
+          "exit_only_max_USD": 229.7871715547044,
+          "allocation_unknown_guaranteed_total_budget_USD": 210.44421882881895
+        },
+        "investment_3pct": {
+          "target_investment_terminal_USD": 2717.1113705341068,
+          "signed_terminal_headroom_USD": 12.675801020597646,
+          "zero_gas_meets_equality_hurdle": true,
+          "inequality": "k*G_entry + G_exit <= signed_terminal_headroom_USD",
+          "entry_only_max_USD": 11.608781403073959,
+          "exit_only_max_USD": 12.675801020597646,
+          "allocation_unknown_guaranteed_total_budget_USD": 11.608781403073959
+        },
+        "total_3pct": {
+          "target_investment_terminal_USD": 2934.2227410682135,
+          "signed_terminal_headroom_USD": -204.4355695135091,
+          "zero_gas_meets_equality_hurdle": false,
+          "inequality": "k*G_entry + G_exit <= signed_terminal_headroom_USD",
+          "entry_only_max_USD": null,
+          "exit_only_max_USD": null,
+          "allocation_unknown_guaranteed_total_budget_USD": null
+        },
+        "total_8pct": {
+          "target_investment_terminal_USD": 3710.658671440069,
+          "signed_terminal_headroom_USD": -980.8714998853648,
+          "zero_gas_meets_equality_hurdle": false,
+          "inequality": "k*G_entry + G_exit <= signed_terminal_headroom_USD",
+          "entry_only_max_USD": null,
+          "exit_only_max_USD": null,
+          "allocation_unknown_guaranteed_total_budget_USD": null
+        }
+      }
+    },
+    {
+      "scenario": "entry0_exit0.2",
+      "gross_factor_R": 0.9209472703270948,
+      "years": 2.817387095343119,
+      "each_side_haircut": 0.0,
+      "net_factor_before_gas_k": 0.9209472703270948,
+      "entry_gas_USD": 0.0,
+      "exit_gas_USD": 0.0,
+      "investment_end_USD": 2302.3681758177368,
+      "total_end_USD": 4802.368175817737,
+      "investment_CAGR": -0.028807029459290145,
+      "total_CAGR": -0.014212275257836526,
+      "budgets": {
+        "break_even": {
+          "target_investment_terminal_USD": 2500.0,
+          "signed_terminal_headroom_USD": -197.63182418226324,
+          "zero_gas_meets_equality_hurdle": false,
+          "inequality": "k*G_entry + G_exit <= signed_terminal_headroom_USD",
+          "entry_only_max_USD": null,
+          "exit_only_max_USD": null,
+          "allocation_unknown_guaranteed_total_budget_USD": null
+        },
+        "investment_3pct": {
+          "target_investment_terminal_USD": 2717.1113705341068,
+          "signed_terminal_headroom_USD": -414.74319471637,
+          "zero_gas_meets_equality_hurdle": false,
+          "inequality": "k*G_entry + G_exit <= signed_terminal_headroom_USD",
+          "entry_only_max_USD": null,
+          "exit_only_max_USD": null,
+          "allocation_unknown_guaranteed_total_budget_USD": null
+        },
+        "total_3pct": {
+          "target_investment_terminal_USD": 2934.2227410682135,
+          "signed_terminal_headroom_USD": -631.8545652504768,
+          "zero_gas_meets_equality_hurdle": false,
+          "inequality": "k*G_entry + G_exit <= signed_terminal_headroom_USD",
+          "entry_only_max_USD": null,
+          "exit_only_max_USD": null,
+          "allocation_unknown_guaranteed_total_budget_USD": null
+        },
+        "total_8pct": {
+          "target_investment_terminal_USD": 3710.658671440069,
+          "signed_terminal_headroom_USD": -1408.2904956223324,
+          "zero_gas_meets_equality_hurdle": false,
+          "inequality": "k*G_entry + G_exit <= signed_terminal_headroom_USD",
+          "entry_only_max_USD": null,
+          "exit_only_max_USD": null,
+          "allocation_unknown_guaranteed_total_budget_USD": null
+        }
+      }
+    },
+    {
+      "scenario": "entry0_exit0.2",
+      "gross_factor_R": 0.9209472703270948,
+      "years": 2.817387095343119,
+      "each_side_haircut": 0.003,
+      "net_factor_before_gas_k": 0.9154298752305652,
+      "entry_gas_USD": 0.0,
+      "exit_gas_USD": 0.0,
+      "investment_end_USD": 2288.574688076413,
+      "total_end_USD": 4788.574688076413,
+      "investment_CAGR": -0.03087621512199057,
+      "total_CAGR": -0.0152181833359889,
+      "budgets": {
+        "break_even": {
+          "target_investment_terminal_USD": 2500.0,
+          "signed_terminal_headroom_USD": -211.42531192358683,
+          "zero_gas_meets_equality_hurdle": false,
+          "inequality": "k*G_entry + G_exit <= signed_terminal_headroom_USD",
+          "entry_only_max_USD": null,
+          "exit_only_max_USD": null,
+          "allocation_unknown_guaranteed_total_budget_USD": null
+        },
+        "investment_3pct": {
+          "target_investment_terminal_USD": 2717.1113705341068,
+          "signed_terminal_headroom_USD": -428.5366824576936,
+          "zero_gas_meets_equality_hurdle": false,
+          "inequality": "k*G_entry + G_exit <= signed_terminal_headroom_USD",
+          "entry_only_max_USD": null,
+          "exit_only_max_USD": null,
+          "allocation_unknown_guaranteed_total_budget_USD": null
+        },
+        "total_3pct": {
+          "target_investment_terminal_USD": 2934.2227410682135,
+          "signed_terminal_headroom_USD": -645.6480529918003,
+          "zero_gas_meets_equality_hurdle": false,
+          "inequality": "k*G_entry + G_exit <= signed_terminal_headroom_USD",
+          "entry_only_max_USD": null,
+          "exit_only_max_USD": null,
+          "allocation_unknown_guaranteed_total_budget_USD": null
+        },
+        "total_8pct": {
+          "target_investment_terminal_USD": 3710.658671440069,
+          "signed_terminal_headroom_USD": -1422.083983363656,
+          "zero_gas_meets_equality_hurdle": false,
+          "inequality": "k*G_entry + G_exit <= signed_terminal_headroom_USD",
+          "entry_only_max_USD": null,
+          "exit_only_max_USD": null,
+          "allocation_unknown_guaranteed_total_budget_USD": null
+        }
+      }
+    },
+    {
+      "scenario": "entry0_exit0.2",
+      "gross_factor_R": 0.9209472703270948,
+      "years": 2.817387095343119,
+      "each_side_haircut": 0.006,
+      "net_factor_before_gas_k": 0.9099290571849014,
+      "entry_gas_USD": 0.0,
+      "exit_gas_USD": 0.0,
+      "investment_end_USD": 2274.822642962253,
+      "total_end_USD": 4774.822642962254,
+      "investment_CAGR": -0.03294720794693262,
+      "total_CAGR": -0.01622293154209975,
+      "budgets": {
+        "break_even": {
+          "target_investment_terminal_USD": 2500.0,
+          "signed_terminal_headroom_USD": -225.1773570377468,
+          "zero_gas_meets_equality_hurdle": false,
+          "inequality": "k*G_entry + G_exit <= signed_terminal_headroom_USD",
+          "entry_only_max_USD": null,
+          "exit_only_max_USD": null,
+          "allocation_unknown_guaranteed_total_budget_USD": null
+        },
+        "investment_3pct": {
+          "target_investment_terminal_USD": 2717.1113705341068,
+          "signed_terminal_headroom_USD": -442.28872757185354,
+          "zero_gas_meets_equality_hurdle": false,
+          "inequality": "k*G_entry + G_exit <= signed_terminal_headroom_USD",
+          "entry_only_max_USD": null,
+          "exit_only_max_USD": null,
+          "allocation_unknown_guaranteed_total_budget_USD": null
+        },
+        "total_3pct": {
+          "target_investment_terminal_USD": 2934.2227410682135,
+          "signed_terminal_headroom_USD": -659.4000981059603,
+          "zero_gas_meets_equality_hurdle": false,
+          "inequality": "k*G_entry + G_exit <= signed_terminal_headroom_USD",
+          "entry_only_max_USD": null,
+          "exit_only_max_USD": null,
+          "allocation_unknown_guaranteed_total_budget_USD": null
+        },
+        "total_8pct": {
+          "target_investment_terminal_USD": 3710.658671440069,
+          "signed_terminal_headroom_USD": -1435.836028477816,
+          "zero_gas_meets_equality_hurdle": false,
+          "inequality": "k*G_entry + G_exit <= signed_terminal_headroom_USD",
+          "entry_only_max_USD": null,
+          "exit_only_max_USD": null,
+          "allocation_unknown_guaranteed_total_budget_USD": null
+        }
+      }
+    },
+    {
+      "scenario": "entry0.2_exit0",
+      "gross_factor_R": 1.3261640692710164,
+      "years": 2.817387095343119,
+      "each_side_haircut": 0.0,
+      "net_factor_before_gas_k": 1.3261640692710164,
+      "entry_gas_USD": 0.0,
+      "exit_gas_USD": 0.0,
+      "investment_end_USD": 3315.410173177541,
+      "total_end_USD": 5815.410173177541,
+      "investment_CAGR": 0.10538743478239598,
+      "total_CAGR": 0.05508550863014117,
+      "budgets": {
+        "break_even": {
+          "target_investment_terminal_USD": 2500.0,
+          "signed_terminal_headroom_USD": 815.4101731775409,
+          "zero_gas_meets_equality_hurdle": true,
+          "inequality": "k*G_entry + G_exit <= signed_terminal_headroom_USD",
+          "entry_only_max_USD": 614.8637201622921,
+          "exit_only_max_USD": 815.4101731775409,
+          "allocation_unknown_guaranteed_total_budget_USD": 614.8637201622921
+        },
+        "investment_3pct": {
+          "target_investment_terminal_USD": 2717.1113705341068,
+          "signed_terminal_headroom_USD": 598.2988026434341,
+          "zero_gas_meets_equality_hurdle": true,
+          "inequality": "k*G_entry + G_exit <= signed_terminal_headroom_USD",
+          "entry_only_max_USD": 451.1499116186393,
+          "exit_only_max_USD": 598.2988026434341,
+          "allocation_unknown_guaranteed_total_budget_USD": 451.1499116186393
+        },
+        "total_3pct": {
+          "target_investment_terminal_USD": 2934.2227410682135,
+          "signed_terminal_headroom_USD": 381.18743210932735,
+          "zero_gas_meets_equality_hurdle": true,
+          "inequality": "k*G_entry + G_exit <= signed_terminal_headroom_USD",
+          "entry_only_max_USD": 287.4361030749865,
+          "exit_only_max_USD": 381.18743210932735,
+          "allocation_unknown_guaranteed_total_budget_USD": 287.4361030749865
+        },
+        "total_8pct": {
+          "target_investment_terminal_USD": 3710.658671440069,
+          "signed_terminal_headroom_USD": -395.2484982625283,
+          "zero_gas_meets_equality_hurdle": false,
+          "inequality": "k*G_entry + G_exit <= signed_terminal_headroom_USD",
+          "entry_only_max_USD": null,
+          "exit_only_max_USD": null,
+          "allocation_unknown_guaranteed_total_budget_USD": null
+        }
+      }
+    },
+    {
+      "scenario": "entry0.2_exit0",
+      "gross_factor_R": 1.3261640692710164,
+      "years": 2.817387095343119,
+      "each_side_haircut": 0.003,
+      "net_factor_before_gas_k": 1.3182190203320139,
+      "entry_gas_USD": 0.0,
+      "exit_gas_USD": 0.0,
+      "investment_end_USD": 3295.5475508300347,
+      "total_end_USD": 5795.547550830035,
+      "investment_CAGR": 0.1030323396559274,
+      "total_CAGR": 0.05380501793575965,
+      "budgets": {
+        "break_even": {
+          "target_investment_terminal_USD": 2500.0,
+          "signed_terminal_headroom_USD": 795.5475508300347,
+          "zero_gas_meets_equality_hurdle": true,
+          "inequality": "k*G_entry + G_exit <= signed_terminal_headroom_USD",
+          "entry_only_max_USD": 603.501799442754,
+          "exit_only_max_USD": 795.5475508300347,
+          "allocation_unknown_guaranteed_total_budget_USD": 603.501799442754
+        },
+        "investment_3pct": {
+          "target_investment_terminal_USD": 2717.1113705341068,
+          "signed_terminal_headroom_USD": 578.4361802959279,
+          "zero_gas_meets_equality_hurdle": true,
+          "inequality": "k*G_entry + G_exit <= signed_terminal_headroom_USD",
+          "entry_only_max_USD": 438.80127002737356,
+          "exit_only_max_USD": 578.4361802959279,
+          "allocation_unknown_guaranteed_total_budget_USD": 438.80127002737356
+        },
+        "total_3pct": {
+          "target_investment_terminal_USD": 2934.2227410682135,
+          "signed_terminal_headroom_USD": 361.32480976182114,
+          "zero_gas_meets_equality_hurdle": true,
+          "inequality": "k*G_entry + G_exit <= signed_terminal_headroom_USD",
+          "entry_only_max_USD": 274.1007406119932,
+          "exit_only_max_USD": 361.32480976182114,
+          "allocation_unknown_guaranteed_total_budget_USD": 274.1007406119932
+        },
+        "total_8pct": {
+          "target_investment_terminal_USD": 3710.658671440069,
+          "signed_terminal_headroom_USD": -415.1111206100345,
+          "zero_gas_meets_equality_hurdle": false,
+          "inequality": "k*G_entry + G_exit <= signed_terminal_headroom_USD",
+          "entry_only_max_USD": null,
+          "exit_only_max_USD": null,
+          "allocation_unknown_guaranteed_total_budget_USD": null
+        }
+      }
+    },
+    {
+      "scenario": "entry0.2_exit0",
+      "gross_factor_R": 1.3261640692710164,
+      "years": 2.817387095343119,
+      "each_side_haircut": 0.006,
+      "net_factor_before_gas_k": 1.310297842346258,
+      "entry_gas_USD": 0.0,
+      "exit_gas_USD": 0.0,
+      "investment_end_USD": 3275.7446058656446,
+      "total_end_USD": 5775.744605865644,
+      "investment_CAGR": 0.10067518766280625,
+      "total_CAGR": 0.05252555325389219,
+      "budgets": {
+        "break_even": {
+          "target_investment_terminal_USD": 2500.0,
+          "signed_terminal_headroom_USD": 775.7446058656446,
+          "zero_gas_meets_equality_hurdle": true,
+          "inequality": "k*G_entry + G_exit <= signed_terminal_headroom_USD",
+          "entry_only_max_USD": 592.0368490240154,
+          "exit_only_max_USD": 775.7446058656446,
+          "allocation_unknown_guaranteed_total_budget_USD": 592.0368490240154
+        },
+        "investment_3pct": {
+          "target_investment_terminal_USD": 2717.1113705341068,
+          "signed_terminal_headroom_USD": 558.6332353315379,
+          "zero_gas_meets_equality_hurdle": true,
+          "inequality": "k*G_entry + G_exit <= signed_terminal_headroom_USD",
+          "entry_only_max_USD": 426.3406511692279,
+          "exit_only_max_USD": 558.6332353315379,
+          "allocation_unknown_guaranteed_total_budget_USD": 426.3406511692279
+        },
+        "total_3pct": {
+          "target_investment_terminal_USD": 2934.2227410682135,
+          "signed_terminal_headroom_USD": 341.52186479743114,
+          "zero_gas_meets_equality_hurdle": true,
+          "inequality": "k*G_entry + G_exit <= signed_terminal_headroom_USD",
+          "entry_only_max_USD": 260.64445331444034,
+          "exit_only_max_USD": 341.52186479743114,
+          "allocation_unknown_guaranteed_total_budget_USD": 260.64445331444034
+        },
+        "total_8pct": {
+          "target_investment_terminal_USD": 3710.658671440069,
+          "signed_terminal_headroom_USD": -434.9140655744245,
+          "zero_gas_meets_equality_hurdle": false,
+          "inequality": "k*G_entry + G_exit <= signed_terminal_headroom_USD",
+          "entry_only_max_USD": null,
+          "exit_only_max_USD": null,
+          "allocation_unknown_guaranteed_total_budget_USD": null
+        }
+      }
+    },
+    {
+      "scenario": "entry0.2_exit0.2",
+      "gross_factor_R": 1.1051367243925136,
+      "years": 2.817387095343119,
+      "each_side_haircut": 0.0,
+      "net_factor_before_gas_k": 1.1051367243925136,
+      "entry_gas_USD": 0.0,
+      "exit_gas_USD": 0.0,
+      "investment_end_USD": 2762.841810981284,
+      "total_end_USD": 5262.841810981285,
+      "investment_CAGR": 0.03611992857231083,
+      "total_CAGR": 0.01835101143151463,
+      "budgets": {
+        "break_even": {
+          "target_investment_terminal_USD": 2500.0,
+          "signed_terminal_headroom_USD": 262.8418109812842,
+          "zero_gas_meets_equality_hurdle": true,
+          "inequality": "k*G_entry + G_exit <= signed_terminal_headroom_USD",
+          "entry_only_max_USD": 237.83646419475076,
+          "exit_only_max_USD": 262.8418109812842,
+          "allocation_unknown_guaranteed_total_budget_USD": 237.83646419475076
+        },
+        "investment_3pct": {
+          "target_investment_terminal_USD": 2717.1113705341068,
+          "signed_terminal_headroom_USD": 45.73044044717744,
+          "zero_gas_meets_equality_hurdle": true,
+          "inequality": "k*G_entry + G_exit <= signed_terminal_headroom_USD",
+          "entry_only_max_USD": 41.379893942367325,
+          "exit_only_max_USD": 45.73044044717744,
+          "allocation_unknown_guaranteed_total_budget_USD": 41.379893942367325
+        },
+        "total_3pct": {
+          "target_investment_terminal_USD": 2934.2227410682135,
+          "signed_terminal_headroom_USD": -171.3809300869293,
+          "zero_gas_meets_equality_hurdle": false,
+          "inequality": "k*G_entry + G_exit <= signed_terminal_headroom_USD",
+          "entry_only_max_USD": null,
+          "exit_only_max_USD": null,
+          "allocation_unknown_guaranteed_total_budget_USD": null
+        },
+        "total_8pct": {
+          "target_investment_terminal_USD": 3710.658671440069,
+          "signed_terminal_headroom_USD": -947.816860458785,
+          "zero_gas_meets_equality_hurdle": false,
+          "inequality": "k*G_entry + G_exit <= signed_terminal_headroom_USD",
+          "entry_only_max_USD": null,
+          "exit_only_max_USD": null,
+          "allocation_unknown_guaranteed_total_budget_USD": null
+        }
+      }
+    },
+    {
+      "scenario": "entry0.2_exit0.2",
+      "gross_factor_R": 1.1051367243925136,
+      "years": 2.817387095343119,
+      "each_side_haircut": 0.003,
+      "net_factor_before_gas_k": 1.098515850276678,
+      "entry_gas_USD": 0.0,
+      "exit_gas_USD": 0.0,
+      "investment_end_USD": 2746.289625691695,
+      "total_end_USD": 5246.289625691696,
+      "investment_CAGR": 0.033912412078604515,
+      "total_CAGR": 0.017213051204386653,
+      "budgets": {
+        "break_even": {
+          "target_investment_terminal_USD": 2500.0,
+          "signed_terminal_headroom_USD": 246.28962569169516,
+          "zero_gas_meets_equality_hurdle": true,
+          "inequality": "k*G_entry + G_exit <= signed_terminal_headroom_USD",
+          "entry_only_max_USD": 224.20215933130444,
+          "exit_only_max_USD": 246.28962569169516,
+          "allocation_unknown_guaranteed_total_budget_USD": 224.20215933130444
+        },
+        "investment_3pct": {
+          "target_investment_terminal_USD": 2717.1113705341068,
+          "signed_terminal_headroom_USD": 29.17825515758841,
+          "zero_gas_meets_equality_hurdle": true,
+          "inequality": "k*G_entry + G_exit <= signed_terminal_headroom_USD",
+          "entry_only_max_USD": 26.561524032847974,
+          "exit_only_max_USD": 29.17825515758841,
+          "allocation_unknown_guaranteed_total_budget_USD": 26.561524032847974
+        },
+        "total_3pct": {
+          "target_investment_terminal_USD": 2934.2227410682135,
+          "signed_terminal_headroom_USD": -187.93311537651834,
+          "zero_gas_meets_equality_hurdle": false,
+          "inequality": "k*G_entry + G_exit <= signed_terminal_headroom_USD",
+          "entry_only_max_USD": null,
+          "exit_only_max_USD": null,
+          "allocation_unknown_guaranteed_total_budget_USD": null
+        },
+        "total_8pct": {
+          "target_investment_terminal_USD": 3710.658671440069,
+          "signed_terminal_headroom_USD": -964.369045748374,
+          "zero_gas_meets_equality_hurdle": false,
+          "inequality": "k*G_entry + G_exit <= signed_terminal_headroom_USD",
+          "entry_only_max_USD": null,
+          "exit_only_max_USD": null,
+          "allocation_unknown_guaranteed_total_budget_USD": null
+        }
+      }
+    },
+    {
+      "scenario": "entry0.2_exit0.2",
+      "gross_factor_R": 1.1051367243925136,
+      "years": 2.817387095343119,
+      "each_side_haircut": 0.006,
+      "net_factor_before_gas_k": 1.0919148686218818,
+      "entry_gas_USD": 0.0,
+      "exit_gas_USD": 0.0,
+      "investment_end_USD": 2729.7871715547044,
+      "total_end_USD": 5229.787171554704,
+      "investment_CAGR": 0.0317029676088223,
+      "total_CAGR": 0.016076202112611737,
+      "budgets": {
+        "break_even": {
+          "target_investment_terminal_USD": 2500.0,
+          "signed_terminal_headroom_USD": 229.7871715547044,
+          "zero_gas_meets_equality_hurdle": true,
+          "inequality": "k*G_entry + G_exit <= signed_terminal_headroom_USD",
+          "entry_only_max_USD": 210.44421882881895,
+          "exit_only_max_USD": 229.7871715547044,
+          "allocation_unknown_guaranteed_total_budget_USD": 210.44421882881895
+        },
+        "investment_3pct": {
+          "target_investment_terminal_USD": 2717.1113705341068,
+          "signed_terminal_headroom_USD": 12.675801020597646,
+          "zero_gas_meets_equality_hurdle": true,
+          "inequality": "k*G_entry + G_exit <= signed_terminal_headroom_USD",
+          "entry_only_max_USD": 11.608781403073959,
+          "exit_only_max_USD": 12.675801020597646,
+          "allocation_unknown_guaranteed_total_budget_USD": 11.608781403073959
+        },
+        "total_3pct": {
+          "target_investment_terminal_USD": 2934.2227410682135,
+          "signed_terminal_headroom_USD": -204.4355695135091,
+          "zero_gas_meets_equality_hurdle": false,
+          "inequality": "k*G_entry + G_exit <= signed_terminal_headroom_USD",
+          "entry_only_max_USD": null,
+          "exit_only_max_USD": null,
+          "allocation_unknown_guaranteed_total_budget_USD": null
+        },
+        "total_8pct": {
+          "target_investment_terminal_USD": 3710.658671440069,
+          "signed_terminal_headroom_USD": -980.8714998853648,
+          "zero_gas_meets_equality_hurdle": false,
+          "inequality": "k*G_entry + G_exit <= signed_terminal_headroom_USD",
+          "entry_only_max_USD": null,
+          "exit_only_max_USD": null,
+          "allocation_unknown_guaranteed_total_budget_USD": null
+        }
+      }
+    }
+  ]
+}

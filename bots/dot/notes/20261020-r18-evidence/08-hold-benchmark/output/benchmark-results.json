@@ -1,0 +1,216 @@
+{
+  "status": "CONDITIONAL historical external-close valuation, not executable backtest or fee alpha",
+  "source_hashes": [
+    {
+      "path": "retained-inputs/trdproj-research-20261019/continuation-20261020/workers/r16-proposal/07-github-data/local-data/pool-balances.csv",
+      "sha256": "531dd907a5337c9bbeda5dba592ce1dfec3122803c1e98e9c59cf6913333adf6"
+    },
+    {
+      "path": "retained-inputs/trdproj-research-20261019/continuation-20261020/workers/r18-proposal/03-usd-prices/local-data/usdcusd-daily.csv",
+      "sha256": "3a980a2ee9e2a25b63206a9f496184fd4ed2ff11437d1af32cc5f9d11ec9275b"
+    },
+    {
+      "path": "retained-inputs/trdproj-research-20261019/continuation-20261020/workers/r18-proposal/03-usd-prices/local-data/usdtusd-daily.csv",
+      "sha256": "a24cb8445af375e395b37502f56a3cbc44fc8c228100d295c7e186d1e576e401"
+    }
+  ],
+  "frozen_engine_config_sha256": "cfc16ce43c380c46780e2034e20bcaea6843565516d7c63d5ed96dbbcbbfaf51",
+  "window": {
+    "first_utc": "2021-06-16T00:20:40+00:00",
+    "last_utc": "2024-04-10T01:33:35+00:00",
+    "years_365_25": 2.817387095343119,
+    "pool_observations": 69798,
+    "usd_candles_used": 1030
+  },
+  "initial_external_usd_prices": [
+    "0.99991",
+    "0.99800"
+  ],
+  "terminal_external_usd_prices": [
+    "0.99999",
+    "0.99959"
+  ],
+  "scenarios": [
+    {
+      "cost_per_side": 0.0,
+      "initial_token_quantities": {
+        "USDC": "1250.149823386506165838126646172523658282",
+        "USDT": "1252.467625348295210137072931087807483814"
+      },
+      "initial_usd_weights": {
+        "USDC": 0.5000149239609606,
+        "USDT": 0.49998507603903947
+      },
+      "hold_terminal_before_unknown_gas": 2502.0914355101745,
+      "hold_leg_return": 0.0008365742040698839,
+      "hold_leg_cagr": 0.00029685256379585745,
+      "hold_total_terminal": 5002.091435510175,
+      "hold_total_capital_cagr": 0.00014844629777366336,
+      "hold_marked_drawdown_excludes_terminal_costs": -0.013670023069385251,
+      "hold_total_capital_marked_drawdown": -0.006844881658595758,
+      "lp_zero_pending_marked_drawdown": -0.013293778941292245,
+      "comparisons": [
+        {
+          "entry_pending_fraction": 0.0,
+          "exit_pending_fraction": 0.0,
+          "lp_terminal_before_unknown_gas": 2762.841810981284,
+          "lp_minus_hold_usd_before_differential_gas": 260.75037547110935,
+          "lp_minus_hold_total_capital_return_percentage_points": 5.215007509422187,
+          "lp_leg_cagr": 0.03611992857231083,
+          "lp_total_capital_cagr": 0.01835101143151463
+        },
+        {
+          "entry_pending_fraction": 0.0,
+          "exit_pending_fraction": 0.2,
+          "lp_terminal_before_unknown_gas": 2302.3681758177368,
+          "lp_minus_hold_usd_before_differential_gas": -199.72325969243798,
+          "lp_minus_hold_total_capital_return_percentage_points": -3.9944651938487596,
+          "lp_leg_cagr": -0.028807029459290145,
+          "lp_total_capital_cagr": -0.014212275257836526
+        },
+        {
+          "entry_pending_fraction": 0.2,
+          "exit_pending_fraction": 0.0,
+          "lp_terminal_before_unknown_gas": 3315.410173177541,
+          "lp_minus_hold_usd_before_differential_gas": 813.3187376673662,
+          "lp_minus_hold_total_capital_return_percentage_points": 16.266374753347325,
+          "lp_leg_cagr": 0.10538743478239598,
+          "lp_total_capital_cagr": 0.05508550863014117
+        },
+        {
+          "entry_pending_fraction": 0.2,
+          "exit_pending_fraction": 0.2,
+          "lp_terminal_before_unknown_gas": 2762.841810981284,
+          "lp_minus_hold_usd_before_differential_gas": 260.75037547110935,
+          "lp_minus_hold_total_capital_return_percentage_points": 5.215007509422187,
+          "lp_leg_cagr": 0.03611992857231083,
+          "lp_total_capital_cagr": 0.01835101143151463
+        }
+      ]
+    },
+    {
+      "cost_per_side": 0.003,
+      "initial_token_quantities": {
+        "USDC": "1246.399373916346647340612266234006087308",
+        "USDT": "1248.710222472250324506661712294544061363"
+      },
+      "initial_usd_weights": {
+        "USDC": 0.5000149239609606,
+        "USDT": 0.49998507603903947
+      },
+      "hold_terminal_before_unknown_gas": 2487.101405720033,
+      "hold_leg_return": -0.005159437711986699,
+      "hold_leg_cagr": -0.0018343406887841862,
+      "hold_total_terminal": 4987.101405720034,
+      "hold_total_capital_cagr": -0.0009164052488876973,
+      "hold_marked_drawdown_excludes_terminal_costs": -0.01367002306938514,
+      "hold_total_capital_marked_drawdown": -0.006834613738551876,
+      "lp_zero_pending_marked_drawdown": -0.013293778941292134,
+      "comparisons": [
+        {
+          "entry_pending_fraction": 0.0,
+          "exit_pending_fraction": 0.0,
+          "lp_terminal_before_unknown_gas": 2746.289625691695,
+          "lp_minus_hold_usd_before_differential_gas": 259.18821997166197,
+          "lp_minus_hold_total_capital_return_percentage_points": 5.183764399433239,
+          "lp_leg_cagr": 0.033912412078604515,
+          "lp_total_capital_cagr": 0.017213051204386653
+        },
+        {
+          "entry_pending_fraction": 0.0,
+          "exit_pending_fraction": 0.2,
+          "lp_terminal_before_unknown_gas": 2288.5746880764127,
+          "lp_minus_hold_usd_before_differential_gas": -198.52671764362057,
+          "lp_minus_hold_total_capital_return_percentage_points": -3.9705343528724115,
+          "lp_leg_cagr": -0.03087621512199068,
+          "lp_total_capital_cagr": -0.0152181833359889
+        },
+        {
+          "entry_pending_fraction": 0.2,
+          "exit_pending_fraction": 0.0,
+          "lp_terminal_before_unknown_gas": 3295.547550830034,
+          "lp_minus_hold_usd_before_differential_gas": 808.446145110001,
+          "lp_minus_hold_total_capital_return_percentage_points": 16.16892290220002,
+          "lp_leg_cagr": 0.1030323396559274,
+          "lp_total_capital_cagr": 0.05380501793575965
+        },
+        {
+          "entry_pending_fraction": 0.2,
+          "exit_pending_fraction": 0.2,
+          "lp_terminal_before_unknown_gas": 2746.289625691695,
+          "lp_minus_hold_usd_before_differential_gas": 259.18821997166197,
+          "lp_minus_hold_total_capital_return_percentage_points": 5.183764399433239,
+          "lp_leg_cagr": 0.033912412078604515,
+          "lp_total_capital_cagr": 0.017213051204386653
+        }
+      ]
+    },
+    {
+      "cost_per_side": 0.006,
+      "initial_token_quantities": {
+        "USDC": "1242.648924446187128843097886295488516333",
+        "USDT": "1244.952819596205438876250493501280638912"
+      },
+      "initial_usd_weights": {
+        "USDC": 0.5000149239609606,
+        "USDT": 0.49998507603903947
+      },
+      "hold_terminal_before_unknown_gas": 2472.1564135757308,
+      "hold_leg_return": -0.011137434569707607,
+      "hold_leg_cagr": -0.00396739525910117,
+      "hold_total_terminal": 4972.156413575731,
+      "hold_total_capital_cagr": -0.001980114773832309,
+      "hold_marked_drawdown_excludes_terminal_costs": -0.01367002306938514,
+      "hold_total_capital_marked_drawdown": -0.0068243148773079465,
+      "lp_zero_pending_marked_drawdown": -0.013293778941292245,
+      "comparisons": [
+        {
+          "entry_pending_fraction": 0.0,
+          "exit_pending_fraction": 0.0,
+          "lp_terminal_before_unknown_gas": 2729.787171554704,
+          "lp_minus_hold_usd_before_differential_gas": 257.630757978973,
+          "lp_minus_hold_total_capital_return_percentage_points": 5.152615159579461,
+          "lp_leg_cagr": 0.0317029676088223,
+          "lp_total_capital_cagr": 0.016076202112611737
+        },
+        {
+          "entry_pending_fraction": 0.0,
+          "exit_pending_fraction": 0.2,
+          "lp_terminal_before_unknown_gas": 2274.822642962253,
+          "lp_minus_hold_usd_before_differential_gas": -197.33377061347764,
+          "lp_minus_hold_total_capital_return_percentage_points": -3.946675412269553,
+          "lp_leg_cagr": -0.03294720794693262,
+          "lp_total_capital_cagr": -0.01622293154209975
+        },
+        {
+          "entry_pending_fraction": 0.2,
+          "exit_pending_fraction": 0.0,
+          "lp_terminal_before_unknown_gas": 3275.7446058656446,
+          "lp_minus_hold_usd_before_differential_gas": 803.5881922899139,
+          "lp_minus_hold_total_capital_return_percentage_points": 16.071763845798277,
+          "lp_leg_cagr": 0.10067518766280625,
+          "lp_total_capital_cagr": 0.05252555325389219
+        },
+        {
+          "entry_pending_fraction": 0.2,
+          "exit_pending_fraction": 0.2,
+          "lp_terminal_before_unknown_gas": 2729.787171554704,
+          "lp_minus_hold_usd_before_differential_gas": 257.630757978973,
+          "lp_minus_hold_total_capital_return_percentage_points": 5.152615159579461,
+          "lp_leg_cagr": 0.0317029676088223,
+          "lp_total_capital_cagr": 0.016076202112611737
+        }
+      ]
+    }
+  ],
+  "limitations": [
+    "Same initial proportional token holdings, not 50/50 quantities or 50/50 USD invented after results.",
+    "No LP dilution applies to passive token holder. Entry/exit pending LP sensitivities are unverified endpoint hypotheses, not a joint historical bound.",
+    "LP reference uses balance=reserve entry assumption and unchanged historical price-taker path; not exact funded mint/burn.",
+    "Uniform proportional execution cost per side is matched assumption, not observed cash spend. LP-specific vs holding-specific gas unresolved; subtract differential gas from incremental USD.",
+    "External daily USD marks use completed prior UTC day only; non-synchronous and not executable same-block quotes.",
+    "Donations, swap fees, reserve imbalance and supply effects cannot be separated; incremental rights result is not pure fee alpha.",
+    "MDD uses marked values before unknown gas and exit cost; excludes intraday path and actual redemption hazards.",
+    "2500 idle cash assumes zero yield and no operational cost. No causal performance claim, independent events or low correlation proof."
+  ]
+}

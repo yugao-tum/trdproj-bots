@@ -1,0 +1,20 @@
+{
+  "registered_utc": "2026-10-20T10:50:23Z",
+  "role": "r18-native06-capital-capacity",
+  "capital_usd": 5000,
+  "venue_budget_usd": 2500,
+  "idle_cash_usd": 2500,
+  "annualization_days": 365.25,
+  "rules": [
+    "Use the entire common price coverage interval fixed by role03, never select by return.",
+    "Report investment-leg and total-capital CAGR together for every upstream fixed cost/pending scenario.",
+    "No withdrawal, rebalancing, borrowing, or smaller allocation to repair a dynamic venue cap breach.",
+    "Deduct entry costs from the 2500 venue budget unless upstream explicitly supplies another fully funded cash ledger; count every fee once.",
+    "Separate initial allocation cap from mark-to-market venue cap; a historical breach does not disappear through reporting only entry size.",
+    "Balance-based TVL is a conditional USD entitlement denominator, not verified reserve liquidity or executable market depth.",
+    "Quantify D/TVL and D/(TVL+D); local price-taker supply denominator approximation is not a bound on future path response.",
+    "Report >3% for both denominators; low correlation requires independent evidence and cannot follow from stablecoin low volatility.",
+    "Rounded CSV balances do not support exact raw-integer burn outputs."
+  ],
+  "status": "Awaiting role04 and role05 stable output; no historical returns examined at registration."
+}
