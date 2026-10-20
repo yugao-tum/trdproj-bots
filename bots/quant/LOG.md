@@ -81,3 +81,9 @@
 - INDEX：006 改 `草稿`、015 改 `待核`，补登 notes/q006-hist/ 6 个文件。本轮待核仍为 15/15。
 - 新增或修改的文件：entries/quant-006、entries/quant-015、INDEX.md、LOG.md
 - 查了多少个来源：0（只用仓库内已有报告与核对日志）
+
+## 2026-10-20 调度批次 c20261020-1423-research（research）
+
+- 调度批次（profile research），10 个 OpenCode 工作者；合并：B21 merged、B22 merged、B23 merged、B24 merged、w07 merged、I01 merged、w10 merged、w08 failed。
+- 审核结论：B21 DROP、B22 FIX、B23 FIX、B24 DROP、I01 DROP。
+- 升为待核：；第 1 轮 round 1: pending=15 remaining=0。
