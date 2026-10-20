@@ -876,11 +876,26 @@ def main():
                                           sum(1 for d in all_diffs if d < 0)) is None
                      else "%.4f" % sign_p_value(sum(1 for d in all_diffs if d > 0),
                                                 sum(1 for d in all_diffs if d < 0))))
+    match_rows2 = [r for r in event_rows if r["pw_match"] == "MATCH"]
+    match_diffs = [r["brier_mkt_first"] - r["brier_model"] for r in match_rows2]
+    report.append("- 剔除 2026-03..05 的 9 个复算 MISMATCH 后，MATCH-only 仍有 n=%d≥30："
+                  "模型 %.4f vs 市场首价 %.4f，差 %+.4f。因此 (3) 的 PASS 不只是靠修订不一致的"
+                  "事件。" % (len(match_rows2),
+                              statistics.mean([r["brier_model"] for r in match_rows2]),
+                              statistics.mean([r["brier_mkt_first"] for r in match_rows2]),
+                              statistics.mean(match_diffs)))
     report.append("- 分海峡看，Hormuz 模型更好（差 %+.4f，n=%d），**Bab 模型反而更差**"
                   "（差 %+.4f，n=%d）；交易规则只做 Bab。若把标准 (3) 限定在 Bab，n=%d<30，"
                   "应为 **INSUFFICIENT**，且方向为负。因此 (3) 的 PASS 不能当作 Bab 策略的"
                   "校准证据。" % (statistics.mean(hor_diffs), len(hor),
                                   statistics.mean(bab_diffs), len(bab), len(bab)))
+    report.append("- 若只用条目认为可复算的 2026-07-13 之后事件（n=%d<30），标准 (3) 仍应读作 "
+                  "**INSUFFICIENT**，尽管模型数值更好（%.4f vs %.4f）。"
+                  % (len([r for r in event_rows if r["week_start"] >= SPLIT_DATE.isoformat()]),
+                     statistics.mean([r["brier_model"] for r in event_rows
+                                      if r["week_start"] >= SPLIT_DATE.isoformat()]),
+                     statistics.mean([r["brier_mkt_first"] for r in event_rows
+                                      if r["week_start"] >= SPLIT_DATE.isoformat()])))
     report.append("- 标准 (1) 的 PASS 用的是周起点价口径 %d 份（中位 %+.4f/份），不是 %d 个独立 "
                   "event；含周中首价回退的 %d 份也是正（中位 %+.4f/份）；纯首价 %d 份中位 "
                   "%+.4f/份更高，但其中 9 个 event 的市场在周中才开市，可能含周内信息，"
