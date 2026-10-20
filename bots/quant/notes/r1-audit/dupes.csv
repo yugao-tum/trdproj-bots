@@ -1,0 +1,39 @@
+quant_entry,rank,other_entry,other_bot,other_name,score,text_sim,field_sim,url_sim,shared_urls,exact_improve,first_commit_quant,first_commit_other,earlier,other_path
+quant-001,1,T-T2-vm,known,主流币正动量等权（波动管理）,0.75,0.1958,0.0,0.0,,yes,2026-10-20T06:10:41+02:00,2026-10-20T00:31:59Z,other,known/KNOWN.md
+quant-001,2,dot-022,dot,现货横截面相对动量,0.2626,0.0683,0.75,0.0,,,2026-10-20T06:10:41+02:00,2026-10-20T03:51:37+08:00,other,bots/dot/entries/dot-022-spot-cross-sectional-momentum.md
+quant-001,3,quant-003,quant,十币广度闸门时序动量,0.259,0.151,0.5864,0.0,,,2026-10-20T06:10:41+02:00,2026-10-20T06:10:41+02:00,same,bots/quant/entries/quant-003-three-coin-breadth-gate.md
+quant-001,4,dot-024,dot,固定权重现货再平衡,0.2582,0.0604,0.75,0.0,,,2026-10-20T06:10:41+02:00,2026-10-20T03:51:37+08:00,other,bots/dot/entries/dot-024-spot-fixed-weight-rebalance.md
+quant-001,5,quant-002,quant,月初月末与周一效应样本外反证,0.2513,0.0842,0.6833,0.0,,,2026-10-20T06:10:41+02:00,2026-10-20T06:10:41+02:00,same,bots/quant/entries/quant-002-tom-monday-oos-counterevidence.md
+quant-001,6,dot-021,dot,现货自身时间序列趋势,0.25,0.0818,0.6833,0.0,,,2026-10-20T06:10:41+02:00,2026-10-20T03:51:37+08:00,other,bots/dot/entries/dot-021-spot-time-series-trend.md
+quant-002,1,E-E2-turn-of-month,known,月末月初持有,0.75,0.124,0.0,0.0,,yes,2026-10-20T06:10:41+02:00,2026-10-20T00:31:59Z,other,known/KNOWN.md
+quant-002,2,quant-001,quant,波动管理动量加BTC趋势总开关,0.2513,0.0842,0.6833,0.0,,,2026-10-20T06:10:41+02:00,2026-10-20T06:10:41+02:00,same,bots/quant/entries/quant-001-vm-btc-regime-gate.md
+quant-005,1,quant-004,quant,提及市场：按历史词频给单词定价,0.2946,0.0993,0.8,0.0,,,2026-10-20T06:20:10+02:00,2026-10-20T06:20:10+02:00,same,bots/quant/entries/quant-004-pm-mention-base-rates.md
+quant-006,1,quant-021,quant,F1杆位与分站冠军：免费用时定价,0.2982,0.1058,0.8,0.0,,,2026-10-20T06:20:10+02:00,2026-10-20T06:50:31+02:00,quant,bots/quant/entries/quant-021-f1-pole-winner-base-rate.md
+quant-006,2,quant-011,quant,足球三向盘平局基准率检验,0.2899,0.0907,0.8,0.0,,,2026-10-20T06:20:10+02:00,2026-10-20T06:20:10+02:00,same,bots/quant/entries/quant-011-soccer-draw-pricing.md
+quant-006,3,muse-own-polymarket-pinnacle-line-shopping,muse,体育市场：跟 Pinnacle 盘口比价,0.2758,0.065,0.8,0.0,,,2026-10-20T06:20:10+02:00,2026-10-20T15:02:07+08:00,quant,bots/muse/entries/muse-own-polymarket-pinnacle-line-shopping.md
+quant-006,4,muse-own2-live-goal-lag,muse,直播进球后盘口重定价滞后,0.2751,0.0639,0.8,0.0,,,2026-10-20T06:20:10+02:00,2026-10-20T15:02:07+08:00,quant,bots/muse/entries/muse-own2-live-goal-lag.md
+quant-006,5,dot-013,dot,伤病消息后的重定价滞后,0.2695,0.0536,0.8,0.0,,,2026-10-20T06:20:10+02:00,2026-10-20T02:54:09+08:00,other,bots/dot/entries/dot-013-nba-injury-repricing.md
+quant-006,6,muse-own2-tail-sports-midband,muse,体育中段概率系统性低估买入,0.2656,0.0465,0.8,0.0,,,2026-10-20T06:20:10+02:00,2026-10-20T15:02:07+08:00,quant,bots/muse/entries/muse-own2-tail-sports-midband.md
+quant-007,1,quant-017,quant,App Store免费榜首榜定价,0.3137,0.1276,0.8118,0.0,,,2026-10-20T06:20:10+02:00,2026-10-20T06:50:31+02:00,quant,bots/quant/entries/quant-017-app-store-rank-markets.md
+quant-009,1,dot-007,dot,阶梯单调性下界套利,0.2948,0.0913,0.8154,0.0,,,2026-10-20T06:20:10+02:00,2026-10-20T02:54:09+08:00,other,bots/dot/entries/dot-007-ladder-monotonicity.md
+quant-009,2,dot-018,dot,期权隐含分布对PM相对价值,0.2689,0.0834,0.71,0.0667,https://clob.polymarket.com/prices-history,,2026-10-20T06:20:10+02:00,2026-10-20T02:54:09+08:00,other,bots/dot/entries/dot-018-option-implied-pm-relative-value.md
+quant-009,3,quant-008,quant,代币上线FDV阶梯用外盘定价,0.246,0.1064,0.625,0.0,,,2026-10-20T06:20:10+02:00,2026-10-20T06:20:10+02:00,same,bots/quant/entries/quant-008-token-fdv-ladder-premarket.md
+quant-010,1,quant-016,quant,烂番茄开分：早期评论二项定价,0.2779,0.062,0.8125,0.0,,,2026-10-20T06:20:10+02:00,2026-10-20T06:50:31+02:00,quant,bots/quant/entries/quant-016-rotten-tomatoes-beta-model.md
+quant-011,1,quant-021,quant,F1杆位与分站冠军：免费用时定价,0.2921,0.0947,0.8,0.0,,,2026-10-20T06:20:10+02:00,2026-10-20T06:50:31+02:00,quant,bots/quant/entries/quant-021-f1-pole-winner-base-rate.md
+quant-011,2,quant-006,quant,网球Elo给PM比赛盘定价,0.2899,0.0907,0.8,0.0,,,2026-10-20T06:20:10+02:00,2026-10-20T06:20:10+02:00,same,bots/quant/entries/quant-006-tennis-elo-pm-pricing.md
+quant-011,3,muse-own2-tail-sports-midband,muse,体育中段概率系统性低估买入,0.2837,0.0794,0.8,0.0,,,2026-10-20T06:20:10+02:00,2026-10-20T15:02:07+08:00,quant,bots/muse/entries/muse-own2-tail-sports-midband.md
+quant-011,4,muse-own-polymarket-pinnacle-line-shopping,muse,体育市场：跟 Pinnacle 盘口比价,0.2827,0.0777,0.8,0.0,,,2026-10-20T06:20:10+02:00,2026-10-20T15:02:07+08:00,quant,bots/muse/entries/muse-own-polymarket-pinnacle-line-shopping.md
+quant-011,5,muse-own2-live-goal-lag,muse,直播进球后盘口重定价滞后,0.2823,0.0769,0.8,0.0,,,2026-10-20T06:20:10+02:00,2026-10-20T15:02:07+08:00,quant,bots/muse/entries/muse-own2-live-goal-lag.md
+quant-011,6,muse-own2-live-surprise-fade,muse,直播冷门进球后过度反应反做,0.2726,0.0593,0.8,0.0,,,2026-10-20T06:20:10+02:00,2026-10-20T15:02:07+08:00,quant,bots/muse/entries/muse-own2-live-surprise-fade.md
+quant-012,1,quant-015,quant,全球月均温距平：ERA5抢跑NASA,0.3102,0.1077,0.8364,0.0,,,2026-10-20T06:20:10+02:00,2026-10-20T06:50:31+02:00,quant,bots/quant/entries/quant-015-global-temp-era5-nowcast.md
+quant-012,2,dot-001,dot,日末观测尾部 nowcast,0.2858,0.0833,0.8,0.0,,,2026-10-20T06:20:10+02:00,2026-10-20T02:54:09+08:00,other,bots/dot/entries/dot-001-late-day-observed-max-tail.md
+quant-012,3,muse-own2-tail-weather-expiry-favfade,muse,天气市场临到期热门高估买NO,0.277,0.0673,0.8,0.0,,,2026-10-20T06:20:10+02:00,2026-10-20T15:02:07+08:00,quant,bots/muse/entries/muse-own2-tail-weather-expiry-favfade.md
+quant-012,4,dot-002,dot,集合预报误差校准,0.271,0.0564,0.8,0.0,,,2026-10-20T06:20:10+02:00,2026-10-20T02:54:09+08:00,other,bots/dot/entries/dot-002-ensemble-calibration.md
+quant-012,5,quant-019,quant,麻疹病例阶梯：按官方计数流定价,0.2629,0.1537,0.5944,0.0,,,2026-10-20T06:20:10+02:00,2026-10-20T06:50:31+02:00,quant,bots/quant/entries/quant-019-measles-cdc-count-ladder.md
+quant-012,6,quant-018,quant,海峡周通行：PortWatch基准率,0.2594,0.158,0.575,0.0,,,2026-10-20T06:20:10+02:00,2026-10-20T06:50:31+02:00,quant,bots/quant/entries/quant-018-strait-transit-count-base-rate.md
+quant-014,1,quant-020,quant,财报超预期市场：中价带的基准率缺口,0.3168,0.1253,0.8261,0.0,,,2026-10-20T06:50:31+02:00,2026-10-20T06:50:31+02:00,same,bots/quant/entries/quant-020-earnings-beat-base-rate.md
+quant-014,2,quant-012,quant,地震周计数：按USGS基率定价,0.2405,0.1278,0.5674,0.0,,,2026-10-20T06:50:31+02:00,2026-10-20T06:20:10+02:00,other,bots/quant/entries/quant-012-earthquake-count-base-rate.md
+quant-016,1,quant-010,quant,周榜日更抢跑,0.2779,0.062,0.8125,0.0,,,2026-10-20T06:50:31+02:00,2026-10-20T06:20:10+02:00,other,bots/quant/entries/quant-010-streaming-chart-nowcast.md
+quant-018,1,quant-012,quant,地震周计数：按USGS基率定价,0.75,0.158,0.575,0.0,,yes,2026-10-20T06:50:31+02:00,2026-10-20T06:20:10+02:00,other,bots/quant/entries/quant-012-earthquake-count-base-rate.md
+quant-019,1,quant-012,quant,地震周计数：按USGS基率定价,0.2629,0.1537,0.5944,0.0,,,2026-10-20T06:50:31+02:00,2026-10-20T06:20:10+02:00,other,bots/quant/entries/quant-012-earthquake-count-base-rate.md
+quant-020,1,quant-014,quant,SPX收盘价：已实现波动率定价,0.3168,0.1253,0.8261,0.0,,,2026-10-20T06:50:31+02:00,2026-10-20T06:50:31+02:00,same,bots/quant/entries/quant-014-pm-spx-lognormal-calibration.md

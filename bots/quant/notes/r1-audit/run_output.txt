@@ -1,0 +1,194 @@
+== quant 条目状态 ==
+待核: 15
+  quant-001  crypto       -          improvement 波动管理动量加BTC趋势总开关
+  quant-002  crypto       -          supplement  月初月末与周一效应样本外反证
+  quant-005  polymarket   mentions   new         发帖数分档：部分计数加计数过程
+  quant-006  polymarket   sports     new         网球Elo给PM比赛盘定价
+  quant-007  polymarket   tech       new         月度AI榜首市场：按榜单排名定价
+  quant-009  polymarket   crypto     new         交易所上币截止日市场：按基准率定价
+  quant-010  polymarket   culture    new         周榜日更抢跑
+  quant-011  polymarket   sports     new         足球三向盘平局基准率检验
+  quant-012  polymarket   weather    new         地震周计数：按USGS基率定价
+  quant-013  crypto       -          new         Coinbase溢价z分数方向信号
+  quant-014  polymarket   finance    new         SPX收盘价：已实现波动率定价
+  quant-016  polymarket   culture    new         烂番茄开分：早期评论二项定价
+  quant-018  polymarket   geopolitics supplement  海峡周通行：PortWatch基准率
+  quant-019  polymarket   other      new         麻疹病例阶梯：按官方计数流定价
+  quant-020  polymarket   finance    new         财报超预期市场：中价带的基准率缺口
+草稿: 8
+  quant-003  crypto       -          supplement  十币广度闸门时序动量
+  quant-004  polymarket   mentions   new         提及市场：按历史词频给单词定价
+  quant-008  polymarket   crypto     new         代币上线FDV阶梯用外盘定价
+  quant-015  polymarket   weather    new         全球月均温距平：ERA5抢跑NASA
+  quant-017  polymarket   tech       new         App Store免费榜首榜定价
+  quant-021  polymarket   sports     new         F1杆位与分站冠军：免费用时定价
+  quant-022  crypto       -          new         BNB空投+永续对冲：成本吃掉收益
+  quant-023  crypto       -          new         MSTR溢价mNAV作BTC仓位开关
+
+== 门槛自查扫描（待核） ==
+  quant-001: 4:不确定
+  quant-002: 5:不满足
+  quant-005: 1:不确定; 5:不确定
+  quant-006: 2:不确定; 4:不确定; 5:不确定; 6:不确定
+    <30证据> - 数量：2026-09 有 219 场 atp-/wta- 单打事件 → 两周约 110 场（219×14/30≈102，取整为约 100–110）；但这些比赛中“两人都在榜上”的比例未知，本轮实测的几个示例全部不满足，所以**能否凑够 30 笔触发未知**。凑不够就只记为前向观察，不得写成 30 个结果。
+    <30证据> 6. 两周内能检验：不确定 — 检验办法已写死（按场次计独立结果、中位数≤0 判失败），2026-09 有 219 场 atp-/wta- 单打事件，两周理论上约 100 场；但“两人都在榜上”的比例本轮实测为 0/3，能否凑够 30 笔触发未知。
+  quant-007: 2:不满足; 5:不确定; 6:不满足; 7:不确定
+    <30证据> test_2w: 独立结果按 event 计（一月一 event、一 event 只一个结算快照，禁按臂计数）；历史自 2024-12 起仅 22 个已结算 event，两周内只新增 1 个（2026-10-31 12:00 ET），故凑不到 30 个，只能记 forward；失败标准：净 PnL 中位 ≤0
+    <30证据> 6. 两周内能检验：不满足 — 历史自 2024-12 起只有 22 个已结算 event，一个月才 1 个独立结果，两周内至多新增 1 个，凑不到 30 个；只能 forward 且长期。
+  quant-009: 4:不确定; 5:不确定; 6:不确定
+    <30证据> test_2w: 回溯 21 个单市场已结算事件 + 3 个多选事件（按事件计，共 24 个独立结果），用 CLOB 价格历史取截止前 7 天的中间价，比较「基准率模型概率 − 价格 > 费用楔子」时的净损益；两周内凑不到 30 个独立事件或每事件中位净损益≤0 判失败
+    <30证据> - **两周内能不能凑到 30 个**：不确定——历史匹配 event 只有 24 个（12 个簇）；要凑到 30 个独立结果，必须把 `next coin on coinbase` / `next coin on robinhood` 周度系列（本次看到 `next-coin-on-robinhood-3-7-2025` volume 98,601.89、
+    <30证据> - **失败标准（预先写死）**：(a) 两周内拿不到 ≥30 个独立 event 结果 → 只能记 forward 观察，不冒充；(b) 30 个结果里，触发交易的子样本每事件中位净损益 ≤0；(c) 触发交易的子样本胜率虽然高但净损益被费用+价差吃光（即平均净损益 < 0）；(d) `p_model` 的 Brier 分数不优于直接用市场价 → 判模型无
+    <30证据> 6. 两周内能检验：不确定 — 回溯可在两周内做完（24 个 event，价格历史已确认可读），但独立结果合并后只有 12 个簇，要凑 30 个必须并入 `next coin` 周度系列，条数未核实。
+  quant-010: 2:不确定; 4:不确定; 5:不满足; 6:不确定
+    <30证据> 2. **价格与成本（只能前向）**：从 2026-10-20 起，每日记录候选的 `bestBid/bestAsk`、`spread`、`feeSchedule`，以及发布前 24h/12h 的日榜快照。两周只有约 4 个“榜单-周”簇，**不足以**得到 30 个带价格的结果；因此两周只能验证信号命中率，不能验证 30 个盈利结果。不得把 4 个前向结果
+    <30证据> - 若无法取得至少 30 个独立周事件，或无法取得可执行 bid/ask，结论写“未验证”，不写“有效”。
+    <30证据> - **数据与回测**：历史盘口无公开来源，无法做完整历史价格回测；`backtest_count=0`。两周前向只有约 4 个独立簇，不足 30 个。
+    <30证据> 2. **有免费数据能检验**：不确定 — Netflix 周榜、kworb Spotify 日榜本次均免费免密钥可读；但 Netflix 日榜源（FlixPatrol）403、历史可执行盘口缺失、Spotify 历史日榜未核，30 个带价格的独立结果不能保证。
+    <30证据> 6. **两周内能检验**：不确定 — 历史信号回放可凑 30 个 Netflix 周（页面含 2021 起日期），但 Spotify 历史日榜未核；带价格的前向两周只有约 4 簇，不足 30；失败标准已写死。
+  quant-011: 1:不确定; 4:不确定; 5:不满足; 6:不确定
+    <30证据> - 独立结果计数：**一场比赛 = 1 个独立结果**（三个市场算一个、同一比赛的多档比分/角球市场不算）。两周 ≈ 120 场 Polymarket 比赛 event；按历史比例，qD 0.15–0.30 桶在英超+意甲合计 8 个联赛赛季里共 2,675 场（自算：1409+1266），即每联赛每季约 334 场 ≈ 8.4 场/周，两联赛 ≈ **17
+    <30证据> 6. 两周内能检验：**不确定** — 独立结果按比赛数计，宽松桶（qD 0.15–0.30）两联赛约 17 场/周，两周约 34 场，刚好过 30 门线，但实际取决于当周赛程与可交易盘口；失败标准已写死（净收益中位数 ≤ 0 / 二项检验不显著 / 过半样本价差 > 0.02）。
+  quant-012: 2:不确定; 4:不确定; 5:不确定; 6:不满足
+    <30证据> test_2w: 按 event 计独立结果，两周只能拿到约 4 个 event（6.5 与 5.5 两条周度序列各每周 1 个），凑不到 30；失败标准是已成交 NO 份额的中位已实现毛利≤0 或基率模型校准（log loss）劣于市场
+    <30证据> `https://gamma-api.polymarket.com/events?tag_slug=earthquake&limit=500&closed=true&order=endDate&ascending=false` 返回 **69** 个已关闭事件，`endDate` 从 `2024-09-30` 到 `2026-10-19`，成交额合计 **$
+    <30证据> - **独立结果按 event 数**（不是按档、不按市场）：七档共享同一个 USGS 计数，算 1 个结果。6.5+ 与 5.5+ 两条序列若在同一周、结算源相同，也应合并为 1 个（严口径）；宽松口径最多 2 个/周。**两周最多 4 个 event**，因此本条**不可能在两周内拿到 30 个独立结果**，只能作为「先跑通、先看成交」的小样本，30 个
+    <30证据> 2. **有免费数据能检验：不确定** — 基率侧完美（USGS 免费免密钥，1,216 条 / 1,395 个 7 日 bin，26 年）；**价格侧不行**：已关闭地震市场的 CLOB 价格历史返回 `{"history":[]}`，只能用市场创建后 3–4 天的数据前向记录。所以历史上 ≥30 个独立结果的「价格」拿不到。
+    <30证据> 6. **两周内能检验：不满足** — 独立结果按 event 计，两周最多 4 个（6.5+ 与 5.5+ 两条序列各 1/周，严口径还要合并成 2 个），拿不到 30 个；30 个约需 15 周。按 GUIDE 第 2 节第 6 条，本类应进**待选区**。
+  quant-013: 4:不确定; 5:不满足; 6:不确定
+    <30证据> 2. z 分数：`z_t = (p_t − mean(p_{t−30..t−1})) / sd(p_{t−30..t−1})`，用**前 30 个**交易日、不含当日，`sd` 为总体标准差（本会话实现用 `statistics.pstdev`）。样本不足 30 日的开头不做信号。
+    <30证据> `https://api.exchange.coinbase.com/products/BTC-USD/candles?granularity=86400&start=2026-09-01T00:00:00Z&end=2026-09-06T00:00:00Z`，返回 `[time, low, high, open, close, volume]`，**新→旧
+    <30证据> - **数据可得性**：本会话只验证了 2025-08 起的 14 个月；更早历史未验证，若早期 Binance 月度文件缺失或格式不同，回测窗口会变短、事件数可能不到 30。
+  quant-014: 1:不确定; 2:不确定; 5:不确定; 6:不确定
+    <30证据> test_2w: 独立结果按 event 计（同一交易日的 Up/Down 与 Opens 两个市场算 1 个）；两周只能新增约 10–11 个日频 event，加上已有的 21 个历史 event 约 31 个；失败标准是吃单子集扣费后每份毛/净损益 ≤ 0，或模型 log loss 劣于常数 0.53
+    <30证据> **结论（我自己的判断，写死在这里）**：日频 Up/Down 的「模型说 0.5、市场说 0.625 所以卖」是**错的**——市场 `p6` 的 Brier 0.174 显著优于任何常数，方向性吃单在 21 个 event 上毛损益已经是负的。本条因此把日频市场降级为「只用于监控/不交易」，收益只押在阶梯档位上。样本只有 21 个 event，不足 30
+    <30证据> - **独立结果按 event 数**：同一交易日的 `spx-up-or-down-*` 与 `spx-opens-up-or-down-*` 是同一标的、同一数据日的两个市场 → **算 1 个**；同一天的多个 NVDA strike 也算 1 个。日频序列约 21 个 event/月 → **两周新增约 10–11 个**；加上本次已能取到价格历史的
+    <30证据> 6. **两周内能检验：不确定** — 按 event 计，两周新增约 10–11 个日频 event，加已有的 21 个约 31 个，数量上勉强够；但**同一标的的连续交易日高度相关**，严格意义上的独立结果远少于 30，且阶梯腿两周几乎拿不到样本。按 GUIDE 第 2 节第 6 条，本条更可能应进**待选区**。
+  quant-016: 2:不确定; 4:不确定; 5:不确定; 6:不满足
+    <30证据> test_2w: 独立结果按 event 计（同片各档共享一次结算，算 1 个）；两周只覆盖 2026-10-26 与 2026-11-09 两批共约 5–6 个 event，凑不到 30；失败标准：模型对已结算 event 的 Brier/log loss 不优于市场中间价，或已成交份额中位已实现毛利 ≤0
+    <30证据> - **独立结果按 event 数**：同一部片的所有档位共用一次结算（同一数据源、同一时点），算 **1 个**结果。两周内到期的是 `2026-10-26` 那批（clayface、klara-and-the-sun、ali-g-who-iz-i、wildwood 共 4 个）和 `2026-11-09` 那批（godzilla-minus-zero、w
+    <30证据> 2. **有免费数据能检验：不确定** — 市场侧完美（Gamma + CLOB，已关闭 event 也有 1 分钟历史，564 个点实测）；**模型侧不行**：RT reviews 页由 JS 渲染，HTML 里 0 个评论日期字段，所以"某时刻已出多少条评论、几条新鲜"**无法事后回放**，只能前向记录。历史 ≥30 个独立结果的"模型"数据拿不到。
+    <30证据> 6. **两周内能检验：不满足** — 独立结果按 event 计，两周只到期约 5–6 个 event，凑不到 30；30 个约需 3 个月（每月约 10 个）。按 GUIDE 第 2 节第 6 条，本类应进**待选区**。
+  quant-018: 4:不确定; 5:不确定; 6:不确定
+    <30证据> test_2w: 独立结果按 weekly event 计（不按档）；历史侧共有 43 个已关闭事件可用（Hormuz 31 + Bab 12），两周内可再前向记录约 4 个；失败标准是已成交 NO 份额的中位已实现毛利≤0，或两周成交<20 份，或同一批事件上基准率 Brier 差于市场价
+    <30证据> - **历史侧（本次已部分做完，可复现）**：43 个已关闭事件 + PortWatch 全量日度数据都在，两周内可以把"每个事件的每档公允值 vs 当期价格"补齐到 30 个以上——只要逐个事件抓 `prices-history`。**目前的障碍是逐档价格缺失**（25 个里只有 6 个取全），不是事件数不够。
+    <30证据> - **前向侧**：每周 2 个 event（两海峡），两周 4 个，凑不到 30；只能当"先看成交"的小样本。
+    <30证据> - **一个月多少次机会**：每周 2 个 event（Hormuz + Bab，2026-07-13 起每周都有；更早 Hormuz 也是每周一个）→ **约 8–9 个 event/月**。但真正会触发挂单的只有外侧档，多数周只有 0–2 档触发。
+    <30证据> 6. **两周内能检验：不确定** — 独立结果按 event 计：历史侧 43 个已关闭事件够 30，两周内能补齐"公允值 vs 价格"的对照；但**逐档价格缺失**（25 个里 6 个）可能补不到 30 个；前向两周只有 4 个 event，不够。
+  quant-019: 2:不确定; 4:不确定; 5:不确定; 6:不满足
+    <30证据> test_2w: 独立结果按 event 计，该板块实测约 1 个/月（2026 年每月 1 个短阶梯，另加 1 个年度阶梯），两周最多 1–2 个，凑不到 30；失败标准为已成交 YES 份额中位毛利≤0，或模型对下一期 CDC 打印的 log loss 劣于市场中间价
+    <30证据> - **独立结果按 event 计**，不按档、不按打印日：同一 event 的 17 个档共享同一个 CDC 计数，算 1 个结果；年度阶梯与当月短阶梯共用同一结算源，严口径还要合并成 1 个。实测该板块 2026 年**每月只有 1 个短阶梯，另加 1 个年度阶梯**，因此**两周最多 1–2 个独立结果，拿不到 30 个**，30 个大约要 15 个月
+    <30证据> 2. **有免费数据能检验：不确定** — CDC 页面免费免密钥且可达（HTTP 200），但**周序列只有渲染图、未查到 CSV/JSON**；已结算档位能反推出 8 个计数窗口（这是可复现的，脚本已给），价格侧的历史盘口本次未取。所以"至少 30 个独立结果的收益数据"拿不到。
+    <30证据> 6. **两周内能检验：不满足** — 独立结果按 event 计，该板块 **1 个短阶梯/月 + 1 个年度阶梯**，两周最多 1–2 个，30 个约需 15 个月。按 GUIDE 第 2 节第 6 条，本类应进**待选区**。
+  quant-020: 4:不确定; 5:不确定
+    <30证据> test_2w: 独立结果按 event=公司-季度计（一事件一市场），2026-10-20 起 16 天内 Gamma 上有 118 个 open event，两周可拿到约 100 个；失败标准：0.40–0.55 带内按事件分组净 PnL 中位 ≤0，或带内 YES 率 ≤ 事前价均值
+    <30证据> - 样本量：2026-10-20 起 16 天内 Gamma 上 open 事件 **118 个**（第一页 100 个的 `endDate` 全部 ≤ 2026-10-30，第二页 18 个到 2026-11-05），财报季两周约 100 个，去掉非 GAAP/GAAP 合并与无价格点的，预计仍有 **60–90** 个 → 两周内**能**拿到 ≥30 
+    <30证据> - 容量：单事件成交额中位 $6,232、p90 $29,916（来源自报，未核实）。200 USDT/event 在中位事件上约占 3.2%，可放；**5,000 USDT 总量放不满**——15 个 event × 200 = 3,000，但真实只在手 1–3 天，且中间带本身只占样本 **35/247 = 14.2%**，机会密度低于事件密度：财报季约
+    <30证据> 6. **两周内能检验：满足** — 独立结果按 event（公司-季度）计；2026-10-20 起 16 天内 Gamma 上有 118 个 open event，财报季两周约 100 个，扣掉口径合并与无价格点后预计 60–90 个 ≥ 30。失败标准写死（带内净 PnL 中位 ≤0 或 YES 率 ≤ 事前均价）。
+
+== 出处抓取 ==
+模板 URL 行数: 39; 唯一非模板 URL: 162; 需抓取: 0
+  全部命中缓存
+
+== 出处存活汇总 ==
+entry,urls,alive,dead,manual,template
+quant-001,3,2,0,1,0
+quant-002,1,1,0,0,0
+quant-005,18,15,0,0,3
+quant-006,18,9,2,1,6
+quant-007,14,9,0,2,3
+quant-009,21,12,2,4,3
+quant-010,20,16,1,1,2
+quant-011,10,6,0,0,4
+quant-012,17,14,0,0,3
+quant-013,10,8,0,2,0
+quant-014,13,11,0,1,1
+quant-016,18,14,0,0,4
+quant-018,17,16,0,0,1
+quant-019,11,7,0,1,3
+quant-020,12,6,0,0,6
+CSV: bots/quant/notes/r1-audit/url_status.csv
+
+== 死链/需人工复核明细 ==
+  quant-001:
+    [manual] 403 https://www.sciencedirect.com/science/article/abs/pii/S0304405X14002566 
+  quant-006:
+    [dead] 404 https://api.github.com/repos/JeffSackmann/tennis_atp 
+    [dead] 404 https://polymarket.com/api/rewards/markets/current 
+    [manual] 403 https://www.atptour.com/en/scores/current 
+  quant-007:
+    [manual] 403 https://arena.ai/leaderboard/text/overall-no-style-control 
+    [manual] 403 https://lmarena.ai/leaderboard/text 
+  quant-009:
+    [dead] 404 https://archive.org/wayback/cdx/ 
+    [dead] 404 https://www.coinbase.com/rss/blog?category=listing 
+    [manual] 400 https://clob.polymarket.com/prices-history 
+    [manual] 422 https://gamma-api.polymarket.com/public-search 
+    [manual] 403 https://www.coinbase.com/blog/listing 
+    [manual] 403 https://www.coinbase.com/blog/rss 
+  quant-010:
+    [dead] 404 https://open.spotify.com/charts 
+    [manual] 403 https://flixpatrol.com/top10/netflix/world/ 
+  quant-013:
+    [manual] 429 https://api.semanticscholar.org/graph/v1/paper/search?query=coinbase%20premium%20bitcoin 
+    [manual] 429 https://export.arxiv.org/api/query?search_query=abs:%22Coinbase%22+AND+abs:%22Bitcoin%22 
+  quant-014:
+    [manual] 429 https://query1.finance.yahoo.com/v8/finance/chart/%5ESPX?range=5y&interval=1d 
+  quant-019:
+    [manual] 403 https://www.cdc.gov/measles/data-research/index.html 
+
+== 查重候选（每待核条目 top 6，含 improves 定向） ==
+  quant-001:
+    0.750 T-T2-vm                          bot=known  text=0.20 field=0.00 shared= early=other
+    0.263 dot-022                          bot=dot    text=0.07 field=0.75 shared= early=other
+    0.259 quant-003                        bot=quant  text=0.15 field=0.59 shared= early=same
+    0.258 dot-024                          bot=dot    text=0.06 field=0.75 shared= early=other
+    0.251 quant-002                        bot=quant  text=0.08 field=0.68 shared= early=same
+    0.250 dot-021                          bot=dot    text=0.08 field=0.68 shared= early=other
+  quant-002:
+    0.750 E-E2-turn-of-month               bot=known  text=0.12 field=0.00 shared= early=other
+    0.251 quant-001                        bot=quant  text=0.08 field=0.68 shared= early=same
+  quant-005:
+    0.295 quant-004                        bot=quant  text=0.10 field=0.80 shared= early=same
+  quant-006:
+    0.298 quant-021                        bot=quant  text=0.11 field=0.80 shared= early=quant
+    0.290 quant-011                        bot=quant  text=0.09 field=0.80 shared= early=same
+    0.276 muse-own-polymarket-pinnacle-line-shopping bot=muse   text=0.07 field=0.80 shared= early=quant
+    0.275 muse-own2-live-goal-lag          bot=muse   text=0.06 field=0.80 shared= early=quant
+    0.270 dot-013                          bot=dot    text=0.05 field=0.80 shared= early=other
+    0.266 muse-own2-tail-sports-midband    bot=muse   text=0.05 field=0.80 shared= early=quant
+  quant-007:
+    0.314 quant-017                        bot=quant  text=0.13 field=0.81 shared= early=quant
+  quant-009:
+    0.295 dot-007                          bot=dot    text=0.09 field=0.82 shared= early=other
+    0.269 dot-018                          bot=dot    text=0.08 field=0.71 shared=https://clob.polymarket.com/prices-history early=other
+    0.246 quant-008                        bot=quant  text=0.11 field=0.62 shared= early=same
+  quant-010:
+    0.278 quant-016                        bot=quant  text=0.06 field=0.81 shared= early=quant
+  quant-011:
+    0.292 quant-021                        bot=quant  text=0.09 field=0.80 shared= early=quant
+    0.290 quant-006                        bot=quant  text=0.09 field=0.80 shared= early=same
+    0.284 muse-own2-tail-sports-midband    bot=muse   text=0.08 field=0.80 shared= early=quant
+    0.283 muse-own-polymarket-pinnacle-line-shopping bot=muse   text=0.08 field=0.80 shared= early=quant
+    0.282 muse-own2-live-goal-lag          bot=muse   text=0.08 field=0.80 shared= early=quant
+    0.273 muse-own2-live-surprise-fade     bot=muse   text=0.06 field=0.80 shared= early=quant
+  quant-012:
+    0.310 quant-015                        bot=quant  text=0.11 field=0.84 shared= early=quant
+    0.286 dot-001                          bot=dot    text=0.08 field=0.80 shared= early=other
+    0.277 muse-own2-tail-weather-expiry-favfade bot=muse   text=0.07 field=0.80 shared= early=quant
+    0.271 dot-002                          bot=dot    text=0.06 field=0.80 shared= early=other
+    0.263 quant-019                        bot=quant  text=0.15 field=0.59 shared= early=quant
+    0.259 quant-018                        bot=quant  text=0.16 field=0.57 shared= early=quant
+  quant-013:
+  quant-014:
+    0.317 quant-020                        bot=quant  text=0.13 field=0.83 shared= early=same
+    0.240 quant-012                        bot=quant  text=0.13 field=0.57 shared= early=other
+  quant-016:
+    0.278 quant-010                        bot=quant  text=0.06 field=0.81 shared= early=other
+  quant-018:
+    0.750 quant-012                        bot=quant  text=0.16 field=0.57 shared= early=other
+  quant-019:
+    0.263 quant-012                        bot=quant  text=0.15 field=0.59 shared= early=other
+  quant-020:
+    0.317 quant-014                        bot=quant  text=0.13 field=0.83 shared= early=same
+CSV: bots/quant/notes/r1-audit/dupes.csv
