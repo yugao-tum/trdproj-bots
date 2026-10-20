@@ -1,0 +1,17 @@
+N games 638 dates 2024-09-05 2026-10-18
+Brier Elo      0.21827
+Brier PM       0.20705
+Brier Vega     0.20663
+corr Elo/PM    0.8515
+mean |Elo-PM|  0.0818
+mean |Vegas-PM| 0.0132
+PM home mean   0.5551 home win rate 0.5329
+ELO edge>= 0.01 {'n': 471, 'winrate': np.float64(0.5138), 'mean_edge': np.float64(0.086), 'mean_profit_per_share': np.float64(-0.0031), 'mean_ret': np.float64(-0.0317), 'total_profit_per_unit': np.float64(-1.47), 'median_ret': np.float64(0.1323), 'pos_share': np.float64(0.5159), 'home_share': np.float64(0.6093)}
+ELO edge>= 0.02 {'n': 429, 'winrate': np.float64(0.5128), 'mean_edge': np.float64(0.093), 'mean_profit_per_share': np.float64(-0.0031), 'mean_ret': np.float64(-0.0348), 'total_profit_per_unit': np.float64(-1.31), 'median_ret': np.float64(0.1323), 'pos_share': np.float64(0.5152), 'home_share': np.float64(0.6154)}
+ELO edge>= 0.03 {'n': 379, 'winrate': np.float64(0.5119), 'mean_edge': np.float64(0.1021), 'mean_profit_per_share': np.float64(0.0001), 'mean_ret': np.float64(-0.0266), 'total_profit_per_unit': np.float64(0.03), 'median_ret': np.float64(0.145), 'pos_share': np.float64(0.5145), 'home_share': np.float64(0.6227)}
+ELO edge>= 0.05 {'n': 295, 'winrate': np.float64(0.4932), 'mean_edge': np.float64(0.1199), 'mean_profit_per_share': np.float64(-0.0082), 'mean_ret': np.float64(-0.0369), 'total_profit_per_unit': np.float64(-2.42), 'median_ret': np.float64(-1.0), 'pos_share': np.float64(0.4949), 'home_share': np.float64(0.6305)}
+VEGAS edge>= 0.01 {'n': 28, 'winrate': np.float64(0.4286), 'mean_edge': np.float64(0.0244), 'mean_profit_per_share': np.float64(0.1064), 'mean_ret': np.float64(0.2126), 'total_profit_per_unit': np.float64(2.98), 'median_ret': np.float64(-1.0), 'pos_share': np.float64(0.4286), 'home_share': np.float64(0.3214)}
+VEGAS edge>= 0.02 {'n': 6, 'winrate': np.float64(0.3333), 'mean_edge': np.float64(0.0626), 'mean_profit_per_share': np.float64(0.0059), 'mean_ret': np.float64(0.1128), 'total_profit_per_unit': np.float64(0.04), 'median_ret': np.float64(-1.0), 'pos_share': np.float64(0.3333), 'home_share': np.float64(0.5)}
+VEGAS edge>= 0.03 {'n': 3, 'winrate': np.float64(0.3333), 'mean_edge': np.float64(0.1013), 'mean_profit_per_share': np.float64(0.0415), 'mean_ret': np.float64(-0.402), 'total_profit_per_unit': np.float64(0.12), 'median_ret': np.float64(-1.0), 'pos_share': np.float64(0.3333), 'home_share': np.float64(0.3333)}
+VEGAS edge>= 0.05 {'n': 1, 'winrate': np.float64(0.0), 'mean_edge': np.float64(0.2345), 'mean_profit_per_share': np.float64(-0.032), 'mean_ret': np.float64(-1.0), 'total_profit_per_unit': np.float64(-0.03), 'median_ret': np.float64(-1.0), 'pos_share': np.float64(0.0), 'home_share': np.float64(0.0)}
+COMBO n 3 {'winrate': np.float64(0.3333), 'mean_profit': np.float64(0.0415), 'mean_ret': np.float64(-0.402), 'total_profit': np.float64(0.12)}

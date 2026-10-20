@@ -1,0 +1,46 @@
+Bucket persistence (all history, unadjusted):
+0 61557 0.0038175999480156604
+(0,.05) 88 0.13636363636363635
+[.05,.25) 207 0.8115942028985508
+[.25,1) 578 0.9065743944636678
+[1,5) 1401 0.9428979300499644
+>=5 3225 0.9807751937984496
+
+margin 0.03 side YES n 16 wins 15 pnl +3.1184 cap 11.8816 ROI +26.245% weeks 4
+margin 0.05 side YES n 14 wins 13 pnl +2.9848 cap 10.0152 ROI +29.803% weeks 4
+margin 0.08 side YES n 11 wins 10 pnl +2.6383 cap 7.3617 ROI +35.838% weeks 4
+margin 0.1 side YES n 8 wins 7 pnl +2.1504 cap 4.8496 ROI +44.343% weeks 3
+
+margin 0.03 side NO n 17 wins 17 pnl +1.5545 cap 15.4455 ROI +10.064% weeks 4
+margin 0.05 side NO n 9 wins 9 pnl +1.3050 cap 7.6950 ROI +16.960% weeks 3
+margin 0.08 side NO n 3 wins 3 pnl +0.9878 cap 2.0122 ROI +49.088% weeks 2
+margin 0.1 side NO n 3 wins 3 pnl +0.9878 cap 2.0122 ROI +49.088% weeks 2
+
+Primary margin .05 YES details:
+margin 0.05 side YES n 14 wins 13 pnl +2.9848 cap 10.0152 ROI +29.803% weeks 4
+  2026-08-25 AR prior 0.99 ask 0.500 age 10.5 pb 0.902 (n=540) res True pnl +0.4775
+  2026-08-25 MS prior 0.87 ask 0.510 age 12.6 pb 0.902 (n=540) res True pnl +0.4675
+  2026-08-25 NM prior 3.05 ask 0.552 age 63.5 pb 0.942 (n=1371) res True pnl +0.4256
+  2026-08-25 NC prior 0.33 ask 0.500 age 29.6 pb 0.902 (n=540) res True pnl +0.4775
+  2026-08-25 SC prior 0.19 ask 0.520 age 10.5 pb 0.810 (n=203) res False pnl -0.5425
+  2026-09-01 MS prior 0.87 ask 0.820 age 54.6 pb 0.903 (n=544) res True pnl +0.1629
+  2026-09-15 MS prior 0.87 ask 0.803 age 56.9 pb 0.904 (n=552) res True pnl +0.1791
+  2026-09-15 NE prior 0.93 ask 0.804 age 56.9 pb 0.904 (n=552) res True pnl +0.1782
+  2026-09-15 NV prior 0.82 ask 0.821 age 56.9 pb 0.904 (n=552) res True pnl +0.1620
+  2026-09-15 TX prior 3.42 ask 0.891 age 55.7 pb 0.942 (n=1382) res True pnl +0.0945
+  2026-10-06 MS prior 0.87 ask 0.840 age 30.0 pb 0.905 (n=566) res True pnl +0.1436
+  2026-10-06 NC prior 0.34 ask 0.820 age 4.1 pb 0.905 (n=566) res True pnl +0.1629
+  2026-10-06 TX prior 3.63 ask 0.877 age 51.9 pb 0.943 (n=1391) res True pnl +0.1084
+  2026-10-06 WI prior 3.06 ask 0.490 age 37.1 pb 0.943 (n=1391) res True pnl +0.4875
+
+Primary margin .05 NO details:
+margin 0.05 side NO n 9 wins 9 pnl +1.3050 cap 7.6950 ROI +16.960% weeks 3
+  2026-08-25 AL prior 0.00 ask 0.540 age 65.1 pb 0.004 (n=61230) res False pnl +0.4376
+  2026-08-25 MN prior 0.00 ask 0.542 age 63.5 pb 0.004 (n=61230) res False pnl +0.4354
+  2026-09-01 LA prior 0.00 ask 0.940 age 5.8 pb 0.004 (n=61266) res False pnl +0.0476
+  2026-09-01 SD prior 0.00 ask 0.940 age 26.6 pb 0.004 (n=61266) res False pnl +0.0476
+  2026-09-01 WA prior 0.00 ask 0.930 age 35.3 pb 0.004 (n=61266) res False pnl +0.0572
+  2026-09-01 WI prior 0.00 ask 0.930 age 5.5 pb 0.004 (n=61266) res False pnl +0.0572
+  2026-09-01 WY prior 0.00 ask 0.870 age 5.3 pb 0.004 (n=61266) res False pnl +0.1147
+  2026-09-08 AZ prior 0.00 ask 0.941 age 62.8 pb 0.004 (n=61302) res False pnl +0.0467
+  2026-09-08 LA prior 0.00 ask 0.926 age 61.4 pb 0.004 (n=61302) res False pnl +0.0610

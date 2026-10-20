@@ -1,0 +1,16 @@
+200   264996 https://earthquake.usgs.gov/fdsnws/event/1/query?format=csv&starttime=2000-01-01&endtime=2026-10-01&minmagnitude=6.4&orderby=time-asc
+200       32 https://earthquake.usgs.gov/fdsnws/event/1/count?format=geojson&starttime=2015-01-01&endtime=2026-01-01&minmagnitude=6.5
+200       32 https://earthquake.usgs.gov/fdsnws/event/1/count?format=geojson&starttime=2015-01-01&endtime=2026-01-01&minmagnitude=7.0
+200       33 https://earthquake.usgs.gov/fdsnws/event/1/count?format=geojson&starttime=2015-01-01&endtime=2026-01-01&minmagnitude=5.5
+200      473 https://earthquake.usgs.gov/fdsnws/event/1/query?format=text&starttime=2026-10-12&endtime=2026-10-19&minmagnitude=6.5
+200    23464 https://earthquake.usgs.gov/earthquakes/search/
+200    35704 https://gamma-api.polymarket.com/events?slug=how-many-6pt5-or-above-earthquakes-worldwide-october-19-october-25
+200    35881 https://gamma-api.polymarket.com/events?slug=how-many-6pt5-or-above-earthquakes-worldwide-october-12-october-18
+200   961041 https://gamma-api.polymarket.com/public-search?q=earthquake&limit_per_type=50&events_status=all
+200  1544087 https://gamma-api.polymarket.com/public-search?q=magnitude&limit_per_type=50&events_status=all
+200  1498296 https://gamma-api.polymarket.com/events?tag_slug=earthquake&limit=500&closed=true&order=endDate&ascending=false
+200     2241 https://clob.polymarket.com/prices-history?market=2500092545816023700094480893694885475686508335314406123382468585117526026802&interval=max&fidelity=60
+200       15 https://clob.polymarket.com/prices-history?market=101519993085150541985963030400073395102135944737997204045298260898135285026732&interval=max&fidelity=60
+200        3 https://gamma-api.polymarket.com/markets?slug=how-many-6pt5-or-above-earthquakes-worldwide-october-19-october-25
+200   961041 https://gamma-api.polymarket.com/public-search?q=earthquake&limit_per_type=50&events_status=closed&page=1
+200     1906 https://data-api.polymarket.com/trades?market=0xe88699f06db8629bf5497f00343d0bc4c52497eae0476212b5bff381769d863a&limit=2&offset=0

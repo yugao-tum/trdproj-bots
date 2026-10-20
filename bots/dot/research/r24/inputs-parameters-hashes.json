@@ -1,0 +1,146 @@
+{
+  "schema": "r24.integration-input-contract.v1",
+  "claim": "main50071d78bfe4a748065c4ae06c083106b0808160",
+  "initial_total": 5000,
+  "venue": 2500,
+  "budgets": [
+    1250,
+    625
+  ],
+  "costs": [
+    "0.003",
+    "0.006"
+  ],
+  "entry_ms": 1704067200000,
+  "september_end_ms": 1790812799999,
+  "october_end_ms": 1792454399999,
+  "quantum": "1e-24 mathematical asset units; not executable exchange lot",
+  "funding_filter": "entry < actual fundingTime <= endpoint",
+  "price_rows_per_asset": 1023,
+  "funding_events_per_asset": 3068,
+  "new_funding_events": 171,
+  "new_joined_price_rows": 57,
+  "acquisition": {
+    "funding": {
+      "endpoint": "https://fapi.binance.com/fapi/v1/fundingRate",
+      "startTime": 1790812800000,
+      "endTime": 1792454399999,
+      "limit": 1000,
+      "calls": 3
+    },
+    "prices": {
+      "perpetual_trade": "https://fapi.binance.com/fapi/v1/klines",
+      "mark": "https://fapi.binance.com/fapi/v1/markPriceKlines",
+      "interval": "1d",
+      "calls": 6
+    },
+    "spot": "Reuse consumed October1–18; only October19 missing fields acquired. See retained role02 acquisition manifest.",
+    "bounded_public_calls_total": 12,
+    "reused_spot_asset_days": 54,
+    "new_spot_calls": 3
+  },
+  "sha256": {
+    "r20-proposal/04-prices/output/daily_prices.csv": "6b68f5edfac0d8e8e71622ba95c00e9db9a34516e64b21b61178a84fd5aa3d8a",
+    "r24-proposal/04-prices/output/daily_prices.csv": "73c97d2a8a0f834f3eacbf5b48eceb55a1883d25c5dcefe0fdcbc2d7c83727c6",
+    "r20-proposal/01-funding/output/funding.csv": "0f0fca8b9c4133d3f37855f8789e14a92f9fdbff44851cbdb353eaf30bcc2062",
+    "r24-proposal/03-funding/output/funding.csv": "8be5e121d8151dedf0dfadaf56a4be808adcf201ed7b0cd15149d21c986f3c04",
+    "r24-proposal/01-cap-proof/output/quantity-matrix.json": "5e3b03c9693157ec1753b221d085185003007d02c42b1d3578f80811676d4659",
+    "r24-proposal/01-cap-proof/output/frozen-manifest.json": "ec717aaf210acda9eaca016517561fd9dc3837d3af31a87bc8f202c5ec159978",
+    "r24-proposal/08-margin/output/RESULT.json": "6b514b7e3dc49b6785704224c00c9500b9a58d9bc01e445914496a9f003138e3",
+    "r24-proposal/09-economics/output/RESULT.json": "50ef06f8bde761e263023e98470218d0fe909b91559438c1346642cf44d87de3"
+  },
+  "reproduction": "Python3 standard library; supply retained workers root with --workers. Hashes pin historical data, not a promise current endpoint returns identical historical payloads.",
+  "cases": [
+    {
+      "scenario_id": "BTCUSDT_b1250_c0.003",
+      "symbol": "BTCUSDT",
+      "budget": "1250",
+      "cost": "0.003",
+      "q0": "0.029473881264333510987584937695447702496029871730560"
+    },
+    {
+      "scenario_id": "BTCUSDT_b1250_c0.006",
+      "symbol": "BTCUSDT",
+      "budget": "1250",
+      "cost": "0.006",
+      "q0": "0.029385986986209255984639853388204816703298172311880"
+    },
+    {
+      "scenario_id": "BTCUSDT_b625_c0.003",
+      "symbol": "BTCUSDT",
+      "budget": "625",
+      "cost": "0.003",
+      "q0": "0.014736940632166755493792468847723851248014935865280"
+    },
+    {
+      "scenario_id": "BTCUSDT_b625_c0.006",
+      "symbol": "BTCUSDT",
+      "budget": "625",
+      "cost": "0.006",
+      "q0": "0.014692993493104627992319926694102408351649086155940"
+    },
+    {
+      "scenario_id": "ETHUSDT_b1250_c0.003",
+      "symbol": "ETHUSDT",
+      "budget": "1250",
+      "cost": "0.003",
+      "q0": "0.54615785138984567855505647554000822321476629418366"
+    },
+    {
+      "scenario_id": "ETHUSDT_b1250_c0.006",
+      "symbol": "ETHUSDT",
+      "budget": "1250",
+      "cost": "0.006",
+      "q0": "0.54452915004375269939435551189525670763857911835608"
+    },
+    {
+      "scenario_id": "ETHUSDT_b625_c0.003",
+      "symbol": "ETHUSDT",
+      "budget": "625",
+      "cost": "0.003",
+      "q0": "0.27307892569492283927752823777000411160738314709183"
+    },
+    {
+      "scenario_id": "ETHUSDT_b625_c0.006",
+      "symbol": "ETHUSDT",
+      "budget": "625",
+      "cost": "0.006",
+      "q0": "0.27226457502187634969717775594762835381928955917804"
+    },
+    {
+      "scenario_id": "SOLUSDT_b1250_c0.003",
+      "symbol": "SOLUSDT",
+      "budget": "1250",
+      "cost": "0.003",
+      "q0": "12.251879830426141943810722766815558044701914704177"
+    },
+    {
+      "scenario_id": "SOLUSDT_b1250_c0.006",
+      "symbol": "SOLUSDT",
+      "budget": "1250",
+      "cost": "0.006",
+      "q0": "12.215343409460656431055820015025849621109364262713"
+    },
+    {
+      "scenario_id": "SOLUSDT_b625_c0.003",
+      "symbol": "SOLUSDT",
+      "budget": "625",
+      "cost": "0.003",
+      "q0": "6.1259399152130709719053613834077790223509573520884"
+    },
+    {
+      "scenario_id": "SOLUSDT_b625_c0.006",
+      "symbol": "SOLUSDT",
+      "budget": "625",
+      "cost": "0.006",
+      "q0": "6.1076717047303282155279100075129248105546821313566"
+    }
+  ],
+  "delivery_adapter": {
+    "version": 2,
+    "change": "Remove dependencies on unpublished role01/08/09 derived files. Input contract carries original stored q0 and case parameters only; cap and results are recomputed independently.",
+    "frozen_manifest_sha256": "ec717aaf210acda9eaca016517561fd9dc3837d3af31a87bc8f202c5ec159978",
+    "raw_input_requirement": "Only the first four price/funding CSV paths in sha256 are required under --workers; all other sha256 entries record original provenance, not runtime dependencies.",
+    "baseline_results_unchanged": true
+  }
+}

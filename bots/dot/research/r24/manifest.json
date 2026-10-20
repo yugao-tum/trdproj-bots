@@ -1,0 +1,9 @@
+{
+  "REPORT.zh.md": "d56f3c8acfb8d2b8abeab1aa1fc91aeb033055ca1e0cf9401822d05bcb2eff47",
+  "reproduce.py": "1ed81b56ea7860bd48ef0bdd45229bc80e6c9cd306ccd39f87d2deea87e996ce",
+  "test_reproduce.py": "cca0c00c263e1e482ed2c4884cd6eb694cd953230165a29c03f97507f6e95e70",
+  "tests.log": "f9dc60edbfd7bd5c480d93a6ab837f23655351c633dc1794d7bd17e8fee3011d",
+  "compact-results.json": "8508cb9401fa1f6a7e526ed16b37b030c746aef06a97ca428ee915c00ef735d1",
+  "economic-sensitivity.json": "ba1f2299027f949d76122b27b9b79a48e41b98d2c34ff5d00ce923f7e6e06393",
+  "inputs-parameters-hashes.json": "333179d68c79627e2d1588310dde606417e03f2b28ecc86ffef830e7eca8e511"
+}

@@ -1,0 +1,169 @@
+{
+  "version": "C19-KrakenSpot-BinancePerp-current-fee-stress-v1",
+  "stage": "scope_and_source_gate_only; full10researchroles notstarted",
+  "created_at_utc": "2026-10-20T18:31:27.158403+00:00",
+  "family": "known A-A1 / existing dot019; zero new mechanisms",
+  "asset_map": {
+    "BTCUSDT": "XBTUSDT",
+    "ETHUSDT": "ETHUSDT",
+    "SOLUSDT": "SOLUSDT"
+  },
+  "capital": {
+    "total_primary_denominator": "5000",
+    "Kraken_initial_cash": "2500",
+    "Binance_initial_cash": "2500",
+    "currency": "USDT",
+    "no_cross_venue_margin_or_transfers": true
+  },
+  "windows": {
+    "entry_utc": "2024-01-01T00:00:00Z",
+    "primary_end_utc": "2026-09-30T23:59:59.999Z",
+    "extension_end_utc": "2026-10-19T23:59:59.999Z",
+    "extension_blind": false,
+    "entry_settlement_convention": "retain r20/r24 post-settlement opening; actual fundingTime strictly after frozen entry; daily spot opening prices are conditional timing proxies",
+    "historical_selection_note": "Binance history and Oct spot inputs already observed; no blind main-window or investment-OOS claim"
+  },
+  "costs": {
+    "Kraken_current_fee_proxy": "0.008",
+    "Kraken_unmeasured_buffers": [
+      "0.003",
+      "0.006"
+    ],
+    "Kraken_all_in": [
+      "0.011",
+      "0.014"
+    ],
+    "Binance_all_in": [
+      "0.003",
+      "0.006"
+    ],
+    "fee_cross_product_all_retained": true,
+    "base": [
+      "0.011",
+      "0.003"
+    ],
+    "base_is_not_conservative": true,
+    "not_historical_actual_or_account_fee_claim": true,
+    "fee_sources": [
+      "https://www.kraken.com/features/fee-schedule",
+      "https://support.kraken.com/articles/cross-platform-fee-tier-changes"
+    ]
+  },
+  "quantity": {
+    "A_reference_cases": [
+      {
+        "symbol": "BTCUSDT",
+        "budget": "1250",
+        "binance_cost": "0.003",
+        "fixed_quantity": "0.029441260089398829058011"
+      },
+      {
+        "symbol": "BTCUSDT",
+        "budget": "1250",
+        "binance_cost": "0.006",
+        "fixed_quantity": "0.029353528520878346695353"
+      },
+      {
+        "symbol": "BTCUSDT",
+        "budget": "625",
+        "binance_cost": "0.003",
+        "fixed_quantity": "0.014736940632166755493792468847723851248014935865280"
+      },
+      {
+        "symbol": "BTCUSDT",
+        "budget": "625",
+        "binance_cost": "0.006",
+        "fixed_quantity": "0.014692993493104627992319926694102408351649086155940"
+      },
+      {
+        "symbol": "ETHUSDT",
+        "budget": "1250",
+        "binance_cost": "0.003",
+        "fixed_quantity": "0.545514108850693877253726"
+      },
+      {
+        "symbol": "ETHUSDT",
+        "budget": "1250",
+        "binance_cost": "0.006",
+        "fixed_quantity": "0.543888539642345248949336"
+      },
+      {
+        "symbol": "ETHUSDT",
+        "budget": "625",
+        "binance_cost": "0.003",
+        "fixed_quantity": "0.27307892569492283927752823777000411160738314709183"
+      },
+      {
+        "symbol": "ETHUSDT",
+        "budget": "625",
+        "binance_cost": "0.006",
+        "fixed_quantity": "0.27226457502187634969717775594762835381928955917804"
+      },
+      {
+        "symbol": "SOLUSDT",
+        "budget": "1250",
+        "binance_cost": "0.003",
+        "fixed_quantity": "12.239413852512296969696153"
+      },
+      {
+        "symbol": "SOLUSDT",
+        "budget": "1250",
+        "binance_cost": "0.006",
+        "fixed_quantity": "12.202941804670854138688117"
+      },
+      {
+        "symbol": "SOLUSDT",
+        "budget": "625",
+        "binance_cost": "0.003",
+        "fixed_quantity": "6.1259399152130709719053613834077790223509573520884"
+      },
+      {
+        "symbol": "SOLUSDT",
+        "budget": "625",
+        "binance_cost": "0.006",
+        "fixed_quantity": "6.1076717047303282155279100075129248105546821313566"
+      }
+    ],
+    "A_unchanged_even_if_infeasible": "mark cell infeasible; no resize or funding substitution",
+    "B_formula": "floor_1e-24(min(2500/(S*(1+cK)),2500/(cB*P+A+D)))",
+    "A_price_guard": "max(1.0015*P,M,P)",
+    "D_open_loss": "max(M-P,0)",
+    "S": "Kraken spot entry proxy",
+    "P": "Binance perp entry proxy",
+    "M": "Binance mark entry",
+    "precision": "exact Fraction; 1e-24 mathematical units, NOT historical lot",
+    "expected_case_count": 36,
+    "cases_are_not_independent_outcomes": true
+  },
+  "cash_rules": [
+    "Kraken cash=2500-q*S*(1+cK); inventory=q",
+    "Binance cash=2500-cB*q*P; short=q; local marked equity=cash+funding+q*(P-mark)",
+    "four-side entry/exit costs once; September exit hypothetical only, no sell/reopen in continuing October view",
+    "no lending, borrowing, replenishment, reinvestment, outcome-dependent resize, cross-collateralization or real accounts",
+    "post-local-bankruptcy endpoints remain counterfactual; unknown MMR/cum not certified",
+    "primary5000 returns, all fee cells and negative cases; split matched-q collateral/cost/basis effects from cap-q exposure expansion"
+  ],
+  "source_gate": {
+    "cached_metadata_directory": "kraken-spot-feasibility-20261020",
+    "archive_members": [
+      "XBTUSDT_1440.csv",
+      "ETHUSDT_1440.csv",
+      "SOLUSDT_1440.csv"
+    ],
+    "known_member_compressed_bytes_total": 183418,
+    "new_http_body_total_limit_bytes": 1048576,
+    "decompressed_limit_per_member_bytes": 2097152,
+    "max_http_requests": 15,
+    "archive_policy": "exact official member offsets and legal part mapping, CRC/schema/date/hash/ETag checks; no whole archive; stop reading if Range ignored; no arbitrary file extraction",
+    "october_policy": "at most one public OHLC call per asset, interval1440, since2026Sep1 UTC for declared overlap; archive authoritative throughSep30, API onlyOct1–19; currentunfinished/afterOct19 excluded; overlap discrepancies recorded not silently overwritten",
+    "missing_policy": "no fill/zero/silentstartchange/assetdrop; entry or endpoint absent blocks corresponding cash case; intermediate spot missing only blocks affected valuation/statistics; existing Binance marks support local margin separately",
+    "access_policy": "stop on403/429, honor explicitRetryAfter; no credentials/paid/proxies/accountchanges/denialbypass; Bybit not queried",
+    "no_Kraken_price_rows_consumed_before_contract": true
+  },
+  "preserve": [
+    "old r20 twelve cases",
+    "r24 frozen cap/input/results",
+    "separate q0.522 ETH forward protocol/ledger"
+  ],
+  "publication": "scope first with freshknown/claims andSHAprotection; sourcegate outcome then genuine10-role study onlyifrealinputsupports distinctquestions; whole research batch afterall10 complete; onlybots/dot"
+}
