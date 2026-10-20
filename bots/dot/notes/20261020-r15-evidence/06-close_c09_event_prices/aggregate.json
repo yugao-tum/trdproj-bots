@@ -1,0 +1,151 @@
+{
+  "decoder": "pyarrow 26.0.0",
+  "file_audit": [
+    {
+      "file": "dinesh_labels.parquet",
+      "bytes": 743684,
+      "sha256": "d8c509016fd15ba0ac346c9b9eedd5febcaf660703093ea4a3886b87cb979dbc",
+      "classification": "parquet_container_requires_decode",
+      "row_pages_decoded": true,
+      "rows": 187094,
+      "fields": [
+        "slug",
+        "y",
+        "source"
+      ],
+      "null_counts": {
+        "slug": 0,
+        "y": 0,
+        "source": 0
+      }
+    },
+    {
+      "file": "dinesh_quotes_20260710.parquet",
+      "bytes": 804193,
+      "sha256": "3d3bf4368f4a43ccff36aac2c3b2c3e34a806f3a09f7de7bacd98d83d5116e38",
+      "classification": "parquet_container_requires_decode",
+      "row_pages_decoded": true,
+      "rows": 783350,
+      "fields": [
+        "ts",
+        "slug",
+        "category",
+        "bid",
+        "ask",
+        "mid",
+        "spread",
+        "volume24hr",
+        "segment"
+      ],
+      "null_counts": {
+        "ts": 0,
+        "slug": 0,
+        "category": 0,
+        "bid": 326574,
+        "ask": 222991,
+        "mid": 349393,
+        "spread": 349393,
+        "volume24hr": 468108,
+        "segment": 0
+      }
+    },
+    {
+      "file": "pancake_nov2024_resolutions.parquet",
+      "bytes": 65897,
+      "sha256": "36a0697c448a5580923e1b785cf47ad7409c7ded96ee62c5d37cfee7c78da8ee",
+      "classification": "parquet_container_requires_decode",
+      "row_pages_decoded": true,
+      "rows": 258,
+      "fields": [
+        "resolution_id",
+        "market_id",
+        "venue",
+        "winning_outcome_instrument_id",
+        "winning_outcome_label",
+        "resolution_source",
+        "evidence_uri",
+        "normalizer_version",
+        "manifest_id",
+        "resolved_at",
+        "released_at",
+        "received_at",
+        "schema_version",
+        "external_ids",
+        "license"
+      ],
+      "null_counts": {
+        "resolution_id": 0,
+        "market_id": 0,
+        "venue": 0,
+        "winning_outcome_instrument_id": 0,
+        "winning_outcome_label": 0,
+        "resolution_source": 0,
+        "evidence_uri": 258,
+        "normalizer_version": 0,
+        "manifest_id": 0,
+        "resolved_at": 0,
+        "released_at": 0,
+        "received_at": 0,
+        "schema_version": 0,
+        "external_ids": 0,
+        "license": 0
+      }
+    }
+  ],
+  "counts": {
+    "labels_unique_slugs": 187094,
+    "labels_duplicate_slug_rows": 0,
+    "labels_conflicting_y_slug_count": 0,
+    "label_source_counts": {
+      "api": 169458,
+      "convergence": 17636
+    },
+    "quote_rows": 783350,
+    "quote_unique_slugs": 9266,
+    "quote_slugs_with_label": 6877,
+    "quote_rows_with_label": 560074,
+    "quote_slugs_without_label": 2389,
+    "quote_min_naive_time": "2026-07-10 20:25:46",
+    "quote_max_naive_time": "2026-07-10 23:59:33",
+    "quote_timezone": "not encoded; do not assume UTC",
+    "quote_categories": {
+      "sports": 732025,
+      "culture": 18030,
+      "politics": 16949,
+      "climate": 5860,
+      "finance": 3626,
+      "macro": 2352,
+      "technology": 2352,
+      "crypto": 1274,
+      "geopolitics": 882
+    },
+    "quote_invalid_bid_ask_rows": 0,
+    "quote_null_bid_or_ask_rows": 349393,
+    "resolution_rows": 258,
+    "resolution_unique_market_ids": 258,
+    "resolution_nonnull_evidence_uri": 0,
+    "resolution_external_condition_ids": 258,
+    "resolution_catalog_condition_id_exact_matches": 0,
+    "resolution_catalog_market_id_exact_matches": 0,
+    "resolution_received_after_resolved": 258,
+    "resolution_label_counts": {
+      "No": 189,
+      "Yes": 58,
+      "Republican": 2,
+      "Trump": 1,
+      "Republicans": 1,
+      "Eagles": 1,
+      "Jones": 1,
+      "Bills": 1,
+      "Chargers": 1,
+      "Browns": 1,
+      "Clippers": 1,
+      "Lions": 1
+    },
+    "complete_trade_event_panels": 0,
+    "independently_verified_settlements": 0,
+    "new_mechanisms": 0,
+    "strategy_backtests": 0,
+    "net_pnl": null
+  }
+}

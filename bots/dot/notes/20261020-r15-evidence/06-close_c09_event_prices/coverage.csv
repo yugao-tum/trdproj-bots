@@ -1,0 +1,5 @@
+source,identifier,pre_event_rules_end_vintage,trade_timestamp_price_quantity,complementary_executable_book,settlement_label,verified_settlement_evidence
+Dinesh quotes,slug only,absent,absent; quote timestamps and bid/ask only,absent; no token/side or depth,join labels by slug only,absent
+Dinesh labels,slug only,absent,absent,absent,y and source flag,absent
+Pancake resolutions,market UUID + condition ID + provider ID,absent,absent,absent,outcome label/instrument ID,all evidence_uri null
+Marketlens catalogs,market/condition IDs and event labels,"close time only, not vintage",absent in catalog,absent in catalog,winning outcome / resolved_at,not independently verified

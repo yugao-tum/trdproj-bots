@@ -1,0 +1,392 @@
+{
+  "01-build_capital_cash_benchmarks": {
+    "original_sha256": "0986a41f3c8182ebcac296281caf6a4729429d8006141dd31f9d2dba6bf08799",
+    "bytes": 1619,
+    "registration": {
+      "frozen_utc": "2026-10-20T09:45:07.482277+00:00",
+      "model": "native OpenAI / ID 未暴露",
+      "window": [
+        "2024-01-01",
+        "2026-09-30"
+      ],
+      "warmup": "2023 (unused by cash/BTC baseline)",
+      "initial_total": 5000,
+      "venue_cash": 1250,
+      "external_cash": 3750,
+      "BTC_initial_notional": 1100,
+      "fees": [
+        0.003,
+        0.006
+      ],
+      "withdrawal_scenarios": [
+        {
+          "fee": 0,
+          "delay_opens": 0
+        },
+        {
+          "fee": 1,
+          "delay_opens": 1
+        }
+      ],
+      "rules": "At each UTC open settle due transfers; retain pre-sweep open risk. If venue equity exceeds1250, use existing cash then minimum proportional sale to fund withdrawal of excess after sale fee. Withdrawal fixed fee deducted from transfer amount. Skip sweep if net transfer <=0. Never top up from external cash; BTC never buy again. All fees deducted, transfer not alpha. Close and simultaneous-high upper risk separately. Final mark and net liquidation value both reported; terminal holdings not actually sold. Cash held nominal USDT, no yield/depeg model. No parameter selection. Daily data not intraday cap proof.",
+      "classification": "retrospective historical price conditional execution; withdrawal terms unverified engineering assumptions",
+      "risk_cap": 2500,
+      "tests": [
+        "cash conservation",
+        "fee trade conservation",
+        "withdrawal transfer conservation",
+        "delay settlement",
+        "gap breach preservation",
+        "cash deficit order resizing",
+        "proportional multiasset sale",
+        "high bound unknown simultaneity"
+      ],
+      "snapshot": "../remote-snapshot.json; known B-B1-hold benchmark, not new mechanism"
+    }
+  },
+  "02-test_c22_capital_execution": {
+    "original_sha256": "aa1ed8d6a80d6e8232c87b9a3d071e3df82c519288a43df5e00b63d20affda09",
+    "bytes": 2638,
+    "registration": {
+      "registered_at_utc": "2026-10-20T09:45:17.911829+00:00",
+      "task": "r15-native02",
+      "model": "native OpenAI / ID not exposed",
+      "role": "fixed original C22 capital-execution correction, not new mechanism",
+      "inputs": [
+        {
+          "path": "retained-inputs/workers/data-probe/data/history/spot_daily.csv",
+          "exists": true,
+          "sha256": "a008fbd0514f4d01bd477fc008de9fb24b8dfae5e83ebda2ced8bbf2e89bcf0a",
+          "bytes": 921335
+        },
+        {
+          "path": "retained-inputs/plans/spot_screen.py",
+          "exists": true,
+          "sha256": "8e56d8e5c2e73c97710c795ee11a1fbdf86f6d5a2fac1f3688160d68160b3d8c",
+          "bytes": 40972
+        },
+        {
+          "path": "retained-inputs/continuation-20261020/workers/r15-proposal/remote-snapshot.json",
+          "exists": true,
+          "sha256": "c3ef2a15ed6122852ece95952aad70657d6b4ebd06d94af6ef204c09df71d4ff",
+          "bytes": 152876
+        }
+      ],
+      "window": [
+        "2024-01-01",
+        "2026-09-30"
+      ],
+      "warmup": "2023",
+      "retrospective": true,
+      "signal": "original spot_screen.c22_target: prior 60-day momentum BTC,ETH,SOL; stable tie order; Monday open top positive else cash",
+      "capital": {
+        "initial": 5000,
+        "venue": 1250,
+        "external": 3750,
+        "max_target_notional": 1100,
+        "target_fraction": 0.9,
+        "no_replenishment": true
+      },
+      "cost_rates": [
+        0.003,
+        0.006
+      ],
+      "paired_experiment": [
+        "same adapter no withdrawals",
+        "withdraw venue value above 1250 at each open; sell necessary position first"
+      ],
+      "withdrawal_scenarios": [
+        {
+          "fee": 0,
+          "delay_days": 0,
+          "meaning": "optimistic engineering bound"
+        },
+        {
+          "fee": 1,
+          "delay_days": 1,
+          "meaning": "unverified engineering stress"
+        }
+      ],
+      "final_liquidation": "at final close, charged same cost",
+      "independence": "contiguous nonzero-risk episodes, rotating coins remains same cluster; no independence proven by disjointness",
+      "metrics": [
+        "net PnL",
+        "cost decomposition",
+        "5000 and 1250 denominator annualization",
+        "daily BTC correlation",
+        "opening gap/close/high boundary",
+        "cash conservation"
+      ],
+      "stop": "any gate fail => reject fixed rule; no parameter search",
+      "snapshot_read": [
+        "GUIDE.md",
+        "known/KNOWN.md",
+        "reviews/REVIEWS.csv",
+        "bots/muse/CLAIMS.md",
+        "bots/quant/CLAIMS.md",
+        "bots/dot/CLAIMS.md",
+        "scoreboard/SCOREBOARD.md",
+        "bots/muse/INDEX.md",
+        "bots/quant/INDEX.md",
+        "bots/dot/INDEX.md",
+        "bots/muse/LOG.md",
+        "bots/quant/LOG.md",
+        "bots/dot/LOG.md"
+      ],
+      "network_requests": []
+    }
+  },
+  "03-test_c23_capital_execution": {
+    "original_sha256": "e818c27d991fecb04d6f85aba0f53ec9f2480410e8af9ae840c2f1f35fa0b087",
+    "bytes": 2719,
+    "registration": {
+      "utc": "2026-10-20T09:45:45.507044+00:00",
+      "strategy": "C23",
+      "model": "native OpenAI / model ID not exposed",
+      "new_mechanisms": 0,
+      "symbol": "SOLUSDT",
+      "warmup": "2023-01-01..2023-12-31",
+      "period": "2024-01-01..2026-09-30",
+      "split": "2025-01-01 retrospective only; not unseen OOS",
+      "signal": "Original simple RSI14 previous close; flat and RSI<30 buy next open; invested RSI>50 or age>=14 calendar days sell at open; no same-day re-entry; terminal close liquidation with fee",
+      "capital": {
+        "total": 5000,
+        "venue": 1250,
+        "external": 3750,
+        "notional_cap": 1100,
+        "target_fraction": 0.9,
+        "no_external_topup": true
+      },
+      "execution": "At each open shared module sweeps venue equity above1250 to external reserve, selling only necessary quantity. Original signal state/age retained while invested. No profits compounded after withdrawal. No loss replenishment.",
+      "cost_rates": [
+        0.003,
+        0.006
+      ],
+      "withdrawal_scenarios": [
+        {
+          "name": "optimistic",
+          "fee": 0,
+          "delay_days": 0
+        },
+        {
+          "name": "engineering_stress",
+          "fee": 1,
+          "delay_days": 1
+        }
+      ],
+      "benchmark": "SOL and BTC fixed 1100 initial buy only, same module/budget/sweep scenarios, plus 5000 cash",
+      "independence": "Contiguous original invested spells are upper bound; merge repeated entries since last RSI>50 recovery into common oversold episode. Not claim 30 independent outcomes without causal validation.",
+      "classification": "Real historical OHLC, conditional execution simulation, no fills or verified withdrawal fees/delays. Daily bars cannot establish continuous venue compliance; opening gap flags preserved.",
+      "decision": "Stop this version if economics fail. No signal change, threshold scan, parameter search or cherry-picked time slice.",
+      "inputs": [
+        {
+          "path": "retained-inputs/workers/data-probe/data/history/spot_daily.csv",
+          "sha256": "a008fbd0514f4d01bd477fc008de9fb24b8dfae5e83ebda2ced8bbf2e89bcf0a",
+          "bytes": 921335
+        },
+        {
+          "path": "retained-inputs/plans/spot_screen.py",
+          "sha256": "8e56d8e5c2e73c97710c795ee11a1fbdf86f6d5a2fac1f3688160d68160b3d8c",
+          "bytes": 40972
+        },
+        {
+          "path": "retained-inputs/results/spot-screen/summary.json",
+          "sha256": "a9a2d45fdee6f39ac9f6802b6b0cb179a24da838fffb7c8ff58cf6785de33408",
+          "bytes": 289842
+        },
+        {
+          "path": "retained-inputs/continuation-20261020/workers/r15-proposal/remote-snapshot.json",
+          "sha256": "c3ef2a15ed6122852ece95952aad70657d6b4ebd06d94af6ef204c09df71d4ff",
+          "bytes": 152876
+        }
+      ]
+    }
+  },
+  "04-test_c40_capital_execution": {
+    "original_sha256": "fffd1ccc586960b441c4d786e60e015ce6c29458af07ff9b6eb720a553469306",
+    "bytes": 1699,
+    "registration": {
+      "frozen_utc": "2026-10-20T09:45:37.682578+00:00",
+      "model": "native OpenAI / ID 未暴露",
+      "mechanism": "existing C40 supplement; no new mechanism",
+      "symbol": "BTCUSDT",
+      "window": [
+        "2024-01-02",
+        "2026-09-30"
+      ],
+      "fees": [
+        0.003,
+        0.006
+      ],
+      "total": 5000,
+      "venue_initial": 1250,
+      "external_initial": 3750,
+      "entry_notional": "min(1100,0.9*venue_cash), unchanged",
+      "entry": "prior UTC day all 3 funding rates strictly negative and prior close>=lowest prior20close*1.01",
+      "exit": "prior day last2 funding nonnegative OR entry+7 calendar days at open; no same-day reentry; final close liquidation",
+      "calibration": "original frozen code, daily equity and trade/episode values versus frozen results; same adapter no-withdrawal daily equality before paired tests",
+      "withdrawal": "use native01 preregistered module; at UTC open after due transfer settlement and before rule trades sweep venue equity above1250 using cash then minimum proportional sale; preserve gap exceedance before sweep",
+      "withdrawal_scenarios": [
+        {
+          "fee": 0,
+          "delay_opens": 0
+        },
+        {
+          "fee": 1,
+          "delay_opens": 1
+        }
+      ],
+      "withdrawal_terms": "unverified engineering assumptions, not observed charges/latency",
+      "independence": "nonoverlap holding episodes only upperbound; common-cause crowding independence unverified; no daily/crosssymbol splitting",
+      "no_search": true,
+      "stop": "fixed rule fails annual8% and 3% leg evidence: freeze rule, no tuning",
+      "classification": "real historical inputs; conditional fills/withdrawals; no future unseen OOS",
+      "risk": "pre-open known breaches retained; daily high diagnostic, intraday not established"
+    }
+  },
+  "05-close_c19_cash_data": {
+    "original_sha256": "594d299c64def3da07d5a7b5bbe58ee22da7b1eb4ad64c9a6c383e6d526a5a5b",
+    "bytes": 706,
+    "registration": {
+      "utc": "2026-10-20T09:46:26.463917+00:00",
+      "task": "r15-native05",
+      "role": "cash data availability only",
+      "symbol": "BTCUSDT",
+      "month": "2024-02",
+      "reason": "earliest month absent from retained January archives",
+      "interval": "1h",
+      "new_requests_max": 6,
+      "stop": "first failure; no retry, page loop, alternate endpoint or expansion",
+      "historical_test": "retrospective data schema test, no PnL computation",
+      "costs": {
+        "base_per_side": 0.003,
+        "stress_per_side": 0.006,
+        "historical_actual": "unknown"
+      },
+      "capital": {
+        "total": 5000,
+        "venue_cap": 2500,
+        "full_collateral": "not established"
+      },
+      "dedup": "C19 / known A-A1-funding-carry; no new mechanism"
+    }
+  },
+  "06-close_c09_event_prices": {
+    "original_sha256": "4908dc24f1eab04f780763f50fd3262c6343b371654f9794142806678d3ec93f",
+    "bytes": 1374,
+    "registration": {
+      "utc": "2026-10-20T09:47:12.443147+00:00",
+      "role": "C09 data closure only; no return experiment",
+      "model": "native OpenAI; exact model ID not exposed",
+      "selection": "Use the three already downloaded small parquet files, decode all rows. No new market data download. Earliest complete window means one with canonical event ID, pre-event rules and end vintage, actual trades (timestamp price size), independently evidenced settlement, both sides. If none, freeze empty admissible panel; do not substitute catalog labels as independent events. If any complete events, sort canonical event ID and take first 30 before any returns.",
+      "exclude": "No strategy work in sports midband, imminent weather fade, or new quant claims. Data field audit only, no new mechanism.",
+      "outcomes": [
+        "file classification",
+        "decoded row counts",
+        "field coverage",
+        "20 deterministic field examples locally",
+        "join counts if supported"
+      ],
+      "no_proxies": [
+        "quotes are not trades",
+        "trade price is not executable ask",
+        "labels are not independently verified final settlement",
+        "no historical end-time invention"
+      ],
+      "network": "No Gamma calls or alternative route. No X refused-post retry. Offline market data only.",
+      "publication": "No raw row examples or market data published; publish small own code, aggregated counts and hashes only."
+    }
+  },
+  "07-screen_compute_service_cash": {
+    "original_sha256": "179ce60c536e3e244f2599b95d3e5a4a84b0ceb367318a59c015d1c3abec05d7",
+    "bytes": 358,
+    "registration": {
+      "role": "bounded public source screening; no experiment",
+      "created_utc": "2026-10-20T09:51:53.896629+00:00",
+      "timing": "Post-screen role declaration, NOT an ex ante trading-rule registration. No data test or strategy tuning was performed.",
+      "experimental_preregistration_required": false,
+      "request_cap": 8,
+      "claim_before_deep_research": true
+    }
+  },
+  "08-screen_bandwidth_service_cash": {
+    "original_sha256": "d11ad1271ca9e592903e9ce6aa852c43d04e9b4b38242f3789cf371b6b4ef0b8",
+    "bytes": 652,
+    "registration": {
+      "role": "bounded public initial screen; not experiment",
+      "recorded_utc": "2026-10-20T09:52:47.502613+00:00",
+      "prospective_preregistration": false,
+      "note": "Screening constraints fixed in input prompt before research; this metadata is written after public source reading. No experiment or backtest performed.",
+      "candidate": "Orchid customer-funded bandwidth service",
+      "max_public_requests": 8,
+      "max_official_bodies": 2,
+      "max_payment_examples": 1,
+      "max_x_leads": 1,
+      "stop": "No verifiable customer payment history or accessible small-capital supplier entry => no claim, no entry, stop.",
+      "model": "native OpenAI / ID 未暴露"
+    }
+  },
+  "09-test_crossasset_time_robustness": {
+    "original_sha256": "4872ad2ca1fd08a9b432eb24f855bf8c71ae49782496e8790387e0435bc9161b",
+    "bytes": 1465,
+    "registration": {
+      "utc": "2026-10-20T09:52:52.289469+00:00",
+      "status": "Frozen before local computation, NOT blinded preregistration: parent handed over 02-04 results before this worker began. Matrix prescribed in prompt; no result-dependent selection.",
+      "rules": {
+        "C23": "prior-close simple RSI14<30 entry; >50 exit or14calendar days; no same-day reentry",
+        "C40": "prior day all3 funding<0 and prior close>=1.01*prior20close minimum; last2 prior funding>=0 exit or7days"
+      },
+      "assets": [
+        "BTCUSDT",
+        "ETHUSDT",
+        "SOLUSDT"
+      ],
+      "new_mechanisms": 0,
+      "costs": [
+        0.003,
+        0.006
+      ],
+      "withdrawals": [
+        [
+          0,
+          0
+        ],
+        [
+          1,
+          1
+        ]
+      ],
+      "capital": [
+        5000,
+        1250,
+        3750
+      ],
+      "entry": "min(1100,0.9venuecash); no replenishment",
+      "periods": [
+        "2024",
+        "2025",
+        "2026-01-01/2026-09-30"
+      ],
+      "starts": [
+        "2024-01-01 inherited",
+        "2025-01-01 flat cash reset, historical warmup retained"
+      ],
+      "classification": "Retrospective real-history conditional capital simulations, not unseen OOS, not actual fills",
+      "diagnostics": "Merge all cross-asset/rule overlapping episodes; correlations; delete ex-post largest profitable episode by rerunning identical fixed schedule with that entry omitted, not a tradable rule; no optimization",
+      "source_access": "Local frozen inputs only; zero network requests",
+      "code_sha256": "0cfe11c749772d8c4d53d263d35ee582a5e26f6ac861439543d308cfac214baf"
+    }
+  },
+  "10-integrate_qualification_decisions": {
+    "original_sha256": "edd451974b3b0327eca865fb0af9c460d6356b72b4a7f10a56f4a68d8db512f5",
+    "bytes": 636,
+    "registration": {
+      "utc": "2026-10-20T09:56:22.871454+00:00",
+      "role": "retrospective independent integration, not new experiment",
+      "timing_disclosure": "Recorded after upstream results and independent arithmetic audit; not ex-ante registration",
+      "fixed_scope": "All upstream 01–09 results; no outcome selection, no tuning, no new strategies",
+      "tests": "Recompute all daily cash balances, cumulative PnL, withdrawals, all available trade notional and fee identities; audit first/last/max-open/max-high days and first trades/max profit episodes",
+      "prohibited": "No external requests, trades, keys, Go/Pi, edits outside own output, commits"
+    }
+  }
+}

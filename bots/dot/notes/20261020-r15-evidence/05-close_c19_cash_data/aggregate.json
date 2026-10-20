@@ -1,0 +1,201 @@
+{
+  "archive_audit": [
+    {
+      "kind": "spot",
+      "month": "2024-01",
+      "rows": 744,
+      "start_ms": 1704067200000,
+      "last_open_ms": 1706742000000,
+      "timestamp_unit": "ms",
+      "price_unit": "USDT / BTC",
+      "header": null,
+      "sha256": "cf873a185bd5b24b8e00034e49583fcb49928e0c3a45c6fc27a632a683655417",
+      "checksum_match": true,
+      "missing_hours": 0,
+      "duplicate_hours": 0,
+      "field_count": 12
+    },
+    {
+      "kind": "spot",
+      "month": "2024-02",
+      "rows": 696,
+      "start_ms": 1706745600000,
+      "last_open_ms": 1709247600000,
+      "timestamp_unit": "ms",
+      "price_unit": "USDT / BTC",
+      "header": null,
+      "sha256": "b83aa7319ef1d4baa7b923c0fe802b88dfaf241c7456af295f1f656a24379b33",
+      "checksum_match": true,
+      "missing_hours": 0,
+      "duplicate_hours": 0,
+      "field_count": 12
+    },
+    {
+      "kind": "perp",
+      "month": "2024-01",
+      "rows": 744,
+      "start_ms": 1704067200000,
+      "last_open_ms": 1706742000000,
+      "timestamp_unit": "ms",
+      "price_unit": "USDT / BTC",
+      "header": [
+        "open_time",
+        "open",
+        "high",
+        "low",
+        "close",
+        "volume",
+        "close_time",
+        "quote_volume",
+        "count",
+        "taker_buy_volume",
+        "taker_buy_quote_volume",
+        "ignore"
+      ],
+      "sha256": "bf673f3d10804a951e8bac56dd2473486f113025971d43ebe5258ec40f9bfeb3",
+      "checksum_match": true,
+      "missing_hours": 0,
+      "duplicate_hours": 0,
+      "field_count": 12
+    },
+    {
+      "kind": "perp",
+      "month": "2024-02",
+      "rows": 696,
+      "start_ms": 1706745600000,
+      "last_open_ms": 1709247600000,
+      "timestamp_unit": "ms",
+      "price_unit": "USDT / BTC",
+      "header": [
+        "open_time",
+        "open",
+        "high",
+        "low",
+        "close",
+        "volume",
+        "close_time",
+        "quote_volume",
+        "count",
+        "taker_buy_volume",
+        "taker_buy_quote_volume",
+        "ignore"
+      ],
+      "sha256": "655ff5ac0fc570956756944c7afef4895c9bd149342f1e437de97292cbd1fe22",
+      "checksum_match": true,
+      "missing_hours": 0,
+      "duplicate_hours": 0,
+      "field_count": 12
+    },
+    {
+      "kind": "mark",
+      "month": "2024-01",
+      "rows": 744,
+      "start_ms": 1704067200000,
+      "last_open_ms": 1706742000000,
+      "timestamp_unit": "ms",
+      "price_unit": "USDT / BTC",
+      "header": [
+        "open_time",
+        "open",
+        "high",
+        "low",
+        "close",
+        "volume",
+        "close_time",
+        "quote_volume",
+        "count",
+        "taker_buy_volume",
+        "taker_buy_quote_volume",
+        "ignore"
+      ],
+      "sha256": "759f86a22dadb455c87a3f90f6a9134c73d24a55a7596f0b96e193b5d45cdb49",
+      "checksum_match": true,
+      "missing_hours": 0,
+      "duplicate_hours": 0,
+      "field_count": 12
+    },
+    {
+      "kind": "mark",
+      "month": "2024-02",
+      "rows": 696,
+      "start_ms": 1706745600000,
+      "last_open_ms": 1709247600000,
+      "timestamp_unit": "ms",
+      "price_unit": "USDT / BTC",
+      "header": [
+        "open_time",
+        "open",
+        "high",
+        "low",
+        "close",
+        "volume",
+        "close_time",
+        "quote_volume",
+        "count",
+        "taker_buy_volume",
+        "taker_buy_quote_volume",
+        "ignore"
+      ],
+      "sha256": "edb8b7e0174e386accbdf09a022192ddadf3cc0cb874fc079ff38bf808b3be88",
+      "checksum_match": true,
+      "missing_hours": 0,
+      "duplicate_hours": 0,
+      "field_count": 12
+    }
+  ],
+  "funding_schema": [
+    "symbol",
+    "calc_time_utc",
+    "calc_time_raw",
+    "calc_time_raw_utc",
+    "funding_interval_hours",
+    "last_funding_rate",
+    "jitter_ms"
+  ],
+  "funding_coverage": [
+    {
+      "symbol": "BTCUSDT",
+      "rows": 3012,
+      "first": "2024-01-01T00:00:00Z",
+      "last": "2026-09-30T16:00:00Z",
+      "calendar_days": 1004,
+      "funding_intervals_hours": [
+        "8"
+      ],
+      "duplicates": 0
+    },
+    {
+      "symbol": "ETHUSDT",
+      "rows": 3012,
+      "first": "2024-01-01T00:00:00Z",
+      "last": "2026-09-30T16:00:00Z",
+      "calendar_days": 1004,
+      "funding_intervals_hours": [
+        "8"
+      ],
+      "duplicates": 0
+    },
+    {
+      "symbol": "SOLUSDT",
+      "rows": 3012,
+      "first": "2024-01-01T00:00:00Z",
+      "last": "2026-09-30T16:00:00Z",
+      "calendar_days": 1004,
+      "funding_intervals_hours": [
+        "8"
+      ],
+      "duplicates": 0
+    }
+  ],
+  "settlement_mark_present": false,
+  "historical_fee_schedule_present": false,
+  "historical_margin_rules_present": false,
+  "twelve_month_triplet_verified": false,
+  "verified_triplet_months": 2,
+  "verified_synchronized_hours": 1440,
+  "new_profit_conclusion": null,
+  "classification": "data availability supplement; conditional accounting only",
+  "additional_2024_requests": 60,
+  "additional_2024_endpoint_requests": 6,
+  "additional_requests_note": "10 months x 3 archives x ZIP+CHECKSUM =60; January 2025 three-pack exit endpoint may add6; unrequested/unverified"
+}

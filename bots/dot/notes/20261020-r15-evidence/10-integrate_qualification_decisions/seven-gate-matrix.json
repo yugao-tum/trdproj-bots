@@ -1,0 +1,87 @@
+{
+  "order": [
+    "mechanism",
+    "free_income_data",
+    "small_capital",
+    "nonduplication",
+    "net_cost_return",
+    "30_independent_in_two_weeks",
+    "traceable_sources"
+  ],
+  "judgments": {
+    "C22": [
+      "partial: relative strength is not durable payer proof",
+      "partial: real prices, conditional fills",
+      "unknown: daily bounds only",
+      "existing mechanism, not new",
+      "fail: negative in all six cases",
+      "fail:10 event clusters maximum",
+      "pass: frozen sources and code hashes"
+    ],
+    "C23": [
+      "partial: oversold rebound is not payer proof",
+      "partial: real prices, conditional fills",
+      "unknown: daily bounds only",
+      "existing mechanism, not new",
+      "fail: original SOL negative;BTC variants <3% total CAGR",
+      "fail:18 oversold clusters original;crossasset independence unknown",
+      "pass: frozen sources and code hashes"
+    ],
+    "C40": [
+      "partial: negative funding crowding does not pay spot funding",
+      "partial: spot/funding real;funding not received",
+      "unknown: daily bounds only",
+      "existing mechanism, not new",
+      "fail: total CAGR<8%;pressure withdrawal negative",
+      "fail:19 original segments;common causes unknown",
+      "pass: frozen sources and code hashes"
+    ],
+    "BTC benchmark": [
+      "fail as new mechanism: market beta",
+      "partial: actual history conditional execution",
+      "unknown: daily bounds only",
+      "benchmark, not new",
+      "fail:total CAGR6.16–6.54%",
+      "fail:one risk episode",
+      "pass: source hashes"
+    ],
+    "C19": [
+      "partial: funding payer specified",
+      "fail:exact cash/margin/fee evidence incomplete",
+      "unknown:full collateral path not established",
+      "existing mechanism",
+      "not re-estimated this round;no passing result",
+      "unknown:funding rows are not independent bets",
+      "partial: source data clear,missing fields explicit"
+    ],
+    "C09": [
+      "partial:existing event mechanism",
+      "fail:complete event panel0",
+      "unknown:no executable full panel",
+      "existing mechanism",
+      "unknown:no lawful PnL inference",
+      "fail:verified outcome panel0",
+      "partial:quotes decoded;settlement provenance absent"
+    ],
+    "Golem": [
+      "partial: customer compute demand",
+      "fail:paid cashflow history0",
+      "unknown:hardware/power/capital costs",
+      "no duplicate in snapshot;not claimed",
+      "unknown:no net return evidence",
+      "fail:paid independent samples0",
+      "partial:official mechanism not actual cash evidence"
+    ],
+    "Orchid": [
+      "partial: customer bandwidth demand",
+      "fail:paid cashflow history0",
+      "unknown:provider eligibility/stake",
+      "no new claim",
+      "unknown:no net return evidence",
+      "fail:paid independent samples0",
+      "partial:official mechanism not actual cash evidence"
+    ]
+  },
+  "none_pass_all_seven": true,
+  "not_official_review": true
+}

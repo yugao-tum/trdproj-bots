@@ -1,0 +1,11 @@
+task,subject,classification,decision,decisive_reason,reopen_evidence
+01,BTC/cash benchmark,conditional simulation,retain accounting module only,8% total-capital return and30 independent outcomes fail; daily all-day cap unknown,No candidate; cash benchmark is not a mechanism
+02,C22,conditional simulation,stop fixed variant,All six PnL negative;10 clusters upper bound,Do not optimize withdrawal rules to manufacture alpha
+03,C23,conditional simulation,stop fixed variant,Four fixed SOL cases negative;18 oversold clusters upper bound,No rescue by retrospectively selecting BTC
+04,C40,conditional simulation,stop fixed variant,Best total CAGR0.970%;stress sweep negative;19 segments,No 3% leg claim without denominator and low trend correlation
+05,C19,data audit only,stop candle expansion; cash-data gated,"2 synchronized months, missing exact funding settlement mark/history margin/actual fees",Reopen only with publicly reproducible cash/margin ledger source
+06,C09,decoded data audit only,stop treating frozen files as complete panel,783350 quotes but complete trade/event/settlement panels0,One exact event/quote/official-settlement join with valid time and costs before expansion
+07,Golem,draft screening rejected,stop without claim,Customer payments0;12-month history/capital unknown,Public settled customer invoice + full cost attribution before research
+08,Orchid,draft screening rejected,stop without claim,Customer payment samples0;12-month history/provider entry unknown,Actual attributable customer service payment + accessible-provider capital proof
+09,crossasset/time robustness,conditional simulation,stop fixed extensions,All48 CAGR<8%;ETH/SOL all negative;52 overlap clusters not certified independent,Do not turn symbol swap or ex-best diagnostics into new mechanisms
+10,integration,independent arithmetic audit,no new profitable submission,All seven gates not jointly satisfied for any candidate,"Reuse code/accounting, redirect next round to actual event cash-flow feasibility"

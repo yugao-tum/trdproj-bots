@@ -1,0 +1,95 @@
+{
+  "utc": "2026-10-20T09:56:22.871454+00:00",
+  "actual_model": "native OpenAI / model ID not exposed",
+  "native_tasks_this_round": 10,
+  "Go_tasks": 0,
+  "Pi_tasks": 0,
+  "new_mechanisms": 0,
+  "qualified": 0,
+  "new_profitable_submissions_recommended": 0,
+  "audit_checks": 304642,
+  "audit_errors": 0,
+  "audit_groups": 84,
+  "decisions": [
+    {
+      "task": "01",
+      "subject": "BTC/cash benchmark",
+      "classification": "conditional simulation",
+      "decision": "retain accounting module only",
+      "decisive_reason": "8% total-capital return and30 independent outcomes fail; daily all-day cap unknown",
+      "reopen_evidence": "No candidate; cash benchmark is not a mechanism"
+    },
+    {
+      "task": "02",
+      "subject": "C22",
+      "classification": "conditional simulation",
+      "decision": "stop fixed variant",
+      "decisive_reason": "All six PnL negative;10 clusters upper bound",
+      "reopen_evidence": "Do not optimize withdrawal rules to manufacture alpha"
+    },
+    {
+      "task": "03",
+      "subject": "C23",
+      "classification": "conditional simulation",
+      "decision": "stop fixed variant",
+      "decisive_reason": "Four fixed SOL cases negative;18 oversold clusters upper bound",
+      "reopen_evidence": "No rescue by retrospectively selecting BTC"
+    },
+    {
+      "task": "04",
+      "subject": "C40",
+      "classification": "conditional simulation",
+      "decision": "stop fixed variant",
+      "decisive_reason": "Best total CAGR0.970%;stress sweep negative;19 segments",
+      "reopen_evidence": "No 3% leg claim without denominator and low trend correlation"
+    },
+    {
+      "task": "05",
+      "subject": "C19",
+      "classification": "data audit only",
+      "decision": "stop candle expansion; cash-data gated",
+      "decisive_reason": "2 synchronized months, missing exact funding settlement mark/history margin/actual fees",
+      "reopen_evidence": "Reopen only with publicly reproducible cash/margin ledger source"
+    },
+    {
+      "task": "06",
+      "subject": "C09",
+      "classification": "decoded data audit only",
+      "decision": "stop treating frozen files as complete panel",
+      "decisive_reason": "783350 quotes but complete trade/event/settlement panels0",
+      "reopen_evidence": "One exact event/quote/official-settlement join with valid time and costs before expansion"
+    },
+    {
+      "task": "07",
+      "subject": "Golem",
+      "classification": "draft screening rejected",
+      "decision": "stop without claim",
+      "decisive_reason": "Customer payments0;12-month history/capital unknown",
+      "reopen_evidence": "Public settled customer invoice + full cost attribution before research"
+    },
+    {
+      "task": "08",
+      "subject": "Orchid",
+      "classification": "draft screening rejected",
+      "decision": "stop without claim",
+      "decisive_reason": "Customer payment samples0;12-month history/provider entry unknown",
+      "reopen_evidence": "Actual attributable customer service payment + accessible-provider capital proof"
+    },
+    {
+      "task": "09",
+      "subject": "crossasset/time robustness",
+      "classification": "conditional simulation",
+      "decision": "stop fixed extensions",
+      "decisive_reason": "All48 CAGR<8%;ETH/SOL all negative;52 overlap clusters not certified independent",
+      "reopen_evidence": "Do not turn symbol swap or ex-best diagnostics into new mechanisms"
+    },
+    {
+      "task": "10",
+      "subject": "integration",
+      "classification": "independent arithmetic audit",
+      "decision": "no new profitable submission",
+      "decisive_reason": "All seven gates not jointly satisfied for any candidate",
+      "reopen_evidence": "Reuse code/accounting, redirect next round to actual event cash-flow feasibility"
+    }
+  ]
+}

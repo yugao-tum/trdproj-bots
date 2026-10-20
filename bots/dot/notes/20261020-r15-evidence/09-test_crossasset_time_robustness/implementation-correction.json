@@ -1,0 +1,6 @@
+{
+  "utc": "2026-10-20T09:53:25.944478+00:00",
+  "initial_attempt": "Failed before producing results: C40 2023-12-31 funding unavailable. No fabricated prior-day data.",
+  "correction": "Use frozen original C40 START=2024-01-02; unchanged original rules. C23 remains2024-01-01. FullC40 is1003days not1004.",
+  "code_sha256": "bcdcb49343414e399e4a37f965dd985bf7d40299fd5becdbeae8ead8d0da9755"
+}

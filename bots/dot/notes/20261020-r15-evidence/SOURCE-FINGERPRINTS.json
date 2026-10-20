@@ -1,0 +1,459 @@
+{
+  "01-build_capital_cash_benchmarks": {
+    "original_sha256": "0f873dc5f4ddaff6e84f9b2f75cbcac71f5bca5fb3fbc596d7827b33aaf6ba1b",
+    "bytes": 44528,
+    "note": "Full request ledger retained locally; uses previously frozen Binance public archives, not new market acquisition.",
+    "official_archive_root": "https://data.binance.vision/data/spot/monthly/klines/"
+  },
+  "02-test_c22_capital_execution": {
+    "original_sha256": "f0b1c76ee1b525897367027a4fb8c81338f33ac857e6b26828c82fd85933af11",
+    "bytes": 341400,
+    "note": "Full request ledger retained locally; uses previously frozen Binance public archives, not new market acquisition.",
+    "official_archive_root": "https://data.binance.vision/data/spot/monthly/klines/"
+  },
+  "03-test_c23_capital_execution": {
+    "original_sha256": "051639f9a7ac25a244fdfe1262f39375959c130ec2f598a78a665825f543f101",
+    "bytes": 132539,
+    "note": "Full request ledger retained locally; uses previously frozen Binance public archives, not new market acquisition.",
+    "official_archive_root": "https://data.binance.vision/data/spot/monthly/klines/"
+  },
+  "04-test_c40_capital_execution": {
+    "original_sha256": "9f02a4cb8a0e5aa13517ff22ba13fc64e03efab5a19096235807e06fd487e54c",
+    "bytes": 725,
+    "sources": {
+      "checked_utc": "2026-10-20T09:48:56.794660+00:00",
+      "new_http_requests": 0,
+      "status": "local immutable inputs verified",
+      "archive_manifest": "retained-inputs/workers/data-probe/data/history/manifest.json",
+      "archive_manifest_sha256": "440707c1bf4496f013abace02f8ed388ff7c0605d6e8697900137b962524094e",
+      "original_archive_status": "complete; HTTP per archive recorded in source manifest",
+      "original_started_utc": "2026-10-19T16:30:55.901525Z",
+      "source": "https://data.binance.vision/data/",
+      "snapshot_sha256": "c3ef2a15ed6122852ece95952aad70657d6b4ebd06d94af6ef204c09df71d4ff",
+      "remote_refresh": "parent owns latest head and claims refresh; task uses frozen supplied snapshot"
+    }
+  },
+  "05-close_c19_cash_data": {
+    "original_sha256": "817740d0c1349d2d251fd5d94ac5e1f43b02abfd896acc742b00dad56dc19522",
+    "bytes": 2217,
+    "sources": {
+      "requests": [
+        {
+          "url": "https://data.binance.vision/data/spot/monthly/klines/BTCUSDT/1h/BTCUSDT-1h-2024-02.zip",
+          "utc": "2026-10-20T09:46:26.464350+00:00",
+          "local": "raw/BTCUSDT-spot-2024-02.zip",
+          "status": 200,
+          "bytes": 40711,
+          "sha256": "b83aa7319ef1d4baa7b923c0fe802b88dfaf241c7456af295f1f656a24379b33"
+        },
+        {
+          "url": "https://data.binance.vision/data/spot/monthly/klines/BTCUSDT/1h/BTCUSDT-1h-2024-02.zip.CHECKSUM",
+          "utc": "2026-10-20T09:46:32.990384+00:00",
+          "local": "raw/BTCUSDT-spot-2024-02.zip.CHECKSUM",
+          "status": 200,
+          "bytes": 88,
+          "sha256": "8ab74a1cb6a22ec4d0a518794240506cc669eb9d48172d2b28dfcbd466090ab0"
+        },
+        {
+          "url": "https://data.binance.vision/data/futures/um/monthly/klines/BTCUSDT/1h/BTCUSDT-1h-2024-02.zip",
+          "utc": "2026-10-20T09:46:37.154696+00:00",
+          "local": "raw/BTCUSDT-perp-2024-02.zip",
+          "status": 200,
+          "bytes": 36374,
+          "sha256": "655ff5ac0fc570956756944c7afef4895c9bd149342f1e437de97292cbd1fe22"
+        },
+        {
+          "url": "https://data.binance.vision/data/futures/um/monthly/klines/BTCUSDT/1h/BTCUSDT-1h-2024-02.zip.CHECKSUM",
+          "utc": "2026-10-20T09:46:42.649372+00:00",
+          "local": "raw/BTCUSDT-perp-2024-02.zip.CHECKSUM",
+          "status": 200,
+          "bytes": 89,
+          "sha256": "d9201ea4f664efe6ff3999d819589def0b690510d9e6cc1c23c9a2fe4711a16c"
+        },
+        {
+          "url": "https://data.binance.vision/data/futures/um/monthly/markPriceKlines/BTCUSDT/1h/BTCUSDT-1h-2024-02.zip",
+          "utc": "2026-10-20T09:46:47.050446+00:00",
+          "local": "raw/BTCUSDT-mark-2024-02.zip",
+          "status": 200,
+          "bytes": 20187,
+          "sha256": "edb8b7e0174e386accbdf09a022192ddadf3cc0cb874fc079ff38bf808b3be88"
+        },
+        {
+          "url": "https://data.binance.vision/data/futures/um/monthly/markPriceKlines/BTCUSDT/1h/BTCUSDT-1h-2024-02.zip.CHECKSUM",
+          "utc": "2026-10-20T09:46:51.562628+00:00",
+          "local": "raw/BTCUSDT-mark-2024-02.zip.CHECKSUM",
+          "status": 200,
+          "bytes": 89,
+          "sha256": "aa557a2955d3fdfea52677b65180e010b8d9e905d500397e6127f0908e426bee"
+        }
+      ],
+      "model": "native OpenAI; model ID not exposed",
+      "external_model_calls": 0
+    }
+  },
+  "06-close_c09_event_prices": {
+    "original_sha256": "a928a6fc9c07b945f25cc0c8c726c95aa18809e30457bd63bb72f5c491a72c85",
+    "bytes": 2181,
+    "sources": {
+      "market_data_requests_this_task": 0,
+      "prior_fetches": [
+        {
+          "url": "https://huggingface.co/datasets/DineshKumar8399/polymarket-orderbook-dataset/resolve/main/labels.parquet",
+          "access_started_utc": "2026-10-19T20:26:59.416951+00:00",
+          "expected_sha256": "d8c509016fd15ba0ac346c9b9eedd5febcaf660703093ea4a3886b87cb979dbc",
+          "expected_bytes": 743684,
+          "purpose": "bounded raw availability and Parquet footer/schema audit, no P&L",
+          "status": 200,
+          "bytes": 743684,
+          "sha256": "d8c509016fd15ba0ac346c9b9eedd5febcaf660703093ea4a3886b87cb979dbc",
+          "checksum_matches": true,
+          "parquet_magic": "PAR1 / PAR1",
+          "access_completed_utc": "2026-10-19T20:27:10.936145+00:00"
+        },
+        {
+          "url": "https://huggingface.co/datasets/DineshKumar8399/polymarket-orderbook-dataset/resolve/main/quotes/dt%3D2026-07-10/data_0.parquet",
+          "access_started_utc": "2026-10-19T20:29:08.257608+00:00",
+          "expected_sha256": "3d3bf4368f4a43ccff36aac2c3b2c3e34a806f3a09f7de7bacd98d83d5116e38",
+          "expected_bytes": 804193,
+          "status": 200,
+          "bytes": 804193,
+          "sha256": "3d3bf4368f4a43ccff36aac2c3b2c3e34a806f3a09f7de7bacd98d83d5116e38",
+          "checksum_matches": true,
+          "access_completed_utc": "2026-10-19T20:29:20.134848+00:00"
+        },
+        {
+          "url": "https://raw.githubusercontent.com/usepancake/polymarket-history/356b59b01ae74cc558ae75d8dcf4b7971be5a509/datasets/v1/polymarket/resolutions/2024/11/part-0000.parquet",
+          "access_utc": "2026-10-19T20:28:16.458380+00:00",
+          "expected_sha256": "36a0697c448a5580923e1b785cf47ad7409c7ded96ee62c5d37cfee7c78da8ee",
+          "status": 200,
+          "bytes": 65897,
+          "sha256": "36a0697c448a5580923e1b785cf47ad7409c7ded96ee62c5d37cfee7c78da8ee",
+          "checksum_matches": true
+        }
+      ],
+      "blocked_dependency": {
+        "target": "gamma-api.polymarket.com",
+        "prior_state": "platform policy denial (C13), HTTP403/error1010 (C38)",
+        "action_this_task": "not requested; no alternative route",
+        "retry_time": "not established; do not retry automatically"
+      },
+      "new_software_dependency": "pyarrow from configured pip registry; no market API requested"
+    }
+  },
+  "07-screen_compute_service_cash": {
+    "original_sha256": "7a0b2888e67578a7a6b3de223999962c6951bf7883e8731adaf371d954cb390a",
+    "bytes": 2377,
+    "sources": [
+      {
+        "request": 1,
+        "utc": "2026-10-20T09:50:22Z",
+        "type": "search",
+        "query": "site.docs.golem.network provider hardware requirements payments",
+        "status": "search results; official documentation and GitHub snippets; snippets not transaction evidence"
+      },
+      {
+        "request": 2,
+        "utc": "2026-10-20T09:50:22Z",
+        "type": "search",
+        "query": "site.x.com Golem provider payments earned compute",
+        "status": "no relevant X post returned"
+      },
+      {
+        "request": 3,
+        "utc": "2026-10-20T09:50:27Z",
+        "type": "official_document",
+        "url": "https://docs.golem.network/docs/providers/provider-installation",
+        "status": "body read",
+        "finding": "Linux x86-64 and KVM required; example resource allocations are not a hardware price quote. Mainnet GLM differs from valueless testnet GLM. No hardware cost or electricity bill supplied."
+      },
+      {
+        "request": 4,
+        "utc": "2026-10-20T09:50:27Z",
+        "type": "official_document",
+        "url": "https://docs.golem.network/docs/golem/payments",
+        "status": "body read",
+        "finding": "Requestors pay providers GLM for metered runtime, processor time, and start fees. Usage invoices and debit notes exist; debit-note acceptance is not final cash payment; nonpayment risk exists."
+      },
+      {
+        "request": 5,
+        "utc": "2026-10-20T09:50:27Z",
+        "type": "payment_evidence_attempt",
+        "url": "https://stats.golem.network/network/earnings",
+        "status": "tool Internal Error: URL not accessible; HTTP status not exposed",
+        "finding": "Unverified guessed route; no data. No retry of this route."
+      },
+      {
+        "request": 6,
+        "utc": "2026-10-20T09:50:32Z",
+        "type": "official_stats",
+        "url": "https://stats.golem.network",
+        "status": "body read; official documentation-linked root distinct from failed guessed route"
+      },
+      {
+        "request": 7,
+        "utc": "2026-10-20T09:50:32Z",
+        "type": "search",
+        "query": "site:x.com/golemproject \"payments\" \"providers\"",
+        "status": "irrelevant X results only; no discussion verified"
+      },
+      {
+        "request": 8,
+        "utc": "2026-10-20T09:50:38Z",
+        "type": "read_returned_body",
+        "url": "https://stats.golem.network/",
+        "status": "36-line body retrieved",
+        "finding": "Network version adoption and 24h/7d/30d concurrent providers; Loading and zero placeholders. Not treated as real zero demand or a payment series."
+      }
+    ]
+  },
+  "08-screen_bandwidth_service_cash": {
+    "original_sha256": "633d5607e0fc56fef4c8a9dbec4670a84685ddbea9505487ab2951911c4846ec",
+    "bytes": 1995,
+    "sources": {
+      "requests": [
+        {
+          "utc": "2026-10-20T09:51:06Z",
+          "kind": "search",
+          "query": "site.orchid.com bandwidth provider nanopayments payment redeem ticket staking",
+          "status": "results; discovery only"
+        },
+        {
+          "utc": "2026-10-20T09:51:06Z",
+          "kind": "search",
+          "query": "site.x.com OrchidProtocol provider payments bandwidth",
+          "status": "no X URL surfaced in returned combined results; not evidence of absence"
+        },
+        {
+          "utc": "2026-10-20T09:51:12Z",
+          "kind": "official_body",
+          "url": "https://www.orchid.com/how/",
+          "status": "body read",
+          "positions": "lines 4-5,16-18,25-26,33-34,47,69-76"
+        },
+        {
+          "utc": "2026-10-20T09:51:12Z",
+          "kind": "official_body",
+          "url": "https://docs.orchid.com/en/latest/orchid-dapp/",
+          "status": "body read",
+          "positions": "lines 45-53,65-70,79-80"
+        },
+        {
+          "utc": "2026-10-20T09:51:15Z",
+          "kind": "payment_example_search",
+          "query": "Orchid nanopayment redeemed ticket transaction provider revenue history blockchain payment",
+          "status": "contract explorer search snippet surfaced; no actual attributable redemption verified",
+          "unopened_lead": "https://etherscan.io/address/0xb02396f06CC894834b7934ecF8c8E5Ab5C1d12F1"
+        },
+        {
+          "utc": "2026-10-20T09:51:15Z",
+          "kind": "search",
+          "query": "site:x.com/OrchidProtocol \"bandwidth\" \"payments\"",
+          "status": "no X URL surfaced in returned combined results; zero X bodies opened"
+        }
+      ],
+      "public_subrequests": 6,
+      "web_tool_calls": 3,
+      "official_bodies": 2,
+      "verified_payment_examples": 0,
+      "x_body_reads": 0,
+      "raw_http_status": "web tool did not expose raw HTTP codes; body success is not invented HTTP status",
+      "retrieval_precision": "UTC tool-call timestamps from current-time notices, within seconds; no raw response-body hashes available",
+      "blocked_action": "none denied in this task; stopped on evidence gate, not access denial"
+    }
+  },
+  "09-test_crossasset_time_robustness": {
+    "original_sha256": "3788729a13e6c7df2e9445d8556e5001cb0ece8b75f655111bcea6811021e61f",
+    "bytes": 948,
+    "sources": {
+      "utc": "2026-10-20T09:55:49.114287+00:00",
+      "requests": [],
+      "new_http_requests": 0,
+      "source": "https://data.binance.vision/data/",
+      "status": "Read and SHA-checked frozen local files; no fresh source request",
+      "archive_manifest": "retained-inputs/workers/data-probe/data/history/manifest.json",
+      "archive_manifest_sha256": "440707c1bf4496f013abace02f8ed388ff7c0605d6e8697900137b962524094e",
+      "source_request_utc_and_status": "Original per-archive HTTP requests/checksums retained in original archive manifest and role03 source-manifest.json; no invented current HTTP200",
+      "remote_snapshot": {
+        "path": "retained-inputs/continuation-20261020/workers/r15-proposal/remote-snapshot.json",
+        "sha256": "c3ef2a15ed6122852ece95952aad70657d6b4ebd06d94af6ef204c09df71d4ff",
+        "scope": "GUIDE,known,all claims,index,log,reviews,scoreboard; parent owns latest main refresh"
+      }
+    }
+  },
+  "10-integrate_qualification_decisions": {
+    "original_sha256": "68948b661834777918f23cffe86600729516a924ae213288713d82e22cddc805",
+    "bytes": 6317,
+    "sources": {
+      "utc": "2026-10-20T09:56:22.871454+00:00",
+      "external_requests": 0,
+      "method": "Read frozen remote snapshot and upstream local evidence. No invented source refresh.",
+      "references": [
+        {
+          "path": "remote-snapshot.json",
+          "sha256": "c3ef2a15ed6122852ece95952aad70657d6b4ebd06d94af6ef204c09df71d4ff",
+          "bytes": 152876
+        },
+        {
+          "path": "01-build_capital_cash_benchmarks/output/RESULT.md",
+          "sha256": "3a19b79b37f4d49f09ae86438180d7c3cd95165c3eeae15196cd60210f1c1664",
+          "bytes": 3375
+        },
+        {
+          "path": "01-build_capital_cash_benchmarks/output/summary.json",
+          "sha256": "f45b62ba34ceebb5f8f1902cbd3e5d4f0cb24d238010ffeb833bd93f4bdd06b5",
+          "bytes": 7325
+        },
+        {
+          "path": "01-build_capital_cash_benchmarks/output/source-manifest.json",
+          "sha256": "0f873dc5f4ddaff6e84f9b2f75cbcac71f5bca5fb3fbc596d7827b33aaf6ba1b",
+          "bytes": 44528
+        },
+        {
+          "path": "02-test_c22_capital_execution/output/RESULT.md",
+          "sha256": "c3b4f2ae5dac7b436d545de438e9efeef2e3433799a23f477775af73816fa2f0",
+          "bytes": 7615
+        },
+        {
+          "path": "02-test_c22_capital_execution/output/summary.json",
+          "sha256": "6cfbda7ddb4f46607795b44bce81340f8a18c2f361b5294dbe8ee885085a6ab9",
+          "bytes": 8700
+        },
+        {
+          "path": "02-test_c22_capital_execution/output/source-manifest.json",
+          "sha256": "f0b1c76ee1b525897367027a4fb8c81338f33ac857e6b26828c82fd85933af11",
+          "bytes": 341400
+        },
+        {
+          "path": "03-test_c23_capital_execution/output/RESULT.md",
+          "sha256": "09b45f4262791bad9b96f9228034fc9eae576a4a0c10cad4ab0274f53c0a4506",
+          "bytes": 5497
+        },
+        {
+          "path": "03-test_c23_capital_execution/output/summary.json",
+          "sha256": "9d708ddc17a6c6be48077901a2004ca64098a37c0a5b0fa9b93cef975be2230a",
+          "bytes": 18848
+        },
+        {
+          "path": "03-test_c23_capital_execution/output/source-manifest.json",
+          "sha256": "051639f9a7ac25a244fdfe1262f39375959c130ec2f598a78a665825f543f101",
+          "bytes": 132539
+        },
+        {
+          "path": "03-test_c23_capital_execution/output/tests.json",
+          "sha256": "941ae9719b0d9f4537438500584260c62693e5dd7283479746eacb1a677859d7",
+          "bytes": 168
+        },
+        {
+          "path": "04-test_c40_capital_execution/output/RESULT.md",
+          "sha256": "deddfbbf2dffde02780d0257b3912dcb21a25199fbc2a2925c0ff0353cd4aab2",
+          "bytes": 4241
+        },
+        {
+          "path": "04-test_c40_capital_execution/output/summary.json",
+          "sha256": "47b21e6fa0573210eefedf79022dab8c4725da7a5ad8cbb53e49e7d470fdcf2e",
+          "bytes": 7746
+        },
+        {
+          "path": "04-test_c40_capital_execution/output/source-manifest.json",
+          "sha256": "9f02a4cb8a0e5aa13517ff22ba13fc64e03efab5a19096235807e06fd487e54c",
+          "bytes": 725
+        },
+        {
+          "path": "04-test_c40_capital_execution/output/tests.json",
+          "sha256": "fd4758dafed4633cad4ad3dbcaba0cd328844ead47272384846627178f513eeb",
+          "bytes": 326
+        },
+        {
+          "path": "04-test_c40_capital_execution/output/event_clusters.json",
+          "sha256": "5d396ff0222fc0ec191b71e995189f03e68578be6f21c7fc58082b454392e7d0",
+          "bytes": 2306
+        },
+        {
+          "path": "05-close_c19_cash_data/output/RESULT.md",
+          "sha256": "5ce418a4e09e8441d9cd8e75a894b651bd782e85a35901146135fb6de486de1c",
+          "bytes": 6052
+        },
+        {
+          "path": "05-close_c19_cash_data/output/source-manifest.json",
+          "sha256": "817740d0c1349d2d251fd5d94ac5e1f43b02abfd896acc742b00dad56dc19522",
+          "bytes": 2217
+        },
+        {
+          "path": "05-close_c19_cash_data/output/aggregate.json",
+          "sha256": "e22b84bff809091a7eb079a35bffd22b81d8c38e463800b15e21934b55784be6",
+          "bytes": 5109
+        },
+        {
+          "path": "06-close_c09_event_prices/output/RESULT.md",
+          "sha256": "50126cb4f8763257ba32944ce61d752e24fcad91d810fe96ceee044fe77d5913",
+          "bytes": 4367
+        },
+        {
+          "path": "06-close_c09_event_prices/output/source-manifest.json",
+          "sha256": "a928a6fc9c07b945f25cc0c8c726c95aa18809e30457bd63bb72f5c491a72c85",
+          "bytes": 2181
+        },
+        {
+          "path": "06-close_c09_event_prices/output/aggregate.json",
+          "sha256": "d52b2d67611ef670d7c99080527546caedacd497ec3297476c4c3ce21c3cc42a",
+          "bytes": 3952
+        },
+        {
+          "path": "07-screen_compute_service_cash/output/RESULT.md",
+          "sha256": "9207c5929d5c25dab05e3da7cbd04352b0a38038383f0a3bc30a9eec5d3fc932",
+          "bytes": 2795
+        },
+        {
+          "path": "07-screen_compute_service_cash/output/source-manifest.json",
+          "sha256": "7a0b2888e67578a7a6b3de223999962c6951bf7883e8731adaf371d954cb390a",
+          "bytes": 2377
+        },
+        {
+          "path": "07-screen_compute_service_cash/output/aggregate.json",
+          "sha256": "d2894081224bddc830036618b382c5b18f69c09f52d829232fa581a7611264ad",
+          "bytes": 1817
+        },
+        {
+          "path": "08-screen_bandwidth_service_cash/output/RESULT.md",
+          "sha256": "51407bb252580e9a4abc29df235df676e2e90c9b542174125e0753a06ff83b12",
+          "bytes": 3527
+        },
+        {
+          "path": "08-screen_bandwidth_service_cash/output/source-manifest.json",
+          "sha256": "633d5607e0fc56fef4c8a9dbec4670a84685ddbea9505487ab2951911c4846ec",
+          "bytes": 1995
+        },
+        {
+          "path": "08-screen_bandwidth_service_cash/output/aggregate.json",
+          "sha256": "a9ab8cfb680b6deafdd35b939ca769436fc7763909467e841dc25ef630dd0871",
+          "bytes": 1002
+        },
+        {
+          "path": "09-test_crossasset_time_robustness/output/RESULT.md",
+          "sha256": "bb8a9ea82b29b03140065dd69750837b05909590812cad4da381910f8c71197b",
+          "bytes": 5449
+        },
+        {
+          "path": "09-test_crossasset_time_robustness/output/summary.json",
+          "sha256": "4defa2eb440d208d3b0b95b4baff621ff2dd3b2d96d4a236bb9fac186d5a6d59",
+          "bytes": 37138
+        },
+        {
+          "path": "09-test_crossasset_time_robustness/output/source-manifest.json",
+          "sha256": "3788729a13e6c7df2e9445d8556e5001cb0ece8b75f655111bcea6811021e61f",
+          "bytes": 948
+        },
+        {
+          "path": "09-test_crossasset_time_robustness/output/tests.json",
+          "sha256": "40fc69cfacf07ef960de3be6042b43f220bbc796943a3aa5ae31ecb4784c6186",
+          "bytes": 285
+        },
+        {
+          "path": "09-test_crossasset_time_robustness/output/event_clusters.json",
+          "sha256": "d306d6ca34595172349d12532bb60a7df455fb0d5c7d7039d60c76a08e317eb0",
+          "bytes": 54796
+        }
+      ]
+    }
+  }
+}
