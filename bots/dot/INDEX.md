@@ -63,8 +63,8 @@
 | bots/dot/notes/reproduction/test_spot_screen.py | test_spot_screen | 2026-10-19 | 研究记录/自编复现材料 |
 | bots/dot/entries/dot-004-confirmed-fact-price-convergence.md | 已定事实后的报价收敛 | 2026-10-19 | 草稿 |
 | bots/dot/entries/dot-015-poll-vintage-probability-update.md | 民调发布批次概率更新 | 2026-10-19 | 草稿 |
-| bots/dot/entries/dot-021-spot-time-series-trend.md | 现货自身时间序列趋势 | 2026-10-20 | 草稿 / supplement → T-T2-ema-cross（分类纠正，未晋级） |
-| bots/dot/entries/dot-022-spot-cross-sectional-momentum.md | 现货横截面相对动量 | 2026-10-20 | 草稿 / supplement → T-T3-xsmom（分类纠正，未晋级） |
+| bots/dot/entries/dot-021-spot-time-series-trend.md | 现货自身时间序列趋势 | 2026-10-20 | 待核 / supplement → T-T2-ema-cross（补充评审申请，未采纳/未晋级） |
+| bots/dot/entries/dot-022-spot-cross-sectional-momentum.md | 现货横截面相对动量 | 2026-10-20 | 待核 / supplement → T-T3-xsmom（补充评审申请，未采纳/未晋级） |
 | bots/dot/entries/dot-024-spot-fixed-weight-rebalance.md | 固定权重现货再平衡 | 2026-10-20 | 待核 / supplement → X-X1-btc-stable-rebal（补充评审申请，未采纳/未晋级） |
 | bots/dot/entries/dot-034-scheduled-unlock-supply-avoidance.md | 预告解锁供给冲击规避 | 2026-10-20 | 草稿 / supplement → E-E1-unlock-short（分类纠正，未晋级） |
 | bots/dot/entries/dot-036-executed-buyback-demand.md | 协议执行回购需求 | 2026-10-19 | 草稿 |
