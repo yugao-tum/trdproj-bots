@@ -1,0 +1,43 @@
+{
+  "funding": {
+    "source": "r20-proposal/01-funding/output/funding.csv",
+    "sha256": "0f0fca8b9c4133d3f37855f8789e14a92f9fdbff44851cbdb353eaf30bcc2062",
+    "bytes": 959685
+  },
+  "prices": {
+    "source": "r20-proposal/04-prices/output/daily_prices.csv",
+    "sha256": "6b68f5edfac0d8e8e71622ba95c00e9db9a34516e64b21b61178a84fd5aa3d8a",
+    "bytes": 583150
+  },
+  "ledger": {
+    "source": "r20-proposal/05-ledger/output/ledger-results.json",
+    "sha256": "0670cd26484b8d9dec1cbdc714097db908f71a700c169efa1a0980c25431169d",
+    "bytes": 44222
+  },
+  "monthly": {
+    "source": "r20-proposal/08-benchmarks/output/monthly-blocks.csv",
+    "sha256": "3a6616d9bbc0ec5bb1782a325cfd66d56e479743281513a42f0f7156ae9a33f1",
+    "bytes": 50683
+  },
+  "buckets": {
+    "source": "https://github.com/yugao-tum/trdproj-bots/blob/4a7357a7f81bec8a70b4331ebfb7ba16bc5e24be/bots/quant/notes/q018-price-test/buckets.csv",
+    "sha256_local_export": "065df4b2205d68959e5ca472d77a3a56aefefe71e377fe12e1ab32eede87247e",
+    "raw_git_blob": "d76724f860ea592714051b53da66462995144988",
+    "upstream_git_blob": "b23cc8339dfff1fc071f8c5e7668f08b2c86a399",
+    "normalization": "Remove exactly one final LF in memory; originals are not changed",
+    "normalized_match": true
+  },
+  "events": {
+    "source": "https://github.com/yugao-tum/trdproj-bots/blob/4a7357a7f81bec8a70b4331ebfb7ba16bc5e24be/bots/quant/notes/q018-price-test/events.csv",
+    "sha256_local_export": "9ad450fdbec30543c6aaddae8cad1fddedbc5c5011036d1343757b07f165a093",
+    "raw_git_blob": "99b060720698bb6b42b8946c3b6b624efa44c7ca",
+    "upstream_git_blob": "b2431ed00027544d6b030b2a2b2065b90425480c",
+    "normalization": "Remove exactly one final LF in memory; originals are not changed",
+    "normalized_match": true
+  },
+  "history": {
+    "source": "Retained original spot_daily.csv (not distributed); Binance public daily candles, BTC/ETH/SOL 2023-01-01 through 2026-09-30",
+    "sha256": "a008fbd0514f4d01bd477fc008de9fb24b8dfae5e83ebda2ced8bbf2e89bcf0a"
+  },
+  "distribution_note": "These are provenance locators/hashes, not an assertion that the retained C19 inputs are included in this publication."
+}

@@ -445,3 +445,13 @@
 | bots/dot/research/r21/SOURCE-METADATA-CORRECTION.json | r21：SOURCE-METADATA-CORRECTION.json | 2026-10-20 | 条件证据/纯虚拟参考；非达标 |
 
 | bots/dot/notes/20261020-1220-goal-evidence-review.md | 12:20目标与证据复盘，后续补证范围 | 2026-10-20 | 已完成复盘；r22研究未完成 |
+
+## 2026-10-20 r22 同样本评分与事件现金补证
+
+| bots/dot/entries/dot-051-strait-count-paired-cash-supplement.md | r22：dot-051-strait-count-paired-cash-supplement.md | 2026-10-20 | 补证待核；非达标 |
+| bots/dot/research/r22/INPUT-HASHES.json | r22：INPUT-HASHES.json | 2026-10-20 | 固定输入补证；非新机制 |
+| bots/dot/research/r22/PUBLICATION-MANIFEST.json | r22：PUBLICATION-MANIFEST.json | 2026-10-20 | 固定输入补证；非新机制 |
+| bots/dot/research/r22/QUANT018-REPRODUCTION.json | r22：QUANT018-REPRODUCTION.json | 2026-10-20 | 固定输入补证；非新机制 |
+| bots/dot/research/r22/REPLICATION.json | r22：REPLICATION.json | 2026-10-20 | 固定输入补证；非新机制 |
+| bots/dot/research/r22/REPORT.md | r22：REPORT.md | 2026-10-20 | 固定输入补证；非新机制 |
+| bots/dot/research/r22/reproduce_quant018.py | r22：reproduce_quant018.py | 2026-10-20 | 固定输入补证；非新机制 |

@@ -1,0 +1,950 @@
+{
+  "method": "Own exact rational reconstruction and separate fsum Pearson/percentile calculations; no imported source modules or source code execution",
+  "scope": "Retrospective frozen-column checks, not independent data acquisition, blind confirmation, prospective validation or executable profit",
+  "new_mechanisms": 0,
+  "sources_unchanged": true,
+  "p1": {
+    "paired_uncertainty": {
+      "date_cluster": {
+        "seed": 20261020,
+        "draws": 20000,
+        "contrast_CI95": {
+          "first_minus_model": [
+            -0.05638205594847216,
+            0.13850162456755216
+          ],
+          "start_minus_model": [
+            -0.15120740967644825,
+            0.08847988850741276
+          ],
+          "first_minus_start": [
+            -0.033357662628016774,
+            0.16620896465203694
+          ]
+        }
+      },
+      "event_iid": {
+        "seed": 20261021,
+        "draws": 20000,
+        "contrast_CI95": {
+          "first_minus_model": [
+            -0.08018888592433325,
+            0.14947266618603547
+          ],
+          "start_minus_model": [
+            -0.1598133208626049,
+            0.09611663930122687
+          ],
+          "first_minus_start": [
+            -0.0377603971300903,
+            0.17273564796049598
+          ]
+        }
+      }
+    },
+    "event_rows": 43,
+    "bucket_rows": 242,
+    "common_rows": 34,
+    "common_start_dates_not_independent_weeks": 23,
+    "mean_brier_common_rows": {
+      "first": {
+        "decimal": 0.8092836847340846,
+        "exact": "156358680043539877682646292467535135963278614027186159509330727952214865832849613499324692226297/193206267459742977766291522974265611551681439690894153766183858664254039130248513515442532160000"
+      },
+      "start": {
+        "decimal": 0.7436274066845484,
+        "exact": "8414152961945562666510393974637521107055518517131845388058699598514689291437373725930890011470406057449580766958053/11315011908261876711754383122966612450602477332531596423533942310622032017842077491821275502710445853197426592051200"
+      },
+      "model": {
+        "decimal": 0.7746723207739089,
+        "exact": "26338858906312904169104922995637797517/34000000000000000000000000000000000000"
+      }
+    },
+    "start_market_minus_model": {
+      "decimal": -0.031044914089360543,
+      "exact": "-6860811965079716307375646471262454892777048822890177530154174223409651879429732882207413349550004255553701834753630864439301586003975349577221563/220996326333239779526452795370441649425829635401007742647147310754336562848478076012134287162313395570262238126000000000000000000000000000000000000"
+    },
+    "first_market_minus_model": {
+      "decimal": 0.03461136396017572,
+      "exact": "41794577765226372833450749934510024467611219663229076711325855703543615271533155460482029089618150165512476879099042763264587/1207539171623393611039322018589160072198008998068088461038649116651587744564053209471515826000000000000000000000000000000000000"
+    },
+    "cash_original_variants": {
+      "start": {
+        "shares": 29,
+        "outlay": {
+          "decimal": 21.203,
+          "exact": "21203/1000"
+        },
+        "payout": {
+          "decimal": 22.0,
+          "exact": "22"
+        },
+        "profit": {
+          "decimal": 0.797,
+          "exact": "797/1000"
+        },
+        "available_events": 12,
+        "traded_events": 11,
+        "winning_events": 4,
+        "losing_events": 7,
+        "share_median": {
+          "decimal": 0.225,
+          "exact": "9/40"
+        },
+        "event_median": {
+          "decimal": -0.115,
+          "exact": "-23/200"
+        }
+      },
+      "entry": {
+        "shares": 32,
+        "outlay": {
+          "decimal": 23.488,
+          "exact": "2936/125"
+        },
+        "payout": {
+          "decimal": 25.0,
+          "exact": "25"
+        },
+        "profit": {
+          "decimal": 1.512,
+          "exact": "189/125"
+        },
+        "available_events": 12,
+        "traded_events": 12,
+        "winning_events": 5,
+        "losing_events": 7,
+        "share_median": {
+          "decimal": 0.2325,
+          "exact": "93/400"
+        },
+        "event_median": {
+          "decimal": -0.08,
+          "exact": "-2/25"
+        }
+      },
+      "first": {
+        "shares": 43,
+        "outlay": {
+          "decimal": 26.595,
+          "exact": "5319/200"
+        },
+        "payout": {
+          "decimal": 35.0,
+          "exact": "35"
+        },
+        "profit": {
+          "decimal": 8.405,
+          "exact": "1681/200"
+        },
+        "available_events": 12,
+        "traded_events": 12,
+        "winning_events": 11,
+        "losing_events": 1,
+        "share_median": {
+          "decimal": 0.395,
+          "exact": "79/200"
+        },
+        "event_median": {
+          "decimal": 0.67,
+          "exact": "67/100"
+        }
+      }
+    },
+    "additional_fixed_trade_cost": {
+      "already_charged_spread": {
+        "decimal": 0.29,
+        "exact": "29/100"
+      },
+      "safety_buffer_not_cash_cost": {
+        "decimal": 0.01,
+        "exact": "1/100"
+      },
+      "profit_after_1c": {
+        "decimal": 0.507,
+        "exact": "507/1000"
+      },
+      "profit_after_5c": {
+        "decimal": -0.653,
+        "exact": "-653/1000"
+      },
+      "zero_profit_additional_per_share": {
+        "decimal": 0.027482758620689655,
+        "exact": "797/29000"
+      },
+      "zero_profit_total_additional": {
+        "decimal": 0.797,
+        "exact": "797/1000"
+      },
+      "units": "1 USD payout units; not executed cash or capital/time returns"
+    },
+    "unknown": [
+      "model as-of release/vintage",
+      "fills",
+      "actual historical fees",
+      "cash entry",
+      "settlement",
+      "redemption/cash release"
+    ]
+  },
+  "p2": {
+    "case_count": 12,
+    "margin_failed_cases": 4,
+    "already_below_3pct_venue": 5,
+    "source_funding_records": 9036,
+    "post_entry_asset_records": 9033,
+    "distinct_actual_times_not_independent": 3011,
+    "largest_cash_reconciliation_error": 4.232935875817298e-46,
+    "monthly_cross_asset_funding_correlations": {
+      "BTCUSDT/ETHUSDT": 0.9465589648744235,
+      "BTCUSDT/SOLUSDT": 0.8701171400812693,
+      "ETHUSDT/SOLUSDT": 0.9343471242028828
+    },
+    "cases": [
+      {
+        "scenario_id": "BTCUSDT-b1250-c0.003",
+        "venue_capital": 2500,
+        "total_capital": 5000,
+        "spot_budget": 1250.0,
+        "cost_included_per_side": 0.003,
+        "funding": 446.54182496563476,
+        "net_pnl": 426.55045055121866,
+        "venue_cagr": 0.05898397654023877,
+        "total_cagr": 0.03023026290871257,
+        "basis_share_net": 0.005328855520297858,
+        "zero_total_basis_net": 424.2774248281133,
+        "terminal_stress_net": {
+          "10": 421.62240699617223,
+          "30": 411.7663198860794,
+          "100": 377.27001500075437
+        },
+        "required_profit_3pct_venue": 211.60858396890626,
+        "additional_consumed_cost_headroom_3pct_signed": 214.9418665823124,
+        "additional_bps_four_notional_3pct_signed": 289.62181588725315,
+        "positive_funding": 477.81693014674227,
+        "negative_funding": -31.275105181107552,
+        "top3_months": [
+          "2024-03",
+          "2024-12",
+          "2024-11"
+        ],
+        "top3_month_funding": 131.19629654709578,
+        "top3_share_positive_months": 0.2891649503851706,
+        "top3_share_net_funding": 0.2938051694422857,
+        "net_after_top3_funding_deletion_not_strategy": 295.3541540041229,
+        "funding_mark_negative_times": 897,
+        "observed_negative_margin": true,
+        "survival_certified": false,
+        "daily_trend_corr_descriptive": -0.03896155344727217,
+        "monthly_trend_corr_primary": 0.36407537582334704,
+        "monthly_count": 33,
+        "daily_count": 1004,
+        "monthly_intervals": [
+          {
+            "block_months": 1,
+            "lower": 0.014123199750428939,
+            "upper": 0.6115816830478374,
+            "finite": 5000,
+            "undefined": 0
+          },
+          {
+            "block_months": 3,
+            "lower": 0.05754324350816137,
+            "upper": 0.550488656552667,
+            "finite": 5000,
+            "undefined": 0
+          },
+          {
+            "block_months": 6,
+            "lower": 0.12137144211210876,
+            "upper": 0.5381016765584907,
+            "finite": 5000,
+            "undefined": 0
+          }
+        ]
+      },
+      {
+        "scenario_id": "BTCUSDT-b1250-c0.006",
+        "venue_capital": 2500,
+        "total_capital": 5000,
+        "spot_budget": 1250.0,
+        "cost_included_per_side": 0.006,
+        "funding": 445.2101893047034,
+        "net_pnl": 403.080426008885,
+        "venue_cagr": 0.05588645168963829,
+        "total_cagr": 0.028607036801544358,
+        "basis_share_net": 0.00562232043569018,
+        "zero_total_basis_net": 400.81417869250856,
+        "terminal_stress_net": {
+          "10": 398.1670825257509,
+          "30": 388.34039555948266,
+          "100": 353.94699117754374
+        },
+        "required_profit_3pct_venue": 211.60858396890626,
+        "additional_consumed_cost_headroom_3pct_signed": 191.47184203997875,
+        "additional_bps_four_notional_3pct_signed": 258.7689831582091,
+        "positive_funding": 476.39202876459495,
+        "negative_funding": -31.181839459891528,
+        "top3_months": [
+          "2024-03",
+          "2024-12",
+          "2024-11"
+        ],
+        "top3_month_funding": 130.80505510610047,
+        "top3_share_positive_months": 0.2891649503851706,
+        "top3_share_net_funding": 0.2938051694422857,
+        "net_after_top3_funding_deletion_not_strategy": 272.2753709027846,
+        "funding_mark_negative_times": 897,
+        "observed_negative_margin": true,
+        "survival_certified": false,
+        "daily_trend_corr_descriptive": -0.041061529229674654,
+        "monthly_trend_corr_primary": 0.3338545732806263,
+        "monthly_count": 33,
+        "daily_count": 1004,
+        "monthly_intervals": [
+          {
+            "block_months": 1,
+            "lower": -0.022873410762424887,
+            "upper": 0.5869405037462726,
+            "finite": 5000,
+            "undefined": 0
+          },
+          {
+            "block_months": 3,
+            "lower": -0.0004816876142894189,
+            "upper": 0.5315542843981892,
+            "finite": 5000,
+            "undefined": 0
+          },
+          {
+            "block_months": 6,
+            "lower": 0.06571487951229703,
+            "upper": 0.5337096264009527,
+            "finite": 5000,
+            "undefined": 0
+          }
+        ]
+      },
+      {
+        "scenario_id": "BTCUSDT-b625-c0.003",
+        "venue_capital": 2500,
+        "total_capital": 5000,
+        "spot_budget": 625.0,
+        "cost_included_per_side": 0.003,
+        "funding": 223.27091248281738,
+        "net_pnl": 213.27522527560933,
+        "venue_cagr": 0.03023026290871257,
+        "total_cagr": 0.015311894770801335,
+        "basis_share_net": 0.005328855520297858,
+        "zero_total_basis_net": 212.13871241405664,
+        "terminal_stress_net": {
+          "10": 210.81120349808612,
+          "30": 205.8831599430397,
+          "100": 188.63500750037718
+        },
+        "required_profit_3pct_venue": 211.60858396890626,
+        "additional_consumed_cost_headroom_3pct_signed": 1.6666413067030703,
+        "additional_bps_four_notional_3pct_signed": 4.491406810177657,
+        "positive_funding": 238.90846507337113,
+        "negative_funding": -15.637552590553776,
+        "top3_months": [
+          "2024-03",
+          "2024-12",
+          "2024-11"
+        ],
+        "top3_month_funding": 65.59814827354789,
+        "top3_share_positive_months": 0.2891649503851706,
+        "top3_share_net_funding": 0.2938051694422857,
+        "net_after_top3_funding_deletion_not_strategy": 147.67707700206145,
+        "funding_mark_negative_times": 0,
+        "observed_negative_margin": false,
+        "survival_certified": false,
+        "daily_trend_corr_descriptive": -0.0387415770078118,
+        "monthly_trend_corr_primary": 0.3619275978230342,
+        "monthly_count": 33,
+        "daily_count": 1004,
+        "monthly_intervals": [
+          {
+            "block_months": 1,
+            "lower": 0.013459818517757146,
+            "upper": 0.6093986646856017,
+            "finite": 5000,
+            "undefined": 0
+          },
+          {
+            "block_months": 3,
+            "lower": 0.0596016660892247,
+            "upper": 0.5482081181979751,
+            "finite": 5000,
+            "undefined": 0
+          },
+          {
+            "block_months": 6,
+            "lower": 0.12074865183289517,
+            "upper": 0.5358084584539469,
+            "finite": 5000,
+            "undefined": 0
+          }
+        ]
+      },
+      {
+        "scenario_id": "BTCUSDT-b625-c0.006",
+        "venue_capital": 2500,
+        "total_capital": 5000,
+        "spot_budget": 625.0,
+        "cost_included_per_side": 0.006,
+        "funding": 222.6050946523517,
+        "net_pnl": 201.5402130044425,
+        "venue_cagr": 0.028607036801544358,
+        "total_cagr": 0.014479862586633512,
+        "basis_share_net": 0.00562232043569018,
+        "zero_total_basis_net": 200.40708934625428,
+        "terminal_stress_net": {
+          "10": 199.08354126287546,
+          "30": 194.17019777974133,
+          "100": 176.97349558877187
+        },
+        "required_profit_3pct_venue": 211.60858396890626,
+        "additional_consumed_cost_headroom_3pct_signed": -10.068370964463753,
+        "additional_bps_four_notional_3pct_signed": -27.2142586479105,
+        "positive_funding": 238.19601438229748,
+        "negative_funding": -15.590919729945764,
+        "top3_months": [
+          "2024-03",
+          "2024-12",
+          "2024-11"
+        ],
+        "top3_month_funding": 65.40252755305023,
+        "top3_share_positive_months": 0.2891649503851706,
+        "top3_share_net_funding": 0.2938051694422857,
+        "net_after_top3_funding_deletion_not_strategy": 136.1376854513923,
+        "funding_mark_negative_times": 0,
+        "observed_negative_margin": false,
+        "survival_certified": false,
+        "daily_trend_corr_descriptive": -0.040390161586954805,
+        "monthly_trend_corr_primary": 0.33061446108929027,
+        "monthly_count": 33,
+        "daily_count": 1004,
+        "monthly_intervals": [
+          {
+            "block_months": 1,
+            "lower": -0.0229198394890688,
+            "upper": 0.5868599292763255,
+            "finite": 5000,
+            "undefined": 0
+          },
+          {
+            "block_months": 3,
+            "lower": 0.0010083389928547653,
+            "upper": 0.5312035341383708,
+            "finite": 5000,
+            "undefined": 0
+          },
+          {
+            "block_months": 6,
+            "lower": 0.06492351273369079,
+            "upper": 0.5312972033626085,
+            "finite": 5000,
+            "undefined": 0
+          }
+        ]
+      },
+      {
+        "scenario_id": "ETHUSDT-b1250-c0.003",
+        "venue_capital": 2500,
+        "total_capital": 5000,
+        "spot_budget": 1250.0,
+        "cost_included_per_side": 0.003,
+        "funding": 337.7926379081221,
+        "net_pnl": 323.3144301940584,
+        "venue_cagr": 0.04523842208922189,
+        "total_cagr": 0.02305651755260961,
+        "basis_share_net": 0.005574514284762079,
+        "zero_total_basis_net": 321.51210928447193,
+        "terminal_stress_net": {
+          "10": 320.3811878623473,
+          "30": 314.5147031989251,
+          "100": 293.98200687694737
+        },
+        "required_profit_3pct_venue": 211.60858396890626,
+        "additional_consumed_cost_headroom_3pct_signed": 111.70584622515213,
+        "additional_bps_four_notional_3pct_signed": 205.8394702175961,
+        "positive_funding": 360.06132020865175,
+        "negative_funding": -22.268682300529658,
+        "top3_months": [
+          "2024-03",
+          "2024-11",
+          "2024-12"
+        ],
+        "top3_month_funding": 115.52879586670335,
+        "top3_share_positive_months": 0.3360267119940244,
+        "top3_share_net_funding": 0.3420109940292026,
+        "net_after_top3_funding_deletion_not_strategy": 207.78563432735507,
+        "funding_mark_negative_times": 0,
+        "observed_negative_margin": false,
+        "survival_certified": false,
+        "daily_trend_corr_descriptive": -0.05128299185710169,
+        "monthly_trend_corr_primary": 0.3822151211982939,
+        "monthly_count": 33,
+        "daily_count": 1004,
+        "monthly_intervals": [
+          {
+            "block_months": 1,
+            "lower": 0.0009805511863294554,
+            "upper": 0.6404729708608602,
+            "finite": 5000,
+            "undefined": 0
+          },
+          {
+            "block_months": 3,
+            "lower": -0.007496285194668679,
+            "upper": 0.5703704670327971,
+            "finite": 5000,
+            "undefined": 0
+          },
+          {
+            "block_months": 6,
+            "lower": 0.026256575147981517,
+            "upper": 0.5734682340979605,
+            "finite": 5000,
+            "undefined": 0
+          }
+        ]
+      },
+      {
+        "scenario_id": "ETHUSDT-b1250-c0.006",
+        "venue_capital": 2500,
+        "total_capital": 5000,
+        "spot_budget": 1250.0,
+        "cost_included_per_side": 0.006,
+        "funding": 336.78530399785933,
+        "net_pnl": 306.11829351403526,
+        "venue_cagr": 0.042917893384890854,
+        "total_cagr": 0.021853001913643873,
+        "basis_share_net": 0.0058701039213195395,
+        "zero_total_basis_net": 304.32134731889084,
+        "terminal_stress_net": {
+          "10": 303.1938005985294,
+          "30": 297.3448147675176,
+          "100": 276.8733643589766
+        },
+        "required_profit_3pct_venue": 211.60858396890626,
+        "additional_consumed_cost_headroom_3pct_signed": 94.509709545129,
+        "additional_bps_four_notional_3pct_signed": 174.67318074575255,
+        "positive_funding": 358.98757869709516,
+        "negative_funding": -22.20227469923583,
+        "top3_months": [
+          "2024-03",
+          "2024-11",
+          "2024-12"
+        ],
+        "top3_month_funding": 115.18427659473504,
+        "top3_share_positive_months": 0.3360267119940244,
+        "top3_share_net_funding": 0.3420109940292026,
+        "net_after_top3_funding_deletion_not_strategy": 190.9340169193002,
+        "funding_mark_negative_times": 0,
+        "observed_negative_margin": false,
+        "survival_certified": false,
+        "daily_trend_corr_descriptive": -0.05678200145068018,
+        "monthly_trend_corr_primary": 0.3662069865159436,
+        "monthly_count": 33,
+        "daily_count": 1004,
+        "monthly_intervals": [
+          {
+            "block_months": 1,
+            "lower": -0.027877862779607642,
+            "upper": 0.6180548193881322,
+            "finite": 5000,
+            "undefined": 0
+          },
+          {
+            "block_months": 3,
+            "lower": -0.041404651252037565,
+            "upper": 0.5467343236114374,
+            "finite": 5000,
+            "undefined": 0
+          },
+          {
+            "block_months": 6,
+            "lower": -0.01016352278519813,
+            "upper": 0.5621069137257729,
+            "finite": 5000,
+            "undefined": 0
+          }
+        ]
+      },
+      {
+        "scenario_id": "ETHUSDT-b625-c0.003",
+        "venue_capital": 2500,
+        "total_capital": 5000,
+        "spot_budget": 625.0,
+        "cost_included_per_side": 0.003,
+        "funding": 168.89631895406106,
+        "net_pnl": 161.6572150970292,
+        "venue_cagr": 0.02305651755260961,
+        "total_cagr": 0.011643131282772135,
+        "basis_share_net": 0.005574514284762079,
+        "zero_total_basis_net": 160.75605464223597,
+        "terminal_stress_net": {
+          "10": 160.19059393117365,
+          "30": 157.25735159946254,
+          "100": 146.99100343847368
+        },
+        "required_profit_3pct_venue": 211.60858396890626,
+        "additional_consumed_cost_headroom_3pct_signed": -49.951368871877065,
+        "additional_bps_four_notional_3pct_signed": -184.08997653545853,
+        "positive_funding": 180.03066010432588,
+        "negative_funding": -11.134341150264829,
+        "top3_months": [
+          "2024-03",
+          "2024-11",
+          "2024-12"
+        ],
+        "top3_month_funding": 57.764397933351674,
+        "top3_share_positive_months": 0.3360267119940244,
+        "top3_share_net_funding": 0.3420109940292026,
+        "net_after_top3_funding_deletion_not_strategy": 103.89281716367753,
+        "funding_mark_negative_times": 0,
+        "observed_negative_margin": false,
+        "survival_certified": false,
+        "daily_trend_corr_descriptive": -0.05155834981392442,
+        "monthly_trend_corr_primary": 0.38169399310921737,
+        "monthly_count": 33,
+        "daily_count": 1004,
+        "monthly_intervals": [
+          {
+            "block_months": 1,
+            "lower": 0.002617668462502981,
+            "upper": 0.6389224815747383,
+            "finite": 5000,
+            "undefined": 0
+          },
+          {
+            "block_months": 3,
+            "lower": -0.00600533843718692,
+            "upper": 0.5693955175650058,
+            "finite": 5000,
+            "undefined": 0
+          },
+          {
+            "block_months": 6,
+            "lower": 0.025125429250852753,
+            "upper": 0.5720016046886441,
+            "finite": 5000,
+            "undefined": 0
+          }
+        ]
+      },
+      {
+        "scenario_id": "ETHUSDT-b625-c0.006",
+        "venue_capital": 2500,
+        "total_capital": 5000,
+        "spot_budget": 625.0,
+        "cost_included_per_side": 0.006,
+        "funding": 168.39265199892967,
+        "net_pnl": 153.05914675701763,
+        "venue_cagr": 0.021853001913643873,
+        "total_cagr": 0.011029756588000464,
+        "basis_share_net": 0.0058701039213195395,
+        "zero_total_basis_net": 152.16067365944542,
+        "terminal_stress_net": {
+          "10": 151.5969002992647,
+          "30": 148.6724073837588,
+          "100": 138.4366821794883
+        },
+        "required_profit_3pct_venue": 211.60858396890626,
+        "additional_consumed_cost_headroom_3pct_signed": -58.54943721188863,
+        "additional_bps_four_notional_3pct_signed": -216.4225554791457,
+        "positive_funding": 179.49378934854758,
+        "negative_funding": -11.101137349617915,
+        "top3_months": [
+          "2024-03",
+          "2024-11",
+          "2024-12"
+        ],
+        "top3_month_funding": 57.59213829736752,
+        "top3_share_positive_months": 0.3360267119940244,
+        "top3_share_net_funding": 0.3420109940292026,
+        "net_after_top3_funding_deletion_not_strategy": 95.4670084596501,
+        "funding_mark_negative_times": 0,
+        "observed_negative_margin": false,
+        "survival_certified": false,
+        "daily_trend_corr_descriptive": -0.056638285676400404,
+        "monthly_trend_corr_primary": 0.36508329412366763,
+        "monthly_count": 33,
+        "daily_count": 1004,
+        "monthly_intervals": [
+          {
+            "block_months": 1,
+            "lower": -0.02701048776279494,
+            "upper": 0.6157084701726585,
+            "finite": 5000,
+            "undefined": 0
+          },
+          {
+            "block_months": 3,
+            "lower": -0.039516521132771064,
+            "upper": 0.5456052488443867,
+            "finite": 5000,
+            "undefined": 0
+          },
+          {
+            "block_months": 6,
+            "lower": -0.010774313702141103,
+            "upper": 0.5611617243749778,
+            "finite": 5000,
+            "undefined": 0
+          }
+        ]
+      },
+      {
+        "scenario_id": "SOLUSDT-b1250-c0.003",
+        "venue_capital": 2500,
+        "total_capital": 5000,
+        "spot_budget": 1250.0,
+        "cost_included_per_side": 0.003,
+        "funding": 268.6652660594117,
+        "net_pnl": 254.03658280128204,
+        "venue_cagr": 0.035834056466486734,
+        "total_cagr": 0.018192720963688597,
+        "basis_share_net": 0.006028600140639031,
+        "zero_total_basis_net": 252.50509782247877,
+        "terminal_stress_net": {
+          "10": 251.14305891462507,
+          "30": 245.35601114131111,
+          "100": 225.10134393471228
+        },
+        "required_profit_3pct_venue": 211.60858396890626,
+        "additional_consumed_cost_headroom_3pct_signed": 42.42799883237578,
+        "additional_bps_four_notional_3pct_signed": 78.76402932874714,
+        "positive_funding": 391.05079103019824,
+        "negative_funding": -122.38552497078655,
+        "top3_months": [
+          "2024-03",
+          "2024-11",
+          "2024-12"
+        ],
+        "top3_month_funding": 141.46286327498598,
+        "top3_share_positive_months": 0.43610645288133776,
+        "top3_share_net_funding": 0.5265394568857419,
+        "net_after_top3_funding_deletion_not_strategy": 112.57371952629607,
+        "funding_mark_negative_times": 164,
+        "observed_negative_margin": true,
+        "survival_certified": false,
+        "daily_trend_corr_descriptive": -0.07124213248234544,
+        "monthly_trend_corr_primary": 0.4700722465020515,
+        "monthly_count": 33,
+        "daily_count": 1004,
+        "monthly_intervals": [
+          {
+            "block_months": 1,
+            "lower": 0.10065355748645642,
+            "upper": 0.727813870279597,
+            "finite": 5000,
+            "undefined": 0
+          },
+          {
+            "block_months": 3,
+            "lower": 0.1351247810043502,
+            "upper": 0.6777521500379019,
+            "finite": 5000,
+            "undefined": 0
+          },
+          {
+            "block_months": 6,
+            "lower": 0.25391602373430544,
+            "upper": 0.6622706135647798,
+            "finite": 5000,
+            "undefined": 0
+          }
+        ]
+      },
+      {
+        "scenario_id": "SOLUSDT-b1250-c0.006",
+        "venue_capital": 2500,
+        "total_capital": 5000,
+        "spot_budget": 1250.0,
+        "cost_included_per_side": 0.006,
+        "funding": 267.86407739323056,
+        "net_pnl": 237.16704155869002,
+        "venue_cagr": 0.03352130748567803,
+        "total_cagr": 0.017002189711152232,
+        "basis_share_net": 0.006438153953211609,
+        "zero_total_basis_net": 235.64012363250743,
+        "terminal_stress_net": {
+          "10": 234.28214903612192,
+          "30": 228.51236399098573,
+          "100": 208.3181163330091
+        },
+        "required_profit_3pct_venue": 211.60858396890626,
+        "additional_consumed_cost_headroom_3pct_signed": 25.558457589783757,
+        "additional_bps_four_notional_3pct_signed": 47.589053372344864,
+        "positive_funding": 389.88463558975036,
+        "negative_funding": -122.0205581965198,
+        "top3_months": [
+          "2024-03",
+          "2024-11",
+          "2024-12"
+        ],
+        "top3_month_funding": 141.04100582983193,
+        "top3_share_positive_months": 0.43610645288133776,
+        "top3_share_net_funding": 0.5265394568857419,
+        "net_after_top3_funding_deletion_not_strategy": 96.12603572885808,
+        "funding_mark_negative_times": 164,
+        "observed_negative_margin": true,
+        "survival_certified": false,
+        "daily_trend_corr_descriptive": -0.07630451155756243,
+        "monthly_trend_corr_primary": 0.4589675732021977,
+        "monthly_count": 33,
+        "daily_count": 1004,
+        "monthly_intervals": [
+          {
+            "block_months": 1,
+            "lower": 0.07154428171471575,
+            "upper": 0.7119543737725824,
+            "finite": 5000,
+            "undefined": 0
+          },
+          {
+            "block_months": 3,
+            "lower": 0.11557688704070773,
+            "upper": 0.6588899232729871,
+            "finite": 5000,
+            "undefined": 0
+          },
+          {
+            "block_months": 6,
+            "lower": 0.23125572694387156,
+            "upper": 0.6503350638346423,
+            "finite": 5000,
+            "undefined": 0
+          }
+        ]
+      },
+      {
+        "scenario_id": "SOLUSDT-b625-c0.003",
+        "venue_capital": 2500,
+        "total_capital": 5000,
+        "spot_budget": 625.0,
+        "cost_included_per_side": 0.003,
+        "funding": 134.33263302970585,
+        "net_pnl": 127.01829140064102,
+        "venue_cagr": 0.018192720963688597,
+        "total_cagr": 0.009168054982688571,
+        "basis_share_net": 0.006028600140639031,
+        "zero_total_basis_net": 126.25254891123939,
+        "terminal_stress_net": {
+          "10": 125.57152945731254,
+          "30": 122.67800557065556,
+          "100": 112.55067196735614
+        },
+        "required_profit_3pct_venue": 211.60858396890626,
+        "additional_consumed_cost_headroom_3pct_signed": -84.59029256826524,
+        "additional_bps_four_notional_3pct_signed": -314.06959876175074,
+        "positive_funding": 195.52539551509912,
+        "negative_funding": -61.192762485393274,
+        "top3_months": [
+          "2024-03",
+          "2024-11",
+          "2024-12"
+        ],
+        "top3_month_funding": 70.73143163749299,
+        "top3_share_positive_months": 0.43610645288133776,
+        "top3_share_net_funding": 0.5265394568857419,
+        "net_after_top3_funding_deletion_not_strategy": 56.28685976314804,
+        "funding_mark_negative_times": 0,
+        "observed_negative_margin": false,
+        "survival_certified": false,
+        "daily_trend_corr_descriptive": -0.07136264346529797,
+        "monthly_trend_corr_primary": 0.4699803553480775,
+        "monthly_count": 33,
+        "daily_count": 1004,
+        "monthly_intervals": [
+          {
+            "block_months": 1,
+            "lower": 0.10022616921978708,
+            "upper": 0.7258742373835856,
+            "finite": 5000,
+            "undefined": 0
+          },
+          {
+            "block_months": 3,
+            "lower": 0.13741559182383478,
+            "upper": 0.6763930568157395,
+            "finite": 5000,
+            "undefined": 0
+          },
+          {
+            "block_months": 6,
+            "lower": 0.2543653707432601,
+            "upper": 0.6601658788951742,
+            "finite": 5000,
+            "undefined": 0
+          }
+        ]
+      },
+      {
+        "scenario_id": "SOLUSDT-b625-c0.006",
+        "venue_capital": 2500,
+        "total_capital": 5000,
+        "spot_budget": 625.0,
+        "cost_included_per_side": 0.006,
+        "funding": 133.93203869661528,
+        "net_pnl": 118.58352077934501,
+        "venue_cagr": 0.017002189711152232,
+        "total_cagr": 0.008563750466193464,
+        "basis_share_net": 0.006438153953211609,
+        "zero_total_basis_net": 117.82006181625371,
+        "terminal_stress_net": {
+          "10": 117.14107451806096,
+          "30": 114.25618199549287,
+          "100": 104.15905816650455
+        },
+        "required_profit_3pct_venue": 211.60858396890626,
+        "additional_consumed_cost_headroom_3pct_signed": -93.02506318956125,
+        "additional_bps_four_notional_3pct_signed": -346.4195506745553,
+        "positive_funding": 194.94231779487518,
+        "negative_funding": -61.0102790982599,
+        "top3_months": [
+          "2024-03",
+          "2024-11",
+          "2024-12"
+        ],
+        "top3_month_funding": 70.52050291491597,
+        "top3_share_positive_months": 0.43610645288133776,
+        "top3_share_net_funding": 0.5265394568857419,
+        "net_after_top3_funding_deletion_not_strategy": 48.06301786442904,
+        "funding_mark_negative_times": 0,
+        "observed_negative_margin": false,
+        "survival_certified": false,
+        "daily_trend_corr_descriptive": -0.07624566628592862,
+        "monthly_trend_corr_primary": 0.4586236373338381,
+        "monthly_count": 33,
+        "daily_count": 1004,
+        "monthly_intervals": [
+          {
+            "block_months": 1,
+            "lower": 0.07220802233620247,
+            "upper": 0.7107217823126591,
+            "finite": 5000,
+            "undefined": 0
+          },
+          {
+            "block_months": 3,
+            "lower": 0.11717568537649026,
+            "upper": 0.6571777737087598,
+            "finite": 5000,
+            "undefined": 0
+          },
+          {
+            "block_months": 6,
+            "lower": 0.2290721247118932,
+            "upper": 0.6487190775059437,
+            "finite": 5000,
+            "undefined": 0
+          }
+        ]
+      }
+    ]
+  }
+}

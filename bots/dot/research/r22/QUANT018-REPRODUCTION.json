@@ -1,0 +1,189 @@
+{
+  "source_commit": "4a7357a7f81bec8a70b4331ebfb7ba16bc5e24be",
+  "attribution": "quant-018 / quant-012",
+  "scope": "Frozen-column retrospective supplement, no observed fills or new mechanism",
+  "result": {
+    "paired_uncertainty": {
+      "date_cluster": {
+        "seed": 20261020,
+        "draws": 20000,
+        "contrast_CI95": {
+          "first_minus_model": [
+            -0.05638205594847216,
+            0.13850162456755216
+          ],
+          "start_minus_model": [
+            -0.15120740967644825,
+            0.08847988850741276
+          ],
+          "first_minus_start": [
+            -0.033357662628016774,
+            0.16620896465203694
+          ]
+        }
+      },
+      "event_iid": {
+        "seed": 20261021,
+        "draws": 20000,
+        "contrast_CI95": {
+          "first_minus_model": [
+            -0.08018888592433325,
+            0.14947266618603547
+          ],
+          "start_minus_model": [
+            -0.1598133208626049,
+            0.09611663930122687
+          ],
+          "first_minus_start": [
+            -0.0377603971300903,
+            0.17273564796049598
+          ]
+        }
+      }
+    },
+    "event_rows": 43,
+    "bucket_rows": 242,
+    "common_rows": 34,
+    "common_start_dates_not_independent_weeks": 23,
+    "mean_brier_common_rows": {
+      "first": {
+        "decimal": 0.8092836847340846,
+        "exact": "156358680043539877682646292467535135963278614027186159509330727952214865832849613499324692226297/193206267459742977766291522974265611551681439690894153766183858664254039130248513515442532160000"
+      },
+      "start": {
+        "decimal": 0.7436274066845484,
+        "exact": "8414152961945562666510393974637521107055518517131845388058699598514689291437373725930890011470406057449580766958053/11315011908261876711754383122966612450602477332531596423533942310622032017842077491821275502710445853197426592051200"
+      },
+      "model": {
+        "decimal": 0.7746723207739089,
+        "exact": "26338858906312904169104922995637797517/34000000000000000000000000000000000000"
+      }
+    },
+    "start_market_minus_model": {
+      "decimal": -0.031044914089360543,
+      "exact": "-6860811965079716307375646471262454892777048822890177530154174223409651879429732882207413349550004255553701834753630864439301586003975349577221563/220996326333239779526452795370441649425829635401007742647147310754336562848478076012134287162313395570262238126000000000000000000000000000000000000"
+    },
+    "first_market_minus_model": {
+      "decimal": 0.03461136396017572,
+      "exact": "41794577765226372833450749934510024467611219663229076711325855703543615271533155460482029089618150165512476879099042763264587/1207539171623393611039322018589160072198008998068088461038649116651587744564053209471515826000000000000000000000000000000000000"
+    },
+    "cash_original_variants": {
+      "start": {
+        "shares": 29,
+        "outlay": {
+          "decimal": 21.203,
+          "exact": "21203/1000"
+        },
+        "payout": {
+          "decimal": 22.0,
+          "exact": "22"
+        },
+        "profit": {
+          "decimal": 0.797,
+          "exact": "797/1000"
+        },
+        "available_events": 12,
+        "traded_events": 11,
+        "winning_events": 4,
+        "losing_events": 7,
+        "share_median": {
+          "decimal": 0.225,
+          "exact": "9/40"
+        },
+        "event_median": {
+          "decimal": -0.115,
+          "exact": "-23/200"
+        }
+      },
+      "entry": {
+        "shares": 32,
+        "outlay": {
+          "decimal": 23.488,
+          "exact": "2936/125"
+        },
+        "payout": {
+          "decimal": 25.0,
+          "exact": "25"
+        },
+        "profit": {
+          "decimal": 1.512,
+          "exact": "189/125"
+        },
+        "available_events": 12,
+        "traded_events": 12,
+        "winning_events": 5,
+        "losing_events": 7,
+        "share_median": {
+          "decimal": 0.2325,
+          "exact": "93/400"
+        },
+        "event_median": {
+          "decimal": -0.08,
+          "exact": "-2/25"
+        }
+      },
+      "first": {
+        "shares": 43,
+        "outlay": {
+          "decimal": 26.595,
+          "exact": "5319/200"
+        },
+        "payout": {
+          "decimal": 35.0,
+          "exact": "35"
+        },
+        "profit": {
+          "decimal": 8.405,
+          "exact": "1681/200"
+        },
+        "available_events": 12,
+        "traded_events": 12,
+        "winning_events": 11,
+        "losing_events": 1,
+        "share_median": {
+          "decimal": 0.395,
+          "exact": "79/200"
+        },
+        "event_median": {
+          "decimal": 0.67,
+          "exact": "67/100"
+        }
+      }
+    },
+    "additional_fixed_trade_cost": {
+      "already_charged_spread": {
+        "decimal": 0.29,
+        "exact": "29/100"
+      },
+      "safety_buffer_not_cash_cost": {
+        "decimal": 0.01,
+        "exact": "1/100"
+      },
+      "profit_after_1c": {
+        "decimal": 0.507,
+        "exact": "507/1000"
+      },
+      "profit_after_5c": {
+        "decimal": -0.653,
+        "exact": "-653/1000"
+      },
+      "zero_profit_additional_per_share": {
+        "decimal": 0.027482758620689655,
+        "exact": "797/29000"
+      },
+      "zero_profit_total_additional": {
+        "decimal": 0.797,
+        "exact": "797/1000"
+      },
+      "units": "1 USD payout units; not executed cash or capital/time returns"
+    },
+    "unknown": [
+      "model as-of release/vintage",
+      "fills",
+      "actual historical fees",
+      "cash entry",
+      "settlement",
+      "redemption/cash release"
+    ]
+  }
+}

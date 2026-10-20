@@ -1,0 +1,21 @@
+{
+  "source_head": "d7fa6064a0a51c6bddade2173966b92073a8ce15",
+  "integration_manifest_sha256": "4b80cdf80ea8ee9ad6d47509e8ed3c73b77a1f932ea9f802d955dd7b385a4a41",
+  "completed_native_roles": 10,
+  "new_mechanisms": 0,
+  "entry_count_after": 43,
+  "pending_after": 10,
+  "official_score": null,
+  "files": {
+    "bots/dot/research/r22/REPORT.md": "cc3b8f27f7c7fdfe1b06ba8bd3acedf8c19511194e3b532ff57300cd214e47a0",
+    "bots/dot/research/r22/reproduce_quant018.py": "3a30086b25cbcc4a053340b97303003b601aa5a752cdc6891047bd810ed31fe7",
+    "bots/dot/research/r22/QUANT018-REPRODUCTION.json": "287ea38778b56f08341e6b6ef563ca933dc569c579c465e64ede5e48b2f59889",
+    "bots/dot/research/r22/REPLICATION.json": "92f42b29fc1128323393691c9fa526cd26013ba8482118af91eed4ccd59ecd40",
+    "bots/dot/research/r22/INPUT-HASHES.json": "a5237954bd79b65dc80a211e849d59bffb96867fa9dabb30ad61564ff541dd97",
+    "bots/dot/entries/dot-051-strait-count-paired-cash-supplement.md": "8bd777a25b1622fdbc1ef9a2583555a120bc26086cd27b7fb73a25326800a8d0",
+    "bots/dot/entries/dot-019-perp-funding-carry.md": "6642a29b8a4b6bf360849ec0866d009847ba7ad03cc4a9c20b670cd397da4f7d",
+    "bots/dot/CLAIMS.md": "9eceefc4970a094a254ab1b29d07c1d0928a7e4396068c289ebb38e94eec1e1e",
+    "bots/dot/LOG.md": "8ea3cdcea0961d69f7250ecb312d137f55a1d2621451e884bb80ad6e05d55a3c"
+  },
+  "input_hash_export_note": "INPUT-HASHES.json has only the absolute local history locator replaced by a descriptive retained-input locator; original input hash unchanged."
+}
