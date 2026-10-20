@@ -1,0 +1,78 @@
+{
+  "result": "PARTIAL_LOCAL_TRACE_ONLY_NO_ADMISSION_PROMOTION",
+  "scope": "Selected aggregate outputs from completed offline checks; no raw wallet lists; no standalone replay claimed.",
+  "checks": {
+    "proposal_fields_match": true,
+    "proposal_id": "5",
+    "snapshot_fields_match": true,
+    "snapshot_field": 240,
+    "branch_flags": {
+      "splitActive": true,
+      "isRoundWeekA": true
+    },
+    "funding_raw": {
+      "received": "56852719162292053271913",
+      "availableForDistribution": "41283718401576498928496"
+    },
+    "votium_funding_raw": {
+      "votiumReceived": "31138001321431108686833",
+      "nonVotiumReceived": "25714717840860944585080",
+      "withheld": "15569000660715554343417",
+      "carriedIn": "0"
+    },
+    "received_components_match": true,
+    "funding_residual_raw": "100000000000000",
+    "withheld_equals_ceil_half_votium": true,
+    "withheld_half_note": "Arithmetic equality only; branch implementation not cached.",
+    "wallet_count": 361,
+    "sum_wallet_total_raw": "41283718401576498928496",
+    "sum_wallet_valuePico": "28015206546320955",
+    "all_wallet_source_sums_match": true,
+    "wallet_total_equals_available": true,
+    "value_sum_equals_denominator": true,
+    "entitlement_minus_floor_proportional_histogram": {
+      "0": 173,
+      "1": 188
+    },
+    "forwarder_count": 364,
+    "wallet_forwarder_intersection": 360,
+    "delegate_count": 5,
+    "token_group_sums_match": true,
+    "per_delegate_group_sums_match_reported_groups": false,
+    "pool_token_sums_match_totalTokens": true,
+    "source_recipient_matches_withdrawal_source": true,
+    "price_fetchedAt": "2026-10-20T07:50:15.172Z",
+    "group_level_deltas_raw": [
+      {
+        "token": "0x04acaf8d2865c0714f79da09645c13fd2888977f",
+        "group": "forwarders",
+        "sum_per_delegate_raw": "2200003298699386984022",
+        "reported_group_raw": "2196175964146084624948",
+        "sum_minus_reported_raw": "3827334553302359074"
+      },
+      {
+        "token": "0x04acaf8d2865c0714f79da09645c13fd2888977f",
+        "group": "nonForwarders",
+        "sum_per_delegate_raw": "1594244856488793993572",
+        "reported_group_raw": "1598072191042096352646",
+        "sum_minus_reported_raw": "-3827334553302359074"
+      }
+    ],
+    "per_delegate_token_pool_count": 14,
+    "all_per_delegate_token_pools_conserved": true,
+    "split_only_wallet_count": 1,
+    "split_only_wallet_labels_consistent_with_fxn_only": true,
+    "curve_forwarder_keys_absent_from_split_count": 4
+  },
+  "conclusions": {
+    "exact_proposal_snapshot_mapping_verified": false,
+    "residual_explained": false,
+    "authenticated_entitlement_payment_links": 0,
+    "eligible_vote_denominator_authenticated": false,
+    "pooled_payout_token_verified": false
+  },
+  "cause_of_group_mismatch": "unknown; no allegation of loss, fraud or payment error",
+  "independent_epochs_examined": 1,
+  "entry_status": "草稿",
+  "promotion": false
+}
