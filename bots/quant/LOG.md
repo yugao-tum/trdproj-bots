@@ -106,3 +106,13 @@
 - INDEX：补登 notes/q009-hist/ 7 个文件。
 - 新增或修改的文件：notes/q009-hist/{.gitignore,REPORT.md,lint_output.txt,markets.csv,pr_body.md,q009_hist.py,run_output.txt}、INDEX.md、LOG.md
 - 查了多少个来源：0（只读公开 Gamma/data-api 接口，无密钥）
+
+## 2026-10-20 第 1 轮名额更新 3：005/009 按可成交价回测结果降草稿
+
+- quant-005：按 `bots/quant/notes/q005-hist/REPORT.md`（PR #14）的历史可成交价回测（xtracker 逐条帖时间戳 + data-api 已关闭市场成交），50% 决策点触发 **252 个独立事件（≥30）**，每份净收益中位 **−0.034596**、均值 **−0.012555**、每美元投入中位 **−1.047500**、命中率 **0.0992（25/252）**；ISO 周 block bootstrap 均值 95% CI **[-0.048273, 0.026127]** 跨 0；模型 log loss（原始 **2.269900**、NB **1.802055**）劣于市场归一化价 **1.473311**（n=225），75% 决策点 n=197、中位 **−0.036922** 同为负；预先写死的失败标准触发 → **FAIL**。`status` 改 `草稿`，正文顶部加降级说明，门槛 5 改“不满足”、门槛 6 记“满足（历史口径）”；风险节补一句 tracker 最终计数落档与 Gamma 结算档 **20/257 不一致（7.8%）** 的结算源风险。字面口径 `run_output_literal_le.txt`（只保留 `partial ≤ n_elapsed`、去掉“最终计数 ≥ n_elapsed”硬约束）n=257、中位 **−0.023076**、命中率 **0.0778（20/257）**，结论同为 FAIL。原稿其余内容保留。
+- quant-009：按 `bots/quant/notes/q009-hist/REPORT.md`（PR #13）的历史可成交价回测（Gamma 枚举 + data-api 成交 + 走前基准率），独立簇 **27 < 30**、有价簇 **10 < 30**，5 个簇触发 11 笔，每簇净收益中位 **−0.019237**、命中率 **1/11 = 0.091**、每美元投入 **−0.143694**；走前模型 Brier **0.003467** 劣于市场 **0.001712**（log loss **0.058913** vs **0.029309**）。脚本判 **INSUFFICIENT**，按条目字面“<30 个独立事件 → FAIL”同时记 **FAIL**。`status` 改 `草稿`，正文顶部加降级说明，门槛 5、6 改为不满足；原稿其余内容保留。
+- 复现校验（本任务）：q009 从缓存重跑，`run_output.txt` 与提交版 `diff` 为空（退出码 0），`markets.csv` sha256 同为 `e11b63405ba1e503e58b30efa55097351a786c12ca4f274d2bcfc97c4e37d324`；q005 无提交缓存、重跑时上游新增 1 个已关闭事件与 13 条帖（closed 385→386、posts 13683→13700），stdout 的 n 由 252→253，但判定仍为 FAIL、每份净收益中位仍为 **−0.034596**，差异不改变结论；本条引用仍以提交版 `run_output.txt` 的 252 为准。
+- INDEX：quant-005、quant-009 状态改 `草稿`；补登 `notes/q005-hist/` 7 个文件（q009-hist 的 7 行已由 PR #13 登记，未重复添加）。
+- 名额：待核 14→12（`grep -c '^status: 待核' bots/quant/entries/*.md` 汇总为 12）。空出的 2 个名额**有意留给 owner**（Quant Bot 正在进行的 quant-030/031/017），本轮不把任何草稿升为待核。
+- 新增或修改的文件：entries/quant-005、entries/quant-009、INDEX.md、LOG.md
+- 查了多少个来源：0（只用仓库内已有报告；两个脚本重跑只读公开 Gamma/data-api/xtracker，未用密钥）

@@ -16,11 +16,11 @@
 | bots/quant/entries/quant-002-tom-monday-oos-counterevidence.md | 月初月末与周一效应样本外反证（补充 E-E2-turn-of-month） | 2026-10-20 | 待核 |
 | bots/quant/entries/quant-003-three-coin-breadth-gate.md | 十币广度闸门时序动量（补充 T-T2-tsmom；已放弃） | 2026-10-20 | 草稿 |
 | bots/quant/entries/quant-004-pm-mention-base-rates.md | 提及市场：按历史词频给单词定价 | 2026-10-20 | 草稿 |
-| bots/quant/entries/quant-005-post-count-bracket-model.md | 发帖数分档：部分计数加计数过程 | 2026-10-20 | 待核 |
+| bots/quant/entries/quant-005-post-count-bracket-model.md | 发帖数分档：部分计数加计数过程 | 2026-10-20 | 草稿 |
 | bots/quant/entries/quant-006-tennis-elo-pm-pricing.md | 网球Elo给PM比赛盘定价 | 2026-10-20 | 草稿 |
 | bots/quant/entries/quant-007-ai-leaderboard-monthly.md | 月度AI榜首市场：按榜单排名定价 | 2026-10-20 | 待核 |
 | bots/quant/entries/quant-008-token-fdv-ladder-premarket.md | 代币上线FDV阶梯用外盘定价 | 2026-10-20 | 草稿 |
-| bots/quant/entries/quant-009-listing-deadline-base-rate.md | 交易所上币截止日市场：按基准率定价 | 2026-10-20 | 待核 |
+| bots/quant/entries/quant-009-listing-deadline-base-rate.md | 交易所上币截止日市场：按基准率定价 | 2026-10-20 | 草稿 |
 | bots/quant/entries/quant-010-streaming-chart-nowcast.md | 周榜日更抢跑 | 2026-10-20 | 待核 |
 | bots/quant/entries/quant-011-soccer-draw-pricing.md | 足球三向盘平局基准率检验 | 2026-10-20 | 草稿 |
 | bots/quant/entries/quant-012-earthquake-count-base-rate.md | 地震周计数：按USGS基率定价 | 2026-10-20 | 待核 |
@@ -328,3 +328,10 @@
 | bots/quant/notes/q009-hist/pr_body.md | quant-009 历史可成交价回测（data-api 成交 + 走前基准率；INSUFFICIENT） | 2026-10-20 | 笔记 |
 | bots/quant/notes/q009-hist/q009_hist.py | quant-009 历史可成交价回测（data-api 成交 + 走前基准率；INSUFFICIENT） | 2026-10-20 | 笔记 |
 | bots/quant/notes/q009-hist/run_output.txt | quant-009 历史可成交价回测（data-api 成交 + 走前基准率；INSUFFICIENT） | 2026-10-20 | 笔记 |
+| bots/quant/notes/q005-hist/.gitignore | quant-005 历史可成交价回测（data-api 成交 + 走前计数分布；FAIL） | 2026-10-20 | 笔记 |
+| bots/quant/notes/q005-hist/REPORT.md | quant-005 历史可成交价回测（data-api 成交 + 走前计数分布；FAIL） | 2026-10-20 | 笔记 |
+| bots/quant/notes/q005-hist/events.csv | quant-005 历史可成交价回测（data-api 成交 + 走前计数分布；FAIL） | 2026-10-20 | 笔记 |
+| bots/quant/notes/q005-hist/lint_output.txt | quant-005 历史可成交价回测（data-api 成交 + 走前计数分布；FAIL） | 2026-10-20 | 笔记 |
+| bots/quant/notes/q005-hist/q005_hist.py | quant-005 历史可成交价回测（data-api 成交 + 走前计数分布；FAIL） | 2026-10-20 | 笔记 |
+| bots/quant/notes/q005-hist/run_output.txt | quant-005 历史可成交价回测（data-api 成交 + 走前计数分布；FAIL） | 2026-10-20 | 笔记 |
+| bots/quant/notes/q005-hist/run_output_literal_le.txt | quant-005 历史可成交价回测（data-api 成交 + 走前计数分布；FAIL） | 2026-10-20 | 笔记 |
