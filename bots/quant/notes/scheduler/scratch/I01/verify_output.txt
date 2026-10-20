@@ -1,0 +1,39 @@
+events 68 buckets 514
+series events {'M5.5+': 28, 'M6.5+': 38, 'M7.0+': 2}
+strict groups 40
+strict groups with >=1 pre-window fill 35
+strict groups with >=1 traded bucket 34
+events with >=1 pre-window fill 58
+events with every bucket priced 29
+partial bracket events 1
+USGS match 59 / 68
+
+traded buckets 103 winning NO 80 (77.7%)
+median gross +0.120000
+median net   +0.114720
+mean gross   +0.018579
+mean net     +0.010689
+total net    +1.101002 / staked 78.086332 = +1.4100%
+  M5.5+: traded 56, win 47, mean net +0.001946, total +0.108964 / 46.530490 = +0.2342%
+  M6.5+: traded 47, win 33, mean net +0.021107, total +0.992038 / 31.555842 = +3.1438%
+
+log loss paired events 29
+mean model  1.445508
+mean market 1.415152
+model better 15, market better 14
+
+mismatches (all M5.5):
+  how-many-5pt5-or-above-earthquakes-april-13-april-19: USGS=9 resolved=>9
+  how-many-5pt5-or-above-earthquakes-april-6-april-12: USGS=2 resolved=3
+  how-many-5pt5-or-above-earthquakes-july-14-july-19-20260713182205496: USGS=11 resolved=>12
+  how-many-5pt5-or-above-earthquakes-july-20-july-26-20260718184830018: USGS=8 resolved=9
+  how-many-5pt5-or-above-earthquakes-june-22-june-28-20260619195110201: USGS=10 resolved=11
+  how-many-5pt5-or-above-earthquakes-may-11-may-17: USGS=7 resolved=6
+  how-many-5pt5-or-above-earthquakes-worldwide-august-24-august-30: USGS=6 resolved=7
+  how-many-5pt5-or-above-earthquakes-worldwide-august-31-september-6: USGS=11 resolved=12
+  how-many-5pt5-or-above-earthquakes-worldwide-september-14-september-20: USGS=4 resolved=7
+
+negative-side check (NOT hidden):
+  losing NO buckets: 23 / 103
+  worst net/share: -0.914095; best net/share: +0.557745
+  net return per dollar staked over 2026-01..2026-10: +1.4100%

@@ -1,0 +1,22 @@
+fields 17
+  id: OK = quant-012
+  name_zh: OK = 地震周计数：按USGS基率定价
+  name_en: OK = Earthquake weekly-count ladders priced with Gutenberg-Richter / USGS base rates
+  bot: OK = quant
+  date: OK = 2026-10-20
+  market: OK = polymarket
+  pm_category: OK = weather
+  kind: OK = new
+  improves: OK = -
+  category: OK = S
+  return_type: OK = direction
+  instruments: OK = Polymarket「本周全球 M6.5+（或 M5.5+）地震发生几次」分档（0/1/2/3/4/5/>5 共 7 档、negRisk）+「M7.0+ 在某日
+  venues: OK = Polymarket
+  data: OK = USGS FDSN event API（免费免密钥，2000 年起完整目录）；Polymarket Gamma/CLOB（免费免密钥，CLOB 历史盘口只到市场
+  test_2w: OK = 按 event 计独立结果；历史 data-api 成交已构造 35 个严格独立结果（2026-01..2026-10，有成交 34 个）≥30；失败标准是已成
+  status: OK = 待核
+  confidence: OK = 中
+MISSING []
+id matches filename: True
+date unchanged: 2026-10-20 -> 2026-10-20
+status: 待核

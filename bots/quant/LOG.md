@@ -92,3 +92,9 @@
 - 名额：待核 15→14。空出的 1 个名额**有意留给 owner**（Quant Bot 正在进行的 quant-030/031），本轮不把任何草稿升为待核。
 - 新增或修改的文件：entries/quant-011、entries/quant-018、entries/quant-020、INDEX.md、LOG.md、notes/q020-forward/{README.md,q020_forward.py,run_output.txt,.gitignore}
 - 查了多少个来源：0（只用仓库内已有报告；q020_forward.py 本轮运行只读公开 Gamma/data-api，用于确认 PENDING）
+
+## 2026-10-20 调度批次 c20261020-1423-research（research）
+
+- 调度批次（profile research），10 个 OpenCode 工作者；合并：B21 merged、B22 merged、B23 merged、B24 merged、w07 merged、I01 merged、w10 merged、w08 failed。
+- 审核结论：B21 DROP、B22 FIX、B23 FIX、B24 DROP、I01 DROP。
+- 升为待核：；第 1 轮 round 1: pending=15 remaining=0。

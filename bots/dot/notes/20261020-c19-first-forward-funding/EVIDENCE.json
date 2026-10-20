@@ -1,0 +1,165 @@
+{
+  "schema": "c19.first-forward-funding-observation.v1",
+  "report_date_utc": "2026-10-20",
+  "classification": "One actual public market funding event; conditional virtual cash, not an account payment, fill, new mechanism, research round, stage advancement or gate pass.",
+  "entry": {
+    "entry_time_ms": 1792498473688,
+    "quantity": "0.522",
+    "common_step": "0.001",
+    "entry_reference_id": "f7873881d7e87bdd86ae1b9300905b54bf03fe810e2b69ec3626ae09ac21520e",
+    "spot_notional": "1244.54196000000",
+    "perp_notional": "1243.95732",
+    "spot_vwap": "2384.18000000",
+    "perp_vwap": "2383.06",
+    "filter_snapshot_id": "c24c3c00808e2fcc2d9b4a6be629156d16f13c5a18066c6598fe8778439de902"
+  },
+  "event": {
+    "symbol": "ETHUSDT",
+    "actual_time_ms": 1792512000006,
+    "actual_time_utc": "2026-10-20T16:00:00.006Z",
+    "funding_rate": "0.00007381",
+    "settlement_mark_usdt": "2440.13000000",
+    "rate_type": "Regular",
+    "unique_event_key": "ETHUSDT:1792512000006",
+    "event_count": 1,
+    "cash_each_scenario_usdt": "0.0940153295466000000"
+  },
+  "formulas": {
+    "funding": "Decimal(quantity) * Decimal(actual fundingRate) * Decimal(actual settlement markPrice); positive rate credits the hypothetical short",
+    "nonfunding_price_pnl": "spot exit bid-depth notional - spot entry notional + perpetual entry notional - perpetual exit ask-depth notional",
+    "full_cost": "spot entry fee + perpetual entry fee + assumed_cost * (spot exit bid-depth notional + perpetual exit ask-depth notional)",
+    "same_quote_net_before_funding": "nonfunding_price_pnl - full_cost; counterfactual at the SAME 16:16 quotes, not a prior-time observation",
+    "same_quote_net_after_funding": "same_quote_net_before_funding + recorded conditional funding cash",
+    "hypothetical_exit_equity": "5000 + same_quote_net_after_funding"
+  },
+  "valuation": {
+    "quote_time_utc": "2026-10-20T16:16:46.327Z",
+    "spot_exit_notional_usdt": "1273.52340000000",
+    "perpetual_exit_notional_usdt": "1273.31460",
+    "scenarios": {
+      "0.003": {
+        "assumed_cost_per_leg": "0.003",
+        "entry_cost_usdt": "7.46549784000000",
+        "exit_cost_usdt": "7.64051400000000",
+        "full_four_leg_cost_usdt": "15.10601184000000",
+        "nonfunding_price_pnl_usdt": "-0.37584000000",
+        "same_quote_net_before_funding_usdt": "-15.48185184000000",
+        "funding_cash_usdt": "0.0940153295466000000",
+        "same_quote_net_after_funding_usdt": "-15.3878365104534000000",
+        "hypothetical_exit_equity_usdt": "4984.6121634895466000000",
+        "funding_only_cost_recovery_gap_usdt": "15.0119965104534000000",
+        "remaining_shortfall_including_price_pnl_usdt": "15.3878365104534000000",
+        "margin_equity_mark_usdt": "1218.7197277240066000000",
+        "total_equity_mark_usdt": "4992.2431277240066000000"
+      },
+      "0.006": {
+        "assumed_cost_per_leg": "0.006",
+        "entry_cost_usdt": "14.93099568000000",
+        "exit_cost_usdt": "15.28102800000000",
+        "full_four_leg_cost_usdt": "30.21202368000000",
+        "nonfunding_price_pnl_usdt": "-0.37584000000",
+        "same_quote_net_before_funding_usdt": "-30.58786368000000",
+        "funding_cash_usdt": "0.0940153295466000000",
+        "same_quote_net_after_funding_usdt": "-30.4938483504534000000",
+        "hypothetical_exit_equity_usdt": "4969.5061516495466000000",
+        "funding_only_cost_recovery_gap_usdt": "30.1180083504534000000",
+        "remaining_shortfall_including_price_pnl_usdt": "30.4938483504534000000",
+        "margin_equity_mark_usdt": "1211.2542298840066000000",
+        "total_equity_mark_usdt": "4984.7776298840066000000"
+      }
+    }
+  },
+  "next_schedule": {
+    "source_observed_not_inferred": true,
+    "source_time_ms": 1792513005000,
+    "source_time_utc": "2026-10-20T16:16:45.000Z",
+    "next_funding_time_ms": 1792540800000,
+    "next_funding_utc": "2026-10-21T00:00:00.000Z",
+    "mark_price_usdt": "2439.31829457",
+    "schedule_response_lastFundingRate_not_booked": "0.00007659"
+  },
+  "sources": [
+    {
+      "role": "actual_settlement_history",
+      "tool_endpoint": "mcp__codex_apps__binance_get_futures_usds_funding_rate_history",
+      "parameters": {
+        "symbol": "ETHUSDT",
+        "startTime": 1792498473689,
+        "endTime": 1792512068772,
+        "limit": 1000
+      },
+      "request_utc": "2026-10-20T16:01:18.274Z",
+      "response_utc": "2026-10-20T16:01:19.185Z",
+      "raw_capture_sha256": "7c7a09d8057bb4a6d001e3e5228146d2718b227360407205bc1d734c2453fe1f"
+    },
+    {
+      "role": "spot_exit_depth",
+      "tool_endpoint": "mcp__codex_apps__binance_get_spot_order_book",
+      "parameters": {
+        "symbol": "ETHUSDT",
+        "limit": 100
+      },
+      "request_utc": "2026-10-20T16:16:44.213Z",
+      "response_utc": "2026-10-20T16:16:46.327Z",
+      "raw_capture_sha256": "6f3c0232a01fdd9dc50f16a757196e7775b99d98107f0ad2bbb4649c0ed21114",
+      "response_index": 0
+    },
+    {
+      "role": "perpetual_exit_depth",
+      "tool_endpoint": "mcp__codex_apps__binance_get_futures_usds_order_book",
+      "parameters": {
+        "symbol": "ETHUSDT",
+        "limit": 100
+      },
+      "request_utc": "2026-10-20T16:16:44.213Z",
+      "response_utc": "2026-10-20T16:16:45.665Z",
+      "raw_capture_sha256": "6f3c0232a01fdd9dc50f16a757196e7775b99d98107f0ad2bbb4649c0ed21114",
+      "response_index": 1
+    },
+    {
+      "role": "mark_and_next_schedule",
+      "tool_endpoint": "mcp__codex_apps__binance_get_futures_usds_mark_price",
+      "parameters": {
+        "symbol": "ETHUSDT"
+      },
+      "request_utc": "2026-10-20T16:16:44.213Z",
+      "response_utc": "2026-10-20T16:16:45.391Z",
+      "raw_capture_sha256": "6f3c0232a01fdd9dc50f16a757196e7775b99d98107f0ad2bbb4649c0ed21114",
+      "response_index": 2
+    }
+  ],
+  "provenance": {
+    "protocol_canonical_config_sha256": "b30f87538f3f88e8b709058c25325eb6094ce54bfcb6d24e3f9f8da5628fffe6",
+    "frozen_manifest_sha256": "dce944bb4274141f9f29ddb7ae0e9f56d326738d38dd511e9a83525779fa5853",
+    "frozen_manifest_entries_verified": 18,
+    "protocol_document_sha256": "69d565b61dcf550be00173391ce08e26935f00f5152436156ba53a3a607b36ef",
+    "funding_receipt_sha256": "dae2560395fdaf75e93ff7c6d8efe620df49501f37117cf743ce5bac56dfe345",
+    "funding_independent_readback_sha256": "413f1559750b06bcf8402be83a272863f1076a2d8a6bc9f480095028045f022f",
+    "funding_checkpoint_at_ingestion_sha256": "8e32ad93c8029bf04673c1341295cbbc4361acf83fa7c80eff6685a87876e379",
+    "quote_receipt_sha256": "315e60b27fa9ac7363b2796a9411ecade9a9063b1ae968c6234880963be7c1ec",
+    "current_checkpoint_verified_sha256": "1743c7032a2eec2575574dc04233e4df9b8a4393c1cd6fe723268d61c24503b0",
+    "current_checkpoint_revision": 20,
+    "quote_independent_readback_sha256": "2571c840d11fa5885f64bf9ebf1b4d6c670e751f8c3babd1737da508d58df429"
+  },
+  "independent_checks": {
+    "captured_raw_hash_matches_receipt": true,
+    "one_actual_row_one_ledger_key": true,
+    "cash_each_account_equals_one_event_not_double": true,
+    "entry_unchanged": true,
+    "all_frozen_manifest_hashes_match": true,
+    "independent_decimal_exit_depth_and_cost_rebuild": true,
+    "source_schedule_matches_checkpoint": true,
+    "new_market_calls_for_this_document": 0,
+    "quote_observer_independent_readback_reconciled": true
+  },
+  "limitations": [
+    "One event is not IID evidence or a 30-event review milestone.",
+    "Historical failures and frozen selection/protocol are unchanged; this observation does not rehabilitate prior strict-1x or maintenance-margin limitations.",
+    "Both full-cost net scenarios remain negative.",
+    "Generic 0.003/0.006 per-leg costs are conservative assumptions, not verified commissions; may overlap bid/ask spread costs.",
+    "Fresh retrieval is not proof of simultaneous execution; spot exchange-event time remains unavailable.",
+    "Positive observed margin does not establish liquidation survival, historical/current maintenance tiers, dynamic order acceptance or funding eligibility.",
+    "No real account, order, fill, payment or realized PnL. No annualization or break-even-days forecast.",
+    "Raw captures retained locally only; compact publication contains hashes and selected evidence, no books or checkpoint dump."
+  ]
+}

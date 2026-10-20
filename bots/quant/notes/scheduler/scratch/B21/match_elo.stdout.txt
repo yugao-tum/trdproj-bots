@@ -1,0 +1,14 @@
+polymarket games 804 matched 638
+unmatched 166                       slug        date     pair
+16  nfl-lac-sea-2024-08-10  2024-08-10  LAC-SEA
+17   nfl-ari-no-2024-08-10  2024-08-10   ARI-NO
+18  nfl-nyj-wsh-2024-08-10  2024-08-10  NYJ-WAS
+19  nfl-buf-chi-2024-08-10  2024-08-10  BUF-CHI
+20   nfl-ten-sf-2024-08-10  2024-08-10   SF-TEN
+21  nfl-min-las-2024-08-10  2024-08-10   LV-MIN
+22   nfl-cle-gb-2024-08-10  2024-08-10   CLE-GB
+23   nfl-jax-kc-2024-08-10  2024-08-10   JAX-KC
+usable 0 date range 2024-08-08 2026-10-20
+Empty DataFrame
+Columns: [slug, game_id, home_team, away_team, elo_p_home, veg_home, pm_home, pm_away, home_win]
+Index: []

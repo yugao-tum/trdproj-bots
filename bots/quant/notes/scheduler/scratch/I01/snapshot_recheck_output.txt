@@ -1,0 +1,12 @@
+volume 5163.423202
+liquidity 6405.58802
+negRisk True
+0 bid 0.47 ask 0.5 outcomePrices ["0.485", "0.515"]
+1 bid 0.3 ask 0.34 outcomePrices ["0.32", "0.68"]
+2 bid 0.1 ask 0.14 outcomePrices ["0.12", "0.88"]
+3 bid 0.04 ask 0.05 outcomePrices ["0.045", "0.955"]
+4 bid 0.002 ask 0.06 outcomePrices ["0.031", "0.969"]
+5 bid 0.001 ask 0.009 outcomePrices ["0.005", "0.995"]
+more than 5 bid 0.001 ask 0.012 outcomePrices ["0.0065", "0.9935"]
+sum bestAsk 1.111000
+sum bestBid 0.914000

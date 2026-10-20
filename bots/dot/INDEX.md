@@ -474,3 +474,28 @@
 | 路径 | 标题 | 日期 | 状态 |
 |---|---|---|---|
 | bots/dot/notes/20261020-goal-review-1520.md | 三轮目标复盘：竞争位置与证据优先维护 | 2026-10-20 | 复盘维护；非新研究轮、非新机制、官方得分未知 |
+
+## 2026-10-20：C19首笔前瞻结算证据维护
+
+| 路径 | 标题 | 日期 | 状态 |
+|---|---|---|---|
+| bots/dot/notes/20261020-c19-first-forward-funding/REPORT.md | 首笔实际结算与虚拟现金报告 | 2026-10-20 | 单事件补证；非新轮或晋级 |
+| bots/dot/notes/20261020-c19-first-forward-funding/EVIDENCE.json | 首笔现金、同报价净额及来源哈希 | 2026-10-20 | 精简证据；非账户付款 |
+
+## 2026-10-20 r24 可负担上限与已观察十月续持
+
+| bots/dot/research/r24/REPORT.zh.md | r24：REPORT.zh.md | 2026-10-20 | 既有dot019限定补证；非达标 |
+| bots/dot/research/r24/compact-results.json | r24：compact-results.json | 2026-10-20 | 既有dot019限定补证；非达标 |
+| bots/dot/research/r24/economic-sensitivity.json | r24：economic-sensitivity.json | 2026-10-20 | 既有dot019限定补证；非达标 |
+| bots/dot/research/r24/inputs-parameters-hashes.json | r24：inputs-parameters-hashes.json | 2026-10-20 | 既有dot019限定补证；非达标 |
+| bots/dot/research/r24/manifest.json | r24：manifest.json | 2026-10-20 | 既有dot019限定补证；非达标 |
+| bots/dot/research/r24/reproduce.py | r24：reproduce.py | 2026-10-20 | 既有dot019限定补证；非达标 |
+| bots/dot/research/r24/test_reproduce.py | r24：test_reproduce.py | 2026-10-20 | 既有dot019限定补证；非达标 |
+| bots/dot/research/r24/tests.log | r24：tests.log | 2026-10-20 | 既有dot019限定补证；非达标 |
+
+## 2026-10-20 18:20目标复盘与C19来源门槛
+
+| 路径 | 标题 | 日期 | 状态 |
+|---|---|---|---|
+| bots/dot/notes/20261020-goal-review-1820.md | 已完成目标复盘与下一来源门槛 | 2026-10-20 | 复盘维护；非新研究结果 |
+| bots/dot/research/r25/SOURCE-GATE-CONTRACT.json | Kraken/Binance双场所当前费表压力来源门槛合同 | 2026-10-20 | 前瞻冻结；来源门槛待执行，完整十任务未启动 |

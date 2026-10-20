@@ -1,0 +1,24 @@
+n 23 shares 1020.57 cost $766.93 pnl $245.64 ROI 32.03%
+NO 2026-08-25 AL shares 30.0 fill 0.550 cost $16.8713 pnl $13.1287 res False
+YES 2026-08-25 AR shares 12.0 fill 0.510 cost $6.2699 pnl $5.7301 res True
+NO 2026-08-25 MN shares 135.0 fill 0.552 cost $76.2191 pnl $58.7809 res False
+YES 2026-08-25 MS shares 30.0 fill 0.520 cost $15.9744 pnl $14.0256 res True
+YES 2026-08-25 NM shares 148.8 fill 0.562 cost $85.4693 pnl $63.3307 res True
+YES 2026-08-25 NC shares 10.0 fill 0.510 cost $5.2250 pnl $4.7751 res True
+YES 2026-08-25 SC shares 8.0 fill 0.530 cost $4.3396 pnl $-4.3396 res False
+NO 2026-09-01 LA shares 10.6 fill 0.950 cost $10.1237 pnl $0.5063 res False
+YES 2026-09-01 MS shares 42.0 fill 0.830 cost $35.1563 pnl $6.8437 res True
+NO 2026-09-01 SD shares 5.0 fill 0.950 cost $4.7619 pnl $0.2381 res False
+NO 2026-09-01 WA shares 30.0 fill 0.940 cost $28.2846 pnl $1.7154 res False
+NO 2026-09-01 WI shares 10.8 fill 0.940 cost $10.1353 pnl $0.6147 res False
+NO 2026-09-01 WY shares 11.5 fill 0.880 cost $10.1719 pnl $1.3181 res False
+NO 2026-09-08 AZ shares 10.0 fill 0.951 cost $9.5333 pnl $0.4667 res False
+NO 2026-09-08 LA shares 10.0 fill 0.936 cost $9.3900 pnl $0.6100 res False
+YES 2026-09-15 MS shares 185.0 fill 0.813 cost $151.8646 pnl $33.1354 res True
+YES 2026-09-15 NE shares 70.0 fill 0.814 cost $57.5293 pnl $12.4707 res True
+YES 2026-09-15 NV shares 30.0 fill 0.831 cost $25.1407 pnl $4.8593 res True
+YES 2026-09-15 TX shares 119.3 fill 0.901 cost $108.0666 pnl $11.2834 res True
+YES 2026-10-06 MS shares 10.0 fill 0.850 cost $8.5638 pnl $1.4363 res True
+YES 2026-10-06 NC shares 5.0 fill 0.830 cost $4.1853 pnl $0.8147 res True
+YES 2026-10-06 TX shares 88.8 fill 0.887 cost $79.1595 pnl $9.6205 res True
+YES 2026-10-06 WI shares 8.8 fill 0.500 cost $4.4946 pnl $4.2754 res True

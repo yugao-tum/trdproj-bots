@@ -1,0 +1,43 @@
+side YES thr 0.99 n 37 wins 35 pnl +2.8894 cap 32.1106 ROI +8.998%
+side YES thr 0.97 n 24 wins 23 pnl +3.6768 cap 19.3232 ROI +19.028%
+side YES thr 0.95 n 21 wins 20 pnl +3.5702 cap 16.4298 ROI +21.730%
+side YES thr 0.93 n 17 wins 16 pnl +3.3510 cap 12.6490 ROI +26.492%
+side YES thr 0.9 n 15 wins 14 pnl +3.2175 cap 10.7825 ROI +29.840%
+side YES thr 0.85 n 12 wins 11 pnl +2.8999 cap 8.1001 ROI +35.801%
+side YES thr 0.8 n 6 wins 5 pnl +1.8531 cap 3.1469 ROI +58.886%
+
+side NO thr 0.05 n 10 wins 10 pnl +1.4424 cap 8.5576 ROI +16.856%
+side NO thr 0.1 n 3 wins 3 pnl +1.0173 cap 1.9827 ROI +51.308%
+side NO thr 0.15 n 2 wins 2 pnl +0.8929 cap 1.1071 ROI +80.660%
+side NO thr 0.2 n 2 wins 2 pnl +0.8929 cap 1.1071 ROI +80.660%
+side NO thr 0.3 n 2 wins 2 pnl +0.8929 cap 1.1071 ROI +80.660%
+
+Primary YES thr .95 details:
+side YES thr 0.95 n 21 wins 20 pnl +3.5702 cap 16.4298 ROI +21.730%
+2026-08-25 AR prior 0.99 ask 0.500 age 10.5 sz 12 res True pnl +0.4875
+2026-08-25 MS prior 0.87 ask 0.510 age 12.6 sz 30 res True pnl +0.4775
+2026-08-25 NM prior 3.05 ask 0.552 age 63.5 sz 148.8 res True pnl +0.4356
+2026-08-25 NC prior 0.33 ask 0.500 age 29.6 sz 10 res True pnl +0.4875
+2026-08-25 SC prior 0.19 ask 0.520 age 10.5 sz 8 res False pnl -0.5325
+2026-08-25 TX prior 1.42 ask 0.930 age 29.6 sz 10 res True pnl +0.0667
+2026-09-01 MS prior 0.87 ask 0.820 age 54.6 sz 42 res True pnl +0.1726
+2026-09-01 OR prior 3.91 ask 0.930 age 29.8 sz 32.258057 res True pnl +0.0667
+2026-09-08 NV prior 0.82 ask 0.940 age 6.4 sz 26 res True pnl +0.0572
+2026-09-15 AR prior 1.97 ask 0.940 age 64.6 sz 20 res True pnl +0.0572
+2026-09-15 MS prior 0.87 ask 0.803 age 56.9 sz 185 res True pnl +0.1888
+2026-09-15 NE prior 0.93 ask 0.804 age 56.9 sz 70 res True pnl +0.1878
+2026-09-15 NV prior 0.82 ask 0.821 age 56.9 sz 30 res True pnl +0.1717
+2026-09-15 NM prior 7.66 ask 0.940 age 8.9 sz 30 res True pnl +0.0572
+2026-09-15 TX prior 3.42 ask 0.891 age 55.7 sz 119.35 res True pnl +0.1041
+2026-09-29 TX prior 4.25 ask 0.950 age 29.2 sz 20.99 res True pnl +0.0476
+2026-10-06 AR prior 2.27 ask 0.900 age 29.7 sz 10 res True pnl +0.0955
+2026-10-06 MS prior 0.87 ask 0.840 age 30.0 sz 10 res True pnl +0.1533
+2026-10-06 NC prior 0.34 ask 0.820 age 4.1 sz 5 res True pnl +0.1726
+2026-10-06 TX prior 3.63 ask 0.877 age 51.9 sz 88.78 res True pnl +0.1180
+2026-10-06 WI prior 3.06 ask 0.490 age 37.1 sz 8.77 res True pnl +0.4975
+
+Primary NO thr .10 details:
+side NO thr 0.1 n 3 wins 3 pnl +1.0173 cap 1.9827 ROI +51.308%
+2026-08-25 AL prior 0.00 yesbid 0.460 age 65.1 sz 30 res False pnl +0.4476
+2026-08-25 MN prior 0.00 yesbid 0.458 age 63.5 sz 135 res False pnl +0.4454
+2026-09-01 WY prior 0.00 yesbid 0.130 age 5.3 sz 11.49 res False pnl +0.1243

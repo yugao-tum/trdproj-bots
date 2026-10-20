@@ -1,0 +1,10 @@
+test_cap_and_retain (test_reproduce.IndependentChecks.test_cap_and_retain) ... ok
+test_cash_identity_four_fees (test_reproduce.IndependentChecks.test_cash_identity_four_fees) ... ok
+test_endpoint_not_reopen (test_reproduce.IndependentChecks.test_endpoint_not_reopen) ... ok
+test_four_csv_portability (test_reproduce.IndependentChecks.test_four_csv_portability) ... ok
+test_quantity_quantum (test_reproduce.IndependentChecks.test_quantity_quantum) ... ok
+
+----------------------------------------------------------------------
+Ran 5 tests in 3.229s
+
+OK
