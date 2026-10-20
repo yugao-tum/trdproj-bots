@@ -1,0 +1,97 @@
+PRE-SPECIFIED FAMILY SIZE: 106 variants
+families: {'SMA level': 36, 'EMA level': 36, 'SAR': 9, 'CCI': 9, '%B(20,2)': 5, 'Donchian': 5, 'ROC': 5, 'baseline': 1}
+loading public Binance daily data (cache ./_data, reused if present)...
+  BTC: 2020-12-31 .. 2026-10-13 (2113 rows)
+  ETH: 2020-12-31 .. 2026-10-13 (2113 rows)
+  SOL: 2020-12-31 .. 2026-10-13 (2113 rows)
+
+=== VM baseline (0.30% per side, 4 stitched OOS folds) ===
+name  compound_pct  cagr_pct  sharpe_ann  path_dd_pct  folds_pos  avg_exposure     fold_rets_pct
+none      237.1525   37.8172      1.3232     -22.1166          4        0.2886 97.0|43.7|9.3|9.0
+
+=== Gate family: top 15 by annualised OOS Sharpe ===
+         name    family  compound_pct  cagr_pct  sharpe_ann  path_dd_pct  avg_exposure  sharpe_diff_vs_base  p_mean_boot  p_mean_holm
+sar_0.02_0.10       SAR      279.0234   42.1415      1.6153     -10.7359        0.1829               0.2921       0.3642          1.0
+sar_0.02_0.20       SAR      262.6401   40.4935      1.5909     -10.7359        0.1763               0.2676       0.4451          1.0
+sar_0.02_0.15       SAR      264.6233   40.6959      1.5861     -10.7359        0.1781               0.2629       0.4319          1.0
+ ema20_b+0.01 EMA level      247.6420   38.9361      1.5238     -11.2847        0.1787               0.2005       0.5126          1.0
+      cci20_0       CCI      243.0356   38.4478      1.4808     -16.9362        0.1987               0.1576       0.5349          1.0
+     pctb_0.4  %B(20,2)      237.7774   37.8846      1.4377     -16.4125        0.2071               0.1145       0.5689          1.0
+ sma15_b+0.01 SMA level      205.0874   34.2297      1.4293     -15.2309        0.1568               0.1061       0.7058          1.0
+ sma15_b-0.01 SMA level      229.2052   36.9523      1.4177     -17.3221        0.2105               0.0945       0.6161          1.0
+ sma40_b-0.01 SMA level      232.5434   37.3174      1.4012     -20.5336        0.2393               0.0780       0.6078          1.0
+ sma75_b-0.01 SMA level      234.1699   37.4944      1.3921     -19.2054        0.2413               0.0689       0.5739          1.0
+ sma40_b+0.00 SMA level      225.9053   36.5886      1.3850     -20.5336        0.2276               0.0618       0.6378          1.0
+ sma20_b+0.01 SMA level      198.1316   33.4152      1.3835     -17.8471        0.1704               0.0602       0.7393          1.0
+     cci10_50       CCI      182.7458   31.5625      1.3779     -16.3991        0.1364               0.0547       0.7978          1.0
+      cci40_0       CCI      222.1670   36.1734      1.3735     -20.0103        0.2292               0.0503       0.6621          1.0
+ sma50_b+0.00 SMA level      224.1587   36.3951      1.3696     -19.0950        0.2422               0.0464       0.6471          1.0
+
+=== Selected named variants ===
+               compound_pct  cagr_pct  sharpe_ann  path_dd_pct  avg_exposure  sharpe_diff_vs_base  p_mean_boot  p_mean_holm
+name                                                                                                                       
+none               237.1525   37.8172      1.3232     -22.1166        0.2886               0.0000          NaN          NaN
+sar_0.02_0.15      264.6233   40.6959      1.5861     -10.7359        0.1781               0.2629       0.4319          1.0
+cci20_0            243.0356   38.4478      1.4808     -16.9362        0.1987               0.1576       0.5349          1.0
+pctb_0.4           237.7774   37.8846      1.4377     -16.4125        0.2071               0.1145       0.5689          1.0
+sma50_b+0.00       224.1587   36.3951      1.3696     -19.0950        0.2422               0.0464       0.6471          1.0
+sma100_b+0.00      155.8682   28.1396      1.1909     -19.1484        0.2218              -0.1323       0.8850          1.0
+sma200_b+0.00      158.5249   28.4894      1.2113     -20.0665        0.2078              -0.1119       0.8665          1.0
+
+=== (a) Deflated Sharpe Ratio (Bailey & Lopez de Prado 2014) ===
+Inputs: trial Sharpe = daily mean/std (not annualised); Var[trial SR] is cross-variant sample variance (ddof=1).
+  family size N=106; T=1383 daily OOS observations; Var[trial SR_daily]=0.00019021 (sd=0.013792); Var[trial SR_ann]=0.069425
+  formula: SR0 = sqrt(Var[SR]) * [(1-g)*Phi^-1(1-1/N) + g*Phi^-1(1-1/(N*e))], g=0.577216
+  DSR = Phi((SR_hat - SR0)*sqrt(T-1) / sqrt(1 - skew*SR_hat + ((kurt-1)/4)*SR_hat^2))
+             label          name      N  sharpe_ann  sr0_ann      dsr        z
+best by OOS Sharpe sar_0.02_0.10    106    1.615309 0.672164 0.991354 2.380452
+best by OOS Sharpe sar_0.02_0.10 224000    1.615309 1.202328 0.851374 1.042343
+    SAR(0.02,0.15) sar_0.02_0.15    106    1.586090 0.672164 0.989719 2.315946
+    SAR(0.02,0.15) sar_0.02_0.15 224000    1.586090 1.202328 0.834593 0.972476
+  (SR0 shown annualised; z and the DSR are invariant to annualisation.)
+  best variant inputs: {'name': 'sar_0.02_0.10', 'sharpe_ann': 1.6153, 'skew': 6.2934, 'kurtosis': 71.7656}
+
+=== (b) Probability of Backtest Overfitting (CSCV) ===
+{'pbo': 0.38104118104118107, 'n_splits': 12870, 'S': 16, 'block_min': 86, 'block_max': 87, 'median_rank': 72.0, 'mean_lambda': 0.6631230393622024, 'P_rank_le_half': 0.38104118104118107}
+  interpretation: PBO = share of all IS/OOS splits where the IS-best variant lands in the bottom half OOS.
+
+=== (c) Paired gate vs VM baseline (block bootstrap) ===
+  circular block bootstrap, L=20 days, B=4000, seed=20261020; one-sided H1: gate > baseline
+  raw p<0.05: mean-diff 0/105; Sharpe-diff 0/105
+  Holm p<0.05: mean-diff 0/105; Sharpe-diff 0/105
+  BH   p<0.05: mean-diff 0/105; Sharpe-diff 0/105
+  smallest mean-diff p-values:
+         name  sharpe_diff_vs_base  p_mean_boot  p_mean_holm  p_sharpe_boot  p_sharpe_holm
+sar_0.02_0.10              0.29210      0.36416          1.0        0.10447            1.0
+sar_0.02_0.15              0.26288      0.43189          1.0        0.14271            1.0
+sar_0.02_0.20              0.26765      0.44514          1.0        0.12997            1.0
+ ema20_b+0.01              0.20055      0.51262          1.0        0.22319            1.0
+      cci20_0              0.15762      0.53487          1.0        0.26868            1.0
+     pctb_0.4              0.11448      0.56886          1.0        0.32817            1.0
+ sma75_b-0.01              0.06887      0.57386          1.0        0.36116            1.0
+ sma40_b-0.01              0.07796      0.60785          1.0        0.39690            1.0
+ sma15_b-0.01              0.09453      0.61610          1.0        0.36966            1.0
+ sma40_b+0.00              0.06178      0.63784          1.0        0.42189            1.0
+  variants surviving Holm on mean daily return (0): none
+
+=== (d) How many gates beat VM baseline ===
+  N gates = 105
+  Sharpe: 26/105 (24.8%)
+  path max DD (smaller): 94/105 (89.5%)
+  compound return: 6/105 (5.7%)
+  both Sharpe and path DD: 26/105
+  median changes vs baseline: Sharpe -0.092, path DD +2.66 pp, compound -67.4 pp
+
+=== median by family (vs baseline) ===
+            n  median_sharpe  median_dd  median_compound  beat_sharpe  beat_dd
+family                                                                        
+%B(20,2)    5         1.2771   -20.9855         172.3753            1        3
+CCI         9         1.3340   -16.9362         182.7458            5        8
+Donchian    5         0.5758   -18.2278          32.8074            0        5
+EMA level  36         1.1871   -19.4615         161.0258            5       33
+ROC         5         1.1490   -20.2945         162.1475            1        3
+SAR         9         1.3215   -17.9178         179.2675            4        9
+SMA level  36         1.2535   -19.4615         170.3652           10       33
+
+wrote /workspace/oc-jobs/quant-review/wt/q001-dsr/bots/quant/notes/xqt-migration/q001-robustness/variants.csv (106 rows)
+done.
