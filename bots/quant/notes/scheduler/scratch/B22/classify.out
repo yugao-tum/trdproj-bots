@@ -1,0 +1,7 @@
+markets 1550 final mismatch 0
+YES rate 10 1550 0.0065
+final tp fp fn tn 10 0 0 1540 acc 1.0 flip_vs_final 0
+2000 tp fp fn tn 10 5 0 1535 acc 0.9968 flip_vs_final 5
+1630 tp fp fn tn 10 5 0 1535 acc 0.9968 flip_vs_final 5
+events with >=1 yes 6 of 62
+total yes days distribution Counter({0: 56, 1: 4, 4: 1, 2: 1})
