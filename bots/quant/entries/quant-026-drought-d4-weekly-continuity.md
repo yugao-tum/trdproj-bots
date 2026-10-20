@@ -18,7 +18,7 @@ status: 草稿
 confidence: 中
 ---
 
-整理说明：本条的规则原文、USDM 周度数据、320 个州市场的结算与成交，全部是 2026-10-20 用公开免密钥接口现场取的；脚本与原始输出在 `bots/quant/notes/scheduler/scratch/B23/`。**已按 2026-10-20 复核（`bots/quant/notes/scheduler/reviews/c20261020-1423-research.md` 的 B23 节）修正**：补全规则引文缺失段落、改正结算源字段、年化算法与快照字节数；数据与回放已重跑一致。价格侧是**事后回放**，不是真正的预注册前向试验：规则用 2000–2026 的 USDM 分桶延续率构造，然后在这 8 个已关闭周上回放；为避免挑参数，主规则只用分桶基准率 + 固定 5¢ 安全垫，并完整报告 3/5/8/10¢ 敏感性。8 个周里只有 4 周有 YES 成交、3 周有 NO 成交，独立结果远少于 30，故 `status` 只能是 `草稿`。
+整理说明：本条的规则原文、USDM 周度数据、320 个州市场的结算与成交，全部是 2026-10-20 用公开免密钥接口现场取的；脚本与原始输出在 `bots/quant/notes/scheduler/scratch/B23/`。**已按 2026-10-20 复核与 re-check fix1（`bots/quant/notes/scheduler/reviews/c20261020-1423-research.md` 的 B23 节）修正**：补全规则引文缺失段落、改正结算源字段、年化算法、成本算术、容量口径与快照字节数；数据与回放已重跑一致。价格侧是**事后回放**，不是真正的预注册前向试验：规则用 2000–2026 的 USDM 分桶延续率构造，然后在这 8 个已关闭周上回放；为避免挑参数，主规则只用分桶基准率 + 固定 5¢ 安全垫，并完整报告 3/5/8/10¢ 敏感性。8 个周里只有 4 周有 YES 成交、3 周有 NO 成交，独立结果远少于 30，故 `status` 只能是 `草稿`。
 
 ## 一句话
 
@@ -28,13 +28,13 @@ confidence: 中
 
 付钱的是**把每周的 D4 名单当成一次全新事件、而不是把它当成慢变量更新的对手方**。USDM 的 D4 面积是周频、平滑的存量：一个州上周已经在 D4，下周仍在 D4 的概率在我的 25 年样本里是 **95.66%**；上周为 0 的州，下周进入 D4 的概率只有 **0.38%**（2026 年这 8 周是 1.72%）。这个状态转移在周四发布前是公开的：上一周的官方地图和州级 D4 面积都已经在 `droughtmonitor.unl.edu` 上，任何人花一分钟就能查到。
 
-但「为什么这笔钱会持续存在」这条，我只能给一个**弱解释**，不能给结构性保证：这个 series 的最早已关闭事件是 2026-08-25；每周 40 个州市场、单市场成交额中位数只有 **88 USD**，做市商少、报价更新慢；早期（8/25）AR 的上周 D4 是 0.99%，ask 只有 0.50；MS 的上周 D4 是 0.87%，ask 0.51。后面几周同类州的 ask 升到 0.80–0.94，edge 在收敛。**这更像新模板初期的定价摩擦，不是长期锁定的现金流。** 如果市场在 2026-10 之后变得有效，这条就应该被放弃。
+但「为什么这笔钱会持续存在」这条，我只能给一个**弱解释**，不能给结构性保证：这个 series 的最早已关闭事件是 2026-08-25；每周 40 个州市场、单市场成交额中位数只有约 **82–106 USD**（截止前/全部成交口径），做市商少、报价更新慢；早期（8/25）AR 的上周 D4 是 0.99%，ask 只有 0.50；MS 的上周 D4 是 0.87%，ask 0.51。后面几周同类州的 ask 升到 0.80–0.94，edge 在收敛。**这更像新模板初期的定价摩擦，不是长期锁定的现金流。** 如果市场在 2026-10 之后变得有效，这条就应该被放弃。
 
 ## 规则
 
 ### 市场模板与结算原文
 
-模板一（州名单）：`state-d4-drought-YYYY-MM-DD`，每个在季州一个独立二元市场，`negRisk=false`。示例 `state-d4-drought-2026-10-13`（2026-10-20 已读，HTTP 200，约 197 KB / 197,265 bytes 快照），40 个州市场；标题 `Exceptional drought (D4) by state — week of October 13, 2026`。
+模板一（州名单）：`state-d4-drought-YYYY-MM-DD`，每个在季州一个独立二元市场，`negRisk=false`。示例 `state-d4-drought-2026-10-13`（2026-10-20 已读，HTTP 200，约 197 KB 快照，页面会变），40 个州市场；标题 `Exceptional drought (D4) by state — week of October 13, 2026`。
 
 规则原文（州市场 `state-d4-drought-2026-10-13-al` 的 `description`，逐字摘）：
 
@@ -56,7 +56,7 @@ confidence: 中
 >
 > The resolution source for this market is the US Drought Monitor at droughtmonitor.unl.edu.
 
-模板二（州数）：`states-in-d4-drought-YYYY-MM-DD`，6 档 `0 / 1-2 / 3-4 / 5-6 / 7-9 / 10+`，`negRisk=true`，恰好一档 YES。示例 `states-in-d4-drought-2026-10-13`（HTTP 200，约 34 KB / 34,031 bytes 快照）。规则原文：
+模板二（州数）：`states-in-d4-drought-YYYY-MM-DD`，6 档 `0 / 1-2 / 3-4 / 5-6 / 7-9 / 10+`，`negRisk=true`，恰好一档 YES。示例 `states-in-d4-drought-2026-10-13`（HTTP 200，约 34 KB 快照，页面会变）。规则原文：
 
 > This market will resolve to the bracket containing the number of coterminous US states (out of 48) with D4 percent area of 0.05% or more in the US Drought Monitor release for the week of October 13, 2026.
 >
@@ -90,7 +90,7 @@ confidence: 中
 
 以下规则是为 2026-10-20 之后的周度发布**冻结**的；历史回放用同一套规则，但阈值敏感性全部列出，事后不挑。
 
-1. **决策时刻**：每周三 **23:59 UTC**（= 周三 19:59 ET；比周四 8:30 ET 发布早约 12.5 小时，比市场 `endDate=13:00 UTC` 早 13 小时 1 分）。
+1. **决策时刻**：每周三 **23:59 UTC**（EDT 期间 = 周三 19:59 ET，EST 期间 = 18:59 ET；比周四 8:30 ET 发布早 12.5–13.5 小时，比市场 `endDate=13:00 UTC` 早 13 小时 1 分）。
 2. **状态变量**：取 `prior = event week − 7 days` 的 USDM 州级 `D4` 面积百分比。该周报在上一个周四已经发布，决策时一定可见。
 3. **分桶**：`0`、`(0,0.05)`、`[0.05,0.25)`、`[0.25,1)`、`[1,5)`、`>=5`（单位都是州面积百分比）。
 4. **延续率 `p_b`**：用 2000-01-04 起、截至 `prior` 周之前的所有「连续两周」州-周转移，按分桶算 `P(下周 D4>=0.05 | 本周在桶 b)`，加 Beta(1,1) 平滑：`p_b=(k+1)/(n+2)`。每个决策周只用当时已经发布的转移，不向前看。
@@ -194,7 +194,7 @@ confidence: 中
 
 ### 4）容量：总名义额只有约 750 USD/8 周
 
-- 320 个州市场里：**30 个零成交**；有成交的 290 个，单市场中位总成交额 **88 USD**，p90 为 350 USD，最大 2,670 USD。
+- 320 个州市场里：**30 个零成交**；有成交的 290 个，单市场中位总成交额 **105.54 USD**、p90 **366.17 USD**、最大 2,669.83 USD（全部成交口径，numpy 线性分位）；若只算截止前成交（181 个市场），中位 **82.28 USD**、p90 **379.35 USD**、最大 872.41 USD。
 - 8 周州市场总成交额 **55,938 USD**，按周从 **965** 到 **13,642 USD** 不等。
 - 截止前 72 小时内有 ask 侧成交的州市场只有 **52/320**；有任意成交的 **181/320**。
 - 主规则 14 笔 YES 的最后 ask 名义额合计 **577.55 USD**；9 笔 NO 的最后 bid 名义额合计 **170.66 USD**；合计 **748.21 USD**。这就是“按最后成交份数”能算出的全部容量，5,000 USDT 根本用不上。
@@ -211,9 +211,9 @@ confidence: 中
 ## 数据
 
 - **USDM 州级周度统计（免费、免密钥）**：`https://usdmdataservices.unl.edu/api/StateStatistics/GetDroughtSeverityStatisticsByAreaPercent?aoi=<州FIPS>&startdate=1/1/2000&enddate=10/20/2026&statisticsType=1`，必须带 `Accept: text/csv`（不带时返回 0 字节，实测）。返回列 `MapDate,StateAbbreviation,None,D0,D1,D2,D3,D4,ValidStart,ValidEnd,StatisticFormatID`；`D4` 是州面积百分比，2000-01-04 起周度。2026-10-20 抓取单州 96–99 KB，HTTP 200。48 个州各存一份 CSV 在 `_cache/usdm/`。
-- **USDM 发布节奏与地图页（免费、免密钥）**：`https://droughtmonitor.unl.edu/`（HTTP 200，121,145 bytes）。原文：“The maps, which are based on analysis of the data, are released each Thursday at 8:30 a.m. Eastern Time.”；首页同时给出 “Map released: October 15, 2026 / Data valid: October 13, 2026”。
-- **USDM 综合统计下载页**：`https://droughtmonitor.unl.edu/DmData/DataDownload/ComprehensiveStatistics.aspx`（HTTP 200，587,046 bytes）。短名单里猜的直连 `.../data/csv/20260901_dmstatistics.csv` 返回 404；可编程取数用上面的 REST，不用猜 CSV 路径。
-- **Polymarket Gamma（免费、免密钥）**：`https://gamma-api.polymarket.com/events?series_id=12688&closed=true&limit=100`（16 个已关闭事件）；`https://gamma-api.polymarket.com/events?slug=state-d4-drought-2026-10-13`（HTTP 200，约 197 KB / 197,265 bytes 快照，规则、40 个市场、费率）；`https://gamma-api.polymarket.com/events?slug=states-in-d4-drought-2026-10-13`（HTTP 200，约 34 KB / 34,031 bytes 快照，6 档）。
+- **USDM 发布节奏与地图页（免费、免密钥）**：`https://droughtmonitor.unl.edu/`（HTTP 200，约 121 KB；2026-10-20 快照，页面会变）。原文：“The maps, which are based on analysis of the data, are released each Thursday at 8:30 a.m. Eastern Time.”；首页同时给出 “Map released: October 15, 2026 / Data valid: October 13, 2026”。
+- **USDM 综合统计下载页**：`https://droughtmonitor.unl.edu/DmData/DataDownload/ComprehensiveStatistics.aspx`（HTTP 200，约 586 KB；2026-10-20 快照，页面会变）。短名单里猜的直连 `.../data/csv/20260901_dmstatistics.csv` 返回 404；可编程取数用上面的 REST，不用猜 CSV 路径。
+- **Polymarket Gamma（免费、免密钥）**：`https://gamma-api.polymarket.com/events?series_id=12688&closed=true&limit=100`（16 个已关闭事件）；`https://gamma-api.polymarket.com/events?slug=state-d4-drought-2026-10-13`（HTTP 200，约 197 KB 快照，规则、40 个市场、费率）；`https://gamma-api.polymarket.com/events?slug=states-in-d4-drought-2026-10-13`（HTTP 200，约 34 KB 快照，6 档）。
 - **Polymarket data-api 成交（免费、免密钥）**：`https://data-api.polymarket.com/trades?market=<conditionId>&limit=1000`；已关闭市场可取到逐笔 `size/price/side/outcome/timestamp`。8 周 320 个州市场共 2,158 笔成交（另有州数档 186 笔，未用于交易），原始缓存 `_cache/trades_all.json.gz`（252 KB gzip）。
 - **缺失，必须写清**：历史盘口（bid/ask 快照）没有公开来源；本文只能用最后成交价做代理。USDM 的“当时首发布值”也没有单独的归档，REST 返回的是当前值；不过 320/320 与 Polymarket 结算一致，说明至少在这 8 周里修订没有改变结果。
 
@@ -238,7 +238,7 @@ confidence: 中
   - `p=0.82` → 每份 0.738¢，占投入 **0.90%**；
   - `p=0.93` → 每份 0.326¢，占投入 **0.35%**；
   - NO 在 `p_no=0.94` → 每份 0.282¢，占投入 **0.30%**。
-- **每笔成本 = 吃单费 + 1¢ 滑点/半价差缓冲**。历史盘口取不到，1¢ 是假设值，不是实测；这是本条最软的一个数。按 0.50 的 YES 算，总成本约 3.5¢/份（7% 的投入）；按 0.82 算约 1.74¢/份（2.1%）；按 0.93 算约 1.33¢/份（1.4%）。
+- **每笔成本 = 吃单费 + 1¢ 滑点/半价差缓冲**。历史盘口取不到，1¢ 是假设值，不是实测；这是本条最软的一个数。按 0.50 的 YES 算，总成本约 **2.25¢/份（4.5% 的投入：吃单费 1.25¢ + 1¢ 滑点）**；按 0.82 算约 1.74¢/份（2.1%）；按 0.93 算约 1.33¢/份（1.4%）。
 - **单笔容量**：按最后成交份数，14 笔 YES 合计 767.7 份、名义额 577.55 USD；9 笔 NO 合计 252.9 份、名义额 170.66 USD。单市场通常只能放 **20–200 USD**；`TX` 这类成交较大的州可到几百 USD。
 - **一个月多少次**：约 **12 次**（23 笔/8 周），名义额 **400–800 USD/月**。5,000 USDT 的总资金约束天然满足，但**用不满**；单场所 2,500 也远高于实际需要的几百 USD。容量是约束，不是资金。
 - **占款天数**：周三 23:59 UTC 进场 → 周四 13:00 UTC 市场 `endDate` → UMA 结算；样本里 `closedTime` 从发布当天到发布后 3 天不等（如 8/27 事件 8/30 关闭，9/3 事件 9/4 关闭）。按 **0–3 天**（多数当天）占款估算。8 周 23 笔、总成本 766.93 USD、净 245.64 USD；如果按 5,000 总资金算，8 周回报约 **4.9%**（245.64/5,000=4.91%）；按 52/8 线性年化约 **32%**（4.91%×52/8=31.9%，单利、8 周样本，不能当预期）。
@@ -272,18 +272,18 @@ confidence: 中
 2. **有免费数据能检验：不确定** — USDM REST 免费免密钥、2000 年起周度，Polymarket Gamma/data-api 也免费；但**独立历史结果只有 8 个周发布**（州名单 + 州数同一结算源合并），达不到“预测市场至少 30 个独立结果”。只能从 2026-10-22 起前向记录，约 5 个月才够 30 个（总样本约 7 个月）。
 3. **小资金能做：满足（形式：小资金可做）** — 单州 20–200 USD、单周 ≤400 USD、专线 ≤1,000 USD，远低于 5,000 总资金和 2,500 单场所；不加杠杆、不借钱，买 YES/NO 的最大亏损就是权利金。**经济容量很小：8 周总名义额约 750 USD，5,000 用不满。**
 4. **不重复：满足** — 见“改进了什么”。与 quant-015 的月温 nowcast、quant-012/019 的计数阶梯、dot-001/002 的日最高温、muse 的临到期热门都不是同一机制；本条做的是 USDM 周度州级 D4 名单的延续率，仓库内除本条外没有同模板条目（`grep -rilE "Drought Monitor|Exceptional Drought|USDM" bots/*/entries known/` 只命中本条自己）。
-5. **扣成本后粗算够用：满足（样本内）/不确定（样本外）** — 23 笔按最后成交份数计，成本 766.93 USD、净 245.64 USD（+32.03%）；按每份等价计 +24.22%；加 5¢ 滑点后 YES +23.08%、NO +11.92%；加 10¢ 滑点后 YES +15.62%。**但只有 4 个活跃周、8/25 一周贡献 63.3% 的净额，且价格是成交价代理，不是盘口。** 所以“扣成本后为正”在样本内成立，样本外没有被证明。
+5. **扣成本后粗算够用：不确定** — 23 笔按最后成交份数计，成本 766.93 USD、净 245.64 USD（+32.03%）；按每份等价计 +24.22%；加 5¢ 滑点后 YES +23.08%、NO +11.92%；加 10¢ 滑点后 YES +15.62%。**但只有 4 个活跃周、8/25 一周贡献 63.3% 的净额，且价格是成交价代理，不是盘口；样本内为正不能当扣成本后粗算够用。**
 6. **两周内能检验：不满足** — 独立结果按 weekly release 计，历史 8 个，两周最多 2 个；30 个约需 7 个月总样本（还差 22 个周发布）。按 GUIDE §2 第 6 条，本条应进**待选区**。
 7. **出处可查：满足** — 每个规则原文、USDM 数据、费率、成交都给了 URL 和访问日期；USDM 的 320/320 结算复算、67,056 个转移、23 笔回放都由本地脚本重算，脚本和 stdout 在 `notes/scheduler/scratch/B23/`。Gamma 的 `volume`/`liquidity` 字段本文没有用作结论，成交额全部用 data-api 逐笔成交复算。
 
 ## 出处
 
 - `https://droughtmonitor.unl.edu/` — 访问 2026-10-20 — 已读（发布节奏 “released each Thursday at 8:30 a.m. Eastern Time”；“Map released: October 15, 2026 / Data valid: October 13, 2026”）
-- `https://droughtmonitor.unl.edu/DmData/DataDownload/ComprehensiveStatistics.aspx` — 访问 2026-10-20 — 已读（HTTP 200，587,046 bytes；直连 CSV 路径 404）
+- `https://droughtmonitor.unl.edu/DmData/DataDownload/ComprehensiveStatistics.aspx` — 访问 2026-10-20 — 已读（HTTP 200，约 586 KB；2026-10-20 快照，页面会变；直连 CSV 路径 404）
 - `https://usdmdataservices.unl.edu/api/StateStatistics/GetDroughtSeverityStatisticsByAreaPercent?aoi=01&startdate=8%2F1%2F2026&enddate=10%2F20%2F2026&statisticsType=1` — 访问 2026-10-20 — 已读（HTTP 200，922 bytes；列 `MapDate,StateAbbreviation,None,D0,D1,D2,D3,D4,...`）
 - `https://gamma-api.polymarket.com/events?series_id=12688&closed=true&limit=100` — 访问 2026-10-20 — 已读（16 个 closed 事件，8 个周发布 × 2）
-- `https://gamma-api.polymarket.com/events?slug=state-d4-drought-2026-10-13` — 访问 2026-10-20 — 已读（HTTP 200，约 197 KB / 197,265 bytes 快照；40 个州市场；规则原文；`feeSchedule.rate=0.05`）
-- `https://gamma-api.polymarket.com/events?slug=states-in-d4-drought-2026-10-13` — 访问 2026-10-20 — 已读（HTTP 200，约 34 KB / 34,031 bytes 快照；6 档 `0/1-2/3-4/5-6/7-9/10+`；`negRisk=true`）
+- `https://gamma-api.polymarket.com/events?slug=state-d4-drought-2026-10-13` — 访问 2026-10-20 — 已读（HTTP 200，约 197 KB 快照，页面会变；40 个州市场；规则原文；`feeSchedule.rate=0.05`）
+- `https://gamma-api.polymarket.com/events?slug=states-in-d4-drought-2026-10-13` — 访问 2026-10-20 — 已读（HTTP 200，约 34 KB 快照，页面会变；6 档 `0/1-2/3-4/5-6/7-9/10+`；`negRisk=true`）
 - `https://gamma-api.polymarket.com/events?slug=state-d4-drought-2026-10-20` — 访问 2026-10-20 — 已读（open 事件，40 个州；多数 `bestAsk=0.99`）
 - `https://data-api.polymarket.com/trades?market=0xbf70aa5a4a493a1201d21be0121d3de42ceb58121fb6401da0bd4c1beb83cfdd&limit=1000` — 访问 2026-10-20 — 已读（HTTP 200，2,823 bytes；`size/price/side/outcome/timestamp`）
 - `https://gamma-api.polymarket.com/events?tag_slug=drought&closed=true&limit=100` — 访问 2026-10-20 — 已读（37 个事件：16 个周度 D4、2 个 deadline D4、19 个其他；deadline 型不纳入本条）
