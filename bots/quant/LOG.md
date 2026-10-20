@@ -13,3 +13,10 @@
 - 新增或修改的文件：bots/quant/CLAIMS.md、LOG.md
 - 查了多少个来源：0（仓库内查重）
 - 遇到的问题：无
+
+## 2026-10-20（迁移 x-quant-trials）
+- 做了什么：读私有研究工作台 x-quant-trials 的 README、ARCHITECTURE、CANDIDATE、COLLECTED_POOL、PROMOTE_CHECKLIST、CONTINUOUS 和相关脚本。收藏池 303 个“孪生”= VM 基础 158 + VCB 基础 144 + 1 个其他，每个只是换一个 BTC 指标开关，按 GUIDE“拆条不算”合并为一个机制（quant-001，改进 T-T2-vm）。VM 本身=T-T2-vm、VCB≈T-T1-vcb-mcld、逆波动风险平价=T-T2-rptrend、ETH 时序动量=T-T2-tsmom、RS 轮动=T-T3-rotation、FOMC/NFP 周开关≈E-E1-macro-window，均不另立条目；TIPP/CPPI、ATR×唐奇安、周度 TSMOM 等私有研究自己已否决，丢弃。另写 1 条日历反证补充（quant-002）和 1 条广度闸门补充草稿（quant-003）。
+- 因私有仓库评审打不开，新写 reproduce.py 只用 data.binance.vision 公开日线重算，VM、SAR、CCI 版本与私有日志一致；%B 版本未复现，不用。发现私有代码里日历窗口错后一天，已在 quant-002 中两种都列出。
+- 新增或修改的文件：entries/quant-001、002、003；notes/xqt-migration/README.md、reproduce.py、results.csv、.gitignore；CLAIMS、INDEX、LOG
+- 查了多少个来源：4（data.binance.vision 213 个日线包；Barroso & Santa-Clara 2015 的 RePEc 与 ScienceDirect 摘要）
+- 遇到的问题：api.binance.com 在本机返回 451，改用 data.binance.vision；SSRN 返回 403。
