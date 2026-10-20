@@ -1,0 +1,194 @@
+[
+  {
+    "file": "01-freeze-inputs/output/freeze_inputs.py",
+    "source_sha256": "e3065565c8a2b5b5ff22b7bdaa9ba9c45d1822ccdcc95f31c696b00c2f1bba5f",
+    "published_sha256": "f6c67d17c5c9b75871465160ab8fb61619dcb3f4098baf1e840e0e1cd510ea7f",
+    "path_redaction_only": true
+  },
+  {
+    "file": "01-freeze-inputs/output/freeze_open_extension.py",
+    "source_sha256": "6772a6be681ea5fa5deb175eece0424e4c5915bc1473bc0d6102624ef1101dcb",
+    "published_sha256": "303ae467aeb0aea4421419c53456ec3f630a1bfa7107e4d751371a57032cfd87",
+    "path_redaction_only": true
+  },
+  {
+    "file": "01-freeze-inputs/output/input-manifest.json",
+    "source_sha256": "43067d0ade9c27888a9e8cde08b21f9db2d09a3d25fb16c6560168c6c25ad532",
+    "published_sha256": "a4e823a60d5427749dbe16c7157d51d85beaf72a2b92b731ff8f97ec2beb581a",
+    "path_redaction_only": true
+  },
+  {
+    "file": "01-freeze-inputs/output/open-extension-manifest.json",
+    "source_sha256": "19ba872c901c64762492ff24bc4f40834db4b8fd035ed0c679f4e43ecb3a01df",
+    "published_sha256": "163e8b5bd4bd5f1fc3a012ad81a27e91351af9257e7e2eb9831dcbf52d253d07",
+    "path_redaction_only": true
+  },
+  {
+    "file": "01-freeze-inputs/output/folds.json",
+    "source_sha256": "4a477e12d481dd6835e88c6ac46cbe2134c1a0a67fa9ae26aa607228ca8d11bd",
+    "published_sha256": "4a477e12d481dd6835e88c6ac46cbe2134c1a0a67fa9ae26aa607228ca8d11bd",
+    "path_redaction_only": false
+  },
+  {
+    "file": "01-freeze-inputs/output/quality.json",
+    "source_sha256": "bfe0c8e24cd66ed24cacc64ed93c05e42839a4e7b42e3c9bc5306fcdd6af624b",
+    "published_sha256": "bfe0c8e24cd66ed24cacc64ed93c05e42839a4e7b42e3c9bc5306fcdd6af624b",
+    "path_redaction_only": false
+  },
+  {
+    "file": "02-frozen-signals/output/README.md",
+    "source_sha256": "e7885e48b9b3d429a6be4b2b83c1f9e5b8b939736984ca7d2e7fa4a8fe8926a2",
+    "published_sha256": "e7885e48b9b3d429a6be4b2b83c1f9e5b8b939736984ca7d2e7fa4a8fe8926a2",
+    "path_redaction_only": false
+  },
+  {
+    "file": "02-frozen-signals/output/manifest.json",
+    "source_sha256": "e9a4a89ee66c87ce1d034957876b722c73136be5ef393d0f52e807e22da45519",
+    "published_sha256": "e9a4a89ee66c87ce1d034957876b722c73136be5ef393d0f52e807e22da45519",
+    "path_redaction_only": false
+  },
+  {
+    "file": "02-frozen-signals/output/original_metrics.csv",
+    "source_sha256": "8e31a3740a0d81c7e4ae37fd29c0dd31b514b5a1aa000e0c5d03dcdcbfc91aaf",
+    "published_sha256": "8e31a3740a0d81c7e4ae37fd29c0dd31b514b5a1aa000e0c5d03dcdcbfc91aaf",
+    "path_redaction_only": false
+  },
+  {
+    "file": "03-daily-target-cash/output/daily_target_cash.py",
+    "source_sha256": "bfce4c6c7f8a2ea42f6a698b935f059bbc5e5600cbf2620e7ffb8f636968c79a",
+    "published_sha256": "bfce4c6c7f8a2ea42f6a698b935f059bbc5e5600cbf2620e7ffb8f636968c79a",
+    "path_redaction_only": false
+  },
+  {
+    "file": "03-daily-target-cash/output/aggregate.json",
+    "source_sha256": "279ed648e6f95fb9cbe25a98511cc76cbf3204e047cdb108b67bf65c6f157cbb",
+    "published_sha256": "279ed648e6f95fb9cbe25a98511cc76cbf3204e047cdb108b67bf65c6f157cbb",
+    "path_redaction_only": false
+  },
+  {
+    "file": "03-daily-target-cash/output/synthetic_tests.json",
+    "source_sha256": "45e6c55b6b198b7ed18ce8e77607be98493c8fa24d5588a400b79f97ff7117d8",
+    "published_sha256": "45e6c55b6b198b7ed18ce8e77607be98493c8fa24d5588a400b79f97ff7117d8",
+    "path_redaction_only": false
+  },
+  {
+    "file": "04-frozen-shares-cash/output/ledger_b.py",
+    "source_sha256": "5a9cabb3edeb3d48eec19ce9f86b5da716af0483dd242e6ad04c75b6a1cc8a4b",
+    "published_sha256": "5a9cabb3edeb3d48eec19ce9f86b5da716af0483dd242e6ad04c75b6a1cc8a4b",
+    "path_redaction_only": false
+  },
+  {
+    "file": "04-frozen-shares-cash/output/aggregate.json",
+    "source_sha256": "bb85bcb07496c605ec2c6088bb494537e709c84bada27598d868187654768797",
+    "published_sha256": "bb85bcb07496c605ec2c6088bb494537e709c84bada27598d868187654768797",
+    "path_redaction_only": false
+  },
+  {
+    "file": "04-frozen-shares-cash/output/ASSUMPTIONS.md",
+    "source_sha256": "821f0517b3f6e0c534ce2a52ec890a5449d2739dcc2736a93d27b02b688adc73",
+    "published_sha256": "821f0517b3f6e0c534ce2a52ec890a5449d2739dcc2736a93d27b02b688adc73",
+    "path_redaction_only": false
+  },
+  {
+    "file": "04-frozen-shares-cash/output/synthetic-tests.json",
+    "source_sha256": "784b0814a8baf9dd058cac36ac63e16358e1a568f6407d85a0f45d97a3549096",
+    "published_sha256": "784b0814a8baf9dd058cac36ac63e16358e1a568f6407d85a0f45d97a3549096",
+    "path_redaction_only": false
+  },
+  {
+    "file": "04-frozen-shares-cash/output/real-panel-tests.json",
+    "source_sha256": "8f2738442d3fd25a3d6a088679293161840c87a0786af47ea71f5fce8c05ad5b",
+    "published_sha256": "8f2738442d3fd25a3d6a088679293161840c87a0786af47ea71f5fce8c05ad5b",
+    "path_redaction_only": false
+  },
+  {
+    "file": "05-difference-attribution/output/attribute.py",
+    "source_sha256": "4196bc6eb92e453d005cbe289ebcb752e010581ec14d9bb6da6150fc786093cb",
+    "published_sha256": "4196bc6eb92e453d005cbe289ebcb752e010581ec14d9bb6da6150fc786093cb",
+    "path_redaction_only": false
+  },
+  {
+    "file": "05-difference-attribution/output/aggregate.json",
+    "source_sha256": "28c95687310b9b4996dc65ea7a484cd1c0509cc32f77e7d1c3d9e01af1aa64e3",
+    "published_sha256": "28c95687310b9b4996dc65ea7a484cd1c0509cc32f77e7d1c3d9e01af1aa64e3",
+    "path_redaction_only": false
+  },
+  {
+    "file": "05-difference-attribution/output/manifest.json",
+    "source_sha256": "4eb5417316495935787ba8fc71baeeba49daa34b2e79ea8a1c79883cf5a3069b",
+    "published_sha256": "4eb5417316495935787ba8fc71baeeba49daa34b2e79ea8a1c79883cf5a3069b",
+    "path_redaction_only": false
+  },
+  {
+    "file": "06-risk-events/output/risk_events.py",
+    "source_sha256": "52bf21614a74520d92225464411edc664944659cdc068ef4aa36aded86d260eb",
+    "published_sha256": "52bf21614a74520d92225464411edc664944659cdc068ef4aa36aded86d260eb",
+    "path_redaction_only": false
+  },
+  {
+    "file": "06-risk-events/output/baseline_summary.csv",
+    "source_sha256": "97f97a562db9381480b9d1582c656b91803e6df0e893f51fe2e9b32de4c78a64",
+    "published_sha256": "97f97a562db9381480b9d1582c656b91803e6df0e893f51fe2e9b32de4c78a64",
+    "path_redaction_only": false
+  },
+  {
+    "file": "06-risk-events/output/overlap_diagnostics.csv",
+    "source_sha256": "17e9e1d550c9a912ce8099de050ab908bc8a40339df7d1103d830469fc172b92",
+    "published_sha256": "17e9e1d550c9a912ce8099de050ab908bc8a40339df7d1103d830469fc172b92",
+    "path_redaction_only": false
+  },
+  {
+    "file": "06-risk-events/output/strategy_risk.csv",
+    "source_sha256": "54d6df66938c03f69162769fd321a381b3f3903079e1797b758b01e2a44e67c4",
+    "published_sha256": "54d6df66938c03f69162769fd321a381b3f3903079e1797b758b01e2a44e67c4",
+    "path_redaction_only": false
+  },
+  {
+    "file": "06-risk-events/output/manifest.json",
+    "source_sha256": "4cd4bc20a30597dcb36cc2b62a05371be98cddff0ac6642882097dd65400dfe6",
+    "published_sha256": "4cd4bc20a30597dcb36cc2b62a05371be98cddff0ac6642882097dd65400dfe6",
+    "path_redaction_only": false
+  },
+  {
+    "file": "07-github-data/output/source-registry.json",
+    "source_sha256": "458cf9397281123d503b5663acdbbaead23454b35f317d0b116a9e8e4885a06c",
+    "published_sha256": "458cf9397281123d503b5663acdbbaead23454b35f317d0b116a9e8e4885a06c",
+    "path_redaction_only": false
+  },
+  {
+    "file": "08-x-data/output/source-registry.json",
+    "source_sha256": "0e0ff676f889edbb4f02432559d013f889c3404a6e38c0f7a20dd76d3dc535ed",
+    "published_sha256": "0e0ff676f889edbb4f02432559d013f889c3404a6e38c0f7a20dd76d3dc535ed",
+    "path_redaction_only": false
+  },
+  {
+    "file": "09-replay/output/replay.py",
+    "source_sha256": "6353314034f5b97644251f8f7d9e705ab6610abbe9f48aa22b5193026ccfd8a4",
+    "published_sha256": "6353314034f5b97644251f8f7d9e705ab6610abbe9f48aa22b5193026ccfd8a4",
+    "path_redaction_only": false
+  },
+  {
+    "file": "09-replay/output/summary.json",
+    "source_sha256": "73a139b5e9d8c87d310a9931e9cb99f9a6293f4a82747c82c041964b0b88330e",
+    "published_sha256": "73a139b5e9d8c87d310a9931e9cb99f9a6293f4a82747c82c041964b0b88330e",
+    "path_redaction_only": false
+  },
+  {
+    "file": "09-replay/output/signals-provenance.json",
+    "source_sha256": "413bd3a8db37e4e488a9c8b8f8688e635f7e1a942b3937710278f1e2bd9a3bcb",
+    "published_sha256": "413bd3a8db37e4e488a9c8b8f8688e635f7e1a942b3937710278f1e2bd9a3bcb",
+    "path_redaction_only": false
+  },
+  {
+    "file": "10-integration/output/primary_metrics.csv",
+    "source_sha256": "b15b3abd6b830ac661649f314c4ed75c33b637ccbf08509fd0782077cba6c551",
+    "published_sha256": "b15b3abd6b830ac661649f314c4ed75c33b637ccbf08509fd0782077cba6c551",
+    "path_redaction_only": false
+  },
+  {
+    "file": "02-frozen-signals/reproduce_frozen.py",
+    "source_sha256": "7647fbb10e5d1f75dad8257847a67020820e799fcc987de4e41816030e0e6504",
+    "published_sha256": "0c5bece6c72b8e67cae7e3229624de6af15ac03f9bc1c95c9aa60a0128b4b6d2",
+    "path_redaction_only": true
+  }
+]

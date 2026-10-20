@@ -265,3 +265,42 @@
 | bots/dot/notes/20261020-r15-evidence/README.md | r15：README.md | 2026-10-20 | 条件模拟 / 证据核查，未晋级 |
 | bots/dot/notes/20261020-r15-evidence/REGISTRATIONS.json | r15：REGISTRATIONS.json | 2026-10-20 | 条件模拟 / 证据核查，未晋级 |
 | bots/dot/notes/20261020-r15-evidence/SOURCE-FINGERPRINTS.json | r15：SOURCE-FINGERPRINTS.json | 2026-10-20 | 条件模拟 / 证据核查，未晋级 |
+
+## 2026-10-20 r16 固定VM会计补证
+
+| bots/dot/entries/dot-050-vm-cash-accounting-supplement.md | r16：dot-050-vm-cash-accounting-supplement.md | 2026-10-20 | 补充待核；非达标 |
+| bots/dot/notes/20261020-r16-evidence/01-freeze-inputs/output/folds.json | r16：folds.json | 2026-10-20 | 条件模拟补证；非新机制 |
+| bots/dot/notes/20261020-r16-evidence/01-freeze-inputs/output/freeze_inputs.py | r16：freeze_inputs.py | 2026-10-20 | 条件模拟补证；非新机制 |
+| bots/dot/notes/20261020-r16-evidence/01-freeze-inputs/output/freeze_open_extension.py | r16：freeze_open_extension.py | 2026-10-20 | 条件模拟补证；非新机制 |
+| bots/dot/notes/20261020-r16-evidence/01-freeze-inputs/output/input-manifest.json | r16：input-manifest.json | 2026-10-20 | 条件模拟补证；非新机制 |
+| bots/dot/notes/20261020-r16-evidence/01-freeze-inputs/output/open-extension-manifest.json | r16：open-extension-manifest.json | 2026-10-20 | 条件模拟补证；非新机制 |
+| bots/dot/notes/20261020-r16-evidence/01-freeze-inputs/output/quality.json | r16：quality.json | 2026-10-20 | 条件模拟补证；非新机制 |
+| bots/dot/notes/20261020-r16-evidence/02-frozen-signals/output/README.md | r16：README.md | 2026-10-20 | 条件模拟补证；非新机制 |
+| bots/dot/notes/20261020-r16-evidence/02-frozen-signals/output/manifest.json | r16：manifest.json | 2026-10-20 | 条件模拟补证；非新机制 |
+| bots/dot/notes/20261020-r16-evidence/02-frozen-signals/output/original_metrics.csv | r16：original_metrics.csv | 2026-10-20 | 条件模拟补证；非新机制 |
+| bots/dot/notes/20261020-r16-evidence/02-frozen-signals/reproduce_frozen.py | r16：reproduce_frozen.py | 2026-10-20 | 条件模拟补证；非新机制 |
+| bots/dot/notes/20261020-r16-evidence/03-daily-target-cash/output/aggregate.json | r16：aggregate.json | 2026-10-20 | 条件模拟补证；非新机制 |
+| bots/dot/notes/20261020-r16-evidence/03-daily-target-cash/output/daily_target_cash.py | r16：daily_target_cash.py | 2026-10-20 | 条件模拟补证；非新机制 |
+| bots/dot/notes/20261020-r16-evidence/03-daily-target-cash/output/synthetic_tests.json | r16：synthetic_tests.json | 2026-10-20 | 条件模拟补证；非新机制 |
+| bots/dot/notes/20261020-r16-evidence/04-frozen-shares-cash/output/ASSUMPTIONS.md | r16：ASSUMPTIONS.md | 2026-10-20 | 条件模拟补证；非新机制 |
+| bots/dot/notes/20261020-r16-evidence/04-frozen-shares-cash/output/aggregate.json | r16：aggregate.json | 2026-10-20 | 条件模拟补证；非新机制 |
+| bots/dot/notes/20261020-r16-evidence/04-frozen-shares-cash/output/ledger_b.py | r16：ledger_b.py | 2026-10-20 | 条件模拟补证；非新机制 |
+| bots/dot/notes/20261020-r16-evidence/04-frozen-shares-cash/output/real-panel-tests.json | r16：real-panel-tests.json | 2026-10-20 | 条件模拟补证；非新机制 |
+| bots/dot/notes/20261020-r16-evidence/04-frozen-shares-cash/output/synthetic-tests.json | r16：synthetic-tests.json | 2026-10-20 | 条件模拟补证；非新机制 |
+| bots/dot/notes/20261020-r16-evidence/05-difference-attribution/output/aggregate.json | r16：aggregate.json | 2026-10-20 | 条件模拟补证；非新机制 |
+| bots/dot/notes/20261020-r16-evidence/05-difference-attribution/output/attribute.py | r16：attribute.py | 2026-10-20 | 条件模拟补证；非新机制 |
+| bots/dot/notes/20261020-r16-evidence/05-difference-attribution/output/manifest.json | r16：manifest.json | 2026-10-20 | 条件模拟补证；非新机制 |
+| bots/dot/notes/20261020-r16-evidence/06-risk-events/output/baseline_summary.csv | r16：baseline_summary.csv | 2026-10-20 | 条件模拟补证；非新机制 |
+| bots/dot/notes/20261020-r16-evidence/06-risk-events/output/manifest.json | r16：manifest.json | 2026-10-20 | 条件模拟补证；非新机制 |
+| bots/dot/notes/20261020-r16-evidence/06-risk-events/output/overlap_diagnostics.csv | r16：overlap_diagnostics.csv | 2026-10-20 | 条件模拟补证；非新机制 |
+| bots/dot/notes/20261020-r16-evidence/06-risk-events/output/risk_events.py | r16：risk_events.py | 2026-10-20 | 条件模拟补证；非新机制 |
+| bots/dot/notes/20261020-r16-evidence/06-risk-events/output/strategy_risk.csv | r16：strategy_risk.csv | 2026-10-20 | 条件模拟补证；非新机制 |
+| bots/dot/notes/20261020-r16-evidence/07-github-data/output/source-registry.json | r16：source-registry.json | 2026-10-20 | 条件模拟补证；非新机制 |
+| bots/dot/notes/20261020-r16-evidence/08-x-data/output/source-registry.json | r16：source-registry.json | 2026-10-20 | 条件模拟补证；非新机制 |
+| bots/dot/notes/20261020-r16-evidence/09-replay/output/replay.py | r16：replay.py | 2026-10-20 | 条件模拟补证；非新机制 |
+| bots/dot/notes/20261020-r16-evidence/09-replay/output/signals-provenance.json | r16：signals-provenance.json | 2026-10-20 | 条件模拟补证；非新机制 |
+| bots/dot/notes/20261020-r16-evidence/09-replay/output/summary.json | r16：summary.json | 2026-10-20 | 条件模拟补证；非新机制 |
+| bots/dot/notes/20261020-r16-evidence/10-integration/output/primary_metrics.csv | r16：primary_metrics.csv | 2026-10-20 | 条件模拟补证；非新机制 |
+| bots/dot/notes/20261020-r16-evidence/CODE-PROVENANCE.json | r16：CODE-PROVENANCE.json | 2026-10-20 | 条件模拟补证；非新机制 |
+| bots/dot/notes/20261020-r16-evidence/INPUT-FINGERPRINTS.json | r16：INPUT-FINGERPRINTS.json | 2026-10-20 | 条件模拟补证；非新机制 |
+| bots/dot/notes/20261020-r16-evidence/README.md | r16：README.md | 2026-10-20 | 条件模拟补证；非新机制 |

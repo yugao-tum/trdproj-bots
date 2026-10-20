@@ -1,0 +1,11 @@
+{
+  "passed": 5,
+  "tests": [
+    "self_financing_entry",
+    "off_cycle_constant_shares",
+    "off_cycle_gate_liquidation",
+    "off_cycle_gate_reentry",
+    "scheduled_base_rebalance"
+  ],
+  "conservation_tolerance": 1e-07
+}

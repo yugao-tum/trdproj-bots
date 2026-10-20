@@ -1,0 +1,57 @@
+{
+  "source_sha256": "a008fbd0514f4d01bd477fc008de9fb24b8dfae5e83ebda2ced8bbf2e89bcf0a",
+  "panel_rows": 1369,
+  "per_symbol": {
+    "BTC": {
+      "rows": 1369,
+      "first": "2023-01-01T00:00:00+00:00",
+      "last": "2026-09-30T00:00:00+00:00",
+      "missing_dates": [],
+      "duplicate_rows": 0,
+      "invalid_ohlc_rows": 0,
+      "utc_raw_timestamp_consistent": true
+    },
+    "ETH": {
+      "rows": 1369,
+      "first": "2023-01-01T00:00:00+00:00",
+      "last": "2026-09-30T00:00:00+00:00",
+      "missing_dates": [],
+      "duplicate_rows": 0,
+      "invalid_ohlc_rows": 0,
+      "utc_raw_timestamp_consistent": true
+    },
+    "SOL": {
+      "rows": 1369,
+      "first": "2023-01-01T00:00:00+00:00",
+      "last": "2026-09-30T00:00:00+00:00",
+      "missing_dates": [],
+      "duplicate_rows": 0,
+      "invalid_ohlc_rows": 0,
+      "utc_raw_timestamp_consistent": true
+    }
+  },
+  "local_spot_archive_hashes_verified": 135,
+  "gaps_in_common_panel": 0,
+  "imputation": false,
+  "raw_prices_changed": false,
+  "source_manifest_complete_spot": {
+    "BTCUSDT": {
+      "expected_months": 45,
+      "ok_months": 45,
+      "missing_months": [],
+      "complete": true
+    },
+    "ETHUSDT": {
+      "expected_months": 45,
+      "ok_months": 45,
+      "missing_months": [],
+      "complete": true
+    },
+    "SOLUSDT": {
+      "expected_months": 45,
+      "ok_months": 45,
+      "missing_months": [],
+      "complete": true
+    }
+  }
+}

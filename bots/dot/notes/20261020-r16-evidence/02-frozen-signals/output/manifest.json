@@ -1,0 +1,94 @@
+{
+  "input_sha256": "a3b601644697f778990fcfdcc2ff1143140d5373c33d871ff81536d493891f79",
+  "source_sha256": "54a1d90698457a5ea34550cb0785a6f72679c06f185a74f471fb65d7667e3422",
+  "checks": [
+    {
+      "fold_id": "fold2",
+      "variant": "VM_base",
+      "base_reference_max_abs_error": 0.0,
+      "daily_gate_changes": 0,
+      "effective_weight_change_days": 54
+    },
+    {
+      "fold_id": "fold2",
+      "variant": "VM_BTC_SMA50",
+      "base_reference_max_abs_error": 0.0,
+      "daily_gate_changes": 21,
+      "effective_weight_change_days": 52
+    },
+    {
+      "fold_id": "fold2",
+      "variant": "VM_BTC_SMA100_control",
+      "base_reference_max_abs_error": 0.0,
+      "daily_gate_changes": 18,
+      "effective_weight_change_days": 51
+    },
+    {
+      "fold_id": "fold2",
+      "variant": "VM_BTC_SMA200_control",
+      "base_reference_max_abs_error": 0.0,
+      "daily_gate_changes": 10,
+      "effective_weight_change_days": 50
+    },
+    {
+      "fold_id": "fold3",
+      "variant": "VM_base",
+      "base_reference_max_abs_error": 0.0,
+      "daily_gate_changes": 0,
+      "effective_weight_change_days": 35
+    },
+    {
+      "fold_id": "fold3",
+      "variant": "VM_BTC_SMA50",
+      "base_reference_max_abs_error": 0.0,
+      "daily_gate_changes": 26,
+      "effective_weight_change_days": 31
+    },
+    {
+      "fold_id": "fold3",
+      "variant": "VM_BTC_SMA100_control",
+      "base_reference_max_abs_error": 0.0,
+      "daily_gate_changes": 19,
+      "effective_weight_change_days": 41
+    },
+    {
+      "fold_id": "fold3",
+      "variant": "VM_BTC_SMA200_control",
+      "base_reference_max_abs_error": 0.0,
+      "daily_gate_changes": 17,
+      "effective_weight_change_days": 35
+    },
+    {
+      "fold_id": "fold4_truncated",
+      "variant": "VM_base",
+      "base_reference_max_abs_error": 0.0,
+      "daily_gate_changes": 0,
+      "effective_weight_change_days": 24
+    },
+    {
+      "fold_id": "fold4_truncated",
+      "variant": "VM_BTC_SMA50",
+      "base_reference_max_abs_error": 0.0,
+      "daily_gate_changes": 19,
+      "effective_weight_change_days": 25
+    },
+    {
+      "fold_id": "fold4_truncated",
+      "variant": "VM_BTC_SMA100_control",
+      "base_reference_max_abs_error": 0.0,
+      "daily_gate_changes": 5,
+      "effective_weight_change_days": 17
+    },
+    {
+      "fold_id": "fold4_truncated",
+      "variant": "VM_BTC_SMA200_control",
+      "base_reference_max_abs_error": 0.0,
+      "daily_gate_changes": 1,
+      "effective_weight_change_days": 7
+    }
+  ],
+  "scope": "fold2/fold3 complete; fold4 truncated at 2026-09-30; fold1 unavailable; no four-fold replication claim",
+  "fee_note": "0.001/0.003 opponent original; 0.006 preregistered stress, not original reported fee",
+  "accounting": "original constant-target weight return minus |delta target| fee; NOT a conserved-share/cash ledger",
+  "signals_sha256": "4fb9c3467a1d7ebf6992165e7db85c082fd8aa1ce9f8d71868c51acb366ee7a0"
+}

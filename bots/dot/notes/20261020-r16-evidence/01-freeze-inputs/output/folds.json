@@ -1,0 +1,75 @@
+{
+  "schema_version": 1,
+  "warmup_calendar_days": 250,
+  "first_date_with_250_prior_bars": "2023-09-08",
+  "folds": [
+    {
+      "fold_id": 1,
+      "original_test_start": "2022-12-31",
+      "original_test_end": "2023-12-30",
+      "warmup_start": "2022-04-25",
+      "warmup_days_required": 250,
+      "warmup_days_available": 0,
+      "test_start": null,
+      "test_end": null,
+      "test_days_available": 364,
+      "original_test_days": 365,
+      "include_comparable": false,
+      "coverage": "exclude_missing_original_warmup_and_first_test_day",
+      "missing_requested_dates": 251
+    },
+    {
+      "fold_id": 2,
+      "original_test_start": "2023-12-31",
+      "original_test_end": "2024-12-29",
+      "warmup_start": "2023-04-25",
+      "warmup_days_required": 250,
+      "warmup_days_available": 250,
+      "test_start": "2023-12-31",
+      "test_end": "2024-12-29",
+      "test_days_available": 365,
+      "original_test_days": 365,
+      "include_comparable": true,
+      "coverage": "full_original_fold",
+      "missing_requested_dates": 0
+    },
+    {
+      "fold_id": 3,
+      "original_test_start": "2024-12-30",
+      "original_test_end": "2025-12-29",
+      "warmup_start": "2024-04-24",
+      "warmup_days_required": 250,
+      "warmup_days_available": 250,
+      "test_start": "2024-12-30",
+      "test_end": "2025-12-29",
+      "test_days_available": 365,
+      "original_test_days": 365,
+      "include_comparable": true,
+      "coverage": "full_original_fold",
+      "missing_requested_dates": 0
+    },
+    {
+      "fold_id": 4,
+      "original_test_start": "2025-12-30",
+      "original_test_end": "2026-10-13",
+      "warmup_start": "2025-04-24",
+      "warmup_days_required": 250,
+      "warmup_days_available": 250,
+      "test_start": "2025-12-30",
+      "test_end": "2026-09-30",
+      "test_days_available": 275,
+      "original_test_days": 288,
+      "include_comparable": true,
+      "coverage": "truncated_original_fold",
+      "missing_requested_dates": 13
+    }
+  ],
+  "rules": [
+    "Do not run excluded fold 1 or relabel later start as original fold 1.",
+    "Recompute each fold from its exact warmup_start; five-day freeze phase anchors to that date.",
+    "Fold 4 ends at 2026-09-30, not original 2026-10-13.",
+    "No four-fold compound or original-return replication claim.",
+    "All UTC date strings describe bar OPEN labels; close/high/low become known only at bar end.",
+    "Source strategy source is inspected only, never imported or executed."
+  ]
+}

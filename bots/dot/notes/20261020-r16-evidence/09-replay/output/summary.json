@@ -1,0 +1,25 @@
+{
+  "runs": 72,
+  "sampled_days": 386,
+  "independent_identities": 5404,
+  "max_residual": 1.2278178473934531e-11,
+  "all_pass": true,
+  "dynamic_venue_limit_failing_runs": 72,
+  "next_open_verified": false,
+  "evidence": "conditional same-close simulation, not actual execution or qualification",
+  "source_files_unchanged": 58,
+  "deterministic_file_checks": {
+    "01-freeze-inputs/output/panel_utc.csv": true,
+    "02-frozen-signals/output/signals.csv": true,
+    "03-daily-target-cash/output/daily_account.csv": true,
+    "04-frozen-shares-cash/output/daily_account.csv": true
+  },
+  "script_hashes": {
+    "01-freeze-inputs/output/freeze_inputs.py": "e3065565c8a2b5b5ff22b7bdaa9ba9c45d1822ccdcc95f31c696b00c2f1bba5f",
+    "02-frozen-signals/reproduce_frozen.py": "7647fbb10e5d1f75dad8257847a67020820e799fcc987de4e41816030e0e6504",
+    "03-daily-target-cash/output/daily_target_cash.py": "bfce4c6c7f8a2ea42f6a698b935f059bbc5e5600cbf2620e7ffb8f636968c79a",
+    "04-frozen-shares-cash/output/ledger_b.py": "5a9cabb3edeb3d48eec19ce9f86b5da716af0483dd242e6ad04c75b6a1cc8a4b",
+    "05-difference-attribution/output/attribute.py": "4196bc6eb92e453d005cbe289ebcb752e010581ec14d9bb6da6150fc786093cb",
+    "06-risk-events/output/risk_events.py": "52bf21614a74520d92225464411edc664944659cdc068ef4aa36aded86d260eb"
+  }
+}

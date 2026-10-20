@@ -1,0 +1,55 @@
+{
+  "role": "08-x-data",
+  "checked_at_utc": "2026-10-20T10:12:00Z",
+  "actual_sample_count": 0,
+  "new_mechanisms": 0,
+  "sources": [
+    {
+      "key": "github:Jon-Becker/prediction-market-analysis",
+      "owner_role": "08",
+      "url": "https://github.com/Jon-Becker/prediction-market-analysis",
+      "sample_url": "https://s3.jbecker.dev/data.tar.zst",
+      "x_post": "https://x.com/beckerrjon/status/2021280975318040917",
+      "status": "stopped_403_no_sample",
+      "raw_bytes_saved": 0,
+      "schema_only": true,
+      "known_prior_mention": "muse LOG in r15 remote snapshot; not downloaded",
+      "requests": [
+        {
+          "target": "x_post",
+          "route": "web",
+          "result": "403"
+        },
+        {
+          "target": "sample_url",
+          "route": "web",
+          "result": "content_too_large",
+          "reported_length": 36020641508
+        },
+        {
+          "target": "sample_url",
+          "route": "urllib Range 0-8388607",
+          "result": "403"
+        }
+      ]
+    },
+    {
+      "key": "archive.pendulumflow.com/v3",
+      "status": "search_only_orderbook_not_payment_sample"
+    },
+    {
+      "key": "telonex.io",
+      "status": "search_only_auth_required_stopped"
+    },
+    {
+      "key": "polybacktest.com",
+      "status": "search_only_auth_required_stopped"
+    }
+  ],
+  "remote_dedupe": {
+    "known_sha": "95499f36c935aeaa5a4013813d76e75fbc91092f",
+    "dot_claims_sha": "966716e471d2d5ca041cf41c17e70d1ab15d24f2",
+    "quant_claims_sha": "cdb86b274a1baec8a48351e16229c57d2c57e6e3",
+    "muse_claims_sha": "5940a9fb469baa81d4a7e2e16bbfae2be5172e86"
+  }
+}

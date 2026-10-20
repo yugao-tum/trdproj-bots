@@ -1,0 +1,40 @@
+{
+  "schema_version": 1,
+  "inputs": [
+    {
+      "path": "retained-inputs/trdproj-research-20261019/workers/data-probe/data/history/spot_daily.csv",
+      "sha256": "a008fbd0514f4d01bd477fc008de9fb24b8dfae5e83ebda2ced8bbf2e89bcf0a",
+      "bytes": 921335
+    },
+    {
+      "path": "retained-inputs/trdproj-research-20261019/workers/data-probe/data/history/manifest.json",
+      "sha256": "440707c1bf4496f013abace02f8ed388ff7c0605d6e8697900137b962524094e",
+      "bytes": 639106
+    },
+    {
+      "path": "retained-inputs/competition-retrospective-20261020/quant-reproduce-readonly.py",
+      "sha256": "54a1d90698457a5ea34550cb0785a6f72679c06f185a74f471fb65d7667e3422",
+      "bytes": 9916
+    }
+  ],
+  "panel": {
+    "path": "retained-inputs/trdproj-research-20261019/continuation-20261020/workers/r16-proposal/01-freeze-inputs/output/panel_utc.csv",
+    "sha256": "a3b601644697f778990fcfdcc2ff1143140d5373c33d871ff81536d493891f79",
+    "rows": 1369,
+    "columns": [
+      "date_utc",
+      "BTC_close",
+      "BTC_high",
+      "BTC_low",
+      "ETH_close",
+      "ETH_high",
+      "ETH_low",
+      "SOL_close",
+      "SOL_high",
+      "SOL_low"
+    ],
+    "publish": false,
+    "timezone": "UTC",
+    "timestamp_semantics": "UTC bar open date; daily high, low and close unavailable until that bar ends. No same-bar lookahead permitted."
+  }
+}

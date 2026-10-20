@@ -1,0 +1,20 @@
+{
+  "inputs": {
+    "02-frozen-signals/output/signals.csv": "4fb9c3467a1d7ebf6992165e7db85c082fd8aa1ce9f8d71868c51acb366ee7a0",
+    "03-daily-target-cash/output/daily_equity.csv": "54dfa71a47a5f63e60a2f5b24e1f2e94ab3a74af6efb97ba24e672c1a1c91ed3",
+    "03-daily-target-cash/output/daily_account.csv": "b544d9093d6fd69d80fc7818f8c7552566d154ec34cfc1d4c65cfe5c16d7c539",
+    "04-frozen-shares-cash/output/portfolio_daily.csv": "fb681ebd9acfb3463b936487a9a19e6910d3dfc3f47ce640fd609830355a2d97",
+    "03-daily-target-cash/output/aggregate.csv": "280e9c5187afc2c36ffdc9eebcdffa36badaaef9fe6db32b2b42b36a75444f59",
+    "04-frozen-shares-cash/output/aggregate.csv": "b2f17fc5b87d7f4d6f83420fbb8dad67983b5ffd83afab1c304b0e644b01353b",
+    "02-frozen-signals/output/original_returns.csv": "36b515e5286812d284444323d0dd6bfcfc3e546b3258c53354920be41a0ac197"
+  },
+  "runs": 36,
+  "daily_rows": 12060,
+  "original_O_max_dollar_residual": 8.640199666842818e-12,
+  "zero_fee_A_equals_O": true,
+  "A_O_exact_propagated_attribution": true,
+  "A_B_exact_gross_minus_fee_attribution": true,
+  "tolerance_dollars": 1e-07,
+  "daily_attribution_publish": false,
+  "evidence": "conditional simulation, not real execution or qualified result"
+}

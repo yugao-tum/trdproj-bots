@@ -1,0 +1,18 @@
+{
+  "source_path": "retained-inputs/trdproj-research-20261019/workers/data-probe/data/history/spot_daily.csv",
+  "source_sha256": "a008fbd0514f4d01bd477fc008de9fb24b8dfae5e83ebda2ced8bbf2e89bcf0a",
+  "source_field": "open",
+  "path": "retained-inputs/trdproj-research-20261019/continuation-20261020/workers/r16-proposal/01-freeze-inputs/output/open_extension_utc.csv",
+  "sha256": "ad044b15871eea467cb8750efbb3855f22fd65addce3b2424f67a57fe772183a",
+  "rows": 1369,
+  "columns": [
+    "date_utc",
+    "BTC_open",
+    "ETH_open",
+    "SOL_open"
+  ],
+  "publish": false,
+  "frozen_close_panel_unchanged": true,
+  "availability": "UTC date_utc is the daily bar open boundary. open records the first trade price within that UTC day, observed when that trade happens; exact first-trade time is not provided in daily klines. It is not known from the previous close and is not a guarantee of executable fill at the boundary.",
+  "execution_limit": "Supports a conditional next-open price-reference simulation only. Does not establish bid/ask spread, market impact, simultaneous executable multiasset fills, liquidity, or latency. Keep current frozen close-based A/B results unchanged."
+}

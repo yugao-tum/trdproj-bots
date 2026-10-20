@@ -1,0 +1,37 @@
+{
+  "evidence_level": "conditional_accounting_simulation",
+  "input_hashes": {
+    "01-freeze-inputs/output/panel_utc.csv": "a3b601644697f778990fcfdcc2ff1143140d5373c33d871ff81536d493891f79",
+    "02-frozen-signals/output/signals.csv": "4fb9c3467a1d7ebf6992165e7db85c082fd8aa1ce9f8d71868c51acb366ee7a0",
+    "03-daily-target-cash/output/daily_equity.csv": "54dfa71a47a5f63e60a2f5b24e1f2e94ab3a74af6efb97ba24e672c1a1c91ed3",
+    "03-daily-target-cash/output/daily_account.csv": "b544d9093d6fd69d80fc7818f8c7552566d154ec34cfc1d4c65cfe5c16d7c539",
+    "04-frozen-shares-cash/output/daily_equity.csv": "3d57b514a2fd314b7094136549ec64b6bb35711e16375f8786007c52a0763547",
+    "04-frozen-shares-cash/output/daily_account.csv": "b7ddb6f96392f3da94e80c28d2659fd256ea0f6e0912ed509b6fdda3cc320213"
+  },
+  "common_source_count": 1,
+  "common_underlying_assets": [
+    "BTC",
+    "ETH",
+    "SOL"
+  ],
+  "calendar_clusters": 34,
+  "certified_independent_events": null,
+  "baseline_groups": 27,
+  "strategy_groups": 72,
+  "gate_run_rows": 888,
+  "rules": {
+    "capital": 5000,
+    "venue_initial": 2500,
+    "reserve_untouched": 2500,
+    "start_each_fold_from_cash": true,
+    "mark_end_no_liquidation": true,
+    "same_close_execution_unverified": true,
+    "no_new_mechanism": true,
+    "ex_post_scaling_not_tradable": true
+  },
+  "checks": {
+    "matching_days": true,
+    "all_baselines_nonnegative": true,
+    "strategy_group_count_36_each": true
+  }
+}

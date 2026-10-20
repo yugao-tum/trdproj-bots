@@ -1,0 +1,10 @@
+{
+  "same_signals_sha256": "4fb9c3467a1d7ebf6992165e7db85c082fd8aa1ce9f8d71868c51acb366ee7a0",
+  "fee003_gate_transition_rows": 136,
+  "gate_close_rows": 68,
+  "gate_reopen_rows": 68,
+  "gate_close_zero_inventory_verified": true,
+  "hold_days_zero_trade_verified": true,
+  "min_cash": 0.0,
+  "max_conservation_residual": 9.094947017729282e-13
+}

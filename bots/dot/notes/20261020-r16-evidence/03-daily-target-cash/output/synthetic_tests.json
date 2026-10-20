@@ -1,0 +1,50 @@
+[
+  {
+    "name": "initial_full_investment",
+    "pass_test": true,
+    "trade_notional": 2492.522432701894,
+    "fee": 7.477567298105683,
+    "cash": 2.1316282072803006e-13,
+    "residual": 0.0
+  },
+  {
+    "name": "no_trade",
+    "pass_test": true,
+    "trade_notional": 0.0,
+    "fee": 0.0,
+    "cash": 0.0,
+    "residual": 0.0
+  },
+  {
+    "name": "liquidation",
+    "pass_test": true,
+    "trade_notional": 1000.0,
+    "fee": 3.0,
+    "cash": 997.0,
+    "residual": 0.0
+  },
+  {
+    "name": "zero_fee",
+    "pass_test": true,
+    "trade_notional": 600.0,
+    "fee": 0.0,
+    "cash": 400.0,
+    "residual": 0.0
+  },
+  {
+    "name": "constant_target_drift",
+    "pass_test": true,
+    "trade_notional": 500.0,
+    "fee": 1.5,
+    "cash": 5.684341886080802e-14,
+    "residual": 0.0
+  },
+  {
+    "name": "all_cash",
+    "pass_test": true,
+    "trade_notional": 0.0,
+    "fee": 0.0,
+    "cash": 2500.0,
+    "residual": 0.0
+  }
+]

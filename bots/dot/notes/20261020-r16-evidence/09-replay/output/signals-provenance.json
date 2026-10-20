@@ -1,0 +1,31 @@
+{
+  "signals_sha256": "4fb9c3467a1d7ebf6992165e7db85c082fd8aa1ce9f8d71868c51acb366ee7a0",
+  "current_columns": [
+    "fold_id",
+    "date_utc",
+    "variant",
+    "is_test",
+    "BTC_weight",
+    "base_BTC_weight",
+    "BTC_asset_return",
+    "ETH_weight",
+    "base_ETH_weight",
+    "ETH_asset_return",
+    "SOL_weight",
+    "base_SOL_weight",
+    "SOL_asset_return",
+    "gate_lagged",
+    "base_rebalance_day",
+    "gross_return",
+    "original_turnover"
+  ],
+  "matching_manifests": [
+    "02-frozen-signals/output/manifest.json",
+    "03-daily-target-cash/output/manifest.json",
+    "04-frozen-shares-cash/output/output-manifest.json",
+    "05-difference-attribution/output/manifest.json",
+    "06-risk-events/output/manifest.json"
+  ],
+  "matches_earlier_reported_hash": true,
+  "note": "Actual frozen file contains per-asset returns. Earlier shortened schema communication omitted these fields; no file mutation is evidenced. Replay signals identical byte-for-byte."
+}

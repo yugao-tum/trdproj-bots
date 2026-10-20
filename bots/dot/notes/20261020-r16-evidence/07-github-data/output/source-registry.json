@@ -1,0 +1,80 @@
+{
+  "role": "r16-native07",
+  "sources": [
+    {
+      "source_id": "github:bhemen/uniswap-data",
+      "url": "https://github.com/bhemen/uniswap-data",
+      "sample_url": "https://raw.githubusercontent.com/bhemen/uniswap-data/main/data/v2-0x3041cbd36888becc7bbcbc0045e3b1f144466f5f-USDC-USDT.csv",
+      "retrieved_utc": "2026-10-20T10:12:07.576479+00:00",
+      "http_status": 200,
+      "bytes": 19911993,
+      "sha256": "531dd907a5337c9bbeda5dba592ce1dfec3122803c1e98e9c59cf6913333adf6",
+      "rows": 95297,
+      "columns": [
+        "pool_address",
+        "token0_address",
+        "token1_address",
+        "token0_bal",
+        "token1_bal",
+        "lp_supply",
+        "token0_symbol",
+        "token1_symbol",
+        "block",
+        "ts"
+      ],
+      "coverage_utc": [
+        "2020-05-18T21:23:57+00:00",
+        "2024-04-10T01:33:35+00:00"
+      ],
+      "unique_blocks": 95297,
+      "duplicate_blocks": 0,
+      "block_gap_counts": {
+        "100": 95296
+      },
+      "timestamp_monotone": true,
+      "license": "No explicit license visible in inspected root listing or data README; no redistribution assumed. Raw file stays local.",
+      "missing": [
+        "transactionHash/logIndex",
+        "individual swaps or fee payments",
+        "mint/burn/collect cash legs",
+        "gas costs",
+        "per-position ownership and lifetime",
+        "USDT conversion execution costs"
+      ],
+      "disposition": "stop: balance snapshots only; v3 event download unavailable",
+      "v3_event_target": "https://upenn.box.com/s/ay5e6tc47pvwauo1kc4fboa17k0zc7ik",
+      "v3_event_outcome": "web tool inaccessible, direct HTTP GET returned 404; no further attempts",
+      "mechanism_overlap": [
+        "dot C29",
+        "known M-M2-amm-lp"
+      ],
+      "new_mechanisms": 0
+    },
+    {
+      "source_id": "github:ALA-eth-global/ALA-Data-Layer",
+      "url": "https://github.com/ALA-eth-global/ALA-Data-Layer",
+      "readme_blob_sha": "e75b838a7e85068d6970db42d2125c578af6f1f7",
+      "observed_files": "Root listing contains server/config/example/package scripts and README; no actual CSV export linked.",
+      "sample_rows_verified": 0,
+      "coverage_verified": null,
+      "license": "README claims MIT; no LICENSE in inspected root listing. Dataset license not established.",
+      "disposition": "stop: exporter and illustrative responses only; no server install/key/config/API actions attempted",
+      "missing": [
+        "actual downloadable payment/trade rows",
+        "verified time coverage",
+        "file hash for actual data",
+        "dataset license"
+      ],
+      "new_mechanisms": 0
+    }
+  ],
+  "dedup_checked_utc": "2026-10-20T10:12:07.576479+00:00",
+  "known_blob_sha": "95499f36c935aeaa5a4013813d76e75fbc91092f",
+  "claims_blob_shas": {
+    "dot": "966716e471d2d5ca041cf41c17e70d1ab15d24f2",
+    "quant": "cdb86b274a1baec8a48351e16229c57d2c57e6e3",
+    "muse": "5940a9fb469baa81d4a7e2e16bbfae2be5172e86"
+  },
+  "qualification_count": 0,
+  "raw_data_publish": false
+}
