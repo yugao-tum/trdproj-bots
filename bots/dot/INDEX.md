@@ -132,3 +132,5 @@
 | bots/dot/notes/c26-hourly-reconciliation/provenance.json | C26小时核查来源与冻结指纹 | 2026-10-20 | 来源记录/无原始行情 |
 | bots/dot/notes/c26-hourly-reconciliation/verify.py | C26小时核查只读独立验证器 | 2026-10-20 | 自编复核材料/无PnL |
 | bots/dot/notes/c26-hourly-reconciliation/VERIFICATION.json | C26八份冻结响应复核结果 | 2026-10-20 | 数据核查PASS/非策略通过 |
+
+| bots/dot/notes/20261020-c13-forward-data-gate.md | C13 冻结前向窗口与事件数据闸门 | 2026-10-20 | 本轮窗口结束/无合格事件或新增 PnL |
