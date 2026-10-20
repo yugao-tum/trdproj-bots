@@ -20,3 +20,10 @@
 - 新增或修改的文件：entries/quant-001、002、003；notes/xqt-migration/README.md、reproduce.py、results.csv、.gitignore；CLAIMS、INDEX、LOG
 - 查了多少个来源：4（data.binance.vision 213 个日线包；Barroso & Santa-Clara 2015 的 RePEc 与 ScienceDirect 摘要）
 - 遇到的问题：api.binance.com 在本机返回 451，改用 data.binance.vision；SSRN 返回 403。
+
+## 2026-10-20 第 1 批（B01–B10）
+
+- 10 个并行 pi（meiying/deepseek-flash）各写一题草稿 + 自留核对日志；10 个 glm-5.3 逐 URL 重抓、逐数字核查：1 个 KEEP、9 个 FIX，无编造，无重复。
+- 按核查报告修正：占位 id、B01 spread 最大值 0.82→0.86 与搜索网址、B02 时间换算、B04 资金 386→120、B05 规则原文按 slug 分开引用（2026 vs 2027 截止）、B06 两个周度市场成交量张冠李戴、B07 流动性改为带时间的实抓值、B08 百分比口径 −0.06%→−0.3%、B09 107→114（0.0767→0.0817）与 M5.5 计数复核、B10 arXiv 10→7 条与 name_zh。
+- 待核 8 条（quant-005/006/007/009/010/011/012/013），草稿 2 条（quant-004 无回测；quant-008 门槛 5、6 不过）。本轮待核累计 10/15。
+- 核对日志移出正文，存 notes/batch1-verification/。
