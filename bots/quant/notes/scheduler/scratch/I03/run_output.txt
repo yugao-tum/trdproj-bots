@@ -1,0 +1,275 @@
+
+==================== run_fetch_gamma.txt ====================
+0 100
+100 100
+200 100
+300 100
+400 1
+rows 401 unique 401
+
+==================== run_fetch_ergast.txt ====================
+races 269 with time 269
+
+==================== run_match.txt ====================
+matched 49 of 50
+diff dist Counter({0: 42, 1: 7})
+deduped 49
+Counter({2025: 24, 2026: 17, 2024: 8})
+2024-16 Italian Grand Prix 2024-09-01 0 italian-grand-prix-winner 9
+2024-17 Azerbaijan Grand Prix 2024-09-15 0 azerbijan-grand-prix-winner 9
+2024-18 Singapore Grand Prix 2024-09-22 0 singapore-grand-prix-winner 11
+2024-19 United States Grand Prix 2024-10-20 0 us-grand-prix-winner 9
+2024-21 São Paulo Grand Prix 2024-11-03 0 brazlian-grand-prix-winner 9
+2024-22 Las Vegas Grand Prix 2024-11-23 1 las-vegas-grand-prix-winner 9
+2024-23 Qatar Grand Prix 2024-12-01 0 qatar-grand-prix-winner 9
+2024-24 Abu Dhabi Grand Prix 2024-12-08 0 abu-dhabi-grand-prix-winner 9
+2025-1 Australian Grand Prix 2025-03-16 0 australia-grand-prix-winner 21
+2025-10 Canadian Grand Prix 2025-06-15 0 f1-canadian-grand-prix-winner 26
+2025-11 Austrian Grand Prix 2025-06-29 0 f1-austrian-grand-prix-winner 27
+2025-12 British Grand Prix 2025-07-06 0 f1-british-grand-prix-winner 27
+2025-13 Belgian Grand Prix 2025-07-27 0 f1-belgian-grand-prix-winner 28
+2025-14 Hungarian Grand Prix 2025-08-03 0 f1-hungarian-grand-prix-winner 31
+2025-15 Dutch Grand Prix 2025-08-31 0 f1-dutch-grand-prix-winner 31
+2025-16 Italian Grand Prix 2025-09-07 1 f1-italian-grand-prix-winner 31
+2025-17 Azerbaijan Grand Prix 2025-09-21 0 f1-azerbaijan-grand-prix-winner 31
+2025-18 Singapore Grand Prix 2025-10-05 0 f1-singapore-grand-prix-winner 31
+2025-19 United States Grand Prix 2025-10-19 0 united-states-grand-prix-winner 31
+2025-2 Chinese Grand Prix 2025-03-23 0 f1-china-grand-prix-winner-2025 21
+2025-20 Mexico City Grand Prix 2025-10-26 0 mexican-grand-prix-winner-538 31
+2025-21 São Paulo Grand Prix 2025-11-09 0 f1-brazilian-grand-prix-winner-2025-11-09 27
+2025-22 Las Vegas Grand Prix 2025-11-23 1 f1-las-vegas-grand-prix-winner-2025-11-22 27
+2025-23 Qatar Grand Prix 2025-11-30 0 f1-qatar-grand-prix-winner-2025-11-30 27
+2025-24 Abu Dhabi Grand Prix 2025-12-07 0 f1-abu-dhabi-grand-prix-winner-2025-12-07 27
+2025-3 Japanese Grand Prix 2025-04-06 0 japan-grand-prix-winner 21
+2025-4 Bahrain Grand Prix 2025-04-13 1 bahrain-grand-prix-winner 21
+2025-5 Saudi Arabian Grand Prix 2025-04-20 1 saudi-arabian-grand-prix-winner 21
+2025-6 Miami Grand Prix 2025-05-04 0 miami-grand-prix-winner 21
+2025-7 Emilia Romagna Grand Prix 2025-05-18 1 italy-grand-prix-winner 21
+2025-8 Monaco Grand Prix 2025-05-25 0 monaco-grand-prix-winner 21
+2025-9 Spanish Grand Prix 2025-06-01 0 spanish-grand-prix-winner 21
+2026-1 Australian Grand Prix 2026-03-08 1 f1-australian-grand-prix-winner-2026-03-07 28
+2026-10 Belgian Grand Prix 2026-07-19 0 f1-belgian-grand-prix-winner-2026-07-19 28
+2026-11 Hungarian Grand Prix 2026-07-26 0 f1-hungarian-grand-prix-winner-2026-07-26 28
+2026-12 Dutch Grand Prix 2026-08-23 0 f1-dutch-grand-prix-winner-2026-08-23 28
+2026-13 Italian Grand Prix 2026-09-06 0 f1-italian-grand-prix-winner-2026-09-06 28
+2026-14 Spanish Grand Prix 2026-09-13 0 f1-spanish-grand-prix-winner-2026-09-13 28
+2026-15 Azerbaijan Grand Prix 2026-09-26 0 f1-azerbaijan-grand-prix-winner-2026-09-26 29
+2026-16 Bahrain Grand Prix in Malaysia 2026-10-04 0 f1-bahrain-grand-prix-winner-2026-10-04 29
+2026-17 Singapore Grand Prix 2026-10-11 0 f1-singapore-grand-prix-winner-2026-10-11 29
+2026-2 Chinese Grand Prix 2026-03-15 0 f1-chinese-grand-prix-winner-2026-03-15 27
+2026-3 Japanese Grand Prix 2026-03-29 0 f1-japanese-grand-prix-winner-2026-03-29 27
+2026-4 Miami Grand Prix 2026-05-03 0 f1-miami-grand-prix-winner-2026-05-03 28
+2026-5 Canadian Grand Prix 2026-05-24 0 f1-canadian-grand-prix-winner-2026-05-24 28
+2026-6 Monaco Grand Prix 2026-06-07 0 f1-monaco-grand-prix-winner-2026-06-07 28
+2026-7 Barcelona Grand Prix 2026-06-14 0 f1-catalunya-grand-prix-winner-2026-06-14 28
+2026-8 Austrian Grand Prix 2026-06-28 0 f1-austrian-grand-prix-winner-2026-06-28 28
+2026-9 British Grand Prix 2026-07-05 0 f1-british-grand-prix-winner-2026-07-05 28
+
+==================== run_fetch_trades.txt ====================
+2024-16 Oscar Piastri all 118 kept 91 oldest 1724948612
+2024-17 Charles Leclerc all 254 kept 215 oldest 1725997190
+2024-18 Lando Norris all 376 kept 311 oldest 1726631693
+2024-19 Lando Norris all 220 kept 206 oldest 1729102227
+2024-21 Lando Norris all 478 kept 456 oldest 1730310952
+2024-22 George Russell all 582 kept 237 oldest 1730930150
+2024-23 Max Verstappen all 750 kept 540 oldest 1732720577
+2024-24 Lando Norris all 636 kept 517 oldest 1733257609
+2025-1 Lando Norris all 1000 kept 496 oldest 1741979307
+2025-10 George Russell all 680 kept 469 oldest 1749293080
+2025-11 Lando Norris all 1441 kept 1001 oldest 1750186475
+2025-12 Max Verstappen all 1421 kept 1283 oldest 1751346875
+2025-13 Lando Norris all 1000 kept 528 oldest 1753458109
+2025-14 Charles Leclerc all 1763 kept 1515 oldest 1753741541
+2025-15 Oscar Piastri all 1878 kept 1388 oldest 1755285840
+2025-16 Max Verstappen all 883 kept 765 oldest 1756912640
+2025-17 Max Verstappen all 895 kept 776 oldest 1757965776
+2025-18 Russell all 1314 kept 1029 oldest 1758673485
+2025-19 Max Verstappen all 1226 kept 1017 oldest 1759985163
+2025-2 Oscar Piastri all 1344 kept 1215 oldest 1742417889
+2025-20 Norris all 1438 kept 1298 oldest 1760988813
+2025-21 Lando Norris all 1249 kept 989 oldest 1761997491
+2025-22 Lando Norris all 1000 kept 921 oldest 1763661825
+2025-23 Oscar Piastri all 1467 kept 1322 oldest 1764006127
+2025-24 Max Verstappen all 1450 kept 1236 oldest 1764606094
+2025-3 Max Verstappen all 712 kept 603 oldest 1742857270
+2025-4 Oscar Piastri all 508 kept 398 oldest 1744053637
+2025-5 Max Verstappen all 718 kept 663 oldest 1744660496
+2025-6 Max Verstappen all 898 kept 854 oldest 1745259724
+2025-7 Oscar Piastri all 1000 kept 851 oldest 1747249298
+2025-8 Lando Norris all 1000 kept 718 oldest 1748030729
+2025-9 Oscar Piastri all 943 kept 736 oldest 1748259579
+2026-1 George Russell all 2839 kept 2524 oldest 1772611045
+2026-10 George Russell all 481 kept 476 oldest 1781986765
+2026-11 Lando Norris all 2320 kept 1805 oldest 1782582109
+2026-12 Lando Norris all 928 kept 511 oldest 1787065776
+2026-13 Pierre Gasly all 676 kept 566 oldest 1786199494
+2026-14 Fernando Alonso all 26 kept 26 oldest 1788817644
+2026-15 George Russell all 1182 kept 842 oldest 1789252350
+2026-16 Max Verstappen all 2000 kept 798 oldest 1790973711
+2026-17 Max Verstappen all 1000 kept 789 oldest 1791586652
+2026-2 Andrea Kimi Antonelli all 2421 kept 2119 oldest 1773232561
+2026-3 Andrea Kimi Antonelli all 2000 kept 1628 oldest 1774622713
+2026-4 Kimi Antonelli all 2377 kept 2013 oldest 1776882564
+2026-5 Pierre Gasly all 122 kept 122 oldest 1777147754
+2026-6 Kimi Antonelli all 3000 kept 2157 oldest 1780678105
+2026-7 George Russell all 1968 kept 1668 oldest 1779423159
+2026-8 George Russell all 2254 kept 1506 oldest 1780919061
+2026-9 Kimi Antonelli all 2000 kept 1647 oldest 1783095364
+events 49
+
+==================== run_analyze.txt ====================
+2024-16 Italian Grand Prix hist 0.14 api 0.149999976 buys 9 e20 0.149999976 e100 0.14333332173333357 q100 100.0
+2024-17 Azerbaijan Grand Prix hist 0.475 api 0.5 buys 28 e20 0.5053571406499999 e100 0.5089999929710145 q100 100.0
+2024-18 Singapore Grand Prix hist 0.575 api 0.5699999981 buys 47 e20 0.5699999804824625 e100 0.5699999960964923 q100 100.0
+2024-19 United States Grand Prix hist 0.275 api 0.4099999836 buys 58 e20 0.32 e100 0.32312499896874997 q100 100.0
+2024-21 São Paulo Grand Prix hist 0.535 api 0.54 buys 91 e20 0.5599999796678599 e100 0.559999993453572 q100 100.0
+2024-22 Las Vegas Grand Prix hist 0.0945 api 0.1149999005 buys 3 e20 0.119 e100 0.11899999999999998 q100 100.0
+2024-23 Qatar Grand Prix hist 0.255 api 0.28 buys 81 e20 0.2899999846 e100 0.2572413671620691 q100 100.0
+2024-24 Abu Dhabi Grand Prix hist 0.565 api 0.5799999915 buys 45 e20 0.583596957 e100 0.583596957 q100 100.0
+2025-1 Australian Grand Prix hist 0.36 api 0.38 buys 36 e20 0.39 e100 0.39 q100 100.0
+2025-10 Canadian Grand Prix hist 0.22 api 0.204439944 buys 62 e20 0.1809215497 e100 0.1809215497 q100 100.0
+2025-11 Austrian Grand Prix hist 0.685 api 0.68 buys 77 e20 0.6899999837 e100 0.6899999929130438 q100 100.0
+2025-12 British Grand Prix hist 0.375 api 0.3899998479 buys 276 e20 0.38999997801885483 e100 0.38999999416377096 q100 100.0
+2025-13 Belgian Grand Prix hist 0.425 api 0.4399999981 buys 127 e20 0.4299999978 e100 0.4299999978 q100 100.0
+2025-14 Hungarian Grand Prix hist 0.185 api 0.2 buys 57 e20 0.19 e100 0.19 q100 100.0
+2025-15 Dutch Grand Prix hist 0.605 api 0.6099999451 buys 154 e20 0.6099999880991891 e100 0.6023032735295089 q100 100.0
+2025-16 Italian Grand Prix hist 0.305 api 0.32 buys 57 e20 0.3412969283 e100 0.3448999903740877 q100 100.0
+2025-17 Azerbaijan Grand Prix hist 0.665 api 0.69 buys 149 e20 0.69 e100 0.69 q100 100.0
+2025-18 Singapore Grand Prix hist 0.385 api 0.38 buys 97 e20 0.39705141 e100 0.39705141 q100 100.0
+2025-19 United States Grand Prix hist 0.61 api 0.6299999926 buys 228 e20 0.63 e100 0.63 q100 100.0
+2025-2 Chinese Grand Prix hist 0.5 api 0.5099999966 buys 109 e20 0.5099999933 e100 0.5175450660967 q100 100.0
+2025-20 Mexico City Grand Prix hist 0.685 api 0.68 buys 315 e20 0.67999999728 e100 0.6840025821434188 q100 100.0
+2025-21 São Paulo Grand Prix hist 0.705 api 0.6843666482 buys 164 e20 0.72 e100 0.726589367144 q100 100.0
+2025-22 Las Vegas Grand Prix hist 0.465 api 0.46 buys 61 e20 0.46212759999111575 e100 0.4604255199982232 q100 100.0
+2025-23 Qatar Grand Prix hist 0.585 api 0.6 buys 153 e20 0.5928068813 e100 0.5928068813 q100 100.0
+2025-24 Abu Dhabi Grand Prix hist 0.715 api 0.7199999808 buys 172 e20 0.72 e100 0.7213565077265727 q100 100.0
+2025-3 Japanese Grand Prix hist 0.28 api 0.289999993 buys 52 e20 0.29 e100 0.29 q100 100.0
+2025-4 Bahrain Grand Prix hist 0.71 api 0.7199999529 buys 35 e20 0.726051249 e100 0.726051249 q100 100.0
+2025-5 Saudi Arabian Grand Prix hist 0.37 api 0.3799999742 buys 139 e20 0.3799999810263175 e100 0.3799999962052635 q100 100.0
+2025-6 Miami Grand Prix hist 0.355 api 0.37 buys 129 e20 0.38 e100 0.38389999435471855 q100 100.0
+2025-7 Emilia Romagna Grand Prix hist 0.635 api 0.649999883 buys 101 e20 0.6448571429 e100 0.6482000000150001 q100 100.0
+2025-8 Monaco Grand Prix hist 0.56 api 0.55 buys 100 e20 0.55 e100 0.55 q100 100.0
+2025-9 Spanish Grand Prix hist 0.57 api 0.59 buys 82 e20 0.5899999894 e100 0.5899999904830541 q100 100.0
+2026-1 Australian Grand Prix hist 0.715 api 0.71 buys 80 e20 0.7199999251014282 e100 0.7143055286552292 q100 100.0
+2026-10 Belgian Grand Prix hist 0.075 api 0.08 buys 45 e20 0.08 e100 0.08 q100 100.0
+2026-11 Hungarian Grand Prix hist 0.3475 api 0.354 buys 254 e20 0.35 e100 0.35 q100 100.0
+2026-12 Dutch Grand Prix hist 0.365 api 0.3799999876 buys 72 e20 0.3699999695054109 e100 0.3699999906201095 q100 100.0
+2026-13 Italian Grand Prix hist 0.0595 api 0.066 buys 140 e20 0.0679999383 e100 0.06658821709294285 q100 100.0
+2026-14 Spanish Grand Prix hist 0.0005 api 0.005 buys 1 e20 0.001 e100 0.001 q100 100.0
+2026-15 Azerbaijan Grand Prix hist 0.645 api 0.649999974 buys 40 e20 0.6499999986 e100 0.6499999986 q100 100.0
+2026-16 Bahrain Grand Prix in Malaysia hist 0.605 api 0.609999986 buys 127 e20 0.61 e100 0.61 q100 100.0
+2026-17 Singapore Grand Prix hist 0.65 api 0.66 buys 118 e20 0.6599999954 e100 0.6531823015060607 q100 100.0
+2026-2 Chinese Grand Prix hist 0.265 api 0.27 buys 140 e20 0.2599999839 e100 0.26615383265299186 q100 100.0
+2026-3 Japanese Grand Prix hist 0.585 api 0.5799999861 buys 203 e20 0.5599999821750098 e100 0.5530482099947521 q100 100.0
+2026-4 Miami Grand Prix hist 0.405 api 0.4099999947 buys 776 e20 0.3990790483 e100 0.3990790483 q100 100.0
+2026-5 Canadian Grand Prix hist 0.0015 api 0.001 buys 2 e20 0.0015 e100 0.0011 q100 100.0
+2026-6 Monaco Grand Prix hist 0.59 api 0.5992680939 buys 491 e20 0.6 e100 0.6 q100 100.0
+2026-7 Barcelona Grand Prix hist 0.525 api 0.529999965 buys 83 e20 0.52 e100 0.52563644392786 q100 100.0
+2026-8 Austrian Grand Prix hist 0.365 api 0.3699999272 buys 174 e20 0.36135131400710074 e100 0.3602702628014201 q100 100.0
+2026-9 British Grand Prix hist 0.65 api 0.6699999196 buys 251 e20 0.6765630529 e100 0.6667392164971377 q100 100.0
+rows 49 no_buy 0 []
+exec100-p_hist: n 49 mean 0.0086 median 0.005 min -0.0391 max 0.0481
+
+==================== run_score.txt ====================
+--- rule A (margin bins; trigger uses prices-history last price at cutoff) ---
+A fill=p_hist                          n=21 wins=13 sum=+7.2107 mean=+0.3434
+A fill=first_buy_price                 n=21 wins=13 sum=+7.0018 mean=+0.3334
+A fill=exec20                          n=21 wins=13 sum=+7.0111 mean=+0.3339
+A fill=exec100                         n=21 wins=13 sum=+7.0413 mean=+0.3353
+--- rule B (const 0.4903) ---
+B fill=p_hist                          n=23 wins=12 sum=+5.6619 mean=+0.2462
+B fill=first_buy_price                 n=23 wins=12 sum=+5.4174 mean=+0.2355
+B fill=exec20                          n=23 wins=12 sum=+5.4266 mean=+0.2359
+B fill=exec100                         n=23 wins=12 sum=+5.4529 mean=+0.2371
+--- unconditional buy every pole sitter ---
+all fill=p_hist             n=49 wins=31 sum=+8.2887 mean=+0.1692
+all fill=first_buy_price    n=49 wins=31 sum=+7.8231 mean=+0.1597
+all fill=exec20             n=49 wins=31 sum=+7.8349 mean=+0.1599
+all fill=exec100            n=49 wins=31 sum=+7.8676 mean=+0.1606
+--- trigger if executable price itself <= model-0.05 (limit order at fill) ---
+A trigger&fill=first_buy_price         n=21 wins=13 sum=+7.0018 mean=+0.3334
+A trigger&fill=exec20                  n=21 wins=13 sum=+7.0111 mean=+0.3339
+A trigger&fill=exec100                 n=21 wins=13 sum=+7.0413 mean=+0.3353
+--- per-trade detail, rule A with exec100 ---
+A exec100 detail                       n=21 wins=13 sum=+7.0413 mean=+0.3353
+    2024-16 piastri y 0.0 hist 0.14 fill 0.1433 net -0.1595
+    2024-19 norris y 0.0 hist 0.275 fill 0.3231 net -0.3441
+    2024-22 russell y 1.0 hist 0.0945 fill 0.119 net 0.8658
+    2024-23 max_verstappen y 1.0 hist 0.255 fill 0.2572 net 0.7232
+    2025-1 norris y 1.0 hist 0.36 fill 0.39 net 0.5881
+    2025-10 russell y 1.0 hist 0.22 fill 0.1809 net 0.8017
+    2025-12 max_verstappen y 0.0 hist 0.375 fill 0.39 net -0.4119
+    2025-14 leclerc y 0.0 hist 0.185 fill 0.19 net -0.2077
+    2025-16 max_verstappen y 1.0 hist 0.305 fill 0.3449 net 0.6338
+    2025-18 russell y 1.0 hist 0.385 fill 0.3971 net 0.581
+    2025-3 max_verstappen y 1.0 hist 0.28 fill 0.29 net 0.6897
+    2026-10 russell y 0.0 hist 0.075 fill 0.08 net -0.0937
+    2026-11 norris y 1.0 hist 0.3475 fill 0.35 net 0.6286
+    2026-12 norris y 1.0 hist 0.365 fill 0.37 net 0.6083
+    2026-13 gasly y 0.0 hist 0.0595 fill 0.0666 net -0.0797
+    2026-14 alonso y 0.0 hist 0.0005 fill 0.001 net -0.011
+    2026-15 russell y 1.0 hist 0.645 fill 0.65 net 0.3286
+    2026-2 antonelli y 1.0 hist 0.265 fill 0.2662 net 0.7141
+    2026-4 antonelli y 1.0 hist 0.405 fill 0.3991 net 0.5789
+    2026-5 gasly y 0.0 hist 0.0015 fill 0.0011 net -0.0112
+    2026-8 russell y 1.0 hist 0.365 fill 0.3603 net 0.6182
+--- uplift distribution ---
+n 49 mean 0.0086 median 0.005 p10 -0.005 p90 0.0289
+first_buy-p_hist mean 0.0095 median 0.0085 min -0.0391 max 0.045
+--- 2026 dust cases ---
+2026-10 hist 0.075 first 0.08 200 exec100 0.08 bought_shares 6637.592747 y 0.0
+2026-13 hist 0.0595 first 0.0679999383 14.705881 exec100 0.06658821709294285 bought_shares 13010.204536 y 0.0
+2026-14 hist 0.0005 first 0.001 1000 exec100 0.001 bought_shares 1000 y 0.0
+2026-5 hist 0.0015 first 0.002 10 exec100 0.0011 bought_shares 1010 y 0.0
+
+==================== run_diag.txt ====================
+covers_cut 49 / 49
+first_buy<=start 49 / 49
+first_buy_dt_h: median 0.49 p90 1.66 max 12.85
+t100_h: median 0.94 p90 2.99 max 18.53
+buy_shares_pre median 14805.1 min 1000
+events buy_shares_pre<100 0 []
+last_pre_side {'BUY': 41, 'SELL': 8, None: 0}
+last pre is BUY: n 41 mean first_buy-last_pre -0.0029
+last pre is SELL: n 8 mean first_buy-last_pre 0.01
+spread proxy (first post BUY - last pre trade): mean -0.0008 median 0.0
+first_buy_dt by race window: max t100_h < window? True
+
+==================== run_extra.txt ====================
+triggers 21
+last pre side among triggers Counter({'BUY': 18, 'SELL': 3})
+trigger t100_h median 1.2 max 18.53
+trigger buy_shares_pre min 1000 median 12185.9
+BUY n 18 mean first-p_hist 0.0129 net first 5.6312
+SELL n 3 mean first-p_hist -0.0088 net first 1.3705
+break-even uplift 0.341 base sum 7.2107
+size>=10 n 21 sum 7.0119 mean 0.3339
+size>=25 n 21 sum 7.0151 mean 0.3341
+<=2h n 17 sum 6.3256 mean 0.3721
+<=4h n 18 sum 7.1913 mean 0.3995
+vwap100 <=2h n 14 sum 5.2104
+vwap100 <=4h n 18 sum 7.223
+
+==================== run_tables.txt ====================
+wrote exec_rows.csv 49
+2024-16  piastri          y=0 hist=0.1400 first=0.1500 e100=0.1433 net_hist=-0.1560 net_e100=-0.1595
+2024-19  norris           y=0 hist=0.2750 first=0.3200 e100=0.3231 net_hist=-0.2950 net_e100=-0.3441
+2024-22  russell          y=1 hist=0.0945 first=0.1190 e100=0.1190 net_hist=+0.8912 net_e100=+0.8658
+2024-23  max_verstappen   y=1 hist=0.2550 first=0.2900 e100=0.2572 net_hist=+0.7255 net_e100=+0.7232
+2025-1   norris           y=1 hist=0.3600 first=0.3900 e100=0.3900 net_hist=+0.6185 net_e100=+0.5881
+2025-10  russell          y=1 hist=0.2200 first=0.1809 e100=0.1809 net_hist=+0.7614 net_e100=+0.8017
+2025-12  max_verstappen   y=0 hist=0.3750 first=0.3900 e100=0.3900 net_hist=-0.3967 net_e100=-0.4119
+2025-14  leclerc          y=0 hist=0.1850 first=0.1900 e100=0.1900 net_hist=-0.2025 net_e100=-0.2077
+2025-16  max_verstappen   y=1 hist=0.3050 first=0.3413 e100=0.3449 net_hist=+0.6744 net_e100=+0.6338
+2025-18  russell          y=1 hist=0.3850 first=0.3971 e100=0.3971 net_hist=+0.5932 net_e100=+0.5810
+2025-3   max_verstappen   y=1 hist=0.2800 first=0.2900 e100=0.2900 net_hist=+0.6999 net_e100=+0.6897
+2026-10  russell          y=0 hist=0.0750 first=0.0800 e100=0.0800 net_hist=-0.0885 net_e100=-0.0937
+2026-11  norris           y=1 hist=0.3475 first=0.3500 e100=0.3500 net_hist=+0.6312 net_e100=+0.6286
+2026-12  norris           y=1 hist=0.3650 first=0.3700 e100=0.3700 net_hist=+0.6134 net_e100=+0.6083
+2026-13  gasly            y=0 hist=0.0595 first=0.0680 e100=0.0666 net_hist=-0.0723 net_e100=-0.0797
+2026-14  alonso           y=0 hist=0.0005 first=0.0010 e100=0.0010 net_hist=-0.0105 net_e100=-0.0111
+2026-15  russell          y=1 hist=0.6450 first=0.6500 e100=0.6500 net_hist=+0.3336 net_e100=+0.3286
+2026-2   antonelli        y=1 hist=0.2650 first=0.2600 e100=0.2662 net_hist=+0.7153 net_e100=+0.7141
+2026-4   antonelli        y=1 hist=0.4050 first=0.3991 e100=0.3991 net_hist=+0.5730 net_e100=+0.5789
+2026-5   gasly            y=0 hist=0.0015 first=0.0020 e100=0.0011 net_hist=-0.0116 net_e100=-0.0112
+2026-8   russell          y=1 hist=0.3650 first=0.3700 e100=0.3603 net_hist=+0.6134 net_e100=+0.6182

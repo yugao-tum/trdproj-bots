@@ -1,0 +1,11 @@
+covers_cut 49 / 49
+first_buy<=start 49 / 49
+first_buy_dt_h: median 0.49 p90 1.66 max 12.85
+t100_h: median 0.94 p90 2.99 max 18.53
+buy_shares_pre median 14805.1 min 1000
+events buy_shares_pre<100 0 []
+last_pre_side {'BUY': 41, 'SELL': 8, None: 0}
+last pre is BUY: n 41 mean first_buy-last_pre -0.0029
+last pre is SELL: n 8 mean first_buy-last_pre 0.01
+spread proxy (first post BUY - last pre trade): mean -0.0008 median 0.0
+first_buy_dt by race window: max t100_h < window? True

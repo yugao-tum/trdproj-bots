@@ -1,0 +1,50 @@
+2024-16 Oscar Piastri all 118 kept 91 oldest 1724948612
+2024-17 Charles Leclerc all 254 kept 215 oldest 1725997190
+2024-18 Lando Norris all 376 kept 311 oldest 1726631693
+2024-19 Lando Norris all 220 kept 206 oldest 1729102227
+2024-21 Lando Norris all 478 kept 456 oldest 1730310952
+2024-22 George Russell all 582 kept 237 oldest 1730930150
+2024-23 Max Verstappen all 750 kept 540 oldest 1732720577
+2024-24 Lando Norris all 636 kept 517 oldest 1733257609
+2025-1 Lando Norris all 1000 kept 496 oldest 1741979307
+2025-10 George Russell all 680 kept 469 oldest 1749293080
+2025-11 Lando Norris all 1441 kept 1001 oldest 1750186475
+2025-12 Max Verstappen all 1421 kept 1283 oldest 1751346875
+2025-13 Lando Norris all 1000 kept 528 oldest 1753458109
+2025-14 Charles Leclerc all 1763 kept 1515 oldest 1753741541
+2025-15 Oscar Piastri all 1878 kept 1388 oldest 1755285840
+2025-16 Max Verstappen all 883 kept 765 oldest 1756912640
+2025-17 Max Verstappen all 895 kept 776 oldest 1757965776
+2025-18 Russell all 1314 kept 1029 oldest 1758673485
+2025-19 Max Verstappen all 1226 kept 1017 oldest 1759985163
+2025-2 Oscar Piastri all 1344 kept 1215 oldest 1742417889
+2025-20 Norris all 1438 kept 1298 oldest 1760988813
+2025-21 Lando Norris all 1249 kept 989 oldest 1761997491
+2025-22 Lando Norris all 1000 kept 921 oldest 1763661825
+2025-23 Oscar Piastri all 1467 kept 1322 oldest 1764006127
+2025-24 Max Verstappen all 1450 kept 1236 oldest 1764606094
+2025-3 Max Verstappen all 712 kept 603 oldest 1742857270
+2025-4 Oscar Piastri all 508 kept 398 oldest 1744053637
+2025-5 Max Verstappen all 718 kept 663 oldest 1744660496
+2025-6 Max Verstappen all 898 kept 854 oldest 1745259724
+2025-7 Oscar Piastri all 1000 kept 851 oldest 1747249298
+2025-8 Lando Norris all 1000 kept 718 oldest 1748030729
+2025-9 Oscar Piastri all 943 kept 736 oldest 1748259579
+2026-1 George Russell all 2839 kept 2524 oldest 1772611045
+2026-10 George Russell all 481 kept 476 oldest 1781986765
+2026-11 Lando Norris all 2320 kept 1805 oldest 1782582109
+2026-12 Lando Norris all 928 kept 511 oldest 1787065776
+2026-13 Pierre Gasly all 676 kept 566 oldest 1786199494
+2026-14 Fernando Alonso all 26 kept 26 oldest 1788817644
+2026-15 George Russell all 1182 kept 842 oldest 1789252350
+2026-16 Max Verstappen all 2000 kept 798 oldest 1790973711
+2026-17 Max Verstappen all 1000 kept 789 oldest 1791586652
+2026-2 Andrea Kimi Antonelli all 2421 kept 2119 oldest 1773232561
+2026-3 Andrea Kimi Antonelli all 2000 kept 1628 oldest 1774622713
+2026-4 Kimi Antonelli all 2377 kept 2013 oldest 1776882564
+2026-5 Pierre Gasly all 122 kept 122 oldest 1777147754
+2026-6 Kimi Antonelli all 3000 kept 2157 oldest 1780678105
+2026-7 George Russell all 1968 kept 1668 oldest 1779423159
+2026-8 George Russell all 2254 kept 1506 oldest 1780919061
+2026-9 Kimi Antonelli all 2000 kept 1647 oldest 1783095364
+events 49
