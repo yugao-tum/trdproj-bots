@@ -1,0 +1,36 @@
+sample events=200  period/week events=40
+period slugs: ['what-will-be-said-on-the-first-joe-rogan-experience-episode-of-the-week-august-24', 'what-will-be-said-on-the-first-joe-rogan-experience-episode-of-the-week-august-31', 'what-will-be-said-on-the-first-joe-rogan-experience-episode-of-the-week-october-12', 'what-will-be-said-on-the-first-joe-rogan-experience-episode-of-the-week-october-5', 'what-will-be-said-on-the-first-joe-rogan-experience-episode-of-the-week-september-14'] ...
+
+===== H24 =====
+  R1
+    period     trades=  76 events= 18 win=1.0000 mean=+0.23138 event_mean=+0.25789 t=+10.00
+    nonperiod  trades= 287 events= 62 win=0.8293 mean=+0.01084 event_mean=+0.01042 t=+0.33
+  R2
+    period     trades=  33 events= 12 win=1.0000 mean=+0.11920 event_mean=+0.12097 t=+4.54
+    nonperiod  trades= 299 events= 57 win=0.7960 mean=-0.02219 event_mean=-0.01952 t=-0.46
+  R3
+    period     trades= 168 events= 20 win=0.7500 mean=+0.08844 event_mean=+0.09311 t=+0.89
+    nonperiod  trades= 852 events= 63 win=0.5246 mean=+0.00119 event_mean=+0.03473 t=+0.48
+
+===== H6 =====
+  R1
+    period     trades=  91 events= 23 win=1.0000 mean=+0.21756 event_mean=+0.25867 t=+9.19
+    nonperiod  trades= 253 events= 65 win=0.8814 mean=+0.08298 event_mean=+0.11080 t=+3.74
+  R2
+    period     trades=  31 events= 12 win=1.0000 mean=+0.10985 event_mean=+0.11422 t=+4.24
+    nonperiod  trades= 279 events= 59 win=0.8065 mean=-0.01132 event_mean=+0.01435 t=+0.36
+  R3
+    period     trades= 191 events= 24 win=0.7853 mean=+0.11174 event_mean=+0.15201 t=+1.78
+    nonperiod  trades= 859 events= 73 win=0.5483 mean=+0.00247 event_mean=-0.01947 t=-0.38
+
+endDate end-of-day-marker share (post-hoc):
+  H24 R1: 223/363 = 61.4%
+  H24 R2: 165/332 = 49.7%
+  H24 R3: 571/1020 = 56.0%
+  H6 R1: 196/344 = 57.0%
+  H6 R2: 122/310 = 39.4%
+  H6 R3: 549/1050 = 52.3%
+
+H6 R1 split by endDate end-of-day marker (post-hoc):
+  eod      trades= 196 events= 54 mean=+0.17762 event_mean=+0.21599 t=+10.15
+  non-eod  trades= 148 events= 34 mean=+0.04041 event_mean=+0.04375 t=+0.92

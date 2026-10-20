@@ -35,3 +35,30 @@
 | bots/quant/notes/batch1-verification/quant-011.md | 第1批原稿核对日志 + glm-5.3 事实核查 | 2026-10-20 | 笔记 |
 | bots/quant/notes/batch1-verification/quant-012.md | 第1批原稿核对日志 + glm-5.3 事实核查 | 2026-10-20 | 笔记 |
 | bots/quant/notes/batch1-verification/quant-013.md | 第1批原稿核对日志 + glm-5.3 事实核查 | 2026-10-20 | 笔记 |
+| bots/quant/entries/quant-014-pm-spx-lognormal-calibration.md | SPX收盘价：已实现波动率定价 | 2026-10-20 | 待核 |
+| bots/quant/entries/quant-015-global-temp-era5-nowcast.md | 全球月均温距平：ERA5抢跑NASA | 2026-10-20 | 草稿 |
+| bots/quant/entries/quant-016-rotten-tomatoes-beta-model.md | 烂番茄开分：早期评论二项定价 | 2026-10-20 | 待核 |
+| bots/quant/entries/quant-017-app-store-rank-markets.md | App Store榜首榜：按Apple免费榜单定价 | 2026-10-20 | 草稿 |
+| bots/quant/entries/quant-018-strait-transit-count-base-rate.md | 海峡周通行：PortWatch基准率 | 2026-10-20 | 待核 |
+| bots/quant/entries/quant-019-measles-cdc-count-ladder.md | 麻疹病例阶梯：按官方计数流定价 | 2026-10-20 | 待核 |
+| bots/quant/entries/quant-020-earnings-beat-base-rate.md | 财报超预期市场：中价带的基准率缺口 | 2026-10-20 | 待核 |
+| bots/quant/entries/quant-021-f1-pole-winner-base-rate.md | F1杆位与分站冠军：免费用时定价 | 2026-10-20 | 草稿 |
+| bots/quant/entries/quant-022-bnb-hodler-airdrop-hedged.md | BNB空投+永续对冲：成本吃掉收益 | 2026-10-20 | 草稿 |
+| bots/quant/entries/quant-023-mstr-mnav-btc-switch.md | MSTR溢价mNAV作BTC仓位开关 | 2026-10-20 | 草稿 |
+| bots/quant/notes/batch2-verification/quant-014.md | 第2批原稿核对日志（含脚本）+ glm-5.3 事实核查 | 2026-10-20 | 笔记 |
+| bots/quant/notes/batch2-verification/quant-015.md | 第2批原稿核对日志（含脚本）+ glm-5.3 事实核查 | 2026-10-20 | 笔记 |
+| bots/quant/notes/batch2-verification/quant-016.md | 第2批原稿核对日志（含脚本）+ glm-5.3 事实核查 | 2026-10-20 | 笔记 |
+| bots/quant/notes/batch2-verification/quant-017.md | 第2批原稿核对日志（含脚本）+ glm-5.3 事实核查 | 2026-10-20 | 笔记 |
+| bots/quant/notes/batch2-verification/quant-018.md | 第2批原稿核对日志（含脚本）+ glm-5.3 事实核查 | 2026-10-20 | 笔记 |
+| bots/quant/notes/batch2-verification/quant-019.md | 第2批原稿核对日志（含脚本）+ glm-5.3 事实核查 | 2026-10-20 | 笔记 |
+| bots/quant/notes/batch2-verification/quant-020.md | 第2批原稿核对日志（含脚本）+ glm-5.3 事实核查 | 2026-10-20 | 笔记 |
+| bots/quant/notes/batch2-verification/quant-021.md | 第2批原稿核对日志（含脚本）+ glm-5.3 事实核查 | 2026-10-20 | 笔记 |
+| bots/quant/notes/batch2-verification/quant-022.md | 第2批原稿核对日志（含脚本）+ glm-5.3 事实核查 | 2026-10-20 | 笔记 |
+| bots/quant/notes/batch2-verification/quant-023.md | 第2批原稿核对日志（含脚本）+ glm-5.3 事实核查 | 2026-10-20 | 笔记 |
+| bots/quant/notes/q04-mention-backtest/calibration.csv | quant-004 提及市场回测（脚本/输出） | 2026-10-20 | 笔记 |
+| bots/quant/notes/q04-mention-backtest/mention_bt.py | quant-004 提及市场回测（脚本/输出） | 2026-10-20 | 笔记 |
+| bots/quant/notes/q04-mention-backtest/results.csv | quant-004 提及市场回测（脚本/输出） | 2026-10-20 | 笔记 |
+| bots/quant/notes/q04-mention-backtest/run_output.txt | quant-004 提及市场回测（脚本/输出） | 2026-10-20 | 笔记 |
+| bots/quant/notes/q04-mention-backtest/weekly_diag.py | quant-004 提及市场回测（脚本/输出） | 2026-10-20 | 笔记 |
+| bots/quant/notes/q04-mention-backtest/weekly_diag_output.txt | quant-004 提及市场回测（脚本/输出） | 2026-10-20 | 笔记 |
+| bots/quant/notes/q04-mention-backtest/.gitignore | quant-004 提及市场回测（脚本/输出） | 2026-10-20 | 笔记 |
