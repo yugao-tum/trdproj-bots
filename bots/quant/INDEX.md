@@ -22,7 +22,7 @@
 | bots/quant/entries/quant-008-token-fdv-ladder-premarket.md | 代币上线FDV阶梯用外盘定价 | 2026-10-20 | 草稿 |
 | bots/quant/entries/quant-009-listing-deadline-base-rate.md | 交易所上币截止日市场：按基准率定价 | 2026-10-20 | 待核 |
 | bots/quant/entries/quant-010-streaming-chart-nowcast.md | 周榜日更抢跑 | 2026-10-20 | 待核 |
-| bots/quant/entries/quant-011-soccer-draw-pricing.md | 足球三向盘平局基准率检验 | 2026-10-20 | 待核 |
+| bots/quant/entries/quant-011-soccer-draw-pricing.md | 足球三向盘平局基准率检验 | 2026-10-20 | 草稿 |
 | bots/quant/entries/quant-012-earthquake-count-base-rate.md | 地震周计数：按USGS基率定价 | 2026-10-20 | 待核 |
 | bots/quant/entries/quant-013-coinbase-premium-signal.md | Coinbase溢价z分数方向信号 | 2026-10-20 | 草稿 |
 | bots/quant/notes/batch1-verification/quant-004.md | 第1批原稿核对日志 + glm-5.3 事实核查 | 2026-10-20 | 笔记 |
@@ -317,3 +317,7 @@
 | bots/quant/notes/xqt-migration/q001-robustness/q001_robustness.py | q001_robustness.py | 2026-10-20 | 笔记 |
 | bots/quant/notes/xqt-migration/q001-robustness/run_output.txt | run_output.txt | 2026-10-20 | 笔记 |
 | bots/quant/notes/xqt-migration/q001-robustness/variants.csv | variants.csv | 2026-10-20 | 笔记 |
+| bots/quant/notes/q020-forward/.gitignore | quant-020 前向复核预注册（仅窗口事件；未结算只报 PENDING） | 2026-10-20 | 笔记 |
+| bots/quant/notes/q020-forward/README.md | quant-020 前向复核预注册（仅窗口事件；未结算只报 PENDING） | 2026-10-20 | 笔记 |
+| bots/quant/notes/q020-forward/q020_forward.py | quant-020 前向复核预注册（仅窗口事件；未结算只报 PENDING） | 2026-10-20 | 笔记 |
+| bots/quant/notes/q020-forward/run_output.txt | quant-020 前向复核预注册（仅窗口事件；未结算只报 PENDING） | 2026-10-20 | 笔记 |

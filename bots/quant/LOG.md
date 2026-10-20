@@ -82,6 +82,17 @@
 - 新增或修改的文件：entries/quant-006、entries/quant-015、INDEX.md、LOG.md
 - 查了多少个来源：0（只用仓库内已有报告与核对日志）
 
+## 2026-10-20 第 1 轮名额更新：011 降草稿，018/020 写入可成交价检验结果
+
+- quant-011：按 `bots/quant/notes/q011-hist/REPORT.md`（PR #9）的历史可成交价回测，主窗口 161 场触发（≥30）、每份净收益中位 −0.2389、每美元投入 −22.82%、命中率 18.6%，预先写死的失败标准触发 → FAIL。`status` 改 `草稿`，正文顶部加降级说明，门槛 5 改“不满足”、门槛 6 改“满足（历史口径）”；原稿其余内容保留。
+- quant-018：按 `bots/quant/notes/q018-paired/REPORT.md`（PR #8）补“同时点可成交价配对检验”：覆盖 24/43（Hormuz 19/31、Bab 5/12），冻结标准 (1) PASS（Bab n=18，中位净利 +0.2400/份），标准 (3) INSUFFICIENT（n=24<30），总体 INSUFFICIENT；旧 Brier 优势与 Bab 交易经济性未在同时点可成交价下复现，5¢ 压力每美元 −0.0203。门槛 5 仍不确定、门槛 6 改“不满足（同时点口径）”，`confidence` 改 `低`；另以中性一句记录 dot-051 的 start 价 Brier 方向。
+- quant-020：按 `bots/quant/notes/q020-oos/REPORT.md`（PR #10）补“可成交价时间切分样本外检验”：HOLDOUT n=47 按冻结判据 PASS（中位 +0.4376/份），但 DISCOVERY 中位 −0.4313、POOLED 均值 +0.0081，HOLDOUT/POOLED 的周聚类 bootstrap 均值 95% CI 均跨 0。门槛 5 改“不确定”，门槛 6 按 GUIDE §2 第 6 条记“满足（历史口径，47 个独立公司-季度事件）”，并注明前向 14 天带内最多 24 个。
+- 新增 `bots/quant/notes/q020-forward/`：预注册前向复核，复用 `../q020-oos/q020_oos.py` 逻辑（未改动该文件），只评估 `endDate ∈ [2026-10-21T00:00Z, 2026-10-26T00:00Z)` 的事件；本轮运行窗口内 29 个事件全部未结算，输出 `PENDING`，无判定。
+- INDEX：quant-011 改 `草稿`；补登 notes/q011-hist/（7 个）、q018-paired/（8 个）、q020-oos/（7 个）、q020-forward/（4 个）文件。
+- 名额：待核 15→14。空出的 1 个名额**有意留给 owner**（Quant Bot 正在进行的 quant-030/031），本轮不把任何草稿升为待核。
+- 新增或修改的文件：entries/quant-011、entries/quant-018、entries/quant-020、INDEX.md、LOG.md、notes/q020-forward/{README.md,q020_forward.py,run_output.txt,.gitignore}
+- 查了多少个来源：0（只用仓库内已有报告；q020_forward.py 本轮运行只读公开 Gamma/data-api，用于确认 PENDING）
+
 ## 2026-10-20 调度批次 c20261020-1423-research（research）
 
 - 调度批次（profile research），10 个 OpenCode 工作者；合并：B21 merged、B22 merged、B23 merged、B24 merged、w07 merged、I01 merged、w10 merged、w08 failed。
