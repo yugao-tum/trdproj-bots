@@ -1,0 +1,60 @@
+==============================================================================
+quant-012 historical executable-price backtest
+decision time = window start; base rate uses only earlier USGS data
+==============================================================================
+
+[1] Closed earthquake count-ladder events found on Gamma: 68
+  M5.5+  events= 28  buckets/event=[6, 8, 9]  span=2026-04-06 .. 2026-10-19
+  M6.5+  events= 38  buckets/event=[7]  span=2026-01-04 .. 2026-10-12
+  M7.0+  events=  2  buckets/event=[7, 9]  span=2025-12-04 .. 2026-07-01
+
+[2] Backtest sample: 68 events with a resolved bracket
+    events with at least one pre-window fill: 58
+    events with every bracket priced pre-window: 29
+    independent results: loose=68, strict=40 (strict with prices=35, weekly-only=35, strict with trades=34)
+    events with non-exhaustive bracket sets: 1
+    traded NO buckets: 103
+    USGS own-count vs resolved bracket: 59/68 MATCH (86.8%)
+      M5.5+  19/28 MATCH
+      M6.5+  38/38 MATCH
+      M7.0+  2/2 MATCH
+
+[3] Realised results of filled NO shares (1 share per bucket)
+    median gross/share = +0.1200
+    median net/share   = +0.1147
+    mean gross/share   = +0.0186
+    mean net/share     = +0.0107
+    hit rate (NO won)  = 80/103 = 77.7%
+    total net P&L      = +1.1010 on 78.0863 staked = +1.41% per $ staked
+    pre-window fill age: median 2.36h, max 22.30h before window start
+
+[4] Multi-class log loss, base-rate model vs market (paired per event)
+    events compared = 29
+    mean model log loss  = 1.445508
+    mean market log loss = 1.415152
+    median paired (market - model) log loss = +0.012292
+    aggregate model log loss = 1.445508
+    model better on 15 events, market better on 14
+    two-sided sign test p = 1.0000
+
+[4b] Log-loss robustness subsets
+    all paired              n=29 model=1.4455 market=1.4152 model_better=15 market_better=14
+    USGS MATCH only         n=25 model=1.3107 market=1.3560 model_better=12 market_better=13
+    full bracket coverage   n=28 model=1.3616 market=1.4295 model_better=15 market_better=13
+    MATCH + M6.5            n=18 model=1.0554 market=1.0605 model_better=7 market_better=11
+    MATCH + M5.5            n= 7 model=1.9670 market=2.1159 model_better=5 market_better=2
+
+[5] Sensitivity: first fill AFTER window start (not the primary rule)
+    traded buckets = 183
+    median gross/share = +0.1300
+    median net/share   = +0.1243
+    total net P&L      = +36.1969 on 145.5814 staked
+
+[6] Frozen fail criteria
+    (1) median realised gross/share = +0.1200 (FAIL if <= 0)
+    (2) model vs market log loss = 1.445508 vs 1.415152 (FAIL if model worse)
+    strict independent results = 35
+    VERDICT = FAIL
+
+[7] wrote /workspace/oc-jobs/quant-batch/c20261020-1423-research/wt/w09/bots/quant/notes/scheduler/scratch/I01/buckets.csv (514 rows)
+    wrote /workspace/oc-jobs/quant-batch/c20261020-1423-research/wt/w09/bots/quant/notes/scheduler/scratch/I01/events.csv (68 rows)
