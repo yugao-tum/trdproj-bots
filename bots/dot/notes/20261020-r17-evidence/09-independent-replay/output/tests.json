@@ -1,0 +1,118 @@
+{
+  "pass": true,
+  "classification": "conditional_simulation",
+  "source_hashes_unchanged": true,
+  "exact_replay_files": {
+    "01-continuous-signals/signals.csv": {
+      "original": "44b7657912ee8cde461a3d0eec1eb8b4079a564b5b104afd1dc2ca54a70090c0",
+      "replay": "44b7657912ee8cde461a3d0eec1eb8b4079a564b5b104afd1dc2ca54a70090c0",
+      "byte_identical": true
+    },
+    "01-continuous-signals/phase_sequence.csv": {
+      "original": "90fa83864eb88fccf995c18dd5824cf4951379a2b370cc4d8e37bf5c66cc0b73",
+      "replay": "90fa83864eb88fccf995c18dd5824cf4951379a2b370cc4d8e37bf5c66cc0b73",
+      "byte_identical": true
+    },
+    "01-continuous-signals/causal-tests.json": {
+      "original": "7d99c3bbfeb90e7cb9c6d029c568606ccadd1b00b4547a193a0207b6089bb4f0",
+      "replay": "7d99c3bbfeb90e7cb9c6d029c568606ccadd1b00b4547a193a0207b6089bb4f0",
+      "byte_identical": true
+    },
+    "01-continuous-signals/boundaries.json": {
+      "original": "d40b1b47d1a347bb107d7f981525f938e0bfb39e050f1b2c4fa11c3b9057b39b",
+      "replay": "d40b1b47d1a347bb107d7f981525f938e0bfb39e050f1b2c4fa11c3b9057b39b",
+      "byte_identical": true
+    },
+    "02-next-open-ledger/accounts.csv": {
+      "original": "f758ea17cb48effb35f3d41b6b49f3fd41b00dbeb0b1b88a2371c76d16ccf1c2",
+      "replay": "f758ea17cb48effb35f3d41b6b49f3fd41b00dbeb0b1b88a2371c76d16ccf1c2",
+      "byte_identical": true
+    },
+    "02-next-open-ledger/trades.csv": {
+      "original": "f99a4a0e6d3ca2a70af7012a7d86bd69ba06a565caa68c7089b02c06e722180f",
+      "replay": "f99a4a0e6d3ca2a70af7012a7d86bd69ba06a565caa68c7089b02c06e722180f",
+      "byte_identical": true
+    },
+    "02-next-open-ledger/metrics.json": {
+      "original": "431f396fc94e12a4daae50f8e761faee25ce43ed2f392653236901e7547d1739",
+      "replay": "431f396fc94e12a4daae50f8e761faee25ce43ed2f392653236901e7547d1739",
+      "byte_identical": true
+    },
+    "03-capital-boundaries/capital-results.json": {
+      "original": "21d19a6771a7b665e3dba30aa9271c56a13755a80e7a3321c57eb5aa332b98c3",
+      "replay": "21d19a6771a7b665e3dba30aa9271c56a13755a80e7a3321c57eb5aa332b98c3",
+      "byte_identical": true
+    },
+    "05-same-budget-benchmarks/accounts.csv": {
+      "original": "0148fe850dfb36c44e3f1e62883cb2dbd433848e162dbfee9ef0d6f4d5e56feb",
+      "replay": "0148fe850dfb36c44e3f1e62883cb2dbd433848e162dbfee9ef0d6f4d5e56feb",
+      "byte_identical": true
+    },
+    "05-same-budget-benchmarks/trades.csv": {
+      "original": "082a5b71a81b0a938b928e166c539e03c8c68c6e835be15823557441b48c9f1d",
+      "replay": "082a5b71a81b0a938b928e166c539e03c8c68c6e835be15823557441b48c9f1d",
+      "byte_identical": true
+    },
+    "05-same-budget-benchmarks/metrics.json": {
+      "original": "783d44068fe71a025a6fa1f9a64284f814e26aa53e472c8d29cf325f4de63baf",
+      "replay": "783d44068fe71a025a6fa1f9a64284f814e26aa53e472c8d29cf325f4de63baf",
+      "byte_identical": true
+    },
+    "06-event-tail-diagnostics/event_summary.json": {
+      "original": "d82113717476d7c56412d5ae242bdc5a1bcf15ab37a056bb3661af12eeca57d8",
+      "replay": "d82113717476d7c56412d5ae242bdc5a1bcf15ab37a056bb3661af12eeca57d8",
+      "byte_identical": true
+    },
+    "06-event-tail-diagnostics/event_pnl.csv": {
+      "original": "0adfbd70f63dc6734c4d8fa9543c51b3aa6ca5628ee2d0be1d873e5ae364dcad",
+      "replay": "0adfbd70f63dc6734c4d8fa9543c51b3aa6ca5628ee2d0be1d873e5ae364dcad",
+      "byte_identical": true
+    },
+    "06-event-tail-diagnostics/year_metrics.csv": {
+      "original": "d251c3f0e18d958284e9a8e08c4bcd4e8bda500e5e8617fd93142a0d625bf31c",
+      "replay": "d251c3f0e18d958284e9a8e08c4bcd4e8bda500e5e8617fd93142a0d625bf31c",
+      "byte_identical": true
+    },
+    "06-event-tail-diagnostics/benchmark_correlations.json": {
+      "original": "1c7d75eedbb477825dcae763d6670a464e23720ed14207065e4c35103bdd6759",
+      "replay": "1c7d75eedbb477825dcae763d6670a464e23720ed14207065e4c35103bdd6759",
+      "byte_identical": true
+    }
+  },
+  "own_targeted_day_checks": {
+    "buffer_1250_fee0.003": 73,
+    "buffer_1250_fee0.006": 73,
+    "original_2500_fee0.003": 73,
+    "original_2500_fee0.006": 73
+  },
+  "own_cash_max_residual": 9.094947017729282e-13,
+  "full_audit_reused_not_rerun": {
+    "pass": true,
+    "checks": 171790,
+    "source_sha256": "67d6720a10baa79a4b6ed32c0fa65b18fc879bcef7cd61502745261e990a9af8"
+  },
+  "capital": {
+    "buffer_1250_fee0.003": {
+      "observed_reference_breach_days": 0,
+      "upper_only_days": 0,
+      "max_upper": 1484.3545148574376
+    },
+    "buffer_1250_fee0.006": {
+      "observed_reference_breach_days": 0,
+      "upper_only_days": 0,
+      "max_upper": 1461.1176101818091
+    },
+    "original_2500_fee0.003": {
+      "observed_reference_breach_days": 484,
+      "upper_only_days": 8,
+      "max_upper": 2968.709029714875
+    },
+    "original_2500_fee0.006": {
+      "observed_reference_breach_days": 233,
+      "upper_only_days": 16,
+      "max_upper": 2922.2352203636183
+    }
+  },
+  "all_four_below_3pct_and_8pct_cagr": true,
+  "new_mechanisms": 0
+}

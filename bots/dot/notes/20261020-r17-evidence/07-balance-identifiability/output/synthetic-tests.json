@@ -1,0 +1,38 @@
+{
+  "classification": "synthetic_exact_rational_counterexamples_not_backtest",
+  "assumptions": [
+    "constant-product example only, not assertion about source contract",
+    "fee=0.003 on input",
+    "no protocol fee mint, integer rounding or gas in AMM state equation"
+  ],
+  "initial": {
+    "x": "100",
+    "y": "100",
+    "lp_supply": "100"
+  },
+  "path_A": {
+    "actions": "swap 10 token0 in for yout; swap all yout back",
+    "yout": "99700/10997",
+    "token0_fee": "3/100",
+    "token1_fee": "2991/109970",
+    "ending_x": "1100000000/10994009",
+    "ending_y": "100",
+    "ending_supply": "100"
+  },
+  "path_B": {
+    "actions": "donate token0, then sync if reserves rather than balances are observed",
+    "donation_token0": "599100/10994009",
+    "token0_fee": "0",
+    "token1_fee": "0",
+    "ending_x": "1100000000/10994009",
+    "ending_y": "100",
+    "ending_supply": "100"
+  },
+  "assertions": {
+    "same_observed_endpoints_different_swap_fees": true,
+    "donation_positive": true,
+    "proportional_liquidity_changes_k_without_changing_q": true,
+    "owner_LP_transfer_invisible_to_pool_snapshot": true
+  },
+  "cashflow_counterexample": "Same pool snapshots permit observer h=0 or h=10 after an unobserved LP-token transfer; holdings/redemption entitlements differ. Even with fixed h, different gas payments do not alter these pool fields."
+}

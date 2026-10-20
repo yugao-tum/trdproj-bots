@@ -1,0 +1,29 @@
+{
+  "columns": [
+    "date_utc",
+    "decision_date_utc",
+    "execution_date_utc",
+    "variant",
+    "is_test",
+    "base_BTC_weight",
+    "base_ETH_weight",
+    "base_SOL_weight",
+    "BTC_weight",
+    "ETH_weight",
+    "SOL_weight",
+    "gate_lagged",
+    "base_rebalance_day"
+  ],
+  "rows": 1254,
+  "warmup_rows": 250,
+  "test_rows": 1004,
+  "timezone": "UTC",
+  "booleans": [
+    "is_test",
+    "base_rebalance_day"
+  ],
+  "date_label_note": "decision_date labels prior daily candle; decision becomes available after its close, execution references next daily first trade, not a proven fill",
+  "phase_anchor": "2023-04-26",
+  "effective_base_phase": "i >= 1 and (i-1) modulo 5 = 0",
+  "extra_shift_allowed": false
+}

@@ -1,0 +1,29 @@
+{
+  "passed": 6,
+  "cases": [
+    {
+      "name": "observed_open_breach",
+      "status": "observed_breach"
+    },
+    {
+      "name": "asynchronous_highs_not_proof",
+      "status": "upper_bound_only"
+    },
+    {
+      "name": "upper_safe",
+      "status": "upper_bound_safe"
+    },
+    {
+      "name": "inclusive_limit",
+      "status": "upper_bound_safe"
+    },
+    {
+      "name": "idle_cash_counts",
+      "status": "observed_breach"
+    },
+    {
+      "name": "reserve_not_offset",
+      "status": "observed_breach"
+    }
+  ]
+}

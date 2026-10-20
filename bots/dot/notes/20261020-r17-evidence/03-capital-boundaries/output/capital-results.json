@@ -1,0 +1,191 @@
+{
+  "evidence_grade": "conditional_simulation",
+  "units": "USD-equivalent quote currency; initial total 5000; venue limit 2500",
+  "valuation_caveat": "open/close are sampled reference marks under simultaneous portfolio valuation assumption, not proof of executable synchronized fills; per-asset high sums are conservative nonsimultaneous bounds",
+  "scenarios": [
+    {
+      "scenario_id": "buffer_1250_fee0.003",
+      "initial_venue": 1250.0,
+      "reserve": 3750.0,
+      "cost_side": 0.003,
+      "days": 1004,
+      "overall_status": "upper_bound_safe",
+      "daily_counts": {
+        "upper_bound_safe": 1004,
+        "observed_breach": 0,
+        "upper_bound_only": 0
+      },
+      "first_dates": {
+        "upper_bound_safe": "2024-01-01"
+      },
+      "maxima": {
+        "pretrade_open": {
+          "amount": 1482.9744195318276,
+          "date_utc": "2024-04-01"
+        },
+        "posttrade_open": {
+          "amount": 1482.8216757944488,
+          "date_utc": "2024-04-01"
+        },
+        "close": {
+          "amount": 1482.9744341370165,
+          "date_utc": "2024-03-31"
+        },
+        "high_upper": {
+          "amount": 1484.3545148574376,
+          "date_utc": "2024-03-15"
+        },
+        "low_lower": {
+          "amount": 1471.770327915891,
+          "date_utc": "2024-03-31"
+        }
+      },
+      "minimum_venue_cash": 0.0,
+      "minimum_quantity": 0.0,
+      "maximum_identity_residual": 5.684341886080801e-13,
+      "fixed_reserve": true,
+      "no_reset_or_external_transfer": true,
+      "terminal_inventory_zero": true,
+      "in_transit_assumed_zero": true
+    },
+    {
+      "scenario_id": "buffer_1250_fee0.006",
+      "initial_venue": 1250.0,
+      "reserve": 3750.0,
+      "cost_side": 0.006,
+      "days": 1004,
+      "overall_status": "upper_bound_safe",
+      "daily_counts": {
+        "upper_bound_safe": 1004,
+        "observed_breach": 0,
+        "upper_bound_only": 0
+      },
+      "first_dates": {
+        "upper_bound_safe": "2024-01-01"
+      },
+      "maxima": {
+        "pretrade_open": {
+          "amount": 1459.5958898597491,
+          "date_utc": "2024-04-01"
+        },
+        "posttrade_open": {
+          "amount": 1459.295056467935,
+          "date_utc": "2024-04-01"
+        },
+        "close": {
+          "amount": 1459.5959042346929,
+          "date_utc": "2024-03-31"
+        },
+        "high_upper": {
+          "amount": 1461.1176101818091,
+          "date_utc": "2024-03-15"
+        },
+        "low_lower": {
+          "amount": 1448.5684265017526,
+          "date_utc": "2024-03-31"
+        }
+      },
+      "minimum_venue_cash": 0.0,
+      "minimum_quantity": 0.0,
+      "maximum_identity_residual": 5.684341886080801e-13,
+      "fixed_reserve": true,
+      "no_reset_or_external_transfer": true,
+      "terminal_inventory_zero": true,
+      "in_transit_assumed_zero": true
+    },
+    {
+      "scenario_id": "original_2500_fee0.003",
+      "initial_venue": 2500.0,
+      "reserve": 2500.0,
+      "cost_side": 0.003,
+      "days": 1004,
+      "overall_status": "observed_breach",
+      "daily_counts": {
+        "observed_breach": 484,
+        "upper_bound_only": 8,
+        "upper_bound_safe": 512
+      },
+      "first_dates": {
+        "observed_breach": "2024-01-01",
+        "upper_bound_only": "2024-01-07",
+        "upper_bound_safe": "2024-02-04"
+      },
+      "maxima": {
+        "pretrade_open": {
+          "amount": 2965.948839063655,
+          "date_utc": "2024-04-01"
+        },
+        "posttrade_open": {
+          "amount": 2965.6433515888975,
+          "date_utc": "2024-04-01"
+        },
+        "close": {
+          "amount": 2965.948868274033,
+          "date_utc": "2024-03-31"
+        },
+        "high_upper": {
+          "amount": 2968.709029714875,
+          "date_utc": "2024-03-15"
+        },
+        "low_lower": {
+          "amount": 2943.540655831782,
+          "date_utc": "2024-03-31"
+        }
+      },
+      "minimum_venue_cash": 0.0,
+      "minimum_quantity": 0.0,
+      "maximum_identity_residual": 9.094947017729282e-13,
+      "fixed_reserve": true,
+      "no_reset_or_external_transfer": true,
+      "terminal_inventory_zero": true,
+      "in_transit_assumed_zero": true
+    },
+    {
+      "scenario_id": "original_2500_fee0.006",
+      "initial_venue": 2500.0,
+      "reserve": 2500.0,
+      "cost_side": 0.006,
+      "days": 1004,
+      "overall_status": "observed_breach",
+      "daily_counts": {
+        "observed_breach": 233,
+        "upper_bound_safe": 755,
+        "upper_bound_only": 16
+      },
+      "first_dates": {
+        "observed_breach": "2024-01-01",
+        "upper_bound_safe": "2024-01-07",
+        "upper_bound_only": "2024-01-17"
+      },
+      "maxima": {
+        "pretrade_open": {
+          "amount": 2919.1917797194983,
+          "date_utc": "2024-04-01"
+        },
+        "posttrade_open": {
+          "amount": 2918.59011293587,
+          "date_utc": "2024-04-01"
+        },
+        "close": {
+          "amount": 2919.1918084693857,
+          "date_utc": "2024-03-31"
+        },
+        "high_upper": {
+          "amount": 2922.2352203636183,
+          "date_utc": "2024-03-15"
+        },
+        "low_lower": {
+          "amount": 2897.136853003505,
+          "date_utc": "2024-03-31"
+        }
+      },
+      "minimum_venue_cash": 0.0,
+      "minimum_quantity": 0.0,
+      "maximum_identity_residual": 6.821210263296962e-13,
+      "fixed_reserve": true,
+      "no_reset_or_external_transfer": true,
+      "terminal_inventory_zero": true,
+      "in_transit_assumed_zero": true
+    }
+  ]
+}

@@ -1,0 +1,114 @@
+{
+  "pass": true,
+  "checks": 171790,
+  "error_count": 0,
+  "first_errors": [],
+  "max_errors": {
+    "reserve": 0.0,
+    "initial_venue": 0.0,
+    "cost_side": 0.0,
+    "gate": 0.0,
+    "cash_continuity": 0.0,
+    "inventory_continuity": 0.0,
+    "reference_price": 0.0,
+    "notional_qty_price": 0.0,
+    "fee_rate": 0.0,
+    "event_qty_before": 0.0,
+    "event_qty_after": 4.440892098500626e-16,
+    "event_cash_before_repeated": 0.0,
+    "event_cash_after_repeated": 6.968869925572108e-13,
+    "open_qty": 4.440892098500626e-16,
+    "self_financing_cash": 6.968869925572108e-13,
+    "target_post_fee_weight": 6.821210263296962e-13,
+    "venue_pretrade_open": 0.0,
+    "venue_posttrade_open": 0.0,
+    "venue_close": 0.0,
+    "high_upper_bound": 0.0,
+    "total_before_terminal": 0.0,
+    "open_fees": 8.881784197001252e-16,
+    "overnight_pnl": 0.0,
+    "intraday_pnl": 0.0,
+    "trade_notional_including_terminal": 0.0,
+    "terminal_fees": 1.7763568394002505e-15,
+    "end_cash": 4.547473508864641e-13,
+    "end_qty": 0.0,
+    "total_equity_end": 9.094947017729282e-13,
+    "daily_pnl_identity": 1.341149413747189e-12,
+    "gate_off_zero_inventory": 0.0,
+    "terminal_zero": 0.0
+  },
+  "scenarios": {
+    "original_2500_fee0.003": {
+      "days": 1004,
+      "final_equity": 5339.493979949426,
+      "return_5000": 0.06789879598988513,
+      "cagr_1004_365": 0.024169875107969974,
+      "mdd_including_initial_5000": -0.14662038325035354,
+      "fees": 366.6124287514047
+    },
+    "original_2500_fee0.006": {
+      "days": 1004,
+      "final_equity": 4946.411497798933,
+      "return_5000": -0.010717700440213362,
+      "cagr_1004_365": -0.003909742627712265,
+      "mdd_including_initial_5000": -0.18524498275197998,
+      "fees": 681.5351641249788
+    },
+    "buffer_1250_fee0.003": {
+      "days": 1004,
+      "final_equity": 5169.746989974713,
+      "return_5000": 0.033949397994942565,
+      "cagr_1004_365": 0.01221123700213056,
+      "mdd_including_initial_5000": -0.0765739951513198,
+      "fees": 183.30621437570235
+    },
+    "buffer_1250_fee0.006": {
+      "days": 1004,
+      "final_equity": 4973.205748899467,
+      "return_5000": -0.005358850220106626,
+      "cagr_1004_365": -0.001951519631419485,
+      "mdd_including_initial_5000": -0.09634894064178434,
+      "fees": 340.7675820624894
+    }
+  },
+  "metric_errors": [],
+  "negative_tests": {
+    "fee": {
+      "detected": true,
+      "first_error": [
+        {
+          "check": "fee_rate",
+          "where": "original_2500_fee0.003/2024-01-01/open/BTC",
+          "actual": 1.5892866057675301,
+          "expected": 0.5892866057675301,
+          "error": 1.0
+        }
+      ]
+    },
+    "qty_delta": {
+      "detected": true,
+      "first_error": [
+        {
+          "check": "notional_qty_price",
+          "where": "original_2500_fee0.003/2024-01-01/open/BTC",
+          "actual": 196.4288685891767,
+          "expected": 42480.00886858918,
+          "error": 42283.58000000001
+        }
+      ]
+    },
+    "date_utc": {
+      "detected": true,
+      "first_error": [
+        {
+          "check": "event_cash_after_repeated",
+          "where": "original_2500_fee0.003/2024-01-01/open",
+          "actual": 1908.9455344151672,
+          "expected": 2105.9636896101115,
+          "error": 197.01815519494426
+        }
+      ]
+    }
+  },
+  "classification": "conditional_simulation"
+}

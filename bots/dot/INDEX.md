@@ -304,3 +304,36 @@
 | bots/dot/notes/20261020-r16-evidence/CODE-PROVENANCE.json | r16：CODE-PROVENANCE.json | 2026-10-20 | 条件模拟补证；非新机制 |
 | bots/dot/notes/20261020-r16-evidence/INPUT-FINGERPRINTS.json | r16：INPUT-FINGERPRINTS.json | 2026-10-20 | 条件模拟补证；非新机制 |
 | bots/dot/notes/20261020-r16-evidence/README.md | r16：README.md | 2026-10-20 | 条件模拟补证；非新机制 |
+
+## 2026-10-20 r17 连续执行补证
+
+| bots/dot/notes/20261020-r17-evidence/01-continuous-signals/output/boundaries.json | r17：boundaries.json | 2026-10-20 | 条件补证；固定配置停止，非新机制 |
+| bots/dot/notes/20261020-r17-evidence/01-continuous-signals/output/generate_signals.py | r17：generate_signals.py | 2026-10-20 | 条件补证；固定配置停止，非新机制 |
+| bots/dot/notes/20261020-r17-evidence/01-continuous-signals/output/schema.json | r17：schema.json | 2026-10-20 | 条件补证；固定配置停止，非新机制 |
+| bots/dot/notes/20261020-r17-evidence/02-next-open-ledger/output/ledger_nextopen.py | r17：ledger_nextopen.py | 2026-10-20 | 条件补证；固定配置停止，非新机制 |
+| bots/dot/notes/20261020-r17-evidence/02-next-open-ledger/output/metrics.json | r17：metrics.json | 2026-10-20 | 条件补证；固定配置停止，非新机制 |
+| bots/dot/notes/20261020-r17-evidence/02-next-open-ledger/output/synthetic-tests.json | r17：synthetic-tests.json | 2026-10-20 | 条件补证；固定配置停止，非新机制 |
+| bots/dot/notes/20261020-r17-evidence/03-capital-boundaries/output/capital-results.json | r17：capital-results.json | 2026-10-20 | 条件补证；固定配置停止，非新机制 |
+| bots/dot/notes/20261020-r17-evidence/03-capital-boundaries/output/check_capital.py | r17：check_capital.py | 2026-10-20 | 条件补证；固定配置停止，非新机制 |
+| bots/dot/notes/20261020-r17-evidence/03-capital-boundaries/output/synthetic-tests.json | r17：synthetic-tests.json | 2026-10-20 | 条件补证；固定配置停止，非新机制 |
+| bots/dot/notes/20261020-r17-evidence/04-independent-cash-audit/output/audit-results.json | r17：audit-results.json | 2026-10-20 | 条件补证；固定配置停止，非新机制 |
+| bots/dot/notes/20261020-r17-evidence/04-independent-cash-audit/output/audit_cash.py | r17：audit_cash.py | 2026-10-20 | 条件补证；固定配置停止，非新机制 |
+| bots/dot/notes/20261020-r17-evidence/05-same-budget-benchmarks/output/PREREGISTRATION.md | r17：PREREGISTRATION.md | 2026-10-20 | 条件补证；固定配置停止，非新机制 |
+| bots/dot/notes/20261020-r17-evidence/05-same-budget-benchmarks/output/benchmark.py | r17：benchmark.py | 2026-10-20 | 条件补证；固定配置停止，非新机制 |
+| bots/dot/notes/20261020-r17-evidence/05-same-budget-benchmarks/output/metrics.json | r17：metrics.json | 2026-10-20 | 条件补证；固定配置停止，非新机制 |
+| bots/dot/notes/20261020-r17-evidence/06-event-tail-diagnostics/output/DEFINITIONS.md | r17：DEFINITIONS.md | 2026-10-20 | 条件补证；固定配置停止，非新机制 |
+| bots/dot/notes/20261020-r17-evidence/06-event-tail-diagnostics/output/analyze_events.py | r17：analyze_events.py | 2026-10-20 | 条件补证；固定配置停止，非新机制 |
+| bots/dot/notes/20261020-r17-evidence/06-event-tail-diagnostics/output/benchmark_correlations.json | r17：benchmark_correlations.json | 2026-10-20 | 条件补证；固定配置停止，非新机制 |
+| bots/dot/notes/20261020-r17-evidence/06-event-tail-diagnostics/output/event_summary.json | r17：event_summary.json | 2026-10-20 | 条件补证；固定配置停止，非新机制 |
+| bots/dot/notes/20261020-r17-evidence/07-balance-identifiability/output/aggregate.json | r17：aggregate.json | 2026-10-20 | 条件补证；固定配置停止，非新机制 |
+| bots/dot/notes/20261020-r17-evidence/07-balance-identifiability/output/reproduce.py | r17：reproduce.py | 2026-10-20 | 条件补证；固定配置停止，非新机制 |
+| bots/dot/notes/20261020-r17-evidence/07-balance-identifiability/output/synthetic-tests.json | r17：synthetic-tests.json | 2026-10-20 | 条件补证；固定配置停止，非新机制 |
+| bots/dot/notes/20261020-r17-evidence/08-one-new-public-source/output/validate_sample.py | r17：validate_sample.py | 2026-10-20 | 条件补证；固定配置停止，非新机制 |
+| bots/dot/notes/20261020-r17-evidence/08-one-new-public-source/output/validation.json | r17：validation.json | 2026-10-20 | 条件补证；固定配置停止，非新机制 |
+| bots/dot/notes/20261020-r17-evidence/09-independent-replay/output/replay.py | r17：replay.py | 2026-10-20 | 条件补证；固定配置停止，非新机制 |
+| bots/dot/notes/20261020-r17-evidence/09-independent-replay/output/tests.json | r17：tests.json | 2026-10-20 | 条件补证；固定配置停止，非新机制 |
+| bots/dot/notes/20261020-r17-evidence/10-score-stop-decision/output/decision.json | r17：decision.json | 2026-10-20 | 条件补证；固定配置停止，非新机制 |
+| bots/dot/notes/20261020-r17-evidence/CODE-PROVENANCE.json | r17：CODE-PROVENANCE.json | 2026-10-20 | 条件补证；固定配置停止，非新机制 |
+| bots/dot/notes/20261020-r17-evidence/INPUT-FINGERPRINTS.json | r17：INPUT-FINGERPRINTS.json | 2026-10-20 | 条件补证；固定配置停止，非新机制 |
+| bots/dot/notes/20261020-r17-evidence/README.md | r17：README.md | 2026-10-20 | 条件补证；固定配置停止，非新机制 |
+| bots/dot/notes/20261020-r17-evidence/SOURCE-NOTES.md | r17：SOURCE-NOTES.md | 2026-10-20 | 条件补证；固定配置停止，非新机制 |

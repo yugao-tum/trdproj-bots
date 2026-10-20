@@ -1,0 +1,43 @@
+{
+  "passed": true,
+  "parameter_cases": [
+    {
+      "initial_venue": 1250.0,
+      "fee": 0.003,
+      "hand_computed_final_equity": 5824.950522311432,
+      "actual": 5824.95052231143,
+      "passed": true
+    },
+    {
+      "initial_venue": 1250.0,
+      "fee": 0.006,
+      "hand_computed_final_equity": 5800.1994000213435,
+      "actual": 5800.1994000213435,
+      "passed": true
+    },
+    {
+      "initial_venue": 2500.0,
+      "fee": 0.003,
+      "hand_computed_final_equity": 6649.901044622864,
+      "actual": 6649.901044622861,
+      "passed": true
+    },
+    {
+      "initial_venue": 2500.0,
+      "fee": 0.006,
+      "hand_computed_final_equity": 6600.398800042687,
+      "actual": 6600.398800042687,
+      "passed": true
+    }
+  ],
+  "coverage": [
+    "fee funded entry",
+    "unchanged shares/zero hold turnover",
+    "overnight gap versus intraday PnL",
+    "off-cycle gate exit and reentry",
+    "charged terminal liquidation/zero inventory",
+    "two capital allocations/two fees",
+    "mixed signed buy/sell partial cash"
+  ],
+  "tests_completed_before_actual_run": true
+}

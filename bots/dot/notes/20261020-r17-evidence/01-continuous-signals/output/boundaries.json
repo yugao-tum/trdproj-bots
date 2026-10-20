@@ -1,0 +1,47 @@
+[
+  {
+    "date_utc": "2023-04-26T00:00:00Z",
+    "decision_date_utc": "2023-04-25T00:00:00Z",
+    "execution_date_utc": "2023-04-26T00:00:00Z",
+    "variant": "VM_BTC_SMA50",
+    "is_test": false,
+    "base_BTC_weight": 0.0,
+    "base_ETH_weight": 0.0,
+    "base_SOL_weight": 0.0,
+    "BTC_weight": 0.0,
+    "ETH_weight": 0.0,
+    "SOL_weight": 0.0,
+    "gate_lagged": 1.0,
+    "base_rebalance_day": false
+  },
+  {
+    "date_utc": "2024-01-01T00:00:00Z",
+    "decision_date_utc": "2023-12-31T00:00:00Z",
+    "execution_date_utc": "2024-01-01T00:00:00Z",
+    "variant": "VM_BTC_SMA50",
+    "is_test": true,
+    "base_BTC_weight": 0.07862714814597321,
+    "base_ETH_weight": 0.07862714814597321,
+    "base_SOL_weight": 0.07862714814597321,
+    "BTC_weight": 0.07862714814597321,
+    "ETH_weight": 0.07862714814597321,
+    "SOL_weight": 0.07862714814597321,
+    "gate_lagged": 1.0,
+    "base_rebalance_day": false
+  },
+  {
+    "date_utc": "2026-09-30T00:00:00Z",
+    "decision_date_utc": "2026-09-29T00:00:00Z",
+    "execution_date_utc": "2026-09-30T00:00:00Z",
+    "variant": "VM_BTC_SMA50",
+    "is_test": true,
+    "base_BTC_weight": 0.23551341790228358,
+    "base_ETH_weight": 0.23551341790228358,
+    "base_SOL_weight": 0.23551341790228358,
+    "BTC_weight": 0.23551341790228358,
+    "ETH_weight": 0.23551341790228358,
+    "SOL_weight": 0.23551341790228358,
+    "gate_lagged": 1.0,
+    "base_rebalance_day": false
+  }
+]

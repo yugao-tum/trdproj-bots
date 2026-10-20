@@ -1,0 +1,27 @@
+{
+  "checks": {
+    "uid_join": true,
+    "settlement_tx_join": true,
+    "auction_order_membership": true,
+    "fulfilled": true,
+    "buy_amount_equal": true,
+    "sell_amount_equal": true,
+    "nonzero_dynamic_fee": true,
+    "zero_deprecated_fee": true,
+    "three_protocol_fee_components": true
+  },
+  "auction_id": 14064708,
+  "block_number": 26233215,
+  "log_index": 282,
+  "sample_orders": 1,
+  "sample_trades": 1,
+  "raw_executed_fee": "2027961225778275591",
+  "fee_token": "0xfaba6f8e4a5e8ab82f62fe7c39859fa577269be3",
+  "creation_time_not_fill_time": "2026-10-20T10:31:26.815064Z",
+  "missing_exact_fill_timestamp": true,
+  "gas_cost_is_estimated_attribution_not_receipt": true,
+  "new_mechanisms": 0,
+  "new_backtests": 0,
+  "complete_cash_chains": 0,
+  "qualification_count": 0
+}

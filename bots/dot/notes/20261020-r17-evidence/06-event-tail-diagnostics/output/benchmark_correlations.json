@@ -1,0 +1,86 @@
+[
+  {
+    "scenario_id": "buffer_1250_fee0.003",
+    "benchmark_id": "BTC_1250_30bps",
+    "days": 1004,
+    "daily_return_pearson": 0.4948546776438009,
+    "qualification": "diagnostic_only; independence_not_established"
+  },
+  {
+    "scenario_id": "buffer_1250_fee0.003",
+    "benchmark_id": "EW_1250_30bps",
+    "days": 1004,
+    "daily_return_pearson": 0.5417462503253808,
+    "qualification": "diagnostic_only; independence_not_established"
+  },
+  {
+    "scenario_id": "buffer_1250_fee0.003",
+    "benchmark_id": "cash_1250_30bps",
+    "days": 1004,
+    "daily_return_pearson": null,
+    "qualification": "diagnostic_only; independence_not_established"
+  },
+  {
+    "scenario_id": "buffer_1250_fee0.006",
+    "benchmark_id": "BTC_1250_60bps",
+    "days": 1004,
+    "daily_return_pearson": 0.49649704815372137,
+    "qualification": "diagnostic_only; independence_not_established"
+  },
+  {
+    "scenario_id": "buffer_1250_fee0.006",
+    "benchmark_id": "EW_1250_60bps",
+    "days": 1004,
+    "daily_return_pearson": 0.5444931359106994,
+    "qualification": "diagnostic_only; independence_not_established"
+  },
+  {
+    "scenario_id": "buffer_1250_fee0.006",
+    "benchmark_id": "cash_1250_60bps",
+    "days": 1004,
+    "daily_return_pearson": null,
+    "qualification": "diagnostic_only; independence_not_established"
+  },
+  {
+    "scenario_id": "original_2500_fee0.003",
+    "benchmark_id": "BTC_2500_30bps",
+    "days": 1004,
+    "daily_return_pearson": 0.4896251170776911,
+    "qualification": "diagnostic_only; independence_not_established"
+  },
+  {
+    "scenario_id": "original_2500_fee0.003",
+    "benchmark_id": "EW_2500_30bps",
+    "days": 1004,
+    "daily_return_pearson": 0.5362508045785461,
+    "qualification": "diagnostic_only; independence_not_established"
+  },
+  {
+    "scenario_id": "original_2500_fee0.003",
+    "benchmark_id": "cash_2500_30bps",
+    "days": 1004,
+    "daily_return_pearson": null,
+    "qualification": "diagnostic_only; independence_not_established"
+  },
+  {
+    "scenario_id": "original_2500_fee0.006",
+    "benchmark_id": "BTC_2500_60bps",
+    "days": 1004,
+    "daily_return_pearson": 0.49082056646036204,
+    "qualification": "diagnostic_only; independence_not_established"
+  },
+  {
+    "scenario_id": "original_2500_fee0.006",
+    "benchmark_id": "EW_2500_60bps",
+    "days": 1004,
+    "daily_return_pearson": 0.5377987079086533,
+    "qualification": "diagnostic_only; independence_not_established"
+  },
+  {
+    "scenario_id": "original_2500_fee0.006",
+    "benchmark_id": "cash_2500_60bps",
+    "days": 1004,
+    "daily_return_pearson": null,
+    "qualification": "diagnostic_only; independence_not_established"
+  }
+]
