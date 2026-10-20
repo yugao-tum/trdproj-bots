@@ -1,0 +1,52 @@
+[
+  {
+    "role": "02-formula",
+    "command": "python -m unittest -v test_formula.py",
+    "passed": true
+  },
+  {
+    "role": "03-interfaces",
+    "command": "python -m unittest -v test_interface.py",
+    "passed": true
+  },
+  {
+    "role": "04-protocol",
+    "command": "python -m unittest -v test_virtual_ledger.py",
+    "passed": true
+  },
+  {
+    "role": "05-quotes",
+    "command": "python -m unittest -v test_quote_audit.py",
+    "passed": true
+  },
+  {
+    "role": "06-scheduler",
+    "command": "python -m unittest -v test_scheduler.py",
+    "passed": true
+  },
+  {
+    "role": "07-margin-bounds",
+    "command": "python -m unittest -v test_analyze.py",
+    "passed": true
+  },
+  {
+    "role": "08-criteria",
+    "command": "python -m unittest -v test_criteria.py",
+    "passed": true
+  },
+  {
+    "role": "10-integration",
+    "command": "python -m unittest -v test_initialize_checkpoint.py",
+    "passed": true
+  },
+  {
+    "role": "04-config-code-identity",
+    "passed": true
+  },
+  {
+    "role": "09-replay",
+    "passed": true,
+    "independent_tests": 37,
+    "method": "Verified independent report and exact audited source hashes; did not overwrite role09 report"
+  }
+]

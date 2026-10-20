@@ -1,0 +1,23 @@
+{
+  "schema": "r21.forward-artifact-manifest.v1",
+  "sha256": {
+    "04-protocol/output/PROTOCOL.md": "69d565b61dcf550be00173391ce08e26935f00f5152436156ba53a3a607b36ef",
+    "04-protocol/output/protocol-config.json": "b83588d4b71868ed0347e88ea9679cfc2c376b9410bd898aa3cbcaeb923f9518",
+    "04-protocol/output/test_virtual_ledger.py": "a45ba64c5db3b4048520bbac603f59b7c39135dd39aaf1100572acd3e0e65a7d",
+    "04-protocol/output/virtual_ledger.py": "04aaca3dad28393b9ad2c4419afdda9d65360b5d5ff790e9257ab372e9ecd111",
+    "05-quotes/output/RESULT.md": "71facfde0ddcf0cb5405cf92d2b14e8fc3a8e64149fb83c3b00a40ad9b58b76e",
+    "05-quotes/output/quote_audit.py": "61455c22822346fa82308a1d7cbf6b2f981e1d7a464730097fa2f4dc99d595fa",
+    "05-quotes/output/test_quote_audit.py": "54866dc76aa58fa5db2cc80ec905ee0d51e81e4466b0da2d59a916f43eb19368",
+    "06-scheduler/output/EMPTY-CHECKPOINT-TEMPLATE.json": "1080c2f67ec2628b4c56cb64287458e228f1b86f95b6baf2908bd0f44d4540d6",
+    "06-scheduler/output/README.md": "e1d4b3af1ef8f8fb5e3429d8b878b5ecdee070c625d41af4f7218553e30a4aab",
+    "06-scheduler/output/checkpoint.schema.json": "6103882c83af02ac8f163319eedae3a12dd98fde4d1f617c86479d43b96b0a5a",
+    "06-scheduler/output/scheduler.py": "a12a0536e8d2a399071d2781c42b1d7022cc859886f4121d34bab8e3071e28f6",
+    "06-scheduler/output/test_scheduler.py": "371a50d821cf503ebca2eb78a88cc7eec8b00c9de8c52c2395375ec96aedefd6",
+    "08-criteria/output/CRITERIA.md": "1db2620ceead7e414415d381f39351a7a40def7bf1cf2e403138aa1c27464da7",
+    "08-criteria/output/criteria.json": "7fc8fda037a2b4d9b431520ed96ac26e3881556d272654d6e55864d659ed673e",
+    "08-criteria/output/criteria.py": "4e2d868188883bce232862f2701cf78b0068e464a8ea9bb4d21fe253244548c3",
+    "08-criteria/output/test_criteria.py": "85b22b844677a8672804580a880a8d83e353dede4220d2a25c75c14e06bf89fb",
+    "10-integration/output/initialize_checkpoint.py": "0e6fc29ed4dfab3e51bdd462fb7f681f96be941179fb29ff6e0d8d0bcae99fea",
+    "10-integration/output/test_initialize_checkpoint.py": "a6c903eb11b4d1d9aa278efdbb57c39024b180984593ab7d1c926e7e46175282"
+  }
+}

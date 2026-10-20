@@ -1,0 +1,55 @@
+{
+  "schema": "r21.source-metadata-correction.v1",
+  "originals_preserved": true,
+  "original_interface_sha256": "947744506f391990361534f581c4ced60313d3c8a4eb0d7915b498ad817470a6",
+  "new_raw_response_sha256": "6e4921e00dd21e691748c7847f78263910ad0531b86c2b20c1308e49b24654dc",
+  "checkpoint_sha256": "63adbeb6ae18099b587be98df182522242cc13530f16cefce731a54a685e6956",
+  "corrections": {
+    "pair_enclosing_wall_interval_ms": {
+      "original": 2468,
+      "correct": 1319,
+      "basis": "maximum book response UTC minus minimum book request UTC"
+    },
+    "book_provenance": {
+      "spot": {
+        "file": "initial-raw.json",
+        "response_index": 0,
+        "structured_response_canonical_sha256": "70306e46ee561c3b2e5e111d70d3e6f413673e778665dfc6f13e930076ba15e1"
+      },
+      "perp": {
+        "file": "initial-raw.json",
+        "response_index": 1,
+        "structured_response_canonical_sha256": "15a25601a23c4bb008454dd4998dc768ec81236cf71752f81a3df9c7726a6651"
+      }
+    },
+    "raw_input_hashes_interpretation": "Prior source hashes are inherited feasibility/filter provenance, not the current replaced depth books. Use above raw response reference for current books; filter snapshots were reused.",
+    "classification": "Fresh post-root-lock public quote reference initialized as purely virtual accounting; not an order or fill.",
+    "replace_stale_limitation": {
+      "original": "Snapshots preceded protocol lock and are barred from virtual entry initialization.",
+      "correct": "Prior feasibility books preceded lock and remain forbidden for entry. This interface contains separately acquired post-lock books, independently matched to initial-raw.json."
+    }
+  },
+  "executed_logic_review": {
+    "file": "workers/r21-proposal/04-protocol/output/virtual_ledger.py",
+    "function": "normalize_public_interface",
+    "reads": "schema, symbol, trading statuses, books request/response UTC/event time/depth/update ID and lot/notional filters",
+    "does_not_use": [
+      "pair_enclosing_wall_interval_ms",
+      "limitations",
+      "raw_input_hashes",
+      "classification",
+      "virtual_entry_initialized",
+      "position_initialized"
+    ],
+    "helper": "Frozen initializer recomputes freshness with live clock and role05, not the inherited pair interval field.",
+    "source_snapshot_id_note": "Adapter hashes full input for metadata but ledger entry identity separately hashes normalized actual books. Stale descriptive extras do not change quantity, cash, or temporal acceptance."
+  },
+  "effect_on_quantity_cash_or_time_acceptance": "None found: independent replay matches q 0.522, both VWAPs, all account balances; actual envelope 1319ms and completion-time response ages 3826/3892ms are under 5000ms.",
+  "limitations": [
+    "No current freshness claim.",
+    "No spot exchange event time or atomicity proof.",
+    "Five-minute weighted-average/dynamic acceptance unverified.",
+    "No actual account, order or funding payment proof."
+  ],
+  "independent_audit_sha256": "0ef29b38a1a3c833cc6fa87493951ef491a51f71853340c25054a742d9f82423"
+}

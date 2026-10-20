@@ -1,0 +1,348 @@
+{
+  "fixture": "entirely synthetic; no public quote was initialized",
+  "tests": [
+    {
+      "name": "common grid and exhaustive independent quantity oracle",
+      "passed": true
+    },
+    {
+      "name": "spot ask VWAP rational oracle",
+      "passed": true
+    },
+    {
+      "name": "perp bid VWAP rational oracle",
+      "passed": true
+    },
+    {
+      "name": "both cost scenarios conserve venue cash at identical q",
+      "passed": true
+    },
+    {
+      "name": "prelock quote rejection",
+      "passed": true
+    },
+    {
+      "name": "future response rejection",
+      "passed": true
+    },
+    {
+      "name": "future exchange timestamp rejection",
+      "passed": true
+    },
+    {
+      "name": "stale exchange timestamp rejection",
+      "passed": true
+    },
+    {
+      "name": "wrong symbol rejection",
+      "passed": true
+    },
+    {
+      "name": "wrong side rejection",
+      "passed": true
+    },
+    {
+      "name": "crossed quote rejection",
+      "passed": true
+    },
+    {
+      "name": "nonfinite price rejection",
+      "passed": true
+    },
+    {
+      "name": "negative price rejection",
+      "passed": true
+    },
+    {
+      "name": "epoch seconds rejected instead of treated as milliseconds",
+      "passed": true
+    },
+    {
+      "name": "entry root authorization required",
+      "passed": true
+    },
+    {
+      "name": "signed funding exact oracle duplicate conflict boundary atomicity",
+      "passed": true
+    },
+    {
+      "name": "independent close cash identity with funding and four cost legs",
+      "passed": true
+    },
+    {
+      "name": "serialized crash resume roundtrip validates",
+      "passed": true
+    },
+    {
+      "name": "restore rejects cash corruption",
+      "passed": true
+    },
+    {
+      "name": "restore rejects event corruption",
+      "passed": true
+    },
+    {
+      "name": "restore rejects time corruption",
+      "passed": true
+    },
+    {
+      "name": "403 halts source even many hours later",
+      "passed": true
+    },
+    {
+      "name": "uncertain request blocks after serialized crash",
+      "passed": true
+    },
+    {
+      "name": "429 missing reset halts source",
+      "passed": true
+    },
+    {
+      "name": "429 explicit reset exact boundary respected",
+      "passed": true
+    },
+    {
+      "name": "429 shorter reset still obeys hourly budget",
+      "passed": true
+    },
+    {
+      "name": "stale checkpoint revision rejects",
+      "passed": true
+    },
+    {
+      "name": "no unlocked scheduled observation",
+      "passed": true
+    },
+    {
+      "name": "first quote with missing event time carries warning",
+      "passed": true
+    },
+    {
+      "name": "existing feasibility snapshot rejected after lock; dynamic acceptance unverified",
+      "passed": true
+    },
+    {
+      "name": "timestamp type rejection True",
+      "passed": true
+    },
+    {
+      "name": "timestamp type rejection 1792497600000.0",
+      "passed": true
+    },
+    {
+      "name": "timestamp type rejection '1792497600000'",
+      "passed": true
+    },
+    {
+      "name": "funding epoch seconds rejected",
+      "passed": true
+    },
+    {
+      "name": "separate artifact manifest binding survives ledger attachment",
+      "passed": true
+    },
+    {
+      "name": "manifest bytes and every code artifact bound before due work",
+      "passed": true
+    },
+    {
+      "name": "feasibility failure permanent through repeated observations and resume",
+      "passed": true
+    }
+  ],
+  "passed": 37,
+  "failed": 0,
+  "source_sha256": {
+    "04-protocol/output/virtual_ledger.py": "04aaca3dad28393b9ad2c4419afdda9d65360b5d5ff790e9257ab372e9ecd111",
+    "05-quotes/output/quote_audit.py": "61455c22822346fa82308a1d7cbf6b2f981e1d7a464730097fa2f4dc99d595fa",
+    "06-scheduler/output/scheduler.py": "a12a0536e8d2a399071d2781c42b1d7022cc859886f4121d34bab8e3071e28f6",
+    "10-integration/output/initialize_checkpoint.py": "0e6fc29ed4dfab3e51bdd462fb7f681f96be941179fb29ff6e0d8d0bcae99fea"
+  },
+  "static_surface": {
+    "virtual_ledger": {
+      "imports": [
+        "decimal",
+        "math",
+        "hashlib",
+        "copy",
+        "json",
+        "datetime"
+      ],
+      "calls": [
+        "(dec(q) / dec(step)).to_integral_value",
+        "D",
+        "ValueError",
+        "a.as_tuple",
+        "any",
+        "b.as_tuple",
+        "b.get",
+        "book.get",
+        "canonical_hash",
+        "choose_quantity",
+        "common_step",
+        "datetime.fromisoformat",
+        "datetime.fromisoformat(s.replace('Z', '+00:00')).timestamp",
+        "dec",
+        "deepcopy",
+        "epoch_ms",
+        "f.get",
+        "floor_grid",
+        "format",
+        "gcd",
+        "getcontext",
+        "int",
+        "interface.get",
+        "interface['books'].items",
+        "json.dumps",
+        "json.dumps(x, sort_keys=True, separators=(',', ':'), ensure_ascii=False).encode",
+        "len",
+        "levels",
+        "lock.get",
+        "max",
+        "min",
+        "ms",
+        "notional",
+        "out['accounts'].values",
+        "p.get",
+        "s.replace",
+        "set",
+        "sha256",
+        "sha256(json.dumps(x, sort_keys=True, separators=(',', ':'), ensure_ascii=False).encode()).hexdigest",
+        "sorted",
+        "state['accounts'].items",
+        "str",
+        "txt",
+        "type",
+        "v.is_finite",
+        "validate_filters",
+        "validate_pair",
+        "warnings.append"
+      ],
+      "network_process_imports": []
+    },
+    "quote_audit": {
+      "imports": [
+        "decimal",
+        "math"
+      ],
+      "calls": [
+        "(q / s).to_integral_value",
+        "D",
+        "QuoteError",
+        "all",
+        "any",
+        "book.get",
+        "bounds.append",
+        "dec",
+        "event_known.append",
+        "filters.get",
+        "floor_quantity",
+        "gcd",
+        "int",
+        "isinstance",
+        "len",
+        "map",
+        "max",
+        "milliseconds",
+        "min",
+        "parsed.append",
+        "set",
+        "sorted",
+        "str",
+        "sum",
+        "validate_book",
+        "vwap",
+        "x.as_tuple",
+        "x.is_finite"
+      ],
+      "network_process_imports": []
+    },
+    "scheduler": {
+      "imports": [
+        "copy",
+        "decimal",
+        "datetime",
+        "email.utils",
+        "re",
+        "json",
+        "hashlib"
+      ],
+      "calls": [
+        "Decimal",
+        "REQUIRED_ARTIFACTS.issubset",
+        "ValueError",
+        "_copy",
+        "_ready",
+        "attach_ledger",
+        "date.replace",
+        "date.timestamp",
+        "dec",
+        "deepcopy",
+        "due_work",
+        "hash_bytes",
+        "hash_bytes(artifact_bytes[path]).hexdigest",
+        "hash_bytes(manifest_bytes).hexdigest",
+        "hashes.items",
+        "int",
+        "json.loads",
+        "k.rsplit",
+        "key.rsplit",
+        "kv[0].rsplit",
+        "ledger['accounts'].values",
+        "ledger['funding_events'].get",
+        "ledger['funding_events'].items",
+        "len",
+        "localcontext",
+        "lock.get",
+        "manifest.get",
+        "max",
+        "n['source_errors'].append",
+        "old['funding_events'].items",
+        "parse_retry_after",
+        "parsedate_to_datetime",
+        "path.split",
+        "path.startswith",
+        "re.fullmatch",
+        "result['actions'].append",
+        "result['required_information'].append",
+        "s.get",
+        "set",
+        "sorted",
+        "str",
+        "str(value).strip",
+        "validate_ledger_money",
+        "validate_restored",
+        "x.is_finite"
+      ],
+      "network_process_imports": []
+    }
+  },
+  "limits": [
+    "Static review plus offline tests, not a formal security proof.",
+    "No exchange order acceptance or true fill verified.",
+    "No account, wallet, credential, order, network or background process is created by this test.",
+    "Price semantic units cannot be inferred from naked positive decimal strings; source schema must bind ETH quantity and USDT price."
+  ],
+  "initializer_review": {
+    "owner_synthetic_tests_rerun": 6,
+    "passed": 6,
+    "independent_static_review": true,
+    "fixes_verified": [
+      "Malformed Decimal exception persisted as invalid.",
+      "Invalid write followed by equality readback and ledger validation."
+    ],
+    "checks": [
+      "Live time.time_ns, no caller timestamp argument.",
+      "flock serializes cooperating writers; byte comparison rejects intervening checkpoint writes.",
+      "File fsync then atomic replace then directory fsync; readback in both branches.",
+      "Root-bound manifest bytes and individual artifact digests, initializer included.",
+      "Independent role05 quantity and VWAP comparison.",
+      "No HTTP, account, wallet, credentials or order calls."
+    ],
+    "limitations": [
+      "Advisory flock requires all checkpoint writers to cooperate.",
+      "Freeze forbids concurrent mutation of artifacts between verification and module load.",
+      "No simulated power-loss/OS fault injection; atomicity assessed from implementation and ordinary tests."
+    ]
+  }
+}

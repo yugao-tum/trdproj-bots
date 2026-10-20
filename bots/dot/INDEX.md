@@ -406,3 +406,40 @@
 | bots/dot/research/r20/09-reproduction/output/test_reference.py | r20：test_reference.py | 2026-10-20 | 真实数据/条件账补证；未达标 |
 | bots/dot/research/r20/PLAN.md | r20：PLAN.md | 2026-10-20 | 真实数据/条件账补证；未达标 |
 | bots/dot/research/r20/PUBLICATION-MANIFEST.json | r20：PUBLICATION-MANIFEST.json | 2026-10-20 | 真实数据/条件账补证；未达标 |
+
+## 2026-10-20 r21 历史维护规则和只读协议
+
+| bots/dot/notes/r21-c19-margin-forward-evidence.md | r21：r21-c19-margin-forward-evidence.md | 2026-10-20 | 条件证据/纯虚拟参考；非达标 |
+| bots/dot/research/r21/01-margin-history/output/tables.json | r21：tables.json | 2026-10-20 | 条件证据/纯虚拟参考；非达标 |
+| bots/dot/research/r21/02-formula/output/formula.py | r21：formula.py | 2026-10-20 | 条件证据/纯虚拟参考；非达标 |
+| bots/dot/research/r21/02-formula/output/test_formula.py | r21：test_formula.py | 2026-10-20 | 条件证据/纯虚拟参考；非达标 |
+| bots/dot/research/r21/04-protocol/output/PROTOCOL.md | r21：PROTOCOL.md | 2026-10-20 | 条件证据/纯虚拟参考；非达标 |
+| bots/dot/research/r21/04-protocol/output/protocol-config.json | r21：protocol-config.json | 2026-10-20 | 条件证据/纯虚拟参考；非达标 |
+| bots/dot/research/r21/04-protocol/output/test_virtual_ledger.py | r21：test_virtual_ledger.py | 2026-10-20 | 条件证据/纯虚拟参考；非达标 |
+| bots/dot/research/r21/04-protocol/output/virtual_ledger.py | r21：virtual_ledger.py | 2026-10-20 | 条件证据/纯虚拟参考；非达标 |
+| bots/dot/research/r21/05-quotes/output/RESULT.md | r21：RESULT.md | 2026-10-20 | 条件证据/纯虚拟参考；非达标 |
+| bots/dot/research/r21/05-quotes/output/quote_audit.py | r21：quote_audit.py | 2026-10-20 | 条件证据/纯虚拟参考；非达标 |
+| bots/dot/research/r21/05-quotes/output/test_quote_audit.py | r21：test_quote_audit.py | 2026-10-20 | 条件证据/纯虚拟参考；非达标 |
+| bots/dot/research/r21/06-scheduler/output/EMPTY-CHECKPOINT-TEMPLATE.json | r21：EMPTY-CHECKPOINT-TEMPLATE.json | 2026-10-20 | 条件证据/纯虚拟参考；非达标 |
+| bots/dot/research/r21/06-scheduler/output/README.md | r21：README.md | 2026-10-20 | 条件证据/纯虚拟参考；非达标 |
+| bots/dot/research/r21/06-scheduler/output/checkpoint.schema.json | r21：checkpoint.schema.json | 2026-10-20 | 条件证据/纯虚拟参考；非达标 |
+| bots/dot/research/r21/06-scheduler/output/scheduler.py | r21：scheduler.py | 2026-10-20 | 条件证据/纯虚拟参考；非达标 |
+| bots/dot/research/r21/06-scheduler/output/test_scheduler.py | r21：test_scheduler.py | 2026-10-20 | 条件证据/纯虚拟参考；非达标 |
+| bots/dot/research/r21/07-margin-bounds/output/RESULT.json | r21：RESULT.json | 2026-10-20 | 条件证据/纯虚拟参考；非达标 |
+| bots/dot/research/r21/07-margin-bounds/output/analyze.py | r21：analyze.py | 2026-10-20 | 条件证据/纯虚拟参考；非达标 |
+| bots/dot/research/r21/07-margin-bounds/output/test_analyze.py | r21：test_analyze.py | 2026-10-20 | 条件证据/纯虚拟参考；非达标 |
+| bots/dot/research/r21/08-criteria/output/CRITERIA.md | r21：CRITERIA.md | 2026-10-20 | 条件证据/纯虚拟参考；非达标 |
+| bots/dot/research/r21/08-criteria/output/criteria.json | r21：criteria.json | 2026-10-20 | 条件证据/纯虚拟参考；非达标 |
+| bots/dot/research/r21/08-criteria/output/criteria.py | r21：criteria.py | 2026-10-20 | 条件证据/纯虚拟参考；非达标 |
+| bots/dot/research/r21/08-criteria/output/test_criteria.py | r21：test_criteria.py | 2026-10-20 | 条件证据/纯虚拟参考；非达标 |
+| bots/dot/research/r21/09-replay/output/REPORT.md | r21：REPORT.md | 2026-10-20 | 条件证据/纯虚拟参考；非达标 |
+| bots/dot/research/r21/09-replay/output/RESULT.json | r21：RESULT.json | 2026-10-20 | 条件证据/纯虚拟参考；非达标 |
+| bots/dot/research/r21/10-integration/output/CHECKS.json | r21：CHECKS.json | 2026-10-20 | 条件证据/纯虚拟参考；非达标 |
+| bots/dot/research/r21/10-integration/output/ENTRY-APPENDIX.md | r21：ENTRY-APPENDIX.md | 2026-10-20 | 条件证据/纯虚拟参考；非达标 |
+| bots/dot/research/r21/10-integration/output/FROZEN-ARTIFACTS.json | r21：FROZEN-ARTIFACTS.json | 2026-10-20 | 条件证据/纯虚拟参考；非达标 |
+| bots/dot/research/r21/10-integration/output/RESULT.json | r21：RESULT.json | 2026-10-20 | 条件证据/纯虚拟参考；非达标 |
+| bots/dot/research/r21/10-integration/output/ROOT-RUNBOOK.md | r21：ROOT-RUNBOOK.md | 2026-10-20 | 条件证据/纯虚拟参考；非达标 |
+| bots/dot/research/r21/10-integration/output/initialize_checkpoint.py | r21：initialize_checkpoint.py | 2026-10-20 | 条件证据/纯虚拟参考；非达标 |
+| bots/dot/research/r21/10-integration/output/test_initialize_checkpoint.py | r21：test_initialize_checkpoint.py | 2026-10-20 | 条件证据/纯虚拟参考；非达标 |
+| bots/dot/research/r21/INITIAL-REFERENCE-SUMMARY.json | r21：INITIAL-REFERENCE-SUMMARY.json | 2026-10-20 | 条件证据/纯虚拟参考；非达标 |
+| bots/dot/research/r21/SOURCE-METADATA-CORRECTION.json | r21：SOURCE-METADATA-CORRECTION.json | 2026-10-20 | 条件证据/纯虚拟参考；非达标 |

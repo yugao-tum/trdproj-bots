@@ -1,0 +1,19 @@
+{
+  "schema": "r21.virtual-protocol.v1",
+  "symbol": "ETHUSDT",
+  "total_capital": "5000",
+  "venue_capital": "2500",
+  "spot_budget": "1250",
+  "primary_cost": "0.003",
+  "stress_cost": "0.006",
+  "max_pair_envelope_ms": 5000,
+  "max_retrieval_age_ms": 5000,
+  "max_exchange_time_ahead_ms": 1000,
+  "max_exchange_time_age_ms": 5000,
+  "quantity_policy": "maximum_common_grid_quantity_fitting_primary_ask_cost; no depth rescue",
+  "funding_policy": "actual_timestamp_strictly_after_entry; idempotent_exact_key",
+  "cost_policy": "additional_assumed_cost_on_observed_depth_quotes; not actual fee",
+  "mode": "offline_virtual_only",
+  "rebalance": false,
+  "transfers": false
+}

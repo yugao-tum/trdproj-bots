@@ -1,0 +1,160 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:dot:r21:forward-checkpoint:v1",
+  "title": "Read-only forward evidence checkpoint",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema",
+    "revision",
+    "protocol_sha256",
+    "root_lock",
+    "entry",
+    "ledger",
+    "source_status",
+    "funding_schedule",
+    "last_snapshot",
+    "source_errors",
+    "stop_requested",
+    "first_30_review_recorded",
+    "feasibility_failure"
+  ],
+  "properties": {
+    "schema": {
+      "const": "r21.forward-checkpoint.v1"
+    },
+    "revision": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "protocol_sha256": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "pattern": "^[a-f0-9]{64}$"
+    },
+    "root_lock": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "description": "Root workflow record, not authentication. Must equal ledger root_lock."
+    },
+    "entry": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "description": "Mirror only from validated role04 ledger; never from feasibility quotes."
+    },
+    "ledger": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "description": "Role04 r21.virtual-ledger.v1, sole funding_events/cash accounting authority."
+    },
+    "source_status": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "quote_pair",
+        "funding_history"
+      ],
+      "properties": {
+        "quote_pair": {
+          "$ref": "#/$defs/source"
+        },
+        "funding_history": {
+          "$ref": "#/$defs/source"
+        }
+      }
+    },
+    "funding_schedule": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "description": "Source-observed future funding time; no fixed eight-hour inference."
+    },
+    "last_snapshot": {
+      "type": [
+        "object",
+        "null"
+      ]
+    },
+    "source_errors": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    },
+    "stop_requested": {
+      "type": "boolean"
+    },
+    "first_30_review_recorded": {
+      "type": "boolean"
+    },
+    "feasibility_failure": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "description": "Irreversible nonpositive-margin observation latch; subsequent accounting counterfactual only."
+    }
+  },
+  "$defs": {
+    "source": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "last_attempt_ms",
+        "inflight",
+        "halted",
+        "blocked_until_ms",
+        "last_outcome"
+      ],
+      "properties": {
+        "last_attempt_ms": {
+          "type": [
+            "integer",
+            "null"
+          ],
+          "minimum": 0
+        },
+        "inflight": {
+          "type": [
+            "object",
+            "null"
+          ]
+        },
+        "halted": {
+          "type": "boolean"
+        },
+        "blocked_until_ms": {
+          "type": [
+            "integer",
+            "null"
+          ],
+          "minimum": 0
+        },
+        "last_outcome": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "enum": [
+            null,
+            "ok",
+            "empty",
+            "invalid",
+            "forbidden",
+            "rate_limited",
+            "uncertain"
+          ]
+        }
+      }
+    }
+  }
+}

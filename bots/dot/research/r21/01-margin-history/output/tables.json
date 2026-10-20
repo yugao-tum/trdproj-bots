@@ -1,0 +1,428 @@
+{
+  "symbol": "ETHUSDT",
+  "contract": "USD-M perpetual",
+  "captured_utc": "2026-10-20T11:56:11.107463+00:00",
+  "status": "official announcement event evidence, not continuous historical bracket proof",
+  "sources": [
+    {
+      "id": "jan2024",
+      "url": "https://www.binance.com/en/support/announcement/detail/d75c5ca94f704e96a6a4e55ffddfd65d",
+      "raw": "web-extraction.json",
+      "published_display": "2024-01-02 13:50",
+      "effective": "2023-12-24T09:35:00Z",
+      "existing_positions_affected": false,
+      "lines": [
+        40,
+        50
+      ],
+      "raw_sha256": "d62e2bc2c6b1b920ef6651ce84d28b117513bb3f4fe3c6284423ea0111824c22",
+      "tables": {
+        "before": [
+          {
+            "notional_floor_usdt_exclusive": 0,
+            "notional_cap_usdt_inclusive": 200000,
+            "maintenance_rate": 0.005,
+            "leverage_display": "76 - 100x",
+            "maintenance_amount_usdt": null,
+            "source_line": 40
+          },
+          {
+            "notional_floor_usdt_exclusive": 200000,
+            "notional_cap_usdt_inclusive": 800000,
+            "maintenance_rate": 0.006500000000000001,
+            "leverage_display": "51 - 75x",
+            "maintenance_amount_usdt": null,
+            "source_line": 41
+          },
+          {
+            "notional_floor_usdt_exclusive": 800000,
+            "notional_cap_usdt_inclusive": 5000000,
+            "maintenance_rate": 0.01,
+            "leverage_display": "21 - 50x",
+            "maintenance_amount_usdt": null,
+            "source_line": 42
+          },
+          {
+            "notional_floor_usdt_exclusive": 5000000,
+            "notional_cap_usdt_inclusive": 30000000,
+            "maintenance_rate": 0.02,
+            "leverage_display": "11 - 20x",
+            "maintenance_amount_usdt": null,
+            "source_line": 43
+          },
+          {
+            "notional_floor_usdt_exclusive": 30000000,
+            "notional_cap_usdt_inclusive": 50000000,
+            "maintenance_rate": 0.05,
+            "leverage_display": "6 - 10x",
+            "maintenance_amount_usdt": null,
+            "source_line": 44
+          },
+          {
+            "notional_floor_usdt_exclusive": 50000000,
+            "notional_cap_usdt_inclusive": 70000000,
+            "maintenance_rate": 0.1,
+            "leverage_display": "5x",
+            "maintenance_amount_usdt": null,
+            "source_line": 45
+          },
+          {
+            "notional_floor_usdt_exclusive": 70000000,
+            "notional_cap_usdt_inclusive": 80000000,
+            "maintenance_rate": 0.125,
+            "leverage_display": "4x",
+            "maintenance_amount_usdt": null,
+            "source_line": 46
+          },
+          {
+            "notional_floor_usdt_exclusive": 80000000,
+            "notional_cap_usdt_inclusive": 100000000,
+            "maintenance_rate": 0.15,
+            "leverage_display": "3x",
+            "maintenance_amount_usdt": null,
+            "source_line": 47
+          },
+          {
+            "notional_floor_usdt_exclusive": 100000000,
+            "notional_cap_usdt_inclusive": 150000000,
+            "maintenance_rate": 0.25,
+            "leverage_display": "2x",
+            "maintenance_amount_usdt": null,
+            "source_line": 48
+          },
+          {
+            "notional_floor_usdt_exclusive": 150000000,
+            "notional_cap_usdt_inclusive": 300000000,
+            "maintenance_rate": 0.5,
+            "leverage_display": "1x",
+            "maintenance_amount_usdt": null,
+            "source_line": 49
+          }
+        ],
+        "after": [
+          {
+            "notional_floor_usdt_exclusive": 0,
+            "notional_cap_usdt_inclusive": 50000,
+            "maintenance_rate": 0.004,
+            "leverage_display": "101 - 125x",
+            "maintenance_amount_usdt": null,
+            "source_line": 40
+          },
+          {
+            "notional_floor_usdt_exclusive": 50000,
+            "notional_cap_usdt_inclusive": 500000,
+            "maintenance_rate": 0.005,
+            "leverage_display": "76 - 100x",
+            "maintenance_amount_usdt": null,
+            "source_line": 41
+          },
+          {
+            "notional_floor_usdt_exclusive": 500000,
+            "notional_cap_usdt_inclusive": 1000000,
+            "maintenance_rate": 0.006500000000000001,
+            "leverage_display": "51 - 75x",
+            "maintenance_amount_usdt": null,
+            "source_line": 42
+          },
+          {
+            "notional_floor_usdt_exclusive": 1000000,
+            "notional_cap_usdt_inclusive": 5000000,
+            "maintenance_rate": 0.01,
+            "leverage_display": "21 - 50x",
+            "maintenance_amount_usdt": null,
+            "source_line": 43
+          },
+          {
+            "notional_floor_usdt_exclusive": 5000000,
+            "notional_cap_usdt_inclusive": 50000000,
+            "maintenance_rate": 0.02,
+            "leverage_display": "11 - 20x",
+            "maintenance_amount_usdt": null,
+            "source_line": 44
+          },
+          {
+            "notional_floor_usdt_exclusive": 50000000,
+            "notional_cap_usdt_inclusive": 100000000,
+            "maintenance_rate": 0.05,
+            "leverage_display": "6 - 10x",
+            "maintenance_amount_usdt": null,
+            "source_line": 45
+          },
+          {
+            "notional_floor_usdt_exclusive": 100000000,
+            "notional_cap_usdt_inclusive": 150000000,
+            "maintenance_rate": 0.1,
+            "leverage_display": "5x",
+            "maintenance_amount_usdt": null,
+            "source_line": 46
+          },
+          {
+            "notional_floor_usdt_exclusive": 150000000,
+            "notional_cap_usdt_inclusive": 300000000,
+            "maintenance_rate": 0.125,
+            "leverage_display": "4x",
+            "maintenance_amount_usdt": null,
+            "source_line": 47
+          },
+          {
+            "notional_floor_usdt_exclusive": 300000000,
+            "notional_cap_usdt_inclusive": 400000000,
+            "maintenance_rate": 0.15,
+            "leverage_display": "3x",
+            "maintenance_amount_usdt": null,
+            "source_line": 48
+          },
+          {
+            "notional_floor_usdt_exclusive": 400000000,
+            "notional_cap_usdt_inclusive": 500000000,
+            "maintenance_rate": 0.25,
+            "leverage_display": "2x",
+            "maintenance_amount_usdt": null,
+            "source_line": 49
+          },
+          {
+            "notional_floor_usdt_exclusive": 500000000,
+            "notional_cap_usdt_inclusive": 800000000,
+            "maintenance_rate": 0.5,
+            "leverage_display": "1x",
+            "maintenance_amount_usdt": null,
+            "source_line": 50
+          }
+        ]
+      }
+    },
+    {
+      "id": "aug2025",
+      "url": "https://www.binance.com/en/support/announcement/detail/8e428625ebeb4cc7ae8678026846095c",
+      "raw": "aug2025-web-extraction.json",
+      "published_display": "2025-08-17 03:31",
+      "effective": "2025-08-19T06:30:00Z",
+      "existing_positions_affected": true,
+      "completion": "approximately one hour",
+      "last_amended": "2025-08-25",
+      "lines": [
+        67,
+        78
+      ],
+      "raw_sha256": "965f830681f7052a77869b45265d6d971e34af0ca215cf271d4d6e876e3e307b",
+      "tables": {
+        "before": [
+          {
+            "notional_floor_usdt_exclusive": 0,
+            "notional_cap_usdt_inclusive": 300000,
+            "maintenance_rate": 0.004,
+            "leverage_display": "101 - 125x",
+            "maintenance_amount_usdt": null,
+            "source_line": 67
+          },
+          {
+            "notional_floor_usdt_exclusive": 300000,
+            "notional_cap_usdt_inclusive": 800000,
+            "maintenance_rate": 0.005,
+            "leverage_display": "76 - 100x",
+            "maintenance_amount_usdt": null,
+            "source_line": 68
+          },
+          {
+            "notional_floor_usdt_exclusive": 800000,
+            "notional_cap_usdt_inclusive": 3000000,
+            "maintenance_rate": 0.006500000000000001,
+            "leverage_display": "51 - 75x",
+            "maintenance_amount_usdt": null,
+            "source_line": 69
+          },
+          {
+            "notional_floor_usdt_exclusive": 3000000,
+            "notional_cap_usdt_inclusive": 12000000,
+            "maintenance_rate": 0.01,
+            "leverage_display": "26 - 50x",
+            "maintenance_amount_usdt": null,
+            "source_line": 70
+          },
+          {
+            "notional_floor_usdt_exclusive": 12000000,
+            "notional_cap_usdt_inclusive": 50000000,
+            "maintenance_rate": 0.02,
+            "leverage_display": "21 - 25x",
+            "maintenance_amount_usdt": null,
+            "source_line": 71
+          },
+          {
+            "notional_floor_usdt_exclusive": 50000000,
+            "notional_cap_usdt_inclusive": 65000000,
+            "maintenance_rate": 0.025,
+            "leverage_display": "11 - 20x",
+            "maintenance_amount_usdt": null,
+            "source_line": 72
+          },
+          {
+            "notional_floor_usdt_exclusive": 65000000,
+            "notional_cap_usdt_inclusive": 150000000,
+            "maintenance_rate": 0.05,
+            "leverage_display": "6 - 10x",
+            "maintenance_amount_usdt": null,
+            "source_line": 73
+          },
+          {
+            "notional_floor_usdt_exclusive": 150000000,
+            "notional_cap_usdt_inclusive": 320000000,
+            "maintenance_rate": 0.1,
+            "leverage_display": "5x",
+            "maintenance_amount_usdt": null,
+            "source_line": 74
+          },
+          {
+            "notional_floor_usdt_exclusive": 320000000,
+            "notional_cap_usdt_inclusive": 400000000,
+            "maintenance_rate": 0.125,
+            "leverage_display": "4x",
+            "maintenance_amount_usdt": null,
+            "source_line": 75
+          },
+          {
+            "notional_floor_usdt_exclusive": 400000000,
+            "notional_cap_usdt_inclusive": 530000000,
+            "maintenance_rate": 0.15,
+            "leverage_display": "3x",
+            "maintenance_amount_usdt": null,
+            "source_line": 76
+          },
+          {
+            "notional_floor_usdt_exclusive": 530000000,
+            "notional_cap_usdt_inclusive": 800000000,
+            "maintenance_rate": 0.25,
+            "leverage_display": "2x",
+            "maintenance_amount_usdt": null,
+            "source_line": 77
+          },
+          {
+            "notional_floor_usdt_exclusive": 800000000,
+            "notional_cap_usdt_inclusive": 1200000000,
+            "maintenance_rate": 0.5,
+            "leverage_display": "1x",
+            "maintenance_amount_usdt": null,
+            "source_line": 78
+          }
+        ],
+        "after": [
+          {
+            "notional_floor_usdt_exclusive": 0,
+            "notional_cap_usdt_inclusive": 300000,
+            "maintenance_rate": 0.004,
+            "leverage_display": "101 - 150x",
+            "maintenance_amount_usdt": null,
+            "source_line": 67
+          },
+          {
+            "notional_floor_usdt_exclusive": 300000,
+            "notional_cap_usdt_inclusive": 800000,
+            "maintenance_rate": 0.005,
+            "leverage_display": "76 - 100x",
+            "maintenance_amount_usdt": null,
+            "source_line": 68
+          },
+          {
+            "notional_floor_usdt_exclusive": 800000,
+            "notional_cap_usdt_inclusive": 3000000,
+            "maintenance_rate": 0.006500000000000001,
+            "leverage_display": "51 - 75x",
+            "maintenance_amount_usdt": null,
+            "source_line": 69
+          },
+          {
+            "notional_floor_usdt_exclusive": 3000000,
+            "notional_cap_usdt_inclusive": 12000000,
+            "maintenance_rate": 0.01,
+            "leverage_display": "26 - 50x",
+            "maintenance_amount_usdt": null,
+            "source_line": 70
+          },
+          {
+            "notional_floor_usdt_exclusive": 12000000,
+            "notional_cap_usdt_inclusive": 50000000,
+            "maintenance_rate": 0.02,
+            "leverage_display": "21 - 25x",
+            "maintenance_amount_usdt": null,
+            "source_line": 71
+          },
+          {
+            "notional_floor_usdt_exclusive": 50000000,
+            "notional_cap_usdt_inclusive": 65000000,
+            "maintenance_rate": 0.025,
+            "leverage_display": "11 - 20x",
+            "maintenance_amount_usdt": null,
+            "source_line": 72
+          },
+          {
+            "notional_floor_usdt_exclusive": 65000000,
+            "notional_cap_usdt_inclusive": 150000000,
+            "maintenance_rate": 0.05,
+            "leverage_display": "6 - 10x",
+            "maintenance_amount_usdt": null,
+            "source_line": 73
+          },
+          {
+            "notional_floor_usdt_exclusive": 150000000,
+            "notional_cap_usdt_inclusive": 320000000,
+            "maintenance_rate": 0.1,
+            "leverage_display": "5x",
+            "maintenance_amount_usdt": null,
+            "source_line": 74
+          },
+          {
+            "notional_floor_usdt_exclusive": 320000000,
+            "notional_cap_usdt_inclusive": 400000000,
+            "maintenance_rate": 0.125,
+            "leverage_display": "4x",
+            "maintenance_amount_usdt": null,
+            "source_line": 75
+          },
+          {
+            "notional_floor_usdt_exclusive": 400000000,
+            "notional_cap_usdt_inclusive": 530000000,
+            "maintenance_rate": 0.15,
+            "leverage_display": "3x",
+            "maintenance_amount_usdt": null,
+            "source_line": 76
+          },
+          {
+            "notional_floor_usdt_exclusive": 530000000,
+            "notional_cap_usdt_inclusive": 800000000,
+            "maintenance_rate": 0.25,
+            "leverage_display": "2x",
+            "maintenance_amount_usdt": null,
+            "source_line": 77
+          },
+          {
+            "notional_floor_usdt_exclusive": 800000000,
+            "notional_cap_usdt_inclusive": 1200000000,
+            "maintenance_rate": 0.5,
+            "leverage_display": "1x",
+            "maintenance_amount_usdt": null,
+            "source_line": 78
+          }
+        ]
+      }
+    }
+  ],
+  "maintenance_amount": "not present in announcement tables; do not substitute observed zero",
+  "document_reads": 6,
+  "distinct_documents": 3,
+  "formula_reads_delegated_to_role02": 2,
+  "source_intervals": [
+    {
+      "source": "jan2024",
+      "event": "2023-12-24T09:35:00Z",
+      "end": null,
+      "verified_continuous_interval": false
+    },
+    {
+      "source": "aug2025",
+      "event": "2025-08-19T06:30:00Z",
+      "end": null,
+      "verified_continuous_interval": false
+    }
+  ],
+  "worst_day_20250824": "0.004 first-tier is supported by announced Aug19 table but continuous/as-of-Aug24 vintage not independently proven; Aug25 amended page read today",
+  "qualification": false
+}

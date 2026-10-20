@@ -1,0 +1,30 @@
+{
+  "schema": "r21.forward-checkpoint.v1",
+  "revision": 0,
+  "protocol_sha256": null,
+  "root_lock": null,
+  "entry": null,
+  "ledger": null,
+  "source_status": {
+    "quote_pair": {
+      "last_attempt_ms": null,
+      "inflight": null,
+      "halted": false,
+      "blocked_until_ms": null,
+      "last_outcome": null
+    },
+    "funding_history": {
+      "last_attempt_ms": null,
+      "inflight": null,
+      "halted": false,
+      "blocked_until_ms": null,
+      "last_outcome": null
+    }
+  },
+  "funding_schedule": null,
+  "last_snapshot": null,
+  "source_errors": [],
+  "stop_requested": false,
+  "first_30_review_recorded": false,
+  "feasibility_failure": null
+}

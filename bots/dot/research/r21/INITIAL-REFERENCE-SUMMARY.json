@@ -1,0 +1,48 @@
+{
+  "as_of_utc": "2026-10-20T12:17:36.097670+00:00",
+  "classification": "Retrospective independent audit of a frozen pure virtual quote reference; no real account/order/fill, no official simulation stage",
+  "reference_time_utc": "2026-10-20T12:14:33.688Z",
+  "entry": {
+    "entry_time_ms": 1792498473688,
+    "quantity": "0.522",
+    "common_step": "0.001",
+    "entry_reference_id": "f7873881d7e87bdd86ae1b9300905b54bf03fe810e2b69ec3626ae09ac21520e",
+    "spot_notional": "1244.54196000000",
+    "perp_notional": "1243.95732",
+    "spot_vwap": "2384.18000000",
+    "perp_vwap": "2383.06",
+    "filter_snapshot_id": "c24c3c00808e2fcc2d9b4a6be629156d16f13c5a18066c6598fe8778439de902"
+  },
+  "funding_events": 0,
+  "qualified_events": 0,
+  "actual_orders": 0,
+  "source_observed_next_funding_utc": "2026-10-20T16:00:00Z",
+  "expected_time_is_not_actual_payment": true,
+  "independent_checks_passed": 46,
+  "paired_envelope_ms": 1319,
+  "response_ages_at_completion_ms": {
+    "spot": 3826,
+    "perp": 3892
+  },
+  "metadata_corrections": [
+    "initial-interface pair_enclosing_wall_interval_ms retains prior 2468; actual saved raw pair envelope is 1319ms.",
+    "initial-interface limitations last item refers to prior prelock feasibility books, not its replacement postlock books.",
+    "initial-interface raw_input_hashes retains prior source hashes; current books provenance is initial-raw.json, verified against checkpoint schedule hash and exact book equality."
+  ],
+  "limitations": [
+    "Spot event time unavailable, no atomic synchrony proof.",
+    "Five-minute weighted average/dynamic acceptance not verified; quote-based min-notional only.",
+    "Filters are reused as-retrieved and not claimed freshly fetched.",
+    "Completion time is a conservative later bound on live validation; exact internal validation millisecond not persisted.",
+    "No current-freshness claim, refetch, reinitialization or frozen artifact modification."
+  ],
+  "input_hashes": {
+    "checkpoint.json": "63adbeb6ae18099b587be98df182522242cc13530f16cefce731a54a685e6956",
+    "initial-interface.json": "947744506f391990361534f581c4ced60313d3c8a4eb0d7915b498ad817470a6",
+    "initial-raw.json": "6e4921e00dd21e691748c7847f78263910ad0531b86c2b20c1308e49b24654dc",
+    "INITIALIZATION-RECEIPT.json": "a83e517e2ee5d37eff12066c6665337d19db68cfc991058f6b9cd7c61846107f"
+  },
+  "manifest_sha256": "dce944bb4274141f9f29ddb7ae0e9f56d326738d38dd511e9a83525779fa5853",
+  "independent_audit_sha256": "0ef29b38a1a3c833cc6fa87493951ef491a51f71853340c25054a742d9f82423",
+  "correction_sha256": "907521567ea09073ff30b4869f6ed29d71bf429bc70ed9c0d4fcdba010671899"
+}

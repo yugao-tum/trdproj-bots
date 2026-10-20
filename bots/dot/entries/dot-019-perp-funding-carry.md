@@ -139,3 +139,21 @@ confidence: 中
 条件账中BTC/SOL的1,250预算出现负保证金，其正终值不可作为可执行收益。ETH1,250在主成本下场内2,500分母CAGR4.5238%、总5,000分母2.3057%；压力成本腿CAGR4.2918%。日高保证金界非负但未核实历史清算规则，主成本后可容纳维持保证金及其他平仓摩擦约2.5144%的条件名义比例，不是已验证档位。日频趋势参照相关−0.0513、月频+0.3822，不能只选低者宣布低相关。
 
 已完成独立现金账与资金守恒复现；真实数据、条件模拟和实际可执行结果严格分开。3,011个共同结算事件或1,004个日聚合是待评审认可的操作性结果计数，不是IID或独立策略数。历史成交、数量过滤、维护率及稳定相关性仍有缺口。保留现有supplement待核身份，不新增条目/待核、不主张收录、已证改进或阶段分。详见[完整证据与全部12情景](../notes/r20-funding-settlement-evidence.md)。
+
+## C19 / dot-019: r21 historical context and prospective protocol
+
+This is a single supplement to existing C19, not a new mechanism, entry, pending item, official score or stage change. Status remains 待核. ETH was selected post hoc from the retained twelve r20 cases.
+
+Two official historical notices now bound plausible low-tier ETH maintenance-rate scenarios: [2 January 2024 notice](https://www.binance.com/en/support/announcement/detail/d75c5ca94f704e96a6a4e55ffddfd65d), effective 24 December 2023 09:35 UTC, reports a 0.50% old low tier and 0.40% new low tier; [17 August 2025 notice](https://www.binance.com/en/support/announcement/detail/8e428625ebeb4cc7ae8678026846095c), effective 19 August 2025 06:30 UTC, reports 0.40% at 0–300,000 USDT before and after. These documents neither establish every historical bracket change nor give the maintenance deduction. The later [official FAQ](https://www.binance.com/en/support/faq/detail/360033162192) allows small unannounced adjustments; absence of announcements cannot prove continuity. The January notice is retrospective; the August page was subsequently revised.
+
+Four ETH allocation/cost cases were independently recomputed over 1,004 days under fixed 0.40% and 0.50% scenarios, assuming maintenance deduction D=0, with 12,048 exact daily comparisons. For the 1,250-USDT allocation, 0.40% maintenance and the extra assumed close-cost reserve, the minimum conditional surplus is 57.2220 USDT at 0.30% friction and 48.9536 USDT at 0.60% friction, on 24 August 2025. These are source-supported conditional simulations, not continuous risk-history reconstruction, actual liquidation survival, true fills or qualification. Spot is not automatically derivatives collateral. ExchangeInfo's ignored maintMarginPercent and liquidationFee are not substituted for maintenance history or trading commission.
+
+The prospective ETHUSDT protocol is implemented and offline tested, with 5,000 total virtual capital, 2,500 venue capital and 2,500 external reserve. A 1,250 spot budget includes assumed 0.30% friction; the equal-quantity short uses bid-depth VWAP, spot uses ask-depth VWAP, and quantity is floored to the shared valid lot grid. The 0.60% sensitivity retains the same quantity. Current market-rule acceptance remains unverified where a five-minute-average notional filter is unavailable.
+
+No entry or prospective funding event has been created by this appendix. Existing quotes are feasibility-only. Root must first freeze configuration, implementation, tests and criteria hashes, then explicitly authorize a new paired observation. Entry validation requires both requests after the lock and a complete pair envelope/response age of at most five seconds; absent spot exchange-event time remains unknown. A snapshot that fails cannot be refreshed repeatedly within the hourly budget.
+
+Only actual funding timestamps strictly after entry accrue signed cash. Deduplication, cash, cursor and request completion share one atomic checkpoint; restart verifies artifact hashes and recomputes cash from events. Explicit rate limits, unresolved requests and source denials block retries. The first 30 distinct timestamps support a descriptive review, not IID inference, annualized profit, an official score or a forced stop. Full-cost quote liquidation estimates retain both capital denominators; absent exit quotes yield null, not mark-price replacement. Observed nonpositive margin permanently invalidates the feasible-path claim. There is no seven-hour cutoff and no real account, order, wallet or credential use.
+
+### 冻结后状态更新（2026-10-20 12:17:36 UTC）
+
+上节“尚未创建”是协议冻结时点事实。冻结后已于12:14:33.688 UTC用新公开配对报价建立0.522 ETH纯虚拟参考，实际资金费事件仍0，无订单/账户/实际成交，不自授模拟盘阶段。独立46项保存后复核通过；旧模板描述字段有明确追加纠正，1319ms配对间隔及新来源hash已核，原件不改。详见[当前补证说明](../notes/r21-c19-margin-forward-evidence.md)。

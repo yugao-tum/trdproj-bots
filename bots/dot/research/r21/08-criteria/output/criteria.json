@@ -1,0 +1,29 @@
+{
+  "schema": "r21.prospective-evidence-criteria.v1",
+  "created_utc": "2026-10-20T12:00:26.428632+00:00",
+  "role": "08",
+  "scope": "C19 same-family supplement; no new mechanism",
+  "selection": "ETH1250 is post-hoc priority from r20 three assets/twelve scenarios; not blinded",
+  "initial_window_actual_events": 30,
+  "funding_time_rule": "strictly after entry; exact ETHUSDT actual timestamp keys",
+  "requires_gap_reconciliation": true,
+  "negative_payments_retained": true,
+  "iid_claim": false,
+  "review_checkpoint_is_stop": false,
+  "short_window_annualization": false,
+  "break_even_days": null,
+  "break_even_cash_field": "funding_only_cost_recovery_gap_usdt",
+  "full_costs_required": true,
+  "denominators_usdt": [
+    5000,
+    2500
+  ],
+  "capital_invalidation": "observed margin equity <= 0; subsequent path counterfactual",
+  "positive_equity_certifies_liquidation_survival": false,
+  "missing_exit_quotes": "quoted-exit valuation null, no mark-price substitution",
+  "correlation": "fixed r20 trend reference; daily and calendar-month descriptions; no tuned cutoff or initial-window low-correlation certificate",
+  "qualification_claim": false,
+  "virtual_entry_created": false,
+  "network_requests": 0,
+  "tests_passed": 18
+}

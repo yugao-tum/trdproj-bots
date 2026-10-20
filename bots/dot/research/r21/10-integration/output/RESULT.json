@@ -1,0 +1,97 @@
+{
+  "schema": "r21.integration.v1",
+  "as_of_utc": "2026-10-20T12:12:28.312103+00:00",
+  "readiness": "offline gates passed; awaits explicit root lock and a newly authorized fresh pair",
+  "root_lock_created": false,
+  "virtual_entry_created": false,
+  "actual_forward_settlements": 0,
+  "new_mechanisms": 0,
+  "entry_count_change": 0,
+  "pending_count_change": 0,
+  "stage_change": false,
+  "official_points_awarded": 0,
+  "native_tasks_actual": 10,
+  "native_model": "parent-native; exact backend model ID not exposed, not inferred",
+  "opencode_tasks": 0,
+  "pi_meiying_tasks": 0,
+  "external_reads_role10": 0,
+  "budget": {
+    "role01_official_reads_actual": 6,
+    "role01_distinct_documents": 3,
+    "role01_read_cap": 8,
+    "role02_official_reads_actual": 2,
+    "role03_public_reads_actual": 3,
+    "role03_retries": 0,
+    "fresh_post_lock_pair_and_schedule": "not requested by integrator; requires root explicit authorization and separate evidence/counting",
+    "later_quote_pair_per_rolling_hour_max": 1,
+    "later_due_funding_query_per_rolling_hour_max": 1
+  },
+  "artifact_manifest_sha256": "dce944bb4274141f9f29ddb7ae0e9f56d326738d38dd511e9a83525779fa5853",
+  "protocol_config_canonical_sha256": "b30f87538f3f88e8b709058c25325eb6094ce54bfcb6d24e3f9f8da5628fffe6",
+  "checks": [
+    {
+      "role": "02-formula",
+      "command": "python -m unittest -v test_formula.py",
+      "passed": true
+    },
+    {
+      "role": "03-interfaces",
+      "command": "python -m unittest -v test_interface.py",
+      "passed": true
+    },
+    {
+      "role": "04-protocol",
+      "command": "python -m unittest -v test_virtual_ledger.py",
+      "passed": true
+    },
+    {
+      "role": "05-quotes",
+      "command": "python -m unittest -v test_quote_audit.py",
+      "passed": true
+    },
+    {
+      "role": "06-scheduler",
+      "command": "python -m unittest -v test_scheduler.py",
+      "passed": true
+    },
+    {
+      "role": "07-margin-bounds",
+      "command": "python -m unittest -v test_analyze.py",
+      "passed": true
+    },
+    {
+      "role": "08-criteria",
+      "command": "python -m unittest -v test_criteria.py",
+      "passed": true
+    },
+    {
+      "role": "10-integration",
+      "command": "python -m unittest -v test_initialize_checkpoint.py",
+      "passed": true
+    },
+    {
+      "role": "04-config-code-identity",
+      "passed": true
+    },
+    {
+      "role": "09-replay",
+      "passed": true,
+      "independent_tests": 37,
+      "method": "Verified independent report and exact audited source hashes; did not overwrite role09 report"
+    }
+  ],
+  "limitations": [
+    "Historical source rates are constant-rate conditional scenarios, not continuous historical bracket coverage.",
+    "ETH selected post hoc; retain all twelve r20 cases.",
+    "No actual exchange order acceptance, fill, liquidation survival or strategy qualification established.",
+    "First 30 funding timestamps are descriptive, not independent samples or annual profit proof.",
+    "Current order book observations are feasibility only and cannot become entry."
+  ],
+  "tests": {
+    "local_unit_tests_passed": 137,
+    "independent_fraction_replay_passed": 37,
+    "note": "Synthetic/unit/replay checks, not independent strategy mechanisms or live evidence"
+  },
+  "independent_review_manifest_sha256": "5cbf147d6fba39813c606d25cfbee2877f9256a1afc573f5e038142816dfdb3c",
+  "single_writer_boundary": "All checkpoint writers must share checkpoint.json.lock; frozen artifacts immutable through hash check and import"
+}
