@@ -1,0 +1,60 @@
+quant-020 executable-price time-split OOS backtest
+as_of=2026-10-20 fee_rate=0.05 half_spread=0.01 band=[0.40,0.55] split=60% seed=20261020
+
+[1] enumeration
+Gamma closed events (tag_slug=earnings): 1386
+earnings-beat events after slug/question filter: 1385
+date span: 2025-06-05T00:00:00Z .. 2026-10-20T13:00:00Z
+events with != 1 market: 0
+deduped company-quarter events: 1384
+dropped same company+date duplicates: efx-quarterly-earnings-nongaap-eps-10-20-2026-2pt24
+split: discovery=830 (first 830) holdout=554; first holdout endDate=2026-05-05T13:00:00Z
+discovery endDate range: 2025-06-05T00:00:00Z .. 2026-05-05T13:00:00Z
+holdout endDate range: 2026-05-05T13:00:00Z .. 2026-10-20T13:00:00Z
+  priced 100/1384 events...
+  priced 200/1384 events...
+  priced 300/1384 events...
+  priced 400/1384 events...
+  priced 500/1384 events...
+  priced 600/1384 events...
+  priced 700/1384 events...
+  priced 800/1384 events...
+  priced 900/1384 events...
+  priced 1000/1384 events...
+  priced 1100/1384 events...
+  priced 1200/1384 events...
+  priced 1300/1384 events...
+events with clean outcomePrices: 1384/1384
+events with a trade in [-72h,-24h] window: 1321/1384
+events with a trade in [-54h,-6h] sensitivity window: 1356/1384
+data-api truncated markets (offset cap): 0
+in-band events (0.40<=p24<=0.55): 101/1321 priced = 7.65%
+max events in any rolling 14-day window: 174; max in-band in any 14-day window: 24
+old prices-history available for in-band events: 101/101
+
+[2] results (executable data-api price, 1c half-spread, fee rate 0.05)
+DISCOVERY: n=54 YESrate=0.4444 meanP=0.4714 meanAsk=0.4814 medianNet=-0.4313 meanNet=-0.0494 totalNet=-2.6652 stake=25.9963 perDollar=-0.1025 meanDays=1.07 annual=-3482.88%
+  bootstrap 95% CI mean net/share (week block, 10000 resamples): [-0.1688, +0.0718]
+HOLDOUT: n=47 YESrate=0.5745 meanP=0.4781 meanAsk=0.4881 medianNet=+0.4376 meanNet=+0.0740 totalNet=+3.4792 stake=22.9386 perDollar=+0.1517 meanDays=1.25 annual=+4434.67%
+  bootstrap 95% CI mean net/share (week block, 10000 resamples): [-0.1074, +0.1841]
+POOLED: n=101 YESrate=0.5050 meanP=0.4745 meanAsk=0.4845 medianNet=+0.4277 meanNet=+0.0081 totalNet=+0.8140 stake=48.9349 perDollar=+0.0166 meanDays=1.16 annual=+525.52%
+  bootstrap 95% CI mean net/share (week block, 10000 resamples): [-0.1005, +0.0972]
+
+[2b] sensitivity: last trade before endDate-6h ([-54h,-6h])
+DISCOVERY: n=54 YESrate=0.4444 meanP6=0.4928 meanAsk6=0.5028 medianNet=-0.2645 meanNet=-0.0687 totalNet=-3.7078 perDollar=-0.1366
+HOLDOUT: n=47 YESrate=0.5745 meanP6=0.4928 meanAsk6=0.5028 medianNet=+0.2211 meanNet=+0.0613 totalNet=+2.8828 perDollar=+0.1220
+POOLED: n=101 YESrate=0.5050 meanP6=0.4928 meanAsk6=0.5028 medianNet=+0.0216 meanNet=-0.0082 totalNet=-0.8250 perDollar=-0.0162
+
+[2c] same in-band events, old CLOB prices-history price
+DISCOVERY: n=54 meanPold=0.4819 meanAskOld=0.4814 medianNet=-0.4069 meanNet=-0.0595 totalNet=-3.2123 perDollar=-0.1236 CI=[-0.1817,+0.0594]
+  executable ask - old ask: mean=-0.0105 median=-0.0100; old price also in band: 33/54
+HOLDOUT: n=47 meanPold=0.4541 meanAskOld=0.4881 medianNet=+0.4177 meanNet=+0.0983 totalNet=+4.6200 perDollar=+0.2014 CI=[-0.0721,+0.2071]
+  executable ask - old ask: mean=+0.0239 median=+0.0050; old price also in band: 32/47
+POOLED: n=101 meanPold=0.4690 meanAskOld=0.4845 medianNet=+0.0577 meanNet=+0.0139 totalNet=+1.4077 perDollar=+0.0288 CI=[-0.0962,+0.1042]
+  executable ask - old ask: mean=+0.0055 median=+0.0050; old price also in band: 65/101
+
+[3] holdout verdict (entry frozen criterion)
+VERDICT: PASS (median net/share +0.4376 > 0; YES rate 0.5745 > mean entry price 0.4881)
+
+wrote events.csv (1384 rows)
+done
