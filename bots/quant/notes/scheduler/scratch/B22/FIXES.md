@@ -52,3 +52,23 @@ Stdout saved as `fetch_outlooks.out`, `fetch_headers.out`, `classify.out`, `fetc
 
 - Settlement quotes (`:41-46`), update-flip evidence (`:64-66`), P&L numbers and buffer sensitivity (`:68-76`), data URLs/access dates (`:81-85`, `:124+`), and all non-flagged prose. They re-ran exactly as written.
 - No claim was deleted as unverifiable. The only downgrade is gate 2 and gate 5, both from "满足/满足（粗算）" to "有条件/不确定", per review.
+
+---
+
+# Fix2 — re-check fix1 (2026-10-20 UTC)
+
+Source: same review file, “Re-check fix1（B22）” section. Re-ran `fetch_outlooks.py` (62 events / 1,550 markets / 186 GeoJSON, 0 misses), `fetch_headers.py` (final rerun 186/186 HEAD 200; first attempt had one transient timeout on 2026-10-10 2000Z), and new `verify_fix2.py`. Outputs: `fetch_outlooks.out`, `fetch_headers.out`, `verify_fix2.out`. Filename, `id: quant-025`, `date: 2026-10-20` and `status: 草稿` unchanged.
+
+1. **Problem: final-ISSUE range was wrong (00:35–01:02 UTC) at `:48` and repeated at `:106`.**
+   Changed both to **00:28–01:37 UTC**; kept GeoJSON `Last-Modified` at 00:35–01:41 UTC.
+   Evidence: `verify_fix2.out` — `files_with_issue=62/62`, `ISSUE time-of-day min=00:28 max=01:37`, `LM time-of-day min=00:35:09 max=01:41:04`; `fetch_headers.out` gives 1630Z 16:06–17:03, 2000Z 19:35–20:25, final 00:35–01:41.
+
+2. **Problem: quoted rules were the 2026-08-19 version, but Sept-30+ markets changed the missing-data fallback and revisions wording; entry could be read as applying the Aug-19 “remains open” rule to all events.**
+   Added a “版本注” after the verbatim quotes: Aug-19 is the quoted version; Sept-30 live rules say `If the SPC Day 1 Convective Outlook has not been published by the time the market closes, this market will resolve to "No".` and `That scheduled update is the revisions cutoff; subsequent revisions published after it will not be considered.`; forward execution must check each event’s rule version.
+   Evidence: `verify_fix2.out` “live Gamma rule text” section, both event slugs and their Chicago market `description`; `resolutionSource` and `feeSchedule` unchanged.
+
+3. **Problem: gate 1 said “满足” and presented the fixed-25-city/thin-market persistence as if structural.**
+   Changed to **满足（持续解释弱）**, and now says fixed cities / daily reopening / thin books / slow quotes only make the gap *possible*, not guaranteed; persistence is not independently proven. No gate verdict was upgraded.
+   Evidence: entry §门槛自查 #1; no new data claim.
+
+Gate status after fix2: gates 3 (capacity) and 6 (two-week independent results) remain **不满足**; gate 2 remains **有条件满足**; gate 5 remains **不确定**. Entry stays a 待选区 candidate, not `待核`.

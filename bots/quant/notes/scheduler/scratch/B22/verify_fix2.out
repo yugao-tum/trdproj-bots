@@ -1,0 +1,46 @@
+== final 0100Z GeoJSON ISSUE range ==
+files_with_issue=62/62
+ISSUE_ISO min=2026-08-20T01:00:00+00:00 max=2026-10-20T00:52:00+00:00
+earliest: [('2026-08-20T01:00:00+00:00', '2026-08-19', '_cache/geojson/20260820_0100_torn.nolyr.geojson')]
+latest: [('2026-10-20T00:52:00+00:00', '2026-10-19', '_cache/geojson/20261020_0100_torn.nolyr.geojson')]
+ISSUE time-of-day min=00:28 max=01:37 n=62
+
+== final 0100Z HTTP Last-Modified range ==
+rows_with_lm=62/62
+LM earliest-date=Thu, 20 Aug 2026 01:05:54 GMT (2026-08-19) latest-date=Tue, 20 Oct 2026 01:01:24 GMT (2026-10-19)
+LM time-of-day min=('00:35:09', '2026-09-26') max=('01:41:04', '2026-10-04')
+
+== live Gamma rule text: Sep-30 market ==
+
+--- which-cities-face-tornado-risk-on-september-30-2026 / which-cities-face-tornado-risk-on-september-30-2026-chicago-il ---
+resolutionSource=https://www.spc.noaa.gov/products/outlook/day1otlk.html
+feeSchedule={"exponent": 1, "rate": 0.05, "rebateRate": 0.25, "takerOnly": true}
+RULE: If the city's coordinates fall inside any area rated 2% or higher, that city resolves "Yes".
+RULE: Each city's coordinates and the polygon boundaries are publicly verifiable.
+RULE: Borderline cases can be independently confirmed using the polygon data (excluding the hatched SIGN overlay, which is not a probability rating) and the city's listed coordinates.
+RULE: The point-in-polygon test is performed on unprojected WGS84 (EPSG:4326) coordinates, which is the native coordinate system of the SPC GeoJSON data.
+RULE: Resolution is based on the scheduled 01:00 UTC Day 1 Convective Outlook update issued on the following UTC calendar day.
+RULE: That scheduled update is the revisions cutoff; subsequent revisions published after it will not be considered.
+RULE: If the SPC Day 1 Convective Outlook has not been published by the time the market closes, this market will resolve to "No".
+RULE: In the case that the Resolution Source publishes data, sufficient to settle a Market, that is clearly erroneous and the result of technical or operational error, or of unauthorized interference with the Resolution Source or its data, the Market may remain open for a period of up to seven (7) calendar days (ET) from the time of the original release, in anticipation of a correction by the Resolution Source.
+RULE: If the Resolution Source publishes a corrected value within that period, that value will be eligible for resolution.
+RULE: The resolution source for this market is the NOAA Storm Prediction Center at spc.noaa.gov.
+RULE: This market uses coordinates 41.8781, -87.6298 for Chicago, IL.
+
+--- which-cities-face-tornado-risk-on-august-19-2026 / which-cities-face-tornado-risk-on-august-19-2026-chicago-il ---
+resolutionSource=https://www.spc.noaa.gov/products/outlook/day1otlk.html
+feeSchedule={"exponent": 1, "rate": 0.05, "rebateRate": 0.25, "takerOnly": true}
+RULE: If the city's coordinates fall inside any area rated 2% or higher, that city resolves "Yes".
+RULE: Each city's coordinates and the polygon boundaries are publicly verifiable.
+RULE: Borderline cases can be independently confirmed using the polygon data (excluding the hatched SIGN overlay, which is not a probability rating) and the city's listed coordinates.
+RULE: Resolution is based on the scheduled 01:00 UTC Day 1 Convective Outlook update issued on the following UTC calendar day.
+RULE: Subsequent revisions published after that scheduled update will not be considered.
+RULE: The resolution source for this market is the NOAA Storm Prediction Center at spc.noaa.gov.
+RULE: This market uses coordinates 41.8781, -87.6298 for Chicago, IL.
+
+== gate 4 settlement source / payer ==
+event=which-cities-face-tornado-risk-on-september-30-2026
+market=which-cities-face-tornado-risk-on-september-30-2026-chicago-il
+resolutionSource=https://www.spc.noaa.gov/products/outlook/day1otlk.html
+settlement variable=city coordinate inside SPC Day-1 tornado probability area >=2%
+payer=trader pricing off an older outlook or the literal '2%' label
