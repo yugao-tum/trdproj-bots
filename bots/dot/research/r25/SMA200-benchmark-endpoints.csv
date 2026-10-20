@@ -1,0 +1,5 @@
+view,end,capital,benchmark,nav,pnl,total_return,gross_no_fees,october_partial_return
+september_separate_exit,2026-09-30,5000,btc_lagged_sma200_gross_reference,9340.449747690169,4340.44974769017,0.8680899495380339,True,
+september_separate_exit,2026-09-30,2500,btc_lagged_sma200_gross_reference,4670.224873845084,2170.224873845085,0.8680899495380339,True,
+october_same_position_continuation,2026-10-19,5000,btc_lagged_sma200_gross_reference,9152.219081768022,4152.219081768021,0.8304438163536043,True,-0.02015220583662969
+october_same_position_continuation,2026-10-19,2500,btc_lagged_sma200_gross_reference,4576.109540884011,2076.1095408840106,0.8304438163536043,True,-0.02015220583662969

@@ -1,0 +1,10 @@
+{
+  "sources/contract.json": "105484fb252e72bffe883583ff4b892ca566e227455134ed891e4d28a7d00e59",
+  "sources/prices-main.csv": "6b68f5edfac0d8e8e71622ba95c00e9db9a34516e64b21b61178a84fd5aa3d8a",
+  "sources/prices-extension.csv": "73c97d2a8a0f834f3eacbf5b48eceb55a1883d25c5dcefe0fdcbc2d7c83727c6",
+  "sources/funding-main.csv": "0f0fca8b9c4133d3f37855f8789e14a92f9fdbff44851cbdb353eaf30bcc2062",
+  "sources/funding-extension.csv": "8be5e121d8151dedf0dfadaf56a4be808adcf201ed7b0cd15149d21c986f3c04",
+  "sources/BTCUSDT.json": "d83600c6268baff1844a48924b8fb24a0a7d11098927201e02bac9b71289fe6d",
+  "sources/ETHUSDT.json": "cb9cc87df3430364bdc4626a4b6d6eac86b48813c7239c65755426fd84847a18",
+  "sources/SOLUSDT.json": "4567e1ca1c46ce5a692a12bf13a2cbd86822c8b0940dda78adf5d0ec754fe081"
+}

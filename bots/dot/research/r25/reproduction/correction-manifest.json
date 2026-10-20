@@ -1,0 +1,17 @@
+{
+  "supersedes_publication_recommendation_only": true,
+  "original_source_inclusive_zip": "LOCAL PROOF ONLY; MUST NOT PUBLISH",
+  "raw_datasets_in_this_distribution": false,
+  "original_local_artifacts_modified": false,
+  "requires_separately_obtained_declared_market_inputs": true,
+  "exact_historical_bytes_guaranteed_future_acquisition": false,
+  "files_sha256": {
+    "verify_injected.py": "fdc7b87a00fa2eebe9bd166d0a9647e0098534bedf42c66c8b452dcd86429bcb",
+    "expected-output-hashes.json": "47e89fd2e2ad0a702a1f003b9ccc5238fd372be559faefd08074f26bab3f894e",
+    "README.md": "959fe8a6969b85a45bba9f1eb0dfd0b39bd7d8accf2f41afaa230fef44c226aa",
+    "reproduce.py": "d8ab940a89b3013e77b52190b84acd365f05cb74c101a20b2454ba46ce9eef50",
+    "inputs.json": "078ece553117000c2402a7ec2b5a6bab19ee2f31ebe722d63e9610fc9ae3bba9",
+    "PROVENANCE.md": "5c13b07e7b6743773546fa530509d7f406f5494820bcc55d1a4a3640043a2156",
+    "sources/contract.json": "105484fb252e72bffe883583ff4b892ca566e227455134ed891e4d28a7d00e59"
+  }
+}
