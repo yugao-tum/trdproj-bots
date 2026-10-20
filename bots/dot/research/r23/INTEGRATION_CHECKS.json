@@ -1,0 +1,186 @@
+{
+  "passed": 36,
+  "comparison_only_after_independent_calculation": true,
+  "checks": [
+    {
+      "id": "BTCUSDT_b1250_c0.003",
+      "check": "entry_1x_unbuffered_gap",
+      "absolute_error": "0E-50"
+    },
+    {
+      "id": "BTCUSDT_b1250_c0.003",
+      "check": "current_15bp_buffer_gap",
+      "absolute_error": "0E-49"
+    },
+    {
+      "id": "BTCUSDT_b1250_c0.003",
+      "check": "min_mmr_ceiling",
+      "absolute_error": "4.5151208469E-50"
+    },
+    {
+      "id": "BTCUSDT_b1250_c0.006",
+      "check": "entry_1x_unbuffered_gap",
+      "absolute_error": "0E-50"
+    },
+    {
+      "id": "BTCUSDT_b1250_c0.006",
+      "check": "current_15bp_buffer_gap",
+      "absolute_error": "0E-49"
+    },
+    {
+      "id": "BTCUSDT_b1250_c0.006",
+      "check": "min_mmr_ceiling",
+      "absolute_error": "5.8563846442E-50"
+    },
+    {
+      "id": "BTCUSDT_b625_c0.003",
+      "check": "entry_1x_unbuffered_gap",
+      "absolute_error": "0E-46"
+    },
+    {
+      "id": "BTCUSDT_b625_c0.003",
+      "check": "current_15bp_buffer_gap",
+      "absolute_error": "0E-46"
+    },
+    {
+      "id": "BTCUSDT_b625_c0.003",
+      "check": "min_mmr_ceiling",
+      "absolute_error": "3.153165198E-50"
+    },
+    {
+      "id": "BTCUSDT_b625_c0.006",
+      "check": "entry_1x_unbuffered_gap",
+      "absolute_error": "0E-46"
+    },
+    {
+      "id": "BTCUSDT_b625_c0.006",
+      "check": "current_15bp_buffer_gap",
+      "absolute_error": "0E-46"
+    },
+    {
+      "id": "BTCUSDT_b625_c0.006",
+      "check": "min_mmr_ceiling",
+      "absolute_error": "4.467770274E-50"
+    },
+    {
+      "id": "ETHUSDT_b1250_c0.003",
+      "check": "entry_1x_unbuffered_gap",
+      "absolute_error": "0E-49"
+    },
+    {
+      "id": "ETHUSDT_b1250_c0.003",
+      "check": "current_15bp_buffer_gap",
+      "absolute_error": "0E-49"
+    },
+    {
+      "id": "ETHUSDT_b1250_c0.003",
+      "check": "min_mmr_ceiling",
+      "absolute_error": "4.740994838E-50"
+    },
+    {
+      "id": "ETHUSDT_b1250_c0.006",
+      "check": "entry_1x_unbuffered_gap",
+      "absolute_error": "0E-49"
+    },
+    {
+      "id": "ETHUSDT_b1250_c0.006",
+      "check": "current_15bp_buffer_gap",
+      "absolute_error": "0E-49"
+    },
+    {
+      "id": "ETHUSDT_b1250_c0.006",
+      "check": "min_mmr_ceiling",
+      "absolute_error": "2.277000682E-50"
+    },
+    {
+      "id": "ETHUSDT_b625_c0.003",
+      "check": "entry_1x_unbuffered_gap",
+      "absolute_error": "0E-46"
+    },
+    {
+      "id": "ETHUSDT_b625_c0.003",
+      "check": "current_15bp_buffer_gap",
+      "absolute_error": "0E-46"
+    },
+    {
+      "id": "ETHUSDT_b625_c0.003",
+      "check": "min_mmr_ceiling",
+      "absolute_error": "9.083009811E-50"
+    },
+    {
+      "id": "ETHUSDT_b625_c0.006",
+      "check": "entry_1x_unbuffered_gap",
+      "absolute_error": "0E-46"
+    },
+    {
+      "id": "ETHUSDT_b625_c0.006",
+      "check": "current_15bp_buffer_gap",
+      "absolute_error": "0E-46"
+    },
+    {
+      "id": "ETHUSDT_b625_c0.006",
+      "check": "min_mmr_ceiling",
+      "absolute_error": "8.92841114E-51"
+    },
+    {
+      "id": "SOLUSDT_b1250_c0.003",
+      "check": "entry_1x_unbuffered_gap",
+      "absolute_error": "0E-48"
+    },
+    {
+      "id": "SOLUSDT_b1250_c0.003",
+      "check": "current_15bp_buffer_gap",
+      "absolute_error": "0E-48"
+    },
+    {
+      "id": "SOLUSDT_b1250_c0.003",
+      "check": "min_mmr_ceiling",
+      "absolute_error": "7.4973935411E-50"
+    },
+    {
+      "id": "SOLUSDT_b1250_c0.006",
+      "check": "entry_1x_unbuffered_gap",
+      "absolute_error": "0E-48"
+    },
+    {
+      "id": "SOLUSDT_b1250_c0.006",
+      "check": "current_15bp_buffer_gap",
+      "absolute_error": "0E-48"
+    },
+    {
+      "id": "SOLUSDT_b1250_c0.006",
+      "check": "min_mmr_ceiling",
+      "absolute_error": "2.4807392865E-50"
+    },
+    {
+      "id": "SOLUSDT_b625_c0.003",
+      "check": "entry_1x_unbuffered_gap",
+      "absolute_error": "0E-46"
+    },
+    {
+      "id": "SOLUSDT_b625_c0.003",
+      "check": "current_15bp_buffer_gap",
+      "absolute_error": "0E-46"
+    },
+    {
+      "id": "SOLUSDT_b625_c0.003",
+      "check": "min_mmr_ceiling",
+      "absolute_error": "3.837113262E-50"
+    },
+    {
+      "id": "SOLUSDT_b625_c0.006",
+      "check": "entry_1x_unbuffered_gap",
+      "absolute_error": "0E-46"
+    },
+    {
+      "id": "SOLUSDT_b625_c0.006",
+      "check": "current_15bp_buffer_gap",
+      "absolute_error": "0E-46"
+    },
+    {
+      "id": "SOLUSDT_b625_c0.006",
+      "check": "min_mmr_ceiling",
+      "absolute_error": "4.758784105E-50"
+    }
+  ]
+}

@@ -1,0 +1,27 @@
+{
+  "parent_sha": "8a8f7ffd497b6f587597da7d9c8ad7150fefa652",
+  "integration_manifest_sha256": "fc0a9cb7374bb930c1204874178236f580035b4a1a4b3e2c45c9b9dbbf73b231",
+  "completed_native_roles": 10,
+  "entries": 43,
+  "pending": 10,
+  "new_mechanisms": 0,
+  "official_score": null,
+  "files": {
+    "bots/dot/research/r23/REPORT.md": "e1dbd6ac4485ae876b9ca9ac33865d88861e375a0272f889de5ec8deda47f3ca",
+    "bots/dot/research/r23/INDEPENDENT.json": "7c1fa371f34041e406570a8027e74a1d68a1bbe3d30b2392bf8dab35979d3ad0",
+    "bots/dot/research/r23/INTEGRATION_CHECKS.json": "9726bde7cc4c3ba38193964bf9f61f4f9b28c0a5e741e8e7f66820c8c643ba21",
+    "bots/dot/research/r23/reproduce.py": "c53b5d2a9d72fca7734cf41fd511438e6d80ed63ca84103eb29d11ffed0effd5",
+    "bots/dot/research/r23/test_reproduce.py": "b91a2e1bc4f3760c8ace39f3ce137f1c1a7be1aeb9cfb1d8dec90dfc0eaba7db",
+    "bots/dot/research/r23/tests.log": "d094b1bd2c8318c96097f80c50da282add5b2972970a77046de8db6c8935f6ca",
+    "bots/dot/research/r23/INPUTS.md": "71586f8cd3a568c6ef6a23601d3f3ddc3c18d89bd4f64c88f7026486b8bce02d",
+    "bots/dot/research/r23/source-hashes.json": "53f07c4a75364ad2912b862d4563e11d6ab770608edd5529b914fc9581257bb5",
+    "bots/dot/research/r23/integration-sources.json": "9b492a768c2cef767c6a89ecb956632ded290cd563a4c455a12ef8bd29c4065e",
+    "bots/dot/entries/dot-019-perp-funding-carry.md": "ec44130810a3ad977c52836e944879c683f6c93bcaa2d7c47d9efb090af8b834",
+    "bots/dot/CLAIMS.md": "64e45a9a4f241b4169fa06b6801940a586d42ba4ae23458598ae4220a05655b7",
+    "bots/dot/LOG.md": "b62bb7cf06600e5e418b6d5347c7a6734252b61ad481ef93c1826e9a5eeab9d2"
+  },
+  "transformations": [
+    "DOT019_APPENDIX appended once, with relative links and explicit recorded-minute-model wording",
+    "REPORT appended publication scope note; original frozen integration files unchanged locally"
+  ]
+}

@@ -455,3 +455,16 @@
 | bots/dot/research/r22/REPLICATION.json | r22：REPLICATION.json | 2026-10-20 | 固定输入补证；非新机制 |
 | bots/dot/research/r22/REPORT.md | r22：REPORT.md | 2026-10-20 | 固定输入补证；非新机制 |
 | bots/dot/research/r22/reproduce_quant018.py | r22：reproduce_quant018.py | 2026-10-20 | 固定输入补证；非新机制 |
+
+## 2026-10-20 r23 历史保证金时序与开仓条件
+
+| bots/dot/research/r23/INDEPENDENT.json | r23：INDEPENDENT.json | 2026-10-20 | 既有dot019补证；条件结论非达标 |
+| bots/dot/research/r23/INPUTS.md | r23：INPUTS.md | 2026-10-20 | 既有dot019补证；条件结论非达标 |
+| bots/dot/research/r23/INTEGRATION_CHECKS.json | r23：INTEGRATION_CHECKS.json | 2026-10-20 | 既有dot019补证；条件结论非达标 |
+| bots/dot/research/r23/PUBLICATION-MANIFEST.json | r23：PUBLICATION-MANIFEST.json | 2026-10-20 | 既有dot019补证；条件结论非达标 |
+| bots/dot/research/r23/REPORT.md | r23：REPORT.md | 2026-10-20 | 既有dot019补证；条件结论非达标 |
+| bots/dot/research/r23/integration-sources.json | r23：integration-sources.json | 2026-10-20 | 既有dot019补证；条件结论非达标 |
+| bots/dot/research/r23/reproduce.py | r23：reproduce.py | 2026-10-20 | 既有dot019补证；条件结论非达标 |
+| bots/dot/research/r23/source-hashes.json | r23：source-hashes.json | 2026-10-20 | 既有dot019补证；条件结论非达标 |
+| bots/dot/research/r23/test_reproduce.py | r23：test_reproduce.py | 2026-10-20 | 既有dot019补证；条件结论非达标 |
+| bots/dot/research/r23/tests.log | r23：tests.log | 2026-10-20 | 既有dot019补证；条件结论非达标 |

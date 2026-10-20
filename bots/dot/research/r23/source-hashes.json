@@ -1,0 +1,23 @@
+{
+  "workers/data-probe/data/history/spot_daily.csv": "a008fbd0514f4d01bd477fc008de9fb24b8dfae5e83ebda2ced8bbf2e89bcf0a",
+  "continuation-20261020/workers/r23-proposal/05-minute-data/output/raw-mark1m-tool.json": "cc4d55c5ae951e7a64395f38399235dd4c8aad1d76ee604477a2b8aeb4f67373",
+  "continuation-20261020/workers/r20-proposal/05-ledger/output/ledger-results.json": "0670cd26484b8d9dec1cbdc714097db908f71a700c169efa1a0980c25431169d",
+  "continuation-20261020/workers/r20-proposal/04-prices/raw/BTCUSDT-mark.json": "04c746e33c405345ea13b43a3b83491b528dd2425cbfe978a23d0587d94f1b90",
+  "continuation-20261020/workers/r20-proposal/04-prices/raw/BTCUSDT-perp.json": "5ac296a6389a161f22b59cae02c5219624a01ec6b5c2c2c7245914c8bb0f96b0",
+  "continuation-20261020/workers/r20-proposal/01-funding/raw/BTCUSDT-page01.json": "0ce89236d55cb0870dd4ded1978b47d7e82a976f1d7114809977c2e88f24c5b9",
+  "continuation-20261020/workers/r20-proposal/01-funding/raw/BTCUSDT-page02.json": "f9e3315f4a8c12d44f6aa59a67125ede20dbb66bbe5d33590c9bad68c28fb703",
+  "continuation-20261020/workers/r20-proposal/01-funding/raw/BTCUSDT-page03.json": "6b2cc47626238132695a69fb3f4ac0755124e11ff4e02f6175a9c74d06a7fc36",
+  "continuation-20261020/workers/r20-proposal/01-funding/raw/BTCUSDT-page04.json": "dff72684479c01468452996246814dffe6502d2a735d3786c9570cf8927814e5",
+  "continuation-20261020/workers/r20-proposal/04-prices/raw/ETHUSDT-mark.json": "8e672691481b907f40fde172899187ad0121fad43b61ca957ddea9af927ae56e",
+  "continuation-20261020/workers/r20-proposal/04-prices/raw/ETHUSDT-perp.json": "c559b9f8064659ae59cc86ed151acfcb9c8315bcb77d608a64e1e96965d7964a",
+  "continuation-20261020/workers/r20-proposal/01-funding/raw/ETHUSDT-page01.json": "efe100fc07641fe5583383b72973df25a8c8558aed228ba8399e9cb429423820",
+  "continuation-20261020/workers/r20-proposal/01-funding/raw/ETHUSDT-page02.json": "54e711d80367ce2c3084f7fc6590c62abf2ca121c8ea97a84e32e3443e625477",
+  "continuation-20261020/workers/r20-proposal/01-funding/raw/ETHUSDT-page03.json": "2136d480b19325a7209aef286183e5816b09142aa94f8952e1e7fd36aa31f3c2",
+  "continuation-20261020/workers/r20-proposal/01-funding/raw/ETHUSDT-page04.json": "516690201fefaa5f5415deddcbed32319818f181bdb26531f05c9c9172f38cd3",
+  "continuation-20261020/workers/r20-proposal/04-prices/raw/SOLUSDT-mark.json": "4711ddfebade19492f8b9571a6c61ec712b584ae7c74f511dc9ca74434abf27f",
+  "continuation-20261020/workers/r20-proposal/04-prices/raw/SOLUSDT-perp.json": "ff390bc334a4f99e32099c6d8fbf6b680186f7e65f5b4b5825b639939f6a7e09",
+  "continuation-20261020/workers/r20-proposal/01-funding/raw/SOLUSDT-page01.json": "52c66cf279977f211a6cf64c589de1ad969071f6d86485673eaf4fa50578cf1d",
+  "continuation-20261020/workers/r20-proposal/01-funding/raw/SOLUSDT-page02.json": "0a24214cb3b054a0280f65afc386cc5ef9bd7d5a9938c20aab0b3c44e450fee3",
+  "continuation-20261020/workers/r20-proposal/01-funding/raw/SOLUSDT-page03.json": "87a8eac146c71bbfa3a1641c76337fb9ebeb4ff35c4843dfcf6fe2735448a510",
+  "continuation-20261020/workers/r20-proposal/01-funding/raw/SOLUSDT-page04.json": "16aa2ae382117eec19c3f1f2929f5528fe136fb500880bc15a2640efae4f17ee"
+}
