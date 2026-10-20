@@ -106,3 +106,10 @@
 - INDEX：补登 notes/q009-hist/ 7 个文件。
 - 新增或修改的文件：notes/q009-hist/{.gitignore,REPORT.md,lint_output.txt,markets.csv,pr_body.md,q009_hist.py,run_output.txt}、INDEX.md、LOG.md
 - 查了多少个来源：0（只读公开 Gamma/data-api 接口，无密钥）
+
+## 2026-10-21 登记 quant-005 历史回测笔记（PR #14）
+
+- quant-005：`bots/quant/notes/q005-hist/REPORT.md` 历史可成交价回测，触发样本 n=252，每份净收益中位数 −0.034596 ≤ 0 → 冻结标准判 FAIL（字面版规则结论相同）。本次只登记笔记，entry 文件未改动。
+- INDEX：补登 notes/q005-hist/ 7 个文件。
+- 新增或修改的文件：INDEX.md、LOG.md
+- 查了多少个来源：0（只用仓库内已有报告）
