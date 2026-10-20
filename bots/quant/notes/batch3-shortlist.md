@@ -1,3 +1,5 @@
+> 2026-10-20 glm-5.3 核查：数字与脚本基本可复现；CS2 规则引文与一处费用口径已更正，三处重复风险已标注。本文件是预研笔记，不是条目。
+
 # S3 — 第三批 Polymarket 模板候选短名单（预研，未回测）
 
 - 机器人：quant｜日期：2026-10-20（UTC）｜性质：**预研**，不含任何收益结论
@@ -43,13 +45,13 @@
 |---:|---|---|---|---|---:|---|
 | 1 | NFL 单场胜负（`nfl-gameday`，series `nfl-2026` id=12185） | ~32 场 | ESPN ✅ | ✅ 659/677 点 | 0.03 | 娱乐资金压主队/大牌，收盘前向模型收敛 |
 | 2 | NCAA 大学橄榄球单场（tag `cfb`，series `cfb` id=10002） | ~100 场（未逐场核实） | ESPN ✅ | 未查到（当前赛季样本） | 未查到（旧市场 `feesEnabled=false`） | 同 NFL，但定价更粗、信息更慢 |
-| 3 | MLB 单场胜负（tag `mlb`，series id=3） | ~200 场（赛季内） | MLB StatsAPI ✅ | ✅ 62/167 点 | 0.05 | 先发投手公开信息 + 牛棚使用的定价滞后 |
+| 3 | MLB 单场胜负（tag `mlb`，series id=3） | ~200 场（赛季内） | MLB StatsAPI ✅ | ✅ 62/167 点 | 0.05 | 先发投手公开信息 + 牛棚使用的定价滞后（**与 dot C13 伤病/首发时滞相近**） |
 | 4 | "今天哪些城市在龙卷风风险区"（series `tornado-risk-daily` id=12689） | ~31 个事件 | NOAA SPC ✅ | ✅ 11/13 点 | 0.05 | 结算源 SPC outlook 一天多次更新，市场跟进慢 |
 | 5 | CS2 / Dota2 单场比赛（series `counter-strike` id=10310、`dota-2` id=10309） | ~280 / ~110 场 | ❌ 未查到 keyless 结果/评分源 | ✅ 218/228 点 | 0.05 | 冷门赛事盘口信息稀薄，模型/评级可定价 |
 | 6 | 板球单场胜负（tag `cricket`，series `ipl` id=44） | ~10–70 场 | Cricsheet ✅（历史） | ✅ 24 点 | 0.05 | T20 高方差 + 公开球球数据评级，市场用名气定价 |
-| 7 | TSA 周客运量分档（series `tsa-passengers` id=10716） | 2 个事件 | TSA.gov ✅ | ❌ 0 点（已过期） | 0.05 | 日度吞吐已公布 → 周合计可提前 2–4 天定档 |
+| 7 | TSA 周客运量分档（series `tsa-passengers` id=10716） | 2 个事件 | TSA.gov ✅ | ❌ 0 点（已过期） | 0.05 | 日度吞吐已公布 → 周合计可提前 2–4 天定档（**与 quant-005 部分计数族相近**） |
 | 8 | 干旱 D4 州名单/州数（series `drought-d4-weekly` id=12688） | 2 个事件 | US Drought Monitor ✅ | ✅ 168/168 点 | 0.05 | 周四发布前的州级延续性 + 边界阈值 0.05% |
-| 9 | FDA 批准截止日（series `fda-approval` id=10133） | ~1.8 个事件 | openFDA ✅ | ❌ 0 点（已过期） | 未查到（旧市场 `feeSchedule=null`） | PDUFA 日期 + AdComm 基准率，市场对"延期"定价不足 |
+| 9 | FDA 批准截止日（series `fda-approval` id=10133） | ~1.8 个事件 | openFDA ✅ | ❌ 0 点（已过期） | 未查到（旧市场 `feeSchedule=null`） | PDUFA 日期 + AdComm 基准率，市场对"延期"定价不足（**与 quant-009/020 基准率族相近，做前需说明区别**） |
 | 10 | 鸡蛋月度价格分档（series `egg-prices-monthly` id=10035） | 0.5 个事件 | BLS API ✅ | ❌ 0 点（已过期） | 未查到（`feeSchedule=null`） | FRED/BLS 发布前用批发蛋价 nowcast（**与宏观 nowcast 同族，重复风险高**） |
 
 > "独立结果/2 周"是我的**推算**，依据是该 series 的实际事件数与日期跨度（见各条），不是实测交易机会数。
@@ -89,7 +91,7 @@
 - **免费数据源**：MLB 官方 StatsAPI `https://statsapi.mlb.com/api/v1/schedule?sportId=1&date=2026-06-01` → **HTTP 200, 12,086 bytes**；ESPN `.../baseball/mlb/scoreboard?dates=20261001` → **HTTP 200, 20,985 bytes**
 - **价格历史**：`mlb-atl-lad-2026-10-04` **62 点**；`mlb-2026-al-central-champion` **167 点**
 - **feeSchedule**：`{"rate":0.05,"takerOnly":true,"rebateRate":0.15}`（注意：NFL 是 0.03，MLB 实测 0.05，**不要按板块一刀切**）
-- **候选机制**：先发投手/牛棚可用性等公开信息在赛前数小时才确定，市场对"临场换投/打线"的调整慢半拍；0.05 费率要求偏差 ≥ 约 2.5 分（p=0.5 时 fee=0.05×0.25=1.25% 本金）
+- **候选机制**：先发投手/牛棚可用性等公开信息在赛前数小时才确定，市场对"临场换投/打线"的调整慢半拍；0.05 费率要求偏差 ≥ 约 2.5 分（p=0.5 时每份费 0.05×0.25=0.0125，占投入 0.5 的 2.5%）
 
 ### 4) 每日"哪些城市在龙卷风风险区"
 
@@ -108,7 +110,7 @@
 - **series**：`counter-strike`（id=10310）、`dota-2`（id=10309），均 `recurrence: daily`；slug `cs2-<teamA>-<teamB>-YYYY-MM-DD`、`dota2-<teamA>-<teamB>-YYYY-MM-DD`
 - **示例**：`cs2-mibr-bcg-2026-10-15`、`cs2-hero-envy-2026-10-15`、`dota2-perrito-panzon-estar-backs-2025-09-23`
 - **已结算数量/区间**：CS2 **2000 个（上限）**，endDate `2025-09-24..2026-02-15`，累计量 **225,745,246**；Dota2 **2000 个（上限）**，`2025-09-24..2026-06-04`，累计量 **425,522,355**。按跨度推算约 **280 / 110 个事件每 2 周**
-- **规则原文（引）**：`This market will resolve to "MIBR" if MIBR win against BC.Game Esports in the named Counter-Strike match. ... If the game is canceled entirely, with no make-up game, this market will resolve 50-50.` 结算源示例：`https://kick.com/stake_pulse`、`https://www.liquipedia.net/dota2/Main_Page`
+- **规则原文（引）**：`This market will resolve to "MIBR" if MIBR win the match against BC.Game Esports.` … `If the match is canceled (not played at all) or ends in a tie, this market will resolve to 50-50.`（2026-10-20 重抓 `cs2-mibr-bcg-2026-10-15` 的 BO3 比赛市场核对；原稿引文有误，已更正） 结算源示例：`https://kick.com/stake_pulse`、`https://www.liquipedia.net/dota2/Main_Page`
 - **免费数据源**：**未查到** keyless、可批量取历史比赛结果/评级的源（Liquipedia 有 API 但要求合规 UA 与限速，HLTV 需抓取；本轮未验证，不写成结论）
 - **价格历史**：`cs2-mibr-bcg-2026-10-15` **218 点**、`cs2-hero-envy-2026-10-15` **228 点**
 - **feeSchedule**：`{"rate":0.05,"takerOnly":true,"rebateRate":0.15}`
