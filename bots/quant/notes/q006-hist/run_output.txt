@@ -1,0 +1,174 @@
+== quant-006 historical executable-price backtest ==
+access date: 2026-10-20 (UTC); all sources free and keyless
+Sackmann archive mirror: https://github.com/Aneeshers/tennis-sackmann-archive
+source probes:
+  canonical repo API: HTTP 404 bytes=121 (first 2KB)
+  canonical raw 2026: HTTP 404 bytes=14 (first 2KB)
+  mirror raw ATP 2026: HTTP 200 bytes=2048 (first 2KB)
+  mirror raw WTA 2026: HTTP 200 bytes=2048 (first 2KB)
+
+[1] fetching closed tennis events from Gamma
+  gamma 2025-12-25..2026-01-09 offset=    0 got= 19 total=19
+  gamma 2026-01-09..2026-01-24 offset=    0 got=100 total=119
+  gamma 2026-01-09..2026-01-24 offset=  100 got=100 total=219
+  gamma 2026-01-09..2026-01-24 offset=  200 got=100 total=319
+  gamma 2026-01-09..2026-01-24 offset=  300 got= 79 total=398
+  gamma 2026-01-24..2026-02-08 offset=    0 got=100 total=498
+  gamma 2026-01-24..2026-02-08 offset=  100 got=100 total=598
+  gamma 2026-01-24..2026-02-08 offset=  200 got=100 total=698
+  gamma 2026-01-24..2026-02-08 offset=  300 got=100 total=798
+  gamma 2026-01-24..2026-02-08 offset=  400 got=100 total=898
+  gamma 2026-01-24..2026-02-08 offset=  500 got= 39 total=937
+  gamma 2026-02-08..2026-02-23 offset=    0 got=100 total=1037
+  gamma 2026-02-08..2026-02-23 offset=  100 got=100 total=1137
+  gamma 2026-02-08..2026-02-23 offset=  200 got=100 total=1237
+  gamma 2026-02-08..2026-02-23 offset=  300 got=100 total=1337
+  gamma 2026-02-08..2026-02-23 offset=  400 got=100 total=1437
+  gamma 2026-02-08..2026-02-23 offset=  500 got= 55 total=1492
+  gamma 2026-02-23..2026-03-10 offset=    0 got=100 total=1592
+  gamma 2026-02-23..2026-03-10 offset=  100 got=100 total=1692
+  gamma 2026-02-23..2026-03-10 offset=  200 got=100 total=1792
+  gamma 2026-02-23..2026-03-10 offset=  300 got=100 total=1892
+  gamma 2026-02-23..2026-03-10 offset=  400 got=100 total=1992
+  gamma 2026-02-23..2026-03-10 offset=  500 got=100 total=2092
+  gamma 2026-02-23..2026-03-10 offset=  600 got=100 total=2192
+  gamma 2026-02-23..2026-03-10 offset=  700 got=100 total=2292
+  gamma 2026-02-23..2026-03-10 offset=  800 got= 36 total=2328
+  gamma 2026-03-10..2026-03-25 offset=    0 got=100 total=2428
+  gamma 2026-03-10..2026-03-25 offset=  100 got=100 total=2528
+  gamma 2026-03-10..2026-03-25 offset=  200 got=100 total=2628
+  gamma 2026-03-10..2026-03-25 offset=  300 got=100 total=2728
+  gamma 2026-03-10..2026-03-25 offset=  400 got=100 total=2828
+  gamma 2026-03-10..2026-03-25 offset=  500 got=100 total=2928
+  gamma 2026-03-10..2026-03-25 offset=  600 got=100 total=3028
+  gamma 2026-03-10..2026-03-25 offset=  700 got= 14 total=3042
+  gamma 2026-03-25..2026-04-09 offset=    0 got=100 total=3142
+  gamma 2026-03-25..2026-04-09 offset=  100 got=100 total=3242
+  gamma 2026-03-25..2026-04-09 offset=  200 got=100 total=3342
+  gamma 2026-03-25..2026-04-09 offset=  300 got=100 total=3442
+  gamma 2026-03-25..2026-04-09 offset=  400 got=100 total=3542
+  gamma 2026-03-25..2026-04-09 offset=  500 got=100 total=3642
+  gamma 2026-03-25..2026-04-09 offset=  600 got=100 total=3742
+  gamma 2026-03-25..2026-04-09 offset=  700 got= 56 total=3798
+  gamma 2026-04-09..2026-04-24 offset=    0 got=100 total=3898
+  gamma 2026-04-09..2026-04-24 offset=  100 got=100 total=3998
+  gamma 2026-04-09..2026-04-24 offset=  200 got=100 total=4098
+  gamma 2026-04-09..2026-04-24 offset=  300 got=100 total=4198
+  gamma 2026-04-09..2026-04-24 offset=  400 got=100 total=4298
+  gamma 2026-04-09..2026-04-24 offset=  500 got=100 total=4398
+  gamma 2026-04-09..2026-04-24 offset=  600 got=100 total=4498
+  gamma 2026-04-09..2026-04-24 offset=  700 got= 71 total=4569
+  gamma 2026-04-24..2026-05-09 offset=    0 got=100 total=4669
+  gamma 2026-04-24..2026-05-09 offset=  100 got=100 total=4769
+  gamma 2026-04-24..2026-05-09 offset=  200 got=100 total=4869
+  gamma 2026-04-24..2026-05-09 offset=  300 got=100 total=4969
+  gamma 2026-04-24..2026-05-09 offset=  400 got=100 total=5069
+  gamma 2026-04-24..2026-05-09 offset=  500 got=100 total=5169
+  gamma 2026-04-24..2026-05-09 offset=  600 got=100 total=5269
+  gamma 2026-04-24..2026-05-09 offset=  700 got= 95 total=5364
+  gamma 2026-05-09..2026-05-24 offset=    0 got=100 total=5464
+  gamma 2026-05-09..2026-05-24 offset=  100 got=100 total=5564
+  gamma 2026-05-09..2026-05-24 offset=  200 got=100 total=5664
+  gamma 2026-05-09..2026-05-24 offset=  300 got=100 total=5764
+  gamma 2026-05-09..2026-05-24 offset=  400 got=100 total=5864
+  gamma 2026-05-09..2026-05-24 offset=  500 got=100 total=5964
+  gamma 2026-05-09..2026-05-24 offset=  600 got=100 total=6064
+  gamma 2026-05-09..2026-05-24 offset=  700 got=100 total=6164
+  gamma 2026-05-09..2026-05-24 offset=  800 got=100 total=6264
+  gamma 2026-05-09..2026-05-24 offset=  900 got=100 total=6364
+  gamma 2026-05-09..2026-05-24 offset= 1000 got= 17 total=6381
+  gamma 2026-05-24..2026-05-27 offset=    0 got=100 total=6481
+  gamma 2026-05-24..2026-05-27 offset=  100 got=100 total=6581
+  gamma 2026-05-24..2026-05-27 offset=  200 got=100 total=6681
+  gamma 2026-05-24..2026-05-27 offset=  300 got=100 total=6781
+  gamma 2026-05-24..2026-05-27 offset=  400 got= 33 total=6814
+  raw events: 6797
+  ATP/WTA closed singles winner events with clear resolution in 2026-01-01..2026-05-25: 6294
+  by tour: {'wta': 2286, 'atp': 4008}
+  start field used: {'market.gameStartTime': 6294}
+
+[2] loading Sackmann match CSVs (2010-2026)
+  atp: 46964 matches, 2010-01-03 .. 2026-05-25
+  wta: 43924 matches, 2010-01-04 .. 2026-05-25
+  last 2026 tourney_date by tour: ATP=2026-05-25 WTA=2026-05-25
+
+[3] matching events to Sackmann by surname + tournament-week window
+  matched: 2181 / 6294 = 34.7%
+  by tour (matched/sampled): {'atp': (4008, 1109), 'wta': (2286, 1072)}
+  qualifiers in sample: 932; matched qualifiers: 8
+  non-qualifier match rate: 2173/5362 = 40.5%
+  match methods: {'name': 2164, 'surname+initial': 7, 'surname+tournament': 10}
+  date lag (PM match date - Sackmann tourney_date, days): min=-1 max=13
+  events with lag <= 2 days: 1251 / 2181
+  NOTE: Sackmann only publishes tourney_date (week start), not actual match date, so the
+        literal PM-date +/-2 matching is impossible; a tournament-week window (-15/+2) is used
+        and the subset with lag<=2 is reported above.
+  duplicate Sackmann matches removed: 14; independent matches: 2167
+
+[4] point-in-time Elo replay (K=250/(n+5)^0.4, initial 1500, strict pre-tournament cutoff)
+  events with Elo: 2167 / 2167
+
+[5] fetching data-api trades and extracting pre-match executable prices
+  trades fetched: 100/2167
+  trades fetched: 200/2167
+  trades fetched: 300/2167
+  trades fetched: 400/2167
+  trades fetched: 500/2167
+  trades fetched: 600/2167
+  trades fetched: 700/2167
+  trades fetched: 800/2167
+  trades fetched: 900/2167
+  trades fetched: 1000/2167
+  trades fetched: 1100/2167
+  trades fetched: 1200/2167
+  trades fetched: 1300/2167
+  trades fetched: 1400/2167
+  trades fetched: 1500/2167
+  trades fetched: 1600/2167
+  trades fetched: 1700/2167
+  trades fetched: 1800/2167
+  trades fetched: 1900/2167
+  trades fetched: 2000/2167
+  trades fetched: 2100/2167
+  WARN trades 0x0e40c82ceb1b5d1ef770c2c7369d2374a0132ef18df7b55ed28a311cdb758d84: RuntimeError('GET failed https://data-api.polymarket.com/trades {\'market\': \'0x0e40c82ceb1b5d1ef770c2c7369d2374a0132ef18df7b55ed28a311cdb758d84\', \'limit\': 500, \'offset\': 10500}: HTTP 400: {"error":"max historical trades offset of 10000 exceeded"}')
+  markets with trade data: 2166 / 2167
+
+[6] pricing and frozen trade rule
+  rows: 2166
+  matches with both outcome prices in main window: 2080 (96.0% of matched with Elo+trades)
+  triggered: 1366 (65.7% of priced)
+
+[7] results (frozen criterion: median net P&L/share <= 0 on triggered => FAIL)
+  N triggered = 1366 (>=30)
+  main [start-6h,start-15m]: n=1366 median=-0.114895 mean=-0.031543 hit_rate=0.470 total_net=-43.0883 per_$staked=-0.063537
+  sensitivity window triggered: 1379
+  sens [start-24h,start-1h]: n=1379 median=-0.094095 mean=-0.028958 hit_rate=0.453 total_net=-39.9328 per_$staked=-0.057802
+  band ask<0.3: n=246 median=-0.197695 mean=-0.030074
+  band 0.3<=ask<=0.7: n=901 median=-0.320695 mean=-0.042290
+  band ask>0.7: n=219 median=+0.192000 mean=+0.011021
+
+[8] forecast comparison on priced, clearly-resolved matches: 2064
+  Elo  Brier=0.216187  market Brier=0.196510  diff(elo-mkt)=+0.019677
+  Elo  logloss=0.624471  market logloss=0.575334  diff(elo-mkt)=+0.049137
+  Brier paired sign test: elo worse in 1051/2064, better in 1013/2064, two-sided p=0.4154
+  logloss paired sign test: elo worse in 1051/2064, better in 1013/2064, two-sided p=0.4154
+  mean |p_model - p_market| = 0.096263
+
+[8b] robustness: date_lag_days <= 2 subset (closest to literal PM-date +/-2)
+  priced=1164 triggered=800 median=-0.182218 mean=-0.040188
+
+[9] verdict
+  median net P&L/share = -0.114895 -> FAIL (criterion: median <= 0 => FAIL)
+
+[10] data accounting
+  PM match date range: 2026-01-04 .. 2026-05-19
+  Sackmann tourney_date range (matched): 2026-01-04 .. 2026-05-18
+  matched by tour: {'wta': 1065, 'atp': 1101}
+  match method: {'name': 2149, 'surname+initial': 7, 'surname+tournament': 10}
+  priced by tour: {'wta': 1010, 'atp': 1070}
+  triggered by tour: {'wta': 661, 'atp': 705}
+  resolutions: {'0|1': 1060, '1|0': 1086, '0.5|0.5': 20}
+  triggered resolutions: {'0|1': 676, '1|0': 675, '0.5|0.5': 15}
+  median prior matches: a=170.0 b=163.0
+  triggered side distribution: {'Potapova': 7, 'Pavlyuchenkova': 5, 'Kenin': 2, 'Cristian': 8, 'Jovic': 3, 'Costoulas': 2, 'Vacherot': 8, 'Krueger': 2, 'Bucsa': 4, 'Stearns': 2, 'Lehecka': 1, 'Kraus': 3, 'Blinkova': 4, 'Opelka': 1, 'Popyrin': 1, 'Kalinskaya': 2, 'Yastremska': 3, 'Stephens': 1, 'Maria': 3, 'Boulter': 6, 'Osorio': 2, 'Barry': 1, 'Fokina': 7, 'Shapovalov': 2, 'Kartal': 2, 'Keys': 4, 'Williams': 4, 'Paul': 5, 'Cocciaretto': 5, 'Kyrgios': 1, 'Norrie': 7, 'Etcheverry': 6, 'Muller': 1, 'Sonego': 2, 'Ostapenko': 7, 'Vekic': 1, 'Jong': 4, 'Walton': 2, 'Muchova': 4, 'Dimitrov': 5, 'Comesana': 4, 'Badosa': 3, 'Tien': 3, 'Pegula': 6, 'Samsonova': 2, 'Tauson': 4, 'Zarazua': 1, 'Andreeva': 2, 'Kostyuk': 1, 'Anisimova': 7, 'Eala': 1, 'Linette': 8, 'Nakashima': 3, 'Perricard': 4, 'Seidel': 2, 'Bublik': 5, 'Noskova': 4, 'Musetti': 4, 'Majchrzak': 3, 'Mmoh': 1, 'Wang': 2, 'Medvedev': 1, 'Sabalenka': 2, 'Mannarino': 9, 'Baptiste': 6, 'Watt': 1, 'Navarro': 1, 'Li': 2, 'Sierra': 2, 'Baez': 3, 'Altmaier': 3, 'Danilovic': 2, 'Kasatkina': 5, 'Arango': 3, 'Humbert': 3, 'Kokkinakis': 1, 'Navone': 2, 'Agut': 3, 'Machac': 3, 'Fernandez': 1, 'Krejcikova': 1, 'Fearnley': 1, 'Shevchenko': 4, 'Monfils': 2, 'Galfi': 1, 'Fucsovics': 3, 'Mboko': 9, 'Bouzkova': 2, 'Shelton': 4, 'Brooksby': 4, 'Cerundolo': 9, 'Griekspoor': 4, 'Borges': 1, 'Vavassori': 1, 'Siniakova': 2, 'Ruud': 4, 'Selekhmeteva': 1, 'Mensik': 7, 'Joint': 4, 'Darderi': 3, 'Munar': 2, 'Raducanu': 5, 'Arnaldi': 1, 'Atmane': 3, 'Bonzi': 1, 'Carabelli': 2, 'Cobolli': 7, 'Fonseca': 3, 'Tabilo': 5, 'Hanfmann': 6, 'Busta': 4, 'Collignon': 1, 'Moutet': 4, 'Korda': 2, 'Diallo': 1, 'Birrell': 3, 'Jacquemot': 2, 'Jones': 1, 'Maristany': 1, 'Pliskova': 5, 'Maia': 3, 'Paolini': 5, 'Sawangkaew': 1, 'Blockx': 1, 'McDonald': 2, 'Tsitsipas': 1, 'Thompson': 1, 'Wawrinka': 3, 'Hurkacz': 2, 'Khachanov': 2, 'Marozsan': 1, 'Cilic': 2, 'Wu': 2, 'Zandschulp': 2, 'Siegemund': 3, 'Tiafoe': 3, 'Mertens': 3, 'Osaka': 1, 'Svitolina': 2, 'Zverev': 2, 'Djokovic': 3, 'Swiatek': 1, 'Avanesyan': 2, 'Tormo': 2, 'Martincova': 2, 'Udvardy': 1, 'Sherif': 1, 'Lamens': 1, 'Bertea': 1, 'Parry': 4, 'Grabher': 1, 'Siskova': 1, 'Bogdan': 1, 'Fruhvirtova': 1, 'Cirstea': 2, 'Bondar': 1, 'Bronzetti': 1, 'Sramkova': 1, 'Choinski': 1, 'Masarova': 4, 'Rakotomanga': 1, 'Fils': 6, 'Basilashvili': 1, 'Sasnovich': 1, 'Kessler': 1, 'Auger-Aliassime': 5, 'Yuan': 2, 'Korpatsch': 1, 'Alexandrova': 1, 'Frech': 4, 'Shnaider': 1, 'Zheng': 3, 'Sakkari': 1, 'Dzumhur': 2, 'Martinez': 3, 'Struff': 1, 'Rybakina': 1, 'Wild': 1, 'Djere': 1, 'Kecmanovic': 1, 'Buse': 5, 'Bergs': 2, 'Fritz': 5, 'Rinderknech': 2, 'Nava': 2, 'Quinn': 2, 'Berrettini': 5, 'Spizzirri': 1, 'Minaur': 2, 'Bejlek': 1, 'Zayid': 1, 'Zakharova': 2, 'Herbert': 1, 'Ruzic': 2, 'Kopriva': 3, 'Giron': 1, 'Bencic': 1, 'Gauff': 4, 'Echargui': 2, 'Kovacevic': 1, 'Miguel': 1, 'Alcaraz': 1, 'Hassan': 1, 'Parks': 1, 'Draper': 1, 'Pellegrino': 1, 'Bartunkova': 1, 'Putintseva': 1, 'Jarry': 1, 'Mandlik': 1, 'Ymer': 1, 'Soto': 1, 'Andreescu': 1, 'Tjen': 1, 'Watson': 1, 'Passaro': 1, 'Brace': 1, 'Pacheco': 1, 'Gaubas': 1, 'Townsend': 1, 'Arthur Rinderknech': 8, 'Garin': 1, 'Flavio Cobolli': 6, 'Miomir Kecmanovic': 1, 'Frances Tiafoe': 7, 'Valentin Vacherot': 9, 'Felix Auger-Aliassime': 10, 'Tallon Griekspoor': 4, 'Kimberly Birrell': 4, 'Rebeka Masarova': 3, 'Andrea Pellegrino': 1, 'Cristina Bucsa': 5, 'Alejandro Tabilo': 4, 'Jasmine Paolini': 10, 'Daniil Medvedev': 9, 'Yannick Hanfmann': 6, 'Taylor Townsend': 5, 'Sebastian Baez': 4, 'Magdalena Frech': 4, 'Martin Damm': 5, 'Adam Walton': 3, 'Daniel Altmaier': 5, 'Anastasia Potapova': 7, 'Reilly Opelka': 3, 'Ajla Tomljanovic': 3, 'Ann Li': 3, 'McCartney Kessler': 6, 'Gabriel Diallo': 3, 'Beatriz Haddad Maia': 4, 'Ella Seidel': 2, 'Victoria Jimenez Kasintseva': 2, 'Tristan Schoolkate': 1, 'Jenson Brooksby': 4, 'Anna Blinkova': 3, 'Gael Monfils': 3, 'Marin Cilic': 4, 'Bianca Andreescu': 2, 'Sloane Stephens': 4, 'Dayana Yastremska': 3, 'Alexander Shevchenko': 8, 'Magda Linette': 5, 'Laura Siegemund': 3, 'Tereza Valentova': 2, 'Hubert Hurkacz': 5, 'Francesca Jones': 2, 'Venus Williams': 3, 'Elsa Jacquemot': 3, 'Benjamin Bonzi': 3, 'Roberto Bautista Agut': 8, 'Alex Michelsen': 7, 'Juan Manuel Cerundolo': 2, 'Sofia Kenin': 3, 'Rebecca Sramkova': 1, 'Jennifer Brady': 2, 'Emiliana Arango': 5, 'Matteo Arnaldi': 2, 'Vit Kopriva': 5, 'Solana Sierra': 4, 'Matteo Berrettini': 3, 'Ekaterina Alexandrova': 2, 'Linda Noskova': 8, 'Yulia Putintseva': 1, 'Emma Raducanu': 2, 'Anna Kalinskaya': 7, 'Ben Shelton': 10, 'Xinyu Wang': 3, 'Arthur Fils': 9, 'Maya Joint': 3, 'Tomas Etcheverry': 7, 'Iva Jovic': 1, 'Naomi Osaka': 6, 'Alejandro Davidovich Fokina': 5, 'Zizou Bergs': 5, 'Corentin Moutet': 6, 'Maria Sakkari': 1, 'Jelena Ostapenko': 3, 'Karen Khachanov': 6, 'Liudmila Samsonova': 4, 'Novak Djokovic': 4, 'Alex de Minaur': 8, 'Luciano Darderi': 3, 'Leylah Fernandez': 7, 'Cameron Norrie': 9, 'Taylor Fritz': 3, 'Ugo Humbert': 6, 'Clara Tauson': 2, 'Amanda Anisimova': 2, 'Victoria Mboko': 7, 'Alexander Bublik': 3, 'Jack Draper': 4, 'Belinda Bencic': 7, 'Elina Svitolina': 7, 'Madison Keys': 6, 'Alexander Zverev': 9, 'Karolina Muchova': 8, 'Elena Rybakina': 4, 'Jessica Pegula': 10, 'Jannik Sinner': 4, 'Dalma Galfi': 1, 'Simona Waltert': 2, 'Katerina Siniakova': 3, 'Moise Kouame': 1, 'Sara Bejlek': 2, 'Sinja Kraus': 1, 'Elisabetta Cocciaretto': 4, 'Adrian Mannarino': 7, 'Eva Lys': 4, 'Anna Bondar': 2, 'Jan-Lennard Struff': 4, 'Marcos Giron': 2, 'Camilo Ugo Carabelli': 3, 'Viktorija Golubic': 4, 'Alexandre Muller': 3, 'Lilli Tagger': 2, 'Stefanos Tsitsipas': 3, 'Grigor Dimitrov': 3, 'Tomas Machac': 6, 'Kamil Majchrzak': 5, 'Liam Draxl': 1, 'Antonia Ruzic': 5, 'Thiago Agustin Tirante': 5, 'Aleksandar Kovacevic': 2, 'Casper Ruud': 1, 'Katie Boulter': 4, 'Elise Mertens': 1, 'Arthur Cazaux': 2, 'Marta Kostyuk': 2, 'Carlos Alcaraz': 1, 'Jiri Lehecka': 8, 'Jaqueline Cristian': 6, 'Aleksandar Vukic': 2, 'Paula Badosa': 2, 'Marie Bouzkova': 7, 'Jakub Mensik': 3, 'Coco Gauff': 8, 'Qinwen Zheng': 3, 'Aryna Sabalenka': 4, 'Francisco Cerundolo': 3, 'Sebastian Korda': 1, 'Taha Baadi': 2, 'Karim Bennani': 2, 'Lulu Sun': 1, 'Selena Janicijevic': 1, 'Julieta Pareja': 2, 'Despina Papamichail': 2, 'Valentina Mediorreal': 1, 'Zachary Svajda': 3, 'Jack Pinnington Jones': 1, 'Alex Bolt': 2, 'Maria Torres': 1, 'Alycia Parks': 4, 'Radu David Turcanu': 1, 'Reda Bennani': 1, 'Botic van de Zandschulp': 5, 'Henrique Rocha': 1, 'Filip Jianu': 1, 'Timofey Skatov': 1, 'Yue Yuan': 2, 'Shuai Zhang': 4, 'Lia Karatancheva': 1, 'Vilius Gaubas': 1, 'Ashlyn Krueger': 2, 'Caroline Dolehide': 1, 'Robin Montgomery': 1, 'Nishesh Basavareddy': 1, 'Sarah Rakotomanga': 2, 'Oleksandra Oliynykova': 3, 'Irene Burillo Escorihuela': 1, 'Maria Lourdes Carle': 1, 'Sofia Costoulas': 1, 'Coleman Wong': 1, 'Rinky Hijikata': 2, 'Diana Shnaider': 1, 'Alexei Popyrin': 2, 'Mattia Bellucci': 2, 'Alex Molcan': 3, 'Tatjana Maria': 3, 'Mackenzie McDonald': 1, 'Tommy Paul': 5, 'Jazmin Ortenzi': 1, 'Brandon Nakashima': 4, 'Learner Tien': 6, 'Varvara Lepchenko': 1, 'Titouan Droguet': 2, 'Fabian Marozsan': 2, 'Julia Riera': 1, 'Marton Fucsovics': 3, 'Nuno Borges': 3, 'Stan Wawrinka': 2, 'Denis Shapovalov': 4, 'Terence Atmane': 3, 'Sorana Cirstea': 7, 'Donna Vekic': 2, 'Alexandra Eala': 7, 'Karolina Pliskova': 10, 'Panna Udvardy': 2, 'Daria Kasatkina': 1, 'Kamilla Rakhimova': 3, 'Marco Trungelliti': 1, 'Jaume Munar': 3, 'Lorenzo Sonego': 5, 'Zhizhen Zhang': 2, 'Linda Fruhvirtova': 1, 'Diane Parry': 1, 'Lorenzo Musetti': 3, 'Caty McNally': 1, 'Andrey Rublev': 3, 'Tamara Korpatsch': 1, 'Harmony Tan': 1, 'Hailey Baptiste': 3, 'Laura Samson': 3, 'Irina-Camelia Begu': 1, 'Anastasia Zakharova': 2, 'Lois Boisson': 3, 'Yulia Starodubtseva': 2, 'Talia Gibson': 3, 'Nikoloz Basilashvili': 1, 'Janice Tjen': 3, 'Oksana Selekhmeteva': 1, 'Katie Volynets': 1, 'Daria Snigur': 1, 'Joao Fonseca': 3, 'Mirra Andreeva': 4, 'Zeynep Sonmez': 1, 'Daniel Merida Aguilar': 2, 'Barbora Krejcikova': 1, 'Jennifer Ruggeri': 1, 'Lucrezia Stefanini': 1, 'Lisa Pigato': 1, 'Pablo Carreno Busta': 1, 'Giovanni Mpetshi Perricard': 1, 'Alexander Blockx': 2, 'Ethan Quinn': 1, 'Luca Nardi': 1, 'Rafael Jodar': 3, 'Emma Navarro': 1, 'Hamad Medjedovic': 1, 'Jil Teichmann': 1, 'Hanne Vandewinkel': 1, 'Valentin Royer': 1, 'Vera Zvonareva': 1, 'Danka Kovinic': 1, 'Polona Hercog': 1, 'Yelyzaveta Kotliar': 1, 'Yasmine Kabbaj': 1, 'Tereza Martincova': 1, 'Diae El Jardi': 1}
+  triggered entry ask: min=0.0110 median=0.5000 max=0.9400
