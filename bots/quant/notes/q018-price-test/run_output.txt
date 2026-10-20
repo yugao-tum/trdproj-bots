@@ -1,0 +1,79 @@
+quant-018 price-side historical test | as_of=2026-10-20
+fee_rate=0.00 (GUIDE 8 geopolitics) | half_spread=0.01 | safety=0.01
+closed weekly events: 43
+by strait: Bab el-Mandeb Strait=12, Strait of Hormuz=31
+exactly one resolved bucket: 43/43
+PortWatch: rows=5682, coverage=2019-01-01..2026-10-11, complete Mon-Sun weeks: Bab el-Mandeb Strait=405, Strait of Hormuz=405
+recompute vs Gamma settlement: MATCH=34, MISMATCH=9, NO_DATA=0
+
+per-event (week_start | strait | buckets | resolved | pw | Brier model/first/start | trades)
+2026-03-10 | Strait of Hormuz    | 9b | 35-39  | 17.0 MISMATCH | 1.2154 / 0.9032 / 0.8621 | 8
+2026-03-17 | Strait of Hormuz    | 9b | 15-19  | 10.0 MISMATCH | 0.9841 / 0.9550 / NA | 8
+2026-03-23 | Strait of Hormuz    | 9b | 20-24  | 25.0 MISMATCH | 1.1746 / 0.8586 / NA | 8
+2026-03-30 | Strait of Hormuz    | 9b | 45+    | 37.0 MISMATCH | 0.3764 / 0.6930 / NA | 7
+2026-04-06 | Strait of Hormuz    | 6b | 40-49  | 41.0 MATCH | 1.1667 / 0.8495 / 0.7383 | 4
+2026-04-13 | Strait of Hormuz    | 9b | 80+    | 52.0 MISMATCH | 0.5170 / 0.7722 / NA | 8
+2026-04-20 | Strait of Hormuz    | 7b | 25-49  | 28.0 MATCH | 0.7867 / 0.9467 / 0.8277 | 4
+2026-04-27 | Strait of Hormuz    | 7b | 25-49  | 86.0 MISMATCH | 0.6759 / 0.8134 / NA | 6
+2026-05-04 | Strait of Hormuz    | 5b | <25    | 10.0 MATCH | 0.7543 / 0.7992 / 1.2792 | 2
+2026-05-11 | Strait of Hormuz    | 5b | 40-59  | 38.0 MISMATCH | 0.8789 / 0.8592 / 1.1096 | 1
+2026-05-18 | Strait of Hormuz    | 5b | 40-59  | 34.0 MISMATCH | 0.8858 / 0.8229 / NA | 4
+2026-05-25 | Strait of Hormuz    | 5b | 25-49  | 21.0 MISMATCH | 0.4637 / 0.7874 / 0.9433 | 3
+2026-06-01 | Strait of Hormuz    | 5b | 25-49  | 31.0 MATCH | 0.4637 / 0.8153 / NA | 4
+2026-06-08 | Strait of Hormuz    | 5b | <25    | 17.0 MATCH | 0.8374 / 0.8349 / 1.1043 | 1
+2026-06-15 | Strait of Hormuz    | 5b | 75-99  | 85.0 MATCH | 1.0727 / 0.8001 / 1.1469 | 2
+2026-06-22 | Strait of Hormuz    | 5b | 100+   | 213.0 MATCH | 1.1557 / 1.1387 / 0.6865 | 4
+2026-06-29 | Strait of Hormuz    | 5b | 150+   | 162.0 MATCH | 1.1626 / 0.8000 / 0.0482 | 2
+2026-07-06 | Strait of Hormuz    | 5b | <150   | 98.0 MATCH | 0.1592 / 0.7982 / 0.9336 | 3
+2026-07-13 | Strait of Hormuz    | 5b | <100   | 44.0 MATCH | 0.1592 / 0.7942 / 0.1215 | 2
+2026-07-20 | Bab el-Mandeb Strai | 6b | <220   | 198.0 MATCH | 1.1173 / 0.8361 / 0.9377 | 3
+2026-07-20 | Strait of Hormuz    | 5b | <50    | 25.0 MATCH | 0.3737 / 0.8000 / 0.1649 | 2
+2026-07-27 | Bab el-Mandeb Strai | 4b | 200-219 | 215.0 MATCH | 1.3203 / 0.7335 / 1.1133 | 2
+2026-07-27 | Strait of Hormuz    | 5b | 25-49  | 37.0 MATCH | 0.5398 / 0.8019 / 0.6954 | 2
+2026-08-03 | Bab el-Mandeb Strai | 4b | <180   | 178.0 MATCH | 1.3828 / 0.7209 / 0.7926 | 3
+2026-08-03 | Strait of Hormuz    | 5b | 25-49  | 39.0 MATCH | 0.4429 / 0.8027 / 1.0078 | 3
+2026-08-10 | Bab el-Mandeb Strai | 4b | 200-219 | 206.0 MATCH | 1.1875 / 0.7513 / 1.0828 | 2
+2026-08-10 | Strait of Hormuz    | 5b | 25-49  | 31.0 MATCH | 0.4429 / 0.5996 / 0.4769 | 2
+2026-08-17 | Bab el-Mandeb Strai | 4b | 200+   | 206.0 MATCH | 0.1328 / 0.7500 / 0.8990 | 3
+2026-08-17 | Strait of Hormuz    | 5b | 25-49  | 35.0 MATCH | 0.4429 / 0.8604 / 0.3093 | 2
+2026-08-24 | Bab el-Mandeb Strai | 5b | 180-199 | 184.0 MATCH | 1.0727 / 0.8001 / 0.9466 | 3
+2026-08-24 | Strait of Hormuz    | 5b | 25-49  | 30.0 MATCH | 0.3599 / 0.6589 / 0.2904 | 3
+2026-08-31 | Bab el-Mandeb Strai | 5b | 170-189 | 178.0 MATCH | 0.8927 / 0.9012 / 0.6530 | 2
+2026-08-31 | Strait of Hormuz    | 5b | 20-39  | 22.0 MATCH | 0.4637 / 0.5669 / 0.1429 | 2
+2026-09-07 | Bab el-Mandeb Strai | 5b | 190-209 | 191.0 MATCH | 0.7612 / 0.8016 / 0.6100 | 4
+2026-09-07 | Strait of Hormuz    | 6b | 35-39  | 37.0 MATCH | 0.7716 / 0.8390 / 1.0242 | 3
+2026-09-14 | Bab el-Mandeb Strai | 5b | 170-189 | 173.0 MATCH | 0.7612 / 0.7969 / 0.6431 | 3
+2026-09-14 | Strait of Hormuz    | 6b | 20-24  | 22.0 MATCH | 0.9877 / 0.8186 / 0.8206 | 4
+2026-09-21 | Bab el-Mandeb Strai | 5b | 190-209 | 190.0 MATCH | 0.6505 / 0.7984 / NA | 3
+2026-09-21 | Strait of Hormuz    | 6b | 20-24  | 22.0 MATCH | 0.8642 / 0.6144 / NA | 5
+2026-09-28 | Bab el-Mandeb Strai | 5b | 190-209 | 207.0 MATCH | 0.5536 / 0.8000 / 0.7132 | 2
+2026-09-28 | Strait of Hormuz    | 6b | <20    | 19.0 MATCH | 1.0864 / 0.8334 / 0.9248 | 3
+2026-10-05 | Bab el-Mandeb Strai | 5b | 190-209 | 198.0 MATCH | 0.4637 / 0.9482 / 0.5317 | 2
+2026-10-05 | Strait of Hormuz    | 6b | 25-29  | 29.0 MATCH | 0.9691 / 0.7832 / 0.7019 | 3
+
+price coverage: first-price complete 43/43 (Hormuz 31, Bab 12); at-start complete 34/43
+price points nonempty: 242/242 buckets
+
+== Brier, all events with complete first prices ==
+all: n=43, 模型均值=0.7658, 市场首价均值=0.8060, 配对差(市场-模型)=+0.0402 (sd=0.3234), t=0.815, p=0.4198, 模型更好=24/43, 符号检验p=0.5424
+at-start subset: n=34, 模型均值=0.7747, 市场首价均值=0.8093, 配对差(市场-模型)=+0.0346 (sd=0.3448), t=0.585, p=0.5623, 模型更好=19/34, 符号检验p=0.6076
+pre-2026-07-13: n=18, 模型均值=0.8184, 市场首价均值=0.8471, 配对差(市场-模型)=+0.0287 (sd=0.2811), t=0.433, p=0.6702, 模型更好=8/18, 符号检验p=0.8145
+post-2026-07-13: n=25, 模型均值=0.7280, 市场首价均值=0.7764, 配对差(市场-模型)=+0.0484 (sd=0.3562), t=0.680, p=0.5031, 模型更好=16/25, 符号检验p=0.2295
+Bab only: n=12, 模型均值=0.8580, 市场首价均值=0.8032, 配对差(市场-模型)=-0.0548 (sd=0.4035), t=-0.471, p=0.6470, 模型更好=7/12, 符号检验p=0.7744
+Hormuz only: n=31, 模型均值=0.7302, 市场首价均值=0.8071, 配对差(市场-模型)=+0.0770 (sd=0.2858), t=1.499, p=0.1442, 模型更好=17/31, 符号检验p=0.7201
+MATCH-only: n=34, 模型均值=0.7576, 市场首价均值=0.7998, 配对差(市场-模型)=+0.0422 (sd=0.3442), t=0.715, p=0.4797, 模型更好=20/34, 符号检验p=0.3915
+strict week-cluster (market first - model): n_weeks=31, mean=+0.0464, sd=0.2628, t=0.984, p=0.3329, model better=15/31, sign p=1.0000
+
+== trade rule P&L (Bab only) ==
+entry ref (at-start, fallback first): n=32, NO胜=25, 中位毛利=+0.2325/份, 总毛利=+1.5120, 总投入=23.4880, 每美元投入P&L=+0.0644, 命中率=0.7812
+first price only:                    n=43, NO胜=35, 中位毛利=+0.3950/份, 总毛利=+8.4050, 总投入=26.5950, 每美元投入P&L=+0.3160, 命中率=0.8140
+at-start only:                       n=29, NO胜=22, 中位毛利=+0.2250/份, 总毛利=+0.7970, 总投入=21.2030, 每美元投入P&L=+0.0376, 命中率=0.7586
+entry ref pre-2026-07-13:  无成交
+entry ref post-2026-07-13: n=32, NO胜=25, 中位毛利=+0.2325/份, 总毛利=+1.5120, 总投入=23.4880, 每美元投入P&L=+0.0644, 命中率=0.7812
+Hormuz same rule (sensitivity, not the entry's rule): n=115, NO胜=97, 中位毛利=+0.2300/份, 总毛利=+16.6050, 总投入=80.3950, 每美元投入P&L=+0.2065, 命中率=0.8435
+
+== fail criteria ==
+(1) median realized gross profit <= 0 ? PASS (周起点价口径 n=29，中位毛利 +0.2250/份；含首价回退 n=32，中位 +0.2325/份)
+(3) base-rate Brier better than market first price on >=30 events ? PASS (模型 0.7658 vs 市场首价 0.8060 (n=43))
+
+wrote events.csv (43 rows), buckets.csv (242 rows), REPORT.md
