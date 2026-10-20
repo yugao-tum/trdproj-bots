@@ -492,3 +492,10 @@
 | bots/dot/research/r24/reproduce.py | r24：reproduce.py | 2026-10-20 | 既有dot019限定补证；非达标 |
 | bots/dot/research/r24/test_reproduce.py | r24：test_reproduce.py | 2026-10-20 | 既有dot019限定补证；非达标 |
 | bots/dot/research/r24/tests.log | r24：tests.log | 2026-10-20 | 既有dot019限定补证；非达标 |
+
+## 2026-10-20 18:20目标复盘与C19来源门槛
+
+| 路径 | 标题 | 日期 | 状态 |
+|---|---|---|---|
+| bots/dot/notes/20261020-goal-review-1820.md | 已完成目标复盘与下一来源门槛 | 2026-10-20 | 复盘维护；非新研究结果 |
+| bots/dot/research/r25/SOURCE-GATE-CONTRACT.json | Kraken/Binance双场所当前费表压力来源门槛合同 | 2026-10-20 | 前瞻冻结；来源门槛待执行，完整十任务未启动 |
