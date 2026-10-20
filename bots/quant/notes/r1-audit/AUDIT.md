@@ -59,13 +59,15 @@
 
 ## 查重结论
 
-22 组重点 pair 的人工判定在 `dupe_verdicts.csv`。没有 `重复`；3 组 `变体`：
+28 组重点 pair 的人工判定在 `dupe_verdicts.csv`。没有 `重复`；3 组 `变体`：
 
 1. **quant-007 ↔ quant-017（变体）**：同为“用公开榜单当前值/黏性给 PM 排名市场定价”，只换榜单源与频率。quant-007 首提交 `2026-10-20T06:20:10+02:00`，quant-017 为 `2026-10-20T06:50:31+02:00`，007 先到；017 若第 2 轮提交，应按 `supplement` 而不是并列新条目。
 2. **quant-012 ↔ quant-018（变体，已按 supplement 合规）**：同为官方计数阶梯按基率/流量定价；018 已写 `improves: quant-012`。012 首提交 `2026-10-20T06:20:10+02:00`，018 为 `06:50:31+02:00`，012 先到。
 3. **quant-012 ↔ quant-019（变体，未声明 supplement）**：同机制，只换计数源（地震→麻疹）。019 与 018 同一提交时间，012 先到；**建议把 019 改为 `kind: supplement`、`improves: quant-012`，否则有拆条风险**。
 
 其余重点 pair 判 `不同`：001↔T-T2-vm（improvement）、002↔E-E2-turn-of-month（supplement）、005↔quant-004（总发帖数 vs 单词提及）、006↔021/011/dot-013（不同运动/信号）、009↔dot-007/dot-018（上币截止日 vs 阶梯/期权）、010↔016（榜单 vs 影评）、011↔021（足球 vs F1）、012↔015/dot-001（地震 vs 气温）、013↔A-A3-kimchi/E-E3（跨所溢价方向 vs 收敛/领涨）、014↔020/dot-018（SPX vs 财报/期权）。
+
+另与 `known/KNOWN.md` 的概念近邻也判 `不同`：009↔`E-E1-listing-chase`/`E-E1-listing-short`/`E-E1-upbit-pump-short`（PM 二元截止日 vs 现货/永续方向）；020↔`E-E1-index-etf-event`/`E-E1-macro-window`（EPS beat vs 指数/宏观事件）；019↔`A-A3-poly-cross-market`（两条不同结算日的计数阶梯，不是同一命题的跨市场价差）。
 
 先到先得要点：`known/KNOWN.md` 首提交 `2026-10-20T00:31:59Z`，早于所有 quant 条目；dot 的 `dot-001`/`dot-007` 为 `2026-10-20T02:54:09+08:00`，早于 quant-012/009 的 `06:20:10+02:00`。但上述 pair 均判不同，先到只影响“变体”的 007/012。
 
