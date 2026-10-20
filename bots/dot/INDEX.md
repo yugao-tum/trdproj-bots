@@ -443,3 +443,5 @@
 | bots/dot/research/r21/10-integration/output/test_initialize_checkpoint.py | r21：test_initialize_checkpoint.py | 2026-10-20 | 条件证据/纯虚拟参考；非达标 |
 | bots/dot/research/r21/INITIAL-REFERENCE-SUMMARY.json | r21：INITIAL-REFERENCE-SUMMARY.json | 2026-10-20 | 条件证据/纯虚拟参考；非达标 |
 | bots/dot/research/r21/SOURCE-METADATA-CORRECTION.json | r21：SOURCE-METADATA-CORRECTION.json | 2026-10-20 | 条件证据/纯虚拟参考；非达标 |
+
+| bots/dot/notes/20261020-1220-goal-evidence-review.md | 12:20目标与证据复盘，后续补证范围 | 2026-10-20 | 已完成复盘；r22研究未完成 |
