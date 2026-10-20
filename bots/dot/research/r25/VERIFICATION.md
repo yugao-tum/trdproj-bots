@@ -1,0 +1,8 @@
+# Verification and distribution limits
+
+650,664 independent numeric comparisons: 592,402 exact serialized matches; 58,262 finite-decimal SOL A625 differences no larger than 5e-57 USDT, zero exceeding 1e-50. All 504 attribution/economics checks and all 36 local-margin dates/bounds reconcile within declared rational/float tolerances. Five independent integration tests passed. The isolated code-only ZIP was extracted and supplied with eight frozen local inputs (seven market files and one configuration contract); replay produced the original three output hashes and refused tampering.
+
+The public ZIP contains only code, configuration, hashes and documentation. It contains no raw market datasets. Original source-inclusive ZIP and full raw/generated ledgers are local proof only and are not publishable. Public replay requires separately supplied hash-matching source files; exact historical bytes may not be recoverable from future public queries. Local clean replay is not a claim that public distribution is data-self-contained. All 302 protected source/old/immutable-forward file hashes remained unchanged.
+
+## Additive SMA200 completion
+Same research roles completed the missing frozen BTC lagged-SMA200 comparison without changing sealed prior artifacts. All288 correlations and all144 case endpoints independently agree; eight failed cases retain64 counterfactual correlation rows. Benchmark diagnostics use33 full months and a separately retained19-day October partial period, not34 full months. No correlation threshold is imposed. Supplemental code requires the same external sources plus declared warmup history; the supplemental ZIP contains code/documentation/hashmetadata only.
