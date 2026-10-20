@@ -1,0 +1,10 @@
+CLOSED events 192 markets 931
+  fee rates: {0.04: 849, None: 28, 0.07: 4, 0.05: 50}
+  event volume: sum 4599544 median 8102 p90 39168 max 893324
+  endDate months: {'': 1, '2026-03': 1, '2026-04': 8, '2026-05': 42, '2026-06': 24, '2026-07': 84, '2026-08': 15, '2026-09': 1, '2026-10': 14, '2026-12': 1, '2027-01': 1}
+OPEN events 102 markets 494
+  fee rates: {0.04: 486, 0.05: 8}
+  event volume: sum 1761353 median 3780 p90 9163 max 1194373
+  endDate months: {'2026-10': 61, '2026-11': 24, '2026-12': 12, '2027-01': 2, '2027-03': 1, '2027-05': 2}
+closed metric keywords: [('revenue', 68), ('comparable sales', 12), ('margin', 9), ('arr', 7), ('organic', 6), ('deliveries', 5), ('comparable store sales', 4), ('orders', 4), ('bookings', 2), ('same store', 2), ('shipments', 2), ('load factor', 2), ('subscriber', 2), ('monthly active', 2), ('same restaurant', 1)]
+closed markets-per-event: {1: 5, 3: 11, 4: 24, 5: 136, 6: 7, 7: 3, 8: 1, 9: 4, 10: 1}

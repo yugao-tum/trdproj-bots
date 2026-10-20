@@ -1,0 +1,6 @@
+boeing-airplane-deliveries-above-in-q1 [('26 be above 120?', 76), ('26 be above 125?', 69), ('26 be above 130?', 109), ('26 be above 135?', 71), ('26 be above 140?', 114), ('26 be above 145?', 152), ('26 be above 150?', 69), ('26 be above 155?', 160), ('26 be above 160?', 163)]
+costco-q3-us-adjusted-comparable-sales-growth [('h be below 4.5%?', 339), ('n 4.5% and 5.5%?', 339), ('n 5.5% and 6.5%?', 339), ('n 6.5% and 7.5%?', 339), ('n 7.5% and 8.5%?', 339), ('h be above 8.5%?', 339)]
+united-airlines-ual-q2-consolidated-passenger-load-factor-20260618193152130 [('oad factor <83%?', 509), (' factor 83%-84%?', 510), (' factor 84%-85%?', 509), (' factor 85%-86%?', 509), ('oad factor 86%+?', 509)]
+delta-dal-q2-passenger-load-factor [('or be below 81%?', 493), ('een 81% and 83%?', 493), ('een 83% and 85%?', 500), ('een 85% and 87%?', 500), ('be at least 87%?', 493)]
+united-airlines-ual-q3-consolidated-passenger-load-factor-20261008120016000 [('oad factor <82%?', 236), ('ctor 82% to 83%?', 235), ('ctor 83% to 84%?', 243), ('ctor 84% to 85%?', 242), ('oad factor 85%+?', 240)]
+will-taiwan-semiconductor-tsm-q2-revenue-usd-be-above-20260618163305419 [(') be above $39B?', 512), (') be above $40B?', 512), (') be above $41B?', 512), (') be above $42B?', 512), (') be above $43B?', 512)]
