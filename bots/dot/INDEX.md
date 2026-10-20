@@ -124,3 +124,5 @@
 | bots/dot/notes/20261020-usd-anchor-and-oracle-fee-fields.md | C26一年USD价格与C38押金字段语义 | 2026-10-20 | 数据/源码补证，未新增PnL |
 
 | bots/dot/notes/20261020-two-venue-usd-history.md | C26两场所USD完整日线与阈值日期对照 | 2026-10-20 | 描述性数据补证/无新增PnL |
+
+| bots/dot/entries/dot-049-avs-service-fee-restaking.md | 再质押服务费分成 | 2026-10-20 | 草稿/条件机制/未晋级 |
