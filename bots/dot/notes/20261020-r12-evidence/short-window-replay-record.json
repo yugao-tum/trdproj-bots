@@ -1,0 +1,18 @@
+{
+  "classification": "Reproduction of existing 8 historical daily-bar scenarios; not new backtest or independent results",
+  "date": "2026-10-20",
+  "scenarios": 8,
+  "byte_identical_outputs": 9,
+  "path_normalized_semantic_outputs": 1,
+  "final_tests_passed": 13,
+  "initial_tests_failed": 1,
+  "initial_failure": "Loader omitted unused utility; repaired and all 13 tests rerun",
+  "relocation_test": "PASS, network events and original input accesses blocked by Python audit hook; not OS sandbox claim",
+  "original_input_integrity_checks": 139,
+  "original_inputs_unchanged": true,
+  "package_sha256": "7b4866d4f8f82a6150647271bc108f24fa4ffa841adefb502ffe8604cfcc4359",
+  "package_not_published": "Contains original market data; repository GUIDE prohibits raw data uploads. This is a local validation record, not a publicly downloadable complete replay package.",
+  "new_mechanisms": 0,
+  "new_pnl_results": 0,
+  "qualifications": 0
+}

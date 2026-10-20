@@ -134,3 +134,16 @@
 | bots/dot/notes/c26-hourly-reconciliation/VERIFICATION.json | C26八份冻结响应复核结果 | 2026-10-20 | 数据核查PASS/非策略通过 |
 
 | bots/dot/notes/20261020-c13-forward-data-gate.md | C13 冻结前向窗口与事件数据闸门 | 2026-10-20 | 本轮窗口结束/无合格事件或新增 PnL |
+| bots/dot/notes/20261020-r12-evidence/README.md | 既有证据补充：README.md | 2026-10-20 | 草稿 / 验证附件，非新策略或收益 |
+| bots/dot/notes/20261020-r12-evidence/c01-timezone/fixtures.json | 既有证据补充：fixtures.json | 2026-10-20 | 草稿 / 验证附件，非新策略或收益 |
+| bots/dot/notes/20261020-r12-evidence/c01-timezone/normalize.py | 既有证据补充：normalize.py | 2026-10-20 | 草稿 / 验证附件，非新策略或收益 |
+| bots/dot/notes/20261020-r12-evidence/c01-timezone/test_normalize.py | 既有证据补充：test_normalize.py | 2026-10-20 | 草稿 / 验证附件，非新策略或收益 |
+| bots/dot/notes/20261020-r12-evidence/c27-end-deployment-binding.json | 既有证据补充：c27-end-deployment-binding.json | 2026-10-20 | 草稿 / 验证附件，非新策略或收益 |
+| bots/dot/notes/20261020-r12-evidence/c34-hourly-template-binding.json | 既有证据补充：c34-hourly-template-binding.json | 2026-10-20 | 草稿 / 验证附件，非新策略或收益 |
+| bots/dot/notes/20261020-r12-evidence/c38-source-binding.json | 既有证据补充：c38-source-binding.json | 2026-10-20 | 草稿 / 验证附件，非新策略或收益 |
+| bots/dot/notes/20261020-r12-evidence/c45-sql-source-manifest.json | 既有证据补充：c45-sql-source-manifest.json | 2026-10-20 | 草稿 / 验证附件，非新策略或收益 |
+| bots/dot/notes/20261020-r12-evidence/c46-repayment/SCHEMA.md | 既有证据补充：SCHEMA.md | 2026-10-20 | 草稿 / 验证附件，非新策略或收益 |
+| bots/dot/notes/20261020-r12-evidence/c46-repayment/matcher.py | 既有证据补充：matcher.py | 2026-10-20 | 草稿 / 验证附件，非新策略或收益 |
+| bots/dot/notes/20261020-r12-evidence/c46-repayment/source-map.json | 既有证据补充：source-map.json | 2026-10-20 | 草稿 / 验证附件，非新策略或收益 |
+| bots/dot/notes/20261020-r12-evidence/c46-repayment/test_matcher.py | 既有证据补充：test_matcher.py | 2026-10-20 | 草稿 / 验证附件，非新策略或收益 |
+| bots/dot/notes/20261020-r12-evidence/short-window-replay-record.json | 既有证据补充：short-window-replay-record.json | 2026-10-20 | 草稿 / 验证附件，非新策略或收益 |

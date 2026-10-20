@@ -1,0 +1,33 @@
+{
+  "access_date": "2026-10-20",
+  "sql_executed": false,
+  "historical_rows": 0,
+  "files": [
+    {
+      "name": "daily-staking-rewards-per-pool.sql",
+      "bytes": 1401,
+      "sha256": "995c23e10aa083df42a1beb007e6341c5abf8d44f945188dbdd507bd3cbd543a",
+      "expected_git_blob_sha": "0bde1458b41f9e428c625103cbb53ec169a0b13c",
+      "actual_git_blob_sha": "0bde1458b41f9e428c625103cbb53ec169a0b13c",
+      "git_blob_matches": true,
+      "tool_content_matches": true,
+      "commit": "dd51f6190adb6cf95a0bc4d769c106bb698916d4",
+      "immutable_url": "https://github.com/NexusMutual/dune-queries/blob/dd51f6190adb6cf95a0bc4d769c106bb698916d4/staking/base/daily-staking-rewards-per-pool.sql",
+      "api_url": "https://api.github.com/repos/NexusMutual/dune-queries/contents/staking/base/daily-staking-rewards-per-pool.sql?ref=dd51f6190adb6cf95a0bc4d769c106bb698916d4",
+      "reading_level": "complete SQL definition, not execution results"
+    },
+    {
+      "name": "staking-deposits-with-burns.sql",
+      "bytes": 8034,
+      "sha256": "c911015fec907249cf90c467f971128c9fdeeb75c92e38637cd88e3b7e35c539",
+      "expected_git_blob_sha": "30ba1686f921e4e152e0165c5d7ca3cb7aaeabf4",
+      "actual_git_blob_sha": "30ba1686f921e4e152e0165c5d7ca3cb7aaeabf4",
+      "git_blob_matches": true,
+      "tool_content_matches": true,
+      "commit": "dd51f6190adb6cf95a0bc4d769c106bb698916d4",
+      "immutable_url": "https://github.com/NexusMutual/dune-queries/blob/dd51f6190adb6cf95a0bc4d769c106bb698916d4/staking/base/staking-deposits-with-burns.sql",
+      "api_url": "https://api.github.com/repos/NexusMutual/dune-queries/contents/staking/base/staking-deposits-with-burns.sql?ref=dd51f6190adb6cf95a0bc4d769c106bb698916d4",
+      "reading_level": "complete SQL definition, not execution results"
+    }
+  ]
+}

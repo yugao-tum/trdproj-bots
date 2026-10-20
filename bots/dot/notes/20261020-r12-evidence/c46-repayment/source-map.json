@@ -1,0 +1,66 @@
+[
+  {
+    "fields": "repayment chain/address, complete relay",
+    "source_url": "https://raw.githubusercontent.com/across-protocol/contracts/555475cdee6109afc85065ca415c740d7f97b992/contracts/SpokePool.sol",
+    "commit": "555475cdee6109afc85065ca415c740d7f97b992",
+    "source_line_labels": "887–953",
+    "interpretation": "Replay identity and repayment selection; no deployed-version claim.",
+    "provenance_limit": "Retained tool text excerpts; UMIP master not pinned. No new network reads."
+  },
+  {
+    "fields": "chain, root bundle, leaf, token, refund arrays",
+    "source_url": "https://raw.githubusercontent.com/across-protocol/contracts/555475cdee6109afc85065ca415c740d7f97b992/contracts/SpokePool.sol",
+    "commit": "555475cdee6109afc85065ca415c740d7f97b992",
+    "source_line_labels": "1129–1169",
+    "interpretation": "Exact identity, not token-symbol or amount-only join.",
+    "provenance_limit": "Retained tool text excerpts; UMIP master not pinned. No new network reads."
+  },
+  {
+    "fields": "deferred claim/account/recipient",
+    "source_url": "https://raw.githubusercontent.com/across-protocol/contracts/555475cdee6109afc85065ca415c740d7f97b992/contracts/SpokePool.sol",
+    "commit": "555475cdee6109afc85065ca415c740d7f97b992",
+    "source_line_labels": "1174–1185",
+    "interpretation": "Actual transfer needed; token/account accrued balances can span leaves.",
+    "provenance_limit": "Retained tool text excerpts; UMIP master not pinned. No new network reads."
+  },
+  {
+    "fields": "deferred failures, amountToReturn",
+    "source_url": "https://raw.githubusercontent.com/across-protocol/contracts/555475cdee6109afc85065ca415c740d7f97b992/contracts/SpokePool.sol",
+    "commit": "555475cdee6109afc85065ca415c740d7f97b992",
+    "source_line_labels": "1369–1407",
+    "interpretation": "Root event is not proof every entry was received; bridge return is not relayer amount.",
+    "provenance_limit": "Retained tool text excerpts; UMIP master not pinned. No new network reads."
+  },
+  {
+    "fields": "fill output and destination transfer",
+    "source_url": "https://raw.githubusercontent.com/across-protocol/contracts/555475cdee6109afc85065ca415c740d7f97b992/contracts/SpokePool.sol",
+    "commit": "555475cdee6109afc85065ca415c740d7f97b992",
+    "source_line_labels": "1545–1602",
+    "interpretation": "Slow fill excluded; only finalized fast fill accepted.",
+    "provenance_limit": "Retained tool text excerpts; UMIP master not pinned. No new network reads."
+  },
+  {
+    "fields": "deposit refund sharing workflow",
+    "source_url": "https://raw.githubusercontent.com/UMAprotocol/UMIPs/master/UMIPs/umip-179.md",
+    "commit": null,
+    "source_line_labels": "426–476",
+    "interpretation": "Event class alone does not classify economic beneficiary.",
+    "provenance_limit": "Retained tool text excerpts; UMIP master not pinned. No new network reads."
+  },
+  {
+    "fields": "full relay hash and source validation",
+    "source_url": "https://raw.githubusercontent.com/UMAprotocol/UMIPs/master/UMIPs/umip-179.md",
+    "commit": null,
+    "source_line_labels": "414–444",
+    "interpretation": "Normalized complete source match, no hash fabrication.",
+    "provenance_limit": "Retained tool text excerpts; UMIP master not pinned. No new network reads."
+  },
+  {
+    "fields": "LP-net repayment and refund aggregation",
+    "source_url": "https://raw.githubusercontent.com/UMAprotocol/UMIPs/master/UMIPs/umip-179.md",
+    "commit": null,
+    "source_line_labels": "515–536, 619–636",
+    "interpretation": "No second LP subtraction; aggregate amount cannot be assigned to deposit without component evidence.",
+    "provenance_limit": "Retained tool text excerpts; UMIP master not pinned. No new network reads."
+  }
+]

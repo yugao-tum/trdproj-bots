@@ -1,0 +1,59 @@
+{
+  "commit": "62644bbbd6750ebcb20048b5082c195276d1d31c",
+  "commit_date": "2026-02-12T16:42:49Z",
+  "commit_url": "https://github.com/UMAprotocol/subgraphs/commit/62644bbbd6750ebcb20048b5082c195276d1d31c",
+  "tree": "37e058646d8ad38f34eaf4b94290c0e741e99381",
+  "tree_url": "https://api.github.com/repos/UMAprotocol/subgraphs/git/trees/37e058646d8ad38f34eaf4b94290c0e741e99381",
+  "tree_truncated": false,
+  "files": [
+    {
+      "path": "packages/optimistic-oracle/schema.graphql",
+      "body_bytes": 1059,
+      "body_sha256": "fc32b396051be24ece99ec1c9c754e84cbbe58bb40ecad1594a9e7b2123d7357",
+      "git_blob_sha": "bde86b8fc7626d2c370a41466b07027cc780618f",
+      "tree_blob_sha": "bde86b8fc7626d2c370a41466b07027cc780618f",
+      "exact_match": true,
+      "pinned_url": "https://github.com/UMAprotocol/subgraphs/blob/62644bbbd6750ebcb20048b5082c195276d1d31c/packages/optimistic-oracle/schema.graphql"
+    },
+    {
+      "path": "packages/optimistic-oracle/src/mappings/optimisticOracle.ts",
+      "body_bytes": 7991,
+      "body_sha256": "2cb417db2a0444a6c9c15d1c038665875afdd61d9213c690954e73262d013651",
+      "git_blob_sha": "26ca021b8e3f404bda22ab03cb9d55aeb5fb9181",
+      "tree_blob_sha": "26ca021b8e3f404bda22ab03cb9d55aeb5fb9181",
+      "exact_match": true,
+      "pinned_url": "https://github.com/UMAprotocol/subgraphs/blob/62644bbbd6750ebcb20048b5082c195276d1d31c/packages/optimistic-oracle/src/mappings/optimisticOracle.ts"
+    },
+    {
+      "path": "packages/optimistic-oracle/src/utils/helpers/optimisticOracle.ts",
+      "body_bytes": 854,
+      "body_sha256": "5263ffab6cfe6b6fff79039ef44487f393512efefb11fcecd5c6d73e8fda3eac",
+      "git_blob_sha": "8a90be1b078b8d849f5f663d7bcae7060450af92",
+      "tree_blob_sha": "8a90be1b078b8d849f5f663d7bcae7060450af92",
+      "exact_match": true,
+      "pinned_url": "https://github.com/UMAprotocol/subgraphs/blob/62644bbbd6750ebcb20048b5082c195276d1d31c/packages/optimistic-oracle/src/utils/helpers/optimisticOracle.ts"
+    },
+    {
+      "path": "packages/optimistic-oracle/manifest/data/mainnet.json",
+      "body_bytes": 205,
+      "body_sha256": "0fd2da116f25919b9696eef6a21cac8aab1d47a801444242fd22e9d2c74f005b",
+      "git_blob_sha": "92faa1091ceee37f14096b7b7bf9ca23b3e6cbe5",
+      "tree_blob_sha": "92faa1091ceee37f14096b7b7bf9ca23b3e6cbe5",
+      "exact_match": true,
+      "pinned_url": "https://github.com/UMAprotocol/subgraphs/blob/62644bbbd6750ebcb20048b5082c195276d1d31c/packages/optimistic-oracle/manifest/data/mainnet.json"
+    },
+    {
+      "path": "packages/optimistic-oracle/manifest/data/polygon.json",
+      "body_bytes": 203,
+      "body_sha256": "34ddafd1292824bf9ef9c9dc73af750f6588c405b7157792add7f134c186b090",
+      "git_blob_sha": "778971f2db9172c0a3bcfd2db352658c75c00b77",
+      "tree_blob_sha": "778971f2db9172c0a3bcfd2db352658c75c00b77",
+      "exact_match": true,
+      "pinned_url": "https://github.com/UMAprotocol/subgraphs/blob/62644bbbd6750ebcb20048b5082c195276d1d31c/packages/optimistic-oracle/manifest/data/polygon.json"
+    }
+  ],
+  "deployed_subgraph_content_id": null,
+  "historical_query_rows_bound": false,
+  "scope": "Five retained full tool-response text bodies exactly match blobs in one Git commit; not deployed build, live contract, query-row or PnL proof.",
+  "access_date": "2026-10-20"
+}

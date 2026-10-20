@@ -1,0 +1,519 @@
+[
+  {
+    "id": "offset_utc_day_boundary",
+    "synthetic": true,
+    "input": {
+      "raw_time": "2026-10-20T00:51:00Z",
+      "station_timezone": "America/New_York",
+      "browser_timezone": "Asia/Shanghai",
+      "evidence": {
+        "station_timezone_payload": "missing",
+        "raw_timestamp_payload": "missing",
+        "executed_source_version": "missing",
+        "moment_timezone_version": "missing",
+        "naive_interpretation": "browser_local_reference"
+      }
+    },
+    "expected": {
+      "status": "normalized_reference",
+      "reason": "reference_conversion_only",
+      "utc": "2026-10-20T00:51:00Z",
+      "station_time": "2026-10-19T20:51:00-04:00",
+      "date_differ": true
+    }
+  },
+  {
+    "id": "explicit_numeric_offset",
+    "synthetic": true,
+    "input": {
+      "raw_time": "2026-10-19T20:51:00-04:00",
+      "station_timezone": "America/New_York",
+      "browser_timezone": "Asia/Shanghai",
+      "evidence": {
+        "station_timezone_payload": "missing",
+        "raw_timestamp_payload": "missing",
+        "executed_source_version": "missing",
+        "moment_timezone_version": "missing",
+        "naive_interpretation": "browser_local_reference"
+      }
+    },
+    "expected": {
+      "status": "normalized_reference",
+      "reason": "reference_conversion_only",
+      "utc": "2026-10-20T00:51:00Z"
+    }
+  },
+  {
+    "id": "offset_browser_independent",
+    "synthetic": true,
+    "input": {
+      "raw_time": "2026-10-20T00:51:00Z",
+      "station_timezone": "America/New_York",
+      "browser_timezone": "Europe/Berlin",
+      "evidence": {
+        "station_timezone_payload": "missing",
+        "raw_timestamp_payload": "missing",
+        "executed_source_version": "missing",
+        "moment_timezone_version": "missing",
+        "naive_interpretation": "browser_local_reference"
+      }
+    },
+    "expected": {
+      "status": "normalized_reference",
+      "reason": "reference_conversion_only",
+      "station_time": "2026-10-19T20:51:00-04:00"
+    }
+  },
+  {
+    "id": "offset_no_browser",
+    "synthetic": true,
+    "input": {
+      "raw_time": "2026-10-20T00:51:00Z",
+      "station_timezone": "America/New_York",
+      "browser_timezone": null,
+      "evidence": {
+        "station_timezone_payload": "missing",
+        "raw_timestamp_payload": "missing",
+        "executed_source_version": "missing",
+        "moment_timezone_version": "missing",
+        "naive_interpretation": "browser_local_reference"
+      }
+    },
+    "expected": {
+      "status": "normalized_reference",
+      "reason": "reference_conversion_only"
+    }
+  },
+  {
+    "id": "naive_station_not_browser",
+    "synthetic": true,
+    "input": {
+      "raw_time": "2026-10-20T00:51:00",
+      "station_timezone": "America/New_York",
+      "browser_timezone": "Asia/Shanghai",
+      "evidence": {
+        "station_timezone_payload": "missing",
+        "raw_timestamp_payload": "missing",
+        "executed_source_version": "missing",
+        "moment_timezone_version": "missing",
+        "naive_interpretation": "browser_local_reference"
+      }
+    },
+    "expected": {
+      "status": "normalized_reference",
+      "reason": "reference_conversion_only",
+      "utc": "2026-10-19T16:51:00Z",
+      "station_time": "2026-10-19T12:51:00-04:00"
+    }
+  },
+  {
+    "id": "naive_station_equals_browser",
+    "synthetic": true,
+    "input": {
+      "raw_time": "2026-10-20T00:51:00",
+      "station_timezone": "America/New_York",
+      "browser_timezone": "America/New_York",
+      "evidence": {
+        "station_timezone_payload": "missing",
+        "raw_timestamp_payload": "missing",
+        "executed_source_version": "missing",
+        "moment_timezone_version": "missing",
+        "naive_interpretation": "browser_local_reference"
+      }
+    },
+    "expected": {
+      "status": "normalized_reference",
+      "reason": "reference_conversion_only",
+      "utc": "2026-10-20T04:51:00Z"
+    }
+  },
+  {
+    "id": "missing_station",
+    "synthetic": true,
+    "input": {
+      "raw_time": "2026-10-20T00:51:00Z",
+      "station_timezone": null,
+      "browser_timezone": "Asia/Shanghai",
+      "evidence": {
+        "station_timezone_payload": "missing",
+        "raw_timestamp_payload": "missing",
+        "executed_source_version": "missing",
+        "moment_timezone_version": "missing",
+        "naive_interpretation": "browser_local_reference"
+      }
+    },
+    "expected": {
+      "status": "uncertain",
+      "reason": "missing_station_timezone"
+    }
+  },
+  {
+    "id": "invalid_station",
+    "synthetic": true,
+    "input": {
+      "raw_time": "2026-10-20T00:51:00Z",
+      "station_timezone": "EDT",
+      "browser_timezone": "Asia/Shanghai",
+      "evidence": {
+        "station_timezone_payload": "missing",
+        "raw_timestamp_payload": "missing",
+        "executed_source_version": "missing",
+        "moment_timezone_version": "missing",
+        "naive_interpretation": "browser_local_reference"
+      }
+    },
+    "expected": {
+      "status": "rejected",
+      "reason": "invalid_station_iana_timezone"
+    }
+  },
+  {
+    "id": "nonexistent_zone",
+    "synthetic": true,
+    "input": {
+      "raw_time": "2026-10-20T00:51:00Z",
+      "station_timezone": "Not/A_Zone",
+      "browser_timezone": "Asia/Shanghai",
+      "evidence": {
+        "station_timezone_payload": "missing",
+        "raw_timestamp_payload": "missing",
+        "executed_source_version": "missing",
+        "moment_timezone_version": "missing",
+        "naive_interpretation": "browser_local_reference"
+      }
+    },
+    "expected": {
+      "status": "rejected",
+      "reason": "invalid_station_iana_timezone"
+    }
+  },
+  {
+    "id": "invalid_browser",
+    "synthetic": true,
+    "input": {
+      "raw_time": "2026-10-20T00:51:00Z",
+      "station_timezone": "America/New_York",
+      "browser_timezone": "CST",
+      "evidence": {
+        "station_timezone_payload": "missing",
+        "raw_timestamp_payload": "missing",
+        "executed_source_version": "missing",
+        "moment_timezone_version": "missing",
+        "naive_interpretation": "browser_local_reference"
+      }
+    },
+    "expected": {
+      "status": "rejected",
+      "reason": "invalid_browser_iana_timezone"
+    }
+  },
+  {
+    "id": "naive_missing_browser",
+    "synthetic": true,
+    "input": {
+      "raw_time": "2026-10-20T00:51:00",
+      "station_timezone": "America/New_York",
+      "browser_timezone": null,
+      "evidence": {
+        "station_timezone_payload": "missing",
+        "raw_timestamp_payload": "missing",
+        "executed_source_version": "missing",
+        "moment_timezone_version": "missing",
+        "naive_interpretation": "browser_local_reference"
+      }
+    },
+    "expected": {
+      "status": "uncertain",
+      "reason": "missing_browser_timezone_for_naive_input"
+    }
+  },
+  {
+    "id": "naive_no_policy",
+    "synthetic": true,
+    "input": {
+      "raw_time": "2026-10-20T00:51:00",
+      "station_timezone": "America/New_York",
+      "browser_timezone": "Asia/Shanghai",
+      "evidence": {}
+    },
+    "expected": {
+      "status": "uncertain",
+      "reason": "unestablished_naive_parse_context"
+    }
+  },
+  {
+    "id": "fall_fold_both",
+    "synthetic": true,
+    "input": {
+      "raw_time": "2026-11-01T01:30:00",
+      "station_timezone": "America/New_York",
+      "browser_timezone": "America/New_York",
+      "evidence": {
+        "station_timezone_payload": "missing",
+        "raw_timestamp_payload": "missing",
+        "executed_source_version": "missing",
+        "moment_timezone_version": "missing",
+        "naive_interpretation": "browser_local_reference"
+      }
+    },
+    "expected": {
+      "status": "ambiguous",
+      "reason": "two_distinct_instants",
+      "utc_candidates": [
+        "2026-11-01T05:30:00Z",
+        "2026-11-01T06:30:00Z"
+      ],
+      "folds": [
+        0,
+        1
+      ]
+    }
+  },
+  {
+    "id": "fall_offset_first",
+    "synthetic": true,
+    "input": {
+      "raw_time": "2026-11-01T01:30:00-04:00",
+      "station_timezone": "America/New_York",
+      "browser_timezone": "Asia/Shanghai",
+      "evidence": {
+        "station_timezone_payload": "missing",
+        "raw_timestamp_payload": "missing",
+        "executed_source_version": "missing",
+        "moment_timezone_version": "missing",
+        "naive_interpretation": "browser_local_reference"
+      }
+    },
+    "expected": {
+      "status": "normalized_reference",
+      "reason": "reference_conversion_only",
+      "utc": "2026-11-01T05:30:00Z",
+      "fold": 0
+    }
+  },
+  {
+    "id": "fall_offset_second",
+    "synthetic": true,
+    "input": {
+      "raw_time": "2026-11-01T01:30:00-05:00",
+      "station_timezone": "America/New_York",
+      "browser_timezone": "Asia/Shanghai",
+      "evidence": {
+        "station_timezone_payload": "missing",
+        "raw_timestamp_payload": "missing",
+        "executed_source_version": "missing",
+        "moment_timezone_version": "missing",
+        "naive_interpretation": "browser_local_reference"
+      }
+    },
+    "expected": {
+      "status": "normalized_reference",
+      "reason": "reference_conversion_only",
+      "utc": "2026-11-01T06:30:00Z",
+      "fold": 1
+    }
+  },
+  {
+    "id": "spring_nonexistent",
+    "synthetic": true,
+    "input": {
+      "raw_time": "2026-03-08T02:30:00",
+      "station_timezone": "America/New_York",
+      "browser_timezone": "America/New_York",
+      "evidence": {
+        "station_timezone_payload": "missing",
+        "raw_timestamp_payload": "missing",
+        "executed_source_version": "missing",
+        "moment_timezone_version": "missing",
+        "naive_interpretation": "browser_local_reference"
+      }
+    },
+    "expected": {
+      "status": "rejected",
+      "reason": "nonexistent_browser_wall_time"
+    }
+  },
+  {
+    "id": "spring_before",
+    "synthetic": true,
+    "input": {
+      "raw_time": "2026-03-08T06:59:59Z",
+      "station_timezone": "America/New_York",
+      "browser_timezone": "Asia/Shanghai",
+      "evidence": {
+        "station_timezone_payload": "missing",
+        "raw_timestamp_payload": "missing",
+        "executed_source_version": "missing",
+        "moment_timezone_version": "missing",
+        "naive_interpretation": "browser_local_reference"
+      }
+    },
+    "expected": {
+      "status": "normalized_reference",
+      "reason": "reference_conversion_only",
+      "station_time": "2026-03-08T01:59:59-05:00"
+    }
+  },
+  {
+    "id": "spring_after",
+    "synthetic": true,
+    "input": {
+      "raw_time": "2026-03-08T07:00:00Z",
+      "station_timezone": "America/New_York",
+      "browser_timezone": "Asia/Shanghai",
+      "evidence": {
+        "station_timezone_payload": "missing",
+        "raw_timestamp_payload": "missing",
+        "executed_source_version": "missing",
+        "moment_timezone_version": "missing",
+        "naive_interpretation": "browser_local_reference"
+      }
+    },
+    "expected": {
+      "status": "normalized_reference",
+      "reason": "reference_conversion_only",
+      "station_time": "2026-03-08T03:00:00-04:00"
+    }
+  },
+  {
+    "id": "explicit_offset_not_station_wall_claim",
+    "synthetic": true,
+    "input": {
+      "raw_time": "2026-03-08T02:30:00-05:00",
+      "station_timezone": "America/New_York",
+      "browser_timezone": "Asia/Shanghai",
+      "evidence": {
+        "station_timezone_payload": "missing",
+        "raw_timestamp_payload": "missing",
+        "executed_source_version": "missing",
+        "moment_timezone_version": "missing",
+        "naive_interpretation": "browser_local_reference"
+      }
+    },
+    "expected": {
+      "status": "normalized_reference",
+      "reason": "reference_conversion_only",
+      "station_time": "2026-03-08T03:30:00-04:00"
+    }
+  },
+  {
+    "id": "date_only",
+    "synthetic": true,
+    "input": {
+      "raw_time": "2026-10-20",
+      "station_timezone": "America/New_York",
+      "browser_timezone": "Asia/Shanghai",
+      "evidence": {
+        "station_timezone_payload": "missing",
+        "raw_timestamp_payload": "missing",
+        "executed_source_version": "missing",
+        "moment_timezone_version": "missing",
+        "naive_interpretation": "browser_local_reference"
+      }
+    },
+    "expected": {
+      "status": "rejected",
+      "reason": "unsupported_timestamp_format"
+    }
+  },
+  {
+    "id": "invalid_day",
+    "synthetic": true,
+    "input": {
+      "raw_time": "2026-02-30T00:00:00Z",
+      "station_timezone": "America/New_York",
+      "browser_timezone": "Asia/Shanghai",
+      "evidence": {
+        "station_timezone_payload": "missing",
+        "raw_timestamp_payload": "missing",
+        "executed_source_version": "missing",
+        "moment_timezone_version": "missing",
+        "naive_interpretation": "browser_local_reference"
+      }
+    },
+    "expected": {
+      "status": "rejected",
+      "reason": "invalid_timestamp_value"
+    }
+  },
+  {
+    "id": "bad_offset",
+    "synthetic": true,
+    "input": {
+      "raw_time": "2026-10-20T00:00:00+01:99",
+      "station_timezone": "America/New_York",
+      "browser_timezone": "Asia/Shanghai",
+      "evidence": {
+        "station_timezone_payload": "missing",
+        "raw_timestamp_payload": "missing",
+        "executed_source_version": "missing",
+        "moment_timezone_version": "missing",
+        "naive_interpretation": "browser_local_reference"
+      }
+    },
+    "expected": {
+      "status": "rejected",
+      "reason": "invalid_offset_range"
+    }
+  },
+  {
+    "id": "negative_zero_unknown",
+    "synthetic": true,
+    "input": {
+      "raw_time": "2026-10-20T00:00:00-00:00",
+      "station_timezone": "America/New_York",
+      "browser_timezone": "Asia/Shanghai",
+      "evidence": {
+        "station_timezone_payload": "missing",
+        "raw_timestamp_payload": "missing",
+        "executed_source_version": "missing",
+        "moment_timezone_version": "missing",
+        "naive_interpretation": "browser_local_reference"
+      }
+    },
+    "expected": {
+      "status": "uncertain",
+      "reason": "unknown_negative_zero_offset"
+    }
+  },
+  {
+    "id": "utc_station",
+    "synthetic": true,
+    "input": {
+      "raw_time": "2026-10-20T00:00:00Z",
+      "station_timezone": "UTC",
+      "browser_timezone": "UTC",
+      "evidence": {
+        "station_timezone_payload": "missing",
+        "raw_timestamp_payload": "missing",
+        "executed_source_version": "missing",
+        "moment_timezone_version": "missing",
+        "naive_interpretation": "browser_local_reference"
+      }
+    },
+    "expected": {
+      "status": "normalized_reference",
+      "reason": "reference_conversion_only",
+      "date_differ": false
+    }
+  },
+  {
+    "id": "claimed_verified_still_reference",
+    "synthetic": true,
+    "input": {
+      "raw_time": "2026-10-20T00:00:00Z",
+      "station_timezone": "America/New_York",
+      "browser_timezone": "Asia/Shanghai",
+      "evidence": {
+        "station_timezone_payload": "verified",
+        "raw_timestamp_payload": "verified",
+        "executed_source_version": "verified",
+        "moment_timezone_version": "verified"
+      }
+    },
+    "expected": {
+      "status": "normalized_reference",
+      "reason": "reference_conversion_only"
+    }
+  }
+]

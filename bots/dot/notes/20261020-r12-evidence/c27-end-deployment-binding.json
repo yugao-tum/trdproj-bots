@@ -1,0 +1,32 @@
+{
+  "access_date": "2026-10-20",
+  "source_url": "https://raw.githubusercontent.com/lidofinance/core/v4.0.1/deployed-mainnet.json",
+  "source_sha256": "5ff883a5960203732b55de2a2256dd72f8c93d3e1f9fb42cd641e4ee3cd603a8",
+  "source_bytes": 55345,
+  "tag_immutability_verified": false,
+  "official_deployment_entry": {
+    "proxy": {
+      "address": "0xae7ab96520DE3A18E5e111B5EaAb095312D7fE84"
+    },
+    "implementation": {
+      "contract": "contracts/0.4.24/Lido.sol",
+      "address": "0x028271E30a695c0527A0C50cA30603feD004cDb0",
+      "constructorArgs": []
+    },
+    "aragonApp": {
+      "fullName": "lido.lidopm.eth",
+      "name": "lido",
+      "id": "0x3ca7c3e38968823ccb4c78ea688df41356f182ae1d159e4ee608d30d68cef320",
+      "ipfsCid": "QmQkJMtvu4tyJvWrPXJfjLfyTWn959iayyNjp7YqNzX7pS",
+      "contentURI": "0x697066733a516d516b4a4d7476753474794a76577250584a666a4c667954576e393539696179794e6a703759714e7a58377053"
+    }
+  },
+  "deployCommit": "e45c4d6fb8120fd29426b8d969c19d8a798ca974",
+  "end_block_from_retained_evidence": 26093737,
+  "start_block_from_retained_evidence": 23479243,
+  "end_address_matches": true,
+  "start_deployment_link": "unknown",
+  "runtime_bytecode_equivalence": false,
+  "source_reading": "deployCommit Lido.sol tool-visible body truncated; no verified source=version4 conclusion",
+  "new_pnl": 0
+}

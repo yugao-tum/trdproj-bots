@@ -1,0 +1,32 @@
+{
+  "access_date": "2026-10-20",
+  "classification": "Author-declared reconstructed template, not raw hourly observational prices",
+  "tree": "cd55c0383b35b2864e3c9f02d5f641e2fbf84926",
+  "tree_truncated": false,
+  "commit_not_bound": true,
+  "sources": [
+    {
+      "name": "DATA_DOCUMENTATION.md",
+      "git_blob_sha": "eba0b6d52e2322f48d2000b926083c655464eaee",
+      "sha256": "9d0fc1d6e60fa762b2db9fafdaa426f60a6c4a18b84240200ca4c1c1eb9c34b9",
+      "bytes": 10939,
+      "url": "https://api.github.com/repos/gameworkerkim/vibe-investing/git/blobs/eba0b6d52e2322f48d2000b926083c655464eaee",
+      "read_scope": "full text; relevant lines 32,42,121,125"
+    },
+    {
+      "name": "06_hourly_prices_events.csv",
+      "git_blob_sha": "5fcd4fa2f3291feb8f435d91eabb3093b2ea7f00",
+      "sha256": "e436e1e252b1bb653567c9a55dabcccb4ad7a8ce5eb3963110db55cddbc8f427",
+      "bytes": 237941,
+      "url": "https://api.github.com/repos/gameworkerkim/vibe-investing/git/blobs/5fcd4fa2f3291feb8f435d91eabb3093b2ea7f00",
+      "read_scope": "full bytes hash verified; header and offset0/-24 rows checked; not economic validation of every row"
+    }
+  ],
+  "rows": 5044,
+  "offset0_rows": 52,
+  "minus24_rows": 52,
+  "has_btc_column": false,
+  "real_event_timestamp_proven": false,
+  "raw_price_source_proven": false,
+  "new_pnl": 0
+}
