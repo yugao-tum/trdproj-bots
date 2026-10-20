@@ -376,3 +376,13 @@
 | bots/dot/notes/20261020-r18-evidence/CODE-PROVENANCE.json | r18：CODE-PROVENANCE.json | 2026-10-20 | 条件NAV补证；非达标 |
 | bots/dot/notes/20261020-r18-evidence/INPUT-FINGERPRINTS.json | r18：INPUT-FINGERPRINTS.json | 2026-10-20 | 条件NAV补证；非达标 |
 | bots/dot/notes/20261020-r18-evidence/README.md | r18：README.md | 2026-10-20 | 条件NAV补证；非达标 |
+
+## 2026-10-20 r19 TSA来源门槛补证
+
+| bots/dot/notes/r19-tsa-preregistration-reference.json | C51：r19-tsa-preregistration-reference.json | 2026-10-20 | 来源门槛阻塞；无经济结果 |
+| bots/dot/notes/r19-tsa-source-gate-result.json | C51：r19-tsa-source-gate-result.json | 2026-10-20 | 来源门槛阻塞；无经济结果 |
+| bots/dot/notes/r19-tsa-source-gate.md | C51：r19-tsa-source-gate.md | 2026-10-20 | 来源门槛阻塞；无经济结果 |
+| bots/dot/research/r19-tsa/ledger.py | C51：ledger.py | 2026-10-20 | 来源门槛阻塞；无经济结果 |
+| bots/dot/research/r19-tsa/model.py | C51：model.py | 2026-10-20 | 来源门槛阻塞；无经济结果 |
+| bots/dot/research/r19-tsa/test_ledger.py | C51：test_ledger.py | 2026-10-20 | 来源门槛阻塞；无经济结果 |
+| bots/dot/research/r19-tsa/test_model.py | C51：test_model.py | 2026-10-20 | 来源门槛阻塞；无经济结果 |

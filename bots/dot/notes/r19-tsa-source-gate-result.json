@@ -1,0 +1,106 @@
+{
+  "schema": "r19.integrated-disposition.v1",
+  "created_utc": "2026-10-20T11:26:25.694829+00:00",
+  "candidate": "C51",
+  "round": 19,
+  "kind": "supplement",
+  "improves": "quant-012",
+  "classification": "source-gated draft evidence note; frozen preregistration blocked",
+  "new_entry_recommended": false,
+  "pending_submission_recommended": false,
+  "source_markets": 81,
+  "date_slots": 79,
+  "development_dates": 39,
+  "holdout_dates": 40,
+  "eligible_holdout_dates": 0,
+  "new_trade_requests": 0,
+  "trade_request_budget": 99,
+  "official_document_requests": 1,
+  "official_document_budget": 4,
+  "completed_economic_validations": 0,
+  "historical_trade_pnl": null,
+  "strategy_return": null,
+  "mechanical_no_trade_accounting_is_performance": false,
+  "new_mechanisms": 0,
+  "new_qualified_mechanisms": 0,
+  "recognized_points_awarded_this_round": 0,
+  "formal_score_status": "No review rows at checked commit; no earned score inferred",
+  "models": {
+    "native_roles": 10,
+    "native_provider": "OpenAI native agents",
+    "actual_native_model_id": null,
+    "model_id_disclosure": "Runtime does not expose exact identity; not invented",
+    "opencode_calls": 0,
+    "pi_calls": 0
+  },
+  "gate_checklist": [
+    {
+      "gate": "Nonduplicate attribution",
+      "status": "supplement_only",
+      "evidence": "quant-012 count-base-rate family credited"
+    },
+    {
+      "gate": "Traceable free source",
+      "status": "partial",
+      "evidence": "81 official archive markets and official contract PDF; historical rule/vintage limitations"
+    },
+    {
+      "gate": "Frozen decision timestamp semantics",
+      "status": "not_established",
+      "evidence": "79 target-day timezone boundaries unconfirmed; three strike and one date conflict overlap"
+    },
+    {
+      "gate": "At least 30 eligible holdout events",
+      "status": "failed",
+      "evidence": "0/40; 40 dates across ten weeks not proof of independent samples"
+    },
+    {
+      "gate": "Economic mechanism and net edge",
+      "status": "not_tested",
+      "evidence": "Prediction/accounting code tests do not establish payer-to-profit chain"
+    },
+    {
+      "gate": "5000 total /2500 venue no borrowing",
+      "status": "implementation_only",
+      "evidence": "Synthetic cash tests passed; actual capital exposure untested; initial venue cash not dynamic equity cap"
+    },
+    {
+      "gate": "Costs and executable prices",
+      "status": "not_established",
+      "evidence": "No eligible tapes; historical fee unknown; first trade and full-window volume only conditional proxies"
+    },
+    {
+      "gate": "Qualification / recognized score",
+      "status": "not_claimed",
+      "evidence": "Keep draft note, no new entry or 待核 promotion"
+    }
+  ],
+  "competitor_context": {
+    "ref": "6343dd46728efc82445650e8b6cffcacb04f57b5",
+    "quant018_reported_events": 43,
+    "quant018_reported_week_clusters": 31,
+    "quant018_reported_bab_events": 12,
+    "independently_recollected": false,
+    "our_result_is_superior": false
+  },
+  "input_hashes": {
+    "01-market-rules/output/summary.json": "95efaa511363e9efdd3f35718aab5b15111b3db8a9f977b0ba3b1b79fd00dc2b",
+    "02-labels/output/summary.json": "89ece18943bc503a39ee5557f95be8ef54d581c0e8794647cd537943267be5ae",
+    "03-trades/output/trade_windows.json": "3a7e4f0ff77730ff5b3930d3432b1170a3803ca368445f41935269ac619ce7bc",
+    "04-model/output/RESULT.json": "40fb87928a04a3613015d853e65f166464a69543ef829407b40ec38ebc5719f5",
+    "05-execution/output/manifest.json": "f51686d535565fb3bd37e1a19bca11d2417fb34ae0ad2ed0e3fda8c607811a29",
+    "06-independence/output/summary.json": "999c121fa92d22d5fd57e64da40cad7c59786f0d06b8a0f986d4e790d69317ea",
+    "07-capital/output/RESULT.json": "281ab1ffd19d79d9c85bc8182839502cf30e1a4582754527dc722883e7e92563",
+    "08-competitor/output/manifest.json": "c2767697edd83ac71d01fe4a3bc1ed5c2b2c44d9a4cde97073767127a93ed3d1",
+    "09-reproduction/output/RESULT.json": "d7130e47fd7d64d2bd9e9cbbc935eccdf3992ba1ce33a6ea1fe9e07ba1f7360f",
+    "PREREGISTRATION-LOCK.json": "4ccc3f5f4286bc70ecf6e81106a2627df3f6587ad1533e9cf4daeb97048cd201"
+  },
+  "verification": {
+    "integration_assertions": 9,
+    "independent_checks": 1514,
+    "independent_exact_fee_comparisons": 14850,
+    "capital_synthetic_tests": 12,
+    "these_are_not_research_events": true
+  },
+  "decision": "Stop frozen configuration. Reopen only for a source-resolved or separately preregistered useful economic question; no post-result rescue or repeated null audits."
+}

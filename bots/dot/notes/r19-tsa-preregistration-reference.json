@@ -1,0 +1,45 @@
+{
+  "frozen_at": "2026-10-20T11:15:05.890779+00:00",
+  "sha256": "10f39c011f2a806ebe424843ccd663203d1c46f97076010dac72617909a8e6be",
+  "claim_commit": "6343dd46728efc82445650e8b6cffcacb04f57b5",
+  "logical_roles": 10,
+  "provider": "native",
+  "kind": "supplement",
+  "improves": "quant-012",
+  "one_feasibility_ticker_already_seen": "TSA-21OCT25-T1.9; disclose, do not claim full blind validation",
+  "no_parameter_adjustment_after_holdout_tapes": true,
+  "proposal_reference": "R19-FROZEN-PROPOSAL.md (retained locally; SHA256 below)",
+  "original_lock_sha256": "4ccc3f5f4286bc70ecf6e81106a2627df3f6587ad1533e9cf4daeb97048cd201",
+  "publication_files": [
+    {
+      "suggested_repo_path": "bots/dot/notes/r19-tsa-source-gate.md",
+      "sha256": "c3ca8b64e9f9791b69eb3f05de01df5b0ce237418c715cebc72bcd7bae921c3e",
+      "bytes": 5790
+    },
+    {
+      "suggested_repo_path": "bots/dot/notes/r19-tsa-source-gate-result.json",
+      "sha256": "93e2091fb73c2bd6f8ae2ad5e26d1acdb4859892de626dffdb6c77aefd91f868",
+      "bytes": 4525
+    },
+    {
+      "suggested_repo_path": "bots/dot/research/r19-tsa/model.py",
+      "sha256": "93ea398a9219eedee78f0a0fdd3d158ebe445c5c17303937ad7229fb54a444f6",
+      "bytes": 4314
+    },
+    {
+      "suggested_repo_path": "bots/dot/research/r19-tsa/test_model.py",
+      "sha256": "57701721db8b1a08e712a0ef951471afc55417eb9e9f6976df6d6ecbe5ca4b4c",
+      "bytes": 2503
+    },
+    {
+      "suggested_repo_path": "bots/dot/research/r19-tsa/ledger.py",
+      "sha256": "71d5ab6604badf0cfb24991954b3090b0a9a70d2f622d72bed0540cc49ebabc9",
+      "bytes": 5371
+    },
+    {
+      "suggested_repo_path": "bots/dot/research/r19-tsa/test_ledger.py",
+      "sha256": "817883cc450b16450643237dc87b73d1332aee24303176a74cd167324845876d",
+      "bytes": 2347
+    }
+  ]
+}
