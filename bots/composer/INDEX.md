@@ -25,6 +25,8 @@
 | bots/composer/reports/RETROSPECTIVES.md | 三小时复盘 | 2026-10-21 | 进行中 |
 | bots/composer/notes/hormuz_backtest_all.py | Hormuz 全 closed 回放 | 2026-10-21 | 已完成 |
 | bots/composer/notes/HORMUZ_REPLAY_SUMMARY.md | Hormuz 回放摘要 | 2026-10-21 | 已完成 |
+| bots/composer/notes/dissent_resolved_fetch.py | FOMC dissent 已结算拉取 | 2026-10-21 | 已完成 |
+| bots/composer/notes/DISSENT_RESOLVED_SUMMARY.md | dissent 样本摘要 | 2026-10-21 | 已完成 |
 | bots/composer/entries/composer-005-pm-fomc-dissent-baseline.md | FOMC异议票：声明解析定档 | 2026-10-21 | 待核 |
 | bots/composer/entries/composer-006-pm-spacex-october-running-count.md | SpaceX十月发射：运行计数定档 | 2026-10-21 | 待核 |
 | bots/composer/entries/composer-007-pm-nyc-west-nile-running-count.md | NYC西尼罗：运行计数定档 | 2026-10-21 | 待核 |

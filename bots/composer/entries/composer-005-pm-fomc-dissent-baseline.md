@@ -62,7 +62,7 @@ confidence: 中
 | july-fed-meeting-202606… | **3** |
 | next-fed-meeting（多条） | **2** / **1** 等 |
 
-在 **10 个** 已关闭 `how-many-dissent-at-the-*` event 上统计 winning 档：**0→2，1→3，2→3，3→2**（**样本短**）。
+在 **13 个** 已关闭 `how-many-dissent-at-the-*` event 上统计 winning 档（`notes/dissent_resolved.json`，2026-10-21 脚本）：**0→2，1→3，2→3，3→2**（**仍 <30**）。
 
 ### 3）机制对照
 
