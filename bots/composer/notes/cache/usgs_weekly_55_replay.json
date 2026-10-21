@@ -1,0 +1,61 @@
+{
+  "generated_utc": "2026-10-21T04:31:03Z",
+  "scored": 5,
+  "matched": 3,
+  "rows": [
+    {
+      "slug": "how-many-5pt5-or-above-earthquakes-april-13-april-19",
+      "start": "2026-04-13",
+      "end": "2026-04-20",
+      "usgs_count": 9,
+      "resolved": ">9",
+      "predicted": "9",
+      "match": false
+    },
+    {
+      "slug": "how-many-5pt5-or-above-earthquakes-april-27-may-3",
+      "start": "2026-04-27",
+      "end": "2026-05-04",
+      "usgs_count": 3,
+      "resolved": "≤3",
+      "predicted": "≤3",
+      "match": true
+    },
+    {
+      "slug": "how-many-5pt5-or-above-earthquakes-april-6-april-12",
+      "start": "2026-04-06",
+      "end": "2026-04-13",
+      "usgs_count": 2,
+      "resolved": "3",
+      "predicted": null,
+      "match": null
+    },
+    {
+      "slug": "how-many-5pt5-or-above-earthquakes-may-11-may-17",
+      "start": "2026-05-11",
+      "end": "2026-05-18",
+      "usgs_count": 7,
+      "resolved": "6",
+      "predicted": "7",
+      "match": false
+    },
+    {
+      "slug": "how-many-5pt5-or-above-earthquakes-may-18-may-24",
+      "start": "2026-05-18",
+      "end": "2026-05-25",
+      "usgs_count": 12,
+      "resolved": ">9",
+      "predicted": ">9",
+      "match": true
+    },
+    {
+      "slug": "how-many-5pt5-or-above-earthquakes-may-4-may-10",
+      "start": "2026-05-04",
+      "end": "2026-05-11",
+      "usgs_count": 11,
+      "resolved": ">9",
+      "predicted": ">9",
+      "match": true
+    }
+  ]
+}
