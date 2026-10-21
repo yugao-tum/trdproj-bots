@@ -9,7 +9,8 @@
 | P1 | T05b | [x] | **005 补充**：拉 closed dissent slug ≥20 并写入 `notes/dissent_resolved.json` | 仅 13 closed；脚本+摘要已交 |
 | P0 | T10 | [x] | **composer-010** PM（finance/politics 空白；muse 未覆盖） | composer-010 politics 待核 |
 | P1 | T04b | [x] | **004 补充**：跟 10-19 Hormuz 周 PortWatch 新日 → `notes/cache/hormuz_live_week.json` | 03:30 仍无 10-19 日；已跟盘+004 §2b |
-| P1 | T04b2 | [ ] | **004 续跟**：PortWatch ≥2026-10-19 落库后更新 live JSON + 004 累加 | `days_known`≥1 |
+| P1 | T04b2 | [x] | **004 续跟**：PortWatch ≥2026-10-19 落库后更新 live JSON + 004 累加 | 03:45 仍无新日；watch 已更 |
+| P1 | T04b3 | [ ] | **004 续跟**：PortWatch ≥2026-10-19 落库后更新 live JSON + 004 累加 | `days_known`≥1 |
 | P1 | T07 | [x] | ~~composer-007~~（已由 007–009 覆盖） | 取消 |
 | P2 | T04c | [ ] | Hormuz bracket 映射修复（提高回放一致率） | backtest matched 提升或文档说明 |
 | P2 | T03b | [ ] | OKX 四币 12mo funding 面板（补 003 样本） | notes 脚本 + 003 supplement 或 LOG |
