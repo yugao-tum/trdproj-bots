@@ -1,0 +1,268 @@
+{
+  "generated_utc": "2026-10-21T12:11:34Z",
+  "price_source": "https://data-api.polymarket.com/trades",
+  "rule": "predicted bracket = mode of prior resolved counts (tie → smaller count); median YES print in the 48h before 16:00 UTC on endDate; price in (0.02, 0.97); window ends before the usual 14:00 ET FOMC statement",
+  "fee": "0.05 * p * (1-p) per share",
+  "n_resolved": 10,
+  "n_predicted": 9,
+  "n_filled": 9,
+  "n_won": 1,
+  "mean_net_per_share": -0.2316,
+  "rows": [
+    {
+      "slug": "how-many-dissent-at-the-next-fed-meeting",
+      "endDate": "2025-07-30",
+      "resolved": "2",
+      "predicted": null,
+      "prior": [],
+      "window_utc": [
+        "2025-07-28T16:00:00+00:00",
+        "2025-07-30T16:00:00+00:00"
+      ],
+      "status": "no_prior"
+    },
+    {
+      "slug": "how-many-dissent-at-the-next-fed-meeting-526",
+      "endDate": "2025-09-17",
+      "resolved": "1",
+      "predicted": "2",
+      "prior": [
+        "2"
+      ],
+      "window_utc": [
+        "2025-09-15T16:00:00+00:00",
+        "2025-09-17T16:00:00+00:00"
+      ],
+      "match": false,
+      "conditionId": "0xffc0d1a35b14e0c2d56b1f6f645a5c11710973aa7f05dde6a807e6000119986e",
+      "trades_fetched": 155,
+      "yes_in_window": 34,
+      "status": "filled",
+      "entry_price": 0.34,
+      "fee_per_share": 0.0112,
+      "won": false,
+      "net_per_share": -0.3512,
+      "price_source": "data-api"
+    },
+    {
+      "slug": "how-many-dissent-at-the-next-fed-meeting-337",
+      "endDate": "2025-10-29",
+      "resolved": "2",
+      "predicted": "1",
+      "prior": [
+        "2",
+        "1"
+      ],
+      "window_utc": [
+        "2025-10-27T16:00:00+00:00",
+        "2025-10-29T16:00:00+00:00"
+      ],
+      "match": false,
+      "conditionId": "0x30dbbd020151d9cf6190947a27e72a01e657f2670db583c10658ddc78f020460",
+      "trades_fetched": 249,
+      "yes_in_window": 49,
+      "status": "filled",
+      "entry_price": 0.71,
+      "fee_per_share": 0.0103,
+      "won": false,
+      "net_per_share": -0.7203,
+      "price_source": "data-api"
+    },
+    {
+      "slug": "how-many-dissent-at-the-next-fed-meeting-265",
+      "endDate": "2025-12-10",
+      "resolved": "3",
+      "predicted": "2",
+      "prior": [
+        "2",
+        "1",
+        "2"
+      ],
+      "window_utc": [
+        "2025-12-08T16:00:00+00:00",
+        "2025-12-10T16:00:00+00:00"
+      ],
+      "match": false,
+      "conditionId": "0xa1d87dd6fe5704489486bda31a2f72f7bef90f479cade1315b94c634349fa2f7",
+      "trades_fetched": 434,
+      "yes_in_window": 43,
+      "status": "filled",
+      "entry_price": 0.25,
+      "fee_per_share": 0.0094,
+      "won": false,
+      "net_per_share": -0.2594,
+      "price_source": "data-api"
+    },
+    {
+      "slug": "how-many-dissent-at-the-next-fed-meeting-645",
+      "endDate": "2026-01-28",
+      "resolved": "2",
+      "predicted": "2",
+      "prior": [
+        "2",
+        "1",
+        "2",
+        "3"
+      ],
+      "window_utc": [
+        "2026-01-26T16:00:00+00:00",
+        "2026-01-28T16:00:00+00:00"
+      ],
+      "match": true,
+      "conditionId": "0x0be3d4cc20250a7105206bc352af8b1c087df2ebd4f3b3927fabcdd8c81d792e",
+      "trades_fetched": 219,
+      "yes_in_window": 50,
+      "status": "filled",
+      "entry_price": 0.37,
+      "fee_per_share": 0.0117,
+      "won": true,
+      "net_per_share": 0.6183,
+      "price_source": "data-api"
+    },
+    {
+      "slug": "how-many-dissent-at-the-next-fed-meeting-247",
+      "endDate": "2026-03-18",
+      "resolved": "1",
+      "predicted": "2",
+      "prior": [
+        "2",
+        "1",
+        "2",
+        "3",
+        "2"
+      ],
+      "window_utc": [
+        "2026-03-16T16:00:00+00:00",
+        "2026-03-18T16:00:00+00:00"
+      ],
+      "match": false,
+      "conditionId": "0x479cd32ce54efa60b5332818d15054ff6f923727f1d10165da9b50271181057e",
+      "trades_fetched": 325,
+      "yes_in_window": 92,
+      "status": "filled",
+      "entry_price": 0.59,
+      "fee_per_share": 0.0121,
+      "won": false,
+      "net_per_share": -0.6021,
+      "price_source": "data-api"
+    },
+    {
+      "slug": "how-many-dissent-at-the-next-fed-meeting-113",
+      "endDate": "2026-04-29",
+      "resolved": "1",
+      "predicted": "2",
+      "prior": [
+        "2",
+        "1",
+        "2",
+        "3",
+        "2",
+        "1"
+      ],
+      "window_utc": [
+        "2026-04-27T16:00:00+00:00",
+        "2026-04-29T16:00:00+00:00"
+      ],
+      "match": false,
+      "conditionId": "0x47bae8d2c6f217990fb734f8b421226cd19a6bf2d485792c441ffbeaa49a90ed",
+      "trades_fetched": 339,
+      "yes_in_window": 24,
+      "status": "filled",
+      "entry_price": 0.08,
+      "fee_per_share": 0.0037,
+      "won": false,
+      "net_per_share": -0.0837,
+      "price_source": "data-api"
+    },
+    {
+      "slug": "how-many-dissent-at-the-next-fed-meeting-822",
+      "endDate": "2026-06-17",
+      "resolved": "0",
+      "predicted": "1",
+      "prior": [
+        "2",
+        "1",
+        "2",
+        "3",
+        "2",
+        "1",
+        "1"
+      ],
+      "window_utc": [
+        "2026-06-15T16:00:00+00:00",
+        "2026-06-17T16:00:00+00:00"
+      ],
+      "match": false,
+      "conditionId": "0xc1e347751836823553a0e932012f0ee8a90722bc2dc81644621f3830178fe878",
+      "trades_fetched": 225,
+      "yes_in_window": 4,
+      "status": "filled",
+      "entry_price": 0.21,
+      "fee_per_share": 0.0083,
+      "won": false,
+      "net_per_share": -0.2183,
+      "price_source": "data-api"
+    },
+    {
+      "slug": "how-many-dissent-at-the-july-fed-meeting-20260616001900143",
+      "endDate": "2026-07-29",
+      "resolved": "3",
+      "predicted": "1",
+      "prior": [
+        "2",
+        "1",
+        "2",
+        "3",
+        "2",
+        "1",
+        "1",
+        "0"
+      ],
+      "window_utc": [
+        "2026-07-27T16:00:00+00:00",
+        "2026-07-29T16:00:00+00:00"
+      ],
+      "match": false,
+      "conditionId": "0x8b263be6696f05f2f16135031ddc1632a7209fc11ce41af5409f60fe797080fb",
+      "trades_fetched": 138,
+      "yes_in_window": 7,
+      "status": "filled",
+      "entry_price": 0.23,
+      "fee_per_share": 0.0089,
+      "won": false,
+      "net_per_share": -0.2389,
+      "price_source": "data-api"
+    },
+    {
+      "slug": "how-many-dissent-at-the-september-fed-meeting",
+      "endDate": "2026-09-16",
+      "resolved": "0",
+      "predicted": "1",
+      "prior": [
+        "2",
+        "1",
+        "2",
+        "3",
+        "2",
+        "1",
+        "1",
+        "0",
+        "3"
+      ],
+      "window_utc": [
+        "2026-09-14T16:00:00+00:00",
+        "2026-09-16T16:00:00+00:00"
+      ],
+      "match": false,
+      "conditionId": "0x56015776d016a12067a36849372674221f7f47fde68a12db99c1fd147441e6ef",
+      "trades_fetched": 141,
+      "yes_in_window": 10,
+      "status": "filled",
+      "entry_price": 0.22,
+      "fee_per_share": 0.0086,
+      "won": false,
+      "net_per_share": -0.2286,
+      "price_source": "data-api"
+    }
+  ]
+}

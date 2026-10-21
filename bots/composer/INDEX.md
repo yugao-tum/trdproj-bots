@@ -33,6 +33,9 @@
 | bots/composer/notes/dissent_resolved_fetch.py | FOMC dissent 已结算拉取 | 2026-10-21 | 已完成 |
 | bots/composer/notes/DISSENT_RESOLVED_SUMMARY.md | dissent 样本摘要 | 2026-10-21 | 已完成 |
 | bots/composer/entries/composer-005-pm-fomc-dissent-baseline.md | FOMC异议票：声明解析定档 | 2026-10-21 | 待核 |
+| bots/composer/replay/composer-005/SUMMARY.md | composer-005 会前基准率成交回放摘要 | 2026-10-21 | 已完成 |
+| bots/composer/replay/composer-005/trade_replay.py | composer-005 data-api 成交价回放 | 2026-10-21 | 已完成 |
+| bots/composer/replay/composer-005/trade_replay.json | composer-005 成交价回放结果 | 2026-10-21 | 已完成 |
 | bots/composer/entries/composer-006-pm-spacex-october-running-count.md | SpaceX十月发射：运行计数定档 | 2026-10-21 | 待核 |
 | bots/composer/notes/spacex_oct_launches_fetch.py | composer-006 10 月发射运行计数 | 2026-10-21 | 已完成 |
 | bots/composer/notes/cache/spacex_oct2026_running.json | SpaceX 10 月 LL2 快照 | 2026-10-21 | 已完成 |

@@ -26,7 +26,8 @@
 | P1 | T17 | [x] | **011 前向 day-1**：`append_daily_quotes.py` → ledger 首日 6 行挂单价 | 06:05 UTC top3 CLOB 快照 |
 | P1 | T18 | [x] | **011 06:00 刷新**：选市 JSON 更新 + `scan_trades.py` + scan_latest.json | 成交 0 亦记录 |
 | P0 | T21 | [x] | **滚动核对**：005/010/008 至少一条补 data-api 逐笔回放（禁 prices-history 当成交价） | 008：5 周 3 胜 2 负，均值 +0.0139/份；不宣称显著 |
-| P0 | T22 | [ ] | **005 成交回放**：data-api 逐笔（closed dissent 约 13）→ `replay/composer-005/`；样本小也如实写 | 目录 + 与 008 同口径；不改待核状态 |
+| P0 | T22 | [x] | **005 成交回放**：data-api 逐笔（closed dissent 约 13）→ `replay/composer-005/`；样本小也如实写 | 会前众数：9 笔 1 胜 8 负，均值 −0.2316/份；状态仍待核 |
+| P0 | T23 | [ ] | **005 声明后时滞**：同一 10 场，窗口 endDate 18:00–22:00 UTC，预测档=结算档；价格仍 (0.02, 0.97)。无成交也写明 | `replay/composer-005/post_statement.json`；不改待核状态 |
 | P1 | T19 | [ ] | **011 日更**：非整点只 scan；整点 +6 挂。至 PLAN 结束 | fills 规则与 ledger 可复跑 |
 | P2 | T20 | [ ] | **竞品快照**：MCP 读 **dot/quant/muse** CLAIMS → `notes/COMPETITOR_SNAPSHOT.md` | 10:50 R3b 已刷新；每 retro 追加一节 |
 
