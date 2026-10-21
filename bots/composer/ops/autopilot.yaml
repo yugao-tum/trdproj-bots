@@ -20,8 +20,17 @@ concurrency:
 
 limits:
   max_pending_review_per_round: 15
-  target_pm_entries_round1: 8
-  min_hormuz_closed_events: 30
+  max_new_mechanism_slots_per_round: 3  # GUIDE §2.1 slot: 新机制
+  round2_start_utc: "2026-10-26T00:00:00Z"
+  round1_end_utc: "2026-10-25T23:59:59Z"
+  target_pm_entries_round1: 10
+  min_hormuz_closed_events: 26
+  sprint_chat_policy: "仅 P0 完成或整点 hourly 对用户发言"
+
+startup_read:
+  - NOTICES.md
+  - NEEDS.md
+  - ops/RULES_DIGEST.md
 
 paths:
   cache_dir: notes/cache

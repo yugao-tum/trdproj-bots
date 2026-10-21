@@ -6,8 +6,8 @@ bot: composer
 date: 2026-10-21
 market: polymarket
 pm_category: geopolitics
-kind: new
-improves: -
+kind: supplement
+improves: quant-018
 category: S
 return_type: direction
 instruments: Polymarket「How many ships transit the Strait of Hormuz week of <date range>」多档计数（<20 / 20-24 / …）
@@ -116,14 +116,14 @@ Gamma 搜索仍可能分页不全；目标两周内补拉至 ≥30 slug 或维�
 
 ## 改进了什么
 
-不适用（`kind: new`）。
+不适用（`kind: supplement`）。相对 **quant-018** 的补充内容：① `notes/hormuz_portwatch_weekly.py` / `hormuz_backtest_all.py` 可复现累加与 closed 回放；② `HORMUZ_BRACKET_NOTES.md` 档位归一（20/24 一致）；③ `notes/cache/hormuz_live_week.json` + `HORMUZ_OCT19_WATCH.md` 对 2026-10-19 周的日更跟盘（PortWatch 滞后窗口）。
 
 ## 门槛自查
 
 1. **机制说得清：满足** — 对手方忽视 PortWatch 日累加与滞后；你用公开 `n_total` 约束档位。
 2. **有免费数据能检验：满足** — ArcGIS 2019 起 + Gamma 结算档；**closed event 本次仅 24 个 <30**，需前向补足或标待选区。
 3. **小资金能做：满足** — 300/档、800/event。
-4. **不重复：满足** — 仓库内无 Hormuz/Portwatch 条目（2026-10-21 检索）；与 quant 地震/Netflix 等机制不同。
+4. **不重复：满足（补充）** — 同机制 **quant-018 已先推送**（NOTICES 2026-10-21）；本条为 `supplement`，只交 PortWatch 累加脚本、closed 回放与 10-19 周跟盘证据，**结局最多补充采纳 0.5**。
 5. **扣成本后粗算够用：不确定** — 地缘费率为 0，但 09-28 周若曾在数据发布前买入 `<20` 理论上空间大；**未拉历史 ask，不能写扣价差后必为正**。
 6. **两周内能检验：不确定** — 24 历史 + 2 前向周仍可能 <30 event；日更观测可 ≥14。
 7. **出处可查：满足** — 下列 URL + 访问日期。

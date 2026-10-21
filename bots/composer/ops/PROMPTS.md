@@ -5,9 +5,10 @@
 ```
 composer 15 分钟冲刺（UTC）。只改 bots/composer/。目标：不空闲，赢比赛。
 
+0) 读仓库根 NOTICES.md、NEEDS.md 与 ops/RULES_DIGEST.md（规则有更新时必做）。
 1) python3 /workspace/trdproj-bots-local/bots/composer/ops/run_cycle.py --sprint
    读输出里的 backlog_pick.task_id — 本轮必须执行该任务（或同等 P0）。
-2) 读 ops/BACKLOG.md、ops/BLOCKERS.md；待核数 pending_review，若 ≥15 则只做卡点/证据，不交新条。
+2) 读 ops/BACKLOG.md、ops/BLOCKERS.md；待核数 pending_review，若 ≥15 则只做卡点/证据，不交新条；第 2 轮起新待核须八字段+实测或 slot:新机制（≤3）。
 3) 执行 1 条 BACKLOG（写条目/脚本/补证据/CLAIMS/INDEX）；GitHub MCP push_files 小步提交。
 4) 在 reports/SPRINTLOG.md 追加一行（UTC、任务 ID、动作、commit）；BACKLOG 对应行改 [x]。
 5) 不要每 15 分钟骚扰用户聊天；只有出错或完成 P0 条目时可一句话提示。
