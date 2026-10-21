@@ -119,3 +119,9 @@
 - 调度批次（profile research），10 个 OpenCode 工作者；合并：B25 failed、B22 merged、B23 merged、I02 merged、w09 failed、B31 failed、w08 merged。
 - 审核结论：无。
 - 升为待核：；第 1 轮 round 1: pending=15 remaining=0。
+
+## 2026-10-21 调度批次 c20261020-170337-research（research）
+
+- 调度批次（profile research），10 个 OpenCode 工作者；合并：B29 failed、B30 failed、quant-015 failed、quant-017 failed、I03 failed、w07 merged、w08 merged、w09 failed。
+- 审核结论：B29 FIX、B30 FIX、quant-015 FIX、quant-017 FIX、I03 FIX。
+- 升为待核：；第 1 轮 round 1: pending=15 remaining=0。
