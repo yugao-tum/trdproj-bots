@@ -672,3 +672,70 @@
 | bots/quant/notes/scheduler/scratch/P-quant-031/fetch_cdx_out.txt | fetch_cdx_out.txt | 2026-10-21 | 笔记 |
 | bots/quant/notes/scheduler/scratch/P-quant-031/recheck.py | recheck.py | 2026-10-21 | 笔记 |
 | bots/quant/notes/scheduler/scratch/P-quant-031/recheck_out.txt | recheck_out.txt | 2026-10-21 | 笔记 |
+| bots/quant/notes/scheduler/reviews/c20261021-060001-research.md | Review gate — c20261021-060001-research (quant, 2026-10-21 U | 2026-10-21 | 笔记 |
+| bots/quant/notes/scheduler/scratch/H-quant-002/.gitignore | .gitignore | 2026-10-21 | 笔记 |
+| bots/quant/notes/scheduler/scratch/H-quant-002/REPORT.md | H-quant-002：quant-002 可成交价回测 + 来源复核（2026-10-21） | 2026-10-21 | 笔记 |
+| bots/quant/notes/scheduler/scratch/H-quant-002/daily_BTC.csv | daily_BTC.csv | 2026-10-21 | 笔记 |
+| bots/quant/notes/scheduler/scratch/H-quant-002/daily_ETH.csv | daily_ETH.csv | 2026-10-21 | 笔记 |
+| bots/quant/notes/scheduler/scratch/H-quant-002/fetch_hourly.py | fetch_hourly.py | 2026-10-21 | 笔记 |
+| bots/quant/notes/scheduler/scratch/H-quant-002/fetch_stdout.txt | fetch_stdout.txt | 2026-10-21 | 笔记 |
+| bots/quant/notes/scheduler/scratch/H-quant-002/fills_BTC.csv | fills_BTC.csv | 2026-10-21 | 笔记 |
+| bots/quant/notes/scheduler/scratch/H-quant-002/fills_ETH.csv | fills_ETH.csv | 2026-10-21 | 笔记 |
+| bots/quant/notes/scheduler/scratch/H-quant-002/lint_entry.py | lint_entry.py | 2026-10-21 | 笔记 |
+| bots/quant/notes/scheduler/scratch/H-quant-002/lint_entry_stdout.txt | lint_entry_stdout.txt | 2026-10-21 | 笔记 |
+| bots/quant/notes/scheduler/scratch/H-quant-002/placebo.csv | placebo.csv | 2026-10-21 | 笔记 |
+| bots/quant/notes/scheduler/scratch/H-quant-002/tradable_backtest.py | tradable_backtest.py | 2026-10-21 | 笔记 |
+| bots/quant/notes/scheduler/scratch/H-quant-002/tradable_results.csv | tradable_results.csv | 2026-10-21 | 笔记 |
+| bots/quant/notes/scheduler/scratch/H-quant-002/tradable_stdout.txt | tradable_stdout.txt | 2026-10-21 | 笔记 |
+| bots/quant/notes/scheduler/scratch/H-quant-002/verify_sources.py | verify_sources.py | 2026-10-21 | 笔记 |
+| bots/quant/notes/scheduler/scratch/H-quant-002/verify_sources_stdout.txt | verify_sources_stdout.txt | 2026-10-21 | 笔记 |
+| bots/quant/notes/scheduler/scratch/H-quant-002/windows.csv | windows.csv | 2026-10-21 | 笔记 |
+| bots/quant/notes/scheduler/scratch/H-quant-007/q007_trades.py | q007_trades.py | 2026-10-21 | 笔记 |
+| bots/quant/notes/scheduler/scratch/H-quant-007/q007_trades_fills.csv | q007_trades_fills.csv | 2026-10-21 | 笔记 |
+| bots/quant/notes/scheduler/scratch/H-quant-007/q007_trades_output.txt | q007_trades_output.txt | 2026-10-21 | 笔记 |
+| bots/quant/notes/scheduler/scratch/H-quant-007/q007_verify_all.py | q007_verify_all.py | 2026-10-21 | 笔记 |
+| bots/quant/notes/scheduler/scratch/H-quant-007/q007_verify_all_output.txt | q007_verify_all_output.txt | 2026-10-21 | 笔记 |
+| bots/quant/notes/scheduler/scratch/H-quant-012/.gitignore | .gitignore | 2026-10-21 | 笔记 |
+| bots/quant/notes/scheduler/scratch/H-quant-012/REPORT.md | H-quant-012：quant-012 负结果加固 | 2026-10-21 | 笔记 |
+| bots/quant/notes/scheduler/scratch/H-quant-012/analyze_merged.py | analyze_merged.py | 2026-10-21 | 笔记 |
+| bots/quant/notes/scheduler/scratch/H-quant-012/analyze_merged_output.txt | analyze_merged_output.txt | 2026-10-21 | 笔记 |
+| bots/quant/notes/scheduler/scratch/H-quant-012/field_check.py | field_check.py | 2026-10-21 | 笔记 |
+| bots/quant/notes/scheduler/scratch/H-quant-012/field_check_output.txt | field_check_output.txt | 2026-10-21 | 笔记 |
+| bots/quant/notes/scheduler/scratch/H-quant-012/lint_output.txt | lint_output.txt | 2026-10-21 | 笔记 |
+| bots/quant/notes/scheduler/scratch/H-quant-012/maker_proxy.py | maker_proxy.py | 2026-10-21 | 笔记 |
+| bots/quant/notes/scheduler/scratch/H-quant-012/maker_proxy_output.txt | maker_proxy_output.txt | 2026-10-21 | 笔记 |
+| bots/quant/notes/scheduler/scratch/H-quant-012/verify_sources.py | verify_sources.py | 2026-10-21 | 笔记 |
+| bots/quant/notes/scheduler/scratch/H-quant-012/verify_sources_output.txt | verify_sources_output.txt | 2026-10-21 | 笔记 |
+| bots/quant/notes/scheduler/scratch/H-quant-015/fetch_core.out | fetch_core.out | 2026-10-21 | 笔记 |
+| bots/quant/notes/scheduler/scratch/H-quant-015/fetch_trades.out | fetch_trades.out | 2026-10-21 | 笔记 |
+| bots/quant/notes/scheduler/scratch/H-quant-015/lint_015.py | lint_015.py | 2026-10-21 | 笔记 |
+| bots/quant/notes/scheduler/scratch/H-quant-015/oos_strict_015.out | oos_strict_015.out | 2026-10-21 | 笔记 |
+| bots/quant/notes/scheduler/scratch/H-quant-015/oos_strict_015.py | oos_strict_015.py | 2026-10-21 | 笔记 |
+| bots/quant/notes/scheduler/scratch/H-quant-015/verify_sources_v2.out | verify_sources_v2.out | 2026-10-21 | 笔记 |
+| bots/quant/notes/scheduler/scratch/H-quant-015/verify_sources_v2.py | verify_sources_v2.py | 2026-10-21 | 笔记 |
+| bots/quant/notes/scheduler/scratch/H-quant-015/verify_volumes.out | verify_volumes.out | 2026-10-21 | 笔记 |
+| bots/quant/notes/scheduler/scratch/H-quant-015/verify_volumes.py | verify_volumes.py | 2026-10-21 | 笔记 |
+| bots/quant/notes/scheduler/scratch/H-quant-026/.gitignore | .gitignore | 2026-10-21 | 笔记 |
+| bots/quant/notes/scheduler/scratch/H-quant-026/REPORT.md | H-quant-026 / quant-026 加固报告（2026-10-21） | 2026-10-21 | 笔记 |
+| bots/quant/notes/scheduler/scratch/H-quant-026/fetch_data.out | fetch_data.out | 2026-10-21 | 笔记 |
+| bots/quant/notes/scheduler/scratch/H-quant-026/fetch_data.py | fetch_data.py | 2026-10-21 | 笔记 |
+| bots/quant/notes/scheduler/scratch/H-quant-026/harden_backtest.out | harden_backtest.out | 2026-10-21 | 笔记 |
+| bots/quant/notes/scheduler/scratch/H-quant-026/harden_backtest.py | harden_backtest.py | 2026-10-21 | 笔记 |
+| bots/quant/notes/scheduler/scratch/H-quant-026/verify_sources.out | verify_sources.out | 2026-10-21 | 笔记 |
+| bots/quant/notes/scheduler/scratch/H-quant-026/verify_sources.py | verify_sources.py | 2026-10-21 | 笔记 |
+| bots/quant/notes/scheduler/scratch/P-quant-006/.gitignore | .gitignore | 2026-10-21 | 笔记 |
+| bots/quant/notes/scheduler/scratch/P-quant-006/FIXES.md | P-quant-006 FIXES — 2026-10-21 | 2026-10-21 | 笔记 |
+| bots/quant/notes/scheduler/scratch/P-quant-006/verify_backtest.out | verify_backtest.out | 2026-10-21 | 笔记 |
+| bots/quant/notes/scheduler/scratch/P-quant-006/verify_backtest.py | verify_backtest.py | 2026-10-21 | 笔记 |
+| bots/quant/notes/scheduler/scratch/P-quant-006/verify_sources.out | verify_sources.out | 2026-10-21 | 笔记 |
+| bots/quant/notes/scheduler/scratch/P-quant-006/verify_sources.py | verify_sources.py | 2026-10-21 | 笔记 |
+| bots/quant/notes/scheduler/scratch/P-quant-017/.gitignore | .gitignore | 2026-10-21 | 笔记 |
+| bots/quant/notes/scheduler/scratch/P-quant-017/REPORT.md | P-quant-017 round-2 preparation report | 2026-10-21 | 笔记 |
+| bots/quant/notes/scheduler/scratch/P-quant-017/backtest_017.py | backtest_017.py | 2026-10-21 | 笔记 |
+| bots/quant/notes/scheduler/scratch/P-quant-017/backtest_017.stdout.txt | backtest_017.stdout.txt | 2026-10-21 | 笔记 |
+| bots/quant/notes/scheduler/scratch/P-quant-017/fetch_bt_data.py | fetch_bt_data.py | 2026-10-21 | 笔记 |
+| bots/quant/notes/scheduler/scratch/P-quant-017/fetch_bt_data.stdout.txt | fetch_bt_data.stdout.txt | 2026-10-21 | 笔记 |
+| bots/quant/notes/scheduler/scratch/P-quant-017/recompute_ev.py | recompute_ev.py | 2026-10-21 | 笔记 |
+| bots/quant/notes/scheduler/scratch/P-quant-017/recompute_ev.stdout.txt | recompute_ev.stdout.txt | 2026-10-21 | 笔记 |
+| bots/quant/notes/scheduler/scratch/P-quant-017/verify_live.py | verify_live.py | 2026-10-21 | 笔记 |
+| bots/quant/notes/scheduler/scratch/P-quant-017/verify_live.stdout.txt | verify_live.stdout.txt | 2026-10-21 | 笔记 |
