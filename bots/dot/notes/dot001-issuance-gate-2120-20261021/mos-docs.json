@@ -1,0 +1,25 @@
+{
+  "url": "https://mesonet.agron.iastate.edu/mos/",
+  "http_status": 200,
+  "retrieved_utc": "2026-10-21T21:25:11.448953+00:00",
+  "response_sha256": "d0be7787274e1afc87b891903ad8f28a5686f9a431604de4d31e30098d615019",
+  "response_bytes": 35894,
+  "filtered_text": " \n   \n    \n Archived Model Output Statistics (MOS) \n\n The National Weather Service operates a number of operational\nweather prediction models.  These models produce a gridded forecast that is\nthen processed thru a series of equations (Model Output Statistics) to\nproduce a site specific forecast. You can find out more about\n MOS  on the\nNWS's website.  The IEM maintains an interactive MOS archive to support\nlocal research and makes it available for others to use as well. \n\n  Archive Status: \n \n   Model  Start  End   \n \n  AVN  1 June 2000  16 Dec 2003  \n  ETA  24 Feb 2002  9 Dec 2008  \n  GFS  16 Dec 2003  --Realtime--  \n  GFS LAMP (abbr LAV) [0, 6, 12, 18]  12 Jul 2020  --Realtime--  \n  GFS Extended (abbr MEX)  12 Jul 2020  --Realtime--  \n  NAM  9 Dec 2008  --Realtime--  \n  NBS [0, 7, 12, 19z]  7 Nov 2018  25 Feb 2020  \n  NBS [1, 7, 13, 19z]  26 Feb 2020  5 May 2026  \n  NBE [1, 7, 13, 19z]  23 Jul 2020  5 May 2026  \n  NBS [0, 6, 12, 18z]  5 May 2026  --Realtime--  \n  NBE [0, 6, 12, 18z]  5 May 2026  --Realtime--  \n \n \n The MOS products are processed in realtime and immediately available from\nthe applications listed below.\n\n Current Tools: \n \n   ASCII Data Tables \n  The raw text-based MOS data comes in collectives with multiple sites\n found within one product.  The IEM splits these and then assigns 6 character\n AWIPS/AFOS like IDs to them, such that you can easily retrieve the raw ASCII\n MOS data.  The general identifier form is  <model><3-char station> .\n For example,  LAVDSM  for GFS LAMP for Des Moines. \n\n   Sample link to latest GFS LAMP for KDSM \n  Please see the discussion above about the identifiers used.  This page just\n provides the text and not much else.  Best for if you want to bookmark direct links\n or do some of your own MOS parsing, gasp.  Just adjust the  pil=  value\n as you see fit. \n\n   Interactive MOS Tables \n   Generates a simple table of how a variable changes over time\n   and by model run. \n   Meteogram Generator \n   Fancy application to generate graphs of current MOS data. \n   Comma Delimited / JSON output \n   Simple web service provides csv/json data for one or more sites for a\n  given model and optional runtime.  An example URL call would be: \n   \n/api/1/mos.txt?station=KAMW&runtime=2009-01-10%2012:00Z&model=GFS  (explicit)\n/api/1/mos.txt?station=KAMW&model=GFS  (last available GFS run for Ames in csv)\n/api/1/mos.json?station=KAMW&model=GFS  (last available GFS run for Ames in JSON)\n/api/1/mos.txt?station=KDSM&station=KAMW&model=GFS  (last available GFS run for Ames and Des Moines)\n  \n   Download the raw data! \n   This application returns the raw MOS data for a location and time\n  period of your choice. \n   Monthly Plots of Station Temperature Forecasts \n   This application creates a graph of daily MOS forecasts and actual\n        temperatures for a month and station of your choice. \n \n\n  Note:  MOS variables are stored as their raw encodings\nin the text product, except  wdr  (wind direction) which is\nmultiplied by 10 for its true value.\n\n Current Plots \n \n\n \n   \n \n\n \n   \n \n\n \n   \n \n\n  Publications Citing IEM Data ( View All ) \n These are the most recent 10 publications that have cited the usage of data\nfrom this page. This\nlist is not exhaustive, so please  let us know \nif you have a publication that should be added. \n  Lang, V., T. Turner, et al. 2022, Predicting Peak Wind Gusts during Specific Weather Types with the Meteorologically Stratified Gust Factor Model. Weather and Forecasting. Volume 37, Issue 8.  https://doi.org/10.1175/WAF-D-21-0201.1   Turner, T. 2020, PREDICTING PEAK WIND GUSTS DURING SPECIFIC WEATHER TYPES WITH THE METEOROLOGICALLY STRATIFIED GUST FACTOR MODEL. Masters Thesis, University of Wisconsin Milwaukee. ISBN 9798672145709  https://proquest.com/docview/2447557187       \n ",
+  "links": [
+    "https://vlab.noaa.gov/web/mdl",
+    "/wx/afos/",
+    "/cgi-bin/afos/retrieve.py?pil=LAVDSM",
+    "table.phtml",
+    "https://meteor.geol.iastate.edu/~ckarsten/bufkit/image_loader.phtml",
+    "/api/1/docs#/default/service_mos__fmt__get",
+    "fe.phtml",
+    "/plotting/auto/?q=37",
+    "/timemachine/?product=51",
+    "/timemachine/?product=52",
+    "/timemachine/?product=50",
+    "/info/refs.php",
+    "/info/contacts.php",
+    "https://doi.org/10.1175/WAF-D-21-0201.1",
+    "https://proquest.com/docview/2447557187"
+  ]
+}

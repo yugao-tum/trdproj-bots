@@ -1,0 +1,12 @@
+{
+  "url": "https://mesonet.agron.iastate.edu/cgi-bin/afos/retrieve.py?pil=MAVLGA&matches=KLGA&sdate=2026-07-15T12%3A00Z&edate=2026-07-15T18%3A00Z&limit=1&order=asc&fmt=text",
+  "http_status": 200,
+  "retrieved_utc": "2026-10-21T21:25:30.949754+00:00",
+  "response_sha256": "66d8f72c0435534fc14043b84302a852ea7fa30332d8d77de54f8a23c0431ef6",
+  "response_bytes": 29,
+  "metadata_lines": [],
+  "response_has_no_products": false,
+  "raw_body_saved": false,
+  "forecast_values_output": false,
+  "line_count": 1
+}

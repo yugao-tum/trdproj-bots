@@ -289,3 +289,8 @@ q005 [旧核验说明](notes/20261021-q005-evidence-qualification.md)末尾追�
 ## 2026-10-21 18:20 UTC 复盘与固定天气身份补证
 
 追加[原生三遍复盘](notes/20261021-goal-review-1820.md)及固定July15 condition身份报告/最小元数据/验证元数据。一次既有Gamma HTTP200确认condition、题目及显式Yes/No token配对；Wunderground KLGA为结算源，不把NOAA替代它；endDate与CSV close_time相差24小时仍未解释。追加纠正前轮每行token/双时间戳/sequence万能门槛：YES-centric/compact契约可支持限定存储快照结构验证，但当前规则/费率不等于历史版本，as-of和可执行性仍未证。规则、known、四方认领及官方记录在29f5c1d986a2f673de59ddebb76d8b96386450d1刷新，43条/11待核/32草稿不变，官方仍无结果。新增4份小型说明/元数据，LOG/INDEX仅追加；不上传原始数据、不改entry/CLAIMS/冻结/他方/评分。发布阶段市场、模型、Reason、Pi调用0，无新机制、收益结论或阶段变化。
+
+
+## 2026-10-21 21:20 UTC 全局复盘与固定 MOS 门禁结案
+
+追加本轮三遍原生复盘及 dot-001 固定发布时间门禁的过滤证据。IEM JSON 已证路径存在；唯一原始报文查询 HTTP200/29bytes 无匹配头，FAIL_AS_OF_UNPROVEN，不等同档案不存在。当前最多3个独立事件不足30，退出近期达标回放优先队列，停止补抓，不改 entry/CLAIMS/阶段，不声称官方得分。本次门禁查阅3个官方文档页、1次固定报文请求；发布阶段0来源补抓。新文件见 INDEX 的21:20记录；原始数据不入库。

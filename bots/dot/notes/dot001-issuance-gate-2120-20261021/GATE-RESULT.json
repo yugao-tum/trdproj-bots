@@ -1,0 +1,45 @@
+{
+  "decision": "FAIL_AS_OF_UNPROVEN",
+  "completed_utc": "2026-10-21T21:26:13.969520+00:00",
+  "fixed_identity": {
+    "station": "KLGA",
+    "model": "GFS",
+    "runtime": "2026-07-15T12:00:00Z",
+    "decision_cutoff": "2026-07-15T18:00:00Z"
+  },
+  "query_policy": {
+    "target_bulletin_requests": 1,
+    "limit": 1,
+    "window_start_inclusive": "2026-07-15T12:00:00Z",
+    "window_end_exclusive": "2026-07-15T18:00:00Z",
+    "selection": "earliest returned product, not forecast-value based",
+    "derived_pil": "MAVLGA",
+    "derivation": "Official IEM AFOS documentation maps MAVxxx to GFS MOS; MOS page defines 3-character station suffix."
+  },
+  "identity_bound": false,
+  "issuance_utc": null,
+  "receipt_utc": null,
+  "known_before_cutoff_proven": false,
+  "reason": "The single documented archive request returned HTTP 200 and 29 bytes but no retained WMO, PIL, KLGA runtime, DT, or HR metadata lines. No matching bulletin or historical issuance/receipt field was established. HTTP success and generic near-real-time archive documentation do not prove historical availability.",
+  "limitations": [
+    "Response body was not persisted or displayed; exact diagnostic text is unknown. Therefore do not assert that the archive categorically lacks the bulletin.",
+    "The query bounds are documented UTC database-search bounds, not an independently defined issuance/receipt timestamp.",
+    "No alternative windows, endpoints, dates, cycles, models or stations queried after the negative result.",
+    "Previously verified MOS JSON row identity/runtime is inherited from SOURCE-DISCOVERY.json, not fetched again. Its original response hash was not recorded and is not reconstructed here.",
+    "Hashes attest to responses obtained now, not historical publication."
+  ],
+  "scope_controls": {
+    "new_mos_json_fetches": 0,
+    "forecast_values_used": false,
+    "price_calls": 0,
+    "pnl_tests": 0,
+    "parquet_downloads": 0,
+    "crypto_calls": 0,
+    "fees_assumed": false,
+    "trades": 0,
+    "external_messages": 0,
+    "backtest_started": false,
+    "entry_promoted": false
+  },
+  "competition_effect": "Methodological negative finding only. dot-001 remains draft; sample coverage remains at most 3 events, not 30. Historical rules/fees and execution/open-close gaps remain."
+}

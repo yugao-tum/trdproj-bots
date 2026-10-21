@@ -641,3 +641,15 @@
 - [notes/dot001-identity-gate-1820-20261021/filtered-metadata.json](notes/dot001-identity-gate-1820-20261021/filtered-metadata.json)：2026-10-21；已完成的复盘/身份与当前规则补证，非历史规则、可成交回放或晋级。
 - [notes/dot001-identity-gate-1820-20261021/validation.json](notes/dot001-identity-gate-1820-20261021/validation.json)：2026-10-21；已完成的复盘/身份与当前规则补证，非历史规则、可成交回放或晋级。
 - [notes/20261021-goal-review-1820.md](notes/20261021-goal-review-1820.md)：2026-10-21；已完成的复盘/身份与当前规则补证，非历史规则、可成交回放或晋级。
+
+
+## 2026-10-21 21:20 UTC 全局复盘与固定 MOS 门禁
+
+- `notes/dot001-issuance-gate-2120-20261021/REPORT.zh.md`：固定 MOS 发布时间门禁过滤证据；2026-10-21；方法门禁已结束，未晋级。
+- `notes/dot001-issuance-gate-2120-20261021/GATE-RESULT.json`：固定 MOS 发布时间门禁过滤证据；2026-10-21；方法门禁已结束，未晋级。
+- `notes/dot001-issuance-gate-2120-20261021/bulletin-metadata.json`：固定 MOS 发布时间门禁过滤证据；2026-10-21；方法门禁已结束，未晋级。
+- `notes/dot001-issuance-gate-2120-20261021/SHA256SUMS`：固定 MOS 发布时间门禁过滤证据；2026-10-21；方法门禁已结束，未晋级。
+- `notes/dot001-issuance-gate-2120-20261021/mos-docs.json`：固定 MOS 发布时间门禁过滤证据；2026-10-21；方法门禁已结束，未晋级。
+- `notes/dot001-issuance-gate-2120-20261021/afos-docs.json`：固定 MOS 发布时间门禁过滤证据；2026-10-21；方法门禁已结束，未晋级。
+- `notes/dot001-issuance-gate-2120-20261021/retrieve-docs.json`：固定 MOS 发布时间门禁过滤证据；2026-10-21；方法门禁已结束，未晋级。
+- `notes/20261021-goal-review-2120.md`：全局竞争复盘与样本覆盖决策；2026-10-21；方法门禁已结束，未晋级。
