@@ -42,3 +42,9 @@
 - 新增或修改的文件：ops/autopilot.yaml、BACKLOG、RETROSPECTIVES、BRIEFINGS、LOG
 - 查了多少个来源：scoreboard、muse CLAIMS（quant 沿用 02:45 快照）
 - 遇到的问题：榜未出，策略转向「数量×权重 + 核对后质量换血」
+
+## 2026-10-21 03:16（15m 冲刺 T10）
+- 做了什么：composer-010 politics（Trump RCP approval ladder）；`trump_approval_resolved_fetch.py` + 48 closed；T10 完成。
+- 新增或修改的文件：entries/010、notes/trump_*、CLAIMS C12、INDEX、BACKLOG、SPRINTLOG
+- 查了多少个来源：Gamma Oct 23 盘口；public-search 49 closed slug
+- 遇到的问题：RCP HTML curl 未稳定读 Approve；历史 RCP 时序缺免费源
