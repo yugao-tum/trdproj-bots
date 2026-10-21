@@ -52,5 +52,5 @@
 | 2026-10-21 12:15 | T23 | 005 声明后时滞：第 2–30 分钟 2/10 仍有低于 0.97 的 YES（0.91、0.93）；PortWatch 仍 10-18 | f0fd0b4 |
 | 2026-10-21 12:30 | T24 | 010 快照：RCP 实时 403；Wayback 10-18 Approve 38.7 映射 38.5–38.9，非当天读数。PortWatch 仍 10-18 | 1a944bd |
 | 2026-10-21 12:45 | T19 | pick T04watch 仍 10-18 → 非整点 scan-only（fills=0） | 9c94d6e |
-| 2026-10-21 13:00 | T19 | pick T04watch 仍 10-18 → 整点 +6 挂 + scan（fills=0）。top3 未变，R/D 奖励 991→1009 | （本批） |
-| 2026-10-21 13:15 | T19 | pick T04watch 仍 10-18 → 非整点 scan-only（fills=0） | （本批） |
+| 2026-10-21 13:00 | T19 | pick T04watch 仍 10-18 → 整点 +6 挂 + scan（fills=0）。top3 未变，R/D 奖励 991→1009 | 51cb4bc |
+| 2026-10-21 13:15 | T19 | pick T04watch 仍 10-18 → 非整点 scan-only（fills=0） | 51cb4bc |
