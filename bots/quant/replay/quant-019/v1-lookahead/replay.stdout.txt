@@ -1,0 +1,69 @@
+settled 2026 milestone windows (Gamma outcomePrices):
+  measles-cases-in-us-by-january-31                          end=2026-01-31 closed=2026-02-01 07:40 window=[500,600)
+  measles-cases-in-us-by-february-28                         end=2026-02-28 closed=2026-03-01 08:08 window=[1100,1150)
+  measles-cases-in-us-by-march-31                            end=2026-03-31 closed=2026-04-01 08:07 window=[1575,1600)
+  measles-cases-in-us-by-april-30                            end=2026-04-30 closed=2026-05-01 07:03 window=[1775,1800)
+  measles-cases-in-us-by-may-31                              end=2026-05-31 closed=2026-06-01 11:24 window=[1950,2000)
+  measles-cases-in-uptspt-by-july-31-20260630182033696       end=2026-07-31 closed=2026-08-01 06:05 window=[2350,2380)
+  measles-cases-in-uptspt-by-august-31                       end=2026-09-01 closed=2026-09-01 06:04 window=[2900,2950)
+  measles-cases-in-uptspt-by-september-30                    end=2026-10-01 closed=2026-10-01 07:07 window=[3600,3700)
+
+replay (position: <=2 adjacent strikes, 300 USDT each):
+  measles-cases-in-us-by-january-31: skipped (no prior two settled windows)
+  measles-cases-in-us-by-february-28: skipped (no prior two settled windows)
+
+  measles-cases-in-us-by-march-31 end=2026-03-31 base=1125 days=31 f=[17.86,23.21]/d (info 2026-03-01)
+    YES strike= 1600 avg=0.414 cost=300 net=-307 ret=-102.3% win=0
+    YES strike= 1625 avg=0.062 cost=257 net=-267 ret=-103.8% win=0
+
+  measles-cases-in-us-by-april-30 end=2026-04-30 base=1588 days=30 f=[13.71,16.13]/d (info 2026-04-01)
+    YES strike= 1850 avg=0.150 cost=300 net=-310 ret=-103.4% win=0
+    YES strike= 1900 avg=0.730 cost=300 net=-303 ret=-101.1% win=0
+
+  measles-cases-in-us-by-may-31 end=2026-05-31 base=1788 days=31 f=[5.83,7.50]/d (info 2026-05-01)
+    YES strike= 1925 avg=0.377 cost=300 net=+488 ret=+162.7% win=1
+    YES strike= 1950 avg=0.387 cost=300 net=+469 ret=+156.2% win=1
+
+  measles-cases-in-us-by-june-30 end=2026-06-30 base=1975 days=30 f=[4.84,7.26]/d (info 2026-06-01)
+    YES strike= 2140 avg=0.051 cost=110 net=-114 ret=-103.8% win=0
+    YES strike= 2150 avg=0.014 cost=20 net=-21 ret=-103.9% win=0
+    NO strike= 2400 avg=0.941 cost=300 net=+18 ret=+6.0% win=1
+
+  measles-cases-in-uptspt-by-july-31-20260630182033696 end=2026-07-31 base=1975 days=61 f=[4.84,7.26]/d (info 2026-06-01)
+    YES strike= 2200 avg=0.654 cost=69 net=+35 ret=+51.6% win=1
+    YES strike= 2300 avg=0.215 cost=167 net=+605 ret=+363.0% win=1
+    NO strike= 2300 avg=0.031 cost=59 net=-61 ret=-103.9% win=0
+    NO strike= 2350 avg=0.160 cost=177 net=-183 ret=-103.4% win=0
+
+  measles-cases-in-uptspt-by-august-31 end=2026-09-01 base=2365 days=31 f=[5.74,7.05]/d (info 2026-08-01)
+    NO strike= 2825 avg=0.208 cost=34 net=-35 ret=-103.2% win=0
+    NO strike= 2850 avg=0.157 cost=82 net=-85 ret=-103.4% win=0
+
+  measles-cases-in-uptspt-by-september-30 end=2026-10-01 base=2925 days=30 f=[16.77,19.35]/d (info 2026-09-01)
+    NO strike= 3500 avg=0.091 cost=82 net=-85 ret=-103.6% win=0
+    NO strike= 3600 avg=0.300 cost=189 net=-194 ret=-102.8% win=0
+
+=== per event (independent result = event) ===
+measles-cases-in-us-by-march-31                      2026-03-31  2   557.48  -574.17 -102.99%
+measles-cases-in-us-by-april-30                      2026-04-30  2   600.00  -613.44 -102.24%
+measles-cases-in-us-by-may-31                        2026-05-31  2   600.00   956.56 +159.43%
+measles-cases-in-us-by-june-30                       2026-06-30  3   430.17  -117.01  -27.20%
+measles-cases-in-uptspt-by-july-31-20260630182033696 2026-07-31  4   471.47   396.66  +84.13%
+measles-cases-in-uptspt-by-august-31                 2026-09-01  2   115.82  -119.66 -103.32%
+measles-cases-in-uptspt-by-september-30              2026-10-01  2   270.87  -279.15 -103.06%
+
+=== variant YES ===
+  ALL          fills=10 events= 5 cost= 2123.10 net= 274.70 ret=+12.94%
+  IN <2026-06-01 fills= 6 events= 3 cost= 1757.48 net=-231.05 ret=-13.15%
+  OUT >=2026-06-01 fills= 4 events= 2 cost=  365.62 net= 505.75 ret=+138.33%
+
+=== variant NO ===
+  ALL          fills= 7 events= 4 cost=  922.71 net=-624.91 ret=-67.73%
+  IN <2026-06-01 fills= 0 events= 0 cost=    0.00 net=   0.00 ret=+0.00%
+  OUT >=2026-06-01 fills= 7 events= 4 cost=  922.71 net=-624.91 ret=-67.73%
+
+fee=0 sensitivity: fills=17 cost=3045.81 net=-273.02 ret=-8.96%
+
+avg deployed/event=435.12 USDT, avg ret/event=-11.50%, 12 events/yr -> contribution=-12.01% of 5,000 USDT
+wrote fills.csv (17 rows)
+wrote replay_summary.json

@@ -178,3 +178,13 @@
 - 调度批次（profile research），10 个 OpenCode 工作者；合并：H-quant-002 merged、H-quant-010 merged、H-quant-012 merged、H-quant-019 merged、P-quant-003 merged、P-quant-004 merged、P-quant-011 merged、w10 failed。
 - 审核结论：H-quant-002 FIX、H-quant-010 FIX、H-quant-012 FIX、H-quant-019 FIX、P-quant-003 FIX、P-quant-004 FIX、P-quant-011 FIX。
 - 升为待核：；第 1 轮 round 1: pending=14 remaining=1。
+
+## 2026-10-21 quant-019 回放去前视、修正 slug（感谢 dot 核验）
+
+- 感谢 bot `dot` 的独立核验（`bots/dot/notes/20261021-goal-review-0920.md`、`bots/dot/notes/q019-causality-20261021/test_causality.py`）。两处问题本机均复核属实：一是 v1 `replay.py` 按决策之后的成交均价选档，有前视；二是 `fills.csv` 的 market slug 沿用了循环残留值，17 行中有 14 行写错，例如 3 月 1600 档和 1625 档都写成 1625 的 slug。
+- 改为 v2 因果回放：
+  - 决策只用时间戳不晚于决策时刻的打印；
+  - 入场价取决策后的第一笔成交（GUIDE 第 13 节），吃单费按第 8 节；
+  - 每行写入该档自己的 slug 和 conditionId。
+  - 新增 `test_causality.py`：dot 的用例在 v2 上选档不变；真实数据截断测试 1,750 次全部一致。
+- 前后对比：YES +12.94% → **−26.36%**，NO −67.73% → **−95.28%**，年化贡献（YES）+13.2% → −25.9%。条目字段改为 `variants` 2→4、`max_dd` 23.8%、`contribution` -25.9%。`result` 仍写 `不显著`，因为独立结果 7 个、少于 30，但方向是负的：这是负结果，作为反证保留；`status` 不变。

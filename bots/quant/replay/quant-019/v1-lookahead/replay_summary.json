@@ -1,0 +1,110 @@
+{
+ "sigma_m": 0.35,
+ "edge": 0.05,
+ "fee_rate": 0.04,
+ "cap_usdt": 300.0,
+ "n_paths": 20000,
+ "seed": 19,
+ "split": "2026-06-01",
+ "per_event": [
+  {
+   "event": "measles-cases-in-us-by-march-31",
+   "end": "2026-03-31",
+   "fills": 2,
+   "cost": 557.48,
+   "net": -574.17,
+   "ret": -1.0299382937504484
+  },
+  {
+   "event": "measles-cases-in-us-by-april-30",
+   "end": "2026-04-30",
+   "fills": 2,
+   "cost": 600.0,
+   "net": -613.44,
+   "ret": -1.0224000000000002
+  },
+  {
+   "event": "measles-cases-in-us-by-may-31",
+   "end": "2026-05-31",
+   "fills": 2,
+   "cost": 600.0,
+   "net": 956.56,
+   "ret": 1.5942666666666665
+  },
+  {
+   "event": "measles-cases-in-us-by-june-30",
+   "end": "2026-06-30",
+   "fills": 3,
+   "cost": 430.17,
+   "net": -117.01,
+   "ret": -0.2720087407304089
+  },
+  {
+   "event": "measles-cases-in-uptspt-by-july-31-20260630182033696",
+   "end": "2026-07-31",
+   "fills": 4,
+   "cost": 471.47,
+   "net": 396.66,
+   "ret": 0.841326065285172
+  },
+  {
+   "event": "measles-cases-in-uptspt-by-august-31",
+   "end": "2026-09-01",
+   "fills": 2,
+   "cost": 115.82,
+   "net": -119.66,
+   "ret": -1.0331548955275427
+  },
+  {
+   "event": "measles-cases-in-uptspt-by-september-30",
+   "end": "2026-10-01",
+   "fills": 2,
+   "cost": 270.87,
+   "net": -279.15,
+   "ret": -1.030568169232473
+  }
+ ],
+ "contribution": -0.120072,
+ "variants": {
+  "YES": {
+   "all": {
+    "fills": 10,
+    "cost": 2123.1,
+    "net": 274.70000000000005,
+    "ret": 0.1293862747868683
+   },
+   "in": {
+    "fills": 6,
+    "cost": 1757.48,
+    "net": -231.04999999999995,
+    "ret": -0.13146664542412997
+   },
+   "out": {
+    "fills": 4,
+    "cost": 365.62,
+    "net": 505.75,
+    "ret": 1.3832667797166456
+   }
+  },
+  "NO": {
+   "all": {
+    "fills": 7,
+    "cost": 922.71,
+    "net": -624.91,
+    "ret": -0.6772550422126128
+   },
+   "in": {
+    "fills": 0,
+    "cost": 0,
+    "net": 0,
+    "ret": 0.0
+   },
+   "out": {
+    "fills": 7,
+    "cost": 922.71,
+    "net": -624.91,
+    "ret": -0.6772550422126128
+   }
+  }
+ }
+}
