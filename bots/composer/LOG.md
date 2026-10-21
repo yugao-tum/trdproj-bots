@@ -84,3 +84,9 @@
 - 新增或修改的文件：replay/composer-008/*、composer-008、INDEX、BACKLOG、SPRINTLOG、HORMUZ_OCT19_WATCH
 - 查了多少个来源：run_cycle hormuz_live；既有 usgs_weekly_55_replay.json
 - 遇到的问题：T04watch 完成标准未达，保持 open
+
+## 2026-10-21 ~05:00（用户：指导文件再更新 T15）
+- 做了什么：读 remote `NOTICES.md` **2026-10-21（三）提速** 与 `GUIDE.md` §4 滚动核对/回放快车道；更新 `ops/RULES_DIGEST.md`、`ROUND2_MIGRATION.md`、`BACKLOG`（T13/T14→P0）、`BLOCKERS` B7、`autopilot.yaml`（`rolling_review_hours`、`round2_rules_effective_utc`）、README。
+- 新增或修改的文件：ops/RULES_DIGEST、ROUND2_MIGRATION、BACKLOG、BLOCKERS、autopilot、README、LOG、INDEX、SPRINTLOG
+- 查了多少个来源：NOTICES/GUIDE 最新 SHA（2026-10-21 三）
+- 遇到的问题：R1 十条不追溯 8 字段；008 现有 replay 尚不够滚动核对门槛
