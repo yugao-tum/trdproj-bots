@@ -1,0 +1,208 @@
+state markets 320 resolved Yes 91
+settlement mismatches USDM vs market 0
+
+=== A. primary reproduction (72h stale quote, last ask fill +1c, last trade size) ===
+primary: n 23 wins 22 weeks 5 (2026-08-25..2026-10-06) shares 1020.57 cost $766.93 pnl $245.64 ROI +32.03% | per-share pnl +4.2899 cost 17.7101 ROI +24.22%
+
+=== B. quote freshness: same rule, max age of last ask-side trade ===
+age<=72h: n 23 wins 22 weeks 5 (2026-08-25..2026-10-06) shares 1020.57 cost $766.93 pnl $245.64 ROI +32.03% | per-share pnl +4.2899 cost 17.7101 ROI +24.22%
+age<=24h: n 7 wins 6 weeks 3 (2026-08-25..2026-10-06) shares 87.87 cost $61.20 pnl $18.67 ROI +30.51% | per-share pnl +0.7850 cost 5.2150 ROI +15.05%
+age<=6h: n 4 wins 4 weeks 2 (2026-09-01..2026-10-06) shares 37.87 cost $34.62 pnl $3.25 ROI +9.40% | per-share pnl +0.3825 cost 3.6175 ROI +10.57%
+age<=1h: n 0
+
+=== C. conservative fill: worst (highest) ask-side price inside the window ===
+worst-ask age<=72h: n 23 wins 22 weeks 5 (2026-08-25..2026-10-06) shares 1459.87 cost $1123.88 pnl $318.00 ROI +28.29% | per-share pnl +3.8589 cost 18.1411 ROI +21.27%
+worst-ask age<=24h: n 7 wins 6 weeks 3 (2026-08-25..2026-10-06) shares 117.87 cost $77.29 pnl $32.58 ROI +42.14% | per-share pnl +0.7751 cost 5.2249 ROI +14.83%
+worst-ask age<=6h: n 4 wins 4 weeks 2 (2026-09-01..2026-10-06) shares 37.87 cost $34.62 pnl $3.25 ROI +9.40% | per-share pnl +0.3825 cost 3.6175 ROI +10.57%
+
+=== D. size cap (last trade size still used as liquidity ceiling) ===
+size_cap=None: n 23 wins 22 weeks 5 (2026-08-25..2026-10-06) shares 1020.57 cost $766.93 pnl $245.64 ROI +32.03% | per-share pnl +4.2899 cost 17.7101 ROI +24.22%
+size_cap=100: n 23 wins 22 weeks 5 (2026-08-25..2026-10-06) shares 832.42 cost $631.84 pnl $192.58 ROI +30.48% | per-share pnl +4.2899 cost 17.7101 ROI +24.22%
+size_cap=50: n 23 wins 22 weeks 5 (2026-08-25..2026-10-06) shares 573.64 cost $437.56 pnl $128.08 ROI +29.27% | per-share pnl +4.2899 cost 17.7101 ROI +24.22%
+size_cap=20: n 23 wins 22 weeks 5 (2026-08-25..2026-10-06) shares 331.64 cost $253.03 pnl $70.61 ROI +27.91% | per-share pnl +4.2899 cost 17.7101 ROI +24.22%
+
+=== E. slippage sensitivity (primary window) ===
+slip=0c: n 23 wins 22 weeks 5 (2026-08-25..2026-10-06) shares 1020.57 cost $756.97 pnl $255.60 ROI +33.77% | per-share pnl +4.5140 cost 17.4860 ROI +25.81%
+slip=1c: n 23 wins 22 weeks 5 (2026-08-25..2026-10-06) shares 1020.57 cost $766.93 pnl $245.64 ROI +32.03% | per-share pnl +4.2899 cost 17.7101 ROI +24.22%
+slip=2c: n 23 wins 22 weeks 5 (2026-08-25..2026-10-06) shares 1020.57 cost $776.88 pnl $235.69 ROI +30.34% | per-share pnl +4.0660 cost 17.9340 ROI +22.67%
+slip=5c: n 23 wins 22 weeks 5 (2026-08-25..2026-10-06) shares 1020.57 cost $806.68 pnl $205.89 ROI +25.52% | per-share pnl +3.3959 cost 18.6041 ROI +18.25%
+slip=10c: n 17 wins 16 weeks 4 (2026-08-25..2026-10-06) shares 944.19 cost $777.37 pnl $158.82 ROI +20.43% | per-share pnl +2.4798 cost 13.5202 ROI +18.34%
+
+=== F. margin sensitivity (primary window) ===
+margin=0c: n 55 wins 54 weeks 6 (2026-08-25..2026-10-06) shares 1656.56 cost $1388.51 pnl $260.04 ROI +18.73% | per-share pnl +5.0379 cost 48.9621 ROI +10.29%
+margin=2c: n 39 wins 38 weeks 6 (2026-08-25..2026-10-06) shares 1352.32 cost $1089.43 pnl $254.89 ROI +23.40% | per-share pnl +4.7802 cost 33.2198 ROI +14.39%
+margin=3c: n 33 wins 32 weeks 5 (2026-08-25..2026-10-06) shares 1207.97 cost $947.74 pnl $252.23 ROI +26.61% | per-share pnl +4.6729 cost 27.3271 ROI +17.10%
+margin=5c: n 23 wins 22 weeks 5 (2026-08-25..2026-10-06) shares 1020.57 cost $766.93 pnl $245.64 ROI +32.03% | per-share pnl +4.2899 cost 17.7101 ROI +24.22%
+margin=8c: n 14 wins 13 weeks 4 (2026-08-25..2026-10-06) shares 726.06 cost $498.91 pnl $219.15 ROI +43.93% | per-share pnl +3.6261 cost 9.3739 ROI +38.68%
+margin=10c: n 11 wins 10 weeks 4 (2026-08-25..2026-10-06) shares 649.06 cost $434.43 pnl $206.63 ROI +47.56% | per-share pnl +3.1382 cost 6.8618 ROI +45.73%
+
+=== G. concentration / no 2026-08-25 ===
+without 08-25: n 16 wins 16 weeks 4 (2026-09-01..2026-10-06) shares 646.77 cost $556.56 pnl $90.21 ROI +16.21% | per-share pnl +2.1112 cost 13.8888 ROI +15.20%
+
+=== H. temporal holdout: choose margin on first 4 weeks, apply to last 4 ===
+IS margin 0c: n 41 pnl/share +3.9497 cost 36.0503 ROI +10.96%
+IS margin 1c: n 34 pnl/share +3.8451 cost 29.1549 ROI +13.19%
+IS margin 2c: n 30 pnl/share +3.7187 cost 25.2813 ROI +14.71%
+IS margin 3c: n 28 pnl/share +3.6845 cost 23.3155 ROI +15.80%
+IS margin 4c: n 23 pnl/share +3.5455 cost 18.4545 ROI +19.21%
+IS margin 5c: n 19 pnl/share +3.3875 cost 14.6125 ROI +23.18%
+IS margin 6c: n 15 pnl/share +3.1510 cost 10.8490 ROI +29.04%
+IS margin 7c: n 13 pnl/share +3.0366 cost 8.9634 ROI +33.88%
+IS margin 8c: n 12 pnl/share +2.9756 cost 8.0244 ROI +37.08%
+IS margin 10c: n 10 pnl/share +2.6507 cost 6.3493 ROI +41.75%
+IS-chosen margin (0.0, 3.9497198818545214)
+HOLDOUT last 4 weeks at IS margin: n 14 wins 14 weeks 2 (2026-09-29..2026-10-06) shares 293.58 cost $274.80 pnl $18.78 ROI +6.83% | per-share pnl +1.0882 cost 12.9118 ROI +8.43%
+HOLDOUT last 4 weeks at 5c: n 4 wins 4 weeks 1 (2026-10-06..2026-10-06) shares 112.55 cost $96.40 pnl $16.15 ROI +16.75% | per-share pnl +0.9024 cost 3.0976 ROI +29.13%
+
+=== I. CLOB prices-history midpoint screen on the last 4 weeks (NOT executable) ===
+weeks with midpoint at cutoff: 160 / 320
+midpoint triggers at 5c: n 72 pnl/share +15.5910 cost 51.4090 ROI +30.33% (upper bound; midpoint is not an ask)
+   ('2026-09-22', 'FL', 'NO', 0.495, 0.996, False)
+   ('2026-09-22', 'ID', 'YES', 0.922, 0.981, True)
+   ('2026-09-22', 'MS', 'YES', 0.745, 0.905, True)
+   ('2026-09-22', 'MO', 'NO', 0.745, 0.996, False)
+   ('2026-09-22', 'NV', 'YES', 0.5, 0.905, True)
+   ('2026-09-22', 'NC', 'YES', 0.5, 0.905, True)
+   ('2026-09-22', 'OK', 'YES', 0.75, 0.981, True)
+   ('2026-09-22', 'SC', 'NO', 0.945, 0.996, False)
+   ('2026-09-22', 'UT', 'YES', 0.745, 0.905, False)
+   ('2026-09-22', 'WI', 'NO', 0.82, 0.996, True)
+   ('2026-09-22', 'WY', 'NO', 0.935, 0.996, False)
+   ('2026-09-29', 'FL', 'NO', 0.935, 0.996, False)
+   ('2026-09-29', 'GA', 'NO', 0.944, 0.996, False)
+   ('2026-09-29', 'LA', 'NO', 0.946, 0.996, False)
+   ('2026-09-29', 'MO', 'NO', 0.855, 0.996, False)
+   ('2026-09-29', 'NV', 'YES', 0.76, 0.906, True)
+   ('2026-09-29', 'NC', 'YES', 0.745, 0.906, True)
+   ('2026-09-29', 'ND', 'NO', 0.946, 0.996, False)
+   ('2026-09-29', 'SC', 'NO', 0.745, 0.996, False)
+   ('2026-09-29', 'TN', 'NO', 0.943, 0.996, False)
+
+=== J. per-trade detail, primary ===
+2026-08-25 AL NO  fill 0.550 fee 0.0124 shares 30.00 pnl $+13.13 pb 0.004 age 65.1h
+2026-08-25 AR YES fill 0.510 fee 0.0125 shares 12.00 pnl $+5.73 pb 0.902 age 10.5h
+2026-08-25 MN NO  fill 0.552 fee 0.0124 shares 135.00 pnl $+58.78 pb 0.004 age 63.5h
+2026-08-25 MS YES fill 0.520 fee 0.0125 shares 30.00 pnl $+14.03 pb 0.902 age 12.6h
+2026-08-25 NM YES fill 0.562 fee 0.0123 shares 148.80 pnl $+63.33 pb 0.942 age 63.5h
+2026-08-25 NC YES fill 0.510 fee 0.0125 shares 10.00 pnl $+4.78 pb 0.902 age 29.6h
+2026-08-25 SC YES fill 0.530 fee 0.0125 shares 8.00 pnl $-4.34 pb 0.810 age 10.5h
+2026-09-01 LA NO  fill 0.950 fee 0.0024 shares 10.63 pnl $+0.51 pb 0.004 age 5.8h
+2026-09-01 MS YES fill 0.830 fee 0.0071 shares 42.00 pnl $+6.84 pb 0.903 age 54.6h
+2026-09-01 SD NO  fill 0.950 fee 0.0024 shares 5.00 pnl $+0.24 pb 0.004 age 26.6h
+2026-09-01 WA NO  fill 0.940 fee 0.0028 shares 30.00 pnl $+1.72 pb 0.004 age 35.3h
+2026-09-01 WI NO  fill 0.940 fee 0.0028 shares 10.75 pnl $+0.61 pb 0.004 age 5.5h
+2026-09-01 WY NO  fill 0.880 fee 0.0053 shares 11.49 pnl $+1.32 pb 0.004 age 5.3h
+2026-09-08 AZ NO  fill 0.951 fee 0.0023 shares 10.00 pnl $+0.47 pb 0.004 age 62.8h
+2026-09-08 LA NO  fill 0.936 fee 0.0030 shares 10.00 pnl $+0.61 pb 0.004 age 61.4h
+2026-09-15 MS YES fill 0.813 fee 0.0076 shares 185.00 pnl $+33.14 pb 0.904 age 56.9h
+2026-09-15 NE YES fill 0.814 fee 0.0076 shares 70.00 pnl $+12.47 pb 0.904 age 56.9h
+2026-09-15 NV YES fill 0.831 fee 0.0070 shares 30.00 pnl $+4.86 pb 0.904 age 56.9h
+2026-09-15 TX YES fill 0.901 fee 0.0045 shares 119.35 pnl $+11.28 pb 0.942 age 55.7h
+2026-10-06 MS YES fill 0.850 fee 0.0064 shares 10.00 pnl $+1.44 pb 0.905 age 30.0h
+2026-10-06 NC YES fill 0.830 fee 0.0071 shares 5.00 pnl $+0.81 pb 0.905 age 4.1h
+2026-10-06 TX YES fill 0.887 fee 0.0050 shares 88.78 pnl $+9.62 pb 0.943 age 51.9h
+2026-10-06 WI YES fill 0.500 fee 0.0125 shares 8.77 pnl $+4.28 pb 0.943 age 37.1h
+
+=== K. TRUE EXECUTION: signal from pre-cutoff quotes, fill at FIRST ask-side trade AFTER cutoff ===
+exec first print after cutoff+0h (<=24h), size_cap=None: n 9 wins 9 weeks 3 (2026-09-01..2026-10-06) shares 222.18 cost $216.08 pnl $6.10 ROI +2.82% | per-share pnl +0.4418 cost 8.5582 ROI +5.16%
+exec first print after cutoff+0h (<=24h), size_cap=50: n 9 wins 9 weeks 3 (2026-09-01..2026-10-06) shares 219.25 cost $213.24 pnl $6.01 ROI +2.82% | per-share pnl +0.4418 cost 8.5582 ROI +5.16%
+exec first print after cutoff+1h (<=24h), size_cap=None: n 9 wins 9 weeks 3 (2026-09-01..2026-10-06) shares 222.18 cost $216.08 pnl $6.10 ROI +2.82% | per-share pnl +0.4418 cost 8.5582 ROI +5.16%
+exec first print after cutoff+1h (<=24h), size_cap=50: n 9 wins 9 weeks 3 (2026-09-01..2026-10-06) shares 219.25 cost $213.24 pnl $6.01 ROI +2.82% | per-share pnl +0.4418 cost 8.5582 ROI +5.16%
+exec first print after cutoff+6h (<=24h), size_cap=None: n 8 wins 8 weeks 3 (2026-09-01..2026-10-06) shares 301.17 cost $292.93 pnl $8.24 ROI +2.81% | per-share pnl +0.2340 cost 7.7660 ROI +3.01%
+exec first print after cutoff+6h (<=24h), size_cap=50: n 8 wins 8 weeks 3 (2026-09-01..2026-10-06) shares 253.25 cost $246.94 pnl $6.31 ROI +2.55% | per-share pnl +0.2340 cost 7.7660 ROI +3.01%
+exec first print after cutoff+12h (<=24h), size_cap=None: n 8 wins 8 weeks 3 (2026-09-01..2026-10-06) shares 301.17 cost $292.93 pnl $8.24 ROI +2.81% | per-share pnl +0.2340 cost 7.7660 ROI +3.01%
+exec first print after cutoff+12h (<=24h), size_cap=50: n 8 wins 8 weeks 3 (2026-09-01..2026-10-06) shares 253.25 cost $246.94 pnl $6.31 ROI +2.55% | per-share pnl +0.2340 cost 7.7660 ROI +3.01%
+
+first-print execution at 5c, per trade:
+2026-09-01 MS YES fill 0.996 wait 12.6h shares 23.00 pnl $+0.10 pb 0.903
+2026-09-01 WA NO  fill 0.970 wait 12.5h shares 52.93 pnl $+1.52 pb 0.004
+2026-09-01 WI NO  fill 0.940 wait 12.5h shares 4.25 pnl $+0.24 pb 0.004
+2026-09-08 AZ NO  fill 0.996 wait 12.6h shares 48.00 pnl $+0.19 pb 0.004
+2026-09-08 LA NO  fill 0.993 wait 12.7h shares 28.00 pnl $+0.19 pb 0.004
+2026-10-06 MS YES fill 0.910 wait 5.4h shares 11.00 pnl $+0.94 pb 0.905
+2026-10-06 NC YES fill 0.830 wait 4.8h shares 5.00 pnl $+0.81 pb 0.905
+2026-10-06 TX YES fill 0.973 wait 12.6h shares 30.00 pnl $+0.76 pb 0.943
+2026-10-06 WI YES fill 0.930 wait 12.6h shares 20.00 pnl $+1.33 pb 0.943
+
+first-print execution, margin sensitivity:
+exec margin 0c: n 18 wins 18 weeks 4 (2026-09-01..2026-10-06) shares 597.57 cost $586.49 pnl $11.08 ROI +1.89% | per-share pnl +0.5892 cost 17.4108 ROI +3.38%
+exec margin 3c: n 14 wins 14 weeks 4 (2026-09-01..2026-10-06) shares 449.54 cost $440.82 pnl $8.72 ROI +1.98% | per-share pnl +0.5040 cost 13.4960 ROI +3.73%
+exec margin 5c: n 9 wins 9 weeks 3 (2026-09-01..2026-10-06) shares 222.18 cost $216.08 pnl $6.10 ROI +2.82% | per-share pnl +0.4418 cost 8.5582 ROI +5.16%
+exec margin 8c: n 3 wins 3 weeks 2 (2026-09-01..2026-10-06) shares 48.00 cost $45.76 pnl $2.24 ROI +4.91% | per-share pnl +0.2338 cost 2.7662 ROI +8.45%
+
+executed-vs-signal coverage at 5c: signals 23; with post-cutoff print 9 ; captures $ 6.1 of primary $ 245.64
+
+=== L. signal-level: which pre-cutoff signals ever got a real post-cutoff fill? ===
+signals 23 with any post-cutoff print within 72h 21
+median pre-cutoff quote age of signals (h): 37.1
+filled signals: median pre-cutoff age (h): 37.1
+unfilled signals: median pre-cutoff age (h): 55.7
+   ('2026-08-25', 'AL', 'NO', 0.54, 65.11416666666666, 2, 0.99)
+   ('2026-08-25', 'AR', 'YES', 0.5, 10.489166666666666, 3, 0.99)
+   ('2026-08-25', 'MN', 'NO', 0.5422222222, 63.53916666666667, 2, 0.99)
+   ('2026-08-25', 'MS', 'YES', 0.51, 12.589166666666667, 2, 0.99)
+   ('2026-08-25', 'NM', 'YES', 0.5520833333, 63.54333333333334, 2, 0.99)
+   ('2026-08-25', 'NC', 'YES', 0.5, 29.598333333333333, 3, 0.99)
+   ('2026-08-25', 'SC', 'YES', 0.52, 10.488888888888889, 0, None)
+   ('2026-09-01', 'LA', 'NO', 0.94, 5.848333333333334, 5, 0.9934782609)
+   ('2026-09-01', 'MS', 'YES', 0.82, 54.605555555555554, 3, 0.9856521739)
+   ('2026-09-01', 'SD', 'NO', 0.94, 26.6025, 2, 0.9934782609)
+   ('2026-09-01', 'WA', 'NO', 0.93, 35.32833333333333, 13, 0.9597709393)
+   ('2026-09-01', 'WI', 'NO', 0.93, 5.508333333333334, 12, 0.93)
+   ('2026-09-01', 'WY', 'NO', 0.87, 5.338333333333333, 2, 0.9934782609)
+   ('2026-09-08', 'AZ', 'NO', 0.941, 62.778333333333336, 2, 0.9858333333)
+   ('2026-09-08', 'LA', 'NO', 0.926, 61.35, 2, 0.9828571429)
+   ('2026-09-15', 'MS', 'YES', 0.8032972973, 56.943333333333335, 1, 0.9958695652)
+   ('2026-09-15', 'NE', 'YES', 0.8042857143, 56.920833333333334, 2, 0.99)
+   ('2026-09-15', 'NV', 'YES', 0.821, 56.93555555555555, 1, 0.9958695652)
+   ('2026-09-15', 'TX', 'YES', 0.891, 55.659166666666664, 0, None)
+   ('2026-10-06', 'MS', 'YES', 0.84, 30.031111111111112, 3, 0.9)
+   ('2026-10-06', 'NC', 'YES', 0.82, 4.065277777777778, 3, 0.82)
+   ('2026-10-06', 'TX', 'YES', 0.8766095968000001, 51.875277777777775, 2, 0.9633333333)
+   ('2026-10-06', 'WI', 'YES', 0.49, 37.06138888888889, 2, 0.92)
+
+=== N. execution BEFORE the Thursday 12:30 UTC USDM release (12h31m after Wed 23:59 cutoff) ===
+exec market-order pre-release cap=None: n 2 wins 2 weeks 1 (2026-10-06..2026-10-06) shares 16.00 cost $14.24 pnl $1.76 ROI +12.36% | per-share pnl +0.2489 cost 1.7511 ROI +14.21%
+exec market-order pre-release cap=50: n 2 wins 2 weeks 1 (2026-10-06..2026-10-06) shares 16.00 cost $14.24 pnl $1.76 ROI +12.36% | per-share pnl +0.2489 cost 1.7511 ROI +14.21%
+exec market-order pre-release cap=20: n 2 wins 2 weeks 1 (2026-10-06..2026-10-06) shares 16.00 cost $14.24 pnl $1.76 ROI +12.36% | per-share pnl +0.2489 cost 1.7511 ROI +14.21%
+exec limit-fill pre-release cap=None: n 1 wins 1 weeks 1 (2026-10-06..2026-10-06) shares 5.00 cost $4.19 pnl $0.81 ROI +19.47% | per-share pnl +0.1629 cost 0.8371 ROI +19.47%
+exec limit-fill pre-release cap=50: n 1 wins 1 weeks 1 (2026-10-06..2026-10-06) shares 5.00 cost $4.19 pnl $0.81 ROI +19.47% | per-share pnl +0.1629 cost 0.8371 ROI +19.47%
+exec limit-fill pre-release cap=20: n 1 wins 1 weeks 1 (2026-10-06..2026-10-06) shares 5.00 cost $4.19 pnl $0.81 ROI +19.47% | per-share pnl +0.1629 cost 0.8371 ROI +19.47%
+
+market-order pre-release trades:
+  {'week': '2026-10-06', 'state': 'MS', 'side': 'YES', 'fill': 0.91, 'fee': 0.004094999999999999, 'shares': 11, 'cost': 10.055045, 'pnl': 0.9449549999999997, 'pnl_ps': 0.08590499999999997, 'wait': 5.4222222222222225}
+  {'week': '2026-10-06', 'state': 'NC', 'side': 'YES', 'fill': 0.83, 'fee': 0.007055000000000002, 'shares': 5, 'cost': 4.185275, 'pnl': 0.8147250000000001, 'pnl_ps': 0.16294500000000003, 'wait': 4.752777777777778}
+
+limit-fill pre-release trades:
+  {'week': '2026-10-06', 'state': 'NC', 'side': 'YES', 'fill': 0.83, 'fee': 0.007055000000000002, 'shares': 5, 'cost': 4.185275, 'pnl': 0.8147250000000001, 'pnl_ps': 0.16294500000000003, 'wait': 4.752777777777778}
+
+=== O. what the stale-quote trades would have had to pay at the next real print ===
+2026-08-25 AL NO  signal 0.540 (age 65.1h) next_print 0.99 at 16.695833333333333 post_release=True res False
+2026-08-25 AR YES signal 0.500 (age 10.5h) next_print 0.99 at 16.70611111111111 post_release=True res True
+2026-08-25 MN NO  signal 0.542 (age 63.5h) next_print 0.99 at 16.785 post_release=True res False
+2026-08-25 MS YES signal 0.510 (age 12.6h) next_print 0.99 at 16.786666666666665 post_release=True res True
+2026-08-25 NM YES signal 0.552 (age 63.5h) next_print 0.99 at 16.8325 post_release=True res True
+2026-08-25 NC YES signal 0.500 (age 29.6h) next_print 0.99 at 16.84 post_release=True res True
+2026-08-25 SC YES signal 0.520 (age 10.5h) next_print None at None post_release=None res False
+2026-09-01 LA NO  signal 0.940 (age 5.8h) next_print 0.9934782609 at 12.6025 post_release=True res False
+2026-09-01 MS YES signal 0.820 (age 54.6h) next_print 0.9856521739 at 12.584444444444445 post_release=True res True
+2026-09-01 SD NO  signal 0.940 (age 26.6h) next_print 0.9934782609 at 12.691666666666666 post_release=True res False
+2026-09-01 WA NO  signal 0.930 (age 35.3h) next_print 0.9597709393 at 12.545 post_release=True res False
+2026-09-01 WI NO  signal 0.930 (age 5.5h) next_print 0.93 at 12.519166666666667 post_release=True res False
+2026-09-01 WY NO  signal 0.870 (age 5.3h) next_print 0.9934782609 at 12.649444444444445 post_release=True res False
+2026-09-08 AZ NO  signal 0.941 (age 62.8h) next_print 0.9858333333 at 12.560833333333333 post_release=True res False
+2026-09-08 LA NO  signal 0.926 (age 61.4h) next_print 0.9828571429 at 12.651944444444444 post_release=True res False
+2026-09-15 MS YES signal 0.803 (age 56.9h) next_print 0.9958695652 at 12.596944444444444 post_release=True res True
+2026-09-15 NE YES signal 0.804 (age 56.9h) next_print 0.99 at 12.585 post_release=True res True
+2026-09-15 NV YES signal 0.821 (age 56.9h) next_print 0.9958695652 at 12.575277777777778 post_release=True res True
+2026-09-15 TX YES signal 0.891 (age 55.7h) next_print None at None post_release=None res True
+2026-10-06 MS YES signal 0.840 (age 30.0h) next_print 0.9 at 5.4222222222222225 post_release=False res True
+2026-10-06 NC YES signal 0.820 (age 4.1h) next_print 0.82 at 4.752777777777778 post_release=False res True
+2026-10-06 TX YES signal 0.877 (age 51.9h) next_print 0.9633333333 at 12.587222222222222 post_release=True res True
+2026-10-06 WI YES signal 0.490 (age 37.1h) next_print 0.92 at 12.591666666666667 post_release=True res True
+
+=== P. settlement / base-rate sanity ===
+resolved Yes 91 / 320
+USDM says Yes 91 / 320
+all prior>=0.05 persisted 86 / 91
+all prior==0 entered D4 4 / 228

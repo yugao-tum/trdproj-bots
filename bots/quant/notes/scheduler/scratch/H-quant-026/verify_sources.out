@@ -1,0 +1,69 @@
+--- 1. cited URLs ---
+drought home         HTTP 200 bytes 121145
+usdm datatables      HTTP 200 bytes 52014
+usdm comprehensive   HTTP 200 bytes 587046
+usdm api al          HTTP 200 bytes 922
+gamma series         HTTP 200 bytes 1517248
+gamma state 10-13    HTTP 200 bytes 197279
+gamma bracket 10-13  HTTP 200 bytes 34045
+gamma open 10-20     HTTP 200 bytes 188806
+data-api sample      HTTP 200 bytes 2837
+gamma drought tag    HTTP 200 bytes 2181663
+home contains 'released each Thursday at 8:30 a.m. Eastern Time' True
+home contains 'Map released: October 15, 2026' True
+home contains 'Data valid: October 13, 2026' True
+usdm Accept:text/csv -> 200 587046 | no Accept -> 200 587046 | csv header b''
+usdm direct guessed csv HTTP 404
+closed events 16 markets 368
+state event state-d4-drought-2026-10-13 endDate 2026-10-15T13:00:00Z markets 40
+bracket event states-in-d4-drought-2026-10-13 endDate 2026-10-15T13:00:00Z markets 6
+state fee {'exponent': 1, 'rate': 0.05, 'takerOnly': True, 'rebateRate': 0.25} negRisk False
+bracket fee {'exponent': 1, 'rate': 0.05, 'takerOnly': True, 'rebateRate': 0.25} negRisk True
+state resolutionSource https://droughtmonitor.unl.edu/DmData/DataTables.aspx
+event resolutionSource None
+state restricted 40 / 40
+bracket restricted 6 / 6
+state outcomes ["Yes", "No"] bracket outcomes ["Yes", "No"]
+blockquotes found 2
+blockquote 1 exact match state description (2082 chars)
+blockquote 2 exact match bracket description (2032 chars)
+quote key 'D4 area below 0.05% is treated as cartog' in blockquotes [1]
+quote key 'Revisions remain subject to the cutoff a' in blockquotes [1, 2]
+quote key 'The count ranges over all 48 coterminous' in blockquotes [2]
+quote key 'resolve to the "0 states" bracket' in blockquotes [2]
+sample trades 3 keys ['asset', 'bio', 'conditionId', 'eventSlug', 'icon', 'name', 'outcome', 'outcomeIndex', 'price', 'profileImage', 'profileImageOptimized', 'proxyWallet', 'pseudonym', 'side', 'size', 'slug', 'timestamp', 'title', 'transactionHash']
+sample first {'size': 20, 'price': 0.999, 'side': 'BUY', 'outcome': 'No', 'timestamp': 1788022180}
+tag drought events 37
+  state weekly 8
+  bracket weekly 8
+  other 21
+   other: will-virginia-reach-d4-exceptional-drought-by-august-31-2026-20260721193543607 2026-09-01T03:59:00Z closed True
+   other: will-oregon-reach-d4-exceptional-drought-by-august-31-2026-20260721193813646 2026-09-01T03:59:00Z closed True
+   other: when-will-the-rhine-river-return-to-normal-levels-1786402709329 2026-11-01T23:59:00Z closed True
+   other: us-corn-production-area-in-drought-week-of-september-1-20260825113010 2026-09-04T03:59:00Z closed True
+   other: us-cattle-inventory-area-in-drought-week-of-september-1-20260825113010 2026-09-04T03:59:00Z closed True
+   other: ag-commodity-drought-cattle-2026-10-06 2026-10-08T13:00:00Z closed True
+   other: ag-commodity-drought-corn-2026-10-06 2026-10-08T13:00:00Z closed True
+   other: ag-commodity-drought-soybeans-2026-10-06 2026-10-08T13:00:00Z closed True
+   other: ag-commodity-drought-winter-wheat-2026-10-06 2026-10-08T13:00:00Z closed True
+   other: ag-commodity-drought-cotton-2026-10-06 2026-10-08T13:00:00Z closed True
+   other: ag-commodity-drought-hay-2026-10-06 2026-10-08T13:00:00Z closed True
+   other: ag-commodity-drought-hogs-2026-10-06 2026-10-08T13:00:00Z closed True
+   other: ag-commodity-drought-milk-cows-2026-10-06 2026-10-08T13:00:00Z closed True
+   other: ag-commodity-drought-cattle-2026-10-13 2026-10-15T13:00:00Z closed True
+   other: ag-commodity-drought-corn-2026-10-13 2026-10-15T13:00:00Z closed True
+   other: ag-commodity-drought-soybeans-2026-10-13 2026-10-15T13:00:00Z closed True
+   other: ag-commodity-drought-winter-wheat-2026-10-13 2026-10-15T13:00:00Z closed True
+   other: ag-commodity-drought-cotton-2026-10-13 2026-10-15T13:00:00Z closed True
+   other: ag-commodity-drought-hay-2026-10-13 2026-10-15T13:00:00Z closed True
+   other: ag-commodity-drought-hogs-2026-10-13 2026-10-15T13:00:00Z closed True
+   other: ag-commodity-drought-milk-cows-2026-10-13 2026-10-15T13:00:00Z closed True
+
+--- 2. CLOB prices-history retention for closed vs open markets ---
+state-d4-drought-2026-08-25          end 2026-08-27 n 0
+states-in-d4-drought-2026-09-15      end 2026-09-17 n 0
+state-d4-drought-2026-09-22          end 2026-09-24 n 492 first 2026-09-21T04:40:12+00:00 last 2026-09-24T14:30:15+00:00
+state-d4-drought-2026-10-13          end 2026-10-15 n 1009 first 2026-10-08T13:20:26+00:00 last 2026-10-15T14:30:26+00:00
+states-in-d4-drought-2026-10-13      end 2026-10-15 n 1009 first 2026-10-08T13:20:26+00:00 last 2026-10-15T14:30:26+00:00
+AR 10-13: midpoint at cutoff 0.915 | last series point 0.525 | settlement outcomePrices ["1", "0"] | trades 3
+AR 10-13 data-api trades 0
