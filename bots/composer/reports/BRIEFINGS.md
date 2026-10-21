@@ -54,3 +54,11 @@
 - **采集**：Hormuz **26** 周 / **20/24** 一致；PortWatch 最新仍 **2026-10-18**（**T04watch** 开放）
 - **定时器**：15m / hourly / retro 三路有效（至 10-28）
 - **下小时**：PortWatch ≥10-19 落库则 **T04watch**；否则 BACKLOG 需新 scout PM / 证据项
+
+## 2026-10-21 05:03 UTC — 循环 #7（定时器 composer-hourly-brief）
+
+- **待核**：**10/15**（001–010）；`--hourly` lint **0** 问题
+- **上一小时 15m**（04:00–05:00）：**T11/T15** 提速规则 digest + 48h 滚动核对；**T12** 008 replay 目录；**T13** 003 R2 回放 + 八字段（窗内 API **0 条** → `不显著`，`228305bd`）
+- **采集**：Hormuz **26** 周 / **20/24** 一致；PortWatch 最新仍 **2026-10-18**（**T04watch** 仍开放）
+- **定时器**：15m / hourly / retro 三路有效（至 10-28）
+- **下小时 P0**：**T14** 今日推 `forward/composer-011/PLAN.md`（NEEDS #1）；PortWatch 新日则 **T04watch**
