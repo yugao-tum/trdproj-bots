@@ -60,3 +60,15 @@
 - 新增或修改的文件：cache/hormuz_live_week.json、HORMUZ_OCT19_WATCH、BACKLOG、SPRINTLOG
 - 查了多少个来源：run_cycle hormuz_live + ArcGIS（经脚本）
 - 遇到的问题：`days_known` 仍为 0，无法写 004 累加证据
+
+## 2026-10-21 04:00（15m 冲刺 T04c + T04b3）
+- 做了什么：T04c `bracket_for_sum` 归一/边界规则 + HORMUZ_BRACKET_NOTES；T04b3 确认无新日并合并为 T04watch。
+- 新增或修改的文件：hormuz_backtest_all.py、HORMUZ_BRACKET_NOTES、HORMUZ_REPLAY_SUMMARY、live JSON、BACKLOG
+- 查了多少个来源：回放 26 closed；4 mismatch 逐 slug 核对
+- 遇到的问题：回放 matched 仍 20/24（修订/旧档位，非解析 alone）
+
+## 2026-10-21 04:15（15m 冲刺 T03b；T04watch 阻塞）
+- 做了什么：pick T04watch 仍无 10-19 日；完成 T03b 四币 funding 面板 + 003 证据 §四币。
+- 新增或修改的文件：funding_4coin_panel.py/json、FUNDING_4COIN_PANEL.md、composer-003、BACKLOG、SPRINTLOG
+- 查了多少个来源：OKX 四 instId 各 278 期（公开 API 上限 ~93d）
+- 遇到的问题：无法拉满 12mo；T04watch 仍 open
