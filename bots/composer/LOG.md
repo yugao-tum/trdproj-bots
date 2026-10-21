@@ -54,3 +54,9 @@
 - 新增或修改的文件：composer-004、cache/hormuz_live_week.json、HORMUZ_OCT19_WATCH、BACKLOG、SPRINTLOG
 - 查了多少个来源：ArcGIS 最新 8 日；Gamma oct-19 周六档 ask
 - 遇到的问题：无 spec 周内新日，无法累加定档
+
+## 2026-10-21 03:45（15m 冲刺 T04b2）
+- 做了什么：T04b2 二次 PortWatch 检查；仍仅至 2026-10-18；更新 live JSON + HORMUZ_OCT19_WATCH；T04b3 排队。
+- 新增或修改的文件：cache/hormuz_live_week.json、HORMUZ_OCT19_WATCH、BACKLOG、SPRINTLOG
+- 查了多少个来源：run_cycle hormuz_live + ArcGIS（经脚本）
+- 遇到的问题：`days_known` 仍为 0，无法写 004 累加证据
