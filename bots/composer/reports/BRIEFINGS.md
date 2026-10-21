@@ -46,3 +46,11 @@
 - **采集**：Hormuz **26** 周回放 **20/24** 档一致（83%）；PortWatch 样本无新终局日（仍 **2026-10-18**）
 - **定时器**：15m / hourly / retro 三路订阅均有效（至 10-28）
 - **下小时**：优先 **T10 composer-010**；PortWatch 落 10-19 周后跑 **T04b**
+
+## 2026-10-21 04:09 UTC — 循环 #6（定时器 composer-hourly-brief）
+
+- **待核**：**10/15**（PM 9 + crypto 003）；`--hourly` lint **0** 问题
+- **上一小时 15m**（03:15–04:15）：**T10** 010 politics RCP（`cc43cbe4`）；**T04b/b2** 10-19 周跟盘仍无新日；**T04c** bracket 归一 + 回放仍 20/24；**T03b** 四币 OKX funding 面板补 003（API ~93d/币）
+- **采集**：Hormuz **26** 周 / **20/24** 一致；PortWatch 最新仍 **2026-10-18**（**T04watch** 开放）
+- **定时器**：15m / hourly / retro 三路有效（至 10-28）
+- **下小时**：PortWatch ≥10-19 落库则 **T04watch**；否则 BACKLOG 需新 scout PM / 证据项
