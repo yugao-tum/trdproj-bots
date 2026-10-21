@@ -1,0 +1,90 @@
+PASS front-matter evidence=回放
+PASS front-matter result=不显著
+PASS front-matter slot=-
+PASS front-matter variants=7
+PASS front-matter variants_ext=不清楚
+PASS front-matter window=2022-01-01..2024-12-31
+PASS front-matter max_dd=-24.6%（日线）
+PASS front-matter contribution=21.0%
+PASS id/date/status unchanged
+PASS VM compound +23.31
+PASS VM cagr 8.90
+PASS VM dd -35.69
+PASS entry quotes VM row
+PASS VM_x_SMA50 compound +59.73
+PASS VM_x_SMA50 cagr 20.99
+PASS VM_x_SMA50 dd -24.58
+PASS entry quotes VM_x_SMA50 row
+PASS VM_x_SMA100 compound +83.41
+PASS VM_x_SMA100 cagr 27.99
+PASS VM_x_SMA100 dd -23.28
+PASS entry quotes VM_x_SMA100 row
+PASS VM_x_SMA200 compound +48.97
+PASS VM_x_SMA200 cagr 17.61
+PASS VM_x_SMA200 dd -33.54
+PASS entry quotes VM_x_SMA200 row
+PASS const_scale_SMA50 compound +20.07
+PASS const_scale_SMA50 cagr 7.73
+PASS const_scale_SMA50 dd -28.54
+PASS entry quotes const_scale_SMA50 row
+PASS const_scale_SMA100 compound +19.05
+PASS const_scale_SMA100 cagr 7.35
+PASS const_scale_SMA100 dd -26.67
+PASS entry quotes const_scale_SMA100 row
+PASS const_scale_SMA200 compound +19.09
+PASS const_scale_SMA200 cagr 7.37
+PASS const_scale_SMA200 dd -26.75
+PASS entry quotes const_scale_SMA200 row
+PASS entry quotes +23.31%
+PASS entry quotes +59.73%
+PASS entry quotes +83.41%
+PASS entry quotes +48.97%
+PASS entry quotes 20.99%
+PASS entry quotes 21.0%
+PASS entry quotes -24.58%
+PASS entry quotes -35.69%
+PASS entry quotes 7.75%
+PASS entry quotes p 0.066
+PASS entry quotes p 0.084
+PASS entry quotes p 0.278
+PASS entry quotes episodes 24/18/8
+PASS entry quotes off-episode mean -1.18
+PASS entry quotes negative 12/24
+PASS entry quotes 52 switches
+PASS entry quotes 45.56
+PASS entry quotes k 0.773
+PASS SUMMARY variant row 1
+PASS SUMMARY variant row 2
+PASS SUMMARY variant row 3
+PASS SUMMARY variant row 4
+PASS SUMMARY variant row 5
+PASS SUMMARY variant row 6
+PASS SUMMARY variant row 7
+PASS SUMMARY variant row 8
+PASS SUMMARY states 不显著
+PASS SUMMARY states 7 variants
+PASS SUMMARY states window
+PASS SUMMARY has reproduce command
+PASS SUMMARY lists data URL
+PASS <1MB .gitignore
+PASS not binary .gitignore
+PASS <1MB run_replay.py
+PASS not binary run_replay.py
+PASS <1MB episodes_SMA50.csv
+PASS not binary episodes_SMA50.csv
+PASS <1MB episodes_SMA100.csv
+PASS not binary episodes_SMA100.csv
+PASS <1MB episodes_SMA200.csv
+PASS not binary episodes_SMA200.csv
+PASS <1MB replay_equity.csv
+PASS not binary replay_equity.csv
+PASS <1MB replay_results.json
+PASS not binary replay_results.json
+PASS <1MB placebo_results.json
+PASS not binary placebo_results.json
+PASS <1MB replay_stdout.txt
+PASS not binary replay_stdout.txt
+PASS <1MB SUMMARY.md
+PASS not binary SUMMARY.md
+
+88 checks, 0 failed

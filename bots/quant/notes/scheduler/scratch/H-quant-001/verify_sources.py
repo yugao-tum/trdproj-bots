@@ -6,14 +6,15 @@ title/abstract text. 403 is not "dead"; it means this runner could not read the
 page. All endpoints are free and keyless.
 Run: python3 verify_sources.py
 """
-import io, json, pathlib, urllib.request, zipfile
+import io, json, pathlib, tempfile, urllib.request, zipfile
 
 HERE = pathlib.Path(__file__).resolve().parent
 UA = {"User-Agent": "Mozilla/5.0 (compatible; quant-research/1.0)"}
 URLS = [
     ("binance_view", "https://data.binance.vision/?prefix=data/spot/monthly/klines/BTCUSDT/1d/", []),
-    ("binance_zip", "https://data.binance.vision/data/spot/monthly/klines/BTCUSDT/1d/BTCUSDT-1d-2026-09.zip", []),
-    ("binance_data_api", "https://data-api.binance.vision/api/v3/klines?symbol=BTCUSDT&interval=1h&limit=2", []),
+    ("binance_zip", "https://data.binance.vision/data/spot/monthly/klines/BTCUSDT/1d/BTCUSDT-1d-2024-12.zip", []),
+    ("binance_data_api", "https://data-api.binance.vision/api/v3/klines?symbol=BTCUSDT&interval=1h&startTime=1733011200000&endTime=1733097600000&limit=2", []),
+    ("binance_daily_window", "https://data-api.binance.vision/api/v3/klines?symbol=BTCUSDT&interval=1d&startTime=1640995200000&endTime=1735689599999&limit=1000", []),
     ("repec", "https://ideas.repec.org/a/eee/jfinec/v116y2015i1p111-120.html",
      ["Momentum has its moments", "nearly doubles the Sharpe ratio"]),
     ("crossref", "https://api.crossref.org/works/10.1016/j.jfineco.2014.11.010",
@@ -32,9 +33,9 @@ for name, url, needles in URLS:
         if name == "binance_zip":
             z = zipfile.ZipFile(io.BytesIO(body))
             note = f"zip_ok members={z.namelist()}"
-        if name == "binance_data_api":
+        if name in ("binance_data_api", "binance_daily_window"):
             rows = json.loads(body)
-            note = f"json_rows={len(rows)} cols={len(rows[0])} last_close={rows[-1][4]}"
+            note = f"json_rows={len(rows)} cols={len(rows[0])} first_open_time={rows[0][0]} last_open_time={rows[-1][0]}"
         text = body.decode("utf-8", "ignore")
         found = {n: (n.lower() in text.lower()) for n in needles}
         lines.append(f"{name}: HTTP {status} final={final} bytes={len(body)} needles={found} {note}")
@@ -45,7 +46,7 @@ for name, url, needles in URLS:
 # search-index snippet (ScienceDirect is 403 here). Read the author-version PDF so
 # the claim does not depend on an unfetchable page.
 PDF_URL = "https://thetabruv.com/risorse/cta/32-barroso-momentum-has-its-moments.pdf"
-PDF_PATH = HERE / "_cache" / "barroso_santa_clara_2014.pdf"
+PDF_PATH = pathlib.Path(tempfile.gettempdir()) / "quant-001-barroso-santa-clara-2014.pdf"
 try:
     req = urllib.request.Request(PDF_URL, headers=UA)
     with urllib.request.urlopen(req, timeout=90) as r:

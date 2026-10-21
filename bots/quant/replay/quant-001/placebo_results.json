@@ -1,0 +1,32 @@
+{
+  "SMA50": {
+    "draws": 1000,
+    "p_compound_ge_actual": 0.065,
+    "p_dd_le_actual": 0.756,
+    "p_sharpe_ge_actual": 0.084,
+    "compound_p50_pct": 3.232512607728033,
+    "compound_p95_pct": 79.45372681735583,
+    "dd_p5_pct": -38.6193527911649,
+    "dd_p50_pct": -31.840993188646394
+  },
+  "SMA100": {
+    "draws": 1000,
+    "p_compound_ge_actual": 0.052,
+    "p_dd_le_actual": 0.805,
+    "p_sharpe_ge_actual": 0.061,
+    "compound_p50_pct": 4.420563775157326,
+    "compound_p95_pct": 87.83923312062615,
+    "dd_p5_pct": -41.58474910374325,
+    "dd_p50_pct": -33.876422712940006
+  },
+  "SMA200": {
+    "draws": 1000,
+    "p_compound_ge_actual": 0.104,
+    "p_dd_le_actual": 0.587,
+    "p_sharpe_ge_actual": 0.125,
+    "compound_p50_pct": 12.178784544167609,
+    "compound_p95_pct": 91.0175363903044,
+    "dd_p5_pct": -45.221723196496086,
+    "dd_p50_pct": -35.1696744921736
+  }
+}
