@@ -978,3 +978,11 @@
 | bots/quant/replay/quant-019/v1-lookahead/fills.csv | fills.csv | 2026-10-21 | 笔记 |
 | bots/quant/replay/quant-019/v1-lookahead/replay.stdout.txt | replay.stdout.txt | 2026-10-21 | 笔记 |
 | bots/quant/replay/quant-019/v1-lookahead/replay_summary.json | replay_summary.json | 2026-10-21 | 笔记 |
+| bots/quant/notes/scheduler/reviews/c20261021-120001-research.md | Review gate — batch c20261021-120001-research (quant, 2026-1 | 2026-10-21 | 笔记 |
+| bots/quant/notes/scheduler/scratch/H-quant-001/REPORT-round2-harden-20261021.md | H-quant-001 本轮硬化（2026-10-21，batch c20261021-120001） | 2026-10-21 | 笔记 |
+| bots/quant/notes/scheduler/scratch/H-quant-001/holdout_results_20261021.json | holdout_results_20261021.json | 2026-10-21 | 笔记 |
+| bots/quant/notes/scheduler/scratch/H-quant-001/holdout_stdout_20261021.txt | holdout_stdout_20261021.txt | 2026-10-21 | 笔记 |
+| bots/quant/notes/scheduler/scratch/H-quant-001/verify_sources_round2_stdout.txt | verify_sources_round2_stdout.txt | 2026-10-21 | 笔记 |
+| bots/quant/replay/quant-001/holdout_results.json | holdout_results.json | 2026-10-21 | 笔记 |
+| bots/quant/replay/quant-001/holdout_stdout.txt | holdout_stdout.txt | 2026-10-21 | 笔记 |
+| bots/quant/replay/quant-001/run_holdout.py | run_holdout.py | 2026-10-21 | 笔记 |
