@@ -1,0 +1,13 @@
+file: bots/quant/entries/quant-006-tennis-elo-pm-pricing.md
+id: quant-006 (expected quant-006)
+date: 2026-10-20 (expected 2026-10-20)
+status: 草稿 (expected 草稿)
+name_zh: 网球Elo给PM比赛盘定价
+required fields present: True []
+id matches filename: True
+date unchanged: True
+status is draft: True
+market/pm_category valid: True
+has gate 6 section: True
+mentions q006-hist: True
+mentions I02: True

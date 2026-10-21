@@ -1,0 +1,81 @@
+snapshots parsed: 45 span 20230113003603 20261004120528
+months with first-release proxy: 30 /33
+2024-01 snap 20240215 first +1.21 revised +1.25 diff +0.04
+2024-02 snap 20240411 first +1.44 revised +1.43 diff -0.01
+2024-03 snap 20240511 first +1.39 revised +1.39 diff +0.00
+2024-04 snap 20240609 first +1.32 revised +1.32 diff +0.00
+2024-05 snap 20240707 first +1.14 revised +1.16 diff +0.02
+2024-06 snap 20240809 first +1.25 revised +1.23 diff -0.02
+2024-07 snap 20240905 first +1.21 revised +1.20 diff -0.01
+2024-08 snap 20241007 first +1.30 revised +1.30 diff +0.00
+2024-09 snap 20241114 first +1.23 revised +1.21 diff -0.02
+2024-10 snap 20241114 first +1.32 revised +1.34 diff +0.02
+2024-11 snap 20250103 first +1.31 revised +1.29 diff -0.02
+2024-12 snap 20250205 first +1.26 revised +1.26 diff +0.00
+2025-01 snap 20250305 first +1.36 revised +1.37 diff +0.01
+2025-02 snap 20250401 first +1.26 revised +1.25 diff -0.01
+2025-03 snap 20250501 first +1.36 revised +1.36 diff +0.00
+2025-04 snap 20250606 first +1.23 revised +1.24 diff +0.01
+2025-05 snap 20250709 first +1.07 revised +1.07 diff +0.00
+2025-06 snap 20250803 first +1.03 revised +1.06 diff +0.03
+2025-07 snap 20250905 first +1.03 revised +1.02 diff -0.01
+2025-08 snap 20251023 first +1.14 revised +1.17 diff +0.03
+2025-10 snap 20251212 first +1.19 revised +1.18 diff -0.01
+2025-11 snap 20260105 first +1.22 revised +1.21 diff -0.01
+2025-12 snap 20260203 first +1.05 revised +1.05 diff +0.00
+2026-01 snap 20260325 first +1.08 revised +1.08 diff +0.00
+2026-02 snap 20260325 first +1.24 revised +1.23 diff -0.01
+2026-03 snap 20260420 first +1.28 revised +1.30 diff +0.02
+2026-04 snap 20260623 first +1.17 revised +1.16 diff -0.01
+2026-05 snap 20260623 first +1.12 revised +1.13 diff +0.01
+2026-06 snap 20260802 first +1.18 revised +1.17 diff -0.01
+2026-08 snap 20261004 first +1.40 revised +1.42 diff +0.02
+SUMMARY n= 30 mean_rev= 0.002 mean_abs= 0.012 sd_rev= 0.0158 max_abs= 0.04
+bracket unchanged: 23 / 30 = 0.7667
+exact same 0.01: 8 / 30
+=== MAIN rolling 120 months: n=321, skipped=0, span=(2000, 1)..(2026, 9) ===
+ PIT: mean=0.5003 sd=0.2893 KS_vs_U(0,1)=0.0372
+ PIT deciles: [31, 29, 41, 25, 40, 36, 33, 21, 23, 42]
+ ALL: n=321 hit=123/321=0.3832 persist_hit=42/321=0.1308 LL_model=1.3638 LL_persist=2.0608 LL_uniform=2.0794 cov50=0.5016 cov80=0.7726 cov90=0.8816 KS=0.0372
+ 2000-2012: n=156 hit=73/156=0.4679 persist_hit=19/156=0.1218 LL_model=1.2976 LL_persist=2.0580 LL_uniform=2.0794 cov50=0.5705 cov80=0.8077 cov90=0.9231 KS=0.0913
+ 2013-2026: n=165 hit=50/165=0.3030 persist_hit=23/165=0.1394 LL_model=1.4264 LL_persist=2.0634 LL_uniform=2.0794 cov50=0.4364 cov80=0.7394 cov90=0.8424 KS=0.0882
+ 2020-2026: n=81 hit=25/81=0.3086 persist_hit=11/81=0.1358 LL_model=1.4649 LL_persist=2.0675 LL_uniform=2.0794 cov50=0.4815 cov80=0.7901 cov90=0.8642 KS=0.1026
+ 2024-2026: n=33 hit=12/33=0.3636 persist_hit=4/33=0.1212 LL_model=1.7819 LL_persist=2.0789 LL_uniform=2.0794 cov50=0.5455 cov80=0.7273 cov90=0.8485 KS=0.1592
+ 2024-04..2026-09: n=30 hit=11/30=0.3667 persist_hit=4/30=0.1333 LL_model=1.7697 LL_persist=2.0740 LL_uniform=2.0794 cov50=0.5667 cov80=0.7667 cov90=0.8667 KS=0.1380
+ tail outcomes (outside +/-0.15 of persistence): 71
+=== ROBUSTNESS expanding (all prior from 1940): n=321, skipped=0, span=(2000, 1)..(2026, 9) ===
+ PIT: mean=0.6061 sd=0.2068 KS_vs_U(0,1)=0.2279
+ PIT deciles: [1, 7, 16, 33, 45, 51, 53, 50, 38, 27]
+ ALL: n=321 hit=99/321=0.3084 persist_hit=42/321=0.1308 LL_model=1.5173 LL_persist=2.0618 LL_uniform=2.0794 cov50=0.6822 cov80=0.9128 cov90=0.9720 KS=0.2279
+ 2000-2012: n=156 hit=41/156=0.2628 persist_hit=19/156=0.1218 LL_model=1.5226 LL_persist=2.0609 LL_uniform=2.0794 cov50=0.6987 cov80=0.9231 cov90=0.9744 KS=0.2912
+ 2013-2026: n=165 hit=58/165=0.3515 persist_hit=23/165=0.1394 LL_model=1.5123 LL_persist=2.0626 LL_uniform=2.0794 cov50=0.6667 cov80=0.9030 cov90=0.9697 KS=0.1998
+ 2020-2026: n=81 hit=26/81=0.3210 persist_hit=11/81=0.1358 LL_model=1.5227 LL_persist=2.0666 LL_uniform=2.0794 cov50=0.6790 cov80=0.9012 cov90=0.9630 KS=0.1919
+ 2024-2026: n=33 hit=13/33=0.3939 persist_hit=4/33=0.1212 LL_model=1.7241 LL_persist=2.0791 LL_uniform=2.0794 cov50=0.6364 cov80=0.8485 cov90=0.9394 KS=0.2789
+ 2024-04..2026-09: n=30 hit=13/30=0.4333 persist_hit=4/30=0.1333 LL_model=1.7141 LL_persist=2.0736 LL_uniform=2.0794 cov50=0.6667 cov80=0.8667 cov90=0.9333 KS=0.2577
+ tail outcomes (outside +/-0.15 of persistence): 71
+=== ROBUSTNESS rolling 60 months: n=321, skipped=0, span=(2000, 1)..(2026, 9) ===
+ PIT: mean=0.5039 sd=0.2949 KS_vs_U(0,1)=0.0511
+ PIT deciles: [36, 30, 28, 28, 41, 37, 30, 27, 15, 49]
+ ALL: n=321 hit=125/321=0.3894 persist_hit=42/321=0.1308 LL_model=1.3669 LL_persist=2.0635 LL_uniform=2.0794 cov50=0.5171 cov80=0.7352 cov90=0.8598 KS=0.0511
+ 2000-2012: n=156 hit=74/156=0.4744 persist_hit=19/156=0.1218 LL_model=1.3014 LL_persist=2.0593 LL_uniform=2.0794 cov50=0.5769 cov80=0.7821 cov90=0.8910 KS=0.0565
+ 2013-2026: n=165 hit=51/165=0.3091 persist_hit=23/165=0.1394 LL_model=1.4289 LL_persist=2.0674 LL_uniform=2.0794 cov50=0.4606 cov80=0.6909 cov90=0.8303 KS=0.0744
+ 2020-2026: n=81 hit=24/81=0.2963 persist_hit=11/81=0.1358 LL_model=1.4674 LL_persist=2.0697 LL_uniform=2.0794 cov50=0.4815 cov80=0.6543 cov90=0.8272 KS=0.1126
+ 2024-2026: n=33 hit=13/33=0.3939 persist_hit=4/33=0.1212 LL_model=1.7956 LL_persist=2.0782 LL_uniform=2.0794 cov50=0.5455 cov80=0.6970 cov90=0.7879 KS=0.2041
+ 2024-04..2026-09: n=30 hit=13/30=0.4333 persist_hit=4/30=0.1333 LL_model=1.7546 LL_persist=2.0730 LL_uniform=2.0794 cov50=0.5667 cov80=0.7333 cov90=0.8333 KS=0.1798
+ tail outcomes (outside +/-0.15 of persistence): 71
+=== latest target (2026, 9) ERA5 0.8191 pred 1.3861 actual 1.38 sigma 0.0563
+ latest OLS a,b,sigma 0.591262 0.970383 0.056299
+  [1.25,1.30) p=0.0467 market-style label 1.25-1.29
+  [1.30,1.35) p=0.1799 market-style label 1.30-1.34
+  [1.35,1.40) p=0.3301 market-style label 1.35-1.39
+  [1.40,1.45) p=0.2895 market-style label 1.40-1.44
+  [1.45,1.50) p=0.1212 market-style label 1.45-1.49
+  [1.50,1.55) p=0.0242 market-style label 1.50-1.54
+walkforward subset n= 30 hit_revised= 9 hit_first= 7 diff= -2
+  BRACKET CHANGE (2024, 1) first 1.21 revised 1.25 pred 1.253 bracket_first 24 bracket_rev 25 bracket_pred 25
+  BRACKET CHANGE (2024, 5) first 1.14 revised 1.16 pred 1.22 bracket_first 22 bracket_rev 23 bracket_pred 24
+  BRACKET CHANGE (2024, 6) first 1.25 revised 1.23 pred 1.246 bracket_first 25 bracket_rev 24 bracket_pred 25
+  BRACKET CHANGE (2024, 11) first 1.31 revised 1.29 pred 1.294 bracket_first 26 bracket_rev 25 bracket_pred 25
+  BRACKET CHANGE (2025, 6) first 1.03 revised 1.06 pred 1.052 bracket_first 20 bracket_rev 21 bracket_pred 21
+  BRACKET CHANGE (2025, 8) first 1.14 revised 1.17 pred 1.068 bracket_first 22 bracket_rev 23 bracket_pred 21
+  BRACKET CHANGE (2026, 3) first 1.28 revised 1.3 pred 1.107 bracket_first 25 bracket_rev 26 bracket_pred 22
