@@ -1,0 +1,4 @@
+exact cited token interval=max HTTP 200 points 200
+f1-united-states-grand-prix-winner-2026-10-25 HTTP 200 markets 29 volume 5817.895862 liquidity 92906.8903
+f1-united-states-grand-prix-driver-pole-position-2026-10-24 HTTP 200 markets 29 volume 1176.143286 liquidity 13897.57184
+f1-united-states-grand-prix-driver-podium-2026-10-25 HTTP 200 markets 23 volume 382.098517 liquidity 6735.38876

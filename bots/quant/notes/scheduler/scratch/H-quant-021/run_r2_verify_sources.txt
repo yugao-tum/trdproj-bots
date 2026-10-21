@@ -1,0 +1,74 @@
+=== Ergast base rates ===
+PASS races 269 | 269
+PASS 150/269 | got 150/269
+PASS 110/204 | got 110/204
+PASS 40/65 | got 40/65
+PASS 12/17 | got 12/17
+PASS 2024 qualifying limit=100 total=479 | limit=100 total=479
+
+=== schedule / no look-ahead ===
+PASS 49 events | 49
+PASS all qualifying end <= race-day 00:00 cutoff | min=0.0h median=8.0h max=18.0h
+PASS schedule 275 races with Qualifying | 275
+
+=== Gamma F1 events ===
+PASS 401 unique closed F1 events | 401
+PASS 149 Winner/Pole/Podium events | 149
+PASS 3433 markets | 3433
+PASS 49 matched winner events, markets 9-31 median 27 | n=49 min=9 median=27 max=31
+
+=== example events: resolution text / fees ===
+PASS slug f1-united-states-grand-prix-winner-2026-10-25 HTTP 200 | 200
+PASS   phrase: resolve in favor of the driver who is officially listed in
+PASS   phrase: Disqualifications or changes made after the publication of
+PASS   phrase: rescheduled to a date after Nov 1, 2026
+PASS   feeSchedule rate 0.05 | ['{"exponent": 1, "rate": 0.05, "rebateRate": 0.15, "takerOnly": true}']
+PASS slug f1-united-states-grand-prix-driver-pole-position-2026-10-24 HTTP 200 | 200
+PASS   phrase: officially recognized by Formula 1 as having set the faste
+PASS   phrase: regardless of any subsequent penalties, disqualifications,
+PASS   feeSchedule rate 0.05 | ['{"exponent": 1, "rate": 0.05, "rebateRate": 0.15, "takerOnly": true}']
+PASS slug f1-united-states-grand-prix-driver-podium-2026-10-25 HTTP 200 | 200
+PASS   phrase: finishes within the top three positions in the official
+PASS   phrase: permanently canceled, this market will resolve 50-50
+PASS   feeSchedule rate 0.05 | ['{"exponent": 1, "rate": 0.05, "rebateRate": 0.15, "takerOnly": true}']
+PASS slug f1-singapore-grand-prix-winner-2026-10-11 HTTP 200 | 200
+PASS   phrase: resolve in favor of the driver who is officially listed in
+PASS   feeSchedule rate 0.05 | ['{"exponent": 1, "rate": 0.05, "rebateRate": 0.15, "takerOnly": true}']
+PASS   resolved YES Verstappen | [('Max Verstappen', '["1", "0"]')]
+
+=== CLOB prices-history limits ===
+PASS 15-day span HTTP 200 | 200
+PASS 20-day span HTTP 400 | 400
+PASS interval=max HTTP 200 with points | 200
+PASS interval=max + start/end HTTP 200 with points | 109
+
+=== data-api trades ===
+PASS 49 trade files | 49
+PASS per-market trades 212-3000 | min=212 max=3000
+PASS 49/49 have pre-cutoff trade | 49
+PASS 49/49 first post-cutoff BUY before race | 49
+PASS data-api fields include side/price/size/timestamp/asset/outcome | 200
+
+=== replay files and headline numbers ===
+PASS replay SUMMARY.md exists
+PASS replay script exists
+PASS primary n=23 wins=13 | n=23 wins=13
+PASS primary mean +0.2003 | +0.2003
+PASS bootstrap CI contains 0 | [-0.0101, 0.4115]
+PASS V12 rule B mean +0.1684
+PASS V16 unconditional mean +0.1419
+PASS V05 +1h +0.1973
+PASS V06 +3h +0.1889
+PASS V09 qual-end +0.1562
+PASS V11 qual-end executable +0.2539
+PASS V26 p<=0.20 -0.0183
+PASS break-even gap 0.20
+PASS cross-section 1173 markets, 940 priced | 940
+PASS price sum median 1.042, max 1.568
+
+=== local cited notes ===
+PASS bots/quant/notes/r2prep-verification/quant-021.md
+PASS bots/quant/notes/q006-hist/REPORT.md
+PASS bots/quant/notes/scheduler/scratch/H-quant-021/REPORT.md
+
+ALL PASS

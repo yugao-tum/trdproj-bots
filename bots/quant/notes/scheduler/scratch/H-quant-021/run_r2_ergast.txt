@@ -1,0 +1,29 @@
+2014 qualifying: pages=5 total_rows=405 race_objects=23 unique_rounds=19
+2014 results: pages=5 total_rows=407 race_objects=23 unique_rounds=19
+2015 qualifying: pages=4 total_rows=374 race_objects=22 unique_rounds=19
+2015 results: pages=4 total_rows=378 race_objects=22 unique_rounds=19
+2016 qualifying: pages=5 total_rows=457 race_objects=25 unique_rounds=21
+2016 results: pages=5 total_rows=462 race_objects=25 unique_rounds=21
+2017 qualifying: pages=4 total_rows=398 race_objects=22 unique_rounds=20
+2017 results: pages=4 total_rows=400 race_objects=20 unique_rounds=20
+2018 qualifying: pages=5 total_rows=420 race_objects=21 unique_rounds=21
+2018 results: pages=5 total_rows=420 race_objects=21 unique_rounds=21
+2019 qualifying: pages=5 total_rows=418 race_objects=25 unique_rounds=21
+2019 results: pages=5 total_rows=420 race_objects=21 unique_rounds=21
+2020 qualifying: pages=4 total_rows=340 race_objects=17 unique_rounds=17
+2020 results: pages=4 total_rows=340 race_objects=17 unique_rounds=17
+2021 qualifying: pages=5 total_rows=439 race_objects=26 unique_rounds=22
+2021 results: pages=5 total_rows=440 race_objects=22 unique_rounds=22
+2022 qualifying: pages=5 total_rows=440 race_objects=22 unique_rounds=22
+2022 results: pages=5 total_rows=440 race_objects=22 unique_rounds=22
+2023 qualifying: pages=5 total_rows=440 race_objects=22 unique_rounds=22
+2023 results: pages=5 total_rows=440 race_objects=22 unique_rounds=22
+2024 qualifying: pages=5 total_rows=479 race_objects=28 unique_rounds=24
+2024 results: pages=5 total_rows=479 race_objects=28 unique_rounds=24
+2025 qualifying: pages=5 total_rows=479 race_objects=24 unique_rounds=24
+2025 results: pages=5 total_rows=479 race_objects=27 unique_rounds=24
+2026 qualifying: pages=4 total_rows=369 race_objects=20 unique_rounds=17
+2026 results: pages=4 total_rows=374 race_objects=20 unique_rounds=17
+races 269
+races with <18 qual or results: 0 []
+with time 269

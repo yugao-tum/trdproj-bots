@@ -1,0 +1,135 @@
+ 2024-16 Italian Grand Prix         p_hist=0.625 first=0.6699999196 e100=0.6489108014970646 q100=100.0 nbuy=39
+ 2024-17 Azerbaijan Grand Prix      p_hist=0.475 first=0.5 e100=0.5089999929710145 q100=100.0 nbuy=28
+ 2024-18 Singapore Grand Prix       p_hist=0.575 first=0.5699999555 e100=0.5699999960964923 q100=100.0 nbuy=47
+ 2024-19 United States Grand Prix   p_hist=0.275 first=0.32 e100=0.32312499896874997 q100=100.0 nbuy=58
+ 2024-21 São Paulo Grand Prix       p_hist=0.535 first=0.5599999776 e100=0.559999993453572 q100=100.0 nbuy=91
+ 2024-22 Las Vegas Grand Prix       p_hist=0.0945 first=0.119 e100=0.11899999999999998 q100=100.0 nbuy=3
+ 2024-23 Qatar Grand Prix           p_hist=0.255 first=0.2899999846 e100=0.2572413671620691 q100=100.0 nbuy=81
+ 2024-24 Abu Dhabi Grand Prix       p_hist=0.565 first=0.583596957 e100=0.583596957 q100=100.0 nbuy=45
+  2025-1 Australian Grand Prix      p_hist=0.36 first=0.39 e100=0.39 q100=100.0 nbuy=36
+ 2025-10 Canadian Grand Prix        p_hist=0.22 first=0.1809215497 e100=0.1809215497 q100=100.0 nbuy=62
+ 2025-11 Austrian Grand Prix        p_hist=0.685 first=0.6899999837 e100=0.6899999929130438 q100=100.0 nbuy=77
+ 2025-12 British Grand Prix         p_hist=0.375 first=0.3899998833 e100=0.38999999416377096 q100=100.0 nbuy=276
+ 2025-13 Belgian Grand Prix         p_hist=0.425 first=0.4299999978 e100=0.4299999978 q100=100.0 nbuy=127
+ 2025-14 Hungarian Grand Prix       p_hist=0.185 first=0.19 e100=0.19 q100=100.0 nbuy=57
+ 2025-15 Dutch Grand Prix           p_hist=0.605 first=0.61 e100=0.6023032735295089 q100=100.0 nbuy=154
+ 2025-16 Italian Grand Prix         p_hist=0.305 first=0.3412969283 e100=0.3448999903740877 q100=100.0 nbuy=57
+ 2025-17 Azerbaijan Grand Prix      p_hist=0.665 first=0.69 e100=0.69 q100=100.0 nbuy=149
+ 2025-18 Singapore Grand Prix       p_hist=0.385 first=0.39705141 e100=0.39705141 q100=100.0 nbuy=97
+ 2025-19 United States Grand Prix   p_hist=0.61 first=0.63 e100=0.63 q100=100.0 nbuy=228
+  2025-2 Chinese Grand Prix         p_hist=0.5 first=0.5099999933 e100=0.5175450660967 q100=100.0 nbuy=109
+ 2025-20 Mexico City Grand Prix     p_hist=0.685 first=0.68 e100=0.6840025821434188 q100=100.0 nbuy=315
+ 2025-21 São Paulo Grand Prix       p_hist=0.705 first=0.72 e100=0.726589367144 q100=100.0 nbuy=164
+ 2025-22 Las Vegas Grand Prix       p_hist=0.465 first=0.4699998778 e100=0.4604255199982232 q100=100.0 nbuy=61
+ 2025-23 Qatar Grand Prix           p_hist=0.585 first=0.5928068813 e100=0.5928068813 q100=100.0 nbuy=153
+ 2025-24 Abu Dhabi Grand Prix       p_hist=0.715 first=0.72 e100=0.7213565077265727 q100=100.0 nbuy=172
+  2025-3 Japanese Grand Prix        p_hist=0.28 first=0.29 e100=0.29 q100=100.0 nbuy=52
+  2025-4 Bahrain Grand Prix         p_hist=0.71 first=0.726051249 e100=0.726051249 q100=100.0 nbuy=35
+  2025-5 Saudi Arabian Grand Prix   p_hist=0.37 first=0.3799999794 e100=0.3799999962052635 q100=100.0 nbuy=139
+  2025-6 Miami Grand Prix           p_hist=0.355 first=0.38 e100=0.38389999435471855 q100=100.0 nbuy=129
+  2025-7 Emilia Romagna Grand Prix  p_hist=0.635 first=0.6448571429 e100=0.6482000000150001 q100=100.0 nbuy=101
+  2025-8 Monaco Grand Prix          p_hist=0.56 first=0.55 e100=0.55 q100=100.0 nbuy=100
+  2025-9 Spanish Grand Prix         p_hist=0.57 first=0.5899999894 e100=0.5899999904830541 q100=100.0 nbuy=82
+  2026-1 Australian Grand Prix      p_hist=0.715 first=0.7199995392 e100=0.7143055286552292 q100=100.0 nbuy=80
+ 2026-10 Belgian Grand Prix         p_hist=0.665 first=0.66 e100=0.6599999924027287 q100=100.0 nbuy=81
+ 2026-11 Hungarian Grand Prix       p_hist=0.3475 first=0.35 e100=0.35 q100=100.0 nbuy=254
+ 2026-12 Dutch Grand Prix           p_hist=0.365 first=0.3699999112 e100=0.3699999906201095 q100=100.0 nbuy=72
+ 2026-13 Italian Grand Prix         p_hist=0.0595 first=0.0679999383 e100=0.06658821709294285 q100=100.0 nbuy=140
+ 2026-14 Spanish Grand Prix         p_hist=0.365 first=0.3699999867 e100=0.3613513433829862 q100=100.0 nbuy=51
+ 2026-15 Azerbaijan Grand Prix      p_hist=0.645 first=0.6499999986 e100=0.6499999986 q100=100.0 nbuy=40
+ 2026-16 Bahrain Grand Prix in Mala p_hist=0.605 first=0.61 e100=0.61 q100=100.0 nbuy=127
+ 2026-17 Singapore Grand Prix       p_hist=0.65 first=0.6599999954 e100=0.6531823015060607 q100=100.0 nbuy=118
+  2026-2 Chinese Grand Prix         p_hist=0.265 first=0.2599999839 e100=0.26615383265299186 q100=100.0 nbuy=140
+  2026-3 Japanese Grand Prix        p_hist=0.585 first=0.5599998432 e100=0.5530482099947521 q100=100.0 nbuy=203
+  2026-4 Miami Grand Prix           p_hist=0.405 first=0.3990790483 e100=0.3990790483 q100=100.0 nbuy=776
+  2026-5 Canadian Grand Prix        p_hist=0.44 first=0.416 e100=0.4354770462586722 q100=100.0 nbuy=242
+  2026-6 Monaco Grand Prix          p_hist=0.59 first=0.6 e100=0.6 q100=100.0 nbuy=491
+  2026-7 Barcelona Grand Prix       p_hist=0.525 first=0.52 e100=0.52563644392786 q100=100.0 nbuy=83
+  2026-8 Austrian Grand Prix        p_hist=0.365 first=0.3699998631 e100=0.3602702628014201 q100=100.0 nbuy=174
+  2026-9 British Grand Prix         p_hist=0.65 first=0.6765630529 e100=0.6667392164971377 q100=100.0 nbuy=251
+
+=== model fit 2014-2023 ===
+  [0,0.05) n=36 p=0.4737
+  [0.05,0.2) n=68 p=0.5286
+  [0.2,0.5) n=65 p=0.5373
+  [0.5,99) n=20 p=0.7273
+  constant 110/204 = 0.5392
+
+=== sample ===
+events 49 pole wins PM 32 mean p_hist 0.4816 mean modelA 0.5222
+pole won per PM: 32 of 49 ; PM pole outcome vs Ergast pole-won mismatch: 0
+p_hist available 49 first 49 exec100 49 exec100_1h 49 exec100_3h 49
+
+=== rules: fill basis (event-day 00:00 UTC cutoff) ===
+rule A p_hist                                    n=23 wins=13 sum= +4.8046 mean= +0.2089 sd=0.5179
+rule B p_hist                                    n=23 wins=12 sum= +4.0946 mean= +0.1780 sd=0.5306
+rule A first                                     n=23 wins=13 sum= +4.5862 mean= +0.1994 sd=0.5183
+rule B first                                     n=23 wins=12 sum= +3.8558 mean= +0.1676 sd=0.5316
+rule A exec20                                    n=23 wins=13 sum= +4.6008 mean= +0.2000 sd=0.5183
+rule B exec20                                    n=23 wins=12 sum= +3.8704 mean= +0.1683 sd=0.5317
+rule A exec100                                   n=23 wins=13 sum= +4.6077 mean= +0.2003 sd=0.5204
+rule B exec100                                   n=23 wins=12 sum= +3.8733 mean= +0.1684 sd=0.5339
+rule A exec100_1h                                n=23 wins=13 sum= +4.5374 mean= +0.1973 sd=0.5255
+rule B exec100_1h                                n=23 wins=12 sum= +3.8020 mean= +0.1653 sd=0.5388
+rule A exec100_3h                                n=23 wins=13 sum= +4.3452 mean= +0.1889 sd=0.5243
+rule B exec100_3h                                n=23 wins=12 sum= +3.5883 mean= +0.1560 sd=0.5380
+rule A first1                                    n=23 wins=13 sum= +4.5395 mean= +0.1974 sd=0.5239
+rule B first1                                    n=23 wins=12 sum= +3.8193 mean= +0.1661 sd=0.5365
+rule A first3                                    n=23 wins=13 sum= +4.3717 mean= +0.1901 sd=0.5246
+rule B first3                                    n=23 wins=12 sum= +3.6127 mean= +0.1571 sd=0.5385
+
+=== rule A by season, exec100 / delayed ===
+A 2024 exec100                                   n= 4 wins= 2 sum= +0.7134 mean= +0.1784 sd=0.6217
+A 2024 exec100_1h                                n= 4 wins= 2 sum= +0.7138 mean= +0.1785 sd=0.6248
+A 2024 exec100_3h                                n= 4 wins= 2 sum= +0.6617 mean= +0.1654 sd=0.6113
+A 2025 exec100                                   n=10 wins= 5 sum= +1.3378 mean= +0.1338 sd=0.5326
+A 2025 exec100_1h                                n=10 wins= 5 sum= +1.2904 mean= +0.1290 sd=0.5387
+A 2025 exec100_3h                                n=10 wins= 5 sum= +1.1273 mean= +0.1127 sd=0.5436
+A 2026 exec100                                   n= 9 wins= 6 sum= +2.5565 mean= +0.2841 sd=0.4393
+A 2026 exec100_1h                                n= 9 wins= 6 sum= +2.5332 mean= +0.2815 sd=0.4443
+A 2026 exec100_3h                                n= 9 wins= 6 sum= +2.5562 mean= +0.2840 sd=0.4386
+
+=== unconditional all pole sitters ===
+all pole exec100                                 n=49 wins=32 sum= +6.9508 mean= +0.1419 sd=0.4746
+all pole exec100_3h                              n=49 wins=32 sum= +6.7022 mean= +0.1368 sd=0.4755
+
+=== exec price gap vs p_hist ===
+  first-p_hist n=49 mean=+0.0096 median=+0.0085 min=-0.0391 max=+0.0450
+  exec100-p_hist n=49 mean=+0.0086 median=+0.0064 min=-0.0391 max=+0.0481
+  exec100_1h-p_hist n=49 mean=+0.0113 median=+0.0077 min=-0.0391 max=+0.0663
+  exec100_3h-p_hist n=49 mean=+0.0136 median=+0.0070 min=-0.0250 max=+0.1305
+
+=== break-even uniform gap for rule A exec100 ===
+  break-even gap 0.2
+
+=== cost sensitivity rule A exec100 ===
+  fee=0.03 half=0.00 mean=+0.2145
+  fee=0.03 half=0.01 mean=+0.2045
+  fee=0.03 half=0.02 mean=+0.1945
+  fee=0.03 half=0.05 mean=+0.1645
+  fee=0.05 half=0.00 mean=+0.2103
+  fee=0.05 half=0.01 mean=+0.2003
+  fee=0.05 half=0.02 mean=+0.1903
+  fee=0.05 half=0.05 mean=+0.1603
+  fee=0.07 half=0.00 mean=+0.2061
+  fee=0.07 half=0.01 mean=+0.1961
+  fee=0.07 half=0.02 mean=+0.1861
+  fee=0.07 half=0.05 mean=+0.1561
+
+=== cushion sensitivity rule A exec100 ===
+A cushion 0.00                                   n=26 wins=15 sum= +4.8088 mean= +0.1850 sd=0.5136
+A cushion 0.02                                   n=25 wins=15 sum= +5.3569 mean= +0.2143 sd=0.5020
+A cushion 0.05                                   n=23 wins=13 sum= +4.6077 mean= +0.2003 sd=0.5204
+A cushion 0.08                                   n=21 wins=13 sum= +5.6220 mean= +0.2677 sd=0.4943
+A cushion 0.10                                   n=19 wins=12 sum= +5.7511 mean= +0.3027 sd=0.4909
+A cushion 0.15                                   n=12 wins= 9 sum= +5.4072 mean= +0.4506 sd=0.4338
+
+=== bootstrap rule A exec100 ===
+  exec100: n=23 mean=+0.2003 sd=0.5204 t=1.85 CI95=[-0.0125,+0.4080] P(mean<=0)=0.0329
+  exec100_1h: n=23 mean=+0.1973 sd=0.5255 t=1.80 CI95=[-0.0178,+0.4070] P(mean<=0)=0.0363
+  exec100_3h: n=23 mean=+0.1889 sd=0.5243 t=1.73 CI95=[-0.0252,+0.3976] P(mean<=0)=0.0418
+
+=== timing (triggered A, n=23) ===
+  first BUY delay h: median 0.62 max 2.99 min 0.13
+  100-share completion h: median 1.04 max 6.38 min 0.15
+  window BUY volume: min 1089 median 13669 max 146509
