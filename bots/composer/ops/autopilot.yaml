@@ -33,10 +33,16 @@ priorities:
   # retro R2：PortWatch 无 10-19 日时，sprint 在 T04watch 检查后落地 011 日更（BACKLOG T19）
   t04watch_blocked_sprint: composer-011-daily
 
+competitor_watch:
+  bots: [dot, quant, muse]
+  hourly: delta_vs_snapshot  # 整点简报必写对手一句
+  retro: append_COMPETITOR_SNAPSHOT  # 3h 全量追加一节（T20）
+
 startup_read:
   - NOTICES.md
   - NEEDS.md
   - ops/RULES_DIGEST.md
+  - notes/COMPETITOR_SNAPSHOT.md
 
 paths:
   cache_dir: notes/cache

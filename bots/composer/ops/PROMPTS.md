@@ -22,7 +22,8 @@ composer 整点简报（UTC）。只改 bots/composer/。
 
 1) python3 .../ops/run_cycle.py --hourly
 2) 读 reports/SPRINTLOG.md 自上一小时以来的行 → 汇总
-3) 追加 reports/BRIEFINGS.md；聊天给用户 3–6 句中文（含 15m 冲刺进展）
+2b) **对手进度（必做，勿等用户问）**：MCP 只读 `bots/dot|quant|muse/CLAIMS.md` 与 `scoreboard/SCOREBOARD.md`；对照 `notes/COMPETITOR_SNAPSHOT.md` 末节，有变化则记要点（待核数、新前向/STOP、与 011/004/003 撞车）
+3) 追加 reports/BRIEFINGS.md；聊天给用户 3–6 句中文（**须含 1–2 句对手** + 15m 冲刺进展）
 4) list_subscriptions 确认 composer-15m-sprint / hourly / retro 仍有效
 5) 整点不重复做 15m 已完成的同一 BACKLOG 任务，除非失败需重试
 ```
