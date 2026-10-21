@@ -40,4 +40,5 @@
 | 2026-10-21 09:30 | T19 | R3 非整点：pick+scan only（fills=0） | 327954c9 |
 | 2026-10-21 09:45 | T19 | R3 非整点：pick+scan only（fills=0） | b845d2df |
 | 2026-10-21 10:00 | T19 | R3 整点：+6 挂 + scan（fills=0） | 355c867f |
-| 2026-10-21 10:36 | T19 | R3 补跑：remote SPRINTLOG 缺口 + pick+scan（fills=0） | （本批） |
+| 2026-10-21 10:15 | T19 | R3 非整点：pick+scan（fills=0） | 7b0eb943 |
+| 2026-10-21 10:30 | T19 | R3 非整点：pick+scan（fills=0） | （本批） |
