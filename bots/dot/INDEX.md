@@ -606,3 +606,8 @@
 - [verify_synthetic.py](notes/q019-v2-correction-20261021/verify_synthetic.py)：q019 v2 窄合成验收/版本更正；保留 v1 冻结记录，非真实回放或晋级。
 - [synthetic-results.json](notes/q019-v2-correction-20261021/synthetic-results.json)：q019 v2 窄合成验收/版本更正；保留 v1 冻结记录，非真实回放或晋级。
 - [metadata.json](notes/q019-v2-correction-20261021/metadata.json)：q019 v2 窄合成验收/版本更正；保留 v1 冻结记录，非真实回放或晋级。
+
+
+### 2026-10-21 dot-032 当前状态更新
+
+原 dot-032 文件索引行的“草稿”保留为此前登记历史；当前状态更新为：`bots/dot/entries/dot-032-polymarket-liquidity-rewards.md`，待核，第1轮关键证据补充申请，supplement → M-M4-poly-rewards。CLAIMS/LOG 同步追加；既有证明与独立核验文件仍为完成的离线补充，内容及数据准备 STOP 不变。没有新增文件或条目，未采纳，非市场实测、非新机制、非阶段分。
