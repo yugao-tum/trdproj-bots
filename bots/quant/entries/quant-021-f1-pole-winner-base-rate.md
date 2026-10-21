@@ -13,7 +13,7 @@ return_type: direction
 instruments: Polymarket 单站三件套：`<站名> Grand Prix: Driver Winner`（已关闭 event 实测 9–39 个车手二元，中位 27）、`Driver Pole Position`（11–39，中位 24）、`Driver Podium Finish`（21–23，非 negRisk）
 venues: Polymarket
 data: api.jolpi.ca Ergast 兼容 F1 接口（免费免密钥，2014–2026 共 269 场排位+正赛）；Gamma/CLOB 公开接口；CLOB `prices-history`（免费，跨度 >15 天需分块）；data-api `/trades` 逐笔成交（免费，49 个 Winner 杆位 YES 市场，单市场 212–3,000 笔，2026-10-21 重取）。H-quant-021 修正 Ergast 分页 bug 后重跑：49 场 cutoff（正赛日 00:00 UTC，已逐场核对该时点晚于排位结束）后首笔 taker BUY 相对最后价均值 +0.96¢，规则 A 按真实成交 +0.2003/份（首笔 +0.1994，前 100 份 VWAP +0.2003）；延迟 1h/3h 成交仍为 +0.1973/+0.1889
-test_2w: 独立结果按「一个比赛周末」计；2024–2026 已有 **49 个**（Winner event，且能取到杆位车手 cutoff 前价格/赛后成交）可作为历史独立结果，两周内再前向记录 2 站（2026-10-25 美国、2026-11-01 墨西哥；赛季共余 6 站）；历史侧可成交价回测已完成（H-quant-021，见证据 4/5），失败标准=前向有效成交的中位已实现毛利 ≤0，或历史侧规则 B（5¢ 半价差）均值 ≤0，或规则 A 首笔成交均值 ≤0
+test_2w: 独立结果按「一个比赛周末」计；2024–2026 有 **49 个 Winner event 能取到杆位车手 cutoff 前价格/赛后成交**，但主规则只触发 **23 个**，交易级样本 **<30**；两周内再前向记录 2 站（2026-10-25 美国、2026-11-01 墨西哥；赛季共余 6 站）；历史侧可成交价回测已完成（H-quant-021，见证据 4/5），失败标准=前向有效成交的中位已实现毛利 ≤0，或历史侧规则 B（5¢ 半价差）均值 ≤0，或规则 A 首笔成交均值 ≤0
 status: 待核
 confidence: 中
 evidence: 回放
@@ -39,7 +39,7 @@ contribution: 4.5%
 
 **第三次复核（同一 queue item 复跑，2026-10-21）**：把 `H-quant-021` 的脚本在新 worktree 重跑，证据 1–6 的每个标题数字都逐位复现。新增/更正四点：(1) 49/49 场的排位结束（Ergast 排位开始 +2h）都不晚于回测 cutoff，最小余量 0h、中位 8h——上一轮“未逐站核对排位结束时刻”的保留意见可以撤掉；(2) 用 data-api 成交模拟下单延迟 1h/3h，规则 A 每份净收益仍为 **+0.1973 / +0.1889**，不是靠 cutoff 瞬间成交；(3) 按规则写的“排位刚结束就下单”时点、用可成交价同时触发和成交，21 笔、每份 **+0.2539**；若改用该时点的最后抽样价触发（该价常落后于可成交价：均值 0.340 vs 同期可成交 0.499），38 笔为 **+0.1562**，只作参考；(4) 32/49 杆位夺冠对 2014–2023 的 110/204 做二项检验，双侧 p=0.1436，**不能**说 49 场的高胜率显著高于基率。更正两个旧数字：data-api 单市场成交数是 **212–3,000**（不是 122）；`interval=max` 与 `startTs/endTs` 同时带上返回 200 且**有数据**（实测 110 点），不是 `{"history":[]}`。脚本与 stdout 为 `v3_*.py` / `run_v3_*.txt`。
 
-**第二轮回放（round-2 交付，2026-10-21）**：真实成交价回放已独立落在 `bots/quant/replay/quant-021/`——`run_replay.py`（可重跑，冷启动约 7 分钟）、`results.json`、`trades.csv`（主规则 23 笔）、`all_events.csv`（49 场）、`cross_section.csv`（940 个有价市场）、`SUMMARY.md`（按 `templates/REPLAY-SUMMARY.md`，列全 27 个变体）。脚本从 Gamma、Ergast、data-api、CLOB 公开接口重取数据后重算，主规则仍是 23 笔、13 胜、**+0.2003/份**，bootstrap 95% **[-0.0101, +0.4115]**、P(mean≤0)=0.031，年化 **4.5%**，结论**不显著**。上一轮的详细 stdout 与本轮回放数字一致；仅旧 bootstrap 因重采样实现不同为 [-0.0125, +0.408]（同为下界含 0），本条目一律以 replay 的 `results.json` 为准。复核脚本与 stdout：`bots/quant/notes/scheduler/scratch/H-quant-021/r2_verify_sources.py`、`run_r2_verify_sources.txt`（58 项全 PASS）、`run_r2_analysis.txt`、`run_r2_harden.txt`、`run_r2_staleness.txt`。
+**第二轮回放（round-2 交付，2026-10-21）**：真实成交价回放已独立落在 `bots/quant/replay/quant-021/`——`run_replay.py`（可重跑，冷启动约 7 分钟）、`results.json`、`trades.csv`（主规则 23 笔）、`all_events.csv`（49 场）、`cross_section.csv`（940 个有价市场）、`SUMMARY.md`（按 `templates/REPLAY-SUMMARY.md`，列全 27 个变体）。脚本从 Gamma、Ergast、data-api、CLOB 公开接口重取数据后重算，主规则仍是 23 笔、13 胜、**+0.2003/份**，bootstrap 95% **[-0.0101, +0.4115]**、P(mean≤0)=0.031，年化 **4.5%**，结论**不显著**。上一轮的详细 stdout 与本轮回放数字一致；仅旧 bootstrap 因重采样实现不同为 [-0.0125, +0.408]（同为下界含 0），本条目一律以 replay 的 `results.json` 为准。复核脚本与 stdout：`bots/quant/notes/scheduler/scratch/H-quant-021/r2_verify_sources.py`、`run_r2_verify_sources.txt`（57 项全 PASS）、`run_r2_analysis.txt`、`run_r2_harden.txt`、`run_r2_staleness.txt`。
 
 ## 一句话
 
@@ -218,7 +218,7 @@ cutoff 前最后一笔成交是 BUY 的有 **21/23** 笔触发、是 SELL 的有
 ## 两周内怎么检验
 
 - **独立结果按「比赛周末」计**：同一站的 Winner/Pole/Podium 三个 event 共用一套成绩，只算 1 个结果。
-- **本轮已经拿到 49 个历史独立结果**（2024-09 至 2026-10，有杆位车手赛前价格），满足第 2 节第 6 条「至少 30 个相互独立的结果」——但它是**回测**，不是前向。
+- **49 个 event 有杆位车手赛前价格**（2024-09 至 2026-10），但主规则只触发 **23 个**；23 < 30，交易级独立结果不足，且 bootstrap 下界含 0，不能算满足第 2 节第 6 条「至少 30 个相互独立的结果」。它仍是**回测**，不是前向。
 - **历史侧可成交价复核已完成（H-quant-021）**：49 场用 data-api 逐笔成交重算，规则 A 的 +0.2089/份变为 +0.1994（首笔 BUY）/+0.2003（前 100 份 VWAP），「stale 最后价」这一解释未获支持；但 bootstrap 区间含 0。
 - 两周内前向：2026 赛季还剩 6 站，其中两周内 2 站（10-25 美国、11-01 墨西哥），可加 2 个前向结果；同时记录**我们自己的真实成交价与份数**（不是 `prices-history` 最后价，也不是别人的成交打印），这是 data-api 复核仍不能替代的一步。
 - 失败标准（写死）：(a) 前向有效成交 ≥20 份后，已成交 YES 份额的**中位已实现毛利 ≤0**（毛利 = 票面 1.00 − 成交价，不含手续费）；或 (b) 本轮 49 场样本里，规则 B 的每份净收益均值在把半价差从 1¢ 提到 5¢ 后 ≤0（本轮为 +0.1284，未触发）；或 (c) 用 data-api 首笔 BUY 重算的规则 A 每份净收益均值 ≤0（本轮为 +0.1994，未触发）。任一成立即判失败。
@@ -251,12 +251,12 @@ cutoff 前最后一笔成交是 BUY 的有 **21/23** 笔触发、是 SELL 的有
 ## 门槛自查
 
 1. **机制说得清：满足（但证据强度中等）** — 付钱方是单站模板里按车队强弱出价的休闲玩家；实测 49 场里「最热门车手」价格均值 0.5217 / 实际 0.5510（校准良好），而杆位车手价格均值 0.4816 / 实际 0.6531。横截面显示同一价格带内杆位胜率 52.4% vs 非杆位 15.7%，且「买所有便宜车手」是负的（-0.0183/份），所以不是普遍冷门偏差。机制成立的前提是「排位信息未完全进入价格」；样本仍小。
-2. **有免费数据能检验：满足** — Ergast 269 场（2014–2026）+ CLOB 价格历史（本轮重算 49 个 event 的 1,173 个车手市场、940 个有 cutoff 前价格；2,818/3,433 的全量统计复用 r2prep 笔记）+ data-api 49 个杆位市场逐笔成交（212–3,000 笔/市场），全部免费免密钥、可复现；本轮已产出 49 个独立结果、样本外校准、可成交价复核、排位时点核对与延迟成交检验。
+2. **有免费数据能检验：满足** — Ergast 269 场（2014–2026）+ CLOB 价格历史（本轮重算 49 个 event 的 1,173 个车手市场、940 个有 cutoff 前价格；2,818/3,433 的全量统计复用 r2prep 笔记）+ data-api 49 个杆位市场逐笔成交（212–3,000 笔/市场），全部免费免密钥、可复现；本轮已产出 49 个 event 的价格样本（主规则触发 23 个交易级结果）、样本外校准、可成交价复核、排位时点核对与延迟成交检验。
 3. **小资金能做：满足（容量很小）** — 100 份/站、≤2 站在手，按 0.48 价约 48 USDT/站，远低于 2,500 USDT 单场所与 5,000 总量；不加杠杆。但 5,000 USDT 放不满，年化约 4.5%。
 4. **不重复：不确定** — 查了 `known/KNOWN.md`（135 条；F1 相关只有 `F-F1-bab/F-F1-dbeta/F-F1-lowvol` 三个加密因子，与 F1 无关）、`bots/*/CLAIMS.md`、`bots/*/entries/`（无 F1/赛车条目）。与 quant-006（网球 Elo）同为「外部模型 vs PM 价格」，但变量与数据源不同；与 `KNOWN` 的 `V-V2-poly-longshot`（预测市场押热门/冷门偏差）方向相关——但本轮横截面显示买所有便宜车手是负的，本条只赚「杆位」这一小类，且定价因子是排位赛后即免费可得的计时数据。是否算变体请主审判断。
 5. **扣成本后粗算够用：不确定** — 按 1¢ 半价差 + 0.05 费率，规则 A 净 +0.2003/份、规则 B 净 +0.1684/份、无条件买杆位 +0.1419/份；fee 7% + half 5¢ 时 A 仍 +0.1561/份。**但** 23 笔的 bootstrap 95% 下界 -0.0101 含 0，且 100 份/站时年化约 4.5%（按排位结束、可成交价触发的 21 笔口径约 5.3%/年，仍不到 8%）。「每笔扣成本后为正」满足；「年化够用/统计显著」不满足。
-6. **两周内能检验：满足（历史侧），前向仍需时间** — 49 个历史独立结果已超过 30 的门槛，且失败标准写死；历史侧可成交价复核已完成（H-quant-021），并已落成可重跑回放 `bots/quant/replay/quant-021/`（主规则 23 笔、+0.2003/份、`result: 不显著`）；两周内可再加 2 个前向结果并记录我们自己的真实成交价与份数。
-7. **出处可查：满足** — 每个数字都写了公式、样本期与中间量；回放脚本、参数、数据 URL 与 27 个变体在 `bots/quant/replay/quant-021/SUMMARY.md`；复核脚本 `r2_verify_sources.py` 逐条 fetch 了本条目全部公开 URL（58 项 PASS，stdout `run_r2_verify_sources.txt`）；Gamma 的 volume/liquidity 标「来源自报，未核实」且注明快照日期；`2,818/3,433` 复用 r2prep 笔记并注明“本轮未复跑”（49 个 event 的 1,173/940 已本轮重算）；「15–19 天跨度上限的具体值」写成“15 天 200、20 天 400”。
+6. **两周内能检验：交易级不满足，只能按待选区/前向补充** — 49 个 event 有价格，但主规则只触发 23 个；23<30，且 bootstrap 下界含 0，不能写“已过 30 的门槛”。失败标准已写死；历史侧可成交价复核已完成（H-quant-021），并已落成可重跑回放 `bots/quant/replay/quant-021/`（主规则 23 笔、+0.2003/份、`result: 不显著`）；两周内可再加 2 个前向结果并记录我们自己的真实成交价与份数。
+7. **出处可查：满足** — 每个数字都写了公式、样本期与中间量；回放脚本、参数、数据 URL 与 27 个变体在 `bots/quant/replay/quant-021/SUMMARY.md`；复核脚本 `r2_verify_sources.py` 逐条 fetch 了本条目全部公开 URL（57 项 PASS，stdout `run_r2_verify_sources.txt`）；Gamma 的 volume/liquidity 标「来源自报，未核实」且注明快照日期；`2,818/3,433` 复用 r2prep 笔记并注明“本轮未复跑”（49 个 event 的 1,173/940 已本轮重算）；「15–19 天跨度上限的具体值」写成“15 天 200、20 天 400”。
 
 ## 出处
 
@@ -274,7 +274,7 @@ cutoff 前最后一笔成交是 BUY 的有 **21/23** 笔触发、是 SELL 的有
 - https://data-api.polymarket.com/trades?market=<conditionId>&limit=1000&offset=N&takerOnly=true — 访问 2026-10-21 — 已读（49 个杆位 YES 市场逐笔成交；`side/price/size/timestamp/asset/outcome`；单市场 212–3,000 笔）
 - bots/quant/notes/scheduler/scratch/H-quant-021/REPORT.md — 访问 2026-10-21 — 已读（本轮分页 bug、脚本 stdout、来源核对表与限制）
 - bots/quant/replay/quant-021/run_replay.py、results.json、trades.csv、all_events.csv、cross_section.csv、SUMMARY.md — 访问 2026-10-21 — 已跑/已读（本轮 round-2 回放；主规则 23 笔 +0.2003/份、bootstrap [-0.0101,+0.4115]、年化 4.5%；27 变体全列）
-- bots/quant/notes/scheduler/scratch/H-quant-021/r2_verify_sources.py、run_r2_verify_sources.txt — 访问 2026-10-21 — 已跑/已读（全部公开 URL 与标题数字复核，58 项 PASS）
+- bots/quant/notes/scheduler/scratch/H-quant-021/r2_verify_sources.py、run_r2_verify_sources.txt — 访问 2026-10-21 — 已跑/已读（全部公开 URL 与标题数字复核，57 项 PASS）
 - bots/quant/notes/scheduler/scratch/H-quant-021/run_r2_analysis.txt、run_r2_harden.txt、run_r2_staleness.txt、run_r2_cross.txt、run_r2_extra.txt、run_r2_precheck.txt — 访问 2026-10-21 — 已跑/已读（新 worktree 重跑，标题数字逐位复现）
 - bots/quant/notes/scheduler/scratch/H-quant-021/ — 访问 2026-10-21 — 已读（`run_counts.txt`、`run_harden_fixed.txt`、`run_extra_fixed.txt`、`run_final_stats.txt`、`run_verify.txt` 等）
 - bots/quant/notes/scheduler/scratch/H-quant-021/run_v3_analysis.txt、run_v3_extra.txt、run_v3_model.txt、run_v3_staleness.txt、run_v3_cross.txt、run_v3_precheck.txt、run_v3_verify_sources.txt — 访问 2026-10-21 — 已读（本轮重跑：标题数字逐位复现；49/49 排位时点核对；1h/3h 延迟；排位结束下单口径；940 市场横截面；来源核对）
