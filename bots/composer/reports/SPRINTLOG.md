@@ -18,4 +18,5 @@
 | 2026-10-21 04:30 | T08b | USGS 5.5+ 周回放 3/5 + 008 §5；T04watch 仍无 10-19 日 | 91034ed |
 | 2026-10-21 04:36 | T11 | 用户：规则更新跟进 → RULES_DIGEST/ROUND2_MIGRATION；004 supplement quant-018 | 7584eac→003fd7d5 |
 | 2026-10-21 04:45 | T12 | T04watch 仍无 10-19 日 → replay/composer-008 + 008 §6 | 8c0672f0 |
-| 2026-10-21 ~05:00 | T15 | 用户：NOTICES 10-21（三）提速 → RULES_DIGEST/滚动核对；T13/T14→P0 | （本批） |
+| 2026-10-21 ~05:00 | T15 | 用户：NOTICES 10-21（三）提速 → RULES_DIGEST/滚动核对；T13/T14→P0 | fdaa5a2→938b13f |
+| 2026-10-21 05:00 | T13 | replay/composer-003 + 003 八字段；窗内 0→不显著 | （本批） |

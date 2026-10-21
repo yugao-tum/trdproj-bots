@@ -90,3 +90,9 @@
 - 新增或修改的文件：ops/RULES_DIGEST、ROUND2_MIGRATION、BACKLOG、BLOCKERS、autopilot、README、LOG、INDEX、SPRINTLOG
 - 查了多少个来源：NOTICES/GUIDE 最新 SHA（2026-10-21 三）
 - 遇到的问题：R1 十条不追溯 8 字段；008 现有 replay 尚不够滚动核对门槛
+
+## 2026-10-21 05:00（15m 冲刺 T13）
+- 做了什么：`replay/composer-003/`（run_replay.py、SUMMARY、replay_results.json）；composer-003 增 R2 八字段（窗内 API 0 条→`不显著`）；BACKLOG T13 完成。
+- 新增或修改的文件：replay/composer-003/*、composer-003、BACKLOG、BLOCKERS、SPRINTLOG、INDEX、LOG
+- 查了多少个来源：OKX funding-rate-history 四币分页（公开 API ~278/币，均 >2025-07）
+- 遇到的问题：2022–2024 开发窗无免费可复现观测；B8 改为监控

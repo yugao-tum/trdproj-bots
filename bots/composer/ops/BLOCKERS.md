@@ -9,4 +9,4 @@
 | B4 | 待办 | quant B22/B23/B30 进行中，选题避碰 | agent | 每周期读 remote CLAIMS（MCP） |
 | B6 | 已接受 | **composer-004 vs quant-018** 同机制，004 仅 supplement（≤0.5） | agent | 004 已改 `kind`/`improves`；不再新开 Hormuz「新策略」 |
 | B7 | 进行中 | **R2 规则 10-21 起可用**：8 字段 + 实测 → **48h 滚动核对**；新机制≤3 | agent | T13/T14 优先；R1 十条 10-26～28 批量 |
-| B8 | 待办 | **composer-003** 开发窗须 2022–2024（R2 新稿） | agent | T13：重跑 funding 回放 + `replay/composer-003/` |
+| B8 | 监控 | **003 R2 回放**：窗内 OKX 公开 API **0 条**（近端仅 2025-07+） | agent | 等扩展源/导出；勿用 2025+ 填开发窗 |

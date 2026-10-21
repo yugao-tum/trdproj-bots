@@ -16,6 +16,14 @@ data: OKX 公开 `GET /api/v5/public/funding-rate-history`（免密钥）；现�
 test_2w: 独立结果按每次 8h 资金费结算计；用 2025-07 至 2026-10 共 278 次 SOL 结算回放 + 两周前向跟 42 次结算；失败标准：闸门后年化 carry ≤8% 或样本外中位净收益 ≤0
 status: 待核
 confidence: 中
+evidence: 回放
+result: 不显著
+slot: "-"
+variants: 1
+variants_ext: 不清楚
+window: 2022-01-01..2024-12-31
+max_dd: 不清楚
+contribution: 不清楚
 ---
 
 ## 一句话
@@ -47,7 +55,14 @@ confidence: 中
 
 ## 证据
 
-### OKX SOL 资金费回放（2026-10-21 自算，脚本见 `notes/funding_zscore_backtest.py`）
+### R2 开发窗回放（2026-10-21，T13）
+
+- 目录：`replay/composer-003/`（`run_replay.py` + `SUMMARY.md` + `replay_results.json`）。
+- **窗内（2022–2024）四币 OKX 公开 API 均为 0 条** → `result: 不显著`（独立结果 <30）；详见 SUMMARY，**未**用 2025+ API 样本充当开发结论。
+
+### OKX SOL 资金费近端样本（2026-10-21 自算，R1 快照；非 R2 开发窗）
+
+- 脚本 `notes/funding_zscore_backtest.py`（近端 ~278 期，**不**写入 R2 窗统计）。
 
 - 样本：**278 次** 8h 结算（OKX `funding-rate-history` 分页拉取）。
 - 全样本：mean rate **0.294 bps/8h**，正 funding 占比 **68.3%**，粗年化（恒持做空）**≈3.22%**（=0.0000294×3×365，未扣手续费）。
