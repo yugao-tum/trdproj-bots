@@ -85,6 +85,12 @@ API：`https://ll.thespacedevs.com/2.2.0/launch/?net__gte=2026-10-01T00:00:00Z&n
 
 说明月间差异大，**不能外推 10 月**；仅作频率量级。
 
+### 4）运行计数续跟（T06b，2026-10-21 04:16 UTC）
+
+- 脚本 `notes/spacex_oct_launches_fetch.py` → `notes/cache/spacex_oct2026_running.json`。
+- LL2：**8× Launch Successful**，**3× Go for Launch**（10-21/24/28）；若剩余排期全成功，上界 **11**，仍 **&lt;14** 档上界。
+- 推断：与 §2 一致，**&lt;14** 仍为主基线；14+ 档需 10 月下旬异常高频才可能（**未读 spacex.com 官方计数**）。
+
 ## 数据
 
 - 结算：`https://www.spacex.com/launches`
