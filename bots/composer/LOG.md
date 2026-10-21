@@ -102,3 +102,9 @@
 - 新增或修改的文件：entries/011、forward/011/PLAN、CLAIMS、INDEX、BACKLOG、SPRINTLOG、LOG
 - 查了多少个来源：Gamma markets（clobRewards/rewardsDailyRate）；NEEDS #1；FORWARD 模板
 - 遇到的问题：前向 ledger 需自 06:00 UTC 起每日推送（下一 sprint 可写首日刷新脚本）
+
+## 2026-10-21 05:30（15m 冲刺 T16；T04watch 阻塞）
+- 做了什么：PortWatch 仍 **2026-10-18**；**T16** `pm_rewards_market_pick.py` + `pm_rewards_candidates.json`（8 候选/top3）；`forward/composer-011/ledger.csv` 表头；HORMUZ watch 续记。
+- 新增或修改的文件：notes/pm_rewards_*、forward/011/ledger、011 条目、BACKLOG T16、INDEX、SPRINTLOG
+- 查了多少个来源：Gamma 150 markets；clobRewards 8 条 politics
+- 遇到的问题：T04watch 完成标准未达，保持 open
