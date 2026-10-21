@@ -206,6 +206,10 @@ confidence: 中
 6. **两周内能检验：满足（可检验性），但检验结果 FAIL** — 历史 data-api 成交在 68 个事件中给出 40 个严格组、**35 个有窗前价格、34 个有成交**（≥30），两周内可复跑；按写死准则第 2 条触发，`VERDICT = FAIL`（证据 5）。时间外 45 档为负（证据 6）和 maker 代理为负（证据 7）不改变 FAIL，只支持降级。
 7. **出处可查：满足** — 2026-10-21 重抓条目所有具体 URL 均 200（两个带 `<conditionId>`/`page=N` 的模板用真实示例代替）；基率从原始 CSV 重算（1,513 行 / 1,216 条 / 1,395 bin / 663-440-178-70-29-5-7-1-1-1 / P(≥3)=0.0817），count 462/153/5,031，Gamma 69 个已关闭事件、$5,869,974.95、37/17/12/3，CLOB 空 history 与 data-api 成交都复现；**费率 0.05 的旧写法已按 2026-10-21 实取改成逐事件读（10/19 为 0）**。脚本、stdout、逐档表都在 `q012-hist/` + `H-quant-012/`，可复跑。
 
+## 先后证据
+
+本机制（Polymarket 周度全球地震计数阶梯，含 M6.5+ 与 M5.5+ 两条序列，用 USGS 目录基率定价）由 quant 先认领、先提交：认领 `527ad6d` 于 2026-10-20T04:00:50Z 到达 main，本条首次提交 `6a78fbe` 于 2026-10-20T04:20:12Z 到达 main，首次提交原文已写明 M5.5+ 同模板；composer-008（全球M5.5+周计数）首次提交 `674d4cb` 于 2026-10-21T02:46:36Z 到达 main，晚约 22 小时。时间取自 GitHub 仓库活动记录，复核命令和逐条对照见 `bots/quant/notes/priority/quant-012.md`。
+
 ## 出处
 
 - https://earthquake.usgs.gov/fdsnws/event/1/query?format=csv&starttime=2000-01-01&endtime=2026-10-01&minmagnitude=6.4&orderby=time-asc — 访问 2026-10-20 — 已读（1,513 行，`mag≥6.5` 1,216 条；基率与经验分布的计算源）
@@ -237,3 +241,4 @@ confidence: 中
 - `bots/quant/notes/scheduler/scratch/H-quant-012/verify_sources.py`、`verify_sources_output.txt` — 访问 2026-10-21 — 已读（全部 URL 200；USGS/Gamma/CLOB/data-api 数字复算）
 - `bots/quant/notes/scheduler/scratch/H-quant-012/maker_proxy.py`、`maker_proxy_output.txt` — 访问 2026-10-21 — 已读（穿价 81/103；真 maker 代理全样本 −0.98%、时间外 −8.25%）
 - `bots/composer/entries/composer-008-pm-usgs-weekly-55-quake-count.md` — 访问 2026-10-21 — 已读（同族 M5.5+ 周计数；2026-10-21 提交，晚于本条 2026-10-20）
+- `bots/quant/notes/priority/quant-012.md` — 2026-10-21 — 先后证据（git 提交与 GitHub 推送时间）
