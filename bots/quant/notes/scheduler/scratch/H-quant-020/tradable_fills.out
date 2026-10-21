@@ -1,0 +1,50 @@
+H-quant-020 observed-fill check as_of=2026-10-21
+universe: in-band events from q020-oos/events.csv = 101 (band frozen in entry)
+  priced 20/101...
+  priced 40/101...
+  priced 60/101...
+  priced 80/101...
+  priced 100/101...
+events with an ask-side print in [-72h,-24h]: 97/101
+events with no ask-side print: 4
+  infy-quarterly-earnings-gaap-eps-07-23-2026-0pt21, bynd-quarterly-earnings-gaap-eps-08-05-2026-neg0pt07, ttd-quarterly-earnings-nongaap-eps-08-06-2026-0pt4, msci-quarterly-earnings-nongaap-eps-10-20-2026-5pt12
+data-api truncated markets: 0
+
+[1] PRIMARY: entry at last observed ask-side print, fee 0.05
+DISCOVERY: n=54 YESrate=0.4444 meanAsk=0.5205 medianNet=-0.4221 meanNet=-0.0881 totalNet=-4.7558 perDollar=-0.1692 CI=[-0.2077,+0.0326]
+HOLDOUT: n=43 YESrate=0.6047 meanAsk=0.5136 medianNet=+0.4476 meanNet=+0.0790 totalNet=+3.3976 perDollar=+0.1538 CI=[-0.1007,+0.1953]
+POOLED: n=97 YESrate=0.5155 meanAsk=0.5175 medianNet=+0.2406 meanNet=-0.0140 totalNet=-1.3582 perDollar=-0.0271 CI=[-0.1292,+0.0817]
+
+[2] SAME subset, q020-oos assumption: last YES print + 1c, fee 0.05
+DISCOVERY: n=54 YESrate=0.4444 meanAsk=0.4814 medianNet=-0.4313 meanNet=-0.0494 totalNet=-2.6652 perDollar=-0.1025 CI=[-0.1688,+0.0718]
+HOLDOUT: n=43 YESrate=0.6047 meanAsk=0.4879 medianNet=+0.4476 meanNet=+0.1044 totalNet=+4.4889 perDollar=+0.2140 CI=[-0.0679,+0.2172]
+POOLED: n=97 YESrate=0.5155 meanAsk=0.4843 medianNet=+0.4277 meanNet=+0.0188 totalNet=+1.8237 perDollar=+0.0388 CI=[-0.0914,+0.1121]
+
+[3] ALL 101 in-band, q020-oos assumption (reproduction check)
+DISCOVERY: n=54 YESrate=0.4444 meanAsk=0.4814 medianNet=-0.4313 meanNet=-0.0494 totalNet=-2.6652 perDollar=-0.1025 CI=[-0.1688,+0.0718]
+HOLDOUT: n=47 YESrate=0.5745 meanAsk=0.4881 medianNet=+0.4376 meanNet=+0.0740 totalNet=+3.4792 perDollar=+0.1517 CI=[-0.1074,+0.1841]
+POOLED: n=101 YESrate=0.5050 meanAsk=0.4845 medianNet=+0.4277 meanNet=+0.0081 totalNet=+0.8140 perDollar=+0.0166 CI=[-0.1005,+0.0972]
+
+[4] observed vs assumed entry
+observed effective spread (ask-side - bid-side): n=93 mean=+0.0716 median=+0.0400
+observed ask - (last YES + 1c): n=97 mean=+0.0332 median=-0.0026
+negative differences = observed ask below the +1c assumption: 53/97
+ask-print notional (size*price): n=97 median=4.8 USDT; >=200 USDT: 1/97
+
+[5] fee sensitivity on the same observed-ask sample
+  fee_rate=0.05
+    discovery n=54 medianNet=-0.4221 meanNet=-0.0881 perDollar=-0.1692
+    holdout   n=43 medianNet=+0.4476 meanNet=+0.0790 perDollar=+0.1538
+    POOLED    n=97 medianNet=+0.2406 meanNet=-0.0140 perDollar=-0.0271
+  fee_rate=0.04
+    discovery n=54 medianNet=-0.4197 meanNet=-0.0857 perDollar=-0.1646
+    holdout   n=43 medianNet=+0.4501 meanNet=+0.0814 perDollar=+0.1585
+    POOLED    n=97 medianNet=+0.2425 meanNet=-0.0116 perDollar=-0.0224
+  fee_rate=0.00
+    discovery n=54 medianNet=-0.4100 meanNet=-0.0761 perDollar=-0.1462
+    holdout   n=43 medianNet=+0.4600 meanNet=+0.0911 perDollar=+0.1773
+    POOLED    n=97 medianNet=+0.2500 meanNet=-0.0020 perDollar=-0.0038
+
+VERDICT: PASS (n=43 medianNet=+0.4476 YESrate=0.6047 meanAsk=0.5136)
+
+wrote tradable_fills.csv (101 rows)

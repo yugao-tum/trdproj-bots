@@ -1,0 +1,52 @@
+H-quant-020 source verification as_of=2026-10-21
+
+[1] Gamma closed events tag_slug=earnings: 1393
+    endDate span: 2024-01-19T00:00:00Z .. 2026-10-20T21:00:00Z
+    earnings-beat filter: 1392
+    monthly counts: 2024-01=1 2025-06=1 2025-09=11 2025-10=156 2025-11=172 2025-12=53 2026-01=54 2026-02=169 2026-03=73 2026-04=120 2026-05=155 2026-06=44 2026-07=143 2026-08=154 2026-09=44 2026-10=43
+    markets yes/no/other: 1038/359/0 YES=0.7430
+    nongaap yes/no=691/165 rate=0.8072; gaap yes/no=347/194 rate=0.6414
+    deduped company-quarter: 1389; dropped: ally-quarterly-earnings-nongaap-eps-10-20-2026-1pt43, efx-quarterly-earnings-nongaap-eps-10-20-2026-2pt24, cof-quarterly-earnings-nongaap-eps-10-20-2026-5pt58
+    events != 1 market: 0
+
+[2] q020-oos events.csv rows=1384; live deduped=1389
+    only in csv: 0; only live: 5
+    new since csv (first 10): ally-quarterly-earnings-nongaap-eps-10-20-2026-1pt38, bfc-quarterly-earnings-gaap-eps-10-20-2026-2pt66, cof-quarterly-earnings-nongaap-eps-10-20-2026-5pt57, nflx-quarterly-earnings-gaap-eps-10-20-2026-0pt84, ual-quarterly-earnings-nongaap-eps-10-20-2026-2pt84
+    csv date span: 2025-06-05T00:00:00Z .. 2026-10-20T13:00:00Z
+    csv in-band: 101
+
+[3] rule source: hims-quarterly-earnings-gaap-eps-02-23-2026-0pt05
+    slug exists; title='Will Hims & Hers Health (HIMS) beat quarterly earnings?'
+    as of market creation                            FOUND
+    SeekingAlpha estimates                           FOUND
+    greater than $0.05                               FOUND
+    within 96h                                       FOUND
+    45 calendar days                                 FOUND
+    rounded to the nearest cent                      FOUND
+    IFRS EPS will be treated as GAAP EPS             FOUND
+    diluted GAAP EPS                                 FOUND
+    fat finger errors                                FOUND
+    Lyft                                             FOUND
+    resolutionSource='https://seekingalpha.com/' restricted=True volume=287931.953117 closed=True
+    feeSchedule=None feesEnabled=False orderMinSize=5 orderPriceMinTickSize=0.001 negRisk=False
+    outcomePrices='["1", "0"]' endDate='2026-02-23T22:00:00Z'
+
+[4] public-search q=earnings
+    events returned=20 pagination={'hasMore': True, 'totalResults': 1729}
+    first: slug='hims-quarterly-earnings-gaap-eps-02-23-2026-0pt05' title='Will Hims & Hers Health (HIMS) beat quarterly earnings?' resolutionSource='https://seekingalpha.com/' restricted=True volume=287931.953117
+
+[5] Gamma open events: 105
+    endDate span: 2026-10-21T13:00:00Z .. 2026-11-05T22:00:00Z
+    cme-quarterly-earnings-nongaap-eps-10-21-2026-2pt97 | 2026-10-21T13:00:00Z | bid=0.81 ask=0.93 fee={'exponent': 1, 'rate': 0, 'takerOnly': True, 'rebateRate': 0}
+    iart-quarterly-earnings-nongaap-eps-10-21-2026-0pt57 | 2026-10-21T13:00:00Z | bid=0.26 ask=0.6 fee={'exponent': 1, 'rate': 0, 'takerOnly': True, 'rebateRate': 0}
+    mco-quarterly-earnings-nongaap-eps-10-21-2026-4pt29 | 2026-10-21T13:00:00Z | bid=0.69 ask=0.9 fee={'exponent': 1, 'rate': 0, 'takerOnly': True, 'rebateRate': 0}
+
+[6] CLOB prices-history + data-api trades (closed in-band example)
+    jef-quarterly-earnings-gaap-eps-2025-09-29-0pt8 | history points=57 | last<=end-24h={'t': 1759014011, 'p': 0.525}
+    data-api trades total=195 in window=105 fields=['asset', 'bio', 'conditionId', 'eventSlug', 'icon', 'name', 'outcome', 'outcomeIndex', 'price', 'profileImage', 'profileImageOptimized', 'proxyWallet', 'pseudonym', 'side', 'size', 'slug', 'timestamp', 'title', 'transactionHash']
+    last trade: ts=1759100373 side=BUY outcome=Yes price=0.54 size=1.85185
+
+[7] SEC EDGAR full-text search
+    hits.total=10000 relation='gte'
+
+done
