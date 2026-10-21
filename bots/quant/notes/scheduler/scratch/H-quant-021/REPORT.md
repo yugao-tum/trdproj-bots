@@ -44,7 +44,7 @@ races with <18 qual or results: 0 []
 - Gamma 已关闭 F1 event：`events?tag_slug=f1&closed=true&limit=100&offset=0..400`，5 页共 **401 个唯一 event**；标题含 Winner/Pole/Podium 的 **149 个 event、3,433 个市场**（本轮重数；`run_verify.txt`）。原始 JSON 27.9 MB，保存在 `_cache/`，不入库。
 - Ergast 兼容：2014–2026，**269 场**，每季 19/19/21/20/21/21/17/22/22/22/24/24/17。
 - 49 个 Winner event（2024: 8、2025: 24、2026: 17），按 slug/endDate 与 Ergast 正赛日相差 ≤7 天匹配（42 场差 0 天、7 场差 1 天）。
-- data-api 成交：49/49 个杆位 YES 市场取到成交，单市场 **122–3,000 笔**；49/49 覆盖 cutoff 前至少 1 天，49/49 首笔赛后 BUY 在开赛前。
+- data-api 成交：49/49 个杆位 YES 市场取到成交，单市场 **212–3,000 笔**；49/49 覆盖 cutoff 前至少 1 天，49/49 首笔赛后 BUY 在开赛前。
 - CLOB `prices-history`：每市场 `startTs=cutoff-3d, endTs=cutoff, fidelity=60` 取最后一点；49 个值与上一轮 `p_hist` 的复现值一致口径。
 
 ## 方法（写死，未调参）
@@ -147,9 +147,9 @@ races with <18 qual or results: 0 []
 | Singapore 2026 Winner：volume 1,131,293.19；Verstappen `["1","0"]` | 一致（volume 1,131,293.185） |
 | Ergast 2024 排位 `limit=100` 被压到 100、`total=479` | 一致 |
 | `prices-history interval=max` → 200 点 | 一致（200 点） |
-| 跨度 15 天 200、20 天 400 `interval is too long` | 20 天 400 一致；15 天为 200 但该 token 区间为空，不能写成“有数据” |
-| `interval=max` 与 `startTs/endTs` 混用会 400 | **错**：返回 200 + `{"history":[]}`；条目已改 |
-| data-api `/trades` 字段 side/price/size/timestamp/asset/outcome | 一致；单市场 122–3,000 笔 |
+| 跨度 15 天 200、20 天 400 `interval is too long` | 20 天 400 一致；15 天 200，2026 新加坡 token 返回 135 点（区间是否有数据取决于 token） |
+| `interval=max` 与 `startTs/endTs` 混用会 400 | **错**：返回 200；2026 新加坡 token 14 天区间返回 110 点。“返回空数组”只是特定 token/区间，不是通则 |
+| data-api `/trades` 字段 side/price/size/timestamp/asset/outcome | 一致；单市场 212–3,000 笔 |
 | `bots/quant/notes/q006-hist/REPORT.md`：1366 笔触发、每份净收益中位 -0.1149 | 原文一致（同方法在网球上 FAIL 的先例） |
 | `bots/quant/notes/r2prep-verification/quant-021.md`：3433/2818/146/611,137 点 | 原文一致；本轮未复跑这一项 |
 | `bots/quant/notes/q012-hist/REPORT.md` | 地震计数，与本条无关，未复用 |
@@ -158,7 +158,7 @@ races with <18 qual or results: 0 []
 
 1. **成交价是别人的成交打印**：`first`/`exec100` 都是历史 taker BUY，不是我们的买单滑点；没有历史 L2 深度，无法量化 100 份（更不用说 500 份）会吃掉几档。
 2. **样本小且集中**：23 笔、3 个赛季，2024 只有 4 笔；bootstrap 区间含 0。
-3. **触发时点**：cutoff 是正赛日 00:00 UTC，不是“排位刚结束”；如果价格在 cutoff 前已经修复，本回测会低估/高估 edge。本轮没有逐站核对排位结束时刻。
+3. **触发时点**：cutoff 是正赛日 00:00 UTC，不是“排位刚结束”。v3 已用 Ergast `Qualifying.date/time` 逐场核对：49/49 的排位开始 +2h 早于 cutoff（最小余量 0h、中位 8h），所以不存在排位前价格；按排位结束（+2h）用可成交价触发/成交为 21 笔 +0.2539/份，00:00 口径 +0.2003/份。
 4. **prices-history 不是逐笔**：`fidelity=60` 是抽样，和 data-api 逐笔有 1–2¢ 差异；本轮结论主要用 data-api，但 `p_hist` 仍是抽样值。
 5. **模型 A 的差距口径**：跨 Q1/Q2/Q3 取最快圈，雨天/混条件会失真；`2025-14` 出现负 margin −0.482（已保留在样本里，是一笔亏损交易）。
 6. **匹配**：event→race 用日期 ±7 天，未逐场人工核对车手名；49/49 用 `driverId` 末段唯一匹配。
@@ -186,3 +186,35 @@ python3 verify_sources.py         # -> run_verify.txt
 ## 对条目的建议
 
 历史侧仍为正，但强度不足以称“已证实”：23 笔、均值 +0.20/份、bootstrap 下界 -0.0125。**建议主审按“待选区”处理，而不是直接“收录”**；若要继续，前向至少再补 10 笔并记录我们自己的真实成交价/份数。若主审要求统计显著或年化 ≥8%，本条当前证据不满足（100 份/站时约 4.4%/年）。
+
+
+## 第三轮复核（v3，2026-10-21，同一 queue item 重跑）
+
+在干净 worktree 重跑本目录脚本，证据 1–6 的 headline 数字逐位复现（`run_v3_analysis.txt`、`run_v3_extra.txt`、`run_v3_cross.txt`）。新增与更正：
+
+1. **排位时点核对（撤掉旧限制 3）**：用 `https://api.jolpi.ca/ergast/f1/{season}.json` 的 `Qualifying.date/time` 逐场核对 49 个 event：`排位开始 +2h` 全部早于回测 cutoff（正赛日 00:00 UTC），最小余量 0h、中位 8h。因此证据 3–5 的价格确实在排位之后，不存在“用排位前价格假装排位后”的前视。见 `run_v3_precheck.txt`。
+2. **执行延迟**：把成交起点推迟 1h/3h 后取前 100 份 VWAP，规则 A 仍为 +0.1973/+0.1889（23 笔、13 胜）；`exec100_3h − p_hist` 缺口均值 1.36¢，仍远低于 20¢ 盈亏平衡缺口。见 `run_v3_analysis.txt`。
+3. **按规则字面时点（排位结束 +2h）**：可成交价同时触发和成交（`exec100_q ≤ model−0.05`）21 笔、+0.2539/份；最后价触发 + `exec100_q` 成交 38 笔、+0.1562/份。两种都为正；00:00 口径反而更保守。见 `run_v3_extra.txt`。
+4. **显著性**：32/49 对 2014–2023 基率 110/204 的二项检验，P(X≥32)=0.0718、双侧 p=0.1436；49 场的高胜率不能说不显著高于基率。见 `run_v3_extra.txt`。
+5. **归因检查**：prices-history 最后一点在 cutoff 前 ≤1h（49/49），不是数天前的 stale 点；`run_v3_staleness.txt`。
+6. **更正**：data-api 单市场成交数 **212–3,000**（旧稿“122”与 `run_fetch_trades_fixed.txt` 最小值 212 不符）；`interval=max + startTs/endTs` 返回 200 **且有数据**（110 点），“空数组”不是通则。
+7. **横截面复算**：1,173 个市场、940 个有价格、分桶与 0.10–0.50 杆位/非杆位对照全部逐位复现；买 p≤0.20 仍为 -0.0183/份。见 `run_v3_cross.txt`。
+8. **来源核对**：401 个唯一 event、149 个 Winner/Pole/Podium event、3,433 个市场；三个示例 event 的结算原文、`feeSchedule`、`restricted=true`；Singapore Winner volume 1,131,293.185、Verstappen `["1","0"]`；15 天 200 / 20 天 400；data-api 字段。见 `run_v3_verify_sources.txt`。
+
+复现（v3）：
+
+```bash
+cd bots/quant/notes/scheduler/scratch/H-quant-021
+python3 fetch_gamma.py && python3 fetch_ergast_fixed.py && python3 match_events.py
+python3 v3_fetch_schedule.py
+python3 v3_precheck.py
+python3 fetch_trades.py
+python3 v3_analysis.py
+python3 v3_model.py
+python3 v3_extra.py
+python3 v3_staleness.py
+python3 fetch_all_prices.py && python3 v3_cross.py
+python3 v3_verify_sources.py
+```
+
+`_cache/` 已被 `.gitignore` 排除；`closed_events.json`、`ergast_raw.json` 与 trades 缓存不入库。

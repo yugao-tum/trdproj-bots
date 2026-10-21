@@ -1,0 +1,15 @@
+PASS all required fields present
+PASS bot matches directory
+PASS filename starts with id
+PASS id format
+PASS market
+PASS pm_category
+PASS kind/improves
+PASS category/return_type
+PASS status allowed: 待核
+PASS date unchanged
+PASS confidence
+PASS evidence sections present
+PASS gate/self-check + sources sections present
+
+entry lines 262 chars 22432

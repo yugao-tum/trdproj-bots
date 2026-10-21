@@ -1,0 +1,23 @@
+=== qualifying-end (start+2h) vs cutoff (race-day 00:00 UTC) ===
+n 49 min slack h 0.0 median 8.0 max 18.0 all cut_q<=cut True
+PM pole outcome vs Ergast pole-won mismatch: 0 of 49 []
+=== triggered A (n=23): execution timing & volume ===
+  first BUY delay h: median 0.62 max 2.99 min 0.13
+  100-share completion h: median 1.04 max 6.38 min 0.15
+  window BUY volume shares: min 1089 median 13669 max 146509
+
+=== rule A/B with cutoff = qualifying end +2h ===
+p_hist_q available 49 exec100_q 49
+A first_q                          n=38 wins=24 sum= +6.0081 mean= +0.1581 sd=0.4852
+A exec100_q                        n=38 wins=24 sum= +5.9363 mean= +0.1562 sd=0.4833
+A 2024 exec100_q                   n= 7 wins= 4 sum= +0.8026 mean= +0.1147 sd=0.5616
+A 2025 exec100_q                   n=19 wins=12 sum= +2.5116 mean= +0.1322 sd=0.4716
+A 2026 exec100_q                   n=12 wins= 8 sum= +2.6220 mean= +0.2185 sd=0.4446
+B first_q                          n=39 wins=24 sum= +5.3367 mean= +0.1368 sd=0.4966
+B exec100_q                        n=39 wins=24 sum= +5.2608 mean= +0.1349 sd=0.4948
+B 2024 exec100_q                   n= 7 wins= 4 sum= +0.8026 mean= +0.1147 sd=0.5616
+B 2025 exec100_q                   n=20 wins=12 sum= +1.8361 mean= +0.0918 sd=0.4922
+B 2026 exec100_q                   n=12 wins= 8 sum= +2.6220 mean= +0.2185 sd=0.4446
+p_hist_q - p_hist(midnight): n=49 mean=-0.1414 median=-0.1500 min=-0.3850 max=+0.0950
+
+32/49 vs 110/204: P(X>=32|p0)=0.0718 two-sided~0.1436

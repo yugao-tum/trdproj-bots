@@ -1,0 +1,51 @@
+=== Gamma closed F1 events ===
+events fetched 401 unique 401
+title Winner/Pole/Podium events 149 markets 3433
+by kind {'Winner': 84, 'Pole': 67, 'Podium': 20}
+49 winner events: markets min/median/max 20 
+49 winner event market counts min/median/max 9 27 31
+
+=== example events: rules / fees / volume ===
+
+-- f1-united-states-grand-prix-winner-2026-10-25 HTTP 200 markets=29 negRisk=True restricted=True volume=5754.135862 liquidity=91399.43761
+   resolutionSource https://www.formula1.com/en/results/2026/races
+   ... e in favor of the driver who is officially listed in first place in the Final Classification published by the FIA following the conclusion of the race. The Final Classification is typically released 30-60 minutes after the race ends and includes any applied time penalties and official adjustments.  Disqualifications or changes m
+   ... e to “Other.”  This market will resolve in favor of the driver who is officially listed in first place in the Final Classification published by the FIA following the conclusion of the race. The Final Classification is typically released 30-60 minutes after the race ends and includes any applied time penalties and official adjust
+   ... United States Grand Prix is canceled or rescheduled to a date after Nov 1, 2026, this market will resolve to “Other.”  This market will resolve in favor of the driver who is officially listed in first place in the Final Classification published by the FIA following the conclusion of the race. The Final Classification is typicall
+   ... heduled for Oct 25, 2026.  If the 2026 F1 United States Grand Prix is canceled or rescheduled to a date after Nov 1, 2026, this market will resolve to “Other.”  This market will resolve in favor of the driver who is officially listed in first place in the Final Classification published by the FIA following the conclusion of the 
+   feeSchedules {'{"exponent": 1, "rate": 0.05, "rebateRate": 0.15, "takerOnly": true}'}
+
+-- f1-united-states-grand-prix-driver-pole-position-2026-10-24 HTTP 200 markets=29 negRisk=True restricted=True volume=950.593286 liquidity=13559.11544
+   resolutionSource https://www.formula1.com/en/results/2026/races
+   ... ring the qualifying session for the 2026 F1 United States Grand Prix. The market will be settled based on the FIA's official qualifying results, regardless of any subsequent penalties, disqualifications, or changes to the starting grid.  For example, if a driver sets the fastest qualifying time but later receives a grid penalty 
+   ...   This market will resolve in favor of the driver who is officially recognized by Formula 1 as having set the fastest time during the qualifying session for the 2026 F1 United States Grand Prix. The market will be settled based on the FIA's official qualifying results, regardless of any subsequent penalties, disqualifications, o
+   ...  2026 F1 United States Grand Prix. The market will be settled based on the FIA's official qualifying results, regardless of any subsequent penalties, disqualifications, or changes to the starting grid.  For example, if a driver sets the fastest qualifying time but later receives a grid penalty or is moved down the starting order
+   ... nited States Grand Prix is canceled or rescheduled to a date after Oct 31, 2026, this market will resolve to “Other.”  This market will resolve in favor of the driver who is officially recognized by Formula 1 as having set the fastest time during the qualifying session for the 2026 F1 United States Grand Prix. The market will be
+   feeSchedules {'{"exponent": 1, "rate": 0.05, "rebateRate": 0.15, "takerOnly": true}'}
+
+-- f1-united-states-grand-prix-driver-podium-2026-10-25 HTTP 200 markets=23 negRisk=False restricted=True volume=333.098517 liquidity=6741.52566
+   resolutionSource https://www.formula1.com/en/results/2026/races
+   ... or Oct 25, 2026. Otherwise, this market will resolve to “No.”  The "Final Classification" is published by the FIA following the conclusion of the race and includes any applied time penalties and official adjustments. It is typically released 30-60 minutes after the race ends.  Disqualifications or changes made after the publicat
+   ... is market will resolve to “Yes” if the listed driver finishes within the top three positions in the official "Final Classification" for the F1 United States Grand Prix, scheduled for Oct 25, 2026. Otherwise, this market will resolve to “No.”  The "Final Classification" is published by the FIA following the conclusion of the race
+   ... This market will resolve to “Yes” if the listed driver finishes within the top three positions in the official "Final Classification" for the F1 United States Grand Prix, scheduled for Oct 25, 2026. Otherwise, this market will resolve to “No.”  The "Final Classification" is published by the FIA
+   ... e event has been completed. If the United States Grand Prix is permanently canceled, this market will resolve 50-50.
+   ... tions in the official "Final Classification" for the F1 United States Grand Prix, scheduled for Oct 25, 2026. Otherwise, this market will resolve to “No.”  The "Final Classification" is published by the FIA following the conclusion of the race and includes any applied time penalties and official adjustments. It is typically rele
+   feeSchedules {'{"exponent": 1, "rate": 0.05, "rebateRate": 0.15, "takerOnly": true}'}
+
+-- f1-singapore-grand-prix-winner-2026-10-11 HTTP 200 markets=29 negRisk=True restricted=True volume=1131293.1852280004 liquidity=None
+   resolutionSource https://www.formula1.com/en/results/2026/races
+   ... e in favor of the driver who is officially listed in first place in the Final Classification published by the FIA following the conclusion of the race. The Final Classification is typically released 30-60 minutes after the race ends and includes any applied time penalties and official adjustments.  Disqualifications or changes m
+   ... e to “Other.”  This market will resolve in favor of the driver who is officially listed in first place in the Final Classification published by the FIA following the conclusion of the race. The Final Classification is typically released 30-60 minutes after the race ends and includes any applied time penalties and official adjust
+   ... F1 Singapore Grand Prix is canceled or rescheduled to a date after Oct 18, 2026, this market will resolve to “Other.”  This market will resolve in favor of the driver who is officially listed in first place in the Final Classification published by the FIA following the conclusion of the race. The Final Classification is typicall
+   feeSchedules {'{"exponent": 1, "rate": 0.05, "rebateRate": 0.15, "takerOnly": true}'}
+   resolved YES: [('Max Verstappen', '["1", "0"]')]
+
+=== CLOB prices-history limits ===
+  span=14d HTTP 200 points=110 err=None
+  span=15d HTTP 200 points=135 err=None
+  span=20d HTTP 400 points=None err=None
+  interval=max HTTP 200 points 200
+  interval=max + start/end HTTP 200 points 110
+
+=== data-api trades fields ===
+  HTTP 200 n 3 keys ['asset', 'bio', 'conditionId', 'eventSlug', 'icon', 'name', 'outcome', 'outcomeIndex', 'price', 'profileImage', 'profileImageOptimized', 'proxyWallet', 'pseudonym', 'side', 'size', 'slug', 'timestamp', 'title', 'transactionHash']

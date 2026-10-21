@@ -1,0 +1,53 @@
+events 49 race_start<=qual_cut? 0
+cutoff moved later by qualifying time: 0
+
+all events cut_q>cut_race or race start check:
+ 2024-16 Italian Grand Prix           qual=14:00:00Z d=2024-08-31 cut_race=09-01 00:00 cut_q=2024-08-31 16:00:00 start=09-01 13:00 
+ 2024-17 Azerbaijan Grand Prix        qual=12:00:00Z d=2024-09-14 cut_race=09-15 00:00 cut_q=2024-09-14 14:00:00 start=09-15 11:00 
+ 2024-18 Singapore Grand Prix         qual=13:00:00Z d=2024-09-21 cut_race=09-22 00:00 cut_q=2024-09-21 15:00:00 start=09-22 12:00 
+ 2024-19 United States Grand Prix     qual=22:00:00Z d=2024-10-19 cut_race=10-20 00:00 cut_q=2024-10-20 00:00:00 start=10-20 19:00 
+ 2024-21 São Paulo Grand Prix         qual=18:00:00Z d=2024-11-02 cut_race=11-03 00:00 cut_q=2024-11-02 20:00:00 start=11-03 17:00 
+ 2024-22 Las Vegas Grand Prix         qual=06:00:00Z d=2024-11-22 cut_race=11-23 00:00 cut_q=2024-11-22 08:00:00 start=11-23 06:00 
+ 2024-23 Qatar Grand Prix             qual=18:00:00Z d=2024-11-30 cut_race=12-01 00:00 cut_q=2024-11-30 20:00:00 start=12-01 16:00 
+ 2024-24 Abu Dhabi Grand Prix         qual=14:00:00Z d=2024-12-07 cut_race=12-08 00:00 cut_q=2024-12-07 16:00:00 start=12-08 13:00 
+  2025-1 Australian Grand Prix        qual=05:00:00Z d=2025-03-15 cut_race=03-16 00:00 cut_q=2025-03-15 07:00:00 start=03-16 04:00 
+ 2025-10 Canadian Grand Prix          qual=20:00:00Z d=2025-06-14 cut_race=06-15 00:00 cut_q=2025-06-14 22:00:00 start=06-15 18:00 
+ 2025-11 Austrian Grand Prix          qual=14:00:00Z d=2025-06-28 cut_race=06-29 00:00 cut_q=2025-06-28 16:00:00 start=06-29 13:00 
+ 2025-12 British Grand Prix           qual=14:00:00Z d=2025-07-05 cut_race=07-06 00:00 cut_q=2025-07-05 16:00:00 start=07-06 14:00 
+ 2025-13 Belgian Grand Prix           qual=14:00:00Z d=2025-07-26 cut_race=07-27 00:00 cut_q=2025-07-26 16:00:00 start=07-27 13:00 
+ 2025-14 Hungarian Grand Prix         qual=14:00:00Z d=2025-08-02 cut_race=08-03 00:00 cut_q=2025-08-02 16:00:00 start=08-03 13:00 
+ 2025-15 Dutch Grand Prix             qual=13:00:00Z d=2025-08-30 cut_race=08-31 00:00 cut_q=2025-08-30 15:00:00 start=08-31 13:00 
+ 2025-16 Italian Grand Prix           qual=14:00:00Z d=2025-09-06 cut_race=09-07 00:00 cut_q=2025-09-06 16:00:00 start=09-07 13:00 
+ 2025-17 Azerbaijan Grand Prix        qual=12:00:00Z d=2025-09-20 cut_race=09-21 00:00 cut_q=2025-09-20 14:00:00 start=09-21 11:00 
+ 2025-18 Singapore Grand Prix         qual=13:00:00Z d=2025-10-04 cut_race=10-05 00:00 cut_q=2025-10-04 15:00:00 start=10-05 12:00 
+ 2025-19 United States Grand Prix     qual=21:00:00Z d=2025-10-18 cut_race=10-19 00:00 cut_q=2025-10-18 23:00:00 start=10-19 19:00 
+  2025-2 Chinese Grand Prix           qual=07:00:00Z d=2025-03-22 cut_race=03-23 00:00 cut_q=2025-03-22 09:00:00 start=03-23 07:00 
+ 2025-20 Mexico City Grand Prix       qual=21:00:00Z d=2025-10-25 cut_race=10-26 00:00 cut_q=2025-10-25 23:00:00 start=10-26 20:00 
+ 2025-21 São Paulo Grand Prix         qual=18:00:00Z d=2025-11-08 cut_race=11-09 00:00 cut_q=2025-11-08 20:00:00 start=11-09 17:00 
+ 2025-22 Las Vegas Grand Prix         qual=04:00:00Z d=2025-11-22 cut_race=11-23 00:00 cut_q=2025-11-22 06:00:00 start=11-23 04:00 
+ 2025-23 Qatar Grand Prix             qual=18:00:00Z d=2025-11-29 cut_race=11-30 00:00 cut_q=2025-11-29 20:00:00 start=11-30 16:00 
+ 2025-24 Abu Dhabi Grand Prix         qual=14:00:00Z d=2025-12-06 cut_race=12-07 00:00 cut_q=2025-12-06 16:00:00 start=12-07 13:00 
+  2025-3 Japanese Grand Prix          qual=06:00:00Z d=2025-04-05 cut_race=04-06 00:00 cut_q=2025-04-05 08:00:00 start=04-06 05:00 
+  2025-4 Bahrain Grand Prix           qual=16:00:00Z d=2025-04-12 cut_race=04-13 00:00 cut_q=2025-04-12 18:00:00 start=04-13 15:00 
+  2025-5 Saudi Arabian Grand Prix     qual=17:00:00Z d=2025-04-19 cut_race=04-20 00:00 cut_q=2025-04-19 19:00:00 start=04-20 17:00 
+  2025-6 Miami Grand Prix             qual=20:00:00Z d=2025-05-03 cut_race=05-04 00:00 cut_q=2025-05-03 22:00:00 start=05-04 20:00 
+  2025-7 Emilia Romagna Grand Prix    qual=14:00:00Z d=2025-05-17 cut_race=05-18 00:00 cut_q=2025-05-17 16:00:00 start=05-18 13:00 
+  2025-8 Monaco Grand Prix            qual=14:00:00Z d=2025-05-24 cut_race=05-25 00:00 cut_q=2025-05-24 16:00:00 start=05-25 13:00 
+  2025-9 Spanish Grand Prix           qual=14:00:00Z d=2025-05-31 cut_race=06-01 00:00 cut_q=2025-05-31 16:00:00 start=06-01 13:00 
+  2026-1 Australian Grand Prix        qual=05:00:00Z d=2026-03-07 cut_race=03-08 00:00 cut_q=2026-03-07 07:00:00 start=03-08 04:00 
+ 2026-10 Belgian Grand Prix           qual=14:00:00Z d=2026-07-18 cut_race=07-19 00:00 cut_q=2026-07-18 16:00:00 start=07-19 13:00 
+ 2026-11 Hungarian Grand Prix         qual=14:00:00Z d=2026-07-25 cut_race=07-26 00:00 cut_q=2026-07-25 16:00:00 start=07-26 13:00 
+ 2026-12 Dutch Grand Prix             qual=14:00:00Z d=2026-08-22 cut_race=08-23 00:00 cut_q=2026-08-22 16:00:00 start=08-23 13:00 
+ 2026-13 Italian Grand Prix           qual=14:00:00Z d=2026-09-05 cut_race=09-06 00:00 cut_q=2026-09-05 16:00:00 start=09-06 13:00 
+ 2026-14 Spanish Grand Prix           qual=14:00:00Z d=2026-09-12 cut_race=09-13 00:00 cut_q=2026-09-12 16:00:00 start=09-13 13:00 
+ 2026-15 Azerbaijan Grand Prix        qual=12:00:00Z d=2026-09-25 cut_race=09-26 00:00 cut_q=2026-09-25 14:00:00 start=09-26 11:00 
+ 2026-16 Bahrain Grand Prix in Malays qual=08:00:00Z d=2026-10-03 cut_race=10-04 00:00 cut_q=2026-10-03 10:00:00 start=10-04 07:00 
+ 2026-17 Singapore Grand Prix         qual=13:00:00Z d=2026-10-10 cut_race=10-11 00:00 cut_q=2026-10-10 15:00:00 start=10-11 12:00 
+  2026-2 Chinese Grand Prix           qual=07:00:00Z d=2026-03-14 cut_race=03-15 00:00 cut_q=2026-03-14 09:00:00 start=03-15 07:00 
+  2026-3 Japanese Grand Prix          qual=06:00:00Z d=2026-03-28 cut_race=03-29 00:00 cut_q=2026-03-28 08:00:00 start=03-29 05:00 
+  2026-4 Miami Grand Prix             qual=20:00:00Z d=2026-05-02 cut_race=05-03 00:00 cut_q=2026-05-02 22:00:00 start=05-03 20:00 
+  2026-5 Canadian Grand Prix          qual=20:00:00Z d=2026-05-23 cut_race=05-24 00:00 cut_q=2026-05-23 22:00:00 start=05-24 20:00 
+  2026-6 Monaco Grand Prix            qual=14:00:00Z d=2026-06-06 cut_race=06-07 00:00 cut_q=2026-06-06 16:00:00 start=06-07 13:00 
+  2026-7 Barcelona Grand Prix         qual=14:00:00Z d=2026-06-13 cut_race=06-14 00:00 cut_q=2026-06-13 16:00:00 start=06-14 13:00 
+  2026-8 Austrian Grand Prix          qual=14:00:00Z d=2026-06-27 cut_race=06-28 00:00 cut_q=2026-06-27 16:00:00 start=06-28 13:00 
+  2026-9 British Grand Prix           qual=15:00:00Z d=2026-07-04 cut_race=07-05 00:00 cut_q=2026-07-04 17:00:00 start=07-05 14:00 

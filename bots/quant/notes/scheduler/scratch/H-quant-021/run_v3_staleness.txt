@@ -1,0 +1,14 @@
+age of last prices-history point at mid cutoff (h): n=49 median=1.00 p90=1.00 max=1.00 <=1h=49 <=3h=49 <=6h=49
+age of last prices-history point at q cutoff (h): n=49 median=1.00 p90=1.00 max=1.00 <=1h=49 <=3h=49 <=6h=49
+
+=== trigger AND fill at executable price, cutoff=q ===
+  A first_q: n=21 wins=13 sum=+5.3114 mean=+0.2529
+  A exec100_q: n=21 wins=13 sum=+5.3320 mean=+0.2539
+  B first_q: n=23 wins=13 sum=+4.6161 mean=+0.2007
+  B exec100_q: n=23 wins=13 sum=+4.6286 mean=+0.2012
+
+=== trigger AND fill at executable price, cutoff=midnight ===
+  A first: n=22 wins=13 sum=+5.1087 mean=+0.2322
+  A exec100: n=22 wins=13 sum=+5.1391 mean=+0.2336
+  B first: n=22 wins=12 sum=+4.3783 mean=+0.1990
+  B exec100: n=22 wins=12 sum=+4.4048 mean=+0.2002

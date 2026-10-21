@@ -1,0 +1,27 @@
+markets 1173 with p and y 940
+events with any priced market 49 of 49
+price sum: median 1.042 min 0.99 max 1.568 <=1.17 47 of 49
+events with all markets priced 15
+      bucket    n   meanp  winrate  mean_net  polen polewin  nonpolen nonpolewin
+[0.00,0.05)  752   0.007    0.000   -0.0169      0   0.000      752     0.000
+[0.05,0.10)   50   0.070    0.080   -0.0028      2   0.500       48     0.062
+[0.10,0.20)   48   0.137    0.104   -0.0491      1   0.000       47     0.106
+[0.20,0.30)   28   0.250    0.286   +0.0169      5   0.800       23     0.174
+[0.30,0.50)   34   0.378    0.353   -0.0470     15   0.467       19     0.263
+[0.50,0.70)   24   0.600    0.667   +0.0452     22   0.727        2     0.000
+[0.70,1.01)    4   0.711    1.000   +0.2685      4   1.000        0     0.000
+pole: n=21 meanp=0.347 win=0.524 resid=+0.1770 mean_net=+0.1560
+non-pole: n=89 meanp=0.215 win=0.157 resid=-0.0580 mean_net=-0.0759
+
+cheap-driver strategies:
+  p<=0.05 n=757 wins=1 mean_net=-0.0159
+  p<=0.10 n=805 wins=4 mean_net=-0.0164
+  p<=0.15 n=836 wins=6 mean_net=-0.0185
+  p<=0.20 n=852 wins=9 mean_net=-0.0183
+  p<=0.30 n=879 wins=17 mean_net=-0.0171
+
+pole vs favorite:
+  pole is favorite: n=36 meanp=0.561 win=0.694 net=+0.1121
+  pole not favorite: n=13 meanp=0.263 win=0.538 net=+0.2566
+
+markets per event: n events 49 min 9 median 21 max 23

@@ -1,0 +1,4 @@
+prices-history exact token points 200
+Disqualifications or changes made after the publication -> True
+resolve in favor of the driver who is officially listed -> True
+canceled or rescheduled to a date after Nov 1, 2026 -> True

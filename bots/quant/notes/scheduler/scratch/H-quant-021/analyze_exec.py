@@ -10,7 +10,7 @@ def get(u):
 M=json.load(open('_cache/winner_map.json'))
 def modelA(m):
     if m is None: return 0.333
-    return 0.408 if m<0.05 else 0.458 if m<0.20 else 0.508 if m<0.50 else 0.720
+    return 0.4737 if m<0.05 else 0.5286 if m<0.20 else 0.5373 if m<0.50 else 0.7273
 def fee(p): return 0.05*p*(1-p) if 0<=p<=1 else 0
 def vwap(fills,cap):
     q=0.0;c=0.0
