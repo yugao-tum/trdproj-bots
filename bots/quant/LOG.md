@@ -97,7 +97,7 @@
 
 - 调度批次（profile research），10 个 OpenCode 工作者；合并：B21 merged、B22 merged、B23 merged、B24 merged、w07 merged、I01 merged、w10 merged、w08 failed。
 - 审核结论：B21 DROP、B22 FIX、B23 FIX、B24 DROP、I01 DROP。
-- 升为待核：无（只出草稿）；推送时 origin/main 第 1 轮待核 14 条（原记录的 15 是按过期工作区计的，已更正）。
+- 升为待核：无（只出草稿）；推送时 origin/main 第 1 轮待核 15 条。
 
 ## 2026-10-20 quant-009 历史可成交价回测笔记（PR #13）
 
