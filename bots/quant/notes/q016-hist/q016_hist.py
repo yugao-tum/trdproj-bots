@@ -1228,6 +1228,9 @@ def main():
         if r["range_markets"]:
             r["snap_error"] = "range_style_brackets_excluded"
             continue
+        if not r["mp"]["rt_slug"]:
+            r["snap_error"] = "unmapped_no_rt_slug"
+            continue
         try:
             p, s, src = snapshots_for_event(
                 r["mp"]["rt_slug"],
@@ -1240,12 +1243,16 @@ def main():
 
     have_p = [r for r in rows if r["primary"]]
     have_s = [r for r in rows if r["sens"]]
-    no_snap = [r for r in rows if not r["primary"] and not r["range_markets"]]
+    unmapped = [r for r in rows if not r["mp"]["rt_slug"]]
+    no_snap = [r for r in rows if not r["primary"] and not r["range_markets"]
+               and r["mp"]["rt_slug"]]
     srcs = collections.Counter(r["snap_source"] for r in rows if r["primary"])
+    unmapped_note = f"  unmapped-skipped={len(unmapped)}" if unmapped else ""
     print(f"\nWayback: events with primary snapshot={len(have_p)}"
           f"  with sensitivity snapshot={len(have_s)}"
           f"  no primary snapshot (excl. range)={len(no_snap)}"
           f"  range-excluded={sum(1 for r in rows if r['range_markets'])}"
+          f"{unmapped_note}"
           f"  capture-list source={dict(sorted(srcs.items()))}")
     for r in rows:
         if r["snap_error"]:
