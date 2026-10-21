@@ -1,0 +1,41 @@
+binance_view_eth: HTTP 200 bytes=2712  url=https://data.binance.vision/?prefix=data/spot/monthly/klines/ETHUSDT/1d/
+binance_zip_eth_2026_09: HTTP 200 bytes=2074 zip_members=['ETHUSDT-1d-2026-09.csv'] rows=30 cols=12 url=https://data.binance.vision/data/spot/monthly/klines/ETHUSDT/1d/ETHUSDT-1d-2026-09.zip
+binance_data_api_klines: HTTP 200 rows=2 cols=12 last_close=82842.56000000 url=https://data-api.binance.vision/api/v3/klines?symbol=BTCUSDT&interval=1h&limit=2
+aggtrades_vwap_check: pages=27 trades=26216 aggtrades_vwap=78744.08526382 kline_first_vwap=78744.08526382 diff_bp=0.000000
+
+local files:
+  xqt-migration/README.md: exists=True bytes=5407
+  xqt-migration/reproduce.py: exists=True bytes=9915
+  xqt-migration/results.csv: exists=True bytes=5627
+  scheduler/scratch/H-quant-002/fills_BTC.csv: exists=True bytes=182864
+  scheduler/scratch/H-quant-002/fills_ETH.csv: exists=True bytes=171183
+  scheduler/scratch/H-quant-002/tradable_results.csv: exists=True bytes=6082
+  scheduler/scratch/H-quant-002/windows.csv: exists=True bytes=1441
+  scheduler/scratch/H-quant-002/placebo.csv: exists=True bytes=1432
+
+xqt-migration/results.csv checks (compound/path_dd):
+  M3_BTC_tom_calendar_exact fee=0.001: found=1 compound=-26.5931 path_dd=-35.9785 ok=True
+  M3_ETH_tom_calendar_exact fee=0.001: found=1 compound=-44.0299 path_dd=-55.7987 ok=True
+  M3_BTC_mon_calendar_exact fee=0.001: found=1 compound=41.5224 path_dd=-23.0872 ok=True
+  M3_ETH_mon_calendar_exact fee=0.001: found=1 compound=11.2663 path_dd=-39.6449 ok=True
+  M3_BTC_tom_orig_shift fee=0.001: found=1 compound=16.4274 path_dd=-25.2735 ok=True
+  M3_ETH_tom_orig_shift fee=0.001: found=1 compound=-31.3705 path_dd=-52.5805 ok=True
+  M3_BTC_tom_calendar_exact fee=0.003: found=1 compound=-38.9926 path_dd=-45.7145 ok=True
+  M3_ETH_tom_calendar_exact fee=0.003: found=1 compound=-53.4788 path_dd=-61.0297 ok=True
+  M3_BTC_mon_calendar_exact fee=0.003: found=1 compound=-35.9157 path_dd=-43.9248 ok=True
+  M3_ETH_mon_calendar_exact fee=0.003: found=1 compound=-49.6459 path_dd=-59.6995 ok=True
+  M3_BTC_tom_orig_shift fee=0.003: found=1 compound=-3.1606 path_dd=-30.7771 ok=True
+  M3_ETH_tom_orig_shift fee=0.003: found=1 compound=-42.9414 path_dd=-57.5562 ok=True
+  M3_BTC_mon_orig_shift fee=0.001: found=1 compound=-35.6281 path_dd=-55.3987 ok=True
+  M3_ETH_mon_orig_shift fee=0.001: found=1 compound=-62.5463 path_dd=-71.4445 ok=True
+  M3_BTC_mon_orig_shift fee=0.003: found=1 compound=-70.8375 path_dd=-76.132 ok=True
+  M3_ETH_mon_orig_shift fee=0.003: found=1 compound=-83.0522 path_dd=-85.1371 ok=True
+  EW_hold_BES fee=0.003: found=1 compound=473.2254 path_dd=-64.31 ok=True
+all results.csv checks ok: True
+
+known/KNOWN.md contains '| E-E2-turn-of-month | 月末月初持有 |': True
+
+entry: bots/quant/entries/quant-002-tom-monday-oos-counterevidence.md
+  id: quant-002
+  date: 2026-10-20
+  status: 待核

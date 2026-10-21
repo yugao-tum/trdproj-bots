@@ -1,0 +1,2 @@
+BTC: hourly rows=50698, days=2113, 2020-12-31..2026-10-13, median|firstVWAP/firstOpen-1|=16.53bp, p95=93.41bp, max=357.9bp
+ETH: hourly rows=50698, days=2113, 2020-12-31..2026-10-13, median|firstVWAP/firstOpen-1|=23.17bp, p95=120.48bp, max=512.7bp
