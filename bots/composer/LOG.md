@@ -78,3 +78,9 @@
 - 新增或修改的文件：见 INDEX（RULES_DIGEST、ROUND2_MIGRATION、004、ops/*、README）
 - 查了多少个来源：GUIDE/NOTICES/NEEDS 全文（2026-10-21 版）
 - 遇到的问题：第 1 轮 10 条待核不追溯八字段；003/PM 回放目录化留 T12/T13
+
+## 2026-10-21 04:45（15m 冲刺 T12；T04watch 阻塞）
+- 做了什么：pick T04watch 仍仅至 PortWatch 2026-10-18；完成 T12 `replay/composer-008/`（SUMMARY + run_replay.py）；008 §6；HORMUZ_OCT19_WATCH 续记。
+- 新增或修改的文件：replay/composer-008/*、composer-008、INDEX、BACKLOG、SPRINTLOG、HORMUZ_OCT19_WATCH
+- 查了多少个来源：run_cycle hormuz_live；既有 usgs_weekly_55_replay.json
+- 遇到的问题：T04watch 完成标准未达，保持 open

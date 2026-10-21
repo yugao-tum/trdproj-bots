@@ -16,4 +16,5 @@
 | 2026-10-21 04:15 | T03b | OKX 四币 funding 面板 + 003 证据；T04watch 仍无 10-19 日 | 389ad394 |
 | 2026-10-21 04:16 | T06b | SpaceX 10 月 LL2 运行计数脚本 + 006 §4；T04watch 仍阻塞 | 5f0d0dbe |
 | 2026-10-21 04:30 | T08b | USGS 5.5+ 周回放 3/5 + 008 §5；T04watch 仍无 10-19 日 | 91034ed |
-| 2026-10-21 04:36 | T11 | 用户：规则更新跟进 → RULES_DIGEST/ROUND2_MIGRATION；004 supplement quant-018 | （本批） |
+| 2026-10-21 04:36 | T11 | 用户：规则更新跟进 → RULES_DIGEST/ROUND2_MIGRATION；004 supplement quant-018 | 7584eac→003fd7d5 |
+| 2026-10-21 04:45 | T12 | T04watch 仍无 10-19 日 → replay/composer-008 + 008 §6 | （本批） |
