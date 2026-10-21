@@ -1,7 +1,7 @@
 # P-quant-025 / quant-025 — fixer changelog
 
 Date: 2026-10-21 (UTC). Target: `bots/quant/entries/quant-025-spc-tornado-outlook-lag.md`.
-Filename, `id: quant-025`, `date: 2026-10-20` and `status: 草稿` unchanged. No other repository file touched.
+Filename, `id: quant-025`, `date: 2026-10-20` and `status: 草稿` unchanged. No other repository file touched in the R1 fix; the round-2 addendum below adds `bots/quant/replay/quant-025/`.
 
 Files read for this fix:
 - `bots/quant/notes/scheduler/reviews/c20261020-1423-research.md` (B22 section and both re-checks)
@@ -82,3 +82,27 @@ The fresh run matches the entry: 62 events / 1,550 markets / 10,674 trades / 0 s
 - Gate 5 remains uncertain: the positive P&L is one event-day and uses executed fills, not order-book depth.
 - Capacity (~$17 over 62 days) is an economic flaw; it does not block gate 3 but makes the strategy undeployable at 5,000 USDT.
 - Recommendation: keep as 待选区候选 (草稿), do not promote this round and do not drop.
+
+---
+
+## 第 2 轮补丁（2026-10-21，w06，P-quant-025）
+
+问题：条目缺第 2 轮 8 个字段与 `replay/quant-025/`；`result` 若照样本内正收益写 `正` 会违反 GUIDE §7 的“独立结果 ≥30”；旧文还有一处数据风险说法与本次复跑不符。
+
+1. **缺 8 个字段** → 在 front matter 补：
+   - `evidence: 回放`、`result: 不显著`、`slot: 新机制`、`variants: 4`、`variants_ext: -`、`window: 2026-08-19..2026-10-19`、`max_dd: -`、`contribution: 77.5%`。
+   - 证据：`GUIDE.md` §2.1/§7、`templates/ENTRY.md`；`result` 按严格 6 笔/3 个独立日、宽 10 笔/7 个，均 <30（`replay_results.json`）。`slot` 与 `kind: new` 一致；草稿不占名额（lint 仅提示）。
+2. **没有回放目录** → 新建 `bots/quant/replay/quant-025/`：`run_replay.py` 从零抓取并跑完，`reproduce.py`/`reproduce.out`/`replay_results.json`/`SUMMARY.md` 与 5 个抓取/分类脚本；`_cache/` 已 `.gitignore`，仓库文件均 <1 MB。
+   - 证据：`run_replay.out`（2026-10-21 从空缓存起跑，57.6 秒；62 事件/1,550 市场/10,674 笔成交/0 结算不一致；严格 6 笔/3 日 +$658.23、宽 10 笔/7 日 +$674.71）。
+3. **`result` 只能是不显著** → 在“证据”开头和第 2 轮字段说明写死：独立结果 <30，样本内 +$658.23 只是点估计，不能记 `正`；结论也改成“可作待核候选、预期最多待选区”。
+   - 证据：`GUIDE.md` §7 result 定义；`replay_results.json` 的 `strict.events=3`、`broad.events=7`。
+4. **`contribution` / `max_dd` 缺** → 写 `77.5%`（严格：`658.23 ÷ 5,000 × 365/62`；宽口径 79.4%）并在“成本与容量”写明算法和容量 caveat；Polymarket 的 `max_dd` 按模板写 `-`，并注明未构造逐日权益、不是“没测”。
+   - 证据：`replay_results.json` 的 `contribution_strict_pct=77.5`、`contribution_broad_pct=79.44`、`max_dd="-"`。
+5. **旧数据风险句“Last-Modified 晚 30–60 分钟”与实测不符** → 改为“本轮 186 个文件 `Last-Modified − ISSUE` 为 3.1–31.3 分钟（中位 6.2）”。
+   - 证据：`fetch_headers.py` 本次输出：`delay minutes min/median/max 3.1 6.2 31.3`（`replay/quant-025/run_replay.out`）。
+6. **来源与数字再核** → 2026-10-21 05:14–05:16 UTC 重抓 10 个引用 URL，全部 200；Gamma live 已 63 个 closed event，样本仍固定 62 个（2026-08-19..2026-10-19），条目已有快照说明；SPC 1630/2000/final 的 Updated 与 Last-Modified 未变。
+   - 证据：`verify_sources.out`（本次重跑；series 200/46,687B、events 200、SPC 200、data-api 200）；`reproduce.out` 与本轮重跑逐项一致。
+7. **`data` 字段的“每市场最近约 2 万笔”无法核实** → 改为“data-api 逐笔成交（免费免密钥；本样本每市场 1–27 笔）”。证据：本次 1,550 个成交文件，单市场最少 1 笔、最多 27 笔、合计 10,674 笔（`reproduce.out` 与 `_cache/trades/*.json`）。
+8. **结论写明白** → “不应丢弃”：机制/数据/出处成立，回放已交；但门 6 结构性不满足（3–7 个独立信号），门 5 不确定，容量约 $17/62 天，预期最多待选区，不能按收录处理。
+
+第 2 轮补丁只改：`bots/quant/entries/quant-025-spc-tornado-outlook-lag.md`、`bots/quant/replay/quant-025/**`、本文件与 `scratch/P-quant-025/` 下已有脚本/输出。`status: 草稿`、`date: 2026-10-20`、文件名和 `id` 未动。

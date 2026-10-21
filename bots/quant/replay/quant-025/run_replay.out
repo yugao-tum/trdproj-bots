@@ -1,0 +1,83 @@
+
+=== fetch_outlooks.py ===
+events 63
+markets 1575 missing coords 0
+geojson ok 189 miss 0
+
+=== filter_62.py ===
+kept 62 events 2026-08-19 .. 2026-10-19 markets 1550
+
+=== fetch_headers.py ===
+rows 186 status {200: 186}
+delay minutes min/median/max 3.1 6.2 31.3
+(31.3, '1630', '20260910', '2026-09-10T16:15:00+00:00', 'Thu, 10 Sep 2026 16:46:18 GMT')
+(20.55, 'final', '20260916', '2026-09-16T00:59:00+00:00', 'Wed, 16 Sep 2026 01:19:33 GMT')
+(20.15, '1630', '20260922', '2026-09-22T16:24:00+00:00', 'Tue, 22 Sep 2026 16:44:09 GMT')
+(20.116666666666667, '2000', '20260910', '2026-09-10T19:40:00+00:00', 'Thu, 10 Sep 2026 20:00:07 GMT')
+(15.25, '1630', '20260925', '2026-09-25T16:09:00+00:00', 'Fri, 25 Sep 2026 16:24:15 GMT')
+(13.25, 'final', '20261011', '2026-10-11T00:57:00+00:00', 'Sun, 11 Oct 2026 01:10:15 GMT')
+(10.516666666666667, '1630', '20260917', '2026-09-17T16:10:00+00:00', 'Thu, 17 Sep 2026 16:20:31 GMT')
+(10.3, 'final', '20260827', '2026-08-27T00:58:00+00:00', 'Thu, 27 Aug 2026 01:08:18 GMT')
+(10.216666666666667, 'final', '20261015', '2026-10-15T00:47:00+00:00', 'Thu, 15 Oct 2026 00:57:13 GMT')
+(10.2, 'final', '20260905', '2026-09-05T00:53:00+00:00', 'Sat, 05 Sep 2026 01:03:12 GMT')
+
+=== classify.py ===
+markets 1550 final mismatch 0
+YES rate 10 1550 0.0065
+final tp fp fn tn 10 0 0 1540 acc 1.0 flip_vs_final 0
+2000 tp fp fn tn 10 5 0 1535 acc 0.9968 flip_vs_final 5
+1630 tp fp fn tn 10 5 0 1535 acc 0.9968 flip_vs_final 5
+events with >=1 yes 6 of 62
+total yes days distribution Counter({0: 56, 1: 4, 4: 1, 2: 1})
+
+=== fetch_trades.py ===
+200 done
+400 done
+600 done
+800 done
+1000 done
+1200 done
+1400 done
+Counter({'ok': 1550}) files 1550
+
+=== reproduce.py ===
+events=62 markets=1550 trades=10674 final_classification_mismatches=0
+YES settlements=10 / 1550; events with >=1 YES=6
+1630->2000 classification flips=0
+2000->final classification flips=5
+1630->final classification flips=5
+inside at 2000=15; survive to final=10 (66.7%)
+1630 Last-Modified time-of-day range: 16:06 .. 17:03 UTC (n=62)
+2000 Last-Modified time-of-day range: 19:35 .. 20:25 UTC (n=62)
+final Last-Modified time-of-day range: 00:35 .. 01:41 UTC (n=62)
+
+strict BUY YES: trades=6 events=3 cost=$16.03 net=$658.23 wins=5 losses=1 max_single_cost=$6.00
+  2000 2026-08-26 Will Indianapolis, IN face tornado ris trade=08-26 20:46:03 BUY/Yes yespx=0.200 net/sh=-0.218 size=30.00 outcome=False pnl=$-6.54
+  1630 2026-09-04 Will Columbus, OH face tornado risk on trade=09-04 16:57:25 BUY/Yes yespx=0.010 net/sh=+0.980 size=42.00 outcome=True pnl=$+41.14
+  1630 2026-09-30 Will Dallas, TX face tornado risk on S trade=09-30 16:39:56 BUY/Yes yespx=0.011 net/sh=+0.978 size=300.00 outcome=True pnl=$+293.54
+  1630 2026-09-30 Will Fort Worth, TX face tornado risk  trade=09-30 16:38:56 BUY/Yes yespx=0.011 net/sh=+0.978 size=300.00 outcome=True pnl=$+293.54
+  2000 2026-09-30 Will Fort Worth, TX face tornado risk  trade=10-01 00:05:24 BUY/Yes yespx=0.070 net/sh=+0.917 size=20.01 outcome=True pnl=$+18.34
+  1630 2026-09-30 Will Wichita, KS face tornado risk on  trade=09-30 16:50:35 BUY/Yes yespx=0.080 net/sh=+0.906 size=20.10 outcome=True pnl=$+18.22
+
+broad price proxy: trades=10 events=7 cost=$16.93 net=$674.71 wins=5 losses=5 max_single_cost=$6.00
+  2000 2026-08-26 Will Indianapolis, IN face tornado ris trade=08-26 20:36:42 BUY/No yespx=0.200 net/sh=-0.218 size=30.00 outcome=False pnl=$-6.54
+  1630 2026-09-04 Will Columbus, OH face tornado risk on trade=09-04 16:57:25 BUY/Yes yespx=0.010 net/sh=+0.980 size=42.00 outcome=True pnl=$+41.14
+  2000 2026-09-08 Will Des Moines, IA face tornado risk  trade=09-09 00:38:30 BUY/No yespx=0.040 net/sh=-0.052 size=5.00 outcome=False pnl=$-0.26
+  2000 2026-09-14 Will Omaha, NE face tornado risk on Se trade=09-15 00:58:28 BUY/No yespx=0.041 net/sh=-0.053 size=4.99 outcome=False pnl=$-0.26
+  1630 2026-09-30 Will Dallas, TX face tornado risk on S trade=09-30 16:39:56 BUY/Yes yespx=0.011 net/sh=+0.978 size=300.00 outcome=True pnl=$+293.54
+  1630 2026-09-30 Will Fort Worth, TX face tornado risk  trade=09-30 16:38:56 BUY/Yes yespx=0.011 net/sh=+0.978 size=300.00 outcome=True pnl=$+293.54
+  2000 2026-09-30 Will Fort Worth, TX face tornado risk  trade=10-01 00:05:24 BUY/Yes yespx=0.070 net/sh=+0.917 size=20.01 outcome=True pnl=$+18.34
+  1630 2026-09-30 Will Wichita, KS face tornado risk on  trade=09-30 16:33:41 SELL/Yes yespx=0.050 net/sh=+0.938 size=38.00 outcome=True pnl=$+35.63
+  2000 2026-10-14 Will Oklahoma City, OK face tornado ri trade=10-15 00:49:20 BUY/No yespx=0.010 net/sh=-0.020 size=10.00 outcome=False pnl=$-0.20
+  2000 2026-10-15 Will Indianapolis, IN face tornado ris trade=10-16 00:51:28 BUY/No yespx=0.010 net/sh=-0.020 size=10.00 outcome=False pnl=$-0.20
+
+strict max event cost=$9.61; event PnL: 2026-08-26:-6.54, 2026-09-04:+41.14, 2026-09-30:+623.63
+
+strict-set buffer sensitivity:
+  buffer=0.01 cost=$16.03 net=$658.23
+  buffer=0.03 cost=$16.03 net=$643.99
+  buffer=0.05 cost=$16.03 net=$629.75
+
+wrote replay_results.json {'trades': 6, 'events': 3, 'cost_usd': 16.03, 'net_usd': 658.23, 'wins': 5, 'losses': 1, 'max_single_cost_usd': 6.0} {'trades': 10, 'events': 7, 'cost_usd': 16.93, 'net_usd': 674.71, 'wins': 5, 'losses': 5, 'max_single_cost_usd': 6.0}
+
+outputs: reproduce.out, replay_results.json (raw cache in _cache/, gitignored)
