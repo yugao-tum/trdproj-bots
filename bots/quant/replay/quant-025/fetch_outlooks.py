@@ -36,10 +36,17 @@ for r in out:
         fn=f"_cache/geojson/{date}_{hh}_torn.nolyr.geojson"
         if os.path.exists(fn): ok+=1; continue
         u=f"{B}day1otlk_{date}_{hh}_torn.nolyr.geojson"
-        resp=s.get(u,timeout=30)
-        if resp.status_code==200 and resp.text.strip().startswith("{"):
-            open(fn,"w").write(resp.text); ok+=1
-        else: miss.append((u,resp.status_code))
+        resp=None
+        for attempt in range(3):
+            try:
+                resp=s.get(u,timeout=30)
+                if resp.status_code==200 and resp.text.strip().startswith("{"):
+                    open(fn,"w").write(resp.text); ok+=1; break
+            except requests.RequestException:
+                resp=None
+            time.sleep(1+attempt)
+        else:
+            miss.append((u,getattr(resp,"status_code","ERR")))
         time.sleep(0.05)
 print("geojson ok",ok,"miss",len(miss))
 for m in miss[:10]: print(m)

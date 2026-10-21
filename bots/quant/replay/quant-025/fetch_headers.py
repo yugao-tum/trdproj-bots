@@ -12,12 +12,20 @@ for r in ev:
 def head(x):
     tag,date,hh,fn=x
     u=f"{B}day1otlk_{date}_{hh}_torn.nolyr.geojson"
-    try:
-        resp=requests.head(u,headers=UA,timeout=30,allow_redirects=True)
-        lm=resp.headers.get('Last-Modified')
-        return (tag,date,hh,u,resp.status_code,lm)
-    except Exception as e:
-        return (tag,date,hh,u,'ERR',str(e))
+    last=None
+    for attempt in range(3):
+        try:
+            resp=requests.head(u,headers=UA,timeout=30,allow_redirects=True)
+            last=resp
+            if resp.status_code==200:
+                lm=resp.headers.get('Last-Modified')
+                return (tag,date,hh,u,resp.status_code,lm)
+        except Exception as e:
+            last=e
+        import time as _time; _time.sleep(1+attempt)
+    if isinstance(last,Exception) or last is None:
+        return (tag,date,hh,u,'ERR',str(last))
+    return (tag,date,hh,u,last.status_code,last.headers.get('Last-Modified'))
 out=[]
 with ThreadPoolExecutor(max_workers=6) as ex:
     for x in ex.map(head,rows): out.append(x)

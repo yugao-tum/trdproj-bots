@@ -106,3 +106,32 @@ The fresh run matches the entry: 62 events / 1,550 markets / 10,674 trades / 0 s
 8. **结论写明白** → “不应丢弃”：机制/数据/出处成立，回放已交；但门 6 结构性不满足（3–7 个独立信号），门 5 不确定，容量约 $17/62 天，预期最多待选区，不能按收录处理。
 
 第 2 轮补丁只改：`bots/quant/entries/quant-025-spc-tornado-outlook-lag.md`、`bots/quant/replay/quant-025/**`、本文件与 `scratch/P-quant-025/` 下已有脚本/输出。`status: 草稿`、`date: 2026-10-20`、文件名和 `id` 未动。
+
+---
+
+## 第 2 轮复核修正（2026-10-21，f1-04，P-quant-025）
+
+读取的复核/核查文件：`reviews/c20261021-070001-research.md`（P-quant-025 节，VERDICT: FIX）、`reviews/c20261020-1423-research.md`（B22 三次核查）、`checks/B22.md`、`audit/c20261021-030001-research.md`（S6/S10）、`audit/c20261021-070001-research.md`。文件名、`id: quant-025`、`date: 2026-10-20`、`status: 草稿` 均未变。
+
+1. **复核第 2 条：`待核` 候选的措辞可能被误读为可按收录提交** → 把“本轮结论”改为“只按新机制名额候选（`slot: 新机制`），不得按收录/已验证收益提交；前向记录 8–9 个月后再复核。是否占用本轮名额由 integrator 决定。”保留“不应丢弃”，因为机制/数据/出处成立，回放也可复现。
+   - 证据：`reviews/c20261021-070001-research.md` P-quant-025 第 2 条；`replay_results.json` 的严格 3 个独立日/宽 7 个，均 <30。
+
+2. **复核第 3 条：门 3 需要明确“容量极小、77.5% 不是 5,000 账户可实现贡献”** → 在门 3 的判断里补“（容量极小，约 $17/62 天；不能把 77.5% 当 5,000 账户可实现的贡献）”；门 3 仍为满足（小资金门槛），容量问题留在“成本与容量”和门 5。
+   - 证据：`GUIDE.md` §2 门 3；`verify_sources.out` 容量算术（严格放大 10 倍 $2.59/日，宽 $2.73/日，最大单日上限 $96.10）。
+
+3. **复核第 4 条：`contribution: 77.5%` 是样本内算术** → “成本与容量”的年化贡献句改为“这是**样本内、仅约 $16 投入**的算术”，并保留“不是预期，也不代表能把 5,000 部署出去；`result` 仍是不显著”。
+   - 证据：`replay_results.json`（strict net +$658.23、cost $16.03；broad +$674.71、cost $16.93）；条目 `:113`。
+
+4. **复核第 5 条：`result: 不显著`、`name_zh` 15 字、8 字段有效** → 未改数值/字段；`result` 仍为 `不显著`（严格 6 笔/3 日、宽 10 笔/7 日，均 <30）。`evidence: 回放`、`slot: 新机制`、`variants: 4`、`variants_ext: -`、`window: 2026-08-19..2026-10-19`、`max_dd: -`、`contribution: 77.5%` 与 `bots/quant/replay/quant-025/SUMMARY.md` 一致。
+   - 证据：`python3 tools/check.py lint --bot quant` → 问题 0 个；`replay/quant-025/SUMMARY.md`。
+
+5. **复核第 1 条：门 5/门 6 的结论** → 未改结论；门 5 仍“不确定”（2026-09-30 占严格 PnL 的 94.7%），门 6 仍“不满足”（3–7 个独立信号，30 个需 8–9/20 个月前向）。第 1 条要求的是不要把当前 3 天样本当 PASS，这正是条目现在的写法。
+   - 证据：`replay_results.json`、`reproduce.out`（`strict max event cost=$9.61; event PnL: 2026-09-30:+623.63`）。
+
+6. **回放从零复跑（本轮）** → 在 `bots/quant/replay/quant-025/` 重新抓取并重跑。首次运行 `day1otlk_20260930_0100_torn.nolyr.geojson` 遇到一次 HTTP 502，重跑后 189/189 个 GeoJSON 全部取到；为让回放可重复，给 `fetch_outlooks.py` 和 `fetch_headers.py` 加了 3 次重试（只改重试，不改参数/成交/成本逻辑）。最终 `run_replay.py` 返回 0，62 事件/1,550 市场/10,674 笔/0 结算不一致；strict 6 笔/3 日、成本 $16.03、净 +$658.23；broad 10 笔/7 日、成本 $16.93、净 +$674.71。
+   - 证据：`replay/quant-025/run_replay.out`、`reproduce.out`、`replay_results.json`（本轮重跑后内容与条目逐项一致）；`replay/quant-025/fetch_outlooks.py`、`fetch_headers.py` 的重试代码。
+
+7. **来源复核（本轮）** → 10 个引用 URL 全部 HTTP 200；Gamma live 仍 63 个 closed event（2026-10-20 新增），样本固定 62 个（2026-08-19..2026-10-19）；Sep-30 volume 4,935.376533、费率 0.05/takerOnly/rebateRate 0.25、resolutionSource 不变；SPC 1630/2000/final 的 Updated 与 1630 zip 的 Last-Modified 16:30:16 不变；Aug-19 六条规则引文逐字存在，Sep-30 版本的缺数据兜底/修订截止也逐字存在；final ISSUE 00:28–01:37、Last-Modified 00:35–01:41。
+   - 证据：`verify_sources.out`、`verify_rules.out`（本目录，2026-10-21 重跑）。
+
+结论：**不应丢弃**，但也不满足七门 PASS；保持 `status: 草稿`。可作第 2 轮新机制名额候选（`slot: 新机制`），前提是 integrator 接受 3–7 个独立日的样本；不得按“已验证收益/收录”提交。前向需 8–9 个月（宽）或约 20 个月（严格）才能到 30 个独立信号。
