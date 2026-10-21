@@ -1,0 +1,101 @@
+SERIES 12954 events 6 closed 5 open 1
+
+EVENT us-gas-price-on-october-16-2026 closed True end 2026-10-16T14:00:00Z mkts 6 negRisk True restricted True volume 1728.785043 resolutionSource https://gasprices.aaa.com/ closedTime 2026-10-17T02:08:44Z
+ feeSchedules {'{"exponent": 1, "rate": 0.04, "rebateRate": 0.25, "takerOnly": true}'}
+ desc_chars 1502
+   <$4.3100 outcome ['0', '1'] YES_trades 0 all_trades 1 vol 23.06 closed True uma resolved closedTime 2026-10-17 02:08:44+00
+   $4.3100-4.3199 outcome ['0', '1'] YES_trades 0 all_trades 1 vol 23.06 closed True uma resolved closedTime 2026-10-17 02:08:44+00
+   $4.3200-4.3299 outcome ['1', '0'] YES_trades 6 all_trades 6 vol 1626.545043 closed True uma resolved closedTime 2026-10-17 02:08:44+00
+   $4.3300-4.3399 outcome ['0', '1'] YES_trades 0 all_trades 1 vol 16.53 closed True uma resolved closedTime 2026-10-17 02:08:44+00
+   $4.3400-4.3499 outcome ['0', '1'] YES_trades 0 all_trades 1 vol 16.53 closed True uma resolved closedTime 2026-10-17 02:08:44+00
+   $4.3500+ outcome ['0', '1'] YES_trades 0 all_trades 1 vol 23.06 closed True uma resolved closedTime 2026-10-17 02:08:44+00
+
+EVENT us-gas-price-on-october-17-2026 closed True end 2026-10-17T14:00:00Z mkts 6 negRisk True restricted True volume 950.97915 resolutionSource https://gasprices.aaa.com/ closedTime 2026-10-17T16:11:18Z
+ feeSchedules {'{"exponent": 1, "rate": 0.04, "rebateRate": 0.25, "takerOnly": true}'}
+ desc_chars 1502
+   <$4.3100 outcome ['1', '0'] YES_trades 6 all_trades 9 vol 378.774 closed True uma resolved closedTime 2026-10-17 16:10:51+00
+   $4.3100-4.3199 outcome ['0', '1'] YES_trades 0 all_trades 5 vol 106.5308 closed True uma resolved closedTime 2026-10-17 16:11:18+00
+   $4.3200-4.3299 outcome ['0', '1'] YES_trades 3 all_trades 9 vol 179.57785 closed True uma resolved closedTime 2026-10-17 16:10:51+00
+   $4.3300-4.3399 outcome ['0', '1'] YES_trades 0 all_trades 5 vol 86.52080000000001 closed True uma resolved closedTime 2026-10-17 16:11:18+00
+   $4.3400-4.3499 outcome ['0', '1'] YES_trades 1 all_trades 6 vol 113.0549 closed True uma resolved closedTime 2026-10-17 16:11:18+00
+   $4.3500+ outcome ['0', '1'] YES_trades 0 all_trades 5 vol 86.52080000000001 closed True uma resolved closedTime 2026-10-17 16:11:18+00
+
+EVENT us-gas-price-on-october-18-2026 closed True end 2026-10-18T14:00:00Z mkts 6 negRisk True restricted True volume 2193.13638 resolutionSource https://gasprices.aaa.com/ closedTime 2026-10-18T16:03:18Z
+ feeSchedules {'{"exponent": 1, "rate": 0.04, "rebateRate": 0.25, "takerOnly": true}'}
+ desc_chars 1502
+   <$4.2900 outcome ['0', '1'] YES_trades 4 all_trades 11 vol 314.2002 closed True uma resolved closedTime 2026-10-18 16:02:51+00
+   $4.2900-4.2999 outcome ['1', '0'] YES_trades 12 all_trades 19 vol 965.4343809999999 closed True uma resolved closedTime 2026-10-18 16:02:48+00
+   $4.3000-4.3099 outcome ['0', '1'] YES_trades 5 all_trades 14 vol 607.053599 closed True uma resolved closedTime 2026-10-18 16:02:48+00
+   $4.3100-4.3199 outcome ['0', '1'] YES_trades 0 all_trades 6 vol 56.1042 closed True uma resolved closedTime 2026-10-18 16:03:18+00
+   $4.3200-4.3299 outcome ['0', '1'] YES_trades 0 all_trades 4 vol 93.054 closed True uma resolved closedTime 2026-10-18 16:02:51+00
+   $4.3300+ outcome ['0', '1'] YES_trades 0 all_trades 3 vol 157.29000000000002 closed True uma resolved closedTime 2026-10-18 16:02:48+00
+
+EVENT us-gas-price-on-october-19-2026 closed True end 2026-10-19T14:00:00Z mkts 6 negRisk True restricted True volume 895.1536659999999 resolutionSource https://gasprices.aaa.com/ closedTime 2026-10-19T16:02:44Z
+ feeSchedules {'{"exponent": 1, "rate": 0.04, "rebateRate": 0.25, "takerOnly": true}'}
+ desc_chars 1502
+   <$4.2800 outcome ['0', '1'] YES_trades 1 all_trades 2 vol 15 closed True uma resolved closedTime 2026-10-19 16:02:44+00
+   $4.2800-4.2899 outcome ['0', '1'] YES_trades 0 all_trades 2 vol 23.06 closed True uma resolved closedTime 2026-10-19 16:02:44+00
+   $4.2900-4.2999 outcome ['1', '0'] YES_trades 8 all_trades 13 vol 372.36899999999997 closed True uma resolved closedTime 2026-10-19 16:02:44+00
+   $4.3000-4.3099 outcome ['0', '1'] YES_trades 2 all_trades 7 vol 278.376666 closed True uma resolved closedTime 2026-10-19 16:02:44+00
+   $4.3100-4.3199 outcome ['0', '1'] YES_trades 1 all_trades 2 vol 13.06 closed True uma resolved closedTime 2026-10-19 16:02:44+00
+   $4.3200+ outcome ['0', '1'] YES_trades 1 all_trades 6 vol 193.288 closed True uma resolved closedTime 2026-10-19 16:02:44+00
+
+EVENT us-gas-price-on-october-20-2026 closed True end 2026-10-20T14:00:00Z mkts 6 negRisk True restricted True volume 1562.911074 resolutionSource https://gasprices.aaa.com/ closedTime 2026-10-20T16:01:44Z
+ feeSchedules {'{"exponent": 1, "rate": 0.04, "rebateRate": 0.25, "takerOnly": true}'}
+ desc_chars 1502
+   <$4.2800 outcome ['1', '0'] YES_trades 7 all_trades 9 vol 553.475194 closed True uma resolved closedTime 2026-10-20 16:01:46.286854+00
+   $4.2800-4.2899 outcome ['0', '1'] YES_trades 0 all_trades 3 vol 123.0509 closed True uma resolved closedTime 2026-10-20 16:01:46.291073+00
+   $4.2900-4.2999 outcome ['0', '1'] YES_trades 2 all_trades 7 vol 195.31394000000003 closed True uma resolved closedTime 2026-10-20 16:01:46.294987+00
+   $4.3000-4.3099 outcome ['0', '1'] YES_trades 0 all_trades 4 vol 98.34103999999999 closed True uma resolved closedTime 2026-10-20 16:01:46.298749+00
+   $4.3100-4.3199 outcome ['0', '1'] YES_trades 1 all_trades 6 vol 187.76 closed True uma resolved closedTime 2026-10-20 16:01:46.303197+00
+   $4.3200+ outcome ['0', '1'] YES_trades 1 all_trades 8 vol 404.97 closed True uma resolved closedTime 2026-10-20 16:01:46.307324+00
+
+EVENT us-gas-price-on-october-21-2026 closed False end 2026-10-21T14:00:00Z mkts 6 negRisk True restricted True volume 220.396849 resolutionSource https://gasprices.aaa.com/ closedTime None
+ feeSchedules {'{"exponent": 1, "rate": 0, "rebateRate": 0, "takerOnly": true}'}
+ desc_chars 1502
+   <$4.2600 outcome ['0.165', '0.835'] YES_trades 2 all_trades 2 vol 20 closed False uma None closedTime None
+   $4.2600-4.2699 outcome ['0.23', '0.77'] YES_trades 1 all_trades 2 vol 40 closed False uma None closedTime None
+   $4.2700-4.2799 outcome ['0.225', '0.775'] YES_trades 1 all_trades 2 vol 40 closed False uma None closedTime None
+   $4.2800-4.2899 outcome ['0.36', '0.64'] YES_trades 3 all_trades 7 vol 80.396849 closed False uma None closedTime None
+   $4.2900-4.2999 outcome ['0.345', '0.655'] YES_trades 3 all_trades 3 vol 20 closed False uma None closedTime None
+   $4.3000+ outcome ['0.4815', '0.5185'] YES_trades 2 all_trades 2 vol 20 closed False uma None closedTime None
+
+RULE_DESC_10_16_BEGIN
+This market will resolve according to the US national average price of regular gasoline published by AAA for October 16, 2026.
+
+This market resolves based on the US national average price of regular gasoline published by AAA at https://gasprices.aaa.com/ in the "National Average Gas Prices" table under the "Regular" column and the "Current Avg." row.
+
+Each date's price is the price displayed at 10:00 AM ET on that date, provided that at that time the "Price as of" date shown on the webpage is that date and the "Yesterday Avg." row in the same column shows the previous date's price. If either condition is not met at 10:00 AM ET, the price will be observed at the first time on that date at which both are met; if both are not met by 11:59 PM ET on that date, the price displayed in the table at that time will be used. If AAA does not display the US national average price of regular gasoline in the table at the time of observation, the price displayed elsewhere on the webpage will be used. If AAA displays no US national average price of regular gasoline on the specified webpage at any time on the specified date, this market will resolve based on the most recent previously-published AAA US national average price of regular gasoline.
+
+The resolution source for this market will be the American Automobile Association (AAA) (https://gasprices.aaa.com/).
+
+Note: AAA currently publishes gas prices to four decimal places (e.g., $4.3718). The price will be used as published, without rounding.
+RULE_DESC_10_16_END
+
+SEARCH gas%20prices%20on events 5
+  us-gas-price-on-october-20-2026 True 2026-10-20T14:00:00Z
+  us-gas-price-on-october-21-2026 False 2026-10-21T14:00:00Z
+  us-gas-price-on-october-18-2026 True 2026-10-18T14:00:00Z
+  us-gas-price-on-october-16-2026 True 2026-10-16T14:00:00Z
+  us-gas-price-on-october-17-2026 True 2026-10-17T14:00:00Z
+
+SEARCH aaa%20gas events 5
+  will-the-aaa-average-us-gas-price-still-be-above-4-on-march-25-2022 True 2022-03-25T00:00:00Z
+  will-the-aaa-average-us-gas-price-reach-5-by-march-31-2022 True 2022-03-31T00:00:00Z
+  will-the-aaa-average-us-gas-price-reach-5pt00-by-june-20-2022 True 2022-06-20T00:00:00Z
+  will-the-aaa-average-us-gas-price-reach-4pt50-by-may-25-2022 True 2022-05-25T00:00:00Z
+  will-the-aaa-us-national-gas-price-drop-below-4-by-april-8-2022 True 2022-04-08T00:00:00Z
+
+2025 average-us-gas-prices-on-february-21 closed True mkts 5 end 2025-02-21T12:00:00Z
+   $3.14 or less fee None outcome ["0", "1"] ph_points 0
+   $3.15 fee None outcome ["0", "1"] ph_points 0
+   $3.16 fee None outcome ["1", "0"] ph_points 0
+   $3.17 fee None outcome ["0", "1"] ph_points 0
+   $3.18 or more fee None outcome ["0", "1"] ph_points 0
+
+2025 average-us-gas-prices-on-february-28 closed True mkts 5 end 2025-02-28T12:00:00Z
+   $3.14 or less fee None outcome ["1", "0"] ph_points 0
+   $3.15 fee None outcome ["0", "1"] ph_points 0
+   $3.16 fee None outcome ["0", "1"] ph_points 0
+   $3.17 fee None outcome ["0", "1"] ph_points 0
+   $3.18 or more fee None outcome ["0", "1"] ph_points 0

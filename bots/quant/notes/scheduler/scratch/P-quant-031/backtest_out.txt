@@ -1,0 +1,43 @@
+EVENT WINNER + EARLIEST VERIFIED CURRENT PAGE
+us-gas-price-on-october-16-2026 day 2026-10-16 winner_by_outcome $4.3200-4.3299 aaa 4.3271 winner_by_aaa ['$4.3200-4.3299'] decision 2026-10-16T11:00:50+00:00 tag 20261016110050
+us-gas-price-on-october-17-2026 day 2026-10-17 winner_by_outcome <$4.3100 aaa 4.3085 winner_by_aaa ['<$4.3100'] decision 2026-10-17T11:02:54+00:00 tag 20261017110254
+us-gas-price-on-october-18-2026 day 2026-10-18 winner_by_outcome $4.2900-4.2999 aaa 4.2988 winner_by_aaa ['$4.2900-4.2999'] decision 2026-10-18T11:03:36+00:00 tag 20261018110336
+us-gas-price-on-october-19-2026 day 2026-10-19 winner_by_outcome $4.2900-4.2999 aaa 4.2953 winner_by_aaa ['$4.2900-4.2999'] decision 2026-10-19T09:56:56+00:00 tag 20261019095656
+us-gas-price-on-october-20-2026 day 2026-10-20 winner_by_outcome <$4.2800 aaa 4.2786 winner_by_aaa ['<$4.2800'] decision 2026-10-20T11:01:38+00:00 tag 20261020110138
+
+HISTORICAL PRICE BACKTEST: buy winning bracket at first CLOB price <= threshold at/after earliest verified current-page snapshot; hold to settlement
+
+THRESHOLD 0.9 fills 3 of 5
+  2026-10-16 us-gas-price-on-october-16-2026 entry 2026-10-16 11:10:22 p 0.735 fee 0.007791 net/sh 0.252209 shares 337.84 net$ 85.21
+  2026-10-17 us-gas-price-on-october-17-2026 entry 2026-10-17 11:10:16 p 0.55 fee 0.0099 net/sh 0.4351 shares 450.45 net$ 195.99
+  2026-10-19 us-gas-price-on-october-19-2026 entry 2026-10-19 10:00:16 p 0.88 fee 0.004224 net/sh 0.110776 shares 282.49 net$ 31.29
+ median_net_per_share 0.252209 total_net_usd 312.49 total_budget 750.0 roi_pct 41.665
+
+THRESHOLD 0.95 fills 4 of 5
+  2026-10-16 us-gas-price-on-october-16-2026 entry 2026-10-16 11:10:22 p 0.735 fee 0.007791 net/sh 0.252209 shares 337.84 net$ 85.21
+  2026-10-17 us-gas-price-on-october-17-2026 entry 2026-10-17 11:10:16 p 0.55 fee 0.0099 net/sh 0.4351 shares 450.45 net$ 195.99
+  2026-10-18 us-gas-price-on-october-18-2026 entry 2026-10-18 11:10:23 p 0.923 fee 0.002843 net/sh 0.069157 shares 269.4 net$ 18.63
+  2026-10-19 us-gas-price-on-october-19-2026 entry 2026-10-19 10:00:16 p 0.88 fee 0.004224 net/sh 0.110776 shares 282.49 net$ 31.29
+ median_net_per_share 0.181493 total_net_usd 331.12 total_budget 1000.0 roi_pct 33.112
+
+THRESHOLD 0.99 fills 5 of 5
+  2026-10-16 us-gas-price-on-october-16-2026 entry 2026-10-16 11:10:22 p 0.735 fee 0.007791 net/sh 0.252209 shares 337.84 net$ 85.21
+  2026-10-17 us-gas-price-on-october-17-2026 entry 2026-10-17 11:10:16 p 0.55 fee 0.0099 net/sh 0.4351 shares 450.45 net$ 195.99
+  2026-10-18 us-gas-price-on-october-18-2026 entry 2026-10-18 11:10:23 p 0.923 fee 0.002843 net/sh 0.069157 shares 269.4 net$ 18.63
+  2026-10-19 us-gas-price-on-october-19-2026 entry 2026-10-19 10:00:16 p 0.88 fee 0.004224 net/sh 0.110776 shares 282.49 net$ 31.29
+  2026-10-20 us-gas-price-on-october-20-2026 entry 2026-10-20 11:10:20 p 0.99 fee 0.000396 net/sh 0.004604 shares 251.26 net$ 1.16
+ median_net_per_share 0.110776 total_net_usd 332.28 total_budget 1250.0 roi_pct 26.582
+
+DIAGNOSTIC (ex post): CLOB price at/after 07:00 UTC on event day, winning bracket, first <= thresholds
+ th 0.95 n 5
+   ('us-gas-price-on-october-16-2026', '2026-10-16 07:00:19', 0.36, 0.625784)
+   ('us-gas-price-on-october-17-2026', '2026-10-17 07:00:24', 0.25, 0.7375)
+   ('us-gas-price-on-october-18-2026', '2026-10-18 07:00:22', 0.355, 0.630841)
+   ('us-gas-price-on-october-19-2026', '2026-10-19 07:00:20', 0.26, 0.727304)
+   ('us-gas-price-on-october-20-2026', '2026-10-20 07:00:31', 0.35, 0.6359)
+ th 0.99 n 5
+   ('us-gas-price-on-october-16-2026', '2026-10-16 07:00:19', 0.36, 0.625784)
+   ('us-gas-price-on-october-17-2026', '2026-10-17 07:00:24', 0.25, 0.7375)
+   ('us-gas-price-on-october-18-2026', '2026-10-18 07:00:22', 0.355, 0.630841)
+   ('us-gas-price-on-october-19-2026', '2026-10-19 07:00:20', 0.26, 0.727304)
+   ('us-gas-price-on-october-20-2026', '2026-10-20 07:00:31', 0.35, 0.6359)

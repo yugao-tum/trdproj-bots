@@ -1,0 +1,3 @@
+200 https://polymarket.com/event/us-gas-price-on-october-16-2026
+200 https://polymarket.com/event/us-gas-price-on-october-19-2026
+200 https://polymarket.com/event/us-gas-price-on-october-20-2026

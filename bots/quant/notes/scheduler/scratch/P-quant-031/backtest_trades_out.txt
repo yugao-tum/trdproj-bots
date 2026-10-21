@@ -1,0 +1,24 @@
+VERIFIED DECISION TIME = earliest Wayback snapshot on event day whose Price as of == event day and Yesterday Avg == prior day Current Avg
+us-gas-price-on-october-16-2026 AAA 4.3271 winner_from_page $4.3200-4.3299 winner_from_outcome $4.3200-4.3299 decision 2026-10-16 11:00:50 vol 1728.785043
+us-gas-price-on-october-17-2026 AAA 4.3085 winner_from_page <$4.3100 winner_from_outcome <$4.3100 decision 2026-10-17 11:02:54 vol 950.97915
+us-gas-price-on-october-18-2026 AAA 4.2988 winner_from_page $4.2900-4.2999 winner_from_outcome $4.2900-4.2999 decision 2026-10-18 11:03:36 vol 2193.13638
+us-gas-price-on-october-19-2026 AAA 4.2953 winner_from_page $4.2900-4.2999 winner_from_outcome $4.2900-4.2999 decision 2026-10-19 09:56:56 vol 895.1536659999999
+us-gas-price-on-october-20-2026 AAA 4.2786 winner_from_page <$4.2800 winner_from_outcome <$4.2800 decision 2026-10-20 11:01:38 vol 1562.911074
+
+TRADABLE-PRINT BACKTEST: buy winner YES at first actual data-api BUY print at/after decision; fee .04*p*(1-p); +0.5c half-spread; hold to settlement; 250 USDC/event
+
+ limit<=0.95 fills 0 of 5 skipped 5
+  skipped_slugs ['us-gas-price-on-october-16-2026', 'us-gas-price-on-october-17-2026', 'us-gas-price-on-october-18-2026', 'us-gas-price-on-october-19-2026', 'us-gas-price-on-october-20-2026']
+
+ limit<=0.99 fills 2 of 5 skipped 3
+  2026-10-18 us-gas-price-on-october-18-2026 entry 2026-10-18 11:25:41 p 0.988457 print_size 75.5 fee/sh 0.000456 net/sh 0.006087 shares 75.5 net$ 0.4595
+  2026-10-19 us-gas-price-on-october-19-2026 entry 2026-10-19 10:20:54 p 0.98836 print_size 40 fee/sh 0.00046 net/sh 0.00618 shares 40 net$ 0.2472
+  median_net/sh 0.006133 mean_net/sh 0.006133 total_net$ 0.7067 budget$ 114.74 ROI% 0.6159
+  skipped_slugs ['us-gas-price-on-october-16-2026', 'us-gas-price-on-october-17-2026', 'us-gas-price-on-october-20-2026']
+
+ market (first print, any price) fills 3 of 5 skipped 2
+  2026-10-18 us-gas-price-on-october-18-2026 entry 2026-10-18 11:25:41 p 0.988457 print_size 75.5 fee/sh 0.000456 net/sh 0.006087 shares 75.5 net$ 0.4595
+  2026-10-19 us-gas-price-on-october-19-2026 entry 2026-10-19 10:20:54 p 0.98836 print_size 40 fee/sh 0.00046 net/sh 0.00618 shares 40 net$ 0.2472
+  2026-10-20 us-gas-price-on-october-20-2026 entry 2026-10-20 13:59:21 p 0.999 print_size 70.67 fee/sh 4e-05 net/sh -0.00404 shares 70.67 net$ -0.2855
+  median_net/sh 0.006087 mean_net/sh 0.002742 total_net$ 0.4212 budget$ 185.69 ROI% 0.2268
+  skipped_slugs ['us-gas-price-on-october-16-2026', 'us-gas-price-on-october-17-2026']

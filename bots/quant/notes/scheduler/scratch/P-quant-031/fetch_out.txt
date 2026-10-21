@@ -1,0 +1,43 @@
+SERIES_EVENTS 6
+  us-gas-price-on-october-16-2026 closed True end 2026-10-16T14:00:00Z mkts 6 vol 1728.785043
+  us-gas-price-on-october-17-2026 closed True end 2026-10-17T14:00:00Z mkts 6 vol 950.97915
+  us-gas-price-on-october-18-2026 closed True end 2026-10-18T14:00:00Z mkts 6 vol 2193.13638
+  us-gas-price-on-october-19-2026 closed True end 2026-10-19T14:00:00Z mkts 6 vol 895.1536659999999
+  us-gas-price-on-october-20-2026 closed True end 2026-10-20T14:00:00Z mkts 6 vol 1562.911074
+  us-gas-price-on-october-21-2026 closed False end 2026-10-21T14:00:00Z mkts 6 vol 220.396849
+  MKT <$4.3100 ph 172 tr 1 closed True prices ["0", "1"]
+  MKT $4.3100-4.3199 ph 171 tr 1 closed True prices ["0", "1"]
+  MKT $4.3200-4.3299 ph 172 tr 6 closed True prices ["1", "0"]
+  MKT $4.3300-4.3399 ph 170 tr 1 closed True prices ["0", "1"]
+  MKT $4.3400-4.3499 ph 171 tr 1 closed True prices ["0", "1"]
+  MKT $4.3500+ ph 172 tr 1 closed True prices ["0", "1"]
+  MKT <$4.3100 ph 151 tr 9 closed True prices ["1", "0"]
+  MKT $4.3100-4.3199 ph 153 tr 5 closed True prices ["0", "1"]
+  MKT $4.3200-4.3299 ph 151 tr 9 closed True prices ["0", "1"]
+  MKT $4.3300-4.3399 ph 152 tr 5 closed True prices ["0", "1"]
+  MKT $4.3400-4.3499 ph 151 tr 6 closed True prices ["0", "1"]
+  MKT $4.3500+ ph 153 tr 5 closed True prices ["0", "1"]
+  MKT <$4.2900 ph 136 tr 11 closed True prices ["0", "1"]
+  MKT $4.2900-4.2999 ph 135 tr 19 closed True prices ["1", "0"]
+  MKT $4.3000-4.3099 ph 136 tr 14 closed True prices ["0", "1"]
+  MKT $4.3100-4.3199 ph 135 tr 6 closed True prices ["0", "1"]
+  MKT $4.3200-4.3299 ph 137 tr 4 closed True prices ["0", "1"]
+  MKT $4.3300+ ph 135 tr 3 closed True prices ["0", "1"]
+  MKT <$4.2800 ph 150 tr 2 closed True prices ["0", "1"]
+  MKT $4.2800-4.2899 ph 150 tr 2 closed True prices ["0", "1"]
+  MKT $4.2900-4.2999 ph 150 tr 13 closed True prices ["1", "0"]
+  MKT $4.3000-4.3099 ph 150 tr 7 closed True prices ["0", "1"]
+  MKT $4.3100-4.3199 ph 150 tr 2 closed True prices ["0", "1"]
+  MKT $4.3200+ ph 150 tr 6 closed True prices ["0", "1"]
+  MKT <$4.2800 ph 155 tr 9 closed True prices ["1", "0"]
+  MKT $4.2800-4.2899 ph 155 tr 3 closed True prices ["0", "1"]
+  MKT $4.2900-4.2999 ph 155 tr 7 closed True prices ["0", "1"]
+  MKT $4.3000-4.3099 ph 155 tr 4 closed True prices ["0", "1"]
+  MKT $4.3100-4.3199 ph 155 tr 6 closed True prices ["0", "1"]
+  MKT $4.3200+ ph 155 tr 8 closed True prices ["0", "1"]
+  MKT <$4.2600 ph 64 tr 2 closed False prices ["0.165", "0.835"]
+  MKT $4.2600-4.2699 ph 64 tr 2 closed False prices ["0.23", "0.77"]
+  MKT $4.2700-4.2799 ph 64 tr 2 closed False prices ["0.225", "0.775"]
+  MKT $4.2800-4.2899 ph 64 tr 7 closed False prices ["0.36", "0.64"]
+  MKT $4.2900-4.2999 ph 64 tr 3 closed False prices ["0.345", "0.655"]
+  MKT $4.3000+ ph 64 tr 2 closed False prices ["0.4815", "0.5185"]
