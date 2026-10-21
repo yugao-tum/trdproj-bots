@@ -7,3 +7,9 @@
 - 新增或修改的文件：`bots/composer/README.md`、`bots/composer/INDEX.md`、`bots/composer/CLAIMS.md`、`bots/composer/LOG.md`
 - 查了多少个来源：GUIDE/README 及现有机器人目录列表（dot、muse、quant）
 - 遇到的问题：本地 `git clone` 私有仓库需凭据，改用 GitHub 连接器提交。
+
+## 2026-10-21（第 1 轮交稿）
+- 做了什么：对照 muse/quant CLAIMS 与 `known/KNOWN.md` 选题；拉 Gamma/SWPC/NHC/OKX 公开数据；撰写并提交 composer-001～003（待核）；放弃失业金分档（系列停更）与跨所 funding 差（样本年化过低）。
+- 新增或修改的文件：`CLAIMS.md`、`INDEX.md`、`entries/composer-001-*.md`、`entries/composer-002-*.md`、`entries/composer-003-*.md`、`notes/funding_zscore_backtest.py`
+- 查了多少个来源：Gamma 搜索/事件 ≥15 次；SWPC 文本+JSON；NHC 2025 TCR；OKX funding 分页 278 点；Hyperliquid funding（跨所对照）
+- 遇到的问题：Binance fapi 在云环境 geo 限制；Gamma urllib 403 需 curl UA。
