@@ -1,24 +1,24 @@
 cited URLs: 17; access date 2026-10-21
 
-[PASS] HTTP 200 3930007B https://gamma-api.polymarket.com/events?tag_slug=geopolitics&limit=500&closed=true&order=endDate&ascending=false
+[PASS] HTTP 200 3929904B https://gamma-api.polymarket.com/events?tag_slug=geopolitics&limit=500&closed=true&order=endDate&ascending=false
         100 events returned (entry claims 100 per page)
-[PASS] HTTP 200 4417016B https://gamma-api.polymarket.com/events?tag_slug=geopolitics&limit=500&closed=false&order=endDate&ascending=true
+[PASS] HTTP 200 4416607B https://gamma-api.polymarket.com/events?tag_slug=geopolitics&limit=500&closed=false&order=endDate&ascending=true
         100 events returned (entry claims 100 per page)
-[PASS] HTTP 200 2422214B https://gamma-api.polymarket.com/events?tag_slug=geopolitics&limit=100&closed=true&offset=100&order=endDate&ascending=false
+[PASS] HTTP 200 2422216B https://gamma-api.polymarket.com/events?tag_slug=geopolitics&limit=100&closed=true&offset=100&order=endDate&ascending=false
         100 events returned (entry claims 100 per page)
 [PASS] HTTP 200 25993B https://gamma-api.polymarket.com/events?slug=how-many-ships-transit-bab-el-mandeb-strait-week-of-october-5
         resolved=['190-209'], volume=13097.774817000001, window_text_present=True
-[PASS] HTTP 200 28039B https://gamma-api.polymarket.com/events?slug=how-many-ships-transit-bab-el-mandeb-strait-week-of-october-19
-        labels=['<170', '170-189', '190-209', '210-229', '230+'], feesEnabled=[False, False, False, False, False], clobRewards_rates=[2, 9, 7, 2, None], rewardsMinSize=[20, 50], rewardsMaxSpread=[8.5] (bid/ask/reward params drift noted in entry)
-[PASS] HTTP 200 31375B https://gamma-api.polymarket.com/events?slug=how-many-ships-transit-the-strait-of-hormuz-week-of-october-19
+[PASS] HTTP 200 28051B https://gamma-api.polymarket.com/events?slug=how-many-ships-transit-bab-el-mandeb-strait-week-of-october-19
+        labels=['<170', '170-189', '190-209', '210-229', '230+'], feesEnabled=[False, False, False, False, False], clobRewards_rates=[2, 9, 8, 1, None], rewardsMinSize=[20, 50], rewardsMaxSpread=[8.5] (bid/ask/reward params drift noted in entry)
+[PASS] HTTP 200 31357B https://gamma-api.polymarket.com/events?slug=how-many-ships-transit-the-strait-of-hormuz-week-of-october-19
         labels=['<20', '20-24', '25-29', '30-34', '35-39', '40+'], volume=17126.438948 (entry snapshot volume=5539.661748)
-[PASS] HTTP 200 1291531B https://gamma-api.polymarket.com/public-search?q=how%20many%20ships%20transit&limit_per_type=100&events_status=all
+[PASS] HTTP 200 1291310B https://gamma-api.polymarket.com/public-search?q=how%20many%20ships%20transit&limit_per_type=100&events_status=all
         47 events (47 how-many-*)
-[PASS] HTTP 200 26300B https://gamma-api.polymarket.com/public-search?q=UKMTO&limit_per_type=50&events_status=all
+[PASS] HTTP 200 26315B https://gamma-api.polymarket.com/public-search?q=UKMTO&limit_per_type=50&events_status=all
         1 events: ['how-many-ukmto-notices-october-1925']
-[PASS] HTTP 200 1495343B https://gamma-api.polymarket.com/public-search?q=Strait%20of%20Hormuz&limit_per_type=50&events_status=all
+[PASS] HTTP 200 1495592B https://gamma-api.polymarket.com/public-search?q=Strait%20of%20Hormuz&limit_per_type=50&events_status=all
         50 events returned
-[PASS] HTTP 200 596693B https://gamma-api.polymarket.com/public-search?q=Bab%20el-Mandeb&limit_per_type=50&events_status=all
+[PASS] HTTP 200 596776B https://gamma-api.polymarket.com/public-search?q=Bab%20el-Mandeb&limit_per_type=50&events_status=all
         23 events returned
 [PASS] HTTP 200 37443B https://services9.arcgis.com/weJ1QsnbMYJlCHdG/arcgis/rest/services?f=json
         services include Daily_Chokepoints_Data=True
@@ -30,7 +30,7 @@ cited URLs: 17; access date 2026-10-21
         page bytes=216134; direct FeatureServer link in HTML=False
 [PASS] HTTP 200 8684B https://clob.polymarket.com/prices-history?market=83323157431384565919039651171113228419822107706617450318634509280075717583619&interval=max&fidelity=60
         history points=327; first={'t': 1790816418, 'p': 0.255}; last={'t': 1791986417, 'p': 0.9755}
-[PASS] HTTP 200 28586B https://gamma-api.polymarket.com/events?slug=how-many-ships-transit-bab-el-mandeb-strait-week-of-october-12-20261006t134953677z
+[PASS] HTTP 200 28575B https://gamma-api.polymarket.com/events?slug=how-many-ships-transit-bab-el-mandeb-strait-week-of-october-12-20261006t134953677z
         HTTP 200
 [PASS] HTTP 200 166941B https://data-api.polymarket.com/trades?market=0xc3f0b47231b149f564840ae702749014a9f1a63c39d20375d505eba509f10039&limit=500&offset=0
         HTTP 200
