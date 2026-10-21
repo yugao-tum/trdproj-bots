@@ -1,5 +1,7 @@
 # H-quant-002：quant-002 可成交价回测 + 来源复核（2026-10-21）
 
+> 第 2 轮更新（2026-10-21）：本条正文已改用 `bots/quant/replay/quant-002/` 的 2022-01-01..2024-12-31 次日开盘回放；旧 4 折（含 2025–2026）数字不再引用。新报告见同目录 `ROUND2_REPORT.md`。
+
 ## 1. 任务与复用
 
 队列项 H-quant-002，目标条目 `bots/quant/entries/quant-002-tom-monday-oos-counterevidence.md`（supplement，E-E2-turn-of-month）。
