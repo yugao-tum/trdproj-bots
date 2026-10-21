@@ -6,7 +6,7 @@
 
 ## 如何复现
 
-- 脚本：`bots/quant/replay/quant-021/run_replay.py`（Python 3，仅标准库；无第三方依赖）
+- 脚本：`bots/quant/replay/quant-021/run_replay.py`（回放，Python 3，仅标准库；无第三方依赖）与 `bots/quant/replay/quant-021/verify_sources.py`（独立复核，89 项检查；同一缓存目录）
 - 运行：
 
   ```bash
@@ -92,7 +92,21 @@
 - 排位时点：49/49 场 `排位开始+2h ≤ 正赛日 00:00 cutoff`，最小余量 0h、中位 8h、最大 18h；不存在“用排位前价格假装排位后”。
 - 来源一致性：49/49 场的 Ergast 冠军与 Polymarket 结算冠军一致（修正 Ergast 分页 bug 后）。本条一律以 Polymarket `outcomePrices` 为 `y`。
 - 费用：3 个示例 event 的 `feeSchedule` 均为 `{"exponent":1,"rate":0.05,"takerOnly":true,"rebateRate":0.15}`。
-- 复核脚本与 stdout：`bots/quant/notes/scheduler/scratch/H-quant-021/r2_verify_sources.py`、`run_r2_verify_sources.txt`；重跑日志 `run_r2_*.txt`。
+- 复核脚本与 stdout：`bots/quant/replay/quant-021/verify_sources.py`（自举，不依赖 `_cache/`）、`bots/quant/notes/scheduler/scratch/H-quant-021/run_r3_verify_sources.txt`（**89 项 PASS**）；历史复核 `run_r2_*.txt` 仍可读，但旧 `r2_verify_sources.py` 依赖未入库 `_cache/`，已标为不可冷复现。
+
+## 复核与复现（round-2 复核，2026-10-21）
+
+- 复核命令（原始 HTTP 缓存可复用，默认不写入仓库）：
+
+  ```bash
+  cd bots/quant/replay/quant-021
+  python3 verify_sources.py --cache /tmp/quant-021-verify-cache
+  ```
+
+- 该脚本做两类检查，共 **89 项 PASS、0 FAIL**：
+  1. 重取全部引用来源：Ergast 2014–2026（269 场，150/269、110/204、40/65、12/17；分档 n=36/68/65/20；OOS log loss 0.6706 vs 0.6781、Brier 0.2388 vs 0.2425）；Gamma 5 页（401 event / 149 个 Winner-Pole-Podium / 3,433 市场）；4 个 event 的结算原文逐字命中；CLOB 15 天 200、20 天 400（原文错误串）、`interval=max` 有数据；data-api 字段与 49 个市场成交。
+  2. 从 `results.json`/`trades.csv`/`all_events.csv`/`cross_section.csv` 重算：主规则 23 笔、13 胜、+4.6077/+0.2003、sd 0.5204、t=1.85；bootstrap [-0.0101,+0.4115]、P(mean≤0)=0.031；年化 4.54%；27 个变体；横截面 940 个有价市场、p≤0.20 的 852 个为 -0.0183/份；以及 49 场成交缺口（first−p_hist +0.0096、exec100−p_hist +0.0086）、触发笔前后的 BUY/SELL 计数（21/2）与成交延迟中位数。
+- 独立重跑（另建目录，不复用已提交的派生文件）：`/tmp/q021-replay-check/run_replay.py`。`results.json` 的 `primary`/`bootstrap`/`per_season`/`fit`/`cross_section`/`variants` 等全部相等；`trades.csv`、`all_events.csv`、`cross_section.csv` 与提交版**字节一致**。stdout：`bots/quant/notes/scheduler/scratch/H-quant-021/run_r3_replay_repro.txt`、`run_r3_repro_compare.txt`。
 
 ## 不可靠或失败原因（再列一次）
 

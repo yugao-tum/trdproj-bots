@@ -1,3 +1,6 @@
+# DEPRECATED for cold reproduction: this file needs _cache/races.json etc. and
+# a hard-coded w01 path. Use bots/quant/replay/quant-021/verify_sources.py
+# (self-bootstrapping, 89 checks) instead; see run_r3_verify_sources.txt.
 import datetime as dt
 import json
 import pathlib

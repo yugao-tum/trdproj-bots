@@ -1,0 +1,106 @@
+cache /tmp/q021-cache-r3
+
+=== 1. Ergast base rates (cited 150/269, 110/204, 40/65, 12/17) ===
+PASS races 269 | 269
+PASS 150/269 | 150/269
+PASS 110/204 | 110/204
+PASS 40/65 | 40/65
+PASS 12/17 | 12/17
+PASS fit table n=36/68/65/20, rates .4737/.5286/.5373/.7273 | [[36, 0.4737], [68, 0.5286], [65, 0.5373], [20, 0.7273]]
+PASS constant p0 = 110/204 = .5392 | 0.539216
+PASS OOS log loss .6706 vs .6781 | 0.6706 vs 0.6781
+PASS OOS Brier .2388 vs .2425 | 0.2388 vs 0.2425
+PASS 2024 qualifying HTTP 200, limit=100 total=479 | http=200 limit=100 total=479
+
+=== 2. Gamma F1 universe and event rules ===
+PASS 401 unique closed F1 events | 401
+PASS 149 Winner/Pole/Podium events | 149
+PASS 3433 markets | 3433
+PASS event f1-united-states-grand-prix-winner-2026-10-25 HTTP 200 | 200
+PASS   phrase: resolve in favor of the driver who is officially listed 
+PASS   phrase: Disqualifications or changes made after the publication 
+PASS   phrase: rescheduled to a date after Nov 1, 2026
+PASS   per-market feeSchedule rate 0.05, rebate 0.15 | 1 distinct schedules
+PASS event f1-united-states-grand-prix-driver-pole-position-2026-10-24 HTTP 200 | 200
+PASS   phrase: officially recognized by Formula 1 as having set the fas
+PASS   phrase: regardless of any subsequent penalties, disqualification
+PASS   per-market feeSchedule rate 0.05, rebate 0.15 | 1 distinct schedules
+PASS event f1-united-states-grand-prix-driver-podium-2026-10-25 HTTP 200 | 200
+PASS   phrase: finishes within the top three positions in the official
+PASS   phrase: permanently canceled, this market will resolve 50-50
+PASS   per-market feeSchedule rate 0.05, rebate 0.15 | 1 distinct schedules
+PASS event f1-singapore-grand-prix-winner-2026-10-11 HTTP 200 | 200
+PASS   phrase: resolve in favor of the driver who is officially listed 
+PASS   per-market feeSchedule rate 0.05, rebate 0.15 | 1 distinct schedules
+PASS   resolved YES Verstappen ["1","0"] | [('Max Verstappen', '["1", "0"]')]
+
+=== 3. event matching, timing, and trade prints ===
+PASS Ergast schedule 275 races | 275
+PASS 49 matched Winner events | 49
+PASS markets/event 9-31, median 27 | n=49 min=9 median=27 max=31
+PASS 49/49 qualifying end +2h <= race-day 00:00 cutoff | min=0.0h median=8.0h max=18.0h
+PASS per-market trade prints 212-3000 | min=212 max=3000
+PASS 49/49 have a pre-cutoff print | 49
+PASS 49/49 first post-cutoff BUY before race start | 49
+PASS data-api fields side/price/size/timestamp/asset/outcome | 200
+PASS first - p_hist mean +0.0096, max +0.0450 | mean=+0.0096 max=+0.0450
+PASS exec100 - p_hist mean +0.0086 | mean=+0.0086
+PASS 49 events, 32 pole-sitter wins | n=49 wins=32
+PASS rule A triggers 23; last pre-cutoff side BUY 21 / SELL 2 | n=23 sides={'BUY': 21, 'SELL': 2}
+PASS first fill delay median .62h max 2.99h; 100-share median 1.04h max 6.38h | first median=0.62 max=2.99; 100 median=1.04 max=6.38
+
+=== 4. CLOB prices-history limits and earliest point ===
+PASS 15-day span HTTP 200 | 200
+PASS 20-day span HTTP 400 with interval-too-long error | http=400 body={"error":"invalid filters: 'startTs' and 'endTs' interval is too long"}
+
+PASS interval=max HTTP 200 with points
+PASS interval=max + startTs/endTs HTTP 200 with points
+PASS 2024-16 series starts 2024-08-29 (t=1724947202) | first={'t': 1724947202, 'p': 0.5}
+
+=== 5. committed replay outputs reproduce headline numbers ===
+PASS primary n=23 wins=13 | n=23 wins=13
+PASS primary mean +0.2003 | +0.2003
+PASS primary sd .5204 t=1.85 | sd=0.5204 t=1.846
+PASS trades.csv 23 rows, sum +4.6077, mean +0.2003 | n=23 sum=4.6077 mean=0.2003
+PASS median +0.5789, without best +0.1701 | median=0.5789
+PASS bootstrap 95% [-.0101,+.4115], P(mean<=0)=.031 | ci=[-0.0101,+0.4115] p=0.031
+PASS break-even gap 0.20 | 0.2
+PASS contribution 4.54% | 4.54% months=24.34
+PASS 27 variants, ids V01..V27 | 27
+PASS V02 mean +0.1994 | +0.1994
+PASS V03 mean +0.2000 | +0.2000
+PASS V04 mean +0.2089 | +0.2089
+PASS V05 mean +0.1973 | +0.1973
+PASS V06 mean +0.1889 | +0.1889
+PASS V07 mean +0.2336 | +0.2336
+PASS V09 mean +0.1562 | +0.1562
+PASS V11 mean +0.2539 | +0.2539
+PASS V12 mean +0.1684 | +0.1684
+PASS V16 mean +0.1419 | +0.1419
+PASS V18 mean +0.1850 | +0.1850
+PASS V22 mean +0.4506 | +0.4506
+PASS V26 mean -0.0183 | -0.0183
+PASS all_events.csv 49 rows, 32 wins, 2024-09-01..2026-10-11 | n=49
+PASS cross_section 940 priced; p<=.20 n=852 wins=9 net -0.0183 | n=940 cheap=852 net=-0.0183
+
+=== 6. replay package shape and entry/front-matter consistency ===
+PASS entry exists and status 待核 (unchanged)
+PASS date 2026-10-20 (unchanged) | 2026-10-20
+PASS evidence 回放 | 回放
+PASS result 不显著 | 不显著
+PASS slot - | -
+PASS variants 27 | 27
+PASS variants_ext - | -
+PASS window 2014-03-16..2026-10-11 | 2014-03-16..2026-10-11
+PASS max_dd - (Polymarket, optional) | -
+PASS contribution 4.5% | 4.5%
+PASS entry cites this verifier
+PASS replay SUMMARY has 27 variant rows
+PASS all replay files < 1 MB | largest=42466 bytes
+PASS no binaries in replay
+PASS cited note bots/quant/notes/r2prep-verification/quant-021.md
+PASS cited note bots/quant/notes/q006-hist/REPORT.md
+PASS cited note bots/quant/notes/scheduler/scratch/H-quant-021/REPORT.md
+
+89 PASS, 0 FAIL
+ALL PASS

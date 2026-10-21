@@ -1,0 +1,19 @@
+fresh run dir: /tmp/q021-replay-check
+primary            equal=True
+bootstrap          equal=True
+per_season         equal=True
+fit                equal=True
+p0                 equal=True
+events             equal=True
+pole_wins          equal=True
+mean_p_hist        equal=True
+mean_modelA        equal=True
+break_even_gap     equal=True
+months             equal=True
+annual_usdt        equal=True
+contribution_pct   equal=True
+cross_section      equal=True
+variants           equal=True
+trades.csv         byte-identical=True bytes=2908
+all_events.csv     byte-identical=True bytes=9661
+cross_section.csv  byte-identical=True bytes=42466
