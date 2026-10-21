@@ -1,0 +1,46 @@
+quant-020 replay: observed ask-side fills, hold to settlement
+frozen universe: 1384 events; in-band (0.40<=p24<=0.55): 101
+selection-window cutoff (250th newest endDate): 2026-07-30T13:00:00+00:00
+fee=0.05 primary; stake=20 USDT/event; account=5000 USDT
+  fetched 20/101...
+  fetched 40/101...
+  fetched 60/101...
+  fetched 80/101...
+  fetched 100/101...
+observed ask-side print: 97/101; no ask print: 4
+data-api truncated markets: 0
+refetched last-YES price equals frozen p24: 101/101 (mismatch 0)
+
+[1] PRIMARY: last observed ask-side print, fee 0.05
+DISCOVERY                            n= 54 YES=0.4444 meanAsk=0.5205 medianNet=-0.4221 meanNet=-0.0881 total=-4.7558 perDollar=-0.1692 CI=[-0.2077,+0.0326]
+HOLDOUT                              n= 43 YES=0.6047 meanAsk=0.5136 medianNet=+0.4476 meanNet=+0.0790 total=+3.3976 perDollar=+0.1538 CI=[-0.1007,+0.1953]
+POOLED                               n= 97 YES=0.5155 meanAsk=0.5175 medianNet=+0.2406 meanNet=-0.0140 total=-1.3582 perDollar=-0.0271 CI=[-0.1292,+0.0817]
+STRICT_OOS (outside selection window) n= 68 YES=0.4706 meanAsk=0.5221 medianNet=-0.4120 meanNet=-0.0634 total=-4.3081 perDollar=-0.1214 CI=[-0.1638,+0.0366]
+SELECTION (inside selection window)  n= 29 YES=0.6207 meanAsk=0.5067 medianNet=+0.4476 meanNet=+0.1017 total=+2.9498 perDollar=+0.2008 CI=[-0.1822,+0.2824]
+
+[2] Robustness: band flag from original CLOB p_24h (in_band_old)
+STRICT_OOS old-band                  n= 42 YES=0.4762 meanAsk=0.5143 medianNet=-0.4322 meanNet=-0.0503 total=-2.1127 perDollar=-0.0978 CI=[-0.2097,+0.1023]
+
+[3] Fee sensitivity on the observed-ask sample
+POOLED fee=0.05                      n= 97 YES=0.5155 meanAsk=0.5175 medianNet=+0.2406 meanNet=-0.0140 total=-1.3582 perDollar=-0.0271 CI=[-0.1292,+0.0817]
+STRICT_OOS fee=0.05                  n= 68 YES=0.4706 meanAsk=0.5221 medianNet=-0.4120 meanNet=-0.0634 total=-4.3081 perDollar=-0.1214 CI=[-0.1638,+0.0366]
+POOLED fee=0.04                      n= 97 YES=0.5155 meanAsk=0.5175 medianNet=+0.2425 meanNet=-0.0116 total=-1.1252 perDollar=-0.0224 CI=[-0.1268,+0.0841]
+STRICT_OOS fee=0.04                  n= 68 YES=0.4706 meanAsk=0.5221 medianNet=-0.4096 meanNet=-0.0610 total=-4.1464 perDollar=-0.1168 CI=[-0.1615,+0.0390]
+POOLED fee=0.00                      n= 97 YES=0.5155 meanAsk=0.5175 medianNet=+0.2500 meanNet=-0.0020 total=-0.1931 perDollar=-0.0038 CI=[-0.1172,+0.0939]
+STRICT_OOS fee=0.00                  n= 68 YES=0.4706 meanAsk=0.5221 medianNet=-0.4000 meanNet=-0.0515 total=-3.4997 perDollar=-0.0986 CI=[-0.1520,+0.0486]
+
+[4] Entry-price assumption check: last YES print + 1c (q020-oos style)
+STRICT_OOS last-YES+1c               n= 68 YES=0.4706 meanAsk=0.4819 medianNet=-0.4221 meanNet=-0.0237 total=-1.6109 perDollar=-0.0492 CI=[-0.1243,+0.0785]
+
+[5] Effective spread and print size
+observed ask-bid: n=93 mean=+0.0716 median=+0.0400
+ask-print notional: median=4.8 USDT; >=200 USDT: 1/97
+
+[6] Account arithmetic with 20 USDT/event
+span: 2025-06-05T00:00:00Z .. 2026-10-20T13:00:00Z (502 days)
+total PnL=-8.52 USDT; max realized drawdown=266.58 USDT = 5.33% of 5000
+annualised contribution = -0.12% of 5000 USDT
+
+VERDICT: result=负 (POOLED meanNet=-0.0140/share, n=97; STRICT_OOS meanNet=-0.0634/share, n=68)
+
+wrote trades.csv (101 rows) and results.json

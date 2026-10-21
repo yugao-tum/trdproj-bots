@@ -16,21 +16,29 @@ data: Gamma events/markets（规则原文、outcomePrices、feeSchedule）、CLO
 test_2w: 独立结果按 event=公司-季度计（一事件一市场）。历史口径可在两周内检验：跨 16 个月有 101 个带内、HOLDOUT 47 个（其中 32 个落在选带窗口）、严格选带外 68 个，均 ≥30。2026-10-21 Gamma 有 105 个 open event，但历史带内只占 7.65%，任一滚动 14 天窗口带内最多 24 个（通常 <10），纯前向两周凑不到 30（只能作补充）。失败标准：0.40–0.55 带内按事件分组净 PnL 中位 ≤0，或带内 YES 率 ≤ 事前价均值
 status: 草稿
 confidence: 中
+evidence: 回放
+result: 负
+slot: -
+variants: 8
+variants_ext: -
+window: 2024-01-19..2026-10-20
+max_dd: 5.3%（按事件已实现，20 USDT/笔）
+contribution: -0.1%
 ---
 
-整理说明：基率与校准是我在 2026-10-20 用 Gamma + CLOB 公开接口现取现算；原稿脚本 `fetch_earn.py` / `scan_all.py` / `sample_price.py` **未随合并笔记入库**（仓库内查不到），可复核的等价脚本片段、命令与输出见 `bots/quant/notes/batch2-verification/quant-020.md` 记录 7，公式写在下方。原稿只有「事前 24h 价 vs 实际结算」的横截面校准；2026-10-20 已补做 data-api 逐笔成交的时间切分样本外回测（`bots/quant/notes/q020-oos/`），2026-10-21 又用**实际 ask 侧成交打印**（BUY YES，或 SELL NO 按 1−p 换算）替代「最后成交价 +1¢」假设重跑，并补了剔除选带窗口的严格前置样本外（`bots/quant/notes/scheduler/scratch/H-quant-020/`）。**仍未做历史盘口/L2 回放**（GUIDE 第 8 节：历史 L2 无公开来源），但不再是「没有逐笔成交」。
+整理说明：基率与校准是我在 2026-10-20 用 Gamma + CLOB 公开接口现取现算；原稿脚本 `fetch_earn.py` / `scan_all.py` / `sample_price.py` **未随合并笔记入库**（仓库内查不到），可复核的等价脚本片段、命令与输出见 `bots/quant/notes/batch2-verification/quant-020.md` 记录 7，公式写在下方。原稿只有「事前 24h 价 vs 实际结算」的横截面校准；2026-10-20 已补做 data-api 逐笔成交的时间切分样本外回测（`bots/quant/notes/q020-oos/`），2026-10-21 又用**实际 ask 侧成交打印**（BUY YES，或 SELL NO 按 1−p 换算）替代「最后成交价 +1¢」假设重跑，并补了剔除选带窗口的严格前置样本外（`bots/quant/notes/scheduler/scratch/H-quant-020/`）。2026-10-21 的 P-quant-020 已把可重跑版本落到 **`bots/quant/replay/quant-020/`**（`run_replay.py`、`SUMMARY.md`、`trades.csv`、`results.json`），并重抓全部引用源、更正 GAAP 口径与月度表（见 `bots/quant/notes/scheduler/scratch/P-quant-020/FIXES.md`）。**仍未做历史盘口/L2 回放**（GUIDE 第 8 节：历史 L2 无公开来源），但已有逐笔成交 + 实际 ask 侧打印。
 
-## 本轮加固结论（H-quant-020，2026-10-21）
+## 本轮结论（P-quant-020，2026-10-21）：建议丢弃
 
-**建议核对时降级到待选区（若严格按门 5 也可直接退回；status 由整合者决定，本轮只保留 `草稿`）。** 理由：**门槛 5 不满足**（门槛 6 按 GUIDE 的历史口径满足，见下）；实际 ask 侧成交打印的 POOLED 均值 **−0.0140/份（每美元 −2.71%）**、95% CI **[−0.1292, +0.0817]** 跨 0，DISCOVERY 为负；即使把费率降到 0，POOLED 均值也只有 **−0.0020/份（−0.38%/美元）**。**更关键的是原「HOLDOUT」并不干净**：选带用的 247 个样本取自 2026-10-20 最新 250 个已关闭事件，而 60/40 的 HOLDOUT 有 **29/43** 落在同一个选带窗口内（切点 `2026-07-30T13:00Z`）。把这 250 个事件全部剔除后，**严格前置样本外 n=68 的均值是 −0.0634/份（每美元 −12.14%）、中位 −0.4120**，95% CI **[−0.1638, +0.0366]**；正收益集中在选带窗口内的 29 个事件（均值 +0.1017/份、每美元 +20.08%）。因此「HOLDOUT PASS」是选带样本内的结果，不是干净的样本外通过。此外，观察到的 ask 成交打印中位只有 **4.8 USDT**，97 个里仅 1 个 ≥200 USDT，200 USDT/event 的可成交性未证实。
+**建议直接丢弃，不进待核（`status` 仍只保留 `草稿`，由整合者决定）。** 理由：**门槛 5 不满足**（门槛 6 按 GUIDE 的历史口径满足，见下）；实际 ask 侧成交打印的 POOLED 均值 **−0.0140/份（按每份 1 股等权的每美元 −2.71%）**、95% CI **[−0.1292, +0.0817]** 跨 0，DISCOVERY 为负；即使把费率降到 0，POOLED 均值也只有 **−0.0020/份（−0.38%/美元）**。**更关键的是原「HOLDOUT」并不干净**：选带用的 247 个样本取自 2026-10-20 最新 250 个已关闭事件，而 60/40 的 HOLDOUT 有 **29/43** 落在同一个选带窗口内（切点 `2026-07-30T13:00Z`）。把这 250 个事件全部剔除后，**严格前置样本外 n=68 的均值是 −0.0634/份（每美元 −12.14%）、中位 −0.4120**，95% CI **[−0.1638, +0.0366]**；正收益集中在选带窗口内的 29 个事件（均值 +0.1017/份、每美元 +20.08%）。因此「HOLDOUT PASS」是选带样本内的结果，不是干净的样本外通过。此外，观察到的 ask 成交打印中位只有 **4.8 USDT**，97 个里仅 1 个 ≥200 USDT，200 USDT/event 的可成交性未证实；按 20 USDT/event 做，97 笔只赚/亏 **−8.52 USDT**，对 5,000 USDT 年化 **−0.12%**。扣成本后为负、容量不足、正结果又只来自选带窗口，三条合起来没有继续核对的理由。
 
 ## 一句话
 
-在 Polymarket 的「某公司本季 EPS 是否高于创建时的一致预期」二元市场里，只在事前 24h 价格落在 **0.40–0.55** 的带上**吃单买 YES**，持到结算（通常 1 天内出结果）。原稿的依据是 2026-10-20 的 35 个中间带事件：YES 率 **65.71%** 对事前均价 **0.4894**；但把样本扩到 101 个带内事件（其中 97 个有 ask 侧打印）、改用实际成交打印后，合并均值接近 0 且为负；再剔除选带所用的最新 250 个事件，**严格前置样本外 n=68 的均值 −0.0634/份（每美元 −12.14%）**（见「可成交价」与「本轮加固结论」），所以 **65.71% 不能当作已证实的边**。
+在 Polymarket 的「某公司本季 EPS 是否高于创建时的一致预期」二元市场里，只在事前 24h 价格落在 **0.40–0.55** 的带上**吃单买 YES**，持到结算（通常 1 天内出结果）。原稿的依据是 2026-10-20 的 35 个中间带事件：YES 率 **65.71%** 对事前均价 **0.4894**；但把样本扩到 101 个带内事件（其中 97 个有 ask 侧打印）、改用实际成交打印后，合并均值接近 0 且为负；再剔除选带所用的最新 250 个事件，**严格前置样本外 n=68 的均值 −0.0634/份（每美元 −12.14%）**（见「可成交价」与「本轮结论」），所以 **65.71% 不能当作已证实的边**。第 2 轮回放（`bots/quant/replay/quant-020/`）复现同一结论：**result 负**。
 
 ## 钱从哪里来
 
-付钱给你的是**在 50¢ 附近给「能否 beat」报低价的一方**。机制上的理由是：这类市场的行权价不是「会不会超预期」的模糊叙事，而是 `as of market creation` 那一刻 SeekingAlpha 卖方一致预期的**一个具体数字**（见规则原文），而 GAAP 与非 GAAP 两个口径的历史超预期率差得很远——我数出来 GAAP 是 **64.06%**、非 GAAP 是 **80.95%**（见证据）。当两边的信息被混在一个「财报好不好」的直觉里，接近 50¢ 的报价就没有把口径差异和基准率算进去。
+付钱给你的是**在 50¢ 附近给「能否 beat」报低价的一方**。机制上的理由是：这类市场的行权价不是「会不会超预期」的模糊叙事，而是 `as of market creation` 那一刻 SeekingAlpha 卖方一致预期的**一个具体数字**（见规则原文），而 GAAP 与非 GAAP 两个口径的历史超预期率差得很远——2026-10-21 严格 slug 口径下 GAAP 是 **64.44%**、非 GAAP 是 **80.72%**（见证据）。当两边的信息被混在一个「财报好不好」的直觉里，接近 50¢ 的报价就没有把口径差异和基准率算进去。
 
 这是**横截面单点证据 + 事后分桶**，不是持续性的时序证明；§证据 里也如实写了：整体上市场校准比基准率更好（Brier 0.1310 vs 0.1818），缺口只集中在中间那一档。2026-10-20/21 的可成交价回测没有把这个机制解释变成稳定正收益：DISCOVERY 为负、POOLED 均值约 0 或为负；剔除选带样本后的严格样本外均值也为负。
 
@@ -59,15 +67,15 @@ confidence: 中
 
 ## 证据
 
-### 1）历史超预期率（我自己数的，1378 个已关闭事件）
+### 1）历史超预期率（我自己数的；2026-10-20 快照 1378 个、2026-10-21 重抓 1393 个）
 
-样本：`https://gamma-api.polymarket.com/events?tag_slug=earnings&limit=100&offset=…&closed=true&order=endDate&ascending=false` 全量翻页，2026-10-20 快照得 **1378** 个已关闭事件、**1382** 个市场，`endDate` 从 **2024-01-19** 到 **2026-10-19**。结算值取 Gamma `outcomePrices`（`["1","0"]` 记 YES、`["0","1"]` 记 NO，全部 1382 个都能这样判，无未结算残留）。
+样本：`https://gamma-api.polymarket.com/events?tag_slug=earnings&limit=100&offset=0&closed=true&order=endDate&ascending=false`（其余页按 `offset=100,200,…` 替换）全量翻页，2026-10-20 快照得 **1378** 个已关闭事件、**1382** 个市场，`endDate` 从 **2024-01-19** 到 **2026-10-19**。结算值取 Gamma `outcomePrices`（`["1","0"]` 记 YES、`["0","1"]` 记 NO，全部 1382 个都能这样判，无未结算残留）。
 
-- 合计 **YES 1028 / NO 354 → 74.38%**。
-- 按 slug 口径分：`-nongaap-` **684/845 = 80.95%**；`-gaap-` **344/537 = 64.06%**。
-- 每月事件数（同一份数据按 `endDate` 月份数）：2025-10 **156**、2025-11 **172**、2025-12 **53**、2026-01 **54**、2026-02 **169**、2026-03 **73**、2026-04 **120**、2026-05 **155**、2026-06 **44**、2026-07 **143**、2026-08 **154**、2026-09 **44**、2026-10 **28**（只到 10-19）。→ 财报季（1、2、4、5、7、8、10、11 月）每月 120–172 个，淡季（6、9 月）44 个。**这就是「每月多少次机会」的实测值**。
+- 2026-10-20 快照合计 **YES 1028 / NO 354 → 74.38%**。
+- 2026-10-20 快照按严格 slug 口径分：`-nongaap-` **684/845 = 80.95%**；`-gaap-` **334/519 = 64.35%**（审计 c20261021-030001 S2 独立复算，非本目录脚本）。原稿的 `-gaap- 344/537 = 64.06%` 不是 slug 口径：它把 **18 个无标签市场**（10 YES / 8 NO；其中 5 个 MrBeast 推文市场 1 YES/4 NO，13 个旧 `will-*-beat-…-earnings-estimate` 市场 9 YES/4 NO（含 broadcom））全部并入了 GAAP；只有这样混合才得到 344/537。**该数字已作废。**
+- 每月事件数（2026-10-21 快照，按 `endDate` 月份数；**仅列近 13 个月**）：2025-10 **156**、2025-11 **172**、2025-12 **53**、2026-01 **54**、2026-02 **169**、2026-03 **73**、2026-04 **120**、2026-05 **155**、2026-06 **44**、2026-07 **143**、2026-08 **154**、2026-09 **44**、2026-10 **43**（只到 10-20）。→ 峰值月（2025-10=156、2025-11=172、2026-02=169、2026-04=120、2026-05=155、2026-07=143、2026-08=154）120–172 个；1 月 54、3 月 73、6/9 月 44 个（淡季/过渡月）；2026-10 只统计到 10-20（43 个）。**这就是「每月多少次机会」的实测值**。近 13 个月合计 **1380**；另有 13 个更早事件未列（2024-01 1 个、2025-06 1 个、2025-09 11 个），合计 **1393**，与总数对平。
 - 单事件成交额（Gamma `volume`，来源自报，未核实）：合计 **$21,633,950**、中位 **$6,232**、p90 **$29,916**。
-- **2026-10-21 复核快照**（同端点、同口径，脚本 `verify_sources.py` / `verify_sources.out`）：**1393** 个已关闭事件、**1397** 个市场，`endDate` 2024-01-19 至 2026-10-20；YES **1038 / NO 359 = 74.30%**；`-nongaap-` **691/856 = 80.72%**、`-gaap-` **347/541 = 64.14%**。10 月事件数从 10-19 的 28 增至 10-20 的 43。与 1378 快照的差异是 2026-10-20/21 新结算事件陆续入库，**不是口径修正**；按口径基率三次快照差异 <0.3pp（q020-oos 的 1384 个 deduped 事件为 74.64% / 80.94% / 64.49%）。
+- **2026-10-21 复核快照**（同端点、同口径，脚本 `bots/quant/notes/scheduler/scratch/P-quant-020/verify_sources.py` / `verify_sources.out`）：**1393** 个已关闭事件、**1397** 个市场，`endDate` 2024-01-19 至 2026-10-20；YES **1038 / NO 359 = 74.30%**；`-nongaap-` **691/856 = 80.72%**、严格 `-gaap-` **337/523 = 64.44%**；无标签 18 个（10 YES / 8 NO，构成同上）。若把 13 个旧财报市场并入 GAAP、排除 MrBeast，则为 **345/535 = 64.49%**；把 18 个无标签全部并入才得到 **347/541 = 64.14%**，与原稿同一错误口径。与 1378 快照的差异主要是 2026-10-20/21 新结算事件陆续入库，严格 slug 口径的基率差异 <0.3pp。
 
 ### 2）事前价 vs 实际结算（247 个事件，我自己取的）
 
@@ -93,11 +101,11 @@ confidence: 中
 
 该 247 样本已由 `bots/quant/notes/batch2-verification/quant-020.md` 独立重跑复核（记录 7：重跑 246/247，分桶到 0.6 的数字一致），本轮未重复抓取 250 个 CLOB 端点。
 
-**必须一起读的三件事**：(a) 整体缺口只有 +3.81pp，小于一次吃单的费+半价差，所以「整体买 YES」不是策略；(b) 市场整体 Brier **优于**常数基准率（0.1310 < 0.1818），即市场是有信息含量的，不是系统性低估；(c) 唯一的大缺口在 [0.40,0.60) 这 35 个事件上，**区间边界是我看完数据才划的**，有事后选择偏差，n=35 也小；剔除选带窗口后严格样本外均值为负（见「严格前置样本外」）。这三条合起来说明：这是**待验证的候选**，不是已证实的边。
+**必须一起读的三件事**：(a) 整体缺口只有 +3.81pp，小于一次吃单的费+半价差，所以「整体买 YES」不是策略；(b) 市场整体 Brier **优于**常数基准率（0.1310 < 0.1818），即市场是有信息含量的，不是系统性低估；(c) 唯一的大缺口在 [0.40,0.60) 这 35 个事件上，**区间边界是我看完数据才划的**，有事后选择偏差，n=35 也小；剔除选带窗口后严格样本外均值为负（见「严格前置样本外」）。这三条合起来说明：这是**负证据**，不是可交易候选。
 
 ### 3）没有做的事
 
-原稿没有逐笔成交回放、没有资金曲线；2026-10-20 的 `q020-oos` 已补 data-api 逐笔成交的时间切分回测，2026-10-21 的 H-quant-020 又补了实际 ask 侧成交打印复核和剔除选带窗口的严格前置样本外。**仍未做**：历史盘口/L2 深度（GUIDE 第 8 节：历史 L2 无公开来源）、资金曲线、实际 UMA 结算到账时间分布；也没有取 SeekingAlpha 的原始预期值或公布值（付费墙），所以**无法**独立复核「strike 是否等于当时一致预期」，只能照抄规则原文。
+原稿没有逐笔成交回放、没有资金曲线；2026-10-20 的 `q020-oos` 已补 data-api 逐笔成交的时间切分回测，2026-10-21 的 H-quant-020 又补了实际 ask 侧成交打印复核和剔除选带窗口的严格前置样本外；P-quant-020 把可重跑版本落到 `bots/quant/replay/quant-020/`，并补了按 20 USDT/event 的已实现 PnL、回撤和年化贡献。**仍未做**：历史盘口/L2 深度（GUIDE 第 8 节：历史 L2 无公开来源）、逐日盯市资金曲线、实际 UMA 结算到账时间分布；也没有取 SeekingAlpha 的原始预期值或公布值（付费墙），所以**无法**独立复核「strike 是否等于当时一致预期」，只能照抄规则原文。
 
 ## 可成交价时间切分样本外检验
 
@@ -118,6 +126,8 @@ confidence: 中
 | DISCOVERY | 54 | 0.4444 | 0.5205 | −0.4221 | −0.0881 | −16.92% | [−0.2077, +0.0326] |
 | HOLDOUT | 43 | 0.6047 | 0.5136 | **+0.4476** | +0.0790 | +15.38% | [−0.1007, +0.1953] |
 | POOLED | 97 | 0.5155 | 0.5175 | +0.2406 | **−0.0140** | **−2.71%** | [−0.1292, +0.0817] |
+
+注：表中「每 $ 投入」按每事件 1 份等权（`总净 PnL / 总入场价`）；若按固定 20 USDT/event，实际每美元约 −0.44%，年化贡献与回撤见「第 2 轮回放」。
 
 - 用同一批 101 个事件、原来的「最后 YES 成交价 +1¢」口径重跑，得到 DISCOVERY n=54 / HOLDOUT n=47 / POOLED n=101，HOLDOUT 中位 +0.4376、POOLED 均值 +0.0081、CI [−0.1005, +0.0972]，与 `bots/quant/notes/q020-oos/REPORT.md`、`run_output.txt` 完全一致（复现校验）。
 - **费率敏感性**（同一实际成交打印样本）：费率 0.05 → POOLED 均值 −0.0140/份（−2.71%/美元）；0.04 → −0.0116（−2.24%）；**0.00 → −0.0020（−0.38%）**。即使按 2026-10-21 多数 open 市场的 `rate=0`，合并均值仍约等于 0 且为负，没有可用的边。
@@ -143,14 +153,23 @@ confidence: 中
 - **换回原稿 CLOB 价选带口径也不转正**：若用 `in_band_old`（原始 CLOB `p_24h` 在带内）定义样本，STRICT_OOS n=42、均值 −0.0503/份（−9.78%/美元）、中位 −0.4322；SELECTION n=20、均值 +0.1376/份（+27.52%/美元）。
 - **+1¢ 假设同样为负**：即使不用实际 ask、退回 `q020-oos` 的「最后 YES 成交价 +1¢」，STRICT_OOS n=68 均值仍为 −0.0237/份（−4.92%/美元）。
 - **切点敏感性**：把切点提前到 2026-07-01（n=62）或 2026-06-01（n=60），均值分别为 −0.0741 / −0.0715（−13.99% / −13.59%/美元）；推迟到 2026-08-01（n=69）仍为 −0.0552（−10.59%/美元）。结论不依赖某一天。
-- 解读：最新 250 个事件既是选带样本、又是正收益来源；把它们剔除后，早期 68 个带内事件的均值和中位都为负。这不是「样本外通过」，而是**选带偏差 + 小样本**。因此原 `HOLDOUT` 的正结果不能作为独立验证，条目应降级。
+- 解读：最新 250 个事件既是选带样本、又是正收益来源；把它们剔除后，早期 68 个带内事件的均值和中位都为负。这不是「样本外通过」，而是**选带偏差 + 小样本**。因此原 `HOLDOUT` 的正结果不能作为独立验证，条目应丢弃。
+
+### 第 2 轮回放：真实 ask 侧成交价（P-quant-020，2026-10-21）
+
+可重跑版本在 `bots/quant/replay/quant-020/`：`run_replay.py` 读取冻结的 **1,384** 个事件派生快照 `events_frozen.csv`（含 2026-10-20 的 `p24` 与 60/40 切分），对 **101** 个带内事件重新从 data-api 取 `[endDate−72h, endDate−24h]` 逐笔成交，取**最后一笔 ask 侧打印**（BUY Yes 取 `p`，SELL No 取 `1−p`），费率 0.05；缓存与原始下载只进 `_cache/`（gitignore，不入库）。完整参数、数据 URL 和全部变体见 `SUMMARY.md`，stdout 见 `run_output.txt`，逐事件表 `trades.csv`，汇总 `results.json`。
+
+- 重抓校验：**101/101** 个事件的「最后一笔 YES 等价成交」与冻结 `p24` 完全一致；**97/101** 有 ask 侧打印，4 个无打印按未定价剔除；data-api 截断 0 个。
+- **POOLED n=97：均值 −0.0140/份**（按每份 1 股等权的每美元 **−2.71%**），95% CI **[−0.1292, +0.0817]**；**STRICT_OOS n=68：均值 −0.0634/份（−12.14%/美元）、中位 −0.4120**，CI [−0.1638, +0.0366]；SELECTION n=29 均值 +0.1017/份（+20.08%）。费率 0.04 / 0.00 下严格样本外仍为 −0.0610 / −0.0515；换回「最后 YES +1¢」仍为 −0.0237。
+- **固定 20 USDT/event**（容量只支持 20–50）：97 笔、跨度 502 天，总净 PnL **−8.52 USDT**（等价每美元投入约 −0.44%；低价事件份数更多，与每份等权的 −2.71% 不同权）；已实现累计 PnL 最大回撤 **266.58 USDT = 5.3%**（按事件序列，非盯市）；对 5,000 USDT 年化贡献 **−0.12%**。
+- 结论：**`result: 负`**。正结果只出现在选带窗口内，窗口外为负，费率归零也不转正；容量中位仅 4.8 USDT。**建议丢弃，不进待核。**
 
 ## 数据
 
-- Gamma（免费免密钥）：`https://gamma-api.polymarket.com/events?tag_slug=earnings&limit=100&offset=<0..1400>&closed=true&order=endDate&ascending=false`（2026-10-20 快照 1378 个已关闭事件，2026-10-21 复核 1393 个；规则原文 + `outcomePrices` + `feeSchedule`）；`closed=false&order=endDate&ascending=true`（2026-10-21 为 105 个 open）。
-- CLOB（免费免密钥）：`https://clob.polymarket.com/prices-history?market=<clobTokenId>&startTs=&endTs=&fidelity=60`。**本条实测：已关闭的财报市场仍然能取到价格**（247/250 成功），这与 quant-012 里已关闭地震市场返回空 `history` 的情况不同——所以本族可以做历史校准，这是它与地震条目的关键数据差异。
+- Gamma（免费免密钥）：`https://gamma-api.polymarket.com/events?tag_slug=earnings&limit=100&offset=0&closed=true&order=endDate&ascending=false`（具体示例 `offset=0`；其余页按 `offset=100,200,…` 替换，`offset=0..1400` 这种模板 URL 直接请求会 422）。2026-10-20 快照 1378 个已关闭事件，2026-10-21 复核 1393 个；规则原文 + `outcomePrices` + `feeSchedule`。open 用 `closed=false&order=endDate&ascending=true`（2026-10-21 为 105 个）。
+- CLOB（免费免密钥）：`https://clob.polymarket.com/prices-history?market=<clobTokenId>&startTs=&endTs=&fidelity=60`。具体示例（`cof-quarterly-earnings-nongaap-eps-10-20-2026-5pt57`，token `104559595660296147678443697835737075405315985842087214448659759392424486465642`，`endDate 2026-10-20T21:00Z`）：`https://clob.polymarket.com/prices-history?market=104559595660296147678443697835737075405315985842087214448659759392424486465642&startTs=1792270800&endTs=1792530000&fidelity=60` — 访问 2026-10-21 — HTTP 200，68 个点；`market=<clobTokenId>` 占位符直接请求会 400。**本条实测：已关闭的财报市场仍然能取到价格**（247/250 成功），这与 quant-012 里已关闭地震市场返回空 `history` 的情况不同——所以本族可以做历史校准，这是它与地震条目的关键数据差异。
 - SEC EDGAR 全文检索（免费免密钥，可作独立口径）：`https://efts.sec.gov/LATEST/search-index?q=form%3A8-K%20items%3A2.02&forms=8-K` 返回 JSON（`hits.total.value`）；8-K Item 2.02 的 EX-99.1 是公司自己的财报新闻稿，可用来直接数「公布 EPS vs 当时一致预期」。本轮只验证端点可达、**未**逐份抽取数字。
-- data-api（免费免密钥）：`https://data-api.polymarket.com/trades?market=<conditionId>&limit=500&offset=<0..10000>`，逐笔成交含 `side`（BUY/SELL）、`outcome`（Yes/No）、`price`、`size`、`timestamp`。2026-10-20/21 已用它对 101 个带内事件取 `[endDate−72h, endDate−24h]` 的成交；本轮 0 个市场因 offset 上限被截断。只保留最近约 2 万笔/市场，更早/更活跃市场可能缺成交。
+- data-api（免费免密钥）：`https://data-api.polymarket.com/trades?market=<conditionId>&limit=500&offset=<0..10000>`（具体示例 conditionId `0x0963735b289cbd820a1073380840212be2a829d55f7b9b28aad6833b0ad79d17`，其余按 offset 递增），逐笔成交含 `side`（BUY/SELL）、`outcome`（Yes/No）、`price`、`size`、`timestamp`。2026-10-20/21 已用它对 101 个带内事件取 `[endDate−72h, endDate−24h]` 的成交；本轮 0 个市场因 offset 上限被截断。只保留最近约 2 万笔/市场，更早/更活跃市场可能缺成交。
 - 缺失：SeekingAlpha 原始预期/公布值（付费墙，不抓）；历史盘口/L2 深度（无公开来源）；实际 UMA 结算到账时间。
 
 ## 两周内怎么检验
@@ -169,10 +188,11 @@ confidence: 中
 - 原稿的「带内毛期望 +0.1452/份（+29.1%）」是**模型算术，已被实际成交打印回测否定**，不再作为证据：同样本 POOLED 均值 **−0.0140/份（−2.71%/美元）**，HOLDOUT 为正但 DISCOVERY 为负，CI 跨 0；剔除选带样本后严格样本外均值也为负。
 - 容量：Gamma `volume` 中位 $6,232、p90 $29,916（来源自报，未核实）；但实际 ask 成交打印的 `size × price` 中位只有 **4.8 USDT**，97 个里仅 **1 个 ≥200 USDT**。200 USDT/event 没有成交证据支持，先按 **20–50 USDT/event**。机会密度也应按带内算：101 个带内事件跨约 16.5 个月 ≈ **每月 6 次**，不是原稿的「每月 28 次」；财报季峰值 14 天最多 24 个，淡季更少。**频率和单次容量都偏小，5,000 USDT 放不满。**
 - 资金被占住：`endDate` 后到 UMA 结算，本轮样本末价格点距 `endDate` 最近的记录显示价格已在结算方向（如 `tfc-…` 从 0.52 跌到 0.0045、`mtb-…` 从 0.745 升到 0.9995），说明结果通常在 `endDate` 附近已定，但**实际结算到账时间未统计**。
+- **对 5,000 USDT 的年化贡献（第 2 轮）**：按每事件 20 USDT 等额投入（容量只支持 20–50）、97 笔、首末事件跨度 502 天，总净 PnL **−8.52 USDT** → `−8.52 ÷ 5,000 × 365 ÷ 502 = **−0.12%/年**`。若误用每份 1 股等权的 −2.71%/美元，会得到更负的数，但那个权重不适合固定金额下注。
 
 ## 风险
 
-- **口径风险（最大）**：GAAP 与非 GAAP 两个基准率差 16.9pp（80.95% vs 64.06%）。若把非 GAAP 的基准率套到 GAAP 市场上，中间带的「+16.8pp」会消失甚至反向（GAAP 中间带只有 +8.1pp，n=18）。
+- **口径风险（最大）**：GAAP 与非 GAAP 两个基准率差约 **16.3pp**（2026-10-21 严格 slug：80.72% vs 64.44%；2026-10-20 快照严格口径为 80.95% vs 64.35%）。若把非 GAAP 的基准率套到 GAAP 市场上，中间带的「+16.8pp」会消失甚至反向（GAAP 中间带只有 +8.1pp，n=18）。旧稿的「16.9pp（80.95% vs 64.06%）」混用了污染后的 GAAP 数字，已改。
 - **事后分桶 / 选带偏差**：区间 0.40–0.55/0.60 是我看完 247 个样本才定的，而这 247 个又正是最新 250 个已关闭事件；`q020-oos` 的 HOLDOUT 有 29/43（有 ask 打印口径）落在同一窗口。剔除后 STRICT_OOS n=68 均值 **−0.0634/份（−12.14%/美元）**，正是这个风险的实现。真正的样本外表现没有转正。
 - **实际成交打印很小**：带内事件 ask 侧打印的 `size × price` 中位 4.8 USDT，97 个里 1 个 ≥200 USDT；200 USDT/event 可能吃不到报价，或把价格推高。历史 L2 无公开来源，无法回放整条盘口。
 - **价差比假设宽**：实测 ask−bid 中位 4.0¢（半价差约 2¢），原稿按 1¢ 算；价差再宽 1¢ 就足以把 POOLED 的微弱均值压得更负。
@@ -195,20 +215,20 @@ confidence: 中
 3. **小资金能做：满足（容量偏小）** — 资金门槛满足：20–200 USDT/event、≤15 event、≤2,000 USDT，低于 2,500/场所与 5,000 总资金；不加杠杆、不借钱；买 YES 最大亏损即本金。容量已写明但偏小：观察到的 ask 成交打印中位仅 4.8 USDT，97 个里 1 个 ≥200 USDT，200 USDT/event 的可成交性未证实，所以实际只能先做 20–50 USDT/event。容量小是收益问题，不影响“小资金能做”。
 4. **不重复：不确定（倾向不重复）** — 查了 `known/KNOWN.md`（135 条，grep `earnings|EPS|财报|盈利|beat|finance|股票` 无命中，最接近的是 `E-E1-macro-window`（FOMC/CPI 宏观窗口）与 `E-E1-index-etf-event`（指数纳入/ETF 获批），二者结算看宏观数据与监管公告，没有 EPS 一致预期行权价）；另 grep 全部 `bots/*/entries/*.md`，只有 `quant-004`（财报电话会**提及词**市场，结算看说了哪个词，不是 EPS 数字）命中 earnings，机制不同；`quant-007`（AI 榜单）、`dot-032`（流动性奖励）无关。`bots/*/CLAIMS.md` 里 B17 由本 bot 于 2026-10-20 认领。是否与主项目未公开条目重复要主审确认。
 5. **扣成本后粗算够用：不满足** — 实际 ask 侧成交打印、费率 0.05：POOLED n=97 均值 **−0.0140/份（−2.71%/美元）**，95% CI [−0.1292, +0.0817] 跨 0；DISCOVERY n=54 均值 −0.0881（−16.92%）；HOLDOUT n=43 中位 +0.4476、均值 +0.0790，但 29/43 落在选带窗口内。剔除选带样本后 **STRICT_OOS n=68 均值 −0.0634/份（−12.14%/美元）、中位 −0.4120**，95% CI [−0.1638, +0.0366]；费率 0.04 → −0.0610（−11.68%），0.00 → −0.0515（−9.86%），仍不转正。原稿的「+29.1%」是模型算术，已作废，不再作为扣成本后为正的证据。
-6. **两周内能检验：满足（历史口径，前向稀疏）** — GUIDE §2 第 6 条允许用历史数据；现有 101 个带内事件（严格选带外 68 个、HOLDOUT 47 个）都是按事件计的独立结果，均 ≥30，失败标准已冻结，两周内可完成这套历史检验。但若只算纯前向，`q020-oos` 实测任一滚动 14 天窗口带内最多 **24** 个（通常 <10），2026-10-21 的 105 个 open event 也不能改变这一点；前向复核见 `bots/quant/notes/q020-forward/`，只能作补充观察。本条不因门 6 降级，降级理由是门 5。
-7. **出处可查：满足** — 每个数字都有 URL + 访问日期 + 取数方式；2026-10-21 已重抓 Gamma 全量、hims 规则原文、public-search、open 清单、CLOB、data-api、SEC 并保存 stdout（`verify_sources.out`，当日重跑逐字一致）；严格样本外脚本与 stdout 为 `strict_oos.py` / `strict_oos.out`；另对 3 个事件重取 data-api 核对最后一笔 ask 打印，`spotcheck_fills.out` 全部一致；基率与校准用 `verify_sources.py` 现取 JSON 重算，原稿 247 样本由 `batch2-verification/quant-020.md` 独立重跑（246/247 一致）；Gamma 的 `volume` 一律标「来源自报，未核实」；原稿「每个市场都收 0.05」已更正为分费率统计；未取到的（SeekingAlpha、历史 L2、结算到账时间）都写「未查到」。
+6. **两周内能检验：满足（历史口径，前向稀疏）** — GUIDE §2 第 6 条允许用历史数据；现有 101 个带内事件（严格选带外 68 个、HOLDOUT 47 个）都是按事件计的独立结果，均 ≥30，失败标准已冻结，两周内可完成这套历史检验。但若只算纯前向，`q020-oos` 实测任一滚动 14 天窗口带内最多 **24** 个（通常 <10），2026-10-21 的 105 个 open event 也不能改变这一点；前向复核见 `bots/quant/notes/q020-forward/`，只能作补充观察。本条不因门 6 丢弃，丢弃理由是门 5 + 选带偏差 + 容量。
+7. **出处可查：满足** — 每个数字都有 URL + 访问日期 + 取数方式；2026-10-21 已重抓 Gamma 全量、hims 规则原文、CLOB 示例、data-api、SEC 并保存 stdout（`bots/quant/notes/scheduler/scratch/P-quant-020/verify_sources.py` / `verify_sources.out`）；严格样本外脚本与 stdout 为 `H-quant-020/strict_oos.py` / `strict_oos.out`；第 2 轮回放脚本、stdout、逐事件表与汇总为 `bots/quant/replay/quant-020/run_replay.py` / `run_output.txt` / `trades.csv` / `results.json` / `SUMMARY.md`；另对 3 个事件重取 data-api 核对最后一笔 ask 打印，`spotcheck_fills.out` 全部一致；基率与校准用 `verify_sources.py` 现取 JSON 重算，原稿 247 样本由 `batch2-verification/quant-020.md` 独立重跑（246/247 一致）；Gamma 的 `volume` 一律标「来源自报，未核实」；原稿「每个市场都收 0.05」已更正为分费率统计；原稿 GAAP 344/537 已替换为严格 slug 口径（见证据 1）；未取到的（SeekingAlpha、历史 L2、结算到账时间）都写「未查到」。
 
 ## 出处
 
-- https://gamma-api.polymarket.com/events?tag_slug=earnings&limit=100&offset=0..1400&closed=true&order=endDate&ascending=false — 访问 2026-10-20 — 已读（全量翻页得 1378 个已关闭事件 / 1382 个市场 / YES 1028 / NO 354；`endDate` 2024-01-19 至 2026-10-19）
-- 同上 — 访问 2026-10-21 — 已读（复核 1393 个已关闭事件 / 1397 个市场 / YES 1038 / NO 359 = 74.30%；nongaap 691/856 = 80.72%、gaap 347/541 = 64.14%；`endDate` 2024-01-19 至 2026-10-20；新结算 5 个事件与 2026-10-20 13:00 的 1384 个 deduped 快照一致；脚本 `verify_sources.py`，输出 `verify_sources.out`）
+- https://gamma-api.polymarket.com/events?tag_slug=earnings&limit=100&offset=0&closed=true&order=endDate&ascending=false — 访问 2026-10-20 — 已读（`offset=0` 示例，其余页按 100 递增；全量翻页得 1378 个已关闭事件 / 1382 个市场 / YES 1028 / NO 354；`endDate` 2024-01-19 至 2026-10-19）
+- 同上 — 访问 2026-10-21 — 已读（复核 1393 个已关闭事件 / 1397 个市场 / YES 1038 / NO 359 = 74.30%；nongaap 691/856 = 80.72%、严格 gaap 337/523 = 64.44%；无标签 18 个（10 YES/8 NO，含 5 个 MrBeast、13 个旧 `will-*-beat`）；`endDate` 2024-01-19 至 2026-10-20；脚本 `P-quant-020/verify_sources.py`，输出 `verify_sources.out`）
 - https://gamma-api.polymarket.com/public-search?q=earnings&limit_per_type=20&events_status=all — 访问 2026-10-20 — 已读（模板确认：`Will Hims & Hers Health (HIMS) beat quarterly earnings?`，`resolutionSource=https://seekingalpha.com/`，`restricted=true`，`volume=287931.953117`）
-- 同上 — 访问 2026-10-21 — 已读（返回 20 条事件，`pagination={"hasMore":true,"totalResults":1729}`；首条仍是 hims，`resolutionSource`、`restricted=true`、`volume=287931.953117` 不变；脚本 `verify_sources.py`）
+- 同上 — 访问 2026-10-21 — 已读（返回 20 条事件，`pagination={"hasMore":true,"totalResults":1729}`；首条仍是 hims，`resolutionSource`、`restricted=true`、`volume=287931.953117` 不变；脚本 `P-quant-020/verify_sources.py`）
 - https://gamma-api.polymarket.com/events?slug=hims-quarterly-earnings-gaap-eps-02-23-2026-0pt05 — 访问 2026-10-20 — 已读（规则原文全文：SeekingAlpha 一致预期、`greater than $0.05`、96h/45天兜底、舍入到分、IFRS=GAAP、diluted 优先）
 - 同上 — 访问 2026-10-21 — 已读（10 个关键短语逐条命中：`as of market creation`、`SeekingAlpha estimates`、`greater than $0.05`、`within 96h`、`45 calendar days`、`rounded to the nearest cent`、`IFRS EPS will be treated as GAAP EPS`、`diluted GAAP EPS`、`fat finger errors`、`Lyft`；`resolutionSource=https://seekingalpha.com/`、`restricted=true`、`volume=287931.953117`、`outcomePrices=["1","0"]`；已关闭市场的 `feeSchedule=null`）
-- https://clob.polymarket.com/prices-history?market=<clobTokenId>&startTs=<endDate-72h>&endTs=<endDate>&fidelity=60 — 访问 2026-10-20 — 已读（247/250 个已关闭市场返回非空 history；例：`tfc-…-10-16-2026-1pt13` 从 `p=0.52` 到 `p=0.0045`；`mtb-…-10-16-2026-5pt00` 从 `p=0.745` 到 `p=0.9995`）
-- 同上 — 访问 2026-10-21 — 已读（示例 `jef-…-2025-09-29-0pt8` 返回 57 个点，`t ≤ endDate−24h` 最后一点 `{"t":1759014011,"p":0.525}`；脚本 `verify_sources.py`）
-- https://data-api.polymarket.com/trades?market=<conditionId>&limit=500&offset=<0..10000> — 访问 2026-10-20/21 — 已读（字段 `side`、`outcome`、`price`、`size`、`timestamp`；101 个带内事件中 97 个在 `[endDate−72h,endDate−24h]` 有 ask 侧打印；0 个市场因 offset 上限截断；脚本 `tradable_fills.py`，输出 `tradable_fills.out`、`tradable_fills.csv`）
+- https://clob.polymarket.com/prices-history?market=<clobTokenId>&startTs=<endDate-72h>&endTs=<endDate>&fidelity=60 — 访问 2026-10-20 — 已读（具体示例见数据节；247/250 个已关闭市场返回非空 history；例：`tfc-…-10-16-2026-1pt13` 从 `p=0.52` 到 `p=0.0045`；`mtb-…-10-16-2026-5pt00` 从 `p=0.745` 到 `p=0.9995`）
+- 同上 — 访问 2026-10-21 — 已读（`cof-…-10-20-2026-5pt57` 的 token 示例 HTTP 200、68 个点；另 `jef-…-2025-09-29-0pt8` 返回 57 个点，`t ≤ endDate−24h` 最后一点 `{"t":1759014011,"p":0.525}`；脚本 `P-quant-020/verify_sources.py`）
+- https://data-api.polymarket.com/trades?market=<conditionId>&limit=500&offset=<0..10000> — 访问 2026-10-20/21 — 已读（具体 conditionId 示例见数据节；字段 `side`、`outcome`、`price`、`size`、`timestamp`；101 个带内事件中 97 个在 `[endDate−72h,endDate−24h]` 有 ask 侧打印；0 个市场因 offset 上限截断；脚本 `tradable_fills.py` 与 `replay/quant-020/run_replay.py`，输出 `tradable_fills.out`、`tradable_fills.csv`）
 - https://gamma-api.polymarket.com/events?tag_slug=earnings&limit=100&closed=false&order=endDate&ascending=true — 访问 2026-10-20 — 已读（100 个 open 事件，`endDate` 至 2026-10-30；示例 `bfc-…-2pt66` bid 0.44/ask 0.46、`efx-…-2pt24` 0.56/0.69、`ally-…-1pt43` 0.17/0.77；`feeSchedule={"exponent":1,"rate":0.05,"takerOnly":true,"rebateRate":0.25}`）
 - 同上 `&offset=100` — 访问 2026-10-20 — 已读（另 18 个 open 事件，`endDate` 至 2026-11-05 → 16 天内共 118 个）
 - 同上 — 访问 2026-10-21 — 已读（全量翻页得 **105** 个 open 事件，`endDate` 2026-10-21 至 2026-11-05；105 个中 103 个 `feeSchedule.rate=0`、2 个 `rate=0.05`；脚本 `verify_sources.py`）
@@ -217,8 +237,10 @@ confidence: 中
 - https://docs.polymarket.com/ — 本轮**未重新抓取**；费用公式与 5 位小数舍入沿用 GUIDE 第 8 节与本条 Gamma 实取 `rate=0.05`
 - `bots/quant/notes/q020-oos/REPORT.md`、`run_output.txt`、`events.csv`、`q020_oos.py` — 2026-10-20 合并笔记 — 已读（+1¢ 口径：HOLDOUT n=47 中位 +0.4376、YES 0.5745 > 0.4881；POOLED n=101 均值 +0.0081、CI [−0.1005,+0.0972]；本次用 `tradable_fills.py` 逐项复现）
 - `bots/quant/notes/scheduler/scratch/H-quant-020/strict_oos.py`、`strict_oos.out`、`STRICT_OOS.md`、`tradable_fills.csv` — 2026-10-21 — 已读（选带窗口切点 `2026-07-30T13:00Z`；STRICT_OOS n=68 均值 −0.0634/份、每美元 −12.14%、中位 −0.4120；SELECTION n=29 均值 +0.1017；旧 CLOB 选带口径 STRICT_OOS n=42 均值 −0.0503）
-- `bots/quant/notes/scheduler/scratch/H-quant-020/verify_sources.py`、`verify_sources.out` — 2026-10-21 — 已读（当日重跑，stdout 与文件逐字一致；所有引用端点仍返回相同值）
+- `bots/quant/notes/scheduler/scratch/P-quant-020/verify_sources.py`、`verify_sources.out` — 2026-10-21 — 已读（1393/1397、YES 1038/359、严格 gaap 337/523、nongaap 691/856、无标签 18、近 13 个月合计 1380 + 更早 13 = 1393、closed fee 664×0.05 / 7×0.04 / 5×0 / 721 null、open 105 个中 103×0 / 2×0.05；HIMS 10 个规则短语全部命中；CLOB 示例 68 点、SEC `hits.total=10000 relation=gte`）
 - `bots/quant/notes/scheduler/scratch/H-quant-020/spotcheck_fills.out` — 2026-10-21 — 已读（对 `jef-…`、`hims-…08-10`、`tfc-…10-16` 三个事件重取 data-api，最后一笔 ask 打印与 `tradable_fills.csv` 完全一致）
+- `bots/quant/replay/quant-020/run_replay.py`、`run_output.txt`、`trades.csv`、`results.json`、`SUMMARY.md`、`events_frozen.csv` — 2026-10-21 — 已读（本轮重跑：101/101 个最后一笔 YES 等价成交与冻结 p24 一致；97/101 有 ask 打印；POOLED n=97 均值 −0.0140/份、CI [−0.1292,+0.0817]；STRICT_OOS n=68 均值 −0.0634/份、中位 −0.4120；20 USDT/笔总 PnL −8.52、最大已实现回撤 5.3%、年化贡献 −0.12%）
+- `bots/quant/notes/scheduler/scratch/P-quant-020/FIXES.md` — 2026-10-21 — 已读（逐条列出审计问题、改动与证据）
 - `bots/quant/notes/q020-forward/README.md`、`run_output.txt`、`q020_forward.py` — 2026-10-20 合并笔记 — 已读（预注册窗口 `[2026-10-21T00:00Z, 2026-10-26T00:00Z)`；`run_output.txt` 显示 29 个事件、0 个结算、2 个带内，`PENDING`，无判定）
 - `bots/quant/notes/batch2-verification/quant-020.md` — 2026-10-20 核对笔记 — 已读（原稿 247 样本独立重跑；记录 7 的分桶数字与本条一致）
 - 未查到：SeekingAlpha 原始一致预期与公布值（付费墙）；历史盘口/L2；结算到账时间分布

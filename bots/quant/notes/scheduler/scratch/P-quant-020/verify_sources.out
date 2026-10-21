@@ -1,0 +1,68 @@
+as_of=2026-10-21 (re-fetch)
+Gamma tag_slug=earnings closed events: 1393
+closed markets: 1397
+closed endDate span: 2024-01-19T00:00:00Z .. 2026-10-20T21:00:00Z
+outcome YES 1038 / markets 1397 = 0.7430
+  slug gaap      337/ 523 = 0.6444
+  slug nongaap   691/ 856 = 0.8072
+  slug untagged   10/  18 = 0.5556
+untagged markets: 18
+  how-much-did-mrbeasts-twitter-post-with-124m-views-make | 2024-01-19T00:00:00Z | markets=5 YES=1
+  will-acn-beat-earnings-estimate-2025-09-25-2pt99 | 2025-10-02T11:00:00Z | markets=1 YES=1
+  will-blsh-beat-earnings-estimate-2025-09-17-neg0pt04 | 2025-09-24T20:00:00Z | markets=1 YES=1
+  will-broadcom-beat-q2-earnings-estimate | 2025-06-05T00:00:00Z | markets=1 YES=1
+  will-cash-beat-earnings-estimate-2025-09-19-1pt29 | 2025-10-22T20:00:00Z | markets=1 YES=0
+  will-cnxc-beat-earnings-estimate-2025-09-25-2pt91 | 2025-10-02T20:00:00Z | markets=1 YES=0
+  will-fds-beat-earnings-estimate-2025-09-18-4pt15 | 2025-09-25T07:00:00Z | markets=1 YES=0
+  will-fdx-beat-earnings-estimate-2025-09-18-3pt62 | 2025-09-25T16:00:00Z | markets=1 YES=1
+  will-gis-beat-earnings-estimate-2025-09-17-0pt82 | 2025-09-24T07:00:00Z | markets=1 YES=1
+  will-jbl-beat-earnings-estimate-2025-09-25-2pt9 | 2025-10-02T11:00:00Z | markets=1 YES=1
+  will-kmx-beat-earnings-estimate-2025-09-25-1pt03 | 2025-10-02T11:00:00Z | markets=1 YES=0
+  will-mlkn-beat-earnings-estimate-2025-09-23-0pt34 | 2025-09-30T20:00:00Z | markets=1 YES=1
+  will-mu-beat-earnings-estimate-2025-09-23-2pt85 | 2025-09-30T16:00:00Z | markets=1 YES=1
+  will-prgs-beat-earnings-estimate-2025-09-29-1pt3 | 2025-10-06T20:00:00Z | markets=1 YES=1
+  MrBeast markets: 5 (YES 1)
+  old will-*-beat-earnings-estimate markets: 12 (YES 8)
+strict tagged gaap+nongaap: 1028/1379 = 0.7455
+GAAP + old untagged (excl MrBeast): 345/535 = 0.6449
+GAAP + all untagged: 347/541 = 0.6414
+monthly closed events (all months):
+  2024-01 1
+  2025-06 1
+  2025-09 11
+  2025-10 156
+  2025-11 172
+  2025-12 53
+  2026-01 54
+  2026-02 169
+  2026-03 73
+  2026-04 120
+  2026-05 155
+  2026-06 44
+  2026-07 143
+  2026-08 154
+  2026-09 44
+  2026-10 43
+last 13 months sum: 1380 ; total 1393 ; earlier omitted: 13
+last 13 months: 2025-10=156, 2025-11=172, 2025-12=53, 2026-01=54, 2026-02=169, 2026-03=73, 2026-04=120, 2026-05=155, 2026-06=44, 2026-07=143, 2026-08=154, 2026-09=44, 2026-10=43
+closed feeSchedule counts: {'0': 5, '0.05': 664, 'null': 721, '0.04': 7}
+open events: 105
+open markets: 105 feeSchedule counts: {'0': 103, '0.05': 2}
+public-search q=earnings events=20 pagination={'hasMore': True, 'totalResults': 1729}
+  first slug=hims-quarterly-earnings-gaap-eps-02-23-2026-0pt05 resolutionSource=https://seekingalpha.com/ restricted=True volume=287931.953117
+HIMS rule phrase hits:
+  as of market creation                         YES
+  SeekingAlpha estimates                        YES
+  greater than $0.05                            YES
+  within 96h                                    YES
+  45 calendar days                              YES
+  rounded to the nearest cent                   YES
+  IFRS EPS will be treated as GAAP EPS          YES
+  diluted GAAP EPS                              YES
+  fat finger errors                             YES
+  Lyft                                          YES
+HIMS resolutionSource=https://seekingalpha.com/ restricted=True volume=287931.953117
+concrete Gamma offset=0 HTTP 200 bytes=10634
+concrete CLOB prices-history HTTP 200 bytes=1825 points=68
+SEC EDGAR search-index HTTP 200 bytes=59899
+  hits.total={'value': 10000, 'relation': 'gte'}
