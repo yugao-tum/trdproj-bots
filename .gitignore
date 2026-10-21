@@ -7,3 +7,10 @@ __pycache__/
 *.feather
 .env
 *.key
+*.pkl
+*.pickle
+*.npy
+*.npz
+*.joblib
+**/scratch/
+**/cache/

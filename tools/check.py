@@ -1,8 +1,10 @@
 #!/usr/bin/env python3
 """Checks and scoring for the bot strategy competition (stdlib only).
 
+Lint also checks for files over 1 MB and binary files in bot directories.
+
 Usage:
-  python3 tools/check.py lint    # field and naming checks for every entry
+  python3 tools/check.py lint    # field/naming checks, files over 1 MB and binary files
   python3 tools/check.py dupes   # likely duplicates: similar names or shared source URLs
   python3 tools/check.py stats   # entry counts by bot, market, Polymarket category, kind, category, return_type, status
   python3 tools/check.py score   # read reviews/REVIEWS.csv, write scoreboard/SCOREBOARD.md (operator only)
@@ -13,6 +15,7 @@ import collections
 import csv
 import datetime as dt
 import difflib
+import os
 import pathlib
 import re
 import sys
@@ -34,6 +37,8 @@ STATUSES = {"草稿", "待核"}
 CONFIDENCE = {"高", "中", "低"}
 URL = re.compile(r"https?://[^\s)>\]，。；;]+")
 ROUND_CAP = 15  # 待核 entries per bot per round (GUIDE 3.3)
+BINARY_SUFFIXES = {".pkl", ".pickle", ".parquet", ".feather", ".npy", ".npz", ".joblib",
+                   ".zip", ".gz", ".bz2", ".xz", ".7z", ".db", ".sqlite", ".h5", ".hdf5"}
 
 # GUIDE 3.1-3.3
 WEIGHTS = {"polymarket": 1.3, "crypto": 1.0, "prediction_other": 1.0, "other": 0.7}
@@ -45,6 +50,8 @@ REVIEW_FIELDS = ["round", "date", "entry", "bot", "market", "outcome", "stage", 
 
 def entries():
     for path in sorted(BOTS.glob("*/entries/*.md")):
+        if any(p.is_symlink() for p in (path, path.parent, path.parent.parent)):
+            continue
         text = path.read_text(encoding="utf-8")
         fields = {}
         if text.startswith("---"):
@@ -63,6 +70,7 @@ def round_of(date):
 
 
 def lint():
+    """Check entry fields/names, files over 1 MB and binary files; skip symlinks."""
     problems = 0
     seen = {}
     pending = collections.Counter()
@@ -84,9 +92,10 @@ def lint():
             bad(rel, f"文件名应以 id {f['id']!r} 加连字符开头")
         if f.get("id") and not re.fullmatch(rf"{re.escape(bot_dir)}-\d{{3}}", f["id"]):
             bad(rel, f"id 应写成 {bot_dir}-三位编号")
-        if f.get("id") in seen:
-            bad(rel, f"id 和 {seen[f['id']]} 重复")
-        seen.setdefault(f.get("id"), rel)
+        if f.get("id"):
+            if f["id"] in seen:
+                bad(rel, f"id 和 {seen[f['id']]} 重复")
+            seen.setdefault(f["id"], rel)
         if f.get("market") and f["market"] not in MARKETS:
             bad(rel, f"market 应为 {'、'.join(sorted(MARKETS))} 之一")
         if f.get("market") == "polymarket" and f.get("pm_category") not in PM_CATEGORIES:
@@ -120,11 +129,24 @@ def lint():
             print(f"bots/{bot}: 第 {rnd} 轮有 {n} 条待核，超过 {ROUND_CAP} 条，超出的这一轮不核对")
             problems += 1
     if BOTS.is_dir():
-        for bot in sorted(p for p in BOTS.iterdir() if p.is_dir()):
+        for bot in sorted(p for p in BOTS.iterdir() if not p.is_symlink() and p.is_dir()):
             for name in ("README.md", "INDEX.md", "CLAIMS.md", "LOG.md"):
                 if not (bot / name).exists():
                     print(f"bots/{bot.name}: 缺 {name}")
                     problems += 1
+            for directory, dirs, files in os.walk(bot, followlinks=False):
+                dirs[:] = sorted(d for d in dirs if not (pathlib.Path(directory) / d).is_symlink())
+                for name in sorted(files):
+                    path = pathlib.Path(directory) / name
+                    if path.is_symlink() or not path.is_file():
+                        continue
+                    rel = path.relative_to(ROOT)
+                    if path.stat().st_size > 1_000_000:
+                        bad(rel, "文件超过 1 MB，原始数据不要进仓库")
+                    with path.open("rb") as fh:
+                        prefix = fh.read(8192)
+                    if path.suffix.lower() in BINARY_SUFFIXES or b"\x00" in prefix:
+                        bad(rel, "二进制文件，不要提交")
     print(f"检查完毕，问题 {problems} 个")
     return 1 if problems else 0
 
