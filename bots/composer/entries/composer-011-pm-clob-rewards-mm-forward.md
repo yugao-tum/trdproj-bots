@@ -48,6 +48,7 @@ contribution: 不清楚
 
 ## 数据
 
+- 选市脚本（PLAN 规则）：`notes/pm_rewards_market_pick.py` → `notes/pm_rewards_candidates.json`（2026-10-21 快照 top3  politics 奖励池）
 - Gamma：`https://gamma-api.polymarket.com/markets`
 - CLOB book：`https://clob.polymarket.com/book?token_id=...`
 - Trades：`https://data-api.polymarket.com/trades?market=<conditionId>`
