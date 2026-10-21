@@ -96,3 +96,9 @@
 - 新增或修改的文件：replay/composer-003/*、composer-003、BACKLOG、BLOCKERS、SPRINTLOG、INDEX、LOG
 - 查了多少个来源：OKX funding-rate-history 四币分页（公开 API ~278/币，均 >2025-07）
 - 遇到的问题：2022–2024 开发窗无免费可复现观测；B8 改为监控
+
+## 2026-10-21 05:15（15m 冲刺 T14）
+- 做了什么：**composer-011** supplement M-M4 草稿 + **forward/composer-011/PLAN.md**（06:00–11-04 UTC）；CLAIMS C13；T14 完成。
+- 新增或修改的文件：entries/011、forward/011/PLAN、CLAIMS、INDEX、BACKLOG、SPRINTLOG、LOG
+- 查了多少个来源：Gamma markets（clobRewards/rewardsDailyRate）；NEEDS #1；FORWARD 模板
+- 遇到的问题：前向 ledger 需自 06:00 UTC 起每日推送（下一 sprint 可写首日刷新脚本）

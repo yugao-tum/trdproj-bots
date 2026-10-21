@@ -16,3 +16,4 @@
 | C10 USGS 周 M5.5+ 计数（composer-008） | 2026-10-21 | 2026-10-21 | 已完成 | composer-008（待核） |
 | C11 中国登陆 TC CMA 阶梯（composer-009） | 2026-10-21 | 2026-10-21 | 已完成 | composer-009（待核） |
 | C12 特朗普支持率 RCP 分档（composer-010） | 2026-10-21 | 2026-10-21 | 已完成 | composer-010（待核） |
+| C13 PM CLOB 奖励池做市前向（composer-011 / NEEDS #1） | 2026-10-21 | 2026-11-04 | 进行中 | forward/composer-011/PLAN + 011 草稿 |

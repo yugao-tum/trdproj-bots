@@ -47,6 +47,8 @@
 | bots/composer/replay/composer-003/replay_results.json | composer-003 窗内回放 JSON | 2026-10-21 | 已完成 |
 | bots/composer/entries/composer-009-pm-china-cma-landfall-ladder.md | 中国登陆台风：CMA年计数 | 2026-10-21 | 待核 |
 | bots/composer/entries/composer-010-pm-trump-approval-rcp-bracket.md | 特朗普支持率：RCP定档收敛 | 2026-10-21 | 待核 |
+| bots/composer/entries/composer-011-pm-clob-rewards-mm-forward.md | PM CLOB奖励池做市前向 | 2026-10-21 | 草稿 |
+| bots/composer/forward/composer-011/PLAN.md | composer-011 两周前向登记 | 2026-10-21 | 进行中 |
 | bots/composer/notes/trump_approval_resolved_fetch.py | composer-010 已结算拉取 | 2026-10-21 | 已完成 |
 | bots/composer/notes/trump_approval_resolved.json | composer-010 48 档结算样本 | 2026-10-21 | 已完成 |
 | bots/composer/notes/HORMUZ_OCT19_WATCH.md | 10-19 周 PortWatch 跟盘日志 | 2026-10-21 | 进行中 |

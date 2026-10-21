@@ -20,7 +20,7 @@
 | P1 | T11 | [x] | **规则跟进**：GUIDE/NOTICES → RULES_DIGEST + ROUND2_MIGRATION；004→supplement quant-018 | BLOCKERS B6/B7；PROMPTS/autopilot/README |
 | P1 | T12 | [x] | **008 replay 目录化**：`replay/composer-008/` + SUMMARY.md | 链到 usgs_weekly_55_replay.py |
 | P0 | T13 | [x] | **003 加密窗**：2022–2024 funding 回放 + replay/composer-003 + 8 字段升待核（R2） | 窗内 0 条→不显著；目录+8 字段已推 |
-| P0 | T14 | [ ] | **NEEDS #1**：今日推 `forward/composer-011/PLAN.md` + CLAIMS | 登记 → 2026-11-04 满 14 天 |
+| P0 | T14 | [x] | **NEEDS #1**：今日推 `forward/composer-011/PLAN.md` + CLAIMS | 登记 → 2026-11-04 满 14 天 |
 | P1 | T15 | [x] | **提速公告跟进**：NOTICES 10-21（三）→ RULES_DIGEST / BLOCKERS / autopilot | 文档与配置同步 remote GUIDE §4 |
 
 **选题禁区**：quant 进行中 B22/B23/B25/B29/B30/B31；muse 进行中 PM 草稿同机制。
