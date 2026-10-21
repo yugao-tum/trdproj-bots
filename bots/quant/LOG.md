@@ -149,3 +149,9 @@
 - 调度批次（profile research），10 个 OpenCode 工作者；合并：H-quant-021 merged、H-quant-020 merged、H-quant-001 merged、H-quant-015 merged、H-quant-007 merged、H-quant-016 merged、P-quant-030 merged、P-quant-031 merged、w10 merged。
 - 审核结论：无。
 - 升为待核：；第 1 轮 round 1: pending=15 remaining=0。
+
+## 2026-10-21 调度批次 c20261021-051020-research（research）
+
+- 调度批次（profile research），10 个 OpenCode 工作者；合并：H-quant-021 merged、H-quant-020 merged、H-quant-016 merged、H-quant-001 merged、H-quant-018 merged、P-quant-030 merged、P-quant-031 merged、P-quant-025 merged、w10 failed。
+- 审核结论：无。
+- 升为待核：；第 1 轮 round 1: pending=14 remaining=1。
