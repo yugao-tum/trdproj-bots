@@ -4,12 +4,16 @@
 Lint also checks for files over 1 MB and binary files in bot directories.
 
 Usage:
-  python3 tools/check.py lint    # field/naming checks, files over 1 MB and binary files
+  python3 tools/check.py lint [--bot NAME]  # 只查指定机器人；第 2 轮字段、证据文件、1 MB 和二进制文件
   python3 tools/check.py dupes   # likely duplicates: similar names or shared source URLs
-  python3 tools/check.py stats   # entry counts by bot, market, Polymarket category, kind, category, return_type, status
+  python3 tools/check.py stats   # 按市场、类型、状态及 evidence、result、slot 统计
+  python3 tools/check.py audit START  # 操作员只读审查 START..HEAD 的目录越界、PLAN 改写和明细旧行改写
   python3 tools/check.py score   # read reviews/REVIEWS.csv, write scoreboard/SCOREBOARD.md (operator only)
 
 Scoring rules: GUIDE.md section 3. The point tables below must match it.
+Lint 对待核条目用 git 里 status: 待核 第一次出现的提交时间近似分轮；草稿、
+没有 git 或未提交文件用 date。认定以操作员按 GitHub 推送到达 main 的记录核对为准。
+提示不算问题；自测负的条目可以待核，不限制 kind。
 """
 import collections
 import csv
@@ -19,6 +23,7 @@ import os
 import pathlib
 import re
 import sys
+import subprocess
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 BOTS = ROOT / "bots"
@@ -28,6 +33,13 @@ SCOREBOARD = ROOT / "scoreboard" / "SCOREBOARD.md"
 REQUIRED = ["id", "name_zh", "name_en", "bot", "date", "market", "pm_category", "kind", "improves", "category",
             "return_type", "instruments", "venues", "data", "test_2w", "status", "confidence"]
 MARKETS = {"polymarket", "crypto", "prediction_other", "other"}
+ROUND2_FIELDS = ["evidence", "result", "slot", "variants", "variants_ext", "window", "max_dd", "contribution"]
+EVIDENCE = {"回放", "前向", "回放+前向", "无"}
+RESULTS = {"正", "负", "不显著", "未测"}
+SLOTS = {"新机制", "-"}
+NEW_SLOT_CAP = 3
+ROUND2_START = "2026-10-26"
+LEDGER_FIELDS = ["time_utc", "event_id", "market", "action", "side", "price", "price_source", "size", "fee", "pnl", "note"]
 PM_CATEGORIES = {"finance", "politics", "tech", "crypto", "economics", "weather", "culture", "mentions", "sports",
                  "geopolitics", "other", "cross"}
 KINDS = {"new", "improvement", "supplement"}
@@ -41,7 +53,7 @@ BINARY_SUFFIXES = {".pkl", ".pickle", ".parquet", ".feather", ".npy", ".npz", ".
                    ".zip", ".gz", ".bz2", ".xz", ".7z", ".db", ".sqlite", ".h5", ".hdf5"}
 
 # GUIDE 3.1-3.3
-WEIGHTS = {"polymarket": 1.3, "crypto": 1.0, "prediction_other": 1.0, "other": 0.7}
+WEIGHTS = {"polymarket": 1.3, "crypto_structural": 1.3, "crypto": 1.0, "prediction_other": 1.0, "other": 0.7}
 OUTCOMES = {"收录": 3.0, "待选区": 1.0, "改进采纳": 2.0, "补充采纳": 0.5, "退回": 0.0, "退回（低质）": -0.5, "编造": -5.0, "-": 0.0}
 STAGES = {"无": 0.0, "通过快速筛选": 5.0, "通过正式检验": 15.0, "进影子前向或模拟盘": 25.0}
 NEW_PATH = 1.0
@@ -53,14 +65,7 @@ def entries():
         if any(p.is_symlink() for p in (path, path.parent, path.parent.parent)):
             continue
         text = path.read_text(encoding="utf-8")
-        fields = {}
-        if text.startswith("---"):
-            head = text.split("---", 2)[1]
-            for line in head.splitlines():
-                if ":" in line:
-                    key, _, value = line.partition(":")
-                    fields[key.strip()] = value.strip()
-        yield path, fields, text
+        yield path, front_matter(text), text
 
 
 def round_of(date):
@@ -69,11 +74,152 @@ def round_of(date):
     return (d - dt.date(2026, 10, 19)).days // 7 + 1
 
 
-def lint():
-    """Check entry fields/names, files over 1 MB and binary files; skip symlinks."""
+def front_matter(text):
+    fields = {}
+    if text.startswith("---"):
+        for line in text.split("---", 2)[1].splitlines():
+            if ":" in line:
+                key, _, value = line.partition(":")
+                fields[key.strip()] = value.strip()
+    return fields
+
+
+def git(*args):
+    """Read-only git, no shell, no external diff/text conversion. None when unavailable."""
+    try:
+        p = subprocess.run(["git", "--no-pager", "-C", str(ROOT), *args], capture_output=True, text=True,
+                           encoding="utf-8", errors="replace", timeout=60)
+        return p.stdout if p.returncode == 0 else None
+    except (OSError, subprocess.SubprocessError):
+        return None
+
+
+def entry_dates(path, f):
+    """(round date, first commit date); follow renames, use first pending occurrence, not file birth."""
+    fallback = f.get("date", "")
+    relative = path.relative_to(ROOT).as_posix()
+    history = git("log", "--follow", "--format=%H %cI", "--", relative)
+    pending_date, first_date = None, None
+    for line in (history or "").splitlines():  # newest to oldest, overwriting yields the earliest
+        try:
+            sha, stamp = line.split(" ", 1)
+            day = dt.datetime.fromisoformat(stamp).astimezone(dt.timezone.utc).date().isoformat()
+        except ValueError:
+            continue
+        first_date = day
+        if f.get("status") == "待核":
+            content = git("show", f"{sha}:{relative}")
+            if content is not None and front_matter(content).get("status") == "待核":
+                pending_date = day
+        # At a rename commit the content is at the new path; older commits use the old path.
+        changes = git("diff-tree", "--no-commit-id", "--name-status", "-r", "-M", sha, "--")
+        for change in (changes or "").splitlines():
+            cells = change.split("\t")
+            if len(cells) == 3 and cells[0].startswith("R") and cells[2] == relative:
+                relative = cells[1]
+                break
+    return pending_date or fallback, first_date
+
+
+def artifact_exists(bot_dir, path, directory=False):
+    current = bot_dir
+    if current.is_symlink():
+        return False
+    for part in path.relative_to(bot_dir).parts:
+        current = current / part
+        if current.is_symlink():
+            return False
+    return current.is_dir() if directory else current.is_file()
+
+
+def round2_problems(path, f, bad, hint):
+    missing = [k for k in ROUND2_FIELDS if not f.get(k)]
+    if missing:
+        bad("第 2 轮起缺字段或为空：" + "、".join(missing))
+    for key, allowed in (("evidence", EVIDENCE), ("result", RESULTS), ("slot", SLOTS)):
+        if f.get(key) and f[key] not in allowed:
+            bad(f"{key} 应为 {'、'.join(sorted(allowed))} 之一")
+    variants = f.get("variants", "")
+    own_count = (1 if variants.strip("0") else 0) if re.fullmatch(r"[0-9]+", variants) else None
+    if variants and own_count is None:
+        bad("variants 应为非负整数")
+    ext = f.get("variants_ext", "")
+    if ext and ext not in ("不清楚", "-") and not re.fullmatch(r"[0-9]+", ext):
+        bad("variants_ext 应为非负整数、不清楚或 -")
+    window, dates = f.get("window", ""), None
+    if window and window != "-":
+        try:
+            if not re.fullmatch(r"[0-9]{4}-[0-9]{2}-[0-9]{2}\.\.[0-9]{4}-[0-9]{2}-[0-9]{2}", window):
+                raise ValueError
+            start, end = (dt.date.fromisoformat(s) for s in window.split(".."))
+            if start > end:
+                raise ValueError
+            dates = start, end
+        except ValueError:
+            bad("window 应为 - 或有效的 YYYY-MM-DD..YYYY-MM-DD，起点不能晚于终点")
+    percent = r"[+-]?(?:[0-9]+(?:\.[0-9]+)?|\.[0-9]+)%"
+    dd = f.get("max_dd", "")
+    numeric_dd = bool(re.fullmatch(percent + r"(?:（[^（）\r\n]+）|\([^()\r\n]+\))?", dd))
+    if dd and dd not in ("不清楚", "-") and not numeric_dd:
+        bad("max_dd 应为百分数（可注明日线或小时）、不清楚或 -")
+    contribution = f.get("contribution", "")
+    if contribution and contribution != "不清楚" and not re.fullmatch(percent, contribution):
+        bad("contribution 应为百分数或不清楚")
+    evidence, result = f.get("evidence"), f.get("result")
+    if (evidence == "无") != (result == "未测"):
+        bad("evidence: 无 和 result: 未测 必须同时出现")
+    if evidence == "无" and own_count != 0:
+        bad("evidence: 无 时 variants 应为 0")
+    if f.get("status") == "待核" and f.get("slot") != "新机制" and evidence == "无":
+        bad("待核且不占新机制名额的条目要有实测，evidence 不能是无")
+    if f.get("slot") == "新机制":
+        if f.get("kind") != "new":
+            bad("slot: 新机制 只能配 kind: new")
+        if f.get("status") == "草稿":
+            hint("草稿写了 slot: 新机制；草稿不占待核名额")
+    bot_dir, eid = path.parent.parent, f.get("id", "")
+    safe_id = bool(re.fullmatch(rf"{re.escape(bot_dir.name)}-[0-9]{{3}}", eid))
+    if evidence in EVIDENCE and "回放" in evidence:
+        if own_count is None or own_count < 1:
+            bad("evidence 含回放时 variants 至少为 1")
+        if not safe_id or not artifact_exists(bot_dir, bot_dir / "replay" / eid / "SUMMARY.md"):
+            bad("evidence 含回放时要有 replay/<条目编号>/SUMMARY.md")
+        if f.get("market") == "crypto" and not numeric_dd:
+            bad("加密且带回放的条目，max_dd 必须是数字百分数")
+    if evidence in EVIDENCE and "前向" in evidence:
+        directory = bot_dir / "forward" / eid
+        for name in ("PLAN.md", "RESULT.md"):
+            if not safe_id or not artifact_exists(bot_dir, directory / name):
+                bad(f"evidence 含前向时要有 forward/<条目编号>/{name}")
+        ledgers = [p for p in directory.glob("ledger*.csv") if artifact_exists(bot_dir, p)] if safe_id and artifact_exists(bot_dir, directory, True) else []
+        if not ledgers:
+            bad("evidence 含前向时至少要有一个 forward/<条目编号>/ledger*.csv")
+        for ledger in sorted(ledgers):
+            try:
+                with ledger.open(encoding="utf-8", newline="") as fh:
+                    header = next(csv.reader(fh), [])  # header only, never read historical evidence rows
+                if header != LEDGER_FIELDS:
+                    bad(f"{ledger.name} 的表头应为：{','.join(LEDGER_FIELDS)}")
+            except (OSError, UnicodeDecodeError, csv.Error):
+                bad(f"{ledger.name} 的表头读不出")
+    if f.get("market") == "crypto" and dates:
+        start, end = dates
+        if start < dt.date(2022, 1, 1):
+            bad("加密 window 起点不能早于 2022-01-01")
+        if start < dt.date(2024, 1, 1) and end > dt.date(2024, 12, 31):
+            bad("加密 window 起点早于 2024-01-01 时，终点不能晚于 2024-12-31")
+        if start >= dt.date(2024, 1, 1):
+            hint("请核对数据起点和 70% 切分点")
+    if result == "正" and contribution == "不清楚":
+        hint("result 为正，contribution 还不清楚，请补年化贡献粗算")
+
+
+def lint(bot_name=None):
+    """Check only the requested bot when given; hints do not count as problems."""
     problems = 0
     seen = {}
     pending = collections.Counter()
+    new_slots = collections.Counter()
 
     def bad(rel, msg):
         nonlocal problems
@@ -81,8 +227,10 @@ def lint():
         problems += 1
 
     for path, f, _ in entries():
-        rel = path.relative_to(ROOT)
         bot_dir = path.parent.parent.name
+        if bot_name is not None and bot_dir != bot_name:
+            continue
+        rel = path.relative_to(ROOT)
         missing = [k for k in REQUIRED if not f.get(k)]
         if missing:
             bad(rel, f"缺字段或为空：{', '.join(missing)}")
@@ -121,15 +269,32 @@ def lint():
                 bad(rel, "date 应写成 YYYY-MM-DD")
             elif f.get("status") == "待核":
                 try:
-                    pending[(bot_dir, round_of(f["date"]))] += 1
+                    round_of(f["date"])
                 except ValueError:
                     bad(rel, "date 不是有效日期")
+        date, first = entry_dates(path, f)
+        if first and re.fullmatch(r"[0-9]{4}-[0-9]{2}-[0-9]{2}", f.get("date", "")) and f["date"] < first:
+            print(f"{rel}: 提示：date 早于文件第一次提交日期 {first}，请核对")
+        try:
+            rnd = round_of(date)
+            is_round2 = dt.date.fromisoformat(date) >= dt.date.fromisoformat(ROUND2_START)
+        except ValueError:
+            continue  # invalid or missing dates were checked above
+        if f.get("status") == "待核":
+            pending[(bot_dir, rnd)] += 1
+        if is_round2:
+            round2_problems(path, f, lambda msg: bad(rel, msg), lambda msg: print(f"{rel}: 提示：{msg}"))
+            if f.get("status") == "待核" and f.get("slot") == "新机制":
+                new_slots[(bot_dir, rnd)] += 1
+    for (bot, rnd), n in sorted(new_slots.items()):
+        if n > NEW_SLOT_CAP:
+            bad(f"bots/{bot}", f"第 {rnd} 轮有 {n} 条新机制，超过 {NEW_SLOT_CAP} 条名额")
     for (bot, rnd), n in sorted(pending.items()):
         if n > ROUND_CAP:
             print(f"bots/{bot}: 第 {rnd} 轮有 {n} 条待核，超过 {ROUND_CAP} 条，超出的这一轮不核对")
             problems += 1
     if BOTS.is_dir():
-        for bot in sorted(p for p in BOTS.iterdir() if not p.is_symlink() and p.is_dir()):
+        for bot in sorted(p for p in BOTS.iterdir() if not p.is_symlink() and p.is_dir() and (bot_name is None or p.name == bot_name)):
             for name in ("README.md", "INDEX.md", "CLAIMS.md", "LOG.md"):
                 if not (bot / name).exists():
                     print(f"bots/{bot.name}: 缺 {name}")
@@ -179,7 +344,7 @@ def dupes():
 def stats():
     items = list(entries())
     print(f"条目共 {len(items)} 条")
-    for key in ("bot", "market", "pm_category", "kind", "category", "return_type", "status"):
+    for key in ("bot", "market", "pm_category", "kind", "category", "return_type", "status", "evidence", "result", "slot"):
         counts = collections.Counter(f.get(key) or "（空）" for _, f, _ in items)
         print(f"按 {key}：" + "，".join(f"{k} {v}" for k, v in counts.most_common()))
     return 0
@@ -201,6 +366,8 @@ def read_reviews():
                 errors.append(f"第 {n} 行：date 应写成 YYYY-MM-DD")
             if r["market"] not in WEIGHTS:
                 errors.append(f"第 {n} 行：market {r['market']!r} 不认识")
+            if r["market"] == "crypto_structural" and (not r["round"].isascii() or not r["round"].isdigit() or int(r["round"]) < 2):
+                errors.append(f"第 {n} 行：crypto_structural 只能用在第 2 轮起的核对记录")
             if r["outcome"] not in OUTCOMES:
                 errors.append(f"第 {n} 行：outcome {r['outcome']!r} 不认识（{'、'.join(OUTCOMES)}）")
             if r["stage"] not in STAGES:
@@ -283,6 +450,68 @@ def score():
     return 0
 
 
+def audit(start):
+    """Read-only first-parent diffs of every commit in start..HEAD; print metadata only, never evidence rows."""
+    base = git("rev-parse", "--verify", "--end-of-options", start + "^{commit}")
+    if base is None:
+        print("起点提交不存在，或当前目录不是 git 仓库")
+        return 1
+    commits = git("rev-list", "--reverse", base.strip() + "..HEAD")
+    if commits is None:
+        print("无法读取起点到 HEAD 的历史")
+        return 1
+    findings = 0
+    for sha in commits.splitlines():
+        subject = git("show", "-s", "--format=%s", sha) or ""
+        match = re.match(r"\[([a-z0-9][a-z0-9_-]*)\]", subject)
+        owner = match.group(1) if match else None
+        def note(msg):
+            nonlocal findings
+            print(f"{sha[:12]}：{msg}")
+            findings += 1
+        if owner is None:
+            note("提交说明开头没有可识别的 [名字]，请人工核对提交者")
+        parents = (git("show", "-s", "--format=%P", sha) or "").split()
+        args = (parents[0], sha) if parents else ("--root", sha)
+        changed = git("diff-tree", "--no-commit-id", "--name-status", "-r", "-M", *args, "--")
+        if changed is None:
+            note("无法读取改动，请人工核对")
+            continue
+        for line in changed.splitlines():
+            cells = line.split("\t")
+            if len(cells) < 2:
+                continue
+            code, paths = cells[0], cells[1:]
+            old, new = paths[0], paths[-1]
+            if owner and any(not p.startswith(f"bots/{owner}/") for p in paths):
+                note("改了提交者自己目录以外的文件：" + " → ".join(paths))
+            if code != "A" and any(re.fullmatch(r"bots/[^/]+/forward/[^/]+/PLAN\.md", p) for p in paths):
+                note("改动过已有前向登记：" + " → ".join(paths))
+            if code != "A" and any(re.fullmatch(r"bots/[^/]+/forward/[^/]+/ledger[^/]*\.csv", p) for p in paths):
+                before = git("show", f"{parents[0]}:{old}") if parents else None
+                after = git("show", f"{sha}:{new}") if code != "D" else None
+                # Compare complete lines: a partial old last line cannot be rewritten under the guise of appending.
+                previous = before.splitlines(keepends=True) if before is not None else None
+                current = after.splitlines(keepends=True) if after is not None else None
+                if previous is None or current is None or current[:len(previous)] != previous:
+                    note("删除或改写了前向明细旧行：" + " → ".join(paths))
+    print(f"审查完毕，{len(commits.splitlines())} 个提交，提示 {findings} 处（请人工核对）")
+    return 0
+
+
 if __name__ == "__main__":
-    command = sys.argv[1] if len(sys.argv) > 1 else "lint"
-    sys.exit({"lint": lint, "dupes": dupes, "stats": stats, "score": score}.get(command, lint)())
+    import argparse
+    parser = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
+    commands = parser.add_subparsers(dest="command")
+    lint_parser = commands.add_parser("lint")
+    lint_parser.add_argument("--bot", help="只输出、只计这个机器人目录的问题")
+    for name in ("dupes", "stats", "score"):
+        commands.add_parser(name)
+    audit_parser = commands.add_parser("audit")
+    audit_parser.add_argument("start", help="起点提交（不含该提交）")
+    args = parser.parse_args()
+    if args.command == "audit":
+        sys.exit(audit(args.start))
+    if args.command in (None, "lint"):
+        sys.exit(lint(getattr(args, "bot", None)))
+    sys.exit({"dupes": dupes, "stats": stats, "score": score}[args.command]())
