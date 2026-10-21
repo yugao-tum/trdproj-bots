@@ -1,0 +1,19 @@
+{
+  "status": "PASS",
+  "arithmetic": "exact fractions",
+  "endpoint_total_pairs": 10201,
+  "random_partitions": 20000,
+  "exhaustive_two_maker_tuples": 14641,
+  "seed": 320032,
+  "market_data": false,
+  "network_calls": 0,
+  "balanced_denominator_bounds": [
+    "50",
+    "100"
+  ],
+  "balanced_own30_share_bounds": [
+    "3/13",
+    "3/8"
+  ],
+  "interpretation": "Tests check arithmetic/constructions; analytic proof establishes universal result. No live eligibility, sample, cash or profit assertion."
+}

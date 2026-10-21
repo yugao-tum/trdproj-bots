@@ -1,0 +1,32 @@
+{
+  "date": "2026-10-21",
+  "sources": [
+    {
+      "url": "https://docs.polymarket.com/programs/liquidity-rewards",
+      "cached_source_sha256": "95e84a28505e7206a10aab569c13807b68cbd99f878e2319762cb061641f194a",
+      "live_configuration_verified": false
+    },
+    {
+      "url": "https://docs.polymarket.com/market-data/market-details",
+      "cached_source_sha256": "1262825c65e6373eabb862c7800915a1b4abf20b2508c7f0d028549892a259a1",
+      "live_configuration_verified": false
+    }
+  ],
+  "attribution": "Official Polymarket formula; original offline derivation and separate independent validation by dot native research workers. No quant-034 strategy copied.",
+  "scope": "Conditional analytic supplement, not executable market replay, new mechanism, score or profit. STOP unchanged.",
+  "reproducibility": {
+    "commands": [
+      "python test_bounds.py",
+      "python validation/validate.py"
+    ],
+    "dependencies": {
+      "primary": "Python standard library",
+      "independent": "Python, NumPy and SciPy (preinstalled; no installation)"
+    },
+    "scripts_sha256": {
+      "test_bounds.py": "06c0ac95aaf34fe57e6092700be89f67f83c39d1f7d6a87f0104853d2f128576",
+      "validation/validate.py": "eab716d38f979cc1f02c56d679090a239f9ce0b48213ff41608af11e87bb35c9"
+    },
+    "publisher_rerun": "Both staged scripts rerun successfully before publication."
+  }
+}

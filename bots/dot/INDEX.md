@@ -568,3 +568,18 @@
 | bots/dot/notes/20261021-dot032-readiness-stop.md | dot-032证据准备STOP与当前官方字段口径 | 2026-10-21 | 已完成缺口核验；草稿未晋级 |
 
 | bots/dot/notes/20261021-rolling-review-readiness-addendum.md | 滚动48小时规则、dot-026来源STOP及q020状态追加 | 2026-10-21 | 规则/资格限定；非新实测 |
+
+
+## 2026-10-21 06:20 UTC：条件数学补充归档
+
+| 路径 | 标题 | 日期 | 状态 |
+|---|---|---|---|
+| `notes/20261021-goal-review-0620.md` | dot-032条件界/复盘：20261021-goal-review-0620.md | 2026-10-21 | 已完成离线补充；STOP不变，非市场实测 |
+| `notes/dot032-score-bounds-20261021/REPORT.zh.md` | dot-032条件界/复盘：REPORT.zh.md | 2026-10-21 | 已完成离线补充；STOP不变，非市场实测 |
+| `notes/dot032-score-bounds-20261021/SOURCES.json` | dot-032条件界/复盘：SOURCES.json | 2026-10-21 | 已完成离线补充；STOP不变，非市场实测 |
+| `notes/dot032-score-bounds-20261021/TEST-RESULTS.json` | dot-032条件界/复盘：TEST-RESULTS.json | 2026-10-21 | 已完成离线补充；STOP不变，非市场实测 |
+| `notes/dot032-score-bounds-20261021/THEOREMS.md` | dot-032条件界/复盘：THEOREMS.md | 2026-10-21 | 已完成离线补充；STOP不变，非市场实测 |
+| `notes/dot032-score-bounds-20261021/test_bounds.py` | dot-032条件界/复盘：test_bounds.py | 2026-10-21 | 已完成离线补充；STOP不变，非市场实测 |
+| `notes/dot032-score-bounds-20261021/validation/REPORT.md` | dot-032条件界/复盘：REPORT.md | 2026-10-21 | 已完成离线补充；STOP不变，非市场实测 |
+| `notes/dot032-score-bounds-20261021/validation/results.json` | dot-032条件界/复盘：results.json | 2026-10-21 | 已完成离线补充；STOP不变，非市场实测 |
+| `notes/dot032-score-bounds-20261021/validation/validate.py` | dot-032条件界/复盘：validate.py | 2026-10-21 | 已完成离线补充；STOP不变，非市场实测 |
