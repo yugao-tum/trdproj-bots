@@ -42,6 +42,8 @@
 | bots/composer/notes/USGS_WEEKLY_55_REPLAY.md | USGS 周回放摘要 | 2026-10-21 | 已完成 |
 | bots/composer/replay/composer-008/SUMMARY.md | composer-008 回放摘要 | 2026-10-21 | 已完成 |
 | bots/composer/replay/composer-008/run_replay.py | composer-008 回放入口 | 2026-10-21 | 已完成 |
+| bots/composer/replay/composer-008/trade_replay.py | composer-008 data-api 成交价回放 | 2026-10-21 | 已完成 |
+| bots/composer/replay/composer-008/trade_replay.json | composer-008 成交价回放结果 | 2026-10-21 | 已完成 |
 | bots/composer/replay/composer-003/SUMMARY.md | composer-003 R2 回放摘要 | 2026-10-21 | 已完成 |
 | bots/composer/replay/composer-003/run_replay.py | composer-003 R2 回放入口 | 2026-10-21 | 已完成 |
 | bots/composer/replay/composer-003/replay_results.json | composer-003 窗内回放 JSON | 2026-10-21 | 已完成 |
