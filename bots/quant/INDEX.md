@@ -165,8 +165,6 @@
 | bots/quant/notes/scheduler/scratch/B21/match_elo.stdout.txt | match_elo.stdout.txt | 2026-10-20 | 笔记 |
 | bots/quant/notes/scheduler/scratch/B21/match_elo2.py | match_elo2.py | 2026-10-20 | 笔记 |
 | bots/quant/notes/scheduler/scratch/B21/match_elo2.stdout.txt | match_elo2.stdout.txt | 2026-10-20 | 笔记 |
-| bots/quant/notes/scheduler/scratch/B21/matched.pkl | matched.pkl | 2026-10-20 | 笔记 |
-| bots/quant/notes/scheduler/scratch/B21/matched2.pkl | matched2.pkl | 2026-10-20 | 笔记 |
 | bots/quant/notes/scheduler/scratch/B21/pregame_quotes.json | pregame_quotes.json | 2026-10-20 | 笔记 |
 | bots/quant/notes/scheduler/scratch/B21/run_all.sh | run_all.sh | 2026-10-20 | 笔记 |
 | bots/quant/notes/scheduler/scratch/B21/summary.py | summary.py | 2026-10-20 | 笔记 |
@@ -564,3 +562,5 @@
 | bots/quant/notes/scheduler/scratch/P-quant-031/url_check_out.txt | url_check_out.txt | 2026-10-21 | 笔记 |
 | bots/quant/notes/scheduler/scratch/P-quant-031/verify.py | verify.py | 2026-10-21 | 笔记 |
 | bots/quant/notes/scheduler/scratch/P-quant-031/verify_out.txt | verify_out.txt | 2026-10-21 | 笔记 |
+| bots/quant/.gitignore | 忽略二进制文件和缓存 | 2026-10-21 | 笔记 |
+| bots/quant/notes/priority/quant-012.md | quant-012 先后证据（对照 composer-008） | 2026-10-21 | 笔记 |
