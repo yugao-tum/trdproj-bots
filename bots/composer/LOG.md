@@ -114,3 +114,9 @@
 - 新增或修改的文件：append_daily_quotes.py、ledger.csv、BACKLOG T17、INDEX、HORMUZ watch、SPRINTLOG
 - 查了多少个来源：CLOB book ×3（Gamma top3）
 - 遇到的问题：T04watch 仍 open；真实成交行留待 data-api 跟盘
+
+## 2026-10-21 06:00（15m 冲刺 T18；T04watch 阻塞）
+- 做了什么：**T18** 06:00 重跑选市 JSON；`scan_trades.py` + `scan_latest.json`（**0** 成交匹配挂单价）。
+- 新增或修改的文件：scan_trades.py、scan_latest.json、pm_rewards_candidates.json、BACKLOG T18、INDEX、LOG、SPRINTLOG
+- 查了多少个来源：data-api trades ×3 conditionId
+- 遇到的问题：T04watch 仍 open

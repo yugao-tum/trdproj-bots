@@ -51,6 +51,8 @@
 | bots/composer/forward/composer-011/PLAN.md | composer-011 两周前向登记 | 2026-10-21 | 进行中 |
 | bots/composer/forward/composer-011/ledger.csv | composer-011 前向明细 | 2026-10-21 | 进行中 |
 | bots/composer/forward/composer-011/append_daily_quotes.py | 011 每日纸面挂单写入 | 2026-10-21 | 已完成 |
+| bots/composer/forward/composer-011/scan_trades.py | 011 data-api 成交扫描 | 2026-10-21 | 已完成 |
+| bots/composer/forward/composer-011/scan_latest.json | 011 最近扫描结果 | 2026-10-21 | 进行中 |
 | bots/composer/notes/pm_rewards_market_pick.py | 011 Gamma 奖励池选市 | 2026-10-21 | 已完成 |
 | bots/composer/notes/pm_rewards_candidates.json | 011 选市快照 | 2026-10-21 | 已完成 |
 | bots/composer/notes/trump_approval_resolved_fetch.py | composer-010 已结算拉取 | 2026-10-21 | 已完成 |
