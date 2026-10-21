@@ -1,8 +1,5 @@
 {
   "week_start": "2026-10-19",
-  "checked_utc": "2026-10-21 03:45:18",
-  "task_id": "T04b2",
-  "latest_portwatch": "2026-10-18",
   "days": {
     "2026-10-19": null,
     "2026-10-20": null,
@@ -14,14 +11,5 @@
   },
   "sum_known": 0,
   "days_known": 0,
-  "note": "T04b2：ArcGIS 仍无 2026-10-19+ 日行；等待 IMF 落库后再累加。",
-  "gamma_slug": "how-many-ships-transit-the-strait-of-hormuz-week-of-october-19",
-  "gamma_yes_ask_sample": {
-    "<20": 0.145,
-    "20-24": 0.35,
-    "25-29": 0.31,
-    "30-34": 0.125,
-    "35-39": 0.0175,
-    "40+": 0.0385
-  }
+  "latest_portwatch": "2026-10-18"
 }

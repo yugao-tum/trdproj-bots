@@ -1,0 +1,49 @@
+{
+  "generated_utc": "2026-10-21T04:01:47Z",
+  "coins": [
+    {
+      "instId": "SOL-USDT-SWAP",
+      "n": 278,
+      "days_approx": 92.7,
+      "mean_bps": 0.294,
+      "frac_positive": 0.683,
+      "naive_annual_pct": 3.22,
+      "gated_n": 86,
+      "gated_mean_bps": 0.8531,
+      "gated_annual_pct": 9.34
+    },
+    {
+      "instId": "XRP-USDT-SWAP",
+      "n": 278,
+      "days_approx": 92.7,
+      "mean_bps": 0.4458,
+      "frac_positive": 0.788,
+      "naive_annual_pct": 4.88,
+      "gated_n": 109,
+      "gated_mean_bps": 0.9154,
+      "gated_annual_pct": 10.02
+    },
+    {
+      "instId": "ADA-USDT-SWAP",
+      "n": 278,
+      "days_approx": 92.7,
+      "mean_bps": 0.4855,
+      "frac_positive": 0.766,
+      "naive_annual_pct": 5.32,
+      "gated_n": 109,
+      "gated_mean_bps": 0.9835,
+      "gated_annual_pct": 10.77
+    },
+    {
+      "instId": "AVAX-USDT-SWAP",
+      "n": 278,
+      "days_approx": 92.7,
+      "mean_bps": 0.3772,
+      "frac_positive": 0.727,
+      "naive_annual_pct": 4.13,
+      "gated_n": 115,
+      "gated_mean_bps": 0.965,
+      "gated_annual_pct": 10.57
+    }
+  ]
+}
