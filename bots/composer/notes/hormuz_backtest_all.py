@@ -76,7 +76,7 @@ def parse_week_start(desc: str, title: str) -> date | None:
             return date(int(year), month, day)
     m2 = re.search(r"week of\s+([A-Za-z]+)\s+(\d{1,2})", title, re.I)
     if m2:
-        month_s, day = m2.group(1), int(m2.group(2))
+        month_s, day = m2.group(1), int(m.group(2))
         month = {
             "january": 1,
             "february": 2,
@@ -127,17 +127,23 @@ def winning_title(markets: list[dict]) -> str | None:
 
 
 def list_closed_slugs() -> list[str]:
-    url = (
-        f"{GAMMA}/public-search?q=how-many-ships-transit-the-strait-of-hormuz-week"
-        "&limit_per_type=100&events_status=closed"
-    )
-    data = curl_json(url)
-    slugs = []
-    for e in data.get("events", []):
-        s = e.get("slug") or ""
-        if s.startswith("how-many-ships-transit-the-strait-of-hormuz-week"):
-            slugs.append(s)
-    return sorted(set(slugs))
+    slugs: set[str] = set()
+    for offset in range(0, 500, 100):
+        url = (
+            f"{GAMMA}/public-search?q=how-many-ships-transit-the-strait-of-hormuz-week"
+            f"&limit_per_type=100&events_status=closed&offset={offset}"
+        )
+        data = curl_json(url)
+        batch = data.get("events") or []
+        if not batch:
+            break
+        for e in batch:
+            s = e.get("slug") or ""
+            if s.startswith("how-many-ships-transit-the-strait-of-hormuz-week"):
+                slugs.add(s)
+        if len(batch) < 100:
+            break
+    return sorted(slugs)
 
 
 def process_slug(slug: str, by: dict[str, float]) -> dict:
