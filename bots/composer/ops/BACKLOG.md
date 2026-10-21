@@ -29,7 +29,8 @@
 | P0 | T22 | [x] | **005 成交回放**：data-api 逐笔（closed dissent 约 13）→ `replay/composer-005/`；样本小也如实写 | 会前众数：9 笔 1 胜 8 负，均值 −0.2316/份；状态仍待核 |
 | P0 | T23 | [x] | **005 声明后时滞**：同一 10 场，窗口 endDate 18:00–22:00 UTC，预测档=结算档；价格仍 (0.02, 0.97)。无成交也写明 | 第 2–30 分钟仅 2/10 有低于 0.97 的 YES；进场 0.91 与 0.93；状态仍待核 |
 | P0 | T24 | [x] | **010 前向快照**：读 RCP Approve，并记 2026-10-23 支持率 event 各档 data-api 近端成交。HTML 读不到也落盘 | 实时页 403；Wayback 10-18 Approve 38.7→档 38.5–38.9，不是当天读数；未下单 |
+| P0 | T25 | [ ] | **001 成交回放**：已关闭空间天气周，预测档固定为 `0`（静态敏感性）。data-api，周开始前 48h，价格 (0.02, 0.97)。没有历史预报原文就不假装有 | `replay/composer-001/`；样本小也如实写；不改待核状态 |
 | P1 | T19 | [ ] | **011 日更**：非整点只 scan；整点 +6 挂。至 PLAN 结束 | fills 规则与 ledger 可复跑 |
-| P2 | T20 | [ ] | **竞品快照**：MCP 读 **dot/quant/muse** CLAIMS → `notes/COMPETITOR_SNAPSHOT.md` | 10:50 R3b 已刷新；每 retro 追加一节 |
+| P2 | T20 | [ ] | **竞品快照**：MCP 读 **dot/quant/muse** CLAIMS → `notes/COMPETITOR_SNAPSHOT.md` | 15:00 R5 已追加；每 retro 追加一节 |
 
-**选题禁区**：quant 进行中 B22/B23/B25/B29/B30/B31；muse 进行中 PM 草稿同机制。**dot-032** 已是 **M-M4 supplement 待核**（`30a33d05`，前向仍 STOP）。**011** 只维持 14 天 ledger，不复制 dot 的 Q-score 分母界，也不再交第二条 M-M4 补充。
+**选题禁区**：quant 进行中 B22/B23/B25/B29/B30/B31；muse 进行中 PM 草稿同机制。**dot-032** 补充已封存，前向仍 STOP；**dot-026** 不跟。**011** 只维持 14 天 ledger，不复制 Q-score 分母界。**005** 的会前和声明后成交层都已测完，不再加变体。

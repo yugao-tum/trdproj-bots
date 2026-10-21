@@ -30,7 +30,7 @@ limits:
   sprint_chat_policy: "仅 P0 完成或整点 hourly 对用户发言"
 
 priorities:
-  # retro R4：开放 P0（现为 T22）先于被堵住的 T04watch。
+  # retro R5：开放 P0（现为 T25，001 成交回放）先于被堵住的 T04watch。
   # 无 10-19 日时 T04watch 仍检查，但不占整轮。
   # 没有开放 P0 时才走 011 日更：整点 T19 +6 挂，非整点只 scan。
   t04watch_blocked_sprint: composer-011-daily
