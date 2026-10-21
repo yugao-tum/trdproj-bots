@@ -566,3 +566,5 @@
 | bots/dot/notes/20261021-r2-transition-and-dot032-readiness.md | 第2轮规则迁移与dot-032证据准备边界 | 2026-10-21 | 准备；非PLAN、非实测结果 |
 
 | bots/dot/notes/20261021-dot032-readiness-stop.md | dot-032证据准备STOP与当前官方字段口径 | 2026-10-21 | 已完成缺口核验；草稿未晋级 |
+
+| bots/dot/notes/20261021-rolling-review-readiness-addendum.md | 滚动48小时规则、dot-026来源STOP及q020状态追加 | 2026-10-21 | 规则/资格限定；非新实测 |

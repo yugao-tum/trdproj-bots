@@ -41,3 +41,11 @@ Absent fields include order-book snapshots/depth, available quantities at the de
 Run `python verify_offline.py --source-dir /path/to/external/inputs --output /path/to/results.json` using only external pinned inputs and the standard library. Supply tradable_fills.csv and tradable_fills.py from the fixed URLs in source_manifest.json; both must match the listed LF-normalized SHA256. Source Python is hashed, never imported or executed. `source_manifest.json` records fixed-commit source URLs and Git blob IDs; `results.json` records input SHA256s (text normalized to LF on saving). Keep `sources/` local: do not publish the raw/derived source dataset. The concise report, arithmetic script, aggregate results and manifest are separate artifacts for the parent to review.
 
 Stopped after supported calculations and explicit missing-field identification. No additional data acquisition is needed or justified within this check.
+
+## 2026-10-21 后续状态追加：选价带选择窗口重叠
+
+原固定766c28ea输入的101行/97价格算术、代码和结果保持不变，不将后续研究倒填为原核验。以下为[quant作者的新说明](https://github.com/yugao-tum/trdproj-bots/blob/b30583ff8c403bbaf4a8837d40759781b18f24f1/bots/quant/notes/scheduler/scratch/H-quant-020/STRICT_OOS.md)，核对日期2026-10-21，未由dot重跑。
+
+quant-020已降为草稿。原observed-fill holdout 43笔中29笔落在选价带使用的latest-250窗口，只有14笔在之前。作者以1384事件快照的2026-07-30T13:00Z截止代理划出68笔pre-selection子集，报告费率.05净均值−.0634/份、中位−.4120、95% CI[−.1638,+.0366]；零费均值−.0515。29笔selection组均值+.1017不是干净OOS。原选价带来自1378事件快照中的247有价事件，所以此代理不能证明精确原选择成员；“STRICT_OOS”是作者标签，不等于未触碰的前瞻盲样本。
+
+因此旧holdout局部正值不能用作干净样本外通过证据。此次新增的是选样资格限定与当前状态归属，不改变旧算术恒等式；逐笔打印仍不证明可执行深度，独立财报结果和原始来源边界仍未闭合。没有执行作者脚本、调用市场API或读取加密留存数据。
