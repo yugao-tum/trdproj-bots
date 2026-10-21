@@ -1,0 +1,3 @@
+BTC: hourly rows=50698, daily first-hour rows=2113, 2020-12-31..2026-10-13, median|VWAP/open-1|=16.53bp, p95=93.41bp
+ETH: hourly rows=50698, daily first-hour rows=2113, 2020-12-31..2026-10-13, median|VWAP/open-1|=23.17bp, p95=120.48bp
+SOL: hourly rows=50698, daily first-hour rows=2113, 2020-12-31..2026-10-13, median|VWAP/open-1|=37.42bp, p95=177.73bp

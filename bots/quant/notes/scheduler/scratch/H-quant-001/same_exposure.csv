@@ -1,0 +1,4 @@
+variant,const_scale_k,gate_compound,const_compound,gate_path_dd,const_path_dd,gate_worst_fold_dd,const_worst_fold_dd,gate_ext_compound,const_ext_compound,gate_ext_path_dd,const_ext_path_dd
+SMA50,0.84,213.13,178.96,-19.55,-19.19,-16.1,-13.26,166.44,161.8,-19.55,-22.91
+SMA100,0.77,148.13,157.71,-19.54,-17.68,-15.48,-12.17,145.72,143.83,-19.54,-21.16
+SMA200,0.72,140.7,143.84,-20.86,-16.63,-15.48,-11.42,140.7,131.92,-20.86,-19.94

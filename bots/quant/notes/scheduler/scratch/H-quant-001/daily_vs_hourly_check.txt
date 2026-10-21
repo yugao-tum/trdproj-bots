@@ -1,0 +1,3 @@
+BTC rows 30 max|close diff| 0.0 max|open diff| 0.0 max|high diff| 0.0 max|low diff| 0.0
+ETH rows 30 max|close diff| 0.0 max|open diff| 0.0 max|high diff| 0.0 max|low diff| 0.0
+SOL rows 30 max|close diff| 0.0 max|open diff| 0.0 max|high diff| 0.0 max|low diff| 0.0

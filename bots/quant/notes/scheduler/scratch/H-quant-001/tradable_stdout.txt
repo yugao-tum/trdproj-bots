@@ -1,0 +1,47 @@
+data: daily close from Binance 1h klines (UTC), 2020-12-31..2026-10-13, 2113 days
+BTC: median|first-hour VWAP/open-1|=16.5bp, p95=93.4bp
+ETH: median|first-hour VWAP/open-1|=23.2bp, p95=120.5bp
+SOL: median|first-hour VWAP/open-1|=37.4bp, p95=177.7bp
+
+=== VALIDATION: close-fill VM baseline should match reproduce.py ===
+close-fill VM 0.30%: {'compound_pct': np.float64(237.1525), 'cagr_pct': np.float64(37.8172), 'worst_fold_dd_pct': np.float64(-15.8209), 'path_dd_pct': np.float64(-22.1166), 'mean_sharpe': 1.2496, 'folds_pos': np.int64(4), 'avg_exposure': 0.2886, 'fold_rets_pct': [np.float64(97.0), np.float64(43.7), np.float64(9.3), np.float64(9.0)]}
+reproduce.py results.csv: compound 237.1525, cagr 37.8172, worst_fold_dd -15.8209, path_dd -22.1166, avg_exposure 0.2886
+
+=== 4 OOS folds (2022-12-31..2026-10-13), close-fill vs first-hour-VWAP fill ===
+    variant  fill  fee_side  oos_compound_pct  oos_cagr_pct  oos_worst_fold_dd_pct  oos_path_dd_pct  oos_avg_exposure  ext_compound_pct  ext_path_dd_pct
+         VM close      0.00            237.15         37.82                 -15.82           -22.12              0.29            211.47           -27.36
+         VM  fill      0.00            232.50         37.31                 -15.71           -22.55              0.29            205.79           -26.76
+         VM close      0.01            130.32         24.63                 -20.17           -27.23              0.29             90.55           -30.23
+         VM  fill      0.01            127.15         24.18                 -20.21           -27.70              0.29             87.12           -29.17
+ VM_x_SMA50 close      0.00            224.16         36.40                 -14.12           -19.10              0.24            175.52           -19.10
+ VM_x_SMA50  fill      0.00            213.13         35.15                 -16.10           -19.55              0.24            166.44           -19.55
+ VM_x_SMA50 close      0.01            120.90         23.26                 -17.61           -20.64              0.24             70.04           -24.09
+ VM_x_SMA50  fill      0.01            113.39         22.14                 -18.05           -21.53              0.24             64.44           -22.98
+VM_x_SMA100 close      0.00            155.87         28.14                 -14.06           -19.15              0.22            157.01           -19.15
+VM_x_SMA100  fill      0.00            148.13         27.11                 -15.48           -19.54              0.22            145.72           -19.54
+VM_x_SMA100 close      0.01             75.74         16.04                 -17.06           -24.37              0.22             71.39           -24.37
+VM_x_SMA100  fill      0.01             70.41         15.10                 -16.72           -23.97              0.22             63.84           -23.97
+VM_x_SMA200 close      0.00            158.52         28.49                 -14.61           -20.07              0.21            158.52           -20.07
+VM_x_SMA200  fill      0.00            140.70         26.09                 -15.48           -20.86              0.21            140.70           -20.86
+VM_x_SMA200 close      0.01             88.81         18.26                 -17.43           -25.62              0.21             88.81           -25.62
+VM_x_SMA200  fill      0.01             75.72         16.04                 -17.75           -25.71              0.21             75.72           -25.71
+
+(ext_* = 5 folds incl. 2021-12-31..2022-12-30 stress fold; NOT strict OOS)
+
+=== closed-market episodes (BTC gate off; independent results) ===
+SMA50: off-episodes=60, on/off switches=120, off-days=1036, episode days median=6 max=99, VM ret in off-episodes: mean=0.16% median=0.00% negative=20/60; BTC ret: mean=0.47%
+SMA100: off-episodes=39, on/off switches=78, off-days=1083, episode days median=3 max=188, VM ret in off-episodes: mean=0.95% median=0.42% negative=9/39; BTC ret: mean=1.77%
+SMA200: off-episodes=25, on/off switches=50, off-days=1084, episode days median=3 max=381, VM ret in off-episodes: mean=3.12% median=0.08% negative=1/25; BTC ret: mean=2.66%
+
+(base_for_ep = VM close-to-close 0.30%/side; episode return = what VM would have earned while the gate was off. Negative mean => gate avoided losses.)
+
+=== same-exposure diagnostic (fill, 0.30%/side, 4 OOS folds) ===
+variant  const_scale_k  gate_compound  const_compound  gate_path_dd  const_path_dd  gate_worst_fold_dd  const_worst_fold_dd  gate_ext_compound  const_ext_compound  gate_ext_path_dd  const_ext_path_dd
+  SMA50           0.84         213.13          178.96        -19.55         -19.19              -16.10               -13.26             166.44              161.80            -19.55             -22.91
+ SMA100           0.77         148.13          157.71        -19.54         -17.68              -15.48               -12.17             145.72              143.83            -19.54             -21.16
+ SMA200           0.72         140.70          143.84        -20.86         -16.63              -15.48               -11.42             140.70              131.92            -20.86             -19.94
+(const_scale_k = gate OOS avg exposure / VM OOS avg exposure; constant-scaled VM has the same average exposure but no BTC timing.)
+
+=== turnover (SMA50, OOS) ===
+rebalance/trade days with turnover>0: 151 of 1383; mean turnover on those days=0.3629; sum turnover=54.79; total fee at 0.30%/side=16.4% (arithmetic sum of per-trade cost, not annualised)
+
