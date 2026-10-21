@@ -63,6 +63,12 @@ confidence: 中
 - 同日 Gamma 中间档 ask 示例：`<20` 0.16、`20-24` 0.32、`25-29` 0.33（**来源自报，未核实**）。
 - 2026-07-07 周 PortWatch 7 日和 = **83**（高流量周，对照说明档位跨度大）。
 
+### 2b）T04b 跟盘（2026-10-21 03:30 UTC）
+
+- ArcGIS 最新 **`n_total` 日**：**2026-10-18**（=4）；**2026-10-19 至 10-25 仍无行** → `sum_known=0`（见 `notes/cache/hormuz_live_week.json`）。
+- Gamma slug `how-many-ships-transit-the-strait-of-hormuz-week-of-october-19` YES ask（约）：`<20` **0.145**、`20-24` **0.35**、`25-29` **0.31**（**来源自报，未核实**）。
+- 跟盘日志：`notes/HORMUZ_OCT19_WATCH.md`；PortWatch 落 10-19 后由 BACKLOG **T04b2** 续更。
+
 ### 3）批量回放（`notes/hormuz_backtest_all.py`，2026-10-21）
 
 | 指标 | 数值 |
