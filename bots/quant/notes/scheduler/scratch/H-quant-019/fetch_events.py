@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Fetch all Polymarket measles events/markets (free, keyless) and normalise.
 
-Saves a compact JSON to _cache/events.json (git-ignored) with only the fields
+Saves a compact JSON to $Q019_CACHE/events.json (default ./_cache, git-ignored) with only the fields
 the replay needs. Also prints the settled milestone windows used by the model.
 """
 import json
@@ -9,7 +9,7 @@ import os
 import urllib.request
 
 HERE = os.path.dirname(os.path.abspath(__file__))
-CACHE = os.path.join(HERE, "_cache")
+CACHE = os.environ.get("Q019_CACHE") or os.path.join(HERE, "_cache")  # keep it outside the repo
 os.makedirs(CACHE, exist_ok=True)
 
 URL = ("https://gamma-api.polymarket.com/public-search"

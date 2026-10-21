@@ -1,18 +1,26 @@
-[FAIL] CDC measles counter: https://www.cdc.gov/measles/data-research/index.html -> HTTP Error 403: Forbidden
-[OK]   Gamma public-search measles: HTTP 200, 646162 bytes
+[OK]   CDC measles counter: HTTP 200, 106712 bytes
+    '4,410 confirmed* measles cases': FOUND
+    '4,392 measles cases': FOUND
+    'Updated on October 16, 2026': FOUND
+    '12:00PM on Thursday': FOUND
+    'epidemiological week of the date of rash onset': FOUND
+    'preliminary and subject to change': FOUND
+    'Weekly measles cases by rash onset date 2022': FOUND
+    data csv/json download link: no .csv; FOUND
+[OK]   Gamma public-search measles: HTTP 200, 646790 bytes
     events: 35
-    in-2026 volume=8184252.665481996 liquidity=18568.57671 openInterest=74606.926277 negRisk=False markets=17
-[OK]   Gamma annual event: HTTP 200, 62945 bytes
-    markets=17 negRisk=False volume=8184252.665481996 liquidity=18568.57671 openInterest=74606.926277 volume1wk=165481.038215 endDate=2027-01-01T04:59:00Z
+    in-2026 volume=8185362.680828996 liquidity=18626.19283 openInterest=75325.854848 negRisk=False markets=17
+[OK]   Gamma annual event: HTTP 200, 63503 bytes
+    markets=17 negRisk=False volume=8185362.680828996 liquidity=18626.19283 openInterest=75325.854848 volume1wk=170863.906056 endDate=2027-01-01T04:59:00Z
     >=7500: feesEnabled=False feeSchedule=None tick=0.01 minSize=5 umaBond=500 umaReward=5 clobRewards=[{'id': '274520', 'conditionId': '0xfa3dc3876b9210267914d74d4686a2c71bec3bf37bc1dc059a70f3e3e41ca1a7', 'assetAddress': '0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174', 'rewardsAmount': 0, 'rewardsDailyRate': 5, 'startDate': '2026-10-19', 'endDate': '2500-12-31'}] bid=0.24 ask=0.26
-[OK]   Gamma Oct-31 ladder: HTTP 200, 38319 bytes
-    markets=11 volume=28399.536666 liquidity=4506.71312 endDate=2026-11-01T03:59:00Z
-    feeSchedule set: {'{"exponent": 1, "rate": 0, "rebateRate": 0, "takerOnly": true}', '{"exponent": 1, "rate": 0.04, "rebateRate": 0.25, "takerOnly": true}'}
-[OK]   Gamma >=7500 market: HTTP 200, 6486 bytes
+[OK]   Gamma Oct-31 ladder: HTTP 200, 38415 bytes
+    markets=11 volume=28399.536666 liquidity=4214.08705 endDate=2026-11-01T03:59:00Z
+    feeSchedule set: {'{"exponent": 1, "rate": 0.04, "rebateRate": 0.25, "takerOnly": true}', '{"exponent": 1, "rate": 0, "rebateRate": 0, "takerOnly": true}'}
+[OK]   Gamma >=7500 market: HTTP 200, 6495 bytes
     feesEnabled=False feeSchedule=None tick=0.01 minSize=5 umaBond=500 umaReward=5 clobRewards=[{'id': '274520', 'conditionId': '0xfa3dc3876b9210267914d74d4686a2c71bec3bf37bc1dc059a70f3e3e41ca1a7', 'assetAddress': '0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174', 'rewardsAmount': 0, 'rewardsDailyRate': 5, 'startDate': '2026-10-19', 'endDate': '2500-12-31'}]
 [OK]   Gamma bird flu search: HTTP 200, 62989 bytes
     events=11 all_closed=True latest_end=2025-12-31T12:00:00Z
-[OK]   Gamma measles tag closed: HTTP 200, 418345 bytes
+[OK]   Gamma measles tag closed: HTTP 200, 418332 bytes
     type=list entries=15
 [OK]   data-api trades (March 1400 ladder): HTTP 200, 1904 bytes
     rows=2 first_price=0.999 side=BUY outcome=Yes ts=1774015659

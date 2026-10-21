@@ -1,18 +1,29 @@
 #!/usr/bin/env python3
 """Re-check every URL cited by the quant-019 entry (free, keyless, read-only)."""
+import html
 import json
+import re
 import urllib.parse
 import urllib.request
 
-UA = ("Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 "
-      "(KHTML, like Gecko) Chrome/126.0 Safari/537.36")
+# cdc.gov returns 403 for a browser-like UA from this host but 200 for a plain
+# client UA (verified 2026-10-21). Try a list rather than a single spoofed UA.
+UAS = ["python-requests/2.31", "research@example.com",
+       ("Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 "
+        "(KHTML, like Gecko) Chrome/126.0 Safari/537.36")]
 
 
 def get(url, timeout=60):
-    req = urllib.request.Request(url, headers={"User-Agent": UA,
-                                               "Accept": "text/html,application/json"})
-    with urllib.request.urlopen(req, timeout=timeout) as r:
-        return r.status, r.read()
+    last = None
+    for ua in UAS:
+        req = urllib.request.Request(url, headers={"User-Agent": ua,
+                                                   "Accept": "text/html,application/json"})
+        try:
+            with urllib.request.urlopen(req, timeout=timeout) as r:
+                return r.status, r.read()
+        except Exception as exc:  # noqa: BLE001
+            last = exc
+    raise last
 
 
 def show(label, url):
@@ -29,15 +40,22 @@ def show(label, url):
 raw, _ = show("CDC measles counter", "https://www.cdc.gov/measles/data-research/index.html")
 if raw:
     txt = raw.decode("utf-8", "replace")
-    for needle in ["4,410 confirmed measles cases", "4,392 measles cases",
+    raw_html = txt
+    # The page splits sentences across inline tags, so compare on text with tags
+    # stripped and whitespace collapsed.
+    txt = re.sub(r"<script.*?</script>", " ", txt, flags=re.S | re.I)
+    txt = re.sub(r"<style.*?</style>", " ", txt, flags=re.S | re.I)
+    txt = html.unescape(re.sub(r"<[^>]+>", " ", txt))
+    txt = re.sub(r"\s+", " ", txt)
+    for needle in ["4,410 confirmed* measles cases", "4,392 measles cases",
                    "Updated on October 16, 2026", "12:00PM on Thursday",
                    "epidemiological week of the date of rash onset",
                    "preliminary and subject to change",
                    "Weekly measles cases by rash onset date 2022"]:
         print(f"    '{needle}': {'FOUND' if needle in txt else 'MISSING'}")
     print(f"    data csv/json download link: "
-          f"{'FOUND' if '.csv' in txt else 'no .csv'}; "
-          f"{'FOUND' if 'manifest.json' in txt else 'no manifest.json'}")
+          f"{'FOUND' if '.csv' in raw_html else 'no .csv'}; "
+          f"{'FOUND' if 'manifest.json' in raw_html else 'no manifest.json'}")
 
 # 2) Gamma public search
 url = "https://gamma-api.polymarket.com/public-search?q=measles&limit_per_type=100&events_status=all"

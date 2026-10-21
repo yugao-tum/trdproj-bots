@@ -1,6 +1,12 @@
 #!/usr/bin/env python3
 """H-quant-019 replay: CDC measles count-flow model vs really-traded Polymarket prices.
 
+v2 (2026-10-21, after bot `dot`'s review): causal. v1 chose strikes by the
+average price of fills that happened AFTER the decision time (look-ahead) and
+wrote one leftover market slug for every strike of a ladder. v2 decides only on
+prints with ts <= decision time, fills on the first print after the decision,
+and carries each strike's own market slug. See SUMMARY.md for before/after.
+
 Rule (taken from the round-1 entry, 2026-10-20; nothing is tuned here):
   - state variable f = official case flow (cases/day), taken as a RANGE from the
     last two settled monthly count windows;
@@ -28,7 +34,10 @@ from datetime import datetime, timezone
 import numpy as np
 
 HERE = os.path.dirname(os.path.abspath(__file__))
-CACHE = os.path.join(HERE, "_cache")
+# Cache (events.json + trades/<conditionId>.json). Keep it OUTSIDE the repo:
+# set Q019_CACHE=<dir>. Falls back to the git-ignored ./_cache.
+CACHE = os.environ.get("Q019_CACHE") or os.path.join(HERE, "_cache")
+OUT = os.environ.get("Q019_OUT") or HERE
 DATA = "https://data-api.polymarket.com"
 
 SIGMA_M = 0.35          # monthly log-sd, taken from the round-1 entry
@@ -128,6 +137,18 @@ def mc_p(total_base, days, f, strikes):
 
 
 def fetch_trades(cond, max_pages=12, page=500):
+    cp = os.path.join(CACHE, "trades", f"{cond}.json")
+    if os.path.exists(cp):
+        with open(cp) as f:
+            return json.load(f)
+    rows = _fetch_trades_live(cond, max_pages, page)
+    os.makedirs(os.path.dirname(cp), exist_ok=True)
+    with open(cp, "w") as f:
+        json.dump(rows, f)
+    return rows
+
+
+def _fetch_trades_live(cond, max_pages, page):
     rows = []
     for i in range(max_pages):
         q = urllib.parse.urlencode({"market": cond, "limit": page, "offset": i * page})
@@ -144,59 +165,104 @@ def fetch_trades(cond, max_pages=12, page=500):
     return rows
 
 
-def fills_for(kind, rows, info_dt, end, limit, settled_yes):
-    """Aggregate one market's qualifying BUY prints into a <=300 USDT position."""
+def buy_prints(rows, kind, end):
+    """Taker BUY prints of the traded outcome with ts <= end: sorted [(ts, px, sz)]."""
+    want = "Yes" if kind == "YES" else "No"
     q = []
     for t in rows:
-        ts = datetime.fromtimestamp(int(t["timestamp"]), tz=timezone.utc)
-        if ts < info_dt or ts > end or t.get("side") != "BUY":
+        if t.get("side") != "BUY" or t.get("outcome") != want:
             continue
-        px, sz = float(t["price"]), float(t["size"])
-        if kind == "YES" and t.get("outcome") == "Yes" and px <= limit:
-            q.append((ts, px, sz))
-        elif kind == "NO" and t.get("outcome") == "No" and px <= limit:
-            q.append((ts, px, sz))
-    if not q:
-        return None
+        ts = datetime.fromtimestamp(int(t["timestamp"]), tz=timezone.utc)
+        if ts > end:
+            continue
+        q.append((ts, float(t["price"]), float(t["size"])))
     q.sort(key=lambda x: x[0])
-    cost = shares = 0.0
-    for ts, px, sz in q:
-        take = min(sz, (CAP_USDT - cost) / px)
-        if take <= 0:
-            break
-        cost += take * px
-        shares += take
-    if shares <= 0:
-        return None
-    avg = cost / shares
-    fee = shares * FEE_RATE * avg * (1 - avg)
+    return q
+
+
+def simulate_ladder(kind, books, limits, start, end, log=None):
+    """Causal event-driven replay of one ladder for one side.
+
+    books:  {strike: [(ts, px, sz), ...]} taker BUY prints of the traded outcome.
+    limits: {strike: max price (model fair value - EDGE)}.
+    Decisions use ONLY prints with ts <= the decision time:
+      * at `start` (info time) a strike is selected if its last print at or
+        before `start` is <= limit (ranked by that pre-decision edge);
+      * afterwards, every print at time t that is <= limit is a decision at t.
+    Max 2 strikes per ladder; the second must be the ladder neighbour of the
+    first. A decision is filled by the FIRST print of that market/outcome
+    strictly after the decision time (GUIDE s.13); if that print is above the
+    limit the order does not fill and the decision lapses. Once filled, the
+    order keeps resting at the limit and takes later prints <= limit (their
+    real size) until 300 USDT. Taker fee shares*FEE_RATE*p*(1-p) (GUIDE s.8).
+    Returns {strike: position dict}. Data after a decision never changes it.
+    `log`, if a list, receives (ts, action, strike, price) for every decide /
+    fill / lapse, so the causality test can compare traces.
+    """
+    log = [] if log is None else log
+    ladder = sorted(books)
+    pos, pending, order = {}, {}, []   # order: strikes in decision order
+
+    def allowed(k):
+        live = [x for x in order if x in pos or x in pending]
+        if k in live or len(live) >= 2:
+            return False
+        if not live:
+            return True
+        i, j = ladder.index(live[0]), ladder.index(k)
+        return abs(i - j) == 1
+
+    def decide(k, t, px):
+        pending[k] = {"decision_ts": t, "decision_px": px}
+        order.append(k)
+        log.append((t, "decide", k, px))
+
+    # 1) decision at start, from data <= start only
+    pre = []
+    for k in ladder:
+        last = [p for p in books[k] if p[0] <= start]
+        if last and last[-1][1] <= limits[k]:
+            pre.append((limits[k] - last[-1][1], k, last[-1][1]))
+    for edge, k, px in sorted(pre, key=lambda x: (-x[0], x[1])):
+        if allowed(k):
+            decide(k, start, px)
+
+    # 2) walk every later print in time order
+    stream = sorted((ts, k, px, sz) for k in ladder for ts, px, sz in books[k]
+                    if start < ts <= end)
+    for ts, k, px, sz in stream:
+        lim = limits[k]
+        if k in pos:                      # resting limit after first fill
+            p = pos[k]
+            if px <= lim and p["cost"] < CAP_USDT - 1e-9:
+                take = min(sz, (CAP_USDT - p["cost"]) / px)
+                p["cost"] += take * px
+                p["shares"] += take
+                p["n_prints"] += 1
+            continue
+        if k in pending and ts > pending[k]["decision_ts"]:
+            d = pending.pop(k)
+            if px <= lim:                 # first trade after the decision
+                take = min(sz, CAP_USDT / px)
+                pos[k] = dict(d, first_fill=ts, first_px=px, first_sz=sz,
+                              cost=take * px, shares=take, n_prints=1)
+                log.append((ts, "fill", k, px))
+                continue
+            order.remove(k)               # lapsed: price moved above limit
+            log.append((ts, "lapse", k, px))
+        if px <= lim and allowed(k):
+            decide(k, ts, px)
+    return pos
+
+
+def settle(kind, p, settled_yes):
+    avg = p["cost"] / p["shares"]
+    fee = p["shares"] * FEE_RATE * avg * (1 - avg)
     win = settled_yes if kind == "YES" else not settled_yes
-    payout = shares * (1.0 if win else 0.0)
-    net = payout - cost - fee
-    return {"kind": kind, "first_fill": q[0][0], "shares": shares, "avg_price": avg,
-            "cost": cost, "fee": fee, "win": int(win), "payout": payout,
-            "net": net, "ret": net / cost, "n_prints": len(q)}
-
-
-def pick_adjacent(cands, max_n=2):
-    """cands: list of (strike, fill, edge). Choose <=2 adjacent strikes with best edge."""
-    if not cands:
-        return []
-    cands = sorted(cands, key=lambda x: x[0])
-    best, best_val = [], -1e9
-    for i in range(len(cands)):
-        for j in range(i, min(i + max_n, len(cands))):
-            grp = cands[i:j + 1]
-            if len(grp) > max_n:
-                continue
-            if len(grp) > 1 and grp[-1][0] != grp[0][0] and \
-                    sorted(cands, key=lambda x: x[0]).index(grp[-1]) - \
-                    sorted(cands, key=lambda x: x[0]).index(grp[0]) != len(grp) - 1:
-                continue
-            val = sum(c[2] for c in grp)
-            if val > best_val:
-                best_val, best = val, grp
-    return best
+    payout = p["shares"] * (1.0 if win else 0.0)
+    net = payout - p["cost"] - fee
+    return dict(p, kind=kind, avg_price=avg, fee=fee, win=int(win), payout=payout,
+                net=net, ret=net / p["cost"])
 
 
 def main():
@@ -276,7 +342,7 @@ def main():
         print(f"\n  {ev['slug']} end={end.date()} base={base:.0f} days={days} "
               f"f=[{f_lo:.2f},{f_hi:.2f}]/d (info {prior['closed']:%Y-%m-%d})")
 
-        cand = {"YES": [], "NO": []}
+        mk = {}   # strike -> (market, rows, settled_yes); identity carried per strike
         for m in ev["markets"]:  # already filtered to settled strikes
             k = strike_of(m)
             if k is None or k not in p_lo:
@@ -285,20 +351,24 @@ def main():
             if sy is None:
                 continue
             rows = fetch_trades(m["conditionId"])
-            if not rows:
-                continue
-            for kind, limit in (("YES", p_lo[k] - EDGE), ("NO", (1 - p_hi[k]) - EDGE)):
-                f = fills_for(kind, rows, info_dt, end, limit, sy)
-                if f:
-                    edge = limit - f["avg_price"]
-                    cand[kind].append((k, f, edge))
+            mk[k] = (m, rows, sy)
 
         ev_fills = []
         for kind in ("YES", "NO"):
-            chosen = pick_adjacent(cand[kind], 2)
-            for k, f, edge in chosen:
-                rec = {"event": ev["slug"], "market": m["slug"], "strike": k, "kind": kind,
+            limits = {k: (p_lo[k] - EDGE) if kind == "YES" else ((1 - p_hi[k]) - EDGE)
+                      for k in mk}
+            books = {k: buy_prints(rows, kind, end) for k, (m, rows, sy) in mk.items()}
+            chosen = simulate_ladder(kind, books, limits, info_dt, end)
+            for k in sorted(chosen):
+                m, rows, sy = mk[k]
+                f = settle(kind, chosen[k], sy)
+                rec = {"event": ev["slug"], "market": m["slug"], "condition_id": m["conditionId"],
+                       "strike": k, "kind": kind,
+                       "limit": round(limits[k], 4),
+                       "decision_ts": f["decision_ts"].strftime("%Y-%m-%dT%H:%M:%SZ"),
+                       "decision_px": round(f["decision_px"], 4),
                        "first_fill": f["first_fill"].strftime("%Y-%m-%dT%H:%M:%SZ"),
+                       "first_px": round(f["first_px"], 4),
                        "shares": round(f["shares"], 2), "avg_price": round(f["avg_price"], 4),
                        "cost": round(f["cost"], 2), "fee": round(f["fee"], 2),
                        "win": f["win"], "payout": round(f["payout"], 2),
@@ -306,8 +376,9 @@ def main():
                        "n_prints": f["n_prints"]}
                 ev_fills.append(rec)
                 all_fills.append(rec)
-                print(f"    {kind} strike={k:5d} avg={f['avg_price']:.3f} cost={f['cost']:.0f} "
-                      f"net={f['net']:+.0f} ret={f['ret']:+.1%} win={f['win']}")
+                print(f"    {kind} strike={k:5d} decide={rec['decision_ts']} @{f['decision_px']:.3f} "
+                      f"fill={rec['first_fill']} @{f['first_px']:.3f} avg={f['avg_price']:.3f} "
+                      f"cost={f['cost']:.0f} net={f['net']:+.0f} ret={f['ret']:+.1%} win={f['win']}")
         if ev_fills:
             cost = sum(r["cost"] for r in ev_fills)
             net = sum(r["net"] for r in ev_fills)
@@ -339,6 +410,31 @@ def main():
             print(f"  {label:12s} fills={n:2d} events={evs:2d} cost={cost:8.2f} "
                   f"net={net:7.2f} ret={ret:+.2%}")
 
+    # account-level drawdown on 5,000 USDT, realised at each ladder's end date
+    # (no intra-event mark-to-market), per variant and combined.
+    ev_end = {r["event"]: r["end"] for r in per_event}
+
+    def max_dd(rows):
+        by = {}
+        for r in rows:
+            by[ev_end[r["event"]]] = by.get(ev_end[r["event"]], 0.0) + r["net"]
+        eq = peak = 5000.0
+        dd = 0.0
+        for d in sorted(by):
+            eq += by[d]
+            peak = max(peak, eq)
+            dd = max(dd, (peak - eq) / peak)
+        return dd
+
+    dds = {k: max_dd([r for r in all_fills if r["kind"] == k]) for k in ("YES", "NO")}
+    dds["ALL"] = max_dd(all_fills)
+    print("\nmax drawdown on 5,000 USDT (settlement-date steps): "
+          + ", ".join(f"{k}={v:.2%}" for k, v in dds.items()))
+    for kind in ("YES", "NO"):
+        ex = [r for r in all_fills if r["kind"] == kind and ev_end[r["event"]] != "2026-07-31"]
+        n, cost, net, ret = agg(ex)
+        print(f"{kind} ex 2026-07-31: fills={n} cost={cost:.2f} net={net:.2f} ret={ret:+.2%}")
+
     rows0 = [dict(r, net=r["payout"] - r["cost"]) for r in all_fills]
     n, cost, net, ret = agg(rows0)
     print(f"\nfee=0 sensitivity: fills={n} cost={cost:.2f} net={net:.2f} ret={ret:+.2%}")
@@ -357,7 +453,7 @@ def main():
     else:
         contrib = 0.0
 
-    with open(os.path.join(HERE, "fills.csv"), "w", newline="") as f:
+    with open(os.path.join(OUT, "fills.csv"), "w", newline="") as f:
         w = csv.DictWriter(f, fieldnames=list(all_fills[0].keys()) if all_fills else
                            ["event", "kind", "net"])
         w.writeheader()
@@ -367,7 +463,7 @@ def main():
     summary = {"sigma_m": SIGMA_M, "edge": EDGE, "fee_rate": FEE_RATE,
                "cap_usdt": CAP_USDT, "n_paths": N_PATHS, "seed": SEED,
                "split": SPLIT, "per_event": per_event,
-               "contribution": contrib, "variants": {}}
+               "contribution": contrib, "max_dd": dds, "variants": {}}
     for kind in ("YES", "NO"):
         rows = [r for r in all_fills if r["kind"] == kind]
         summary["variants"][kind] = {
@@ -375,7 +471,7 @@ def main():
             for k, sub in (("all", rows),
                            ("in", [r for r in rows if r["first_fill"] < SPLIT]),
                            ("out", [r for r in rows if r["first_fill"] >= SPLIT]))}
-    with open(os.path.join(HERE, "replay_summary.json"), "w") as f:
+    with open(os.path.join(OUT, "replay_summary.json"), "w") as f:
         json.dump(summary, f, indent=1)
     print("wrote replay_summary.json")
 

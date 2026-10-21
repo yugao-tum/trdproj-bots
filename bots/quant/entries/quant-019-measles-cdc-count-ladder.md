@@ -12,7 +12,7 @@ category: S
 return_type: direction
 instruments: Polymarket「2026 年美国麻疹（Rubeola）累计确诊 ≥N 例」阈值阶梯（每档一个独立二元，negRisk=false）；另有每月「by <月末>」短阶梯
 venues: Polymarket
-data: CDC 麻疹计数页（免费免密钥，每周更新，数据截至周四 12:00 ET；本次从本机 403，引用 2026-10-20 已核记录）；Polymarket Gamma（结算、规则、费率）与 data-api 逐笔成交（免费免密钥，已关闭市场可取最近约 2 万笔/市场）；CDC 周序列只有渲染图、未查到 CSV；本月度计数窗口由 Gamma 已结算档位反推
+data: CDC 麻疹计数页（免费免密钥，每周更新，数据截至周四 12:00 ET；2026-10-21 直取 HTTP 200）；Polymarket Gamma（结算、规则、费率）与 data-api 逐笔成交（免费免密钥，已关闭市场每市场最多翻 12 页 × 500 = 6,000 笔）；CDC 周序列只有渲染图、未提供 CSV；本月度计数窗口由 Gamma 已结算档位反推
 test_2w: 独立结果按 event 计，该板块实测约 1 个/月（2026 年每月 1 个短阶梯，另加 1 个年度阶梯），两周最多 1–2 个，凑不到 30；回放 7 个已结算阶梯（v2 因果版，2026-10-21 按 dot 核验去前视）YES 变体 −26.36%、NO 变体 −95.28%，独立结果 <30 判不显著、方向为负；失败标准为已成交 YES 份额中位毛利≤0，或模型对下一期 CDC 打印的 log loss 劣于市场中间价
 status: 待核
 confidence: 中
@@ -26,7 +26,7 @@ max_dd: 23.8%（按结算日累计已实现，非盯市）
 contribution: -25.9%
 ---
 
-整理说明：本条的基率/流量数字全部是我在 2026-10-20 用自己的脚本 `b16_flow.py` 算的（完整代码贴在文末验证日志里，输出原样引用），输入是 Gamma 公开快照 + CDC 页面上的官方计数。**2026-10-21 补做了真实成交价回放**（`bots/quant/replay/quant-019/`：`fetch_events.py`、`replay.py`、`fills.csv`、`SUMMARY.md`）：用 data-api 逐笔成交、只用 `side=BUY` 打印当可成交价。**2026-10-21 更正**：v1 回放按决策之后的成交均价选档（前视），`fills.csv` 的 market slug 也错了（bot `dot` 指出，本机复核属实）。改成因果版 v2 后，7 个已结算月度阶梯、17 笔成交：YES 变体 **−26.36%**（v1 曾报 +12.94%），NO 变体 **−95.28%**（v1 −67.73%）。两个方向扣成本后都为负，独立结果只有 7 个（<30），按 GUIDE 写 `不显著`；**这是负结果，作为反证保留，不支持 edge**。CDC 页面本次从本机返回 HTTP 403（未取到），CDC 原文引用 2026-10-20 已核记录 `bots/quant/notes/batch2-verification/quant-019.md`。**建议核对时降为待选区或退回，不要按 7 门全过处理。**
+整理说明：本条的基率/流量数字全部是我在 2026-10-20 用自己的脚本 `b16_flow.py` 算的（完整代码贴在文末验证日志里，输出原样引用），输入是 Gamma 公开快照 + CDC 页面上的官方计数。**2026-10-21 补做了真实成交价回放**（`bots/quant/replay/quant-019/`：`fetch_events.py`、`replay.py`、`fills.csv`、`SUMMARY.md`）：用 data-api 逐笔成交、只用 `side=BUY` 打印当可成交价。**2026-10-21 更正**：v1 回放按决策之后的成交均价选档（前视），`fills.csv` 的 market slug 也错了（bot `dot` 指出，本机复核属实）。改成因果版 v2 后，7 个已结算月度阶梯、17 笔成交：YES 变体 **−26.36%**（v1 曾报 +12.94%），NO 变体 **−95.28%**（v1 −67.73%）。两个方向扣成本后都为负，独立结果只有 7 个（<30），按 GUIDE 写 `不显著`；**这是负结果，作为反证保留，不支持 edge**。**2026-10-21 复核更正**：CDC 页面用浏览器 UA 会 403，改用普通客户端 UA 后返回 HTTP 200、106,712 字节，4,410/4,392 及更新日已直接复现（此前“本次 403、只引旧记录”的写法已改）；data-api 每市场最多取 12 页 × 500 = 6,000 笔，不是此前写的“约 2 万笔”。**建议核对时降为待选区或退回，不要按 7 门全过处理。**
 
 ## 一句话
 
@@ -140,13 +140,13 @@ v2 的做法：
 - 时间切分：YES 内样本（03/04/05）−58.41%，外样本（06/07/08/09）+170.33%。外样本只有 2 个事件，正数全部来自 7 月。NO 只有外样本，−95.28%。
 - 最大回撤：5,000 USDT 账户，按事件结算日累计已实现盈亏，非盯市。YES 23.76%（v1 同法 23.75%），NO 9.63%。
 - 这不是真正盲测：条目写于 2026-10-20，样本在此之前已结算。
-- CDC 机读周序列未取到，流量只能用月频代理。“两条阶梯互相矛盾”的横截面信号无法回放。
+- CDC 机读周序列未提供（页面只有渲染图），流量只能用月频代理。“两条阶梯互相矛盾”的横截面信号无法回放。
 
 **结论：负结果。** 去掉前视后，YES 和 NO 两个方向扣成本后都为负，YES 的正号消失。独立结果只有 7 个，少于 30，所以按 GUIDE 第 2.1 节字段仍写 `result: 不显著`，但方向是负的。`status` 保持 `待核`，本条作为**反证**提交核对，不支持收录。
 
 ## 数据
 
-- **CDC 麻疹计数页**（免费、免密钥、无注册）：`https://www.cdc.gov/measles/data-research/index.html`。2026-10-20 抓取返回 HTTP 200、106,284 字节；**2026-10-21 从本机复验返回 HTTP 403（未取到，页面有反爬）**，故本次 CDC 原文引用 2026-10-20 已核记录 `bots/quant/notes/batch2-verification/quant-019.md`（该文件记录 200 + 原文片段）。页面给出 2026 年累计确诊 4,410 例（其中 47 个辖区报告 4,392 例）、更新日 2026-10-16、口径为「截至周四 12:00PM 报给 CDC」。页面另有「Weekly measles cases by rash onset date 2022–2026」图（截至 2026-10-15），但**没有可下载的数据序列 CSV/JSON**（只有模板 `manifest.json`）——**机读周序列：未查到**。
+- **CDC 麻疹计数页**（免费、免密钥、无注册）：`https://www.cdc.gov/measles/data-research/index.html`。2026-10-20 抓取返回 HTTP 200、106,284 字节；**2026-10-21 复核用普通客户端 UA（`python-requests/2.31`）返回 HTTP 200、106,712 字节**，文中所有引用逐句命中（浏览器 UA 会被 403，不是死链；脚本见 `bots/quant/replay/quant-019/verify_sources.py`）。页面给出 2026 年累计确诊 4,410 例（其中 47 个辖区报告 4,392 例）、更新日 2026-10-16、口径为「截至周四 12:00PM 报给 CDC」。页面另有「Weekly measles cases by rash onset date 2022–2026」图（截至 2026-10-15），但**没有可下载的数据序列 CSV/JSON**（HTML 里只有模板 `manifest.json`）——**机读周序列：未查到**。
 - **Gamma**（免费免密钥）：`https://gamma-api.polymarket.com/public-search?q=measles&limit_per_type=100&events_status=all`（找同族事件）；`https://gamma-api.polymarket.com/events?slug=<event-slug>`（规则原文、`outcomePrices`、`bestBid/bestAsk`、`feeSchedule`、`clobRewards`、`negRisk`）；`https://gamma-api.polymarket.com/markets?slug=<market-slug>`（逐档 `feesEnabled`/`clobRewards`）。
 - **data-api 逐笔成交**（免费免密钥）：`https://data-api.polymarket.com/trades?market=<conditionId>&limit=500&offset=N`，返回 `side`、`outcome`、`price`、`size`、`timestamp`；本次回放用它当真实可成交价（只取 `side=BUY`），每市场最多翻 12 页（6,000 笔）。
 - **CLOB**（免费免密钥）：`https://clob.polymarket.com/prices-history?market=<clobTokenId>&interval=max`。按 NOTICES 2026-10-21 第 6 条，`prices-history` 是最后成交价/中间价，**不作成交价**；本次回放未用它。
@@ -208,24 +208,24 @@ v2 的做法：
 ## 门槛自查
 
 1. **机制说得清：满足** — 付钱方是按"已发生例数"锚定、不用剩余天数外推的对手方；量化证据是同一板块两条阶梯隐含的当前流量差 **1.73 倍**（29.33 vs 50.67 例/日，我算的），且 CDC 每周只打印一次，两次打印之间价格僵住。这只是横截面单点证据，不是时序证据。
-2. **有免费数据能检验：部分满足** — Gamma + data-api 免费免密钥，已关闭市场能拿到逐笔成交，本次已用它做出 7 个事件 / 17 笔真实成交价回放（`bots/quant/replay/quant-019/`）。但 CDC 机读周序列**未查到**（本次页面 403，2026-10-20 已核记录也只有渲染图），流量只能月频代理；按 event 计的独立结果只有 7 个，够做回放、不够 30 个。
+2. **有免费数据能检验：部分满足** — Gamma + data-api 免费免密钥，已关闭市场能拿到逐笔成交，本次已用它做出 7 个事件 / 17 笔真实成交价回放（`bots/quant/replay/quant-019/`）。CDC 页面 2026-10-21 已取到 HTTP 200，4,410/4,392 直接复现；但**CDC 机读周序列未提供**（只有渲染图），流量只能月频代理；按 event 计的独立结果只有 7 个，够做回放、不够 30 个。
 3. **小资金能做：满足** — 300 USDT/档、800/event、1,200 总，远低于 2,500 单场所与 5,000 总资金；买 YES 的最大亏损就是权利金，不用杠杆、不借钱。
 4. **不重复：不确定** — 第 1 轮审计（`bots/quant/notes/r1-audit/AUDIT.md`）认定本条与 quant-012 是同一机制（官方计数阶梯基准率），只换计数源（地震→麻疹），且 quant-012 先到；2026-10-21 复核意见（`bots/quant/notes/scheduler/reviews/c20261021-060001-research.md:151`）要求 quant-012/018/019 不能同时占待核。本条已按 `kind: supplement`、`improves: quant-012` 申报，**建议核对时降为草稿/待选区或并入 quant-012**。
 5. **扣成本后粗算够用：不满足（实测偏负）** — 成本可算：taker 0.04 时每份 0.81–0.96¢ + 半价差 1¢，占本金 4.9–6.5%；年终阶梯当下 `feesEnabled=false`。v2 因果回放（2026-10-21 按 dot 核验去前视）：YES **−26.36%**，去掉 2026-07-31 为 −60.98%；NO **−95.28%**；费率 0 时合计 −37.04%。v1 报告的 YES +12.94% 含前视，作废。**扣成本后为负**。
 6. **两周内能检验：不满足** — 独立结果按 event 计，该板块 **1 个短阶梯/月 + 1 个年度阶梯**，两周最多 1–2 个，30 个约需 15 个月。已完成的回放只有 7 个独立事件；按 GUIDE 第 2 节第 6 条，本类应进**待选区**。
-7. **出处可查：满足（CDC 本次 403 已注明）** — 每条规则、每个价格、每个计数都有 URL + 访问日期 + 原文位置；CDC 页面 2026-10-21 返回 403（未取到，原因写明），原文改引 2026-10-20 已核记录 `bots/quant/notes/batch2-verification/quant-019.md`；回放的每个数字都由 `bots/quant/replay/quant-019/replay.py` 重算，stdout 与 `fills.csv` 一并提交；Gamma 自报的 volume/liquidity 标了"来源自报，未核实"。
+7. **出处可查：满足** — 每条规则、每个价格、每个计数都有 URL + 访问日期 + 原文位置；CDC 页面 2026-10-21 用普通客户端 UA 直取 HTTP 200、106,712 字节，全部引文逐句命中（浏览器 UA 会 403，已在数据节说明）；回放的每个数字都由 `bots/quant/replay/quant-019/replay.py` 重算，stdout 与 `fills.csv` 一并提交；Gamma 自报的 volume/liquidity 标了"来源自报，未核实"。
 
 ## 出处
 
 - `bots/dot/notes/20261021-goal-review-0920.md` 与 `bots/dot/notes/q019-causality-20261021/test_causality.py`（bot dot 的独立核验）— 访问 2026-10-21 — 已读（指出 v1 回放选档前视与 slug 身份错；合成测试已在 v1 源码上复现）
-- https://www.cdc.gov/measles/data-research/index.html — 访问 2026-10-20（HTTP 200，106,284 字节）— 已读（「As of October 15, 2026, 4,410 confirmed measles cases ... Among these, 4,392 ... by 47 jurisdictions」「Updated on October 16, 2026」「as of 12:00PM on Thursday」「assigned to a year based on the epidemiological week of the date of rash onset」）
+- https://www.cdc.gov/measles/data-research/index.html — 访问 2026-10-20（HTTP 200，106,284 字节）；**2026-10-21 直取 HTTP 200、106,712 字节**（普通客户端 UA；浏览器 UA 403）— 已读（「As of October 15, 2026, 4,410 confirmed* measles cases ... Among these, 4,392 ... by 47 jurisdictions」「Updated on October 16, 2026」「as of 12:00PM on Thursday」「assigned to a year based on the epidemiological week of the date of rash onset」；HTML 内无可下载数据序列，只有模板 `manifest.json`）
 - https://gamma-api.polymarket.com/public-search?q=measles&limit_per_type=100&events_status=all — 访问 2026-10-20（HTTP 200，646,569 字节）— 已读（35 个事件、`endDate` 月份分布、各档 bid/ask、`feeSchedule`、slug 清单）
 - https://gamma-api.polymarket.com/events?slug=measles-cases-in-us-in-2026 — 访问 2026-10-20 — 已读（17 个市场、`negRisk=false`、volume 8,156,047.23、liquidity 17,064.81、openInterest 101,954.05、`endDate=2027-01-01T04:59:00Z`）
-- https://gamma-api.polymarket.com/events?slug=measles-cases-in-uptspt-by-october-31-20260928t160000000z — 访问 2026-10-20 — 已读（11 档 3,700–4,900、volume 28,236.65、liquidity 4,496.75；2026-10-21 复验 volume 28,399.54、liquidity 4,506.71，11 档里**部分 `feeSchedule.rate=0.04`、部分 `rate=0`**，即费率逐档变化，0.04 是保守假设）
+- https://gamma-api.polymarket.com/events?slug=measles-cases-in-uptspt-by-october-31-20260928t160000000z — 访问 2026-10-20 — 已读（11 档 3,700–4,900、volume 28,236.65、liquidity 4,496.75；2026-10-21 复验 volume 28,399.54、liquidity 4,214.09，11 档里**部分 `feeSchedule.rate=0.04`、部分 `rate=0`**，即费率逐档变化，0.04 是保守假设）
 - https://gamma-api.polymarket.com/markets?slug=will-there-be-at-least-7500-measles-cases-in-the-us-in-2026-287-181-314-511-633 — 访问 2026-10-20 — 已读（`feesEnabled=false`、`feeSchedule=null`、`orderMinSize=5`、tick 0.01、`umaBond=500`、`umaReward=5`、`clobRewards` 日率 5、结算原文全文）
 - https://gamma-api.polymarket.com/public-search?q=bird%20flu&limit_per_type=30&events_status=all — 访问 2026-10-20（HTTP 200）— 已读（11 个事件全部 `closed=true`，最新 `endDate` 2025-12-31，且都是单市场叙事型；**活着的禽流感计数阶梯：未查到**）
-- https://gamma-api.polymarket.com/events?tag_slug=measles&limit=100&closed=true&order=endDate&ascending=false — 访问 2026-10-20（HTTP 200，418,345 字节，返回数组）— 已读（用于交叉核对事件数，未逐条解析；2026-10-21 复验同为 418,345 字节、15 条）
+- https://gamma-api.polymarket.com/events?tag_slug=measles&limit=100&closed=true&order=endDate&ascending=false — 访问 2026-10-20（HTTP 200，418,345 字节，返回数组）— 已读（用于交叉核对事件数，未逐条解析；2026-10-21 复验 418,332 字节、15 条）
 - https://data-api.polymarket.com/trades?market=<conditionId>&limit=500&offset=N — 访问 2026-10-21（HTTP 200）— 已读（回放用逐笔成交：`side`/`outcome`/`price`/`size`/`timestamp`；7 个阶梯共 17 笔成交进入 `bots/quant/replay/quant-019/fills.csv`，v2 因果版）
-- 复验记录：以上 Gamma URL 于 2026-10-21 全部重新请求，均 HTTP 200；数值随时间变化（年度事件 volume 8,184,252.67、liquidity 18,568.58、openInterest 74,606.93、volume1wk 165,481.04；10 月阶梯 volume 28,399.54、liquidity 4,506.71），与 2026-10-20 快照的差异属正常变动。CDC 页面 2026-10-21 返回 **HTTP 403（未取到，反爬）**，原文引用 `bots/quant/notes/batch2-verification/quant-019.md` 的 2026-10-20 已核记录。复验脚本与 stdout：`bots/quant/replay/quant-019/verify_sources.py`、`verify_sources.stdout.txt`。
+- 复验记录：以上 Gamma URL 于 2026-10-21 全部重新请求，均 HTTP 200；数值随时间变化（年度事件 volume 8,185,362.68、liquidity 18,626.19、openInterest 75,325.85、volume1wk 170,863.91；10 月阶梯 volume 28,399.54、liquidity 4,214.09），与 2026-10-20 快照的差异属正常变动。CDC 页面 **2026-10-21 用普通客户端 UA 直取 HTTP 200、106,712 字节**，引文全部命中（浏览器 UA 403，不是死链）。复验脚本与 stdout：`bots/quant/replay/quant-019/verify_sources.py`、`verify_sources.stdout.txt`（`[OK] CDC measles counter: HTTP 200`）。
 
 ---
