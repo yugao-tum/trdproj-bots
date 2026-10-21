@@ -1,0 +1,106 @@
+{
+  "generated_utc": "2026-10-21T11:02:09Z",
+  "price_source": "https://data-api.polymarket.com/trades",
+  "rule": "median YES print in last 48h of spec week on USGS predicted bracket; price in (0.02, 0.97)",
+  "fee": "0.05 * p * (1-p) per share",
+  "n_predicted": 5,
+  "n_filled": 5,
+  "mean_net_per_share": 0.0139,
+  "rows": [
+    {
+      "slug": "how-many-5pt5-or-above-earthquakes-april-13-april-19",
+      "predicted": "9",
+      "resolved": ">9",
+      "match": false,
+      "window_utc": [
+        "2026-04-18T00:00:00+00:00",
+        "2026-04-20T00:00:00+00:00"
+      ],
+      "conditionId": "0xce79a5202b1cc58540a803e15080b75723ac5de099e41995fc8dce72a5d587c8",
+      "trades_fetched": 442,
+      "yes_in_window": 224,
+      "status": "filled",
+      "entry_price": 0.2332,
+      "fee_per_share": 0.0089,
+      "won": false,
+      "net_per_share": -0.2421,
+      "price_source": "data-api"
+    },
+    {
+      "slug": "how-many-5pt5-or-above-earthquakes-april-27-may-3",
+      "predicted": "≤3",
+      "resolved": "≤3",
+      "match": true,
+      "window_utc": [
+        "2026-05-02T00:00:00+00:00",
+        "2026-05-04T00:00:00+00:00"
+      ],
+      "conditionId": "0xa5797d31db90e13bfc23383f77504f169aed6e4c6f4e5bcea5e67b992d1e1f5d",
+      "trades_fetched": 439,
+      "yes_in_window": 139,
+      "status": "filled",
+      "entry_price": 0.598,
+      "fee_per_share": 0.012,
+      "won": true,
+      "net_per_share": 0.39,
+      "price_source": "data-api"
+    },
+    {
+      "slug": "how-many-5pt5-or-above-earthquakes-may-11-may-17",
+      "predicted": "7",
+      "resolved": "6",
+      "match": false,
+      "window_utc": [
+        "2026-05-16T00:00:00+00:00",
+        "2026-05-18T00:00:00+00:00"
+      ],
+      "conditionId": "0x6cb0807aed22990d42c418c25800b2a2835e2bd57c357f996c8fe0f5ffe23e02",
+      "trades_fetched": 200,
+      "yes_in_window": 56,
+      "status": "filled",
+      "entry_price": 0.3169,
+      "fee_per_share": 0.0108,
+      "won": false,
+      "net_per_share": -0.3277,
+      "price_source": "data-api"
+    },
+    {
+      "slug": "how-many-5pt5-or-above-earthquakes-may-18-may-24",
+      "predicted": ">9",
+      "resolved": ">9",
+      "match": true,
+      "window_utc": [
+        "2026-05-23T00:00:00+00:00",
+        "2026-05-25T00:00:00+00:00"
+      ],
+      "conditionId": "0xf6e330af966ee7a782071c39138361017e2e2cc4b86568a08c4125832b238ef8",
+      "trades_fetched": 520,
+      "yes_in_window": 37,
+      "status": "filled",
+      "entry_price": 0.8095,
+      "fee_per_share": 0.0077,
+      "won": true,
+      "net_per_share": 0.1828,
+      "price_source": "data-api"
+    },
+    {
+      "slug": "how-many-5pt5-or-above-earthquakes-may-4-may-10",
+      "predicted": ">9",
+      "resolved": ">9",
+      "match": true,
+      "window_utc": [
+        "2026-05-09T00:00:00+00:00",
+        "2026-05-11T00:00:00+00:00"
+      ],
+      "conditionId": "0xeb7f41e3f21a37a703ccce2a423e7f2e519e8c93cb941bdcad9dc63cc34f0aee",
+      "trades_fetched": 615,
+      "yes_in_window": 38,
+      "status": "filled",
+      "entry_price": 0.93,
+      "fee_per_share": 0.0033,
+      "won": true,
+      "net_per_share": 0.0667,
+      "price_source": "data-api"
+    }
+  ]
+}
