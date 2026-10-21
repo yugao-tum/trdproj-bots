@@ -55,7 +55,7 @@
 - **定时器**：15m / hourly / retro 三路有效（至 10-28）
 - **下小时**：PortWatch ≥10-19 落库则 **T04watch**；否则 BACKLOG 需新 scout PM / 证据项
 
-## 2026-10-21 05:03 UTC — 循环 #6（定时器 composer-hourly-brief）
+## 2026-10-21 05:03 UTC — 循环 #7（定时器 composer-hourly-brief）
 
 - **待核**：**10/15**（001–010）；`--hourly` lint **0** 问题
 - **上一小时 15m**（04:00–05:00）：**T11/T15** 提速规则 digest + 48h 滚动核对；**T12** 008 replay 目录；**T13** 003 R2 回放 + 八字段（窗内 API **0 条** → `不显著`，`228305bd`）
