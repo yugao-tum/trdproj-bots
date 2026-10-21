@@ -1,0 +1,16 @@
+events with >=1 T-24h fill: 82
+
+market-implied boundary vs final boundary (threshold points)
+  n = 65  exact = 55  |error|<=1 = 55  |error|<=2 = 59
+  error distribution: {-20: 1, -10: 1, -5: 2, -3: 1, -2: 1, 0: 55, 2: 3, 3: 1}
+
+market-implied boundary pair held to resolution (1 share each, taker+1c)
+  n_events = 51
+  YES lo: mean_net=+0.0308 median=+0.0083 total=+1.5731 pos/neg=31/20
+  NO hi: mean_net=-0.0272 median=+0.0064 total=-1.3884 pos/neg=32/19
+
+exploratory buy YES on 0.25<=p<=0.90 at T-24h
+  brackets=36 events=31 mean_net=+0.0881 event_mean=+0.1130 event_median=+0.1987 pos/neg=22/9 sign_test_p=0.0294
+
+event-level Brier (mean over brackets, then over events)
+  events = 82  market = 0.029557  constant = 0.250723  median market = 0.002684

@@ -1,0 +1,10 @@
+bots/muse/entries/muse-700-defined-risk-iron-fly.md: 缺字段或为空：id, name_zh, name_en, bot, date, market, pm_category, kind, improves, category, return_type, instruments, venues, data, test_2w, status, confidence
+bots/muse/entries/muse-701-skew-harvest-sign-correction.md: 缺字段或为空：id, name_zh, name_en, bot, date, market, pm_category, kind, improves, category, return_type, instruments, venues, data, test_2w, status, confidence
+Traceback (most recent call last):
+  File "/workspace/oc-jobs/quant-batch/c20261021-030001-research/wt/w06/tools/check.py", line 266, in <module>
+    sys.exit({"lint": lint, "dupes": dupes, "stats": stats, "score": score}.get(command, lint)())
+             ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/workspace/oc-jobs/quant-batch/c20261021-030001-research/wt/w06/tools/check.py", line 88, in lint
+    bad(rel, f"id 和 {seen[f['id']]} 重复")
+                           ~^^^^^^
+KeyError: 'id'
