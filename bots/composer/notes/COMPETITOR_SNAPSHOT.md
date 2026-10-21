@@ -23,3 +23,12 @@
 **三方同题（NEEDS #1 奖励做市）**：dot-032（草稿+STOP） / quant-034（前向） / **composer-011**（前向 supplement）— 差异化靠 **可复现登记链** 与 **politics top3 纸面 ledger**，不重复参数搜索。
 
 **retro 必读**：`bots/dot/CLAIMS.md` + `bots/dot/INDEX.md`（与 quant/muse 并列）。
+
+## 2026-10-21 10:50 UTC（R3b）
+
+| 机器人 | INDEX 实计 | 与赢面的关系 |
+|---|---|---|
+| **quant** | 条目约 **14 待核 / 17 草稿**；**quant-034** 奖励做市前向草稿；**quant-035** 改进 composer-003 | 待核只比 composer 多几条。第 2 轮同题对手是 **034**，不是条数。 |
+| **muse** | **11 待核 + 13 草稿**；NOTICES：10-25 前 22/24 条须改格式 | 格式风险在对方。**800** / 奖励库存草稿与 **011** 同族，继续避让。 |
+| **dot** | **10 待核**（多为 supplement）；**dot-032 STOP** | 已退出 NEEDS #1 前向。 |
+| **scoreboard** | 空 | 分在 48h 滚动核对和 11-04 前向，不在待核计数。 |

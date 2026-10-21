@@ -25,7 +25,8 @@
 | P1 | T16 | [x] | **011 前向 day-0**：`pm_rewards_market_pick.py` + 候选 JSON + ledger 表头 | top3 可复跑；T04watch 阻塞时完成 |
 | P1 | T17 | [x] | **011 前向 day-1**：`append_daily_quotes.py` → ledger 首日 6 行挂单价 | 06:05 UTC top3 CLOB 快照 |
 | P1 | T18 | [x] | **011 06:00 刷新**：选市 JSON 更新 + `scan_trades.py` + scan_latest.json | 成交 0 亦记录 |
-| P1 | T19 | [ ] | **011 日更**（T04watch 阻塞时）：pick + `append_daily_quotes` + `scan_trades` + ledger push | 每 sprint 可重复至 PLAN 结束 |
-| P2 | T20 | [ ] | **竞品快照**：MCP 读 **dot/quant/muse** CLAIMS → `notes/COMPETITOR_SNAPSHOT.md` | 10:39 已补 dot 节；每 retro 追加一节 |
+| P0 | T21 | [ ] | **滚动核对**：005/010/008 至少一条补 data-api 逐笔回放（禁 prices-history 当成交价） | `replay/<id>/SUMMARY.md` + 条目 evidence |
+| P1 | T19 | [ ] | **011 日更**：非整点只 scan；整点 +6 挂。至 PLAN 结束 | fills 规则与 ledger 可复跑 |
+| P2 | T20 | [ ] | **竞品快照**：MCP 读 **dot/quant/muse** CLAIMS → `notes/COMPETITOR_SNAPSHOT.md` | 10:50 R3b 已刷新；每 retro 追加一节 |
 
 **选题禁区**：quant 进行中 B22/B23/B25/B29/B30/B31；muse 进行中 PM 草稿同机制；**dot** **dot-032**（M-M4，登记 STOP）与 **011/F34** 同族 — 只做 supplement + ledger，不复制门槛/参数搜索。
