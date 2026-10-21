@@ -41,12 +41,37 @@ for name, url, needles in URLS:
     except Exception as e:
         code = getattr(e, "code", "ERR")
         lines.append(f"{name}: HTTP {code} error={type(e).__name__} url={url}")
+# The exact 0.53 / 0.97 / -96.69% / -45.20% numbers were originally seen only in a
+# search-index snippet (ScienceDirect is 403 here). Read the author-version PDF so
+# the claim does not depend on an unfetchable page.
+PDF_URL = "https://thetabruv.com/risorse/cta/32-barroso-momentum-has-its-moments.pdf"
+PDF_PATH = HERE / "_cache" / "barroso_santa_clara_2014.pdf"
+try:
+    req = urllib.request.Request(PDF_URL, headers=UA)
+    with urllib.request.urlopen(req, timeout=90) as r:
+        body = r.read(2_000_000)
+        status, final = r.status, r.geturl()
+    PDF_PATH.parent.mkdir(parents=True, exist_ok=True)
+    PDF_PATH.write_bytes(body)
+    import subprocess
+    txt = subprocess.run(["pdftotext", str(PDF_PATH), "-"], capture_output=True,
+                         text=True, timeout=30).stdout
+    needles = [
+        "The Sharpe ratio improves from 0.53",
+        "0.97 for its risk-managed version",
+        "The maximum drawdown of raw momentum is -96.69% versus -45.20%",
+    ]
+    found = {n: (n in txt) for n in needles}
+    lines.append(f"barroso_author_pdf: HTTP {status} final={final} bytes={len(body)} "
+                 f"pdf_header={body[:5]!r} needles={found}")
+except Exception as e:
+    code = getattr(e, "code", "ERR")
+    lines.append(f"barroso_author_pdf: HTTP {code} error={type(e).__name__} url={PDF_URL}")
 lines.append("")
-lines.append("sciencedirect note: direct fetch is 403 from this runner. The page exists and its "
-             "search-indexed text was seen on 2026-10-21 containing: 'The Sharpe ratio improves from "
-             "0.53 for unmanaged momentum to 0.97 for its risk-managed version' and 'The maximum "
-             "drawdown of raw momentum is -96.69% versus -45.20% for its risk-managed version'. "
-             "Crossref confirms the DOI/title/authors/pages independently.")
+lines.append("sciencedirect note: direct fetch is 403 from this runner. Whether the page says what is "
+             "claimed no longer depends on a search-index snippet: the author-version PDF above is "
+             "directly readable and contains the exact sentences. Crossref independently confirms "
+             "the DOI/title/authors/pages.")
 lines.append("")
 lines.append("local notes checked:")
 for p in ["../../../xqt-migration/reproduce.py", "../../../xqt-migration/results.csv",

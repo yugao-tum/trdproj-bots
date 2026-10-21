@@ -1,0 +1,3 @@
+entry: bots/quant/entries/quant-001-vm-btc-regime-gate.md
+checks: 71  failed: 0
+RESULT: PASS

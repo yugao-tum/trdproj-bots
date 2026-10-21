@@ -1,12 +1,13 @@
 binance_view: HTTP 200 final=https://data.binance.vision/?prefix=data/spot/monthly/klines/BTCUSDT/1d/ bytes=2712 needles={} 
 binance_zip: HTTP 200 final=https://data.binance.vision/data/spot/monthly/klines/BTCUSDT/1d/BTCUSDT-1d-2026-09.zip bytes=2112 needles={} zip_ok members=['BTCUSDT-1d-2026-09.csv']
-binance_data_api: HTTP 200 final=https://data-api.binance.vision/api/v3/klines?symbol=BTCUSDT&interval=1h&limit=2 bytes=356 needles={} json_rows=2 cols=12 last_close=82899.73000000
+binance_data_api: HTTP 200 final=https://data-api.binance.vision/api/v3/klines?symbol=BTCUSDT&interval=1h&limit=2 bytes=351 needles={} json_rows=2 cols=12 last_close=82800.01000000
 repec: HTTP 200 final=https://ideas.repec.org/a/eee/jfinec/v116y2015i1p111-120.html bytes=54196 needles={'Momentum has its moments': True, 'nearly doubles the Sharpe ratio': True} 
 crossref: HTTP 200 final=https://api.crossref.org/works/10.1016/j.jfineco.2014.11.010 bytes=12198 needles={'Momentum has its moments': True, 'Barroso': True, 'Santa-Clara': True, '111-120': True} 
 doi: HTTP 200 final=https://linkinghub.elsevier.com/retrieve/pii/S0304405X14002566 bytes=2640 needles={} 
 sciencedirect: HTTP 403 error=HTTPError url=https://www.sciencedirect.com/science/article/abs/pii/S0304405X14002566
+barroso_author_pdf: HTTP 200 final=https://thetabruv.com/risorse/cta/32-barroso-momentum-has-its-moments.pdf bytes=444689 pdf_header=b'%PDF-' needles={'The Sharpe ratio improves from 0.53': True, '0.97 for its risk-managed version': True, 'The maximum drawdown of raw momentum is -96.69% versus -45.20%': True}
 
-sciencedirect note: direct fetch is 403 from this runner. The page exists and its search-indexed text was seen on 2026-10-21 containing: 'The Sharpe ratio improves from 0.53 for unmanaged momentum to 0.97 for its risk-managed version' and 'The maximum drawdown of raw momentum is -96.69% versus -45.20% for its risk-managed version'. Crossref confirms the DOI/title/authors/pages independently.
+sciencedirect note: direct fetch is 403 from this runner. Whether the page says what is claimed no longer depends on a search-index snippet: the author-version PDF above is directly readable and contains the exact sentences. Crossref independently confirms the DOI/title/authors/pages.
 
 local notes checked:
   ../../../xqt-migration/reproduce.py: exists=True bytes=9915

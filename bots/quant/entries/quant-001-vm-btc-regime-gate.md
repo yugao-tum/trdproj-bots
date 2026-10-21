@@ -13,7 +13,7 @@ return_type: direction
 instruments: BTC, ETH, SOL 现货
 venues: Binance 现货（任一大所现货均可）
 data: Binance 公开日线（data.binance.vision，免密钥，2017 年起；本条用 2020-12-31～2026-10-13）；成交价用同源 1h K 线首小时 VWAP（data-api.binance.vision，免密钥）
-test_2w: 用 notes/scheduler/scratch/H-quant-001/tradable_backtest.py 按“收盘出信号、次日首小时 VWAP 成交、每边 0.30%”重跑 4 折样本外，并把开关换成事先指定的 BTC≥50/100/200 日均线；独立结果按“开关关闭的区段”数（2021–2026 分别为 60/39/25 段）；失败标准：拼接路径回撤不优于同仓位常数缩放，或 placebo 检验 p>0.10，或折年收益低于 8%
+test_2w: 用 notes/scheduler/scratch/H-quant-001/tradable_backtest.py 按“收盘出信号、次日首小时 VWAP 成交、每边 0.30%”重跑 4 折样本外，并把开关换成事先指定的 BTC≥50/100/200 日均线；familywise_placebo.py 对 3 个预指定闸门做共用平移的 max-statistic 校正；独立结果按“开关关闭的区段”数（2021–2026 分别为 60/39/25 段）；失败标准：拼接路径回撤不优于同仓位常数缩放，或 placebo 检验 p>0.10，或折年收益低于 8%
 status: 待核
 confidence: 中
 ---
@@ -87,9 +87,11 @@ confidence: 中
 | SMA200 | +140.7% / −20.9% / 1.031 | +71.8% / +200.6% | −30.7% / −19.5% | 0.156 | **0.430** | 0.215 |
 
 - **回撤优势不成立**：随机平移后的开关有 43%–60% 的概率得到与实际一样好或更好的路径回撤。实际开关的回撤改善只是“经常不在场”的机械结果，不是“BTC 先走弱”的时序信息。
-- 只有 SMA50 的连乘收益在 placebo 中较靠前（p=0.032），但这没有做事先的多重检验，而且同一族的 SMA100/200 都不显著（0.125/0.156）；不能据此把 SMA50 的收益优势当成已证实。
+- 只有 SMA50 的连乘收益在单闸门 placebo 中较靠前（p=0.032）；同一族的 SMA100/200 单闸门 p=0.125/0.156。把 3 个预指定闸门放在同一组平移上做 max-statistic 校正后，SMA50 的 p(compound)=0.070，仍不显著；不能据此把 SMA50 的收益优势当成已证实。
 
-**结论（负面）**：按可成交价、0.30%/边、4 折 OOS，SMA50 的收益仍高于 8%，但作为“改进”不成立：它的路径回撤不优于同仓位常数缩放（−19.6% vs −19.2%），安慰剂检验 p=0.601；SMA100/200 则被常数缩放全面支配。**建议整合者把本条从 `improvement` 降为待选区（1.0），不要按“改进采纳”计分；若主审更看重收益低于 VM 这一点，也可直接退回。** 下面保留旧的收盘价与多重检验结果，供对照，不再把它们当作改进成立的证据。
+**第二轮复核与家族校正（2026-10-21）**：用本目录原脚本重跑 `tradable_backtest.py` 与 `placebo_gate.py`，上表全部数字逐位一致（`harden_tradable_stdout.txt`、`harden_placebo_stdout.txt`）。上一条 SMA50 的 compound p=0.032 是单闸门、未校正的；`familywise_placebo.py` 让 SMA50/100/200 三个事先指定的闸门共用同一组 2,000 次循环平移，按 max-statistic 校正后 p(compound)=0.070、p(pathDD)=0.812、p(Sharpe)=0.219（`familywise_placebo_stdout.txt`）。也就是说，即使只在 3 个预指定闸门里挑最好的，收益优势也不到 5% 显著；回撤优势仍然完全不成立。
+
+**结论（负面）**：按可成交价、0.30%/边、4 折 OOS，SMA50 的收益仍高于 8%，但作为“改进”不成立：它的路径回撤不优于同仓位常数缩放（−19.6% vs −19.2%），安慰剂检验 p=0.601；收益优势单闸门 p=0.032，但只在 3 个预指定闸门内做 max-statistic 校正就已升到 p=0.070；SMA100/200 则被常数缩放全面支配。**建议整合者把本条从 `improvement` 降为待选区（1.0），不要按“改进采纳”计分；若主审更看重收益低于 VM 这一点，也可直接退回。** 下面保留旧的收盘价与多重检验结果，供对照，不再把它们当作改进成立的证据。
 
 ### 旧证据（收盘价成交；仍可复现，但不再是改进成立的依据）
 
@@ -140,7 +142,7 @@ confidence: 中
 
 ## 两周内怎么检验
 
-- 数据：公开日线 + 1h K 线；运行 `notes/scheduler/scratch/H-quant-001/tradable_backtest.py`（复用已缓存的 1h 数据，约 10 秒）与 `placebo_gate.py`（2,000 次平移，约 30 秒）。
+- 数据：公开日线 + 1h K 线；运行 `notes/scheduler/scratch/H-quant-001/tradable_backtest.py`（复用已缓存的 1h 数据，约 10 秒）、`placebo_gate.py`（单闸门 2,000 次平移，约 30 秒）与 `familywise_placebo.py`（3 闸门共用平移 + max-statistic，2,000 次，约 60 秒）。
 - 检验：4 折 OOS + 2022 压力折；独立结果按开关关闭的连续段计，SMA50/100/200 分别为 60/39/25 段（已统计，见同目录 `episodes_*.csv`），不按币或按市场重复计数。
 - 失败标准（事先写死，已按此判）：在 0.30%/边、次日首小时 VWAP 成交下，(a) 事先指定开关的拼接路径回撤不优于同仓位常数缩放，或 (b) placebo 平移检验 p>0.10，或 (c) 折年收益低于 8%。SMA50 的 (b) p=0.601、(a) −19.6% vs −19.2%，因此判改进不成立；SMA100/200 三项都不利。
 
@@ -163,7 +165,7 @@ confidence: 中
 - 原版：T-T2-vm“主流币正动量等权（波动管理）”。本条按私有研究里的冻结参数复现了它（旧口径 0.30% 下 +237.2%、拼接回撤 −22.1%；可成交价下 +232.5%、−22.6%）。
 - 改动：只加一个 BTC 日线趋势总开关，下行时整本仓位转现金。
 - 旧口径下为什么看起来更好：三个事先指定的开关把仓位和回撤都降了（−22.1% → −19.1%～−20.1%）；挑选出的 SAR 收益优势在多重的 106 闸门下不成立。
-- **新证据下为什么不能算更好**：可成交价 + 同仓位对照下，SMA50 是 +213.1% / −19.6%，常数缩放是 +179.0% / −19.2%（收益高但回撤略差）；SMA100/200 被常数缩放全面支配；placebo 回撤检验 p=0.601/0.572/0.430。也就是说，回撤改善可由“少持仓/随机不在场”复制，SMA50 的收益优势未经多重检验。**因此本条不能按“改进采纳”计分，建议降为待选区（1.0）。**
+- **新证据下为什么不能算更好**：可成交价 + 同仓位对照下，SMA50 是 +213.1% / −19.6%，常数缩放是 +179.0% / −19.2%（收益高但回撤略差）；SMA100/200 被常数缩放全面支配；placebo 回撤检验 p=0.601/0.572/0.430。也就是说，回撤改善可由“少持仓/随机不在场”复制；SMA50 的收益优势单闸门 p=0.032，但 3 个预指定闸门做 max-statistic 校正后 p=0.070，仍不显著。**因此本条不能按“改进采纳”计分，建议降为待选区（1.0）。**
 - 怎么证明：见“两周内怎么检验”，`tradable_backtest.py`、`placebo_gate.py`、冻结规则和 stdout 都在 `notes/scheduler/scratch/H-quant-001/`。
 
 ## 门槛自查
@@ -172,18 +174,19 @@ confidence: 中
 2. 有免费数据能检验：满足 — Binance 公开日线 + 1h K 线，免密钥，2020-12-31 起，远超 12 个月。
 3. 小资金能做：满足 — 现货多头，不加杠杆，5,000 USDT 远低于容量。
 4. 不重复：不确定 — 是 T-T2-vm 的改进申报；但改进未成立，实际可能只是一个变体；known 里另有 T-T1-regime-filter（小时突破放量的状态过滤），关键变量不同（BTC 总开关 vs 单策略内过滤），由核对判断。
-5. 扣成本后粗算够用：**绝对收益满足，作为改进不满足** — 可成交价下 0.30% 时 SMA50 折年 35.2%，1.00% 时 22.1%，都高于 8%；但回撤不优于同仓位常数缩放（−19.6% vs −19.2%），placebo p=0.601，SMA50 的收益优势也未做多重检验。
+5. 扣成本后粗算够用：**绝对收益满足，作为改进不满足** — 可成交价下 0.30% 时 SMA50 折年 35.2%，1.00% 时 22.1%，都高于 8%；但回撤不优于同仓位常数缩放（−19.6% vs −19.2%），placebo 回撤 p=0.601，SMA50 的收益优势单闸门 p=0.032、3 闸门 max-statistic 校正后 p=0.070，仍不显著。
 6. 两周内能检验：满足 — 60/39/25 段独立关闭区段已统计（`episodes_*.csv`），脚本约 10 秒 + 30 秒可重跑；失败标准已写死并按此判负。
-7. 出处可查：满足 — 外部 URL 于 2026-10-21 全部复核（Binance 200、RePEc 200、Crossref 200、DOI 200；ScienceDirect 直连 403，但其索引正文包含所引数字）；私有仓库数字标“来源自报，未核实”。
+7. 出处可查：满足 — 外部 URL 于 2026-10-21 全部复核（Binance 200、RePEc 200、Crossref 200、DOI 200；ScienceDirect 直连仍 403，但第三方托管的作者版 PDF 200 可读，逐句包含 0.53→0.97 与 −96.69%/−45.20%）；私有仓库数字标“来源自报，未核实”。
 
 ## 出处
 
 - bots/quant/notes/xqt-migration/README.md、reproduce.py、results.csv（本仓库，旧口径，2026-10-20 运行）— 访问 2026-10-21 — 已读（自己算的；VM 基线本次逐位复现）
 - bots/quant/notes/xqt-migration/q001-robustness/REPORT.md、q001_robustness.py、run_output.txt、variants.csv（本仓库，2026-10-20）— 访问 2026-10-21 — 已读（106 闸门 DSR/PBO/bootstrap）
-- bots/quant/notes/scheduler/scratch/H-quant-001/：REPORT.md、tradable_backtest.py、tradable_stdout.txt、tradable_results.csv、same_exposure.csv、placebo_gate.py、placebo_stdout.txt、episodes_SMA50.csv、episodes_SMA100.csv、episodes_SMA200.csv、fetch_hourly.py、fetch_stdout.txt、daily_vs_hourly_check.txt、verify_sources.py、verify_sources_stdout.txt、lint_entry.py（本仓库，2026-10-21 运行）— 访问 2026-10-21 — 已读（本次新算）
+- bots/quant/notes/scheduler/scratch/H-quant-001/：REPORT.md、REPORT-hardening-round2.md、tradable_backtest.py、tradable_stdout.txt、tradable_results.csv、same_exposure.csv、placebo_gate.py、placebo_stdout.txt、familywise_placebo.py、familywise_placebo_stdout.txt、familywise_placebo.csv、episodes_SMA50.csv、episodes_SMA100.csv、episodes_SMA200.csv、fetch_hourly.py、fetch_stdout.txt、daily_vs_hourly_check.txt、verify_sources.py、verify_sources_stdout.txt、verify_entry_numbers.py、verify_entry_numbers_stdout.txt、harden_tradable_stdout.txt、harden_placebo_stdout.txt、harden_verify_sources_stdout.txt、lint_entry.py（本仓库，2026-10-21 运行）— 访问 2026-10-21 — 已读（本次新算/重跑）
 - https://data.binance.vision/?prefix=data/spot/monthly/klines/BTCUSDT/1d/ — 访问 2026-10-21 — 已读（HTTP 200；月包 `BTCUSDT-1d-2026-09.zip` 可打开）
 - https://data-api.binance.vision/api/v3/klines?symbol=BTCUSDT&interval=1h&limit=2 — 访问 2026-10-21 — 已读（HTTP 200；返回 2 根 1h K 线、12 列）
 - https://ideas.repec.org/a/eee/jfinec/v116y2015i1p111-120.html — 访问 2026-10-21 — 已读（摘要含 “nearly doubles the Sharpe ratio”；卷 116(1)、页 111-120）
 - https://api.crossref.org/works/10.1016/j.jfineco.2014.11.010 — 访问 2026-10-21 — 已读（标题、Barroso/Santa-Clara、页码 111-120、DOI 全部对上）
 - https://doi.org/10.1016/j.jfineco.2014.11.010 — 访问 2026-10-21 — 已读（解析到 Elsevier PII S0304405X14002566）
-- https://www.sciencedirect.com/science/article/abs/pii/S0304405X14002566 — 访问 2026-10-21 — 摘要（直连 403；搜索索引正文含 “Sharpe ratio improves from 0.53 … to 0.97” 与 “maximum drawdown … −96.69% versus −45.20%”；Crossref 独立确认元数据）
+- https://thetabruv.com/risorse/cta/32-barroso-momentum-has-its-moments.pdf — 访问 2026-10-21 — 已读（第三方托管的作者版 PDF，标注 “Forthcoming in the Journal of Financial Economics, November 2014”；用 pdftotext 抽取，第 2 页逐句含 “The Sharpe ratio improves from 0.53 for unmanaged momentum to 0.97 for its risk-managed version” 与 “The maximum drawdown of raw momentum is -96.69% versus -45.20%”；与 RePEc/Crossref 元数据一致）
+- https://www.sciencedirect.com/science/article/abs/pii/S0304405X14002566 — 访问 2026-10-21 — 摘要（直连 403；搜索索引正文含 “Sharpe ratio improves from 0.53 … to 0.97” 与 “maximum drawdown … −96.69% versus −45.20%”；具体数字现由上面的作者版 PDF 直接核实，Crossref 独立确认元数据）
