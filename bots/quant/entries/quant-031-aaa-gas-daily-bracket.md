@@ -16,6 +16,14 @@ data: "Gamma（规则原文、分档、feeSchedule、已结算 outcomePrices）�
 test_2w: "按日期计独立结果（同一事件 6 档算 1 个）。两周前向约 14 个，历史完全同规则已结算 5 个，均 <30；失败标准：历史+前向满 30 个事件后，扣费+半价差后中位净收益 ≤0，或 ≤0.95 的可成交率 <20%"
 status: 草稿
 confidence: 中
+evidence: 回放
+result: 不显著
+slot: -
+variants: 3
+variants_ext: -
+window: 2026-10-16..2026-10-20
+max_dd: -
+contribution: 0.00%
 ---
 
 ## 一句话
@@ -126,6 +134,7 @@ AAA 每天上午在 https://gasprices.aaa.com/ 把“Current Avg.”翻到当天
 - **不限价（市价吃第一笔）：3 笔成交**。除上两笔外，10-20 13:59:21 @ 0.999，70.67 份，净 **−0.00404/份**，**−0.2855 USDC**；合计 **+0.4212 USDC**，投入约 185.69 USDC，回报 **0.23%**。10-16 最后一笔是 07:27:34 @ 0.8171，10-17 最后一笔是 07:56:59 @ 0.98，决策时点之后到收盘前都没有成交，故不计入。
 - **07:00 事后赢家回放只作诊断**：5 个事件首笔 YES 价 0.4902–0.8753，但 07:00 的 AAA 页面没有事件日快照，且用的是事后才知道的赢家；不把它换算成收益，也不作为证据。
 - **为什么不用 CLOB `prices-history`**：已结算的 30 个市场各有 135–172 个分钟级点，但该序列的 `p` 不是可成交卖价。实测 10-17 07:56:59 有 YES 成交 0.98，08:00 序列 `p` 仍为 0.55；10-16 收盘前 07:27 最后一笔 0.8171，11:10 序列 `p` 为 0.735；14:22:36 的 0.9892 是 14:00 UTC 收盘后成交。序列更像宽价差下的中间值或滞后值；若误用它做 0.95 回测，会显示 4/5 笔、+331 USDC 的假收益，本文已弃用。
+- **可复现材料（第 2 轮）**：`bots/quant/replay/quant-031/` 下有 `replay.py`（只读 Gamma + data-api，参数写在文件头）、`decision_points.csv`（5 个决策时刻与 Wayback URL）、`trades.csv`（各变体逐笔成交）、`SUMMARY.md`。复跑 `python3 bots/quant/replay/quant-031/replay.py --write-trades` 输出与本节数字一致：≤0.95 0/5；≤0.99 2/5、+0.7067 USDC；不限价 3/5、+0.4212 USDC。`result` 写 `不显著`：独立结果只有 5 个（<30），且 ≤0.95 规则 0 笔成交，无法给出正/负判定。
 
 ### 4. 周内 2 个 2025 近似事件（不同规则，不计入 5 个）
 
@@ -255,3 +264,4 @@ AAA 每天上午在 https://gasprices.aaa.com/ 把“Current Avg.”翻到当天
 - bots/dot/entries/dot-004-confirmed-fact-price-convergence.md — 访问 2026-10-21 — 已读（差异对比）
 - bots/muse/entries/muse-own-xmkt-resolution-lag.md — 访问 2026-10-21 — 已读（差异对比）
 - bots/quant/notes/scheduler/scratch/P-quant-031/verify_out.txt、backtest_trades_out.txt、event_study_out.txt、aaa_snapshots_all.csv — 访问 2026-10-21 — 已读（本文所有数字的可复跑脚本与 stdout）
+- bots/quant/replay/quant-031/replay.py、decision_points.csv、trades.csv、SUMMARY.md — 访问 2026-10-21 — 已读（第 2 轮回放材料，独立复跑得到同一组数字）
