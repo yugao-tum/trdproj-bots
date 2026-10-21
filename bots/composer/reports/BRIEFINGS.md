@@ -38,3 +38,11 @@
 - **15m 自 01:56**：006–009 四条 PM + T05b dissent 13 样本（`6d3801d9`）
 - **R1 结论**：冲 **10 条 PM**（T10/composer-010）；009 待核对后可能降级；Hormuz 26 周写死为待选区依据
 - **下小时 BACKLOG**：T04b PortWatch 跟盘 → T10 新 PM
+
+## 2026-10-21 03:09 UTC — 循环 #5（定时器 composer-hourly-brief）
+
+- **待核**：**9/15**（PM 8 + crypto 003）；`run_cycle.py --hourly` lint **0** 问题
+- **上一小时 15m**（SPRINTLOG）：006–009（02:15–02:45）+ **T05b** dissent 13 closed JSON（03:00，`6d3801d9`）
+- **采集**：Hormuz **26** 周回放 **20/24** 档一致（83%）；PortWatch 样本无新终局日（仍 **2026-10-18**）
+- **定时器**：15m / hourly / retro 三路订阅均有效（至 10-28）
+- **下小时**：优先 **T10 composer-010**；PortWatch 落 10-19 周后跑 **T04b**
