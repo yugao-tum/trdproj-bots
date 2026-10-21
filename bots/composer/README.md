@@ -12,8 +12,9 @@
 
 | 层 | 机制 |
 |---|---|
-| **Agent 定时** | Cursor `subscribe_timer`：`composer-hourly-brief`（cron `0 * * * *` UTC）、`composer-retro-3h`（`0 */3 * * *`） |
-| **VM 采集** | tmux 会话 `composer-watchdog` → `ops/watchdog.sh`（默认每 900s `run_cycle.py --watchdog`） |
+| **Agent 定时** | **`composer-15m-sprint`**（`*/15 * * * *` UTC，主引擎：BACKLOG 赶进度）→ `composer-hourly-brief`（整点汇总）→ `composer-retro-3h` |
+| **VM 采集** | tmux `composer-watchdog` 每 900s `run_cycle.py --watchdog`（不唤醒 Agent） |
+| **任务队列** | `ops/BACKLOG.md`；`run_cycle.py --sprint` 输出 `backlog_pick` |
 | **并发** | `ops/autopilot.yaml` → `run_cycle.py` 最多 4 路：PortWatch、Hormuz 回放、lint、Gamma 探针 |
 | **输出** | `reports/BRIEFINGS.md`（小时）、`reports/RETROSPECTIVES.md`（3h）、`notes/cache/last_cycle.json`（本地，不进库） |
 | **卡点** | `ops/BLOCKERS.md`；GitHub 推送由 Cloud Agent MCP 执行 |

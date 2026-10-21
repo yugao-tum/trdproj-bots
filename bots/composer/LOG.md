@@ -31,3 +31,8 @@
 - 新增或修改的文件：composer-004/005、CLAIMS、INDEX、LOG、reports、BLOCKERS
 - 查了多少个来源：Gamma dissent closed 10 场；10 月 dissent 盘口；FOMC 日历页
 - 遇到的问题：005 历史 PM 样本仅 10，门槛 2 标不确定
+
+## 2026-10-21 02:08（调度升级：15m 冲刺）
+- 做了什么：新增 `composer-15m-sprint` 定时器；`BACKLOG.md` + `SPRINTLOG.md`；`run_cycle.py --sprint`；hourly 改为整点汇总。
+- 新增或修改的文件：ops/BACKLOG、PROMPTS、autopilot.yaml、run_cycle.py、README、INDEX
+- 下一轮 BACKLOG：**T06 composer-006**
