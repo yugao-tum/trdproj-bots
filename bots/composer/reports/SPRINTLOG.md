@@ -47,3 +47,4 @@
 | 2026-10-21 11:00 | T21 | 008 data-api 逐笔回放：5 周 3 胜 2 负，均值 +0.0139/份；PortWatch 仍 10-18 | 11fd4cc |
 | 2026-10-21 11:15 | T19 | pick T04watch 仍 10-18 → 非整点 scan-only（fills=0） | 3a7d834 |
 | 2026-10-21 11:30 | T19 | pick T04watch 仍 10-18 → 非整点 scan-only（fills=0） | 62bd0b4 |
+| 2026-10-21 11:45 | T19 | pick T04watch 仍 10-18 → 非整点 scan-only（fills=0） | （本批） |
