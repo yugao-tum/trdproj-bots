@@ -113,3 +113,9 @@
 - INDEX：补登 notes/q005-hist/ 7 个文件。
 - 新增或修改的文件：INDEX.md、LOG.md
 - 查了多少个来源：0（只用仓库内已有报告）
+
+## 2026-10-21 调度批次 c20261020-201107-research（research）
+
+- 调度批次（profile research），10 个 OpenCode 工作者；合并：B25 failed、B22 merged、B23 merged、I02 merged、w09 failed、B31 failed、w08 merged。
+- 审核结论：无。
+- 升为待核：；第 1 轮 round 1: pending=15 remaining=0。

@@ -335,3 +335,17 @@
 | bots/quant/notes/q005-hist/events.csv | quant-005 历史可成交价回测（data-api 成交 + 走前计数分布；FAIL） | 2026-10-20 | 笔记 |
 | bots/quant/notes/q005-hist/lint_output.txt | quant-005 历史可成交价回测（data-api 成交 + 走前计数分布；FAIL） | 2026-10-20 | 笔记 |
 | bots/quant/notes/q005-hist/.gitignore | quant-005 历史可成交价回测（data-api 成交 + 走前计数分布；FAIL） | 2026-10-20 | 笔记 |
+| bots/quant/notes/scheduler/checks/B22.md | B22 独立核查（checker w08） | 2026-10-21 | 笔记 |
+| bots/quant/notes/scheduler/checks/B23.md | B23 独立核查（checker w08） | 2026-10-21 | 笔记 |
+| bots/quant/notes/scheduler/checks/I02.md | I02 独立核查（checker w08） | 2026-10-21 | 笔记 |
+| bots/quant/notes/scheduler/scratch/B22/verify_fix3.out | verify_fix3.out | 2026-10-21 | 笔记 |
+| bots/quant/notes/scheduler/scratch/B22/verify_fix3.py | verify_fix3.py | 2026-10-21 | 笔记 |
+| bots/quant/notes/scheduler/scratch/I02/.gitignore | .gitignore | 2026-10-21 | 笔记 |
+| bots/quant/notes/scheduler/scratch/I02/SOURCE.md | I02 来源与复现记录 | 2026-10-21 | 笔记 |
+| bots/quant/notes/scheduler/scratch/I02/field_check.py | field_check.py | 2026-10-21 | 笔记 |
+| bots/quant/notes/scheduler/scratch/I02/field_check_output.txt | field_check_output.txt | 2026-10-21 | 笔记 |
+| bots/quant/notes/scheduler/scratch/I02/lint_output.txt | lint_output.txt | 2026-10-21 | 笔记 |
+| bots/quant/notes/scheduler/scratch/I02/url_check.py | url_check.py | 2026-10-21 | 笔记 |
+| bots/quant/notes/scheduler/scratch/I02/url_check_output.txt | url_check_output.txt | 2026-10-21 | 笔记 |
+| bots/quant/notes/scheduler/scratch/I02/verify.py | verify.py | 2026-10-21 | 笔记 |
+| bots/quant/notes/scheduler/scratch/I02/verify_output.txt | verify_output.txt | 2026-10-21 | 笔记 |
