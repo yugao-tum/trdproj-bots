@@ -1,0 +1,83 @@
+atp_elo	200	290077	Mon, 19 Oct 2026 07:15:29 GMT	https://tennisabstract.com/reports/atp_elo_ratings.html
+wta_elo	200	268193	Mon, 19 Oct 2026 07:29:11 GMT	https://tennisabstract.com/reports/wta_elo_ratings.html
+fees	200	404710		https://docs.polymarket.com/trading/fees
+gamma_open	200	116780	Wed, 21 Oct 2026 04:20:06 GMT	https://gamma-api.polymarket.com/events?closed=false&limit=8&tag_slug=tennis&order=startDate&ascending=false
+gamma_atp_friend	200	60952	Wed, 21 Oct 2026 04:20:06 GMT	https://gamma-api.polymarket.com/events?slug=atp-friend-geerts-2026-08-25
+search_tennis	200	62322	Wed, 21 Oct 2026 04:20:06 GMT	https://gamma-api.polymarket.com/public-search?q=tennis&limit_per_type=5
+search_cs	200	28276	Wed, 21 Oct 2026 04:20:07 GMT	https://gamma-api.polymarket.com/public-search?q=Counter-Strike&limit_per_type=3&events_status=active
+trades	200	2353	Wed, 21 Oct 2026 04:20:07 GMT	https://data-api.polymarket.com/trades?market=0x5a9641cc6e3a60a0e729493ef4d9fe81d5aacfc06d5c49511248462afe969be9&limit=3
+clob	200	15	Wed, 21 Oct 2026 04:20:07 GMT	https://clob.polymarket.com/prices-history?market=0x5a9641cc6e3a60a0e729493ef4d9fe81d5aacfc06d5c49511248462afe969be9&interval=max
+archive_repo	200	261176		https://github.com/Aneeshers/tennis-sackmann-archive
+archive_atp2026	200	300795		https://raw.githubusercontent.com/Aneeshers/tennis-sackmann-archive/main/atp/atp_matches_2026.csv
+sackmann_api	ERR	HTTP Error 404: Not Found		https://api.github.com/repos/JeffSackmann/tennis_atp
+atp last_update ['2026-10-19'] 100pt64 True
+wta last_update ['2026-10-19'] 100pt64 True
+atp_has Sinner True
+atp_has 2296.9 True
+atp_has Alcaraz True
+atp_has 2149.8 True
+atp_has Hurkacz True
+atp_has 1897.8 True
+wta_has Siegemund True
+wta_has 1762.3 True
+wta_has Yastremska True
+wta_has 1762.2 True
+wta_has Hanna Chang False
+wta_has 1355.0 True
+wta_has Arseneault True
+wta_has 1266.4 True
+wta_lacasse_present False
+fee_formula True sports True
+open_event wta-gibson-krueger-2026-10-22 closed False markets 2
+  mkt wta-gibson-krueger-2026-10-22 ["0.5", "0.5"] 0.96 60.2 5 0.01 {'exponent': 1, 'rate': 0.05, 'takerOnly': True, 'rebateRate': 0.15}
+open_event itf-davies2-ma3-2026-10-22 closed False markets 3
+  mkt itf-davies2-ma3-2026-10-22 ["0.48", "0.52"] 0.9 80.8798 5 0.01 {'exponent': 1, 'rate': 0.05, 'takerOnly': True, 'rebateRate': 0.15}
+open_event itf-dong5-akli1-2026-10-21 closed False markets 3
+  mkt itf-dong5-akli1-2026-10-21 ["0.3", "0.7"] 0.04 793.6167 5 0.01 {'exponent': 1, 'rate': 0.05, 'takerOnly': True, 'rebateRate': 0.15}
+open_event itf-persso1-mercie2-2026-10-21 closed False markets 3
+  mkt itf-persso1-mercie2-2026-10-21 ["0.88", "0.12"] 0.02 489.5183 5 0.01 {'exponent': 1, 'rate': 0.05, 'takerOnly': True, 'rebateRate': 0.15}
+open_event itf-bartas1-burgic1-2026-10-21 closed False markets 3
+  mkt itf-bartas1-burgic1-2026-10-21 ["0.525", "0.475"] 0.01 394.0002 5 0.01 {'exponent': 1, 'rate': 0.05, 'takerOnly': True, 'rebateRate': 0.15}
+open_event itf-wolff1-webb1-2026-10-21 closed False markets 3
+  mkt itf-wolff1-webb1-2026-10-21 ["0.775", "0.225"] 0.29 454.794 5 0.01 {'exponent': 1, 'rate': 0.05, 'takerOnly': True, 'rebateRate': 0.15}
+open_event itf-gonzal1-brengl1-2026-10-21 closed False markets 3
+  mkt itf-gonzal1-brengl1-2026-10-21 ["0.155", "0.845"] 0.03 1144.5586 5 0.01 {'exponent': 1, 'rate': 0.05, 'takerOnly': True, 'rebateRate': 0.15}
+open_event itf-schuma1-ma2-2026-10-21 closed False markets 3
+  mkt itf-schuma1-ma2-2026-10-21 ["0.13", "0.87"] 0.12 108.8154 5 0.01 {'exponent': 1, 'rate': 0.05, 'takerOnly': True, 'rebateRate': 0.15}
+friend atp-friend-geerts-2026-08-25 volume 58047.700409 endDate 2026-09-01T09:00:00Z nmarkets 16
+winner_market atp-friend-geerts-2026-08-25 ["1", "0"] https://www.atptour.com/en/scores/current
+desc_has_50_50 True
+desc_has_walkover True
+This market refers to the tennis match between Jay Dylan Friend and Michael Geerts in the Roehampton 2, originally scheduled for August 25, 2026 at 5:00AM ET.
+
+This market will resolve to 'Jay Dylan Friend' if Jay Dylan Friend advances against Michael Geerts.
+
+This market will resolve to 'Michael Geerts' if Michael Geerts advances against Jay Dylan Friend.
+
+If the match is canceled (not played at all), ends in a tie, or a winner has not been determined by September 8, 2026, 11:59 PM ET (14 days after the scheduled start), this market will resolve to 50-50.
+
+If the match begins but is not completed, and one player advances due to the opponent's retirement, default, or disqualification, this market will resolve to the player who advances.
+
+If the match ends in a walkover (player withdraws before the start and the other advances automatically), this market will resolve to 50-50.
+
+The primary resolution source will be official information from the ATP Tour. A consensus of credible reporting may also be used.
+trades_n 3 [{'proxyWallet': '0x31b5d60d82ee8a14dc795a41a63953f0974c6128', 'side': 'BUY', 'asset': '71932785895413396591694847620823261498795612815605933066533821654994937096739', 'conditionId': '0x5a9641cc6e3a60a0e729493ef4d9fe81d5aacfc06d5c49511248462afe969be9', 'size': 1029.98, 'price': 0.999, 'timestamp': 1759735511, 'title': 'Wuhan Tennis Open: Dayana Yastremska vs Laura Siegemund', 'slug': 'wta-yastremska-vs-siegemund-2025-10-06', 'icon': 'https://polymarket-upload.s3.us-east-2.amazonaws.com/wta-logo-41f331bdf1.png', 'eventSlug': 'wta-yastremska-vs-siegemund-2025-10-06', 'outcome': 'Siegemund', 'outcomeIndex': 1, 'name': 'GondorCallsForAid', 'pseudonym': 'Several-Pyramid', 'bio': '', 'profileImage': '', 'profileImageOptimized': '', 'transactionHash': '0x0a9ef6588f36641170cbeb98dc1412a40962a4733af4c36a891a65910ce88b29'}]
+clob {'history': []}
+archive_atp2026_bytes 300795
+archive_rows 1449 first 2026-9900 last_tourney 2026-M-DC-2026-WG2-PO-THA-PUR-01
+sep_page 0 200 100
+sep_page 100 200 100
+sep_page 200 200 100
+sep_page 300 200 100
+sep_page 400 200 100
+sep_page 500 200 100
+sep_page 600 200 100
+sep_page 700 200 100
+sep_page 800 200 100
+sep_unique_events 900
+prefix {'other': 4, 'atp': 166, 'wta': 101, 'itf': 621, 'us': 8}
+atp_wta_events 267
+doubles 48 non_doubles 219
+qualifying 129
+main_singles 90
+qual_examples [('wta-uchijim-hercog-2026-08-25', 'US Open, Qualification WTA: Moyuka Uchijima vs Polona Hercog'), ('wta-havlick-yaneva-2026-08-25', 'US Open, Qualification WTA: Lucie Havlickova vs Elizara Yaneva'), ('wta-presto-hibino-2026-08-25', 'US Open, Qualification WTA: Janae Preston vs Nao Hibino')]

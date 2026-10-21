@@ -1,0 +1,17 @@
+rows 2166
+priced_main 2080
+triggered_main 1366
+n 1366 median -0.114895 mean -0.031543
+hit 642 / 1366 0.470
+total_net -43.088336
+staked_notional 678.166047 fees 14.422290 per_$staked -0.063537
+resolved {'0|1': 676, '1|0': 675, '0.5|0.5': 15}
+entry_ask min/median/max 0.0110 0.5000 0.9400
+fee_formula_mismatch_gt_2e-6 0 net_formula_mismatch_gt_2e-6 0
+sens_n 1379 median -0.094095 mean -0.028958
+lag_le2_n 800 median -0.182217 mean -0.040188
+band ask<0.3 n 235 median -0.197695 mean -0.029714
+band 0.3-0.7 n 912 median -0.320695 mean -0.042236
+band ask>0.7 n 219 median +0.192000 mean +0.011021
+zero_spread_and_fee_n 1366 median -0.100000 mean -0.010985
+CRITERION triggered>=30 and median<=0 -> FAIL

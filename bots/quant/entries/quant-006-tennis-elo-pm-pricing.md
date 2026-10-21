@@ -18,7 +18,7 @@ status: 草稿
 confidence: 中
 ---
 
-> **2026-10-20 降为草稿（撤回第 1 轮复核）**：按 `bots/quant/notes/q006-hist/REPORT.md` 的历史可成交价回测（data-api 赛前成交 + 只用此前比赛回放的时点 Elo），2080 场有价、1366 笔触发，主窗口每份净收益中位数 −0.114895、每美元投入 −0.063537，触发了本条预先写死的失败标准（≥30 笔且中位数 ≤0）→ **FAIL**；敏感性窗口与 `date_lag_days ≤ 2` 子集同样为负；2064 场上 Elo Brier 0.216187 劣于市场 0.196510。门槛 1、5、6 因此改为不满足。正文以下保留原稿结构，其中“没有回测”“Sackmann 仓库 404”等说法已按该报告与 I02 复算更新（报告改用公开归档镜像，数据止于 2026-05-25）。I02 在 `bots/quant/notes/scheduler/scratch/I02/` 只读 `matches.csv` 独立复算，并做零成本敏感性：把 1¢ 半价差和手续费全部置零后，1366 笔的每份净收益中位数仍为 −0.100000、均值 −0.010985，负结论不变（`verify_output.txt`）。
+> **2026-10-20 降为草稿（撤回第 1 轮复核）**：按 `bots/quant/notes/q006-hist/REPORT.md` 的历史可成交价回测（data-api 赛前成交 + 只用此前比赛回放的时点 Elo），2080 场有价、1366 笔触发，主窗口每份净收益中位数 −0.114895、每美元投入 −0.063537，触发了本条预先写死的失败标准（≥30 笔且中位数 ≤0）→ **FAIL**；敏感性窗口与 `date_lag_days ≤ 2` 子集同样为负；2064 场上 Elo Brier 0.216187 劣于市场 0.196510。门槛 1、5 因此改为不满足；门 6 的检验已完成（1366 个独立结果），按预注册标准判 FAIL。**结论：作为可交易策略应 DROP，不作为第 2 轮待核候选；保留草稿只作负结果记录。**正文以下保留原稿结构，其中“没有回测”“Sackmann 仓库 404”等说法已按该报告与 I02 复算更新（报告改用公开归档镜像，数据止于 2026-05-25）。I02 在 `bots/quant/notes/scheduler/scratch/I02/` 只读 `matches.csv` 独立复算，并做零成本敏感性：把 1¢ 半价差和手续费全部置零后，1366 笔的每份净收益中位数仍为 −0.100000、均值 −0.010985，负结论不变（`verify_output.txt`）。
 
 ## 一句话
 
@@ -32,7 +32,7 @@ confidence: 中
 
 ### 市场模板与示例（Gamma 快照，2026-10-20 抓取）
 
-- 模板：每个比赛一个 event，event 里 16 个子市场（本轮读到的 `atp-friend-geerts-2026-08-25` 有 16 个），其中第 1 个是“谁赢”，其余是 completed-match、单盘胜者、让盘 ±1.5、总分 21.5/22.5/23.5、单盘总分等。本条只做胜者主市场。
+- 模板：每个比赛一个 event。ATP 正赛 event 可有 16 个子市场（2026-10-20 读到的 `atp-friend-geerts-2026-08-25` 有 16 个）；ITF 低级别 event 当前只有 3 个（胜负、completed-match、单盘胜者），模板随赛事级别变化。其中第 1 个是“谁赢”，其余是 completed-match、单盘胜者、让盘 ±1.5、总分 21.5/22.5/23.5、单盘总分等。本条只做胜者主市场。
 - 示例 1（进行中，2026-10-20）：`itf-lacass1-arsene1-2026-10-20`，W75 Saguenay: Raphaelle Lacasse vs Ariana Arseneault，`outcomePrices=["0.265","0.735"]`、`spread=0.03`、`liquidity=3327.0396`、`orderMinSize=5`、`orderPriceMinTickSize=0.01`、`feeSchedule={"exponent":1,"rate":0.05,"takerOnly":true,"rebateRate":0.15}`、`closed=false`。
 - 示例 2（进行中）：`itf-arsene3-kuhar1-2026-10-20`，M15 Ithaca: Mikael Arseneault vs Matt Kuhar，`outcomePrices=["0.625","0.375"]`、`spread=0.03`、`liquidity=1496.0896`，同一 `feeSchedule`（rate 0.05、rebateRate 0.15）。
 - 示例 3（进行中，反例）：`itf-hurkac1-chang4-2026-10-20`，`outcomePrices=["0.515","0.485"]`、`spread=0.91`、`liquidity=71.8424`；价差 91¢ 的市场按本文阈值不可能有正期望，用来演示“必须按卖价而不是中间价算”。
@@ -45,7 +45,7 @@ confidence: 中
 - `wta-yastremska-vs-siegemund-2025-10-06` 描述原文：取消/打平/延迟超过 7 天 → 50-50；但“If the match ends in a walkover ..., this market will resolve in favor of the player(s) who officially advances to the next round.”（**walkover → 判给晋级者**）。结算源 `https://www.wtatennis.com/scores`。
 - 结论（本条最重要的一条规则证据）：同样是网球胜者市场，**walkover 的处理在两个模板里相反**（2026-08-25 ATP 版 50-50；2025-10-06 WTA 版判给晋级者）。买 0.735 的热门遇到 walkover，前者只退 0.5（每份亏 0.235），后者退 1.0。因此进场前必须读该 market 自己的 description，不能套用上一个市场的规则。
 - `cs-sashi-vs-hotu-2025-09-18`（电竞）描述原文：延后 → 市场保持开放直到打完；彻底取消且无补赛 → 50-50；结算源 liquipedia。电竞没有“退赛判给晋级者”的等价条款，处理方式不同。
-- 结算时区：网球描述里截止时间是 `11:59 PM ET`，事件 `endDate` 是 UTC（示例 4 为 `2026-09-01T09:00:00Z`），两者差 4 小时。
+- 结算时区：ATP 规则的 50-50 截止是 `2026-09-08 23:59 ET`（EDT，即 `2026-09-09T03:59Z`）；示例 4 的 event `endDate=2026-09-01T09:00:00Z` 是开赛后的平台归档时间（= `2026-09-01 05:00 ET`），不是该截止时刻。
 
 ### 进场、出场、仓位
 
@@ -63,14 +63,14 @@ confidence: 中
 - 同日榜面上的具体数字（`Elo` 列）：Sinner 2296.9、Alcaraz 2149.8、Siegemund 1762.3、Yastremska 1762.2、Hanna Chang 1355.0、Ariana Arseneault 1266.4。我的算术：Sinner−Alcaraz=147.1 → p=0.6999；Siegemund−Yastremska=0.1 → p=0.5001；Chang−Arseneault=88.6 → p=0.6248。以上是公式演示，不是任何市场的成交价对比。
 - **覆盖率实测（关键负面证据）**：示例 1 的 Lacasse 在 WTA 榜里查不到（榜单里只有 Arseneault 1266.4），示例 3 里的 Nika Hurkacz 在 ATP 榜里查不到（榜单里的 Hurkacz 是 Hubert Hurkacz 1897.8），示例 2 的 Kuhar 也未查到 —— 即当前挂牌的比赛里，很多是 M15/W15/W35 这类低于 5 万美元、球员未达门槛的赛事，模型无法定价。这是本条最大的现实约束。
 - **费用**：官方 Fees 页原文表格 “Sports 0.05 / 0 / 15%”（Taker / Maker / Maker Rebate），公式 `fee = C × feeRate × p × (1 - p)`；Gamma 里网球市场的 `feeSchedule` 也确实是 `rate: 0.05, takerOnly: true, rebateRate: 0.15`（两个来源一致，属配置值与文档一致，不是实际扣费回执）。
-- **每月挂牌数量（自己数，Gamma 分页）**：筛 `tag_slug=tennis`、`closed=true`、`end_date_min=2026-09-01T00:00:00Z`、`end_date_max=2026-10-01T00:00:00Z`，offset 0–800 每页 100 条全部非空，按 slug 去重后 **900 个唯一 event（这是本轮分页上限，实际只会更多，不是精确总数）**；slug 前缀分布：`itf-` 621、`atp-` 166、`wta-` 101、其他 12；再剔除 doubles/winner/rank/qualifying 后，**atp-/wta- 单打比赛事件 219 个**。这是 2026 年 9 月一个自然月，换算每天约 7.3 场（219/30）。
+- **每月挂牌数量（自己数，Gamma 分页）**：筛 `tag_slug=tennis`、`closed=true`、`end_date_min=2026-09-01T00:00:00Z`、`end_date_max=2026-10-01T00:00:00Z`，offset 0–800 每页 100 条全部非空，按 slug 去重后 **900 个唯一 event（这是本轮分页上限，实际只会更多，不是精确总数）**；slug 前缀分布：`itf-` 621、`atp-` 166、`wta-` 101、其他 12；剔除 doubles 后 **atp-/wta- 比赛事件 219 个**；其中 **129 个是 2026 美网资格赛**，主赛事单打只有 **90 个**（`winner/rank` 在 slug/title 中为 0）。这是 2026 年 9 月第一页（900 个唯一 event，分页下限）的计数；按含资格赛 219 个换算每天约 7.3 场（219/30），主赛事约 3.0 场/天（90/30）。
 - **当前挂牌（2026-10-20 快照）**：`closed=false&tag_slug=tennis&limit=100` 返回满 100 条（说明 ≥100），其中 `itf-` 46、`atp-` 39、`wta-` 10、`will-` 3、`nitto-` 2；atp-/wta- 前缀且非 doubles 的 41 条，但其中多数是“年终排名/入围”类，真正的比赛市场集中在 ITF 级别。
-- **历史回测（q006-hist，已合并；I02 复用不重跑）**：2080 场有赛前成交价、1366 笔触发；主窗口每份净收益中位 −0.114895、均值 −0.031543、每美元投入 −0.063537，敏感性窗口与 `date_lag_days ≤ 2` 子集同样为负；Elo Brier 0.216187 劣于市场 0.196510。I02 只读 `matches.csv` 独立复算，结果一致；零成本敏感性（去掉 1¢ 半价差与手续费）后中位仍 −0.100000、均值 −0.010985。完整方法与限制见 `bots/quant/notes/q006-hist/REPORT.md`，复算见 `bots/quant/notes/scheduler/scratch/I02/verify_output.txt`。Sharpe、最大回撤仍未计算。
+- **历史可成交价回测（扣费后；q006-hist，已合并；I02 与 P-quant-006 复用不重跑）**：净收益/份 = 结算赔付 − `entry_ask` − `0.05×entry_ask×(1−entry_ask)`；P-quant-006 从 `matches.csv` 独立重算，1366/1366 行公式误差 <2e-6，合计手续费 14.422290、名义投入 678.166047。2080 场有赛前成交价、1366 笔触发；主窗口每份净收益中位 −0.114895、均值 −0.031543、每美元投入 −0.063537，敏感性窗口与 `date_lag_days ≤ 2` 子集同样为负；Elo Brier 0.216187 劣于市场 0.196510。I02 只读 `matches.csv` 独立复算，结果一致；零成本敏感性（去掉 1¢ 半价差与手续费）后中位仍 −0.100000、均值 −0.010985。完整方法与限制见 `bots/quant/notes/q006-hist/REPORT.md`，复算见 `bots/quant/notes/scheduler/scratch/I02/verify_output.txt`。Sharpe、最大回撤仍未计算。
 - **原始仓库未查到，改用公开归档镜像**：Jeff Sackmann 的 `tennis_atp` GitHub 仓库本轮打不开（`api.github.com/repos/JeffSackmann/tennis_atp`、`github.com/JeffSackmann/tennis_atp`、`raw.githubusercontent.com/.../{main,master}/atp_matches_2026.csv` 全部 404），所以不把原仓库当来源；q006-hist 改用 README 注明为归档镜像的 `https://github.com/Aneeshers/tennis-sackmann-archive`（本轮复查 HTTP 200；`atp/atp_matches_2026.csv` 300,795 bytes，含 `tourney_date` 等列），并用其 2010–2026 比赛数据回放时点 Elo（镜像数据止于 2026-05-25）。
 
 ## 数据
 
-- `https://tennisabstract.com/reports/atp_elo_ratings.html`（HTTP 200，289,710 bytes）与 `https://tennisabstract.com/reports/wta_elo_ratings.html`（HTTP 200，267,826 bytes）：免费、免密钥、每周更新，本轮读到 `Last update: 2026-10-19`。只给“当前”评分，**没有 as-of 历史评分**；q006-hist 改用公共归档镜像的 2010–2026 比赛数据回放时点 Elo（赛事周粒度）。
+- `https://tennisabstract.com/reports/atp_elo_ratings.html`（HTTP 200，289,710 bytes；2026-10-21 复核 290,077 bytes）与 `https://tennisabstract.com/reports/wta_elo_ratings.html`（HTTP 200，267,826 bytes；2026-10-21 复核 268,193 bytes）：免费、免密钥、每周更新，本轮读到 `Last update: 2026-10-19`。只给“当前”评分，**没有 as-of 历史评分**；q006-hist 改用公共归档镜像的 2010–2026 比赛数据回放时点 Elo（赛事周粒度）。
 - `https://gamma-api.polymarket.com/events?slug=<event-slug>`、`?tag_slug=tennis&closed=false|true&end_date_min=..&end_date_max=..&limit=100&offset=..`：免费、免密钥；给 description（规则原文）、`outcomePrices`（结算后为 `["1","0"]`）、`feeSchedule`、`liquidity`、`spread`、`orderMinSize`、`orderPriceMinTickSize`、`rewardsMinSize`。
 - `https://data-api.polymarket.com/trades?market=<conditionId>&limit=N`：免费、免密钥；实测返回 `price/size/side/outcome/timestamp/slug`（示例：Wuhan 那场 `price=0.999, size=7050, side=BUY, outcome=Siegemund`），适合做结算前成交核对。
 - `https://clob.polymarket.com/prices-history?market=<conditionId>&interval=max`：本轮对已关闭市场返回 `{"history":[]}`，**拿不到历史盘口**；要做盘口回测只能从现在起自建记录（每场赛前 1 小时抓一次 best bid/ask）。
@@ -82,7 +82,7 @@ confidence: 中
 - 前向起点 2026-10-20，每天对 `tag_slug=tennis&closed=false` 里所有 atp-/wta-/itf- 单打胜者市场记录：slug、球员名、`outcomePrices`、`spread`、`liquidity`、`feeSchedule.rate`、抓取时间；对每个市场在开赛前 1 小时再抓一次。名称与当周 Elo 榜对齐（手工或模糊匹配 + 人工核对，必须记录核对结果）。
 - 逐场算 p_model、ask、EV/份；按上文阈值决定是否“纸面买入”，记录份额、价格、费用，等 Gamma 把该市场 `outcomePrices` 改成 `["1","0"]`/`["0","1"]` 或 50-50 后结算。
 - 独立结果**按比赛场次计**：同一 event 下的胜者/让盘/总分多档只算 1 个结果；同一对球员在两周内重复交手也只算 1 个（取第一次）。
-- 数量：2026-09 有 219 场 atp-/wta- 单打事件 → 两周约 110 场（219×14/30≈102，取整为约 100–110）；但这些比赛中“两人都在榜上”的比例未知，本轮实测的几个示例全部不满足，所以**能否凑够 30 笔触发未知**。凑不够就只记为前向观察，不得写成 30 个结果。
+- 数量：2026-09 第一页 900 个 event 里有 219 个 atp-/wta- 比赛（含 129 个美网资格赛；主赛事 90 个）→ 两周约 42–102 场（主赛事 90×14/30≈42；含资格赛 219×14/30≈102）；但这些比赛中“两人都在榜上”的比例未知，本轮实测的几个示例全部不满足，所以**能否凑够 30 笔触发未知**。凑不够就只记为前向观察，不得写成 30 个结果。
 - 失败标准（预先写死）：触发 ≥30 笔时，每份净收益（结算现金流 − 买入价 − 费用）的**中位数 ≤ 0**，或按价差分档（ask<0.3 / 0.3–0.7 / >0.7）中任意一档的净收益均值 ≤ 0 且该档 ≥10 笔，即判失败。只跑通过/不通过，不做参数搜索。
 
 ## 成本与容量
@@ -91,7 +91,7 @@ confidence: 中
 - 价差：示例 1/2 的 `spread=0.03`，半价差 1.5¢，占 ask=0.625 的投入 2.4%；示例 3 的 `spread=0.91` 直接不可做。这就是“2¢/份门槛”的由来：没有 2¢ 边际，费用+半价差就吃掉了。
 - 算术示例（只演示公式）：ask=0.735、p_model=0.80 → EV/份 = 0.80 − 0.735 − 0.009739 = +0.0553 USDC，占投入 7.5%；同一笔若遇 walkover 判 50-50，实际收益 = 0.5 − 0.735 − 0.009739 = −0.2447/份。
 - 容量：单场 100 份 × 0.735 ≈ 73.5 USDT，示例 2 的 `liquidity=1496` 足以承接，示例 3 的 `liquidity=71.8` 不行。挑战赛 `atp-cadenas-sachko-2026-10-02` 的市场已结算、event 未关闭（volume 为累计值仍会增长），event `volume=232018.803794`、`atp-friend-geerts-2026-08-25` event `volume=58047.700409`，说明流动性在赛事之间差两个数量级。5,000 USDT 总资金下按 300 USDT 未结算敞口算，容量不是约束，**能凑够独立结果数才是约束**。
-- 资金占用：单场从进场到结算通常 <24 小时（示例 4 的 event `endDate` 是开赛后约 7 天的最迟结算日），年化换算需按实际占用天数算，本文不给年化。
+- 资金占用：单场从进场到结算通常 <24 小时。示例 4 的 event `endDate=2026-09-01T09:00:00Z` 是开赛后的平台归档时间（= 2026-09-01 05:00 ET），不是规则允许的最迟结算日；规则的最迟 50-50 截止是 2026-09-08 23:59 ET = 2026-09-09T03:59Z。年化换算需按实际占用天数算，本文不给年化。
 
 ## 风险
 
@@ -114,7 +114,7 @@ confidence: 中
 3. 小资金能做：满足 — `orderMinSize=5`、tick=0.01，单场 100 份约 26–74 USDT；示例市场 `liquidity` 71.8–3327 USDT，2,500 USDT 场所上限和 5,000 总资金都放得下；但低价差场次的可成交量未实测。
 4. 不重复：不确定 — 本条用外部评分模型给体育比赛定价（category S），与做市/奖励类条目收益来源不同；已按 `bots/quant/CLAIMS.md` B03 行登记去重：区别 dot C13（伤病消息），电竞同机制并入本题。
 5. 扣成本后粗算够用：不满足（2026-10-20 更新：notes/q006-hist 历史回测 1366 笔触发、净中位 −0.114895/份；I02 零成本敏感性去掉 1¢ 半价差与手续费后中位仍 −0.100000、均值 −0.010985）— 原稿： 费用与半价差可精确算（示例 ask=0.625 时费 1.875%+半价差 2.4%），但**没有回测也没有实测胜率**，`observed_net_return=null`，不能声称扣费后为正。
-6. 两周内能检验：不满足（2026-10-20 更新，复用已合并的 q006-hist，不重跑）— 已按预先写死的失败标准完成历史检验：2026-01-04..2026-05-19、2080 场有赛前 data-api 成交价的比赛，触发 1366 笔（≥30）；主窗口每份净收益中位 −0.114895、均值 −0.031543、每美元投入 −0.063537，命中率 0.470（642/1366）；敏感性窗口 [−24h,−1h] 中位 −0.094095（1379 笔），`date_lag_days ≤ 2` 子集中位 −0.182218（800 笔），均为负；Elo Brier 0.216187 劣于市场 0.196510。I02 只读 `matches.csv` 独立复算一致，零成本敏感性后中位仍 −0.100000。最接近为正的分档是 ask>0.7（219 笔，中位 +0.192000、均值 +0.011021），但另两档均值也为负（REPORT：ask<0.3 为 −0.030074/246 笔，0.3–0.7 为 −0.042290/901 笔）；无论按整体中位还是按预设分档规则都判 **FAIL**。原文见 `bots/quant/notes/q006-hist/REPORT.md`，复算见 `bots/quant/notes/scheduler/scratch/I02/verify_output.txt`。
+6. 两周内能检验：满足（已完成历史检验并 FAIL；2026-10-20 更新，复用已合并的 q006-hist，不重跑）— 已按预先写死的失败标准完成历史检验：2026-01-04..2026-05-19、2080 场有赛前 data-api 成交价的比赛，触发 1366 笔（≥30）；主窗口每份净收益中位 −0.114895、均值 −0.031543、每美元投入 −0.063537，命中率 0.470（642/1366）；敏感性窗口 [−24h,−1h] 中位 −0.094095（1379 笔），`date_lag_days ≤ 2` 子集中位 −0.182218（800 笔），均为负；Elo Brier 0.216187 劣于市场 0.196510。I02 只读 `matches.csv` 独立复算一致，零成本敏感性后中位仍 −0.100000。最接近为正的分档是 ask>0.7（219 笔，中位 +0.192000、均值 +0.011021），但另两档均值也为负（REPORT：ask<0.3 为 −0.030074/246 笔，0.3–0.7 为 −0.042290/901 笔）；无论按整体中位还是按预设分档规则都判 **FAIL**。原文见 `bots/quant/notes/q006-hist/REPORT.md`，复算见 `bots/quant/notes/scheduler/scratch/I02/verify_output.txt`。
 7. 出处可查：满足 — 每个数字都有本轮抓到的 URL、HTTP 状态和原文片段（见 `bots/quant/notes/batch1-verification/quant-006.md` 核对日志）；未查到的（原始 Sackmann 仓库、历史 L2 盘口）已明确写“404/返回空”，归档镜像与复算路径均已写明。
 
 ## 出处
@@ -123,8 +123,8 @@ confidence: 中
 - https://tennisabstract.com/reports/wta_elo_ratings.html — 访问 2026-10-20 — 已读（同句映射说明、`Last update: 2026-10-19`、Arseneault 1266.4、Hanna Chang 1355.0）
 - https://docs.polymarket.com/trading/fees — 访问 2026-10-20 — 已读（`fee = C × feeRate × p × (1 - p)`、Sports 0.05 / maker 0 / rebate 15%）
 - https://gamma-api.polymarket.com/events?closed=false&limit=8&tag_slug=tennis&order=startDate&ascending=false — 访问 2026-10-20 — 已读（示例 1/2/3 的价格、spread、liquidity、feeSchedule）
-- https://gamma-api.polymarket.com/events?slug=atp-friend-geerts-2026-08-25 — 访问 2026-10-20 — 已读（结算规则原文、16 个子市场、volume、resolutionSource、已结算 `["1","0"]`）
-- https://gamma-api.polymarket.com/events?closed=true&tag_slug=tennis&end_date_min=2026-09-01T00:00:00Z&end_date_max=2026-10-01T00:00:00Z&limit=100&offset=0..800 — 访问 2026-10-20 — 已读（900 个唯一 event、前缀分布、219 场单打）
+- https://gamma-api.polymarket.com/events?slug=atp-friend-geerts-2026-08-25 — 访问 2026-10-20，2026-10-21 复核 — 已读（结算规则原文、16 个子市场、volume、resolutionSource、已结算 `["1","0"]`）
+- https://gamma-api.polymarket.com/events?closed=true&tag_slug=tennis&end_date_min=2026-09-01T00:00:00Z&end_date_max=2026-10-01T00:00:00Z&limit=100&offset=0..800 — 访问 2026-10-20，2026-10-21 复核 — 已读（900 个唯一 event、前缀分布；267 个 atp-/wta- event，剔除 48 个 doubles 后 219 个，其中 129 个美网资格赛、主赛事单打 90 个）
 - https://gamma-api.polymarket.com/public-search?q=tennis&limit_per_type=5 — 访问 2026-10-20 — 已读（`wta-yastremska-vs-siegemund-2025-10-06` 规则原文：walkover 判给晋级者、取消 50-50、结算源 wtatennis.com/scores）
 - https://gamma-api.polymarket.com/public-search?q=Counter-Strike&limit_per_type=3&events_status=active — 访问 2026-10-20 — 已读（电竞示例 `cs-sashi-vs-hotu-2025-09-18` 规则：延后保持开放、取消 50-50、结算源 liquipedia、`feeSchedule=None`）
 - https://data-api.polymarket.com/trades?market=0x5a9641cc6e3a60a0e729493ef4d9fe81d5aacfc06d5c49511248462afe969be9&limit=3 — 访问 2026-10-20 — 已读（成交字段与示例成交）
@@ -134,4 +134,5 @@ confidence: 中
 - https://api.github.com/repos/JeffSackmann/tennis_atp — 访问 2026-10-20 — 已尝试，404，**不作为来源**
 - https://raw.githubusercontent.com/JeffSackmann/tennis_atp/{main,master}/atp_matches_2026.csv — 访问 2026-10-20 — 均 404，**不作为来源**
 - https://polymarket.com/api/rewards/markets/current — 本轮未访问，不引用
-- 本地复现（非 URL）：`bots/quant/notes/q006-hist/REPORT.md`、`run_output.txt`、`matches.csv`；`bots/quant/notes/scheduler/scratch/I02/verify.py`、`verify_output.txt` — 访问 2026-10-20 — 已读（历史回测原始报告 + 独立复算）
+- 2026-10-21 复核（P-quant-006）：上列 URL 除 rewards（未访问）外全部重新 GET。tennisabstract 两份榜单 200、docs fees 200、Gamma 200、data-api 200、CLOB 200（仍 `{"history":[]}`）、archive repo/CSV 200、JeffSackmann 的 4 个 URL 全 404；WTA 的 walkover 判给晋级者与 CS 的 liquipedia/延后条款逐字复核一致。HTTP 状态、字节数与内容摘录见 `bots/quant/notes/scheduler/scratch/P-quant-006/verify_sources.out`。
+- 本地复现（非 URL）：`bots/quant/notes/q006-hist/REPORT.md`、`run_output.txt`、`matches.csv`；`bots/quant/notes/scheduler/scratch/I02/verify.py`、`verify_output.txt`；`bots/quant/notes/scheduler/scratch/P-quant-006/verify_backtest.py`、`verify_backtest.out`、`verify_sources.py`、`verify_sources.out` — 访问 2026-10-20/21 — 已读（历史回测原始报告 + 两次独立复算 + URL 复核）
