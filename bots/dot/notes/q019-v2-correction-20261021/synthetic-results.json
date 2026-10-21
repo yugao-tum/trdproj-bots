@@ -1,0 +1,38 @@
+{
+  "synthetic_prefix": [
+    100,
+    200
+  ],
+  "synthetic_appended_future": [
+    100,
+    200
+  ],
+  "independent_synthetic_prefix_checks": 1100,
+  "synthetic_identity_records": [
+    {
+      "market": "synthetic-market-100",
+      "condition_id": "synthetic-condition-100",
+      "strike": 100,
+      "kind": "YES"
+    },
+    {
+      "market": "synthetic-market-200",
+      "condition_id": "synthetic-condition-200",
+      "strike": 200,
+      "kind": "YES"
+    },
+    {
+      "market": "synthetic-market-100",
+      "condition_id": "synthetic-condition-100",
+      "strike": 100,
+      "kind": "NO"
+    },
+    {
+      "market": "synthetic-market-200",
+      "condition_id": "synthetic-condition-200",
+      "strike": 200,
+      "kind": "NO"
+    }
+  ],
+  "scope": "Pure AST-extracted functions and output loop only; no imports of repository code, network, cached market data, or full replay."
+}

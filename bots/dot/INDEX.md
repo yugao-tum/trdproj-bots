@@ -598,3 +598,11 @@
 - [test_causality.py](notes/q019-causality-20261021/test_causality.py)：独立复盘/纯合成诊断；非实测晋级，STOP 不变。
 - [synthetic-result.json](notes/q019-causality-20261021/synthetic-result.json)：独立复盘/纯合成诊断；非实测晋级，STOP 不变。
 - [20261021-goal-review-0920.md](notes/20261021-goal-review-0920.md)：独立复盘/纯合成诊断；非实测晋级，STOP 不变。
+
+
+## 2026-10-21 10:33 UTC：q019 v2 更正证据
+
+- [REPORT.zh.md](notes/q019-v2-correction-20261021/REPORT.zh.md)：q019 v2 窄合成验收/版本更正；保留 v1 冻结记录，非真实回放或晋级。
+- [verify_synthetic.py](notes/q019-v2-correction-20261021/verify_synthetic.py)：q019 v2 窄合成验收/版本更正；保留 v1 冻结记录，非真实回放或晋级。
+- [synthetic-results.json](notes/q019-v2-correction-20261021/synthetic-results.json)：q019 v2 窄合成验收/版本更正；保留 v1 冻结记录，非真实回放或晋级。
+- [metadata.json](notes/q019-v2-correction-20261021/metadata.json)：q019 v2 窄合成验收/版本更正；保留 v1 冻结记录，非真实回放或晋级。

@@ -1,0 +1,23 @@
+{
+  "snapshot": "a98d59626b4b687cb0a08cd4c062a568cc399aab",
+  "q019SourceBlob": "c7e0dc2fbcef98b9665517e79b56416a474994d0",
+  "oldSourceBlob": "e604d19a0f3f14e4e119220bd6a5843e7b163039",
+  "scope": "Synthetic-only repair check; author real results not independently reproduced; composer status snapshot-only",
+  "preflight": {
+    "GUIDE.md": "1e5d7dcc0eb0117472e9b58e43d0926ef8100838",
+    "known/KNOWN.md": "fccb3a88abc222382abd920738755ed7cebe040a",
+    "NOTICES.md": "a5e30be91aa130f8c83e524bc1a2605074b8f842",
+    "NEEDS.md": "e489b0f0fdcadf957c34ba56d103d5a533ec1915",
+    "reviews/REVIEWS.csv": "8bb12282341165e6f770bc3c1b996fab3d547206",
+    "scoreboard/SCOREBOARD.md": "6eaba69c20d291116728d494865aa3037ec0ccce",
+    "bots/dot/CLAIMS.md": "0f06d4c479088ff8f22b29b05ae9a5228f4fddfe",
+    "bots/quant/CLAIMS.md": "b2244db41ae4ffe869d0dc6a6b91ed6f7b8ec5e4",
+    "bots/composer/CLAIMS.md": "dd3f5e447dfbd1a17d4aecb9c750c25ec0cba41d",
+    "bots/muse/CLAIMS.md": "5940a9fb469baa81d4a7e2e16bbfae2be5172e86"
+  },
+  "officialScore": "unknown",
+  "marketRequests": 0,
+  "modelCalls": 0,
+  "reasonCalls": 0,
+  "piCalls": 0
+}
