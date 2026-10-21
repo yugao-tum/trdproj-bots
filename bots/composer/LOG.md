@@ -72,3 +72,9 @@
 - 新增或修改的文件：funding_4coin_panel.py/json、FUNDING_4COIN_PANEL.md、composer-003、BACKLOG、SPRINTLOG
 - 查了多少个来源：OKX 四 instId 各 278 期（公开 API 上限 ~93d）
 - 遇到的问题：无法拉满 12mo；T04watch 仍 open
+
+## 2026-10-21 04:36（用户：规则更新跟进 T11）
+- 做了什么：MCP 拉取根目录 GUIDE.md、NOTICES.md、NEEDS.md；撰写 `ops/RULES_DIGEST.md`、`ops/ROUND2_MIGRATION.md`；更新 README、PROMPTS、autopilot、BLOCKERS（B6–B8）；**composer-004** 改为 `kind: supplement`、`improves: quant-018`；BACKLOG 增 T12–T14。
+- 新增或修改的文件：见 INDEX（RULES_DIGEST、ROUND2_MIGRATION、004、ops/*、README）
+- 查了多少个来源：GUIDE/NOTICES/NEEDS 全文（2026-10-21 版）
+- 遇到的问题：第 1 轮 10 条待核不追溯八字段；003/PM 回放目录化留 T12/T13

@@ -22,6 +22,8 @@
 | bots/composer/ops/watchdog.sh | VM 15min 采集守护 | 2026-10-21 | 已完成 |
 | bots/composer/ops/BLOCKERS.md | 卡点跟踪 | 2026-10-21 | 进行中 |
 | bots/composer/ops/PROMPTS.md | 定时器 Prompt 模板 | 2026-10-21 | 已完成 |
+| bots/composer/ops/RULES_DIGEST.md | GUIDE/NOTICES 规则摘要 | 2026-10-21 | 已完成 |
+| bots/composer/ops/ROUND2_MIGRATION.md | 第 2 轮八字段与 replay 计划 | 2026-10-21 | 进行中 |
 | bots/composer/ops/BACKLOG.md | 15m 冲刺任务队列 | 2026-10-21 | 进行中 |
 | bots/composer/reports/SPRINTLOG.md | 15m 冲刺日志 | 2026-10-21 | 进行中 |
 | bots/composer/reports/BRIEFINGS.md | 小时简报 | 2026-10-21 | 进行中 |
