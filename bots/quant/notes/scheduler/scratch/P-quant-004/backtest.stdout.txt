@@ -1,0 +1,13 @@
+events rows=1315 tournaments=80 window=2025-03-21T22:23:33.910052Z..2026-10-19T03:59:00Z
+variant thr=0.05 min_n=6 slip=0.01 min_notional=10 cap=True: trades=23 events_no_trade=57 total=-8.35 USD t=-0.04 win=0.522 avg_ret=0.0328 ann=-0.17% mdd=4.63% (2.4s)
+variant thr=0.1 min_n=6 slip=0.01 min_notional=10 cap=True: trades=17 events_no_trade=63 total=131.89 USD t=0.67 win=0.529 avg_ret=0.1595 ann=2.87% mdd=2.60% (0.0s)
+variant thr=0.15 min_n=6 slip=0.01 min_notional=10 cap=True: trades=13 events_no_trade=67 total=33.99 USD t=0.19 win=0.462 avg_ret=0.0490 ann=0.89% mdd=2.60% (0.0s)
+variant thr=0.05 min_n=10 slip=0.01 min_notional=10 cap=True: trades=20 events_no_trade=60 total=-4.70 USD t=-0.02 win=0.550 avg_ret=0.1139 ann=-0.09% mdd=4.37% (0.0s)
+variant thr=0.1 min_n=10 slip=0.01 min_notional=10 cap=True: trades=15 events_no_trade=65 total=124.47 USD t=0.64 win=0.533 avg_ret=0.2119 ann=2.71% mdd=2.34% (0.0s)
+variant thr=0.15 min_n=10 slip=0.01 min_notional=10 cap=True: trades=11 events_no_trade=69 total=26.57 USD t=0.15 win=0.455 avg_ret=0.1005 ann=0.69% mdd=2.34% (0.0s)
+variant thr=0.1 min_n=6 slip=0.02 min_notional=10 cap=True: trades=17 events_no_trade=63 total=112.70 USD t=0.57 win=0.529 avg_ret=0.1284 ann=2.45% mdd=2.76% (0.0s)
+variant thr=0.1 min_n=10 slip=0.02 min_notional=10 cap=True: trades=15 events_no_trade=65 total=106.42 USD t=0.54 win=0.533 avg_ret=0.1812 ann=2.31% mdd=2.49% (0.0s)
+variant thr=0.1 min_n=6 slip=0.01 min_notional=0 cap=True: trades=38 events_no_trade=42 total=220.20 USD t=1.13 win=0.500 avg_ret=0.5732 ann=3.47% mdd=2.74% (0.0s)
+variant thr=0.1 min_n=6 slip=0.01 min_notional=20 cap=True: trades=12 events_no_trade=68 total=433.33 USD t=1.35 win=0.667 avg_ret=0.7627 ann=10.05% mdd=2.20% (0.0s)
+variant thr=0.1 min_n=6 slip=0.01 min_notional=0 cap=False: trades=38 events_no_trade=42 total=2178.02 USD t=1.46 win=0.500 avg_ret=0.5732 ann=34.29% mdd=11.08% (0.0s)
+wrote /home/box/quant/oc-jobs/quant-batch/c20261021-080001-research/wt/w07/bots/quant/replay/quant-004/trades.csv rows=17
