@@ -36,3 +36,5 @@
 | B29 公司季报KPI分档：用公开月度经营数据抢跑（polymarket；调度侦察提出） | 2026-10-20 | 2026-10-27 | 进行中 | quant-030（草稿；调度 held） |
 | B30 美国汽油均价分档：AAA每日10点值抢跑（polymarket；调度侦察提出） | 2026-10-20 | 2026-10-27 | 进行中 | quant-031（草稿；调度 held） |
 | B31 并购交割套利：按交易条款与监管日历给PM定价（polymarket；调度侦察提出） | 2026-10-20 | 2026-10-27 | 进行中 | quant-033（草稿；调度 held） |
+| F34 Polymarket 流动性奖励与挂单返佣做市：两周前向登记（补充 dot-032、muse-800、known M-M4-poly-rewards；NEEDS #1） | 2026-10-21 | 2026-11-05 | 进行中 | quant-034（草稿；forward/quant-034/） |
+| F35 SOL、XRP、ADA、AVAX、HYPE 不押方向收益（资金费、基差、借贷）：2022–2024 回放 + 两周前向（补充 dot-019、composer-003；NEEDS #2） | 2026-10-21 | 2026-11-05 | 进行中 | quant-035（草稿；replay/quant-035/、forward/quant-035/） |
