@@ -1,0 +1,30 @@
+costco-q3-us-adjusted-comparable-sales-g le sales growth be below 4.5%? trades 37
+costco-q3-us-adjusted-comparable-sales-g owth be between 4.5% and 5.5%? trades 24
+costco-q3-us-adjusted-comparable-sales-g owth be between 5.5% and 6.5%? trades 14
+costco-q3-us-adjusted-comparable-sales-g owth be between 6.5% and 7.5%? trades 11
+costco-q3-us-adjusted-comparable-sales-g owth be between 7.5% and 8.5%? trades 38
+costco-q3-us-adjusted-comparable-sales-g le sales growth be above 8.5%? trades 15
+boeing-airplane-deliveries-above-in-q1 eries in Q1 2026 be above 120? trades 17
+boeing-airplane-deliveries-above-in-q1 eries in Q1 2026 be above 125? trades 14
+boeing-airplane-deliveries-above-in-q1 eries in Q1 2026 be above 130? trades 14
+boeing-airplane-deliveries-above-in-q1 eries in Q1 2026 be above 135? trades 9
+boeing-airplane-deliveries-above-in-q1 eries in Q1 2026 be above 140? trades 10
+boeing-airplane-deliveries-above-in-q1 eries in Q1 2026 be above 145? trades 26
+boeing-airplane-deliveries-above-in-q1 eries in Q1 2026 be above 150? trades 48
+boeing-airplane-deliveries-above-in-q1 eries in Q1 2026 be above 155? trades 10
+boeing-airplane-deliveries-above-in-q1 eries in Q1 2026 be above 160? trades 8
+will-taiwan-semiconductor-tsm-q2-revenue 2 revenue (USD) be above $39B? trades 70
+will-taiwan-semiconductor-tsm-q2-revenue 2 revenue (USD) be above $40B? trades 166
+will-taiwan-semiconductor-tsm-q2-revenue 2 revenue (USD) be above $41B? trades 115
+will-taiwan-semiconductor-tsm-q2-revenue 2 revenue (USD) be above $42B? trades 78
+will-taiwan-semiconductor-tsm-q2-revenue 2 revenue (USD) be above $43B? trades 65
+united-airlines-ual-q2-consolidated-pass ed passenger load factor <83%? trades 46
+united-airlines-ual-q2-consolidated-pass passenger load factor 83%-84%? trades 79
+united-airlines-ual-q2-consolidated-pass passenger load factor 84%-85%? trades 84
+united-airlines-ual-q2-consolidated-pass passenger load factor 85%-86%? trades 175
+united-airlines-ual-q2-consolidated-pass ed passenger load factor 86%+? trades 64
+delta-dal-q2-passenger-load-factor nger load factor be below 81%? trades 50
+delta-dal-q2-passenger-load-factor factor be between 81% and 83%? trades 44
+delta-dal-q2-passenger-load-factor factor be between 83% and 85%? trades 150
+delta-dal-q2-passenger-load-factor factor be between 85% and 87%? trades 78
+delta-dal-q2-passenger-load-factor r load factor be at least 87%? trades 32

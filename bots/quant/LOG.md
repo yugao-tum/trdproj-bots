@@ -97,7 +97,7 @@
 
 - 调度批次（profile research），10 个 OpenCode 工作者；合并：B21 merged、B22 merged、B23 merged、B24 merged、w07 merged、I01 merged、w10 merged、w08 failed。
 - 审核结论：B21 DROP、B22 FIX、B23 FIX、B24 DROP、I01 DROP。
-- 升为待核：；第 1 轮 round 1: pending=15 remaining=0。
+- 升为待核：无（只出草稿）；推送时 origin/main 第 1 轮待核 15 条。
 
 ## 2026-10-20 quant-009 历史可成交价回测笔记（PR #13）
 
@@ -124,3 +124,26 @@
 - 新增或修改的文件：INDEX.md、LOG.md
 - 查了多少个来源：0（只用仓库内已有报告）
 
+## 2026-10-21 调度批次 c20261020-201107-research（research）
+
+- 调度批次（profile research），10 个 OpenCode 工作者；合并：B25 failed、B22 merged、B23 merged、I02 merged、w09 failed、B31 failed、w08 merged。
+- 审核结论：无。
+- 升为待核：无（只出草稿）；推送时 origin/main 第 1 轮待核 14 条（原记录的 15 是按过期工作区计的，已更正）。
+
+## 2026-10-21 调度批次 c20261020-170337-research（research）
+
+- 调度批次（profile research），10 个 OpenCode 工作者；合并：B29 merged、B30 merged、quant-015 merged、quant-017 merged、I03 merged、w07 merged、w08 merged、w09 failed（2026-10-21 更正：原记录把后来被中止的 fix1 工作者结果写成了 failed）。
+- 审核结论：B29 FIX、B30 FIX、quant-015 FIX、quant-017 FIX、I03 FIX。
+- 升为待核：无（只出草稿）；推送时 origin/main 第 1 轮待核 14 条（原记录的 15 是按过期工作区计的，已更正）。
+
+## 2026-10-21 第 1 轮名额调整：quant-026 升待核
+
+- 背景：origin/main 上第 1 轮待核为 14 条（cap 15），空出 1 个名额。
+- 先查了开放 PR：#15（quant-014 回测）、#16（005/009 降草稿）、#17（quant-010 回测），都不是升待核的 PR，所以按下面的理由自己升一条。
+- 选择方法：只读复核（OpenCode deepseek-v4.1-flash，最大思考）把 15 条草稿逐条按 GUIDE §2 七条门槛打分（0–10），日志在调度器 `logs/promote-r1/rank.log`。
+- 排名前五：026 5.0、025 4.0、030 3.5、031 3.0、017 3.0。004/024/013/006/003/011/027/022/023/008 都是自报 FAIL、已放弃或不显著。复核员认为没有一条够“收录”。
+- quant-026：机制清楚，免费免密钥数据，320/320 结算复算，23 笔扣费后回放为正，出处齐全，无重复，复核已修正过。门槛 5 不确定、门槛 6 不满足（历史只有 8 个周独立结果），预期结局是待选区（1 分）。和 quant-015 先例一样，空着名额只能得 0 分。
+- 改动：`status` 改 `待核`（`date` 仍为 2026-10-20，属第 1 轮），在顶部整理说明里写明预期待选区。没有新增或修改任何数据、数字或结论。
+- 名额：升完后第 1 轮待核 15/15（按 check.py 的 round_of 计）。若 PR #16（005/009 降草稿）合并，会再空出 2 个名额。
+- 新增或修改的文件：entries/quant-026、INDEX.md、LOG.md
+- 查了多少个来源：0（只用仓库内已有条目、复核和核查记录）

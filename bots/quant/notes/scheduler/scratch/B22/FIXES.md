@@ -72,3 +72,28 @@ Source: same review file, “Re-check fix1（B22）” section. Re-ran `fetch_ou
    Evidence: entry §门槛自查 #1; no new data claim.
 
 Gate status after fix2: gates 3 (capacity) and 6 (two-week independent results) remain **不满足**; gate 2 remains **有条件满足**; gate 5 remains **不确定**. Entry stays a 待选区 candidate, not `待核`.
+
+---
+
+# Fix3 — re-check fix2 (2026-10-20 UTC)
+
+Source: same review file, “Re-check fix2（B22 / B23）” B22 section. Fresh rebuild from an empty `_cache/`: `fetch_outlooks.py` → 62 events / 1,550 markets / 186 GeoJSON, 0 misses; `fetch_headers.py` → 186/186 HTTP 200; `classify.py` → 0/1,550 settlement mismatches, 10 YES, 6 events with ≥1 YES; `fetch_trades.py` → 1,550/1,550 files, 10,674 trades; `reproduce.py` → strict 6/3 and broad 10/7. The re-run `.out` files are byte-identical to fix2 (same md5), so no cited number moved. Filename, `id: quant-025`, `date: 2026-10-20` and `status: 草稿` unchanged.
+
+1. **Problem: `test_2w` listed only two failure criteria and “严格 BUY YES 3 个” could be read as 3 trades rather than 3 independent event-days.**
+   Rewrote the `test_2w` field to `宽口径 10 笔/7 个日事件（严格 6 笔/3 个日事件）` and added the third failure criterion `或前向连续 30 个有信号事件净≤0。`
+   Evidence: `reproduce.out` — `strict BUY YES: trades=6 events=3`; `broad price proxy: trades=10 events=7`.
+
+2. **Problem: `:28` said “部分市场只给 1–20¢”, which reads like historical order-book depth; data-api only has executed trades.**
+   Changed to `样本成交价低到 1–20¢（不是历史盘口）`.
+   Evidence: `verify_fix3.out` — `strict ... yespx_min=0.010 yespx_max=0.200`, `broad ... yespx_min=0.010 yespx_max=0.200`; the data section already states `历史盘口无公开源`.
+
+3. **Problem: gate 2 still said “有条件满足/表述需改写” even though the entry already specifies the forward-record alternative.**
+   Changed the verdict to **满足（仅前向记录替代口径）**, keeping the caveat that history has only 6 events with ≥1 YES / 7 broad / 3 strict signals and gate 6 remains unmet.
+   Evidence: entry §门槛自查 #2; `classify.out` — `events with >=1 yes 6 of 62`; `reproduce.out` strict/broad event counts.
+
+4. **Problem: queue note requires the settlement source/payer to be visibly distinct from other weather entries.**
+   In gate 4, added quant-026 (USDM D4 weekly) alongside dot-001/dot-002 (`weather.gov`) and quant-015 (NASA GISTEMP): B22 settles on SPC Day-1 tornado polygons, quant-026 on USDM state D4 area percentages, with different variables and payers.
+   Evidence: `verify_fix3.out` — B22 `resolutionSource=https://www.spc.noaa.gov/products/outlook/day1otlk.html`; quant-026 `resolutionSource=https://droughtmonitor.unl.edu/DmData/DataTables.aspx`.
+
+5. **Problem: gates 3 and 6 are structurally unmet (capacity ~$16 cost, 30 independent signals need 8–9 / 20 months).**
+   No text change; both remain **不满足**, as the review requires. `status: 草稿` kept; entry remains a 待选区 candidate, not `待核`.

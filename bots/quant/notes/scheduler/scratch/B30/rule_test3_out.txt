@@ -1,0 +1,12 @@
+EVENT STUDY (ex post winner; diagnostic only)
+us-gas-price-on-october-16-2026 AAA 4.3271 bracket $4.3200-4.3299 first07 2026-10-16 07:27:34 p 0.8171 first95 None mins_to_95 None last_pre 2026-10-16 07:27:34 last_p 0.8171 closed True
+us-gas-price-on-october-17-2026 AAA 4.3085 bracket <$4.3100 first07 2026-10-17 07:29:00 p 0.4902 first95 2026-10-17 07:56:59 mins_to_95 28.0 last_pre 2026-10-17 07:56:59 last_p 0.98 closed True
+us-gas-price-on-october-18-2026 AAA 4.2988 bracket $4.2900-4.2999 first07 2026-10-18 07:41:14 p 0.7624 first95 2026-10-18 07:41:32 mins_to_95 0.3 last_pre 2026-10-18 14:00:00 last_p 0.997 closed True
+us-gas-price-on-october-19-2026 AAA 4.2953 bracket $4.2900-4.2999 first07 2026-10-19 07:30:50 p 0.8753 first95 2026-10-19 08:45:53 mins_to_95 75.0 last_pre 2026-10-19 10:20:54 last_p 0.9884 closed True
+us-gas-price-on-october-20-2026 AAA 4.2786 bracket <$4.2800 first07 2026-10-20 07:21:50 p 0.8228 first95 2026-10-20 07:32:14 mins_to_95 10.4 last_pre 2026-10-20 13:59:21 last_p 0.999 closed False
+
+RULE AT SNAPSHOT TIME (11:00-11:03 UTC, page verified): buy matching bracket YES if BUY fill <= threshold; fee .04*p*(1-p); +0.5c half-spread; hold to settlement
+threshold 0.95 fills 0
+threshold 0.99 fills 1
+   ('us-gas-price-on-october-18-2026', '2026-10-18 11:25:41', 0.988457, 75.5, 0.000456, 0.006087, 0.4595)
+   median_net_per_share 0.006087 total_net_usd 0.4595

@@ -1,0 +1,16 @@
+time 2026-10-05T00:00:00Z sum raw 0.923 last points [1791154819, 1791154823, 1791154824, 1791154825]
+  <1.30ºC: model=0.0749 market_raw=0.1000 market_norm=0.1083
+  1.30–1.34ºC: model=0.1799 market_raw=0.0700 market_norm=0.0758
+  1.35–1.39ºC: model=0.3301 market_raw=0.6350 market_norm=0.6880
+  1.40–1.44ºC: model=0.2895 market_raw=0.0800 market_norm=0.0867
+  1.45–1.49ºC: model=0.1212 market_raw=0.0195 market_norm=0.0211
+  >1.49ºC: model=0.0395 market_raw=0.0185 market_norm=0.0200
+  actual 1.35–1.39ºC: model_LL=1.1083 market_LL=0.3740
+time 2026-10-09T16:00:00Z sum raw 0.9075 last points [1791558033, 1791558046, 1791558052, 1791558056, 1791558057]
+  <1.30ºC: model=0.0749 market_raw=0.0005 market_norm=0.0006
+  1.30–1.34ºC: model=0.1799 market_raw=0.0005 market_norm=0.0006
+  1.35–1.39ºC: model=0.3301 market_raw=0.9050 market_norm=0.9972
+  1.40–1.44ºC: model=0.2895 market_raw=0.0005 market_norm=0.0006
+  1.45–1.49ºC: model=0.1212 market_raw=0.0005 market_norm=0.0006
+  >1.49ºC: model=0.0395 market_raw=0.0005 market_norm=0.0006
+  actual 1.35–1.39ºC: model_LL=1.1083 market_LL=0.0028

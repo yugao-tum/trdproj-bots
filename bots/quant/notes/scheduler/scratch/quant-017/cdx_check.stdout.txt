@@ -1,0 +1,4 @@
+CDX rows excluding header: 4295
+first: 20220604145458 last: 20251103152602
+by year: {'2022': 18, '2023': 28, '2024': 2648, '2025': 1601}
+unique UTC dates: 454

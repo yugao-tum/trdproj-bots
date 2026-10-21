@@ -1,0 +1,47 @@
+EVENT us-gas-price-on-october-16-2026 1196222 True 2026-10-16T14:00:00Z mkts 6
+EVENT us-gas-price-on-october-17-2026 1199896 True 2026-10-17T14:00:00Z mkts 6
+EVENT us-gas-price-on-october-18-2026 1205394 True 2026-10-18T14:00:00Z mkts 6
+EVENT us-gas-price-on-october-19-2026 1211842 True 2026-10-19T14:00:00Z mkts 6
+EVENT us-gas-price-on-october-20-2026 1217993 False 2026-10-20T14:00:00Z mkts 6
+EVENT average-us-gas-prices-on-february-21 18457 True 2025-02-21T12:00:00Z mkts 5
+EVENT average-us-gas-prices-on-february-28 19212 True 2025-02-28T12:00:00Z mkts 5
+TRADES us-gas-price-on-october-16-2026 <$4.3100 0x5ba20ad7 1
+TRADES us-gas-price-on-october-16-2026 $4.3100-4.3199 0x67b35751 1
+TRADES us-gas-price-on-october-16-2026 $4.3200-4.3299 0x7e864511 6
+TRADES us-gas-price-on-october-16-2026 $4.3300-4.3399 0x2dd133b4 1
+TRADES us-gas-price-on-october-16-2026 $4.3400-4.3499 0x11b3e164 1
+TRADES us-gas-price-on-october-16-2026 $4.3500+ 0xb0890290 1
+TRADES us-gas-price-on-october-17-2026 <$4.3100 0xb7753592 9
+TRADES us-gas-price-on-october-17-2026 $4.3100-4.3199 0x9299f89c 5
+TRADES us-gas-price-on-october-17-2026 $4.3200-4.3299 0xaa0895b2 9
+TRADES us-gas-price-on-october-17-2026 $4.3300-4.3399 0xa40339e6 5
+TRADES us-gas-price-on-october-17-2026 $4.3400-4.3499 0x808a3dc1 6
+TRADES us-gas-price-on-october-17-2026 $4.3500+ 0x197ab05a 5
+TRADES us-gas-price-on-october-18-2026 <$4.2900 0x8621e19c 11
+TRADES us-gas-price-on-october-18-2026 $4.2900-4.2999 0xd6d27a34 19
+TRADES us-gas-price-on-october-18-2026 $4.3000-4.3099 0xe1c573e0 14
+TRADES us-gas-price-on-october-18-2026 $4.3100-4.3199 0xfebea74d 6
+TRADES us-gas-price-on-october-18-2026 $4.3200-4.3299 0xc5122ac6 4
+TRADES us-gas-price-on-october-18-2026 $4.3300+ 0xf2b1ad3c 3
+TRADES us-gas-price-on-october-19-2026 <$4.2800 0xafff7fb8 2
+TRADES us-gas-price-on-october-19-2026 $4.2800-4.2899 0xb3d79911 2
+TRADES us-gas-price-on-october-19-2026 $4.2900-4.2999 0x979e22bc 13
+TRADES us-gas-price-on-october-19-2026 $4.3000-4.3099 0xe76ed99e 7
+TRADES us-gas-price-on-october-19-2026 $4.3100-4.3199 0xe66dafab 2
+TRADES us-gas-price-on-october-19-2026 $4.3200+ 0x862f3605 6
+TRADES us-gas-price-on-october-20-2026 <$4.2800 0xd174a4b1 9
+TRADES us-gas-price-on-october-20-2026 $4.2800-4.2899 0x581a2c7f 3
+TRADES us-gas-price-on-october-20-2026 $4.2900-4.2999 0xf969736b 7
+TRADES us-gas-price-on-october-20-2026 $4.3000-4.3099 0x3dbf3e94 4
+TRADES us-gas-price-on-october-20-2026 $4.3100-4.3199 0x29a57e2c 6
+TRADES us-gas-price-on-october-20-2026 $4.3200+ 0x3a3b396c 8
+TRADES average-us-gas-prices-on-february-21 $3.14 or less 0xdc94cd7b 46
+TRADES average-us-gas-prices-on-february-21 $3.15 0x2285713f 20
+TRADES average-us-gas-prices-on-february-21 $3.16 0xe62d99f9 17
+TRADES average-us-gas-prices-on-february-21 $3.17 0xfa4e07b5 15
+TRADES average-us-gas-prices-on-february-21 $3.18 or more 0xec499b83 27
+TRADES average-us-gas-prices-on-february-28 $3.14 or less 0xe51245d2 22
+TRADES average-us-gas-prices-on-february-28 $3.15 0xd4f096b0 17
+TRADES average-us-gas-prices-on-february-28 $3.16 0x2e0f8e94 14
+TRADES average-us-gas-prices-on-february-28 $3.17 0xbefc4036 17
+TRADES average-us-gas-prices-on-february-28 $3.18 or more 0x79cb893c 16

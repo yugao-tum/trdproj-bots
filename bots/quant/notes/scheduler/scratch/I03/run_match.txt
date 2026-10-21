@@ -1,0 +1,53 @@
+matched 49 of 50
+diff dist Counter({0: 42, 1: 7})
+deduped 49
+Counter({2025: 24, 2026: 17, 2024: 8})
+2024-16 Italian Grand Prix 2024-09-01 0 italian-grand-prix-winner 9
+2024-17 Azerbaijan Grand Prix 2024-09-15 0 azerbijan-grand-prix-winner 9
+2024-18 Singapore Grand Prix 2024-09-22 0 singapore-grand-prix-winner 11
+2024-19 United States Grand Prix 2024-10-20 0 us-grand-prix-winner 9
+2024-21 São Paulo Grand Prix 2024-11-03 0 brazlian-grand-prix-winner 9
+2024-22 Las Vegas Grand Prix 2024-11-23 1 las-vegas-grand-prix-winner 9
+2024-23 Qatar Grand Prix 2024-12-01 0 qatar-grand-prix-winner 9
+2024-24 Abu Dhabi Grand Prix 2024-12-08 0 abu-dhabi-grand-prix-winner 9
+2025-1 Australian Grand Prix 2025-03-16 0 australia-grand-prix-winner 21
+2025-10 Canadian Grand Prix 2025-06-15 0 f1-canadian-grand-prix-winner 26
+2025-11 Austrian Grand Prix 2025-06-29 0 f1-austrian-grand-prix-winner 27
+2025-12 British Grand Prix 2025-07-06 0 f1-british-grand-prix-winner 27
+2025-13 Belgian Grand Prix 2025-07-27 0 f1-belgian-grand-prix-winner 28
+2025-14 Hungarian Grand Prix 2025-08-03 0 f1-hungarian-grand-prix-winner 31
+2025-15 Dutch Grand Prix 2025-08-31 0 f1-dutch-grand-prix-winner 31
+2025-16 Italian Grand Prix 2025-09-07 1 f1-italian-grand-prix-winner 31
+2025-17 Azerbaijan Grand Prix 2025-09-21 0 f1-azerbaijan-grand-prix-winner 31
+2025-18 Singapore Grand Prix 2025-10-05 0 f1-singapore-grand-prix-winner 31
+2025-19 United States Grand Prix 2025-10-19 0 united-states-grand-prix-winner 31
+2025-2 Chinese Grand Prix 2025-03-23 0 f1-china-grand-prix-winner-2025 21
+2025-20 Mexico City Grand Prix 2025-10-26 0 mexican-grand-prix-winner-538 31
+2025-21 São Paulo Grand Prix 2025-11-09 0 f1-brazilian-grand-prix-winner-2025-11-09 27
+2025-22 Las Vegas Grand Prix 2025-11-23 1 f1-las-vegas-grand-prix-winner-2025-11-22 27
+2025-23 Qatar Grand Prix 2025-11-30 0 f1-qatar-grand-prix-winner-2025-11-30 27
+2025-24 Abu Dhabi Grand Prix 2025-12-07 0 f1-abu-dhabi-grand-prix-winner-2025-12-07 27
+2025-3 Japanese Grand Prix 2025-04-06 0 japan-grand-prix-winner 21
+2025-4 Bahrain Grand Prix 2025-04-13 1 bahrain-grand-prix-winner 21
+2025-5 Saudi Arabian Grand Prix 2025-04-20 1 saudi-arabian-grand-prix-winner 21
+2025-6 Miami Grand Prix 2025-05-04 0 miami-grand-prix-winner 21
+2025-7 Emilia Romagna Grand Prix 2025-05-18 1 italy-grand-prix-winner 21
+2025-8 Monaco Grand Prix 2025-05-25 0 monaco-grand-prix-winner 21
+2025-9 Spanish Grand Prix 2025-06-01 0 spanish-grand-prix-winner 21
+2026-1 Australian Grand Prix 2026-03-08 1 f1-australian-grand-prix-winner-2026-03-07 28
+2026-10 Belgian Grand Prix 2026-07-19 0 f1-belgian-grand-prix-winner-2026-07-19 28
+2026-11 Hungarian Grand Prix 2026-07-26 0 f1-hungarian-grand-prix-winner-2026-07-26 28
+2026-12 Dutch Grand Prix 2026-08-23 0 f1-dutch-grand-prix-winner-2026-08-23 28
+2026-13 Italian Grand Prix 2026-09-06 0 f1-italian-grand-prix-winner-2026-09-06 28
+2026-14 Spanish Grand Prix 2026-09-13 0 f1-spanish-grand-prix-winner-2026-09-13 28
+2026-15 Azerbaijan Grand Prix 2026-09-26 0 f1-azerbaijan-grand-prix-winner-2026-09-26 29
+2026-16 Bahrain Grand Prix in Malaysia 2026-10-04 0 f1-bahrain-grand-prix-winner-2026-10-04 29
+2026-17 Singapore Grand Prix 2026-10-11 0 f1-singapore-grand-prix-winner-2026-10-11 29
+2026-2 Chinese Grand Prix 2026-03-15 0 f1-chinese-grand-prix-winner-2026-03-15 27
+2026-3 Japanese Grand Prix 2026-03-29 0 f1-japanese-grand-prix-winner-2026-03-29 27
+2026-4 Miami Grand Prix 2026-05-03 0 f1-miami-grand-prix-winner-2026-05-03 28
+2026-5 Canadian Grand Prix 2026-05-24 0 f1-canadian-grand-prix-winner-2026-05-24 28
+2026-6 Monaco Grand Prix 2026-06-07 0 f1-monaco-grand-prix-winner-2026-06-07 28
+2026-7 Barcelona Grand Prix 2026-06-14 0 f1-catalunya-grand-prix-winner-2026-06-14 28
+2026-8 Austrian Grand Prix 2026-06-28 0 f1-austrian-grand-prix-winner-2026-06-28 28
+2026-9 British Grand Prix 2026-07-05 0 f1-british-grand-prix-winner-2026-07-05 28

@@ -80,7 +80,7 @@
 | bots/quant/notes/scheduler/queue.tsv | queue.tsv | 2026-10-20 | 笔记 |
 | bots/quant/entries/quant-024-nfl-moneyline-elo-vs-price.md | NFL 单场胜负：Elo 对赛前价 | 2026-10-20 | 草稿 |
 | bots/quant/entries/quant-025-spc-tornado-outlook-lag.md | 龙卷风风险区：SPC展望更新时滞 | 2026-10-20 | 草稿 |
-| bots/quant/entries/quant-026-drought-d4-weekly-continuity.md | 干旱D4州名单：周四发布前的延续率 | 2026-10-20 | 草稿 |
+| bots/quant/entries/quant-026-drought-d4-weekly-continuity.md | 干旱D4州名单：周四发布前的延续率 | 2026-10-20 | 待核 |
 | bots/quant/entries/quant-027-cricsheet-t20-pm-ratings.md | 板球T20球球评级定价检验 | 2026-10-20 | 草稿 |
 | bots/quant/notes/q011-hist/.gitignore | .gitignore | 2026-10-20 | 笔记 |
 | bots/quant/notes/q011-hist/REPORT.md | quant-011 历史可成交价格回测 | 2026-10-20 | 笔记 |
@@ -336,3 +336,89 @@
 | bots/quant/notes/q005-hist/run_output.txt | quant-005 历史可成交价回测（data-api 成交 + 走前计数分布；FAIL） | 2026-10-20 | 笔记 |
 | bots/quant/notes/q005-hist/run_output_literal_le.txt | quant-005 历史可成交价回测（data-api 成交 + 走前计数分布；FAIL） | 2026-10-20 | 笔记 |
 
+| bots/quant/notes/scheduler/checks/B22.md | B22 独立核查（checker w08） | 2026-10-21 | 笔记 |
+| bots/quant/notes/scheduler/checks/B23.md | B23 独立核查（checker w08） | 2026-10-21 | 笔记 |
+| bots/quant/notes/scheduler/checks/I02.md | I02 独立核查（checker w08） | 2026-10-21 | 笔记 |
+| bots/quant/notes/scheduler/scratch/B22/verify_fix3.out | verify_fix3.out | 2026-10-21 | 笔记 |
+| bots/quant/notes/scheduler/scratch/B22/verify_fix3.py | verify_fix3.py | 2026-10-21 | 笔记 |
+| bots/quant/notes/scheduler/scratch/I02/.gitignore | .gitignore | 2026-10-21 | 笔记 |
+| bots/quant/notes/scheduler/scratch/I02/SOURCE.md | I02 来源与复现记录 | 2026-10-21 | 笔记 |
+| bots/quant/notes/scheduler/scratch/I02/field_check.py | field_check.py | 2026-10-21 | 笔记 |
+| bots/quant/notes/scheduler/scratch/I02/field_check_output.txt | field_check_output.txt | 2026-10-21 | 笔记 |
+| bots/quant/notes/scheduler/scratch/I02/lint_output.txt | lint_output.txt | 2026-10-21 | 笔记 |
+| bots/quant/notes/scheduler/scratch/I02/url_check.py | url_check.py | 2026-10-21 | 笔记 |
+| bots/quant/notes/scheduler/scratch/I02/url_check_output.txt | url_check_output.txt | 2026-10-21 | 笔记 |
+| bots/quant/notes/scheduler/scratch/I02/verify.py | verify.py | 2026-10-21 | 笔记 |
+| bots/quant/notes/scheduler/scratch/I02/verify_output.txt | verify_output.txt | 2026-10-21 | 笔记 |
+| bots/quant/entries/quant-030-kpi-bracket-monthly-nowcast.md | 季报KPI分档：月度经营数据抢跑 | 2026-10-20 | 草稿 |
+| bots/quant/entries/quant-031-aaa-gas-daily-bracket.md | AAA汽油日档：10点值抢跑 | 2026-10-20 | 草稿 |
+| bots/quant/notes/scheduler/audit/c20261020-170337-research.md | quant 全量审计：c20261020-170337-research / w08 | 2026-10-21 | 笔记 |
+| bots/quant/notes/scheduler/reviews/c20261020-170337-research.md | Review gate — c20261020-170337-research (quant, 2026-10-21 U | 2026-10-21 | 笔记 |
+| bots/quant/notes/scheduler/scratch/B29/.gitignore | .gitignore | 2026-10-21 | 笔记 |
+| bots/quant/notes/scheduler/scratch/B29/analyze_case_prices.out | analyze_case_prices.out | 2026-10-21 | 笔记 |
+| bots/quant/notes/scheduler/scratch/B29/analyze_case_prices.py | analyze_case_prices.py | 2026-10-21 | 笔记 |
+| bots/quant/notes/scheduler/scratch/B29/analyze_trades.out | analyze_trades.out | 2026-10-21 | 笔记 |
+| bots/quant/notes/scheduler/scratch/B29/analyze_trades.py | analyze_trades.py | 2026-10-21 | 笔记 |
+| bots/quant/notes/scheduler/scratch/B29/family_stats.out | family_stats.out | 2026-10-21 | 笔记 |
+| bots/quant/notes/scheduler/scratch/B29/family_stats.py | family_stats.py | 2026-10-21 | 笔记 |
+| bots/quant/notes/scheduler/scratch/B29/fetch_case_prices.out | fetch_case_prices.out | 2026-10-21 | 笔记 |
+| bots/quant/notes/scheduler/scratch/B29/fetch_case_prices.py | fetch_case_prices.py | 2026-10-21 | 笔记 |
+| bots/quant/notes/scheduler/scratch/B29/fetch_trades.out | fetch_trades.out | 2026-10-21 | 笔记 |
+| bots/quant/notes/scheduler/scratch/B29/fetch_trades.py | fetch_trades.py | 2026-10-21 | 笔记 |
+| bots/quant/notes/scheduler/scratch/B30/.gitignore | .gitignore | 2026-10-21 | 笔记 |
+| bots/quant/notes/scheduler/scratch/B30/REPORT.md | B30 复跑说明：AAA 每日汽油均价分档（quant-031） | 2026-10-21 | 笔记 |
+| bots/quant/notes/scheduler/scratch/B30/aaa_snapshots.csv | aaa_snapshots.csv | 2026-10-21 | 笔记 |
+| bots/quant/notes/scheduler/scratch/B30/analyze_yes.py | analyze_yes.py | 2026-10-21 | 笔记 |
+| bots/quant/notes/scheduler/scratch/B30/collect.py | collect.py | 2026-10-21 | 笔记 |
+| bots/quant/notes/scheduler/scratch/B30/collect_run.txt | collect_run.txt | 2026-10-21 | 笔记 |
+| bots/quant/notes/scheduler/scratch/B30/rule_test2.py | rule_test2.py | 2026-10-21 | 笔记 |
+| bots/quant/notes/scheduler/scratch/B30/rule_test2_out.txt | rule_test2_out.txt | 2026-10-21 | 笔记 |
+| bots/quant/notes/scheduler/scratch/B30/rule_test3.py | rule_test3.py | 2026-10-21 | 笔记 |
+| bots/quant/notes/scheduler/scratch/B30/rule_test3_out.txt | rule_test3_out.txt | 2026-10-21 | 笔记 |
+| bots/quant/notes/scheduler/scratch/B30/yes_analysis.txt | yes_analysis.txt | 2026-10-21 | 笔记 |
+| bots/quant/notes/scheduler/scratch/I03/.gitignore | .gitignore | 2026-10-21 | 笔记 |
+| bots/quant/notes/scheduler/scratch/I03/REPORT.md | quant-021 可成交价复核（I03）：用 data-api 成交替代 prices-history 最后价 | 2026-10-21 | 笔记 |
+| bots/quant/notes/scheduler/scratch/I03/analyze_exec.py | analyze_exec.py | 2026-10-21 | 笔记 |
+| bots/quant/notes/scheduler/scratch/I03/diag_exec.py | diag_exec.py | 2026-10-21 | 笔记 |
+| bots/quant/notes/scheduler/scratch/I03/exec_diag.csv | exec_diag.csv | 2026-10-21 | 笔记 |
+| bots/quant/notes/scheduler/scratch/I03/exec_rows.csv | exec_rows.csv | 2026-10-21 | 笔记 |
+| bots/quant/notes/scheduler/scratch/I03/extra_checks.py | extra_checks.py | 2026-10-21 | 笔记 |
+| bots/quant/notes/scheduler/scratch/I03/fetch_ergast.py | fetch_ergast.py | 2026-10-21 | 笔记 |
+| bots/quant/notes/scheduler/scratch/I03/fetch_gamma.py | fetch_gamma.py | 2026-10-21 | 笔记 |
+| bots/quant/notes/scheduler/scratch/I03/fetch_trades.py | fetch_trades.py | 2026-10-21 | 笔记 |
+| bots/quant/notes/scheduler/scratch/I03/lint_output.txt | lint_output.txt | 2026-10-21 | 笔记 |
+| bots/quant/notes/scheduler/scratch/I03/make_tables.py | make_tables.py | 2026-10-21 | 笔记 |
+| bots/quant/notes/scheduler/scratch/I03/match_events.py | match_events.py | 2026-10-21 | 笔记 |
+| bots/quant/notes/scheduler/scratch/I03/run_analyze.txt | run_analyze.txt | 2026-10-21 | 笔记 |
+| bots/quant/notes/scheduler/scratch/I03/run_diag.txt | run_diag.txt | 2026-10-21 | 笔记 |
+| bots/quant/notes/scheduler/scratch/I03/run_extra.txt | run_extra.txt | 2026-10-21 | 笔记 |
+| bots/quant/notes/scheduler/scratch/I03/run_fetch_ergast.txt | run_fetch_ergast.txt | 2026-10-21 | 笔记 |
+| bots/quant/notes/scheduler/scratch/I03/run_fetch_gamma.txt | run_fetch_gamma.txt | 2026-10-21 | 笔记 |
+| bots/quant/notes/scheduler/scratch/I03/run_fetch_trades.txt | run_fetch_trades.txt | 2026-10-21 | 笔记 |
+| bots/quant/notes/scheduler/scratch/I03/run_match.txt | run_match.txt | 2026-10-21 | 笔记 |
+| bots/quant/notes/scheduler/scratch/I03/run_output.txt | run_output.txt | 2026-10-21 | 笔记 |
+| bots/quant/notes/scheduler/scratch/I03/run_score.txt | run_score.txt | 2026-10-21 | 笔记 |
+| bots/quant/notes/scheduler/scratch/I03/run_tables.txt | run_tables.txt | 2026-10-21 | 笔记 |
+| bots/quant/notes/scheduler/scratch/I03/score_exec.py | score_exec.py | 2026-10-21 | 笔记 |
+| bots/quant/notes/scheduler/scratch/quant-015/.gitignore | .gitignore | 2026-10-21 | 笔记 |
+| bots/quant/notes/scheduler/scratch/quant-015/FIXES.md | quant-015 fixer changelog — 2026-10-20 | 2026-10-21 | 笔记 |
+| bots/quant/notes/scheduler/scratch/quant-015/fetch_data.sh | fetch_data.sh | 2026-10-21 | 笔记 |
+| bots/quant/notes/scheduler/scratch/quant-015/firstrelease_local.out | firstrelease_local.out | 2026-10-21 | 笔记 |
+| bots/quant/notes/scheduler/scratch/quant-015/firstrelease_local.py | firstrelease_local.py | 2026-10-21 | 笔记 |
+| bots/quant/notes/scheduler/scratch/quant-015/pm_count.out | pm_count.out | 2026-10-21 | 笔记 |
+| bots/quant/notes/scheduler/scratch/quant-015/pm_count.py | pm_count.py | 2026-10-21 | 笔记 |
+| bots/quant/notes/scheduler/scratch/quant-015/pm_histcheck.out | pm_histcheck.out | 2026-10-21 | 笔记 |
+| bots/quant/notes/scheduler/scratch/quant-015/pm_histcheck.py | pm_histcheck.py | 2026-10-21 | 笔记 |
+| bots/quant/notes/scheduler/scratch/quant-015/pm_model_market.out | pm_model_market.out | 2026-10-21 | 笔记 |
+| bots/quant/notes/scheduler/scratch/quant-015/pm_model_market.py | pm_model_market.py | 2026-10-21 | 笔记 |
+| bots/quant/notes/scheduler/scratch/quant-015/run_all.sh | run_all.sh | 2026-10-21 | 笔记 |
+| bots/quant/notes/scheduler/scratch/quant-015/walkforward.out | walkforward.out | 2026-10-21 | 笔记 |
+| bots/quant/notes/scheduler/scratch/quant-015/walkforward.py | walkforward.py | 2026-10-21 | 笔记 |
+| bots/quant/notes/scheduler/scratch/quant-017/.gitignore | .gitignore | 2026-10-21 | 笔记 |
+| bots/quant/notes/scheduler/scratch/quant-017/FIXES.md | quant-017 修复记录（fixer w05） | 2026-10-21 | 笔记 |
+| bots/quant/notes/scheduler/scratch/quant-017/app_stats.py | app_stats.py | 2026-10-21 | 笔记 |
+| bots/quant/notes/scheduler/scratch/quant-017/app_stats.stdout.txt | app_stats.stdout.txt | 2026-10-21 | 笔记 |
+| bots/quant/notes/scheduler/scratch/quant-017/cdx_check.stdout.txt | cdx_check.stdout.txt | 2026-10-21 | 笔记 |
+| bots/quant/notes/scheduler/scratch/quant-017/entry.diff | entry.diff | 2026-10-21 | 笔记 |
+| bots/quant/notes/scheduler/scratch/quant-017/verify_017.py | verify_017.py | 2026-10-21 | 笔记 |
+| bots/quant/notes/scheduler/scratch/quant-017/verify_017.stdout.txt | verify_017.stdout.txt | 2026-10-21 | 笔记 |

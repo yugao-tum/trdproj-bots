@@ -1,12 +1,12 @@
 state markets 320
 zero-trade (all history) 30 | zero before cutoff 139
 markets with trades >=1 lifetime 290
-all-trade notional: n=290 median=105.54 p90=373.85 max=2669.83
-pre-cutoff notional: n=181 median=82.28 p90=396.23 max=872.41
+all-trade notional: n=290 median=105.54 p90=366.17 max=2669.83
+pre-cutoff notional: n=181 median=82.28 p90=379.35 max=872.41
 HTTP 121145 https://droughtmonitor.unl.edu/
 HTTP 587046 https://droughtmonitor.unl.edu/DmData/DataDownload/ComprehensiveStatistics.aspx
-HTTP 197265 https://gamma-api.polymarket.com/events?slug=state-d4-drought-2026-10-13
-HTTP 34031 https://gamma-api.polymarket.com/events?slug=states-in-d4-drought-2026-10-13
+HTTP 197280 https://gamma-api.polymarket.com/events?slug=state-d4-drought-2026-10-13
+HTTP 34046 https://gamma-api.polymarket.com/events?slug=states-in-d4-drought-2026-10-13
 p=0.50 fee/share=0.0125 total=0.0225 pct_of_stake=4.50%
 p=0.82 fee/share=0.0074 total=0.0174 pct_of_stake=2.12%
 p=0.93 fee/share=0.0033 total=0.0133 pct_of_stake=1.43%

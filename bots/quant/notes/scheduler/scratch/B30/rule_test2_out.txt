@@ -1,0 +1,16 @@
+EVENT STUDY: winning bracket first YES trade after 07:00 UTC (descriptive, winner known ex post)
+us-gas-price-on-october-16-2026 AAA 4.3271 bracket $4.3200-4.3299 | first>=07:00 2026-10-16 07:27:34 p=0.8171 | last<=end 2026-10-16 07:27:34 p=0.8171 | first>=0.95 None closed True
+us-gas-price-on-october-17-2026 AAA 4.3085 bracket <$4.3100 | first>=07:00 2026-10-17 07:29:00 p=0.4902 | last<=end 2026-10-17 07:56:59 p=0.98 | first>=0.95 2026-10-17 07:56:59 closed True
+us-gas-price-on-october-18-2026 AAA 4.2988 bracket $4.2900-4.2999 | first>=07:00 2026-10-18 07:41:14 p=0.7624 | last<=end 2026-10-18 14:00:00 p=0.997 | first>=0.95 2026-10-18 07:41:32 closed True
+us-gas-price-on-october-19-2026 AAA 4.2953 bracket $4.2900-4.2999 | first>=07:00 2026-10-19 07:30:50 p=0.8753 | last<=end 2026-10-19 10:20:54 p=0.9884 | first>=0.95 2026-10-19 08:45:53 closed True
+us-gas-price-on-october-20-2026 AAA 4.2786 bracket <$4.2800 | first>=07:00 2026-10-20 07:21:50 p=0.8228 | last<=end 2026-10-20 13:59:21 p=0.999 | first>=0.95 2026-10-20 07:32:14 closed False
+
+PRE-REGISTERED RULE: at HH:00 UTC read AAA page; if Price as of=today and Yesterday=prior, buy the matching bracket YES if executable BUY trade price <= 0.95; fee=0.04*p*(1-p); extra 0.5c half-spread buffer; hold to settlement.
+-- decision 07:00 UTC: fills 4/4
+    ('us-gas-price-on-october-16-2026', '2026-10-16 07:27:34', 0.8171183949, 122.369043, 0.005977436944641905, 0.17190416815535806, 21.035748544882242)
+    ('us-gas-price-on-october-17-2026', '2026-10-17 07:29:00', 0.4901864573, 20.38, 0.00999614777518701, 0.49481739492481297, 10.084378508567688)
+    ('us-gas-price-on-october-18-2026', '2026-10-18 07:41:14', 0.7624214551, 264.18, 0.007245399196127947, 0.22533314570387203, 59.52851043204891)
+    ('us-gas-price-on-october-19-2026', '2026-10-19 07:30:50', 0.8753466061, 96.94, 0.004364597011568457, 0.11528879688843151, 11.17609597036455)
+    median net/share 0.198619 total net $ 101.8247
+-- decision 09:00 UTC: fills 0/4
+-- decision 11:00 UTC: fills 0/4

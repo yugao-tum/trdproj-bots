@@ -1,0 +1,13 @@
+triggers 21
+last pre side among triggers Counter({'BUY': 18, 'SELL': 3})
+trigger t100_h median 1.2 max 18.53
+trigger buy_shares_pre min 1000 median 12185.9
+BUY n 18 mean first-p_hist 0.0129 net first 5.6312
+SELL n 3 mean first-p_hist -0.0088 net first 1.3705
+break-even uplift 0.341 base sum 7.2107
+size>=10 n 21 sum 7.0119 mean 0.3339
+size>=25 n 21 sum 7.0151 mean 0.3341
+<=2h n 17 sum 6.3256 mean 0.3721
+<=4h n 18 sum 7.1913 mean 0.3995
+vwap100 <=2h n 14 sum 5.2104
+vwap100 <=4h n 18 sum 7.223

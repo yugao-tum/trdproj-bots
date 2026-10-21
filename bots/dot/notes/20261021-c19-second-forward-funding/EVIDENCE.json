@@ -1,0 +1,44 @@
+{
+  "schema": "c19-second-funding-compact-v1",
+  "published_date": "2026-10-21",
+  "source_kind": "saved public market observations; conditional virtual accounting, not account cash",
+  "actual_market_event": {
+    "symbol": "ETHUSDT",
+    "fundingTime": 1792540800000,
+    "fundingRate": "0.00004599",
+    "markPrice": "2447.99296899",
+    "rateType": "Regular"
+  },
+  "actual_event_utc": "2026-10-21T00:00:00.000Z",
+  "fixed_quantity_eth": "0.522",
+  "credit_usdt_each_scenario": "0.0587684286480897522",
+  "prior_event_credit_usdt_each_scenario": "0.0940153295466",
+  "total_credit_usdt_each_scenario": "0.1527837581946897522",
+  "unique_market_event_count": 2,
+  "scenario_count_is_not_event_count": true,
+  "iid_claimed": false,
+  "funding_raw_sha256": "efd8ab53c7abb1f9e8319aaab0f9e4f4f9e4733a3786eb27af0c1ef4e4aaa0a6",
+  "funding_checkpoint_revision": 44,
+  "funding_checkpoint_sha256": "ca49699d7f1a1df14bdb00ece3de2253a4bf6de58173adeb46e70f0e592608f4",
+  "quote_checkpoint_revision": 47,
+  "quote_checkpoint_sha256": "a25579c8e196f91839dd6bfefa50d6490617efcc7cdf83fdc84c4ea16c8bcbbc",
+  "quote_raw_sha256": "dbe1d3e950c3e9d94b1fe1576b8698da097936cd6ef10bfb479af3135de63649",
+  "quote_valuation_utc": "2026-10-21T00:21:42.205Z",
+  "hypothetical_exit_net_usdt": {
+    "0.003": "-15.0148554018053102478",
+    "0.006": "-30.1616145618053102478"
+  },
+  "cash_in_both_quote_scenarios": true,
+  "nonfunding_price_pnl_usdt": "-0.02088000000",
+  "full_assumed_entry_exit_cost_usdt": {
+    "0.003": "15.14675916000000",
+    "0.006": "30.29351832000000"
+  },
+  "source_observed_next_funding_utc": "2026-10-21T08:00:00Z",
+  "next_quote_not_before_utc": "2026-10-21T01:21:34.019Z",
+  "new_market_requests_for_publication": 0,
+  "real_account_cash": false,
+  "execution_or_survival_proof": false,
+  "official_score": null,
+  "verification": "Saved raw event hash and Decimal product/sum/quote net identities checked; original forward protocol and checkpoint not modified."
+}

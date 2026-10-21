@@ -1,0 +1,50 @@
+--- rule A (margin bins; trigger uses prices-history last price at cutoff) ---
+A fill=p_hist                          n=21 wins=13 sum=+7.2107 mean=+0.3434
+A fill=first_buy_price                 n=21 wins=13 sum=+7.0018 mean=+0.3334
+A fill=exec20                          n=21 wins=13 sum=+7.0111 mean=+0.3339
+A fill=exec100                         n=21 wins=13 sum=+7.0413 mean=+0.3353
+--- rule B (const 0.4903) ---
+B fill=p_hist                          n=23 wins=12 sum=+5.6619 mean=+0.2462
+B fill=first_buy_price                 n=23 wins=12 sum=+5.4174 mean=+0.2355
+B fill=exec20                          n=23 wins=12 sum=+5.4266 mean=+0.2359
+B fill=exec100                         n=23 wins=12 sum=+5.4529 mean=+0.2371
+--- unconditional buy every pole sitter ---
+all fill=p_hist             n=49 wins=31 sum=+8.2887 mean=+0.1692
+all fill=first_buy_price    n=49 wins=31 sum=+7.8231 mean=+0.1597
+all fill=exec20             n=49 wins=31 sum=+7.8349 mean=+0.1599
+all fill=exec100            n=49 wins=31 sum=+7.8676 mean=+0.1606
+--- trigger if executable price itself <= model-0.05 (limit order at fill) ---
+A trigger&fill=first_buy_price         n=21 wins=13 sum=+7.0018 mean=+0.3334
+A trigger&fill=exec20                  n=21 wins=13 sum=+7.0111 mean=+0.3339
+A trigger&fill=exec100                 n=21 wins=13 sum=+7.0413 mean=+0.3353
+--- per-trade detail, rule A with exec100 ---
+A exec100 detail                       n=21 wins=13 sum=+7.0413 mean=+0.3353
+    2024-16 piastri y 0.0 hist 0.14 fill 0.1433 net -0.1595
+    2024-19 norris y 0.0 hist 0.275 fill 0.3231 net -0.3441
+    2024-22 russell y 1.0 hist 0.0945 fill 0.119 net 0.8658
+    2024-23 max_verstappen y 1.0 hist 0.255 fill 0.2572 net 0.7232
+    2025-1 norris y 1.0 hist 0.36 fill 0.39 net 0.5881
+    2025-10 russell y 1.0 hist 0.22 fill 0.1809 net 0.8017
+    2025-12 max_verstappen y 0.0 hist 0.375 fill 0.39 net -0.4119
+    2025-14 leclerc y 0.0 hist 0.185 fill 0.19 net -0.2077
+    2025-16 max_verstappen y 1.0 hist 0.305 fill 0.3449 net 0.6338
+    2025-18 russell y 1.0 hist 0.385 fill 0.3971 net 0.581
+    2025-3 max_verstappen y 1.0 hist 0.28 fill 0.29 net 0.6897
+    2026-10 russell y 0.0 hist 0.075 fill 0.08 net -0.0937
+    2026-11 norris y 1.0 hist 0.3475 fill 0.35 net 0.6286
+    2026-12 norris y 1.0 hist 0.365 fill 0.37 net 0.6083
+    2026-13 gasly y 0.0 hist 0.0595 fill 0.0666 net -0.0797
+    2026-14 alonso y 0.0 hist 0.0005 fill 0.001 net -0.011
+    2026-15 russell y 1.0 hist 0.645 fill 0.65 net 0.3286
+    2026-2 antonelli y 1.0 hist 0.265 fill 0.2662 net 0.7141
+    2026-4 antonelli y 1.0 hist 0.405 fill 0.3991 net 0.5789
+    2026-5 gasly y 0.0 hist 0.0015 fill 0.0011 net -0.0112
+    2026-8 russell y 1.0 hist 0.365 fill 0.3603 net 0.6182
+--- uplift distribution ---
+n 49 mean 0.0086 median 0.005 p10 -0.005 p90 0.0289
+first_buy-p_hist mean 0.0095 median 0.0085 min -0.0391 max 0.045
+--- 2026 dust cases ---
+2026-10 hist 0.075 first 0.08 200 exec100 0.08 bought_shares 6637.592747 y 0.0
+2026-13 hist 0.0595 first 0.0679999383 14.705881 exec100 0.06658821709294285 bought_shares 13010.204536 y 0.0
+2026-14 hist 0.0005 first 0.001 1000 exec100 0.001 bought_shares 1000 y 0.0
+2026-5 hist 0.0015 first 0.002 10 exec100 0.0011 bought_shares 1010 y 0.0
