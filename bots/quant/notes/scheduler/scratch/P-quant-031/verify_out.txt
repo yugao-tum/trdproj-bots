@@ -54,11 +54,11 @@ EVENT us-gas-price-on-october-21-2026 closed False end 2026-10-21T14:00:00Z mkts
  feeSchedules {'{"exponent": 1, "rate": 0, "rebateRate": 0, "takerOnly": true}'}
  desc_chars 1502
    <$4.2600 outcome ['0.165', '0.835'] YES_trades 2 all_trades 2 vol 20 closed False uma None closedTime None
-   $4.2600-4.2699 outcome ['0.23', '0.77'] YES_trades 1 all_trades 2 vol 40 closed False uma None closedTime None
+   $4.2600-4.2699 outcome ['0.175', '0.825'] YES_trades 1 all_trades 2 vol 40 closed False uma None closedTime None
    $4.2700-4.2799 outcome ['0.225', '0.775'] YES_trades 1 all_trades 2 vol 40 closed False uma None closedTime None
-   $4.2800-4.2899 outcome ['0.36', '0.64'] YES_trades 3 all_trades 7 vol 80.396849 closed False uma None closedTime None
+   $4.2800-4.2899 outcome ['0.445', '0.555'] YES_trades 3 all_trades 7 vol 80.396849 closed False uma None closedTime None
    $4.2900-4.2999 outcome ['0.345', '0.655'] YES_trades 3 all_trades 3 vol 20 closed False uma None closedTime None
-   $4.3000+ outcome ['0.4815', '0.5185'] YES_trades 2 all_trades 2 vol 20 closed False uma None closedTime None
+   $4.3000+ outcome ['0.495', '0.505'] YES_trades 2 all_trades 2 vol 20 closed False uma None closedTime None
 
 RULE_DESC_10_16_BEGIN
 This market will resolve according to the US national average price of regular gasoline published by AAA for October 16, 2026.

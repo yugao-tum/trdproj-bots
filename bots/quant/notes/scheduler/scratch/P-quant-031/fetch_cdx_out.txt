@@ -1,0 +1,2 @@
+retry 0 https://web.archive.org/cdx/search/cdx?url=gasprices.aaa.com&from=20260801&to=20261021&output=json&filter=statuscode:200&fl=timestamp,digest <urlopen error [SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1029)>
+CDX_ROWS 294 FIRST 20260801012429 LAST 20261021000056
