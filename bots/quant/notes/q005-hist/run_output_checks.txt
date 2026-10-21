@@ -1,0 +1,11 @@
+v1 (events_v1.csv) 50% triggered subset n/mean/median/hit = (252, -0.012555281746031747, -0.034596, 0.0992063492063492)
+v1 (events_v1.csv) 75% triggered_75 subset n/mean/median/hit = (198, 0.014565484848484848, -0.037011, 0.24242424242424243)
+v1 (events_v1.csv) frozen Elon48: rows=126, triggered(no dedup)=111
+  dedup all Elon48 events -> kept=123, triggered-within n/mean/median/hit=(109, -0.01523945871559633, -0.073885, 0.1743119266055046)
+  dedup triggered only   -> kept=109, n/mean/median/hit=(109, -0.01523945871559633, -0.073885, 0.1743119266055046)
+v2 (events.csv) 50% triggered subset n/mean/median/hit = (253, -0.016655205533596836, -0.032502, 0.08695652173913043)
+v2 (events.csv) 75% triggered_75 subset n/mean/median/hit = (200, 0.006071184999999999, -0.03768, 0.225)
+v2 (events.csv) frozen Elon48: rows=126, triggered(no dedup)=112
+  dedup all Elon48 events -> kept=123, triggered-within n/mean/median/hit=(110, -0.019061272727272725, -0.069056, 0.15454545454545454)
+  dedup triggered only   -> kept=110, n/mean/median/hit=(110, -0.019061272727272725, -0.069056, 0.15454545454545454)
+v2 DST example elon-musk-of-tweets-march-3-march-10: 2026-03-03T17:00:00+00:00 2026-03-10T16:00:00+00:00 tracker 340-359 resolved 340-359
