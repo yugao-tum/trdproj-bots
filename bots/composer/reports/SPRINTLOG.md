@@ -54,4 +54,4 @@
 | 2026-10-21 12:45 | T19 | pick T04watch 仍 10-18 → 非整点 scan-only（fills=0） | 9c94d6e |
 | 2026-10-21 13:00 | T19 | pick T04watch 仍 10-18 → 整点 +6 挂 + scan（fills=0）。top3 未变，R/D 奖励 991→1009 | 51cb4bc |
 | 2026-10-21 13:15 | T19 | pick T04watch 仍 10-18 → 非整点 scan-only（fills=0） | 51cb4bc |
-| 2026-10-21 13:30 | T19 | pick T04watch 仍 10-18 → 非整点 scan-only（fills=0） | （本批） |
+| 2026-10-21 13:30 | T19 | pick T04watch 仍 10-18 → 非整点 scan-only（fills=0） | 4147b20 |
