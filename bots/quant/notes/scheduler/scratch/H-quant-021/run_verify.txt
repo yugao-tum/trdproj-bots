@@ -1,0 +1,52 @@
+=== A. Gamma closed F1 events pagination (2026-10-21) ===
+  offset=0 rows=100
+  offset=100 rows=100
+  offset=200 rows=100
+  offset=300 rows=100
+  offset=400 rows=1
+  unique events 401 markets 7057
+  title categories {'Other': 252, 'Winner': 84, 'Pole': 45, 'Podium': 20}
+
+=== B. current US GP example events ===
+  f1-united-states-grand-prix-winner-2026-10-25: markets=29 negRisk=True volume=5296.863134 liquidity=94838.39566 restricted=True
+    resolutionSource= https://www.formula1.com/en/results/2026/races
+    feeSchedule sample= {'exponent': 1, 'rate': 0.05, 'takerOnly': True, 'rebateRate': 0.15} distinct= 1
+    description: This is a polymarket on the winner of the 2026 F1 United States Grand Prix, scheduled for Oct 25, 2026.  If the 2026 F1 United States Grand Prix is canceled or rescheduled to a date after Nov 1, 2026, this market will resolve to “Other.”  This market will resolve in favor of the driver who is officially listed in first place in the Final Classification published by the FIA following the conclusion of the race. The Final Classification is typically released 30-60 minutes after the race ends and includes any applied time penalties and official adjustments.  Disqualifications or changes made after the publication of the Final Classification will not affect market resolution. The timing of the podium ceremony does not determine the result for this market — only the FIA's published classification will be used to resolve this market.  The resolution source will be the official Formula 1 websit
+  f1-united-states-grand-prix-driver-pole-position-2026-10-24: markets=29 negRisk=True volume=950.593286 liquidity=12358.52662 restricted=True
+    resolutionSource= https://www.formula1.com/en/results/2026/races
+    feeSchedule sample= {'exponent': 1, 'rate': 0.05, 'takerOnly': True, 'rebateRate': 0.15} distinct= 1
+    description: This is a polymarket on the driver who achieves pole position at the 2026 F1 United States Grand Prix, scheduled for Oct 24, 2026.  If the 2026 F1 United States Grand Prix is canceled or rescheduled to a date after Oct 31, 2026, this market will resolve to “Other.”  This market will resolve in favor of the driver who is officially recognized by Formula 1 as having set the fastest time during the qualifying session for the 2026 F1 United States Grand Prix. The market will be settled based on the FIA's official qualifying results, regardless of any subsequent penalties, disqualifications, or changes to the starting grid.  For example, if a driver sets the fastest qualifying time but later receives a grid penalty or is moved down the starting order, the market will still resolve to “Yes” for that driver.  The resolution source will be the official Formula 1 website and a consensus of credib
+  f1-united-states-grand-prix-driver-podium-2026-10-25: markets=23 negRisk=False volume=333.098517 liquidity=6446.82566 restricted=True
+    resolutionSource= https://www.formula1.com/en/results/2026/races
+    feeSchedule sample= {'exponent': 1, 'rate': 0.05, 'takerOnly': True, 'rebateRate': 0.15} distinct= 1
+    description: This market will resolve to “Yes” if the listed driver finishes within the top three positions in the official "Final Classification" for the F1 United States Grand Prix, scheduled for Oct 25, 2026. Otherwise, this market will resolve to “No.”  The "Final Classification" is published by the FIA following the conclusion of the race and includes any applied time penalties and official adjustments. It is typically released 30-60 minutes after the race ends.  Disqualifications or changes made after the publication of the "Final Classification" will not affect market resolution. The timing of the podium ceremony does not determine the result for this market — only the FIA's published classification will be used to resolve this market.  If the United States Grand Prix is postponed, this market will remain open until the event has been completed. If the United States Grand Prix is permanently c
+
+=== C. Singapore closed Winner event ===
+  markets 29 volume 1131293.1852280004 closed True
+  resolved YES market: Max Verstappen ["1", "0"] volume 188526.54104300006
+
+=== D. CLOB prices-history parameter checks ===
+  interval=max&fidelity=60                                     -> {"history":[{"t":1791028820,"p":0.495},{"t":1791032419,"p":0.495},{"t":1791036032,"p":0.495},{"t":1791039638,"p":0.495},{"t":1791043231,"p":0.495},{"t":17910468
+  startTs=1790900000&endTs=1791150000&fidelity=60              -> {"history":[{"t":1791028820,"p":0.495},{"t":1791032419,"p":0.495},{"t":1791036032,"p":0.495},{"t":1791039638,"p":0.495},{"t":1791043231,"p":0.495},{"t":17910468
+  startTs=1724544000&endTs=1725321600&fidelity=60              -> {"history":[]}
+
+  ERR 400 https://clob.polymarket.com/prices-history?market=285583910611912965764568703229495459650703129142891815559184
+  ERR 400 https://clob.polymarket.com/prices-history?market=285583910611912965764568703229495459650703129142891815559184
+  ERR 400 https://clob.polymarket.com/prices-history?market=285583910611912965764568703229495459650703129142891815559184
+  ERR 400 https://clob.polymarket.com/prices-history?market=285583910611912965764568703229495459650703129142891815559184
+  startTs=1724544000&endTs=1727136000&fidelity=60              -> None
+  interval=max&startTs=1724544000&endTs=1725321600             -> {"history":[]}
+
+
+=== E. data-api trades fields (one closed market) ===
+  market 0x08f0dfac9b89d0caef4b14acb445f7048736e0dfc79f6876996fc548835a7a25 n_returned 3
+  fields ['asset', 'bio', 'conditionId', 'eventSlug', 'icon', 'name', 'outcome', 'outcomeIndex', 'price', 'profileImage', 'profileImageOptimized', 'proxyWallet', 'pseudonym', 'side', 'size', 'slug', 'timestamp', 'title', 'transactionHash']
+  sample {'side': 'SELL', 'price': 0.998, 'size': 10, 'timestamp': 1725224317, 'asset': '33567867992710942858104718562387481196860554976020368720286636269949192380414', 'outcome': 'No'}
+
+=== F. Ergast counts ===
+  2024 qualifying limit/total: 5 479
+  races per season: {2014: 19, 2015: 19, 2016: 21, 2017: 20, 2018: 21, 2019: 21, 2020: 17, 2021: 22, 2022: 22, 2023: 22, 2024: 24, 2025: 24, 2026: 17} total 269
+
+=== G. KNOWN / claims cross-check ===
+  known/KNOWN.md exists True
+  F-F1-bab present True V-V2-poly-longshot present True

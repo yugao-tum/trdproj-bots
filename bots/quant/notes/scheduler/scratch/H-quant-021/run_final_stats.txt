@@ -1,0 +1,41 @@
+=== champion grid distribution (269) ===
+1 147
+2 63
+3 27
+4 10
+5 4
+6 7
+7 1
+8 1
+9 1
+10 4
+14 2
+17 1
+19 1
+grid=1 147 grid missing 0
+
+=== trigger diagnostics ===
+n 23
+last pre side Counter({'BUY': 21, 'SELL': 2})
+buy_shares_pre min/median 1089.25 13668.521318
+t100 min/median/max 0.15416666666666667 1.04 6.38
+first buy dt h min/median/max 0.13 0.62 2.99
+first size median 38.461537 >=100: 8 of 23
+
+=== all 49: first buy timing ===
+min/median/max h 0.02 0.36 2.99
+
+=== per-trade net A exec100 and cumulative ===
+sum 4.6077 mean 0.2003
+
+=== total profit at 100 shares/trade ===
+USD 460.77 over 2024-09..2026-10
+
+=== what if 200 shares (2x100) per trigger ===
+USD 921.53
+
+=== estimate annualized on 5000 ===
+~25 months -> per year USD 221.17 = 4.42 %
+
+=== rule A if constant p0 used with exec100 ===
+n 23 wins 12 sum 3.8733

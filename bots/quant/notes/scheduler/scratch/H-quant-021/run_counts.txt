@@ -1,0 +1,7 @@
+unique events 401
+selected Winner/Pole/Podium events 149 markets 3433
+Winner events 84 markets min/median/max 9 27.0 39
+Pole events 45 markets min/median/max 11 27 39
+Podium events 20 markets min/median/max 21 22.0 23
+49 matched events markets min/median/max 9 27 31
+49 matched event volume: n 47 min 148531.82 median 905953.06 max 2814738.58
