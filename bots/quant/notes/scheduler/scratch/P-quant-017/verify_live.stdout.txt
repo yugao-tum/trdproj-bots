@@ -1,0 +1,43 @@
+=== quant-017 live source re-check, 2026-10-21 ===
+
+RSS: HTTP 200, 25765 bytes, effective=https://rss.marketingtools.apple.com/api/v2/us/apps/top-free/50/apps.json
+  updated= Wed, 21 Oct 2026 04:19:46 +0000 n= 50
+  top12= ['Capital One Mobile', 'Vinted: Pre-loved marketplace', 'Muse from Meta', 'ChatGPT', 'TikTok Pro - Events', 'Claude by Anthropic', 'Google Gemini', "McDonald's", 'PineDrama - Short Dramas', 'Kalshi: Trade Football & more', 'Peacock TV: Stream TV & Movies', 'Threads']
+
+CHARTS: HTTP 200, 1018175 bytes, effective=https://apps.apple.com/us/iphone/charts
+  first 12 distinct ordered app names: ['Capital One Mobile', 'Vinted: Pre-loved marketplace', 'Muse from Meta', 'ChatGPT', 'TikTok Pro - Events', 'Claude by Anthropic', 'Google Gemini', "McDonald's", 'PineDrama - Short Dramas', 'Kalshi: Trade Football & more', 'Peacock TV: Stream TV & Movies', 'Threads']
+  HTML contains 'Top Free': 60
+
+EVENT 1-free-app-in-the-us-apple-app-store-on-october-23-10172026
+  HTTP 200, 47617 bytes, effective=https://gamma-api.polymarket.com/events?slug=1-free-app-in-the-us-apple-app-store-on-october-23-10172026
+  endDate=2026-10-23T23:59:00Z startDate=2026-10-17T21:06:58Z negRisk=True restricted=True
+  volume=8284.701654 liquidity=5469.60699 umaBond=None umaReward=None customLiveness=None
+  feeType=None feeSchedule=None
+  real arms=7 placeholders=5
+    Muse from Meta                 YES=0.69     bid=0.68 ask=0.7 liqNum=1056.5417 vol=5755.725119000001 rate=0
+    Vinted: Pre-loved marketplace  YES=0.1055   bid=0.012 ask=0.199 liqNum=738.9598 vol=281.608 rate=0
+    ChatGPT                        YES=0.081    bid=0.013 ask=0.149 liqNum=326.4879 vol=488.170272 rate=0
+    TikTok Pro - Events            YES=0.0045   bid=0.001 ask=0.008 liqNum=697.44023 vol=106.538 rate=0
+    Claude by Anthropic            YES=0.0335   bid=0.008 ask=0.059 liqNum=882.69049 vol=1232.034344 rate=0
+    Google Gemini                  YES=0.005    bid=0.001 ask=0.009 liqNum=790.28271 vol=144.634428 rate=0
+    KICK - Live Streaming          YES=0.004    bid=0.001 ask=0.007 liqNum=706.99472 vol=275.991491 rate=0
+  sums real: YES=0.9235 bid=0.7160 ask=1.1310
+
+EVENT 2-free-app-in-the-us-apple-app-store-on-october-23-10172026
+  HTTP 200, 48275 bytes, effective=https://gamma-api.polymarket.com/events?slug=2-free-app-in-the-us-apple-app-store-on-october-23-10172026
+  endDate=2026-10-23T23:59:00Z startDate=2026-10-17T21:06:16Z negRisk=True restricted=True
+  volume=4623.02491 liquidity=1969.62223 umaBond=None umaReward=None customLiveness=None
+  feeType=None feeSchedule=None
+  real arms=7 placeholders=5
+    Vinted: Pre-loved marketplace  YES=0.59     bid=0.39 ask=0.79 liqNum=125.7631 vol=2360.263761 rate=0
+    Muse from Meta                 YES=0.1435   bid=0.034 ask=0.253 liqNum=295.76325 vol=364.537771 rate=0
+    ChatGPT                        YES=0.1395   bid=0.128 ask=0.151 liqNum=672.70287 vol=1309.4214819999997 rate=0
+    TikTok Pro - Events            YES=0.098    bid=0.007 ask=0.189 liqNum=236.52927 vol=66.533333 rate=0
+    Claude by Anthropic            YES=0.022    bid=0.006 ask=0.038 liqNum=257.61027 vol=123.37611000000001 rate=0
+    McDonald's                     YES=0.0105   bid=0.002 ask=0.019 liqNum=251.01282 vol=108.820053 rate=0
+    KICK - Live Streaming          YES=0.03     bid=0.005 ask=0.055 liqNum=269.72553 vol=290.0724 rate=0
+  sums real: YES=1.0335 bid=0.5720 ask=1.4950
+
+CLOB 2025-11-21 #1 ChatGPT arm: token not retained from earlier log; skipped (see r2prep note)
+
+CLOB 2026-10-16 #1 Muse arm: HTTP 200, points=663

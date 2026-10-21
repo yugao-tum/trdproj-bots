@@ -1,0 +1,26 @@
+public-search page 1: HTTP 200, 3194388 bytes
+public-search page 2: HTTP 200, 3031286 bytes
+public-search page 3: HTTP 200, 3071785 bytes
+public-search page 4: HTTP 200, 2525758 bytes
+public-search page 5: HTTP 200, 1608531 bytes
+pagination: {'hasMore': False, 'totalResults': 247} unique events: 247
+closed strict weekly boards: 117
+  KEEP 1-free-app-in-the-us-apple-app-store-on-september-25-20260918t180000000z endDate=2026-09-25T23:59:00Z first-token points=659
+  KEEP 2-free-app-in-the-us-apple-app-store-on-september-25-20260918t180000000z endDate=2026-09-25T23:59:00Z first-token points=659
+  KEEP 1-free-app-in-the-us-apple-app-store-on-october-2-20260925t180000000z endDate=2026-10-02T23:59:00Z first-token points=996
+  KEEP 2-free-app-in-the-us-apple-app-store-on-october-2-20260925t180000000z endDate=2026-10-02T23:59:00Z first-token points=995
+  KEEP 1-free-app-in-the-us-apple-app-store-on-october-9-20261002t180000000z endDate=2026-10-09T23:59:00Z first-token points=980
+  KEEP 2-free-app-in-the-us-apple-app-store-on-october-9-20261002t180000000z endDate=2026-10-09T23:59:00Z first-token points=980
+  KEEP 1-free-app-in-the-us-apple-app-store-on-october-16 endDate=2026-10-16T23:59:00Z first-token points=663
+  KEEP 2-free-app-in-the-us-apple-app-store-on-october-16-20261012 endDate=2026-10-16T23:59:00Z first-token points=535
+events with >0 CLOB history: 8
+  detail 1-free-app-in-the-us-apple-app-store-on-september-25-20260918t180000000z markets 11 endDate 2026-09-25T23:59:00Z
+  detail 2-free-app-in-the-us-apple-app-store-on-september-25-20260918t180000000z markets 11 endDate 2026-09-25T23:59:00Z
+  detail 1-free-app-in-the-us-apple-app-store-on-october-2-20260925t180000000z markets 12 endDate 2026-10-02T23:59:00Z
+  detail 2-free-app-in-the-us-apple-app-store-on-october-2-20260925t180000000z markets 12 endDate 2026-10-02T23:59:00Z
+  detail 1-free-app-in-the-us-apple-app-store-on-october-9-20261002t180000000z markets 12 endDate 2026-10-09T23:59:00Z
+  detail 2-free-app-in-the-us-apple-app-store-on-october-9-20261002t180000000z markets 12 endDate 2026-10-09T23:59:00Z
+  detail 1-free-app-in-the-us-apple-app-store-on-october-16 markets 11 endDate 2026-10-16T23:59:00Z
+  detail 2-free-app-in-the-us-apple-app-store-on-october-16-20261012 markets 12 endDate 2026-10-16T23:59:00Z
+market histories with points: 43
+kept slugs written: 8

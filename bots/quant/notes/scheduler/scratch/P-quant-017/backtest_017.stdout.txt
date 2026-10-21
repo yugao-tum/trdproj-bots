@@ -1,0 +1,75 @@
+=== P-quant-017 historical price backtest, CLOB 10-min last-trade series ===
+fee rate: 0.05 (Gamma feeSchedule, culture_fees); fee/share = rate*p*(1-p)
+prices = last trade, not quotes; half-spread is an assumption
+
+1-free-app-in-the-us-apple-app-store-on-october-16         day=2026-10-16 arms= 5 pts=3306 points_in_T-60..T= 30 winner=['Muse from Meta']
+1-free-app-in-the-us-apple-app-store-on-october-2-20260925 day=2026-10-02 arms= 6 pts=5972 points_in_T-60..T= 36 winner=['Muse from Meta']
+1-free-app-in-the-us-apple-app-store-on-october-9-20261002 day=2026-10-09 arms= 6 pts=5874 points_in_T-60..T= 36 winner=['Muse from Meta']
+1-free-app-in-the-us-apple-app-store-on-september-25-20260 day=2026-09-25 arms= 5 pts=3295 points_in_T-60..T= 30 winner=['Muse from Meta']
+2-free-app-in-the-us-apple-app-store-on-october-16-2026101 day=2026-10-16 arms= 6 pts=3200 points_in_T-60..T= 36 winner=['Vinted: Pre-loved marketplace']
+2-free-app-in-the-us-apple-app-store-on-october-2-20260925 day=2026-10-02 arms= 6 pts=5972 points_in_T-60..T= 36 winner=['ChatGPT']
+2-free-app-in-the-us-apple-app-store-on-october-9-20261002 day=2026-10-09 arms= 6 pts=5886 points_in_T-60..T= 35 winner=[]
+2-free-app-in-the-us-apple-app-store-on-september-25-20260 day=2026-09-25 arms= 5 pts=3295 points_in_T-60..T= 30 winner=[]
+
+--- A. price-only favorite at each entry time (no price filter) ---
+entry  hs    n  win  mean_net  median_net  total_net  avg_entry  avg_payout
+T-60  0.000  8   6  +0.0046   +0.0417    +0.0367     0.7408     0.750
+T-60  0.005  8   6  -0.0004   +0.0367    -0.0033     0.7408     0.750
+T-60  0.015  8   6  -0.0104   +0.0267    -0.0833     0.7408     0.750
+T-30  0.000  8   6  +0.0011   +0.0259    +0.0089     0.7448     0.750
+T-30  0.005  8   6  -0.0039   +0.0209    -0.0311     0.7448     0.750
+T-30  0.015  8   6  -0.0139   +0.0109    -0.1111     0.7448     0.750
+T-10  0.000  8   6  +0.0180   +0.0328    +0.1438     0.7279     0.750
+T-10  0.005  8   6  +0.0130   +0.0278    +0.1038     0.7279     0.750
+T-10  0.015  8   6  +0.0030   +0.0178    +0.0238     0.7279     0.750
+
+--- B. trades that satisfy the proposed edge filter cost<=0.98 ---
+entry  hs    n  win  mean_net  median_net  total_net
+T-60  0.000  7   5  +0.0024   +0.0452    +0.0168
+T-60  0.005  7   5  -0.0026   +0.0402    -0.0182
+T-60  0.015  7   5  -0.0126   +0.0302    -0.0882
+T-30  0.000  8   6  +0.0011   +0.0259    +0.0089
+T-30  0.005  6   4  -0.0110   +0.0305    -0.0658
+T-30  0.015  5   3  -0.0278   +0.0279    -0.1389
+T-10  0.000  7   5  +0.0184   +0.0414    +0.1286
+T-10  0.005  6   4  +0.0124   +0.0371    +0.0743
+T-10  0.015  6   4  +0.0024   +0.0271    +0.0143
+
+--- B2. chart proxy: favourite already >=0.90 AND cost<=0.98 ---
+entry  hs    n  win  mean_net  total_net  trades
+T-60  0.000  3   3  +0.0468   +0.1405   2026-10-02:Muse from Meta p=0.9525 net=+0.0452; 2026-10-09:Muse from Meta p=0.9400 net=+0.0572; 2026-10-16:Vinted: Pre-lo p=0.9600 net=+0.0381
+T-60  0.005  3   3  +0.0418   +0.1255   2026-10-02:Muse from Meta p=0.9525 net=+0.0402; 2026-10-09:Muse from Meta p=0.9400 net=+0.0522; 2026-10-16:Vinted: Pre-lo p=0.9600 net=+0.0331
+T-60  0.015  3   3  +0.0318   +0.0955   2026-10-02:Muse from Meta p=0.9525 net=+0.0302; 2026-10-09:Muse from Meta p=0.9400 net=+0.0422; 2026-10-16:Vinted: Pre-lo p=0.9600 net=+0.0231
+T-30  0.000  4   4  +0.0289   +0.1156   2026-10-16:Muse from Meta p=0.9780 net=+0.0209; 2026-10-02:Muse from Meta p=0.9705 net=+0.0281; 2026-10-09:Muse from Meta p=0.9750 net=+0.0238; 2026-10-16:Vinted: Pre-lo p=0.9550 net=+0.0429
+T-30  0.005  2   2  +0.0305   +0.0609   2026-10-02:Muse from Meta p=0.9705 net=+0.0231; 2026-10-16:Vinted: Pre-lo p=0.9550 net=+0.0379
+T-30  0.015  1   1  +0.0279   +0.0279   2026-10-16:Vinted: Pre-lo p=0.9550 net=+0.0279
+T-10  0.000  3   3  +0.0362   +0.1085   2026-10-16:Muse from Meta p=0.9745 net=+0.0243; 2026-10-02:Muse from Meta p=0.9565 net=+0.0414; 2026-10-16:Vinted: Pre-lo p=0.9550 net=+0.0429
+T-10  0.005  2   2  +0.0371   +0.0743   2026-10-02:Muse from Meta p=0.9565 net=+0.0364; 2026-10-16:Vinted: Pre-lo p=0.9550 net=+0.0379
+T-10  0.015  2   2  +0.0271   +0.0543   2026-10-02:Muse from Meta p=0.9565 net=+0.0264; 2026-10-16:Vinted: Pre-lo p=0.9550 net=+0.0279
+
+--- C. per-event detail, T-10, hs=0.015, no filter ---
+day        board  arm                          p      fee    cost   win   net
+2026-10-16 1-free  Muse from Meta               0.9745 0.00124 0.9907 True  +0.0093
+2026-10-02 1-free  Muse from Meta               0.9565 0.00208 0.9736 True  +0.0264
+2026-10-09 1-free  Muse from Meta               0.9840 0.00079 0.9998 True  +0.0002
+2026-09-25 1-free  Muse from Meta               0.8150 0.00754 0.8375 True  +0.1625
+2026-10-16 2-free  Vinted: Pre-loved marketplac 0.9550 0.00215 0.9721 True  +0.0279
+2026-10-02 2-free  ChatGPT                      0.8200 0.00738 0.8424 True  +0.1576
+2026-10-09 2-free  Muse from Meta               0.2950 0.01040 0.3204 False -0.3204
+2026-09-25 2-free  Vinted: Pre-loved marketplac 0.0235 0.00115 0.0396 False -0.0396
+
+--- D. per-date aggregate, T-10, hs=0.015, no filter ---
+2026-09-25  boards=2  total_net=+0.1228  mean_net=+0.0614  wins=1
+2026-10-02  boards=2  total_net=+0.1840  mean_net=+0.0920  wins=2
+2026-10-09  boards=2  total_net=-0.3202  mean_net=-0.1601  wins=1
+2026-10-16  boards=2  total_net=+0.0371  mean_net=+0.0186  wins=2
+
+--- E. what price did the favourite already trade at? distribution ---
+T-10 favourite price min/median/max: 0.0235/0.8875/0.9840
+count p>=0.98: 1 | 0.95<=p<0.98: 3 | p<0.95: 4
+
+--- F. breakeven arithmetic for a p=0.98 favourite ---
+p=0.95 fee=0.00238 gross_up=0.0500 net_after_fee=+0.04763 net_after_fee_and_0.5c=+0.04263 net_after_fee_and_1.5c=+0.03263
+p=0.97 fee=0.00146 gross_up=0.0300 net_after_fee=+0.02855 net_after_fee_and_0.5c=+0.02355 net_after_fee_and_1.5c=+0.01355
+p=0.98 fee=0.00098 gross_up=0.0200 net_after_fee=+0.01902 net_after_fee_and_0.5c=+0.01402 net_after_fee_and_1.5c=+0.00402
+p=0.99 fee=0.00050 gross_up=0.0100 net_after_fee=+0.00951 net_after_fee_and_0.5c=+0.00451 net_after_fee_and_1.5c=-0.00549
