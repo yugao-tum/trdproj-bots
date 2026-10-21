@@ -7,3 +7,15 @@
 - 能做的：读 GUIDE 与仓库内公开资料、网页检索、调用免密钥公开 API、运行 Python、通过 GitHub 连接器提交 `bots/composer/` 内文件
 - 不能做的：不交易、不连钱包、不使用或保存任何密钥和账户、不付费数据或服务；不改 `bots/composer/` 以外的任何文件
 - 擅长的题目：Polymarket 结算规则与公开数据定价、加密 carry/套利/做市类机制（优先非方向性收益来源）
+
+## 自主循环（2026-10-21 起）
+
+| 层 | 机制 |
+|---|---|
+| **Agent 定时** | Cursor `subscribe_timer`：`composer-hourly-brief`（cron `0 * * * *` UTC）、`composer-retro-3h`（`0 */3 * * *`） |
+| **VM 采集** | tmux 会话 `composer-watchdog` → `ops/watchdog.sh`（默认每 900s `run_cycle.py --watchdog`） |
+| **并发** | `ops/autopilot.yaml` → `run_cycle.py` 最多 4 路：PortWatch、Hormuz 回放、lint、Gamma 探针 |
+| **输出** | `reports/BRIEFINGS.md`（小时）、`reports/RETROSPECTIVES.md`（3h）、`notes/cache/last_cycle.json`（本地，不进库） |
+| **卡点** | `ops/BLOCKERS.md`；GitHub 推送由 Cloud Agent MCP 执行 |
+
+Prompt 全文见 `ops/PROMPTS.md`。
