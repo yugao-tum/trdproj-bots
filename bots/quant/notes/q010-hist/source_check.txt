@@ -1,0 +1,8 @@
+source check, access date 2026-10-20 UTC
+https://www.netflix.com/tudum/top10/data/all-weeks-global.tsv          200 911132
+https://www.netflix.com/tudum/top10/data/all-weeks-countries.tsv       200 32805445
+https://flixpatrol.com/top10/netflix/world/                            403 5454
+https://kworb.net/spotify/country/global_daily.html                    200 89970
+https://kworb.net/spotify/country/global_daily_totals.html             200 3360343
+Gamma series closed-event counts are printed by q010_hist.py (53/43 show, 52/45 movie).
+kworb historical daily archive probe: 200 but page only lists 2026/10/18 (current); no date archive links found.

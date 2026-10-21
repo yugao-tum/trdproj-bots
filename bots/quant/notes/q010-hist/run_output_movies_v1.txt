@@ -1,0 +1,68 @@
+==============================================================================
+quant-010 historical executable-price test (Netflix weekly #1 movie)
+access date: 2026-10-20 | all sources free, keyless, no login
+==============================================================================
+Tudum files:
+  global: https://www.netflix.com/tudum/top10/data/all-weeks-global.tsv
+  US    : https://www.netflix.com/tudum/top10/data/all-weeks-countries.tsv
+  global weeks: 277 (2021-07-04 .. 2026-10-18), Films (English) rows loaded
+  US weeks    : 277 (2021-07-04 .. 2026-10-18), Films rows loaded
+Gamma closed events by series: global=52, us=45
+deduped (scope, chart-week) events: 97
+chart-week span: 2025-10-12 .. 2026-10-18 (53 unique weeks)
+
+FUNNEL
+  checks with a computed chart week: 97
+  skipped prior_no1_not_listed:  2
+  skipped fill_too_old:          10
+  simulated market-events: 85
+  independent chart-week clusters: 52
+
+SIGNAL PROXY HIT RATE (entry's own signal criterion)
+  n chart-scope weeks with a prediction: 95 | clusters: 53
+  hit rate (events): 0.3474 (33/95) | cluster mean: 0.3491
+
+PRIMARY ARM (buy proxy's predicted #1 at ask, hold to resolution)
+  n market-events: 85 | n clusters: 52
+  hit rate (market-events): 0.3765 (32/85)
+  hit rate (cluster mean): 0.3462
+  net/share: median -0.0110 | mean -0.0086 | cluster median -0.0110 | cluster mean -0.0088
+  net per $ staked: median -1.0000 | mean -0.6376
+  cluster bootstrap 95% CI of mean net/share: [-0.0117, -0.0063]
+  total net: -0.7268 USDC on +32.7101 staked
+
+PRICE-FILTER ARM (entry's p_model - ask - fee - 0.01 > 0)
+  triggers: 53 market-events | 37 clusters
+  net/share: median -0.0115 | mean -0.0144 | cluster median -0.0115
+  hit rate: 0.0000
+
+ORACLE DIAGNOSTIC (buy eventual Gamma winner at its ask; 100% win)
+  n market-events: 78 | n clusters: 49
+  net/share: median +0.0000 | mean +0.0014 | cluster median +0.0000
+  net per $ staked: median +0.0000 | mean +0.0014
+  share of winners with net<=0: 0.8718
+
+SENSITIVITY 1: decision window 12h instead of 24h
+  n market-events: 80 | n clusters: 51
+  net/share: median -0.0110 | mean -0.0084 | cluster median -0.0110
+  hit rate: 0.3875
+
+SENSITIVITY 2: all-in 0.05 culture fee (ignores historical feesEnabled=false)
+  net/share: median -0.0115 | mean -0.0088 | cluster median -0.0115
+
+MODEL vs MARKET (priced non-Other candidates, multi-class)
+  n events: 78 | mean priced candidates/event: 8.04
+  Brier model 0.9224 | market 0.0006 | diff(market-model) -0.9218
+  logloss model 2.9756 | market 0.0129 | diff(market-model) -2.9627
+  model better on Brier: 0/78
+
+SETTLEMENT CHECK (Tudum computed #1 vs Gamma resolved market)
+  MATCH=78 | MISMATCH=1 | OTHER_NOT_LISTED=6
+  MISMATCH 2026-08-30 us     tudum='Grand Theft Auto VI: An Extended Look' gamma='Grand Theft Auto VI Extended Look'
+
+VERDICT RULE (frozen, entry's own): <30 clusters with fill -> INSUFFICIENT;
+else FAIL if signal hit rate < 80%% or cluster median net/share <= 0; else PASS.
+VERDICT: FAIL
+  clusters=52 | signal cluster hit=0.3491 | trade cluster hit=0.3462 | cluster median net/share=-0.0110
+
+wrote events_movies.csv (85 rows)

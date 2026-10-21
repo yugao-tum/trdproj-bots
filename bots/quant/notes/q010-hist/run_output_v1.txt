@@ -1,0 +1,67 @@
+==============================================================================
+quant-010 historical executable-price test (Netflix weekly #1 show)
+access date: 2026-10-20 | all sources free, keyless, no login
+==============================================================================
+Tudum files:
+  global: https://www.netflix.com/tudum/top10/data/all-weeks-global.tsv
+  US    : https://www.netflix.com/tudum/top10/data/all-weeks-countries.tsv
+  global weeks: 277 (2021-07-04 .. 2026-10-18), TV (English) rows loaded
+  US weeks    : 277 (2021-07-04 .. 2026-10-18), TV rows loaded
+Gamma closed events by series: global=53, us=43
+deduped (scope, chart-week) events: 95
+chart-week span: 2025-03-16 .. 2026-10-11 (53 unique weeks)
+
+FUNNEL
+  checks with a computed chart week: 95
+  skipped prior_no1_not_listed:  2
+  skipped fill_too_old:          11
+  simulated market-events: 82
+  independent chart-week clusters: 53
+
+SIGNAL PROXY HIT RATE (entry's own signal criterion)
+  n chart-scope weeks with a prediction: 93 | clusters: 53
+  hit rate (events): 0.3871 (36/93) | cluster mean: 0.3962
+
+PRIMARY ARM (buy proxy's predicted #1 at ask, hold to resolution)
+  n market-events: 82 | n clusters: 53
+  hit rate (market-events): 0.4268 (35/82)
+  hit rate (cluster mean): 0.3962
+  net/share: median -0.0110 | mean -0.0032 | cluster median -0.0110 | cluster mean -0.0017
+  net per $ staked: median -1.0000 | mean -0.5832
+  cluster bootstrap 95% CI of mean net/share: [-0.0083, +0.0099]
+  total net: -0.2611 USDC on +35.2453 staked
+
+PRICE-FILTER ARM (entry's p_model - ask - fee - 0.01 > 0)
+  triggers: 47 market-events | 36 clusters
+  net/share: median -0.0115 | mean -0.0121 | cluster median -0.0115
+  hit rate: 0.0000
+
+ORACLE DIAGNOSTIC (buy eventual Gamma winner at its ask; 100% win)
+  n market-events: 75 | n clusters: 50
+  net/share: median +0.0000 | mean +0.0099 | cluster median +0.0000
+  net per $ staked: median +0.0000 | mean +0.0126
+  share of winners with net<=0: 0.8133
+
+SENSITIVITY 1: decision window 12h instead of 24h
+  n market-events: 69 | n clusters: 46
+  net/share: median -0.0110 | mean -0.0021 | cluster median -0.0092
+  hit rate: 0.4638
+
+SENSITIVITY 2: all-in 0.05 culture fee (ignores historical feesEnabled=false)
+  net/share: median -0.0115 | mean -0.0035 | cluster median -0.0115
+
+MODEL vs MARKET (priced non-Other candidates, multi-class)
+  n events: 75 | mean priced candidates/event: 7.92
+  Brier model 0.8742 | market 0.0027 | diff(market-model) -0.8715
+  logloss model 2.7923 | market 0.0169 | diff(market-model) -2.7754
+  model better on Brier: 0/75
+
+SETTLEMENT CHECK (Tudum computed #1 vs Gamma resolved market)
+  MATCH=76 | OTHER_NOT_LISTED=6
+
+VERDICT RULE (frozen, entry's own): <30 clusters with fill -> INSUFFICIENT;
+else FAIL if signal hit rate < 80%% or cluster median net/share <= 0; else PASS.
+VERDICT: FAIL
+  clusters=53 | signal cluster hit=0.3962 | trade cluster hit=0.3962 | cluster median net/share=-0.0110
+
+wrote events.csv (82 rows)

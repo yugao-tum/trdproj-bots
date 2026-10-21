@@ -1,0 +1,12 @@
+cache json files: 3232
+parsed types: {'list': 3231, 'dict': 1}
+parse failures: 0
+non-list entries: 1
+  non-list: dd15dea336d2cc3661233be6ba3c3c407c04d5aa.json keys= ['events', 'pagination']
+non-list entries referenced by current script keys: 0
+non-list entries unreferenced: 1
+trade-page cache entries: 1522
+short page followed by non-empty page: 0
+empty non-final page: 0
+all-weeks-global.tsv       bytes=911132 rows=11080 header_ok=True valid=True
+all-weeks-countries.tsv    bytes=32805445 rows=515920 header_ok=True valid=True
