@@ -52,15 +52,19 @@ quant-005 历史可成交价回测：Polymarket Elon Musk / Trump 发帖数分�
   未触发的事件按 0 持仓处理（不进主 P&L 样本，但单独报告 all-event 口径）。
 
 【独立性与统计】
-  主 P&L 样本 = 50% 决策点触发买入的事件，每个事件一个结果。
+  canonical P&L 样本 = 冻结口径（仅 Elon 48h 系列）50% 决策点触发买入的事件。
+  Elon 48h 事件按窗口重叠去重：保留一个事件的起点 ≥ 上一个保留事件的终点
+  （相邻窗口 start == end 都保留；用 America/New_York 本地日历边界比较，
+  因此跨 DST 的 47h/49h 窗口不会因绝对 48h 间隔被误删）。
+  pooled（Elon 48h + Elon 7d + Trump 7d、未去重）50% 与 75% 仅作敏感性报告。
   ISO 周 block bootstrap（按 decision 所在 ISO 周分块，周内有放回抽样，
   10000 次，固定 seed=20260520）给均值的 95% 百分位 CI。
 
 【冻结失败标准（entry 原文）】
   逐事件（一个 event 的所有档 = 1 个结果）扣费后买入侧净收益中位数 ≤ 0 → FAIL。
   要求 ≥30 个独立事件结果；触发样本 <30 → INSUFFICIENT。
-  本脚本判据：triggered_events < 30 → INSUFFICIENT；否则 median(net_per_share) ≤ 0 → FAIL；
-  否则 PASS。PASS/FAIL 不看敏感性口径（敏感性只报告）。
+  本脚本判据：冻结口径触发事件 < 30 → INSUFFICIENT；否则 median(net_per_share) ≤ 0
+  （或 hit<0.5 且 mean≤0）→ FAIL；否则 PASS。PASS/FAIL 不看 pooled 敏感性口径。
 
 【数据/缓存/复现】
   所有下载缓存在 _cache/（已 .gitignore）；成交缓存只有完整分页成功才标
@@ -485,26 +489,40 @@ def all_event_summary(rows, key, trigger_key):
     return float(np.median(vals)), float(np.mean(vals)), float(np.mean(wins))
 
 
-def _event_end_ts(r):
-    return datetime.fromisoformat(r["window_end_utc"]).timestamp()
+def _local_boundary_ts(r, key):
+    """Return an event window boundary on the America/New_York local calendar.
+
+    Window boundaries are local-noon ET instants (Gamma endDate minus calendar
+    days), so converting the stored UTC instant back to ET makes the
+    local-calendar comparison explicit. Two non-overlapping adjacent windows
+    satisfy start >= previous end even when DST makes them 47h/49h long.
+    """
+    return datetime.fromisoformat(r[key]).astimezone(NY).timestamp()
 
 
 def frozen_scope(rows):
-    """Frozen entry scope: Elon 48h only, one result per 48h by settlement time."""
-    erows = sorted([r for r in rows if r.get("series") == "elon48"], key=_event_end_ts)
-    kept_all, last = [], None
-    for r in erows:
-        e = _event_end_ts(r)
-        if last is None or e - last >= 48 * 3600:
-            kept_all.append(r)
-            last = e
+    """Frozen entry scope: Elon 48h only, deduplicate by actual window overlap.
+
+    Retain an event iff its start is at or after the end of the previously
+    retained event (adjacent windows, start == end, are both retained). This
+    replaces the old absolute >=48h elapsed-gap test, which dropped valid
+    non-overlapping windows across the spring DST transition.
+    """
+    erows = sorted([r for r in rows if r.get("series") == "elon48"],
+                   key=lambda r: _local_boundary_ts(r, "window_end_utc"))
+
+    def dedup(seq):
+        kept, last_end = [], None
+        for r in seq:
+            start = _local_boundary_ts(r, "window_start_utc")
+            if last_end is None or start >= last_end:
+                kept.append(r)
+                last_end = _local_boundary_ts(r, "window_end_utc")
+        return kept
+
+    kept_all = dedup(erows)
     trig = [r for r in erows if r.get("triggered")]
-    kept_trig, last = [], None
-    for r in sorted(trig, key=_event_end_ts):
-        e = _event_end_ts(r)
-        if last is None or e - last >= 48 * 3600:
-            kept_trig.append(r)
-            last = e
+    kept_trig = dedup(trig)
     return erows, kept_all, kept_trig
 
 
@@ -516,7 +534,7 @@ def main():
     print("quant-005 历史可成交价回测")
     print(f"数据访问日期(UTC): {access_date}")
     print("Universe: Gamma closed=true series 10816 (Elon 48h), 10000 (Elon 7d), 11108 (Trump 7d)")
-    print(f"Decision: 50% (主), 75% (敏感性); 条件模式={COND_MODE}; 历史窗口步长 {STEP//3600}h; fee rate {FEE_RATE}; ask=trade+{SLIP}; edge buffer {EDGE_BUFFER}")
+    print(f"Decision: 50% (canonical=frozen; pooled=敏感性), 75% (pooled 敏感性); 条件模式={COND_MODE}; 历史窗口步长 {STEP//3600}h; fee rate {FEE_RATE}; ask=trade+{SLIP}; edge buffer {EDGE_BUFFER}")
     print()
 
     # ---- load event metadata + posts
@@ -797,7 +815,46 @@ def main():
         print(f"  skip {reason or '(其他)'}: {cnt}")
     print()
 
-    print("主口径（50% 决策点，保守经验分布，fee=0.05，hold-to-resolution）：")
+    # ---- FROZEN entry scope (PR #16): canonical scope, verdict and headline figures
+    erows, kept_all, kept_trig = frozen_scope(out_rows)
+    e_rows = [r for r in out_rows if r.get("series") == "elon48"]
+    s_e = summarize(e_rows, "triggered", "net_per_share", "net_per_dollar", "win", "decision_ts")
+    s_ka = summarize(kept_all, "triggered", "net_per_share", "net_per_dollar", "win", "decision_ts")
+    s_kt = summarize(kept_trig, "triggered", "net_per_share", "net_per_dollar", "win", "decision_ts")
+    if s_ka.get("n", 0) < 30:
+        frozen_verdict = "INSUFFICIENT"
+    elif (s_ka["median_share"] <= 0) or (s_ka["hit"] < 0.5 and s_ka["mean_share"] <= 0):
+        frozen_verdict = "FAIL"
+    else:
+        frozen_verdict = "PASS"
+
+    print("冻结 q005 口径（canonical VERDICT 与头条数字；entry 原文：主样本仅 Elon 48h；")
+    print("  重叠窗口按窗口边界去重；50% 决策点；保守经验分布，fee=0.05，hold-to-resolution）：")
+    if s_ka.get("n", 0) == 0:
+        print("  触发事件=0，无法计算。")
+    else:
+        print(f"  触发事件数 n={s_ka['n']}，覆盖 ISO 周={s_ka['weeks']}")
+        print(f"  每份净收益: median={s_ka['median_share']:.6f}, mean={s_ka['mean_share']:.6f}")
+        print(f"  每 $1 本金净收益: median={s_ka['median_dollar']:.6f}, mean={s_ka['mean_dollar']:.6f}")
+        print(f"  命中率={s_ka['hit']:.4f} ({int(round(s_ka['hit']*s_ka['n']))}/{s_ka['n']})")
+        if s_ka["ci_lo"] is not None:
+            print(f"  ISO 周 block bootstrap 95% CI of mean(每份) = [{s_ka['ci_lo']:.6f}, {s_ka['ci_hi']:.6f}] (B={BOOT_N}, seed={SEED})")
+        else:
+            print("  ISO 周 block bootstrap: 周数不足，未取到")
+    print(f"  去重明细 A（先对全部 Elon48 事件按窗口重叠去重）: 事件={len(kept_all)}, "
+          f"触发 n={s_ka.get('n',0)}, median={s_ka.get('median_share',float('nan')):.6f}, "
+          f"mean={s_ka.get('mean_share',float('nan')):.6f}, hit={s_ka.get('hit',float('nan')):.4f}")
+    print(f"  去重明细 B（先取触发行，再按窗口重叠去重）: n={s_kt.get('n',0)}, "
+          f"median={s_kt.get('median_share',float('nan')):.6f}, mean={s_kt.get('mean_share',float('nan')):.6f}, "
+          f"hit={s_kt.get('hit',float('nan')):.4f}")
+    print(f"  Elon48 事件行={len(e_rows)}；50% 触发（去重前，仅对照）: n={s_e.get('n',0)}, "
+          f"median={s_e.get('median_share',float('nan')):.6f}, mean={s_e.get('mean_share',float('nan')):.6f}, "
+          f"hit={s_e.get('hit',float('nan')):.4f}")
+    print(f"  冻结判据（median≤0，或 hit<0.5 且 mean≤0；n≥30）→ {frozen_verdict}"
+          f"（A 口径 n={s_ka.get('n',0)}）")
+    print()
+
+    print("敏感性 A（pooled：Elon 48h + Elon 7d + Trump 7d，未去重；50% 决策点；非冻结口径）：")
     if s50["n"] == 0:
         print("  触发事件=0，无法计算。")
     else:
@@ -812,7 +869,7 @@ def main():
     print(f"  all-event 口径（未触发=0）: median={all_med:.6f}, mean={all_mean:.6f}, hit={all_hit:.4f}")
     print()
 
-    print("敏感性（75% 决策点，其余口径相同）：")
+    print("敏感性 B（pooled：同上，未去重；75% 决策点；非冻结口径）：")
     if s75["n"] == 0:
         print("  触发事件=0，无法计算。")
     else:
@@ -843,44 +900,17 @@ def main():
     print(f"  可核对={resolver_checked}, 不一致={resolver_mismatch}")
     print()
 
-    # ---- FROZEN entry scope (PR #16): Elon 48h only, one result per 48h by settlement time
-    erows, kept_all, kept_trig = frozen_scope(out_rows)
-    e_rows = [r for r in out_rows if r.get("series") == "elon48"]
-    s_e = summarize(e_rows, "triggered", "net_per_share", "net_per_dollar", "win", "decision_ts")
-    s_ka = summarize(kept_all, "triggered", "net_per_share", "net_per_dollar", "win", "decision_ts")
-    s_kt = summarize(kept_trig, "triggered", "net_per_share", "net_per_dollar", "win", "decision_ts")
-    print("冻结 q005 口径（entry 原文：主样本仅 Elon 48h；重叠窗口按结算时刻每 48h 去重；50% 决策点）：")
-    print(f"  Elon48 事件行={len(e_rows)}；50% 触发（未去重）: n={s_e.get('n',0)}, "
-          f"median={s_e.get('median_share',float('nan')):.6f}, mean={s_e.get('mean_share',float('nan')):.6f}, "
-          f"hit={s_e.get('hit',float('nan')):.4f}")
-    print(f"  去重 A（先对全部 Elon48 事件按 window_end 每 48h 保留 1 个）: 事件={len(kept_all)}, "
-          f"触发 n={s_ka.get('n',0)}, median={s_ka.get('median_share',float('nan')):.6f}, "
-          f"mean={s_ka.get('mean_share',float('nan')):.6f}, hit={s_ka.get('hit',float('nan')):.4f}")
-    print(f"  去重 B（先取触发行，再按 window_end 每 48h 保留 1 个）: n={s_kt.get('n',0)}, "
-          f"median={s_kt.get('median_share',float('nan')):.6f}, mean={s_kt.get('mean_share',float('nan')):.6f}, "
-          f"hit={s_kt.get('hit',float('nan')):.4f}")
-    if s_ka.get("n", 0) < 30:
-        frozen_verdict = "INSUFFICIENT"
-    elif (s_ka["median_share"] <= 0) or (s_ka["hit"] < 0.5 and s_ka["mean_share"] <= 0):
-        frozen_verdict = "FAIL"
+    # ---- canonical verdict: frozen q005 scope (Elon 48h, overlap-deduplicated)
+    print("判定（canonical：冻结 q005 口径 — Elon 48h、按窗口重叠去重、50% 决策点；")
+    print("  逐事件买入侧扣费后净收益 median≤0，或 hit<0.5 且 mean≤0 → FAIL；需 ≥30 个独立事件结果）：")
+    if frozen_verdict == "INSUFFICIENT":
+        print(f"  INSUFFICIENT — 冻结口径触发样本 {s_ka.get('n',0)} < 30，不能按冻结标准判 PASS/FAIL。")
+    elif frozen_verdict == "FAIL":
+        print(f"  FAIL — 冻结口径触发样本 n={s_ka['n']}，每份净收益中位数 {s_ka['median_share']:.6f}，"
+              f"hit={s_ka['hit']:.4f}，mean={s_ka['mean_share']:.6f}。")
     else:
-        frozen_verdict = "PASS"
-    print(f"  冻结判据（median≤0，或 hit<0.5 且 mean≤0；n≥30）→ {frozen_verdict}"
-          f"（A 口径 n={s_ka.get('n',0)}）")
-    print()
-
-    # ---- verdict
-    print("判定（冻结标准：逐事件买入侧扣费后净收益中位数 ≤0 → FAIL；需 ≥30 个独立事件结果）：")
-    if s50["n"] < 30:
-        verdict = "INSUFFICIENT"
-        print(f"  INSUFFICIENT — 50% 触发样本 {s50['n']} < 30，不能按冻结标准判 PASS/FAIL。")
-    elif s50["median_share"] <= 0:
-        verdict = "FAIL"
-        print(f"  FAIL — 触发样本 n={s50['n']}，每份净收益中位数 {s50['median_share']:.6f} ≤ 0。")
-    else:
-        verdict = "PASS"
-        print(f"  PASS — 触发样本 n={s50['n']}，每份净收益中位数 {s50['median_share']:.6f} > 0。")
-    print(f"  VERDICT={verdict}")
+        print(f"  PASS — 冻结口径触发样本 n={s_ka['n']}，每份净收益中位数 {s_ka['median_share']:.6f}。")
+    print(f"  VERDICT={frozen_verdict}")
     print()
     print(f"输出: {csv_path.name} ({csv_path.stat().st_size} bytes)")
 

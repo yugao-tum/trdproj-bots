@@ -2,9 +2,9 @@
 
 - 分支：v1 `quant-review/q005-hist`；v2 `quant-review/q005-fix`
 - 脚本：`q005_hist.py`（stdlib + pandas/numpy/requests，下载缓存在 `_cache/`，已被 `.gitignore` 排除）
-- 数据访问日期（UTC）：v1 2026-10-20；v2 2026-10-21
-- 结论：**FAIL**（v2 冻结标准：逐事件买入侧扣费后净收益中位数 ≤ 0；50% n=253，median −0.032502）
-- 说明：§1–§8 保留 v1（PR #14 合并版）的原始记录与旧数字；v2 修复（PR #14 review + PR #16 comment）见 **§9**。
+- 数据访问日期（UTC）：v1 2026-10-20；v2/v3 2026-10-21
+- 结论：**FAIL**（v3 canonical：冻结口径 Elon 48h、按窗口重叠去重、50%；n=111，median −0.073204）
+- 说明：§1–§8 保留 v1（PR #14 合并版）的原始记录与旧数字；v2 修复（PR #14 review + PR #16 comment）见 **§9**；v3 修复（PR #19 review）见 **§10**。
 
 ## 1. 数据源与访问方式（全部 keyless）
 
@@ -213,12 +213,48 @@ v1 `events_v1.csv` 同样口径为：未去重触发 111（对应 review 的“1
 
 ### 9.4 复现输出与校验
 
-- v2 stdout：`run_output.txt`；v1 旧 stdout：`run_output_v1.txt`；v1 旧 `events.csv`：`events_v1.csv`。
-- 独立字段核对（读 `events.csv` / `events_v1.csv`，含 v1/v2 75% 子集与 frozen scope）：`run_output_checks.txt`。
+- v2 stdout 已重命名为 `run_output_v2.txt`（v3 起 `run_output.txt` 为 v3 输出）；v1 旧 stdout：`run_output_v1.txt`；v1 旧 `events.csv`：`events_v1.csv`。
+- 独立字段核对（读 `events.csv` / `events_v1.csv`）：`run_output_checks.txt`（v3 已重写，含旧/新去重对照；v2 时期的旧哈希已失效）。
 - 哈希（`run_output_hashes.txt`）：
-  - `run_output.txt` sha256 `32dd241df46b09a74528d0398610a05c8f9a04ef0a8c9a7a34d44280e56edb9f`
+  - `run_output_v2.txt` sha256 `32dd241df46b09a74528d0398610a05c8f9a04ef0a8c9a7a34d44280e56edb9f`
   - `events.csv` sha256 `27ed666a0cb28a4c012591ad46084a9cbd59c40ee2461bc83bf5e32156a6e55f`
   - `run_output_v1.txt` sha256 `c41881bb5bf0fd4e912c057692f0b00e49d18b817bb1d2bf49481811049a4332`
-  - `run_output_checks.txt` sha256 `f006c2653c11904348c62c4a43e10e86dfac97a2068dc4a108ef662234b36947`
 - 复现：`cd bots/quant/notes/q005-hist && python3 q005_hist.py`（已有完整缓存会复用；45 个 offset 上限市场每次会重试但仍不完整，并被排除）。
 - 未重跑 `run_output_literal_le.txt`（字面条件版，仍为 v1 输出）；本次修复针对主口径、75% 字段、缓存和 DST，字面版结论未受影响。
+
+## 10. v3 修复（PR #19 review）
+
+### 10.1 修了什么
+
+1. **canonical VERDICT / 头条数字改用冻结口径**：脚本现在先计算 `s_ka`（Elon 48h、按窗口重叠去重、50% 决策点）并由它生成 `frozen_verdict` 与最终 `VERDICT`；池化的 50%（`s50`, n=253）和 75%（`s75`, n=200）只作为 **敏感性 A/B** 明确标注，不再冒充冻结判据。见 `run_output.txt` 的“冻结 q005 口径”与“敏感性”两节。
+2. **去重改为比较窗口重叠**：`frozen_scope()` 不再用绝对 48h 间隔；改为按 `America/New_York` 本地日历边界比较“当前事件 start ≥ 上一个保留事件 end”，相邻窗口（start == end）都保留。因此跨春季 DST 的 47h 窗口不会被误删。`run_output_checks.txt` 显示 `elon-musk-of-tweets-march-5-march-7`（end `2026-03-07T17:00Z`）与 `elon-musk-of-tweets-march-7-march-9`（start 同为 `2026-03-07T17:00Z`）均被保留；旧绝对 48h 规则只保留前者。
+3. 产物：旧 v2 stdout 已重命名为 `run_output_v2.txt`；新 stdout 为 `run_output.txt`。新增独立核对脚本 `q005_checks.py`，输出 `run_output_checks.txt`。`events.csv` 未变（去重只影响汇总，不改逐事件结果）。
+
+### 10.2 旧 vs 新冻结口径
+
+| 指标 | v2（`run_output_v2.txt`，绝对 48h 去重） | v3（`run_output.txt`，窗口重叠去重） |
+|---|---:|---:|
+| 保留的 Elon48 事件 | 123 | 124 |
+| 触发 n | 110 | 111 |
+| 每份净收益 median | −0.069056 | −0.073204 |
+| 每份净收益 mean | −0.019061 | −0.019971 |
+| 命中率 | 15.45% | 15.32% (17/111) |
+| ISO 周 bootstrap 95% CI of mean | 未单独打印（见 v2 输出） | [−0.084398, 0.052229] |
+
+新增的第 111 个触发事件就是被旧 48h 规则丢掉的 March 7–9 窗口（`net_per_share=-0.120089`，见 `events.csv`）；它把中位数/均值略微拉低。
+
+**冻结 VERDICT 不变：仍为 FAIL。** v3 冻结口径 n=111 ≥ 30，median −0.073204 ≤ 0。
+
+### 10.3 敏感性（pooled，非 canonical）
+
+- 敏感性 A：pooled 50%，n=253，median −0.032502，mean −0.016655，hit 8.70%（22/253）。
+- 敏感性 B：pooled 75%，n=200，median −0.037680，mean +0.006071，hit 22.50%（45/200）。
+
+两者都保留作参考，但不参与 `VERDICT`。复现：`python3 q005_hist.py`（复用现有 `_cache/`，仅重试 45 个 offset 上限市场且继续排除）；`python3 q005_checks.py`。
+
+v3 哈希（`run_output_hashes.txt`）：
+
+```
+13383be76e39289c04ad6a32168355d92c96e3678e0b9d0b501ab2e1e0d5e2e1  run_output.txt
+e3b387a42f794816e8a7dff4dc191dbed54d50a317fd2a45b5de005dfe4b7ce4  run_output_checks.txt
+```
