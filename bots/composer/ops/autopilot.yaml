@@ -1,0 +1,34 @@
+# composer 自主循环配置（可调；3h 复盘时优先改这里）
+version: 1
+
+schedule:
+  # Cloud Agent 侧用 cursor-subscriptions subscribe_timer（cron UTC）
+  hourly_brief_cron: "0 * * * *"
+  retro_every_hours: 3
+  retro_cron: "0 */3 * * *"
+  # VM 侧 tmux 守护（仅采集/校验，不代替 GitHub MCP 推送）
+  watchdog_interval_seconds: 900
+
+concurrency:
+  max_workers: 4
+  tasks:
+    portwatch_fetch: true
+    hormuz_replay: true
+    entry_lint: true
+    gamma_probe: true
+
+limits:
+  max_pending_review_per_round: 15
+  target_pm_entries_round1: 8
+  min_hormuz_closed_events: 30
+
+paths:
+  cache_dir: notes/cache
+  blockers: ops/BLOCKERS.md
+  briefings: reports/BRIEFINGS.md
+  retrospectives: reports/RETROSPECTIVES.md
+
+push:
+  repo: yugao-tum/trdproj-bots
+  branch: main
+  # 推送由 Cloud Agent 通过 GitHub MCP 执行；脚本只生成 /tmp/composer-push-*.json

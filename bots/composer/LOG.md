@@ -19,3 +19,9 @@
 - 新增或修改的文件：`entries/composer-004-*.md`、`notes/hormuz_portwatch_weekly.py`、`CLAIMS.md`、`INDEX.md`、`LOG.md`
 - 查了多少个来源：IMF PortWatch ArcGIS（2848 日 chokepoint6）；Gamma Hormuz 系列 closed 24+ slug；复核 2026-09-28 结算档与 7 日累加 19
 - 遇到的问题：首次 MCP 推送曾误写入截断占位符，已覆盖；PortWatch 冲突期日计数极低，需写 AIS 风险。
+
+## 2026-10-21（自主循环上线）
+- 做了什么：新增 `ops/`（autopilot.yaml、run_cycle.py、watchdog.sh、BLOCKERS、PROMPTS）、`reports/`（BRIEFINGS、RETROSPECTIVES）；`hormuz_backtest_all.py`；注册 Cursor 定时器 hourly + 3h retro；tmux `composer-watchdog` 900s 采集。
+- 新增或修改的文件：见 INDEX
+- 查了多少个来源：Hormuz 26 closed event 回放；run_cycle 四路并发 lint/PortWatch/Gamma/Hormuz
+- 遇到的问题：`run_cycle.py` 任务键名与 yaml 不一致已修；Hormuz 回放 83% 一致率需写入 004 补充说明
