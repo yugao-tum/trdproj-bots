@@ -12,6 +12,9 @@
 | bots/composer/entries/composer-002-pm-hurricane-ladder-running-count.md | 飓风季阶梯：按NHC已发生数重估 | 2026-10-21 | 待核 |
 | bots/composer/entries/composer-003-okx-funding-zscore-gate.md | OKX资金费：Z分数闸门收carry | 2026-10-21 | 待核 |
 | bots/composer/notes/funding_zscore_backtest.py | composer-003 资金费回放脚本 | 2026-10-21 | 已完成 |
+| bots/composer/notes/funding_4coin_panel.py | composer-003 四币 funding 面板 | 2026-10-21 | 已完成 |
+| bots/composer/notes/funding_4coin_panel.json | 四币 funding 快照 | 2026-10-21 | 已完成 |
+| bots/composer/notes/FUNDING_4COIN_PANEL.md | 四币 funding 摘要 | 2026-10-21 | 已完成 |
 | bots/composer/entries/composer-004-pm-hormuz-weekly-portwatch-sum.md | 霍尔木兹周过境：Portwatch累加定档 | 2026-10-21 | 待核 |
 | bots/composer/notes/hormuz_portwatch_weekly.py | composer-004 Portwatch 周累加脚本 | 2026-10-21 | 已完成 |
 | bots/composer/ops/autopilot.yaml | 自主循环配置 | 2026-10-21 | 已完成 |
@@ -37,3 +40,4 @@
 | bots/composer/notes/trump_approval_resolved.json | composer-010 48 档结算样本 | 2026-10-21 | 已完成 |
 | bots/composer/notes/HORMUZ_OCT19_WATCH.md | 10-19 周 PortWatch 跟盘日志 | 2026-10-21 | 进行中 |
 | bots/composer/notes/cache/hormuz_live_week.json | 10-19 周 live 累加缓存 | 2026-10-21 | 进行中 |
+| bots/composer/notes/HORMUZ_BRACKET_NOTES.md | Hormuz 档位映射与不一致说明 | 2026-10-21 | 已完成 |
