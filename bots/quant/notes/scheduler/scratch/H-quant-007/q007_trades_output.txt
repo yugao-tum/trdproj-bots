@@ -1,0 +1,137 @@
+fetching closed events ...
+closed events: 22
+  top-ai-model-on-december-31                                L7  lb=0.15 fav=0.849999999
+  top-ai-model-on-december-31                                L14 lb=nan fav=nan
+  top-ai-model-on-december-31                                L21 lb=nan fav=nan
+  top-ai-model-on-january-31                                 L7  lb=nan fav=0.98
+  top-ai-model-on-january-31                                 L14 lb=0.09 fav=0.91
+  top-ai-model-on-january-31                                 L21 lb=0.089999919 fav=0.9099999562
+  which-company-has-best-ai-model-on-june-30                 L7  lb=0.0176470417 fav=0.95
+  which-company-has-best-ai-model-on-june-30                 L14 lb=0.0431287983 fav=0.92
+  which-company-has-best-ai-model-on-june-30                 L21 lb=0.0540142857 fav=0.92
+  which-company-has-best-ai-model-end-of-2025                L7  lb=0.972 fav=0.972
+  which-company-has-best-ai-model-end-of-2025                L14 lb=0.95 fav=0.95
+  which-company-has-best-ai-model-end-of-2025                L21 lb=0.7899998776 fav=0.7899998776
+  which-company-has-best-ai-model-on-february-28             L7  lb=0.006 fav=0.8049998928
+  which-company-has-best-ai-model-on-february-28             L14 lb=0.0056603774 fav=0.76
+  which-company-has-best-ai-model-on-february-28             L21 lb=0.0139825291 fav=0.85
+  which-company-has-best-ai-model-end-of-march               L7  lb=0.9499999786 fav=0.9499999786
+  which-company-has-best-ai-model-end-of-march               L14 lb=0.89 fav=0.89
+  which-company-has-best-ai-model-end-of-march               L21 lb=0.5399999654 fav=0.5399999654
+  which-company-has-best-ai-model-end-of-april               L7  lb=0.25 fav=0.75
+  which-company-has-best-ai-model-end-of-april               L14 lb=0.25 fav=0.7099998642
+  which-company-has-best-ai-model-end-of-april               L21 lb=0.1699999422 fav=0.6699999625
+  which-company-has-best-ai-model-end-of-may                 L7  lb=0.0129999873 fav=0.929999986
+  which-company-has-best-ai-model-end-of-may                 L14 lb=0.024 fav=0.8799999993
+  which-company-has-best-ai-model-end-of-may                 L21 lb=0.0450748748 fav=0.7699999815
+  which-company-has-best-ai-model-end-of-july                L7  lb=0.96 fav=0.96
+  which-company-has-best-ai-model-end-of-july                L14 lb=0.9171002171 fav=0.9171002171
+  which-company-has-best-ai-model-end-of-july                L21 lb=0.6 fav=0.6
+  which-company-has-best-ai-model-end-of-august              L7  lb=0.973 fav=0.973
+  which-company-has-best-ai-model-end-of-august              L14 lb=0.9399997556 fav=0.9399997556
+  which-company-has-best-ai-model-end-of-august              L21 lb=0.7599998024 fav=0.7599998024
+  which-company-has-best-ai-model-end-of-september           L7  lb=0.9849999941 fav=0.9849999941
+  which-company-has-best-ai-model-end-of-september           L14 lb=0.96 fav=0.96
+  which-company-has-best-ai-model-end-of-september           L21 lb=0.95 fav=0.95
+  which-company-has-best-ai-model-end-of-october             L7  lb=0.9789999929 fav=0.9789999929
+  which-company-has-best-ai-model-end-of-october             L14 lb=0.9702984754 fav=0.9702984754
+  which-company-has-best-ai-model-end-of-october             L21 lb=0.9399998258 fav=0.9399998258
+  which-company-has-best-ai-model-end-of-november            L7  lb=0.9839999908 fav=0.9839999908
+  which-company-has-best-ai-model-end-of-november            L14 lb=0.9389999648 fav=0.9389999648
+  which-company-has-best-ai-model-end-of-november            L21 lb=0.9479999989 fav=0.9479999989
+  which-company-has-best-ai-model-end-of-june                L7  lb=0.93 fav=0.93
+  which-company-has-best-ai-model-end-of-june                L14 lb=0.909 fav=0.909
+  which-company-has-best-ai-model-end-of-june                L21 lb=0.8709999129 fav=0.8709999129
+  which-company-has-the-best-ai-model-end-of-january         L7  lb=0.9829999995 fav=0.9829999995
+  which-company-has-the-best-ai-model-end-of-january         L14 lb=0.9509999988 fav=0.9509999988
+  which-company-has-the-best-ai-model-end-of-january         L21 lb=0.9299995944 fav=0.9299995944
+  which-company-has-the-best-ai-model-end-of-march-751       L7  lb=0.9649999992 fav=0.9649999992
+  which-company-has-the-best-ai-model-end-of-march-751       L14 lb=0.9098722379 fav=0.9098722379
+  which-company-has-the-best-ai-model-end-of-march-751       L21 lb=0.768 fav=0.768
+  which-company-has-the-best-ai-model-end-of-february        L7  lb=0.8689999999 fav=0.8689999999
+  which-company-has-the-best-ai-model-end-of-february        L14 lb=0.7177128087 fav=0.7177128087
+  which-company-has-the-best-ai-model-end-of-february        L21 lb=0.6339999985 fav=0.29999982
+  which-company-has-the-best-ai-model-end-of-april           L7  lb=0.7099994391 fav=0.7099994391
+  which-company-has-the-best-ai-model-end-of-april           L14 lb=0.9299999888 fav=0.9299999888
+  which-company-has-the-best-ai-model-end-of-april           L21 lb=0.9099999897 fav=0.9099999897
+  which-company-has-the-best-ai-model-end-of-may             L7  lb=0.978 fav=0.978
+  which-company-has-the-best-ai-model-end-of-may             L14 lb=0.8799999914 fav=0.8799999914
+  which-company-has-the-best-ai-model-end-of-may             L21 lb=0.8 fav=0.8
+  which-company-has-best-ai-model-end-of-july-299            L7  lb=0.9839995956 fav=0.9839995956
+  which-company-has-best-ai-model-end-of-july-299            L14 lb=0.979 fav=0.979
+  which-company-has-best-ai-model-end-of-july-299            L21 lb=0.89 fav=0.89
+  which-company-has-best-ai-model-end-of-august-202607170156 L7  lb=0.9861376838 fav=0.9861376838
+  which-company-has-best-ai-model-end-of-august-202607170156 L14 lb=0.98 fav=0.98
+  which-company-has-best-ai-model-end-of-august-202607170156 L21 lb=0.9399996992 fav=0.9399996992
+  which-company-has-the-best-ai-model-end-of-september-20260 L7  lb=0.985 fav=0.985
+  which-company-has-the-best-ai-model-end-of-september-20260 L14 lb=0.9649999969 fav=0.9649999969
+  which-company-has-the-best-ai-model-end-of-september-20260 L21 lb=0.9 fav=0.9
+
+=== executed data-api BUY fills, leaderboard Rank-1 arm ===
+
+-- lead 7d  n=21/22 --
+hit rate 15/21 = 0.714 ; mean fill 0.7443
+  slip 0.000: mean -0.0320 [95% boot -0.1422, 0.0459] median +0.0154 sum -0.6715
+  slip 0.005: mean -0.0369 [95% boot -0.1486, 0.0409] median +0.0106 sum -0.7744
+  fee=0:    mean -0.0300 [95% boot -0.1417, 0.0469] median +0.0160
+
+-- lead 14d  n=21/22 --
+hit rate 15/21 = 0.714 ; mean fill 0.7238
+  slip 0.000: mean -0.0122 [95% boot -0.1196, 0.0620] median +0.0385 sum -0.2568
+  slip 0.005: mean -0.0171 [95% boot -0.1237, 0.0574] median +0.0336 sum -0.3599
+  fee=0:    mean -0.0096 [95% boot -0.1153, 0.0657] median +0.0400
+
+-- lead 21d  n=21/22 --
+hit rate 15/21 = 0.714 ; mean fill 0.6450
+  slip 0.000: mean +0.0648 [95% boot -0.0228, 0.1410] median +0.0674 sum +1.3601
+  slip 0.005: mean +0.0598 [95% boot -0.0281, 0.1366] median +0.0626 sum +1.2564
+  fee=0:    mean +0.0693 [95% boot -0.0180, 0.1471] median +0.0700
+
+=== benchmark at same instant: market's most expensive named arm ===
+lead 7d: n=22 hit=21/22 mean(+fee,0slip)=+0.0223 [-0.0880, 0.0955] mean fill 0.9299
+lead 14d: n=21 hit=19/21 mean(+fee,0slip)=-0.0017 [-0.1377, 0.0983] mean fill 0.9032
+lead 21d: n=21 hit=18/21 mean(+fee,0slip)=+0.0445 [-0.0857, 0.1519] mean fill 0.8075
+
+=== paired leaderboard-minus-favourite using executed fills (T-7) ===
+n=21 mean=-0.0544 [95% boot -0.1131, -0.0093] median=+0.0000 lb better 0 / worse 5 / tie 16
+disagreement events n=5: lb hit 0, favourite hit 5
+
+=== entry's own ask<=0.85 gate (proxy: executed fill <= 0.85, T-7) ===
+slip 0.000: n=6 mean -0.0282 median -0.0159 sum -0.1689
+slip 0.005: n=6 mean -0.0333 median -0.0211 sum -0.1997
+                                            slug    lb_arm  lb_fill    winner  lb_won   mkt_fav  fav_fill  fav_won  lb_net_0.0  fav_net_0.0
+                     top-ai-model-on-december-31   ChatGPT 0.150000    Gemini       0    Gemini  0.850000        1   -0.155100     0.144900
+      which-company-has-best-ai-model-on-june-30    OpenAI 0.017647    Google       0    Google  0.950000        1   -0.018340     0.048100
+  which-company-has-best-ai-model-on-february-28  DeepSeek 0.006000       xAI       0       xAI  0.805000        1   -0.006239     0.188721
+    which-company-has-best-ai-model-end-of-april    OpenAI 0.250000    Google       0    Google  0.750000        1   -0.257500     0.242500
+      which-company-has-best-ai-model-end-of-may    OpenAI 0.013000    Google       0    Google  0.930000        1   -0.013513     0.067396
+which-company-has-the-best-ai-model-end-of-april Anthropic 0.709999 Anthropic       1 Anthropic  0.709999        1    0.281765     0.281765
+
+=== prices-history point vs executed fill, T-7 ===
+leaderboard arm: n=21 mean gap +0.28c median +0.31c max |gap| 8.50c
+favourite arm:   n=22 mean gap +0.74c median +0.45c max |gap| 8.50c
+
+=== per event, T-7 (executed fills) ===
+               check    lb_arm  lb_fill    winner  lb_won   mkt_fav  fav_fill  fav_won  lb_net_0.0  fav_net_0.0
+2024-12-31T12:00:00Z   ChatGPT 0.150000    Gemini       0    Gemini  0.850000        1   -0.155100     0.144900
+2025-01-31T12:00:00Z  DeepSeek      NaN    Gemini       0    Gemini  0.980000        1         NaN     0.019216
+2025-06-30T12:00:00Z    OpenAI 0.017647    Google       0    Google  0.950000        1   -0.018340     0.048100
+2025-12-31T12:00:00Z    Google 0.972000    Google       1    Google  0.972000        1    0.026911     0.026911
+2025-02-28T12:00:00Z  DeepSeek 0.006000       xAI       0       xAI  0.805000        1   -0.006239     0.188721
+2025-03-31T12:00:00Z       xAI 0.950000    Google       0       xAI  0.950000        0   -0.951900    -0.951900
+2025-04-30T12:00:00Z    OpenAI 0.250000    Google       0    Google  0.750000        1   -0.257500     0.242500
+2025-05-31T12:00:00Z    OpenAI 0.013000    Google       0    Google  0.930000        1   -0.013513     0.067396
+2025-07-31T12:00:00Z    Google 0.960000    Google       1    Google  0.960000        1    0.038464     0.038464
+2025-08-31T06:00:00Z    Google 0.973000    Google       1    Google  0.973000        1    0.025949     0.025949
+2025-09-30T00:00:00Z    Google 0.985000    Google       1    Google  0.985000        1    0.014409     0.014409
+2025-10-31T00:00:00Z    Google 0.979000    Google       1    Google  0.979000        1    0.020178     0.020178
+2025-11-30T00:00:00Z    Google 0.984000    Google       1    Google  0.984000        1    0.015370     0.015370
+2026-06-30T00:00:00Z Anthropic 0.930000 Anthropic       1 Anthropic  0.930000        1    0.067396     0.067396
+2026-01-31T00:00:00Z    Google 0.983000    Google       1    Google  0.983000        1    0.016332     0.016332
+2026-03-31T00:00:00Z Anthropic 0.965000 Anthropic       1 Anthropic  0.965000        1    0.033649     0.033649
+2026-02-28T00:00:00Z Anthropic 0.869000 Anthropic       1 Anthropic  0.869000        1    0.126446     0.126446
+2026-04-30T00:00:00Z Anthropic 0.709999 Anthropic       1 Anthropic  0.709999        1    0.281765     0.281765
+2026-05-31T00:00:00Z Anthropic 0.978000 Anthropic       1 Anthropic  0.978000        1    0.021139     0.021139
+2026-07-31T00:00:00Z Anthropic 0.984000 Anthropic       1 Anthropic  0.984000        1    0.015371     0.015371
+2026-09-01T03:59:00Z Anthropic 0.986138 Anthropic       1 Anthropic  0.986138        1    0.013316     0.013316
+2026-09-30T16:00:00Z Anthropic 0.985000 Anthropic       1 Anthropic  0.985000        1    0.014409     0.014409

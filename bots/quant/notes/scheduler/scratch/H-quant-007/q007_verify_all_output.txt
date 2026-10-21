@@ -1,0 +1,115 @@
+== A. Gamma events/markets (entry rules, arms, prices, fees) ==
+gamma october event                                        HTTP 200    143265 B  
+  id=841230 startDate=2026-08-13T00:02:19Z endDate=2026-10-31T16:00:00Z updatedAt=2026-10-21T04:23:07.532456Z
+  negRisk=True arms=32 volume=3019670.89 liquidity=1496593.07
+  quote checked on October 31, 2026, 12:00 PM ET                                 True
+  quote https://arena.ai/leaderboard/text/overall-no-style-control               True
+  quote style control off (Adjustments: None)                                    True
+  quote Models marked “AutoEval”                                                 True
+  quote ordered primarily by their leaderboard rank                              True
+  quote including any underlying, unrounded, granular values                     True
+  quote would be ranked ahead                                                    True
+  quote resolve to "Other"                                                       True
+  named=21 placeholders=11 named_arms=['Anthropic', 'Meta', 'Google', 'Alibaba', 'Moonshot', 'OpenAI', 'Baidu', 'Z.ai', 'Xiaomi', 'SpaceXAI', 'DeepSeek', 'Amazon', 'ByteDance', 'Nvidia', 'Thinky', 'MiniMax', 'Mistral', 'Meituan', 'Tencent', 'StepFun', 'Microsoft']
+  placeholder_arms=['Company A', 'Company B', 'Company C', 'Company D', 'Company E', 'Company F', 'Company G', 'Company H', 'Company I', 'Company K', 'Other']
+  named-arm Yes sum = 0.9955
+  feeSchedule distribution: {'{"exponent": 1, "rate": 0, "rebateRate": 0, "takerOnly": true}': 21, '{"exponent": 1, "rate": 0.04, "rebateRate": 0.25, "takerOnly": true}': 11}
+  Google    last=0.798 bid=0.796 ask=0.798 tick=0.001 spread=0.002
+  Anthropic last=0.18 bid=0.17 ask=0.18 tick=0.01 spread=0.01
+  OpenAI    last=0.009 bid=0.007 ask=0.009 tick=0.001 spread=0.002
+  orderMinSize=[5] (unique [5])
+gamma november event                                       HTTP 200    160740 B  
+  endDate=2026-12-01T04:59:00Z arms=35 volume=350374.51
+  placeholders=['Other', 'Company A', 'Company B', 'Company C', 'Company D', 'Company E', 'Company F', 'Company G', 'Company H', 'Company I', 'Company J', 'Company K', 'Company L', 'Company M']
+  Google    last=0.49 bid=0.49 ask=0.5 spread=0.01
+  Anthropic last=0.43 bid=0.43 ask=0.45 spread=0.02
+  OpenAI    last=0.049 bid=0.031 ask=0.048 spread=0.017
+gamma series 10030                                         HTTP 200     43679 B  
+  title=Best AI Company recurrence=monthly createdAt=2025-02-01T00:23:50.592739Z restricted=True
+gamma closed events                                        HTTP 200   1810300 B  
+  count=22 first=top-ai-model-on-december-31 2024-12-31T12:00:00Z last=which-company-has-the-best-ai-model-end-of-september-20260717143435868 2026-09-30T16:00:00Z
+  arms per event=[5, 6, 12, 15, 12, 13, 16, 13, 12, 15, 23, 15, 17, 25, 25, 25, 27, 29, 19, 26, 32, 32]
+  rank-column-rule events=6
+  events with exactly one settled winner=22/22
+gamma open events                                          HTTP 200    423222 B  
+  count=3 slugs=['which-company-has-best-ai-model-end-of-2026', 'which-company-has-the-best-ai-model-end-of-october', 'which-company-has-the-best-ai-model-end-of-november']
+
+== B. CLOB books cited in entry (now empty, as entry says) ==
+clob book Google                                           HTTP 200      4116 B  
+   bids[:2]=[{'price': '0.001', 'size': '110488.92'}, {'price': '0.002', 'size': '97837.42'}] asks[:2]=[{'price': '0.999', 'size': '2115551.77'}, {'price': '0.998', 'size': '105419.9'}]
+clob book Anthropic                                        HTTP 200      2320 B  
+   bids[:2]=[{'price': '0.01', 'size': '230514'}, {'price': '0.02', 'size': '18805'}] asks[:2]=[{'price': '0.99', 'size': '111012.92'}, {'price': '0.98', 'size': '10510.16'}]
+
+== C. historical price / trades endpoints ==
+clob prices-history closed 2026-09                         HTTP 200      1931 B  
+   points=71 first_t=1784678407 last_t=1790726419 last_p=0.9965
+data-api trades closed event                               HTTP 200    931054 B  
+   trades=1000 fields=['asset', 'bio', 'conditionId', 'eventSlug', 'icon', 'name', 'outcome', 'outcomeIndex', 'price', 'profileImage', 'profileImageOptimized', 'proxyWallet', 'pseudonym', 'side', 'size', 'slug', 'timestamp', 'title', 'transactionHash']
+
+== D. resolution source pages (entry claims 403) ==
+https://arena.ai/leaderboard/text/overall-no-style-control     HTTP 403     5703 B  (expect 403)
+https://arena.ai/leaderboard/text/overall                      HTTP 403     5630 B  (expect 403)
+https://arena.ai/api/leaderboard/text                          HTTP 403     5618 B  (expect 403)
+https://lmarena.ai/leaderboard/text                            HTTP 403     5606 B  (expect 403)
+
+== E. Wayback CDX indexes ==
+cdx arena                                                  HTTP 200      1260 B  [["urlkey","timestamp","original","mimetype","statuscode","digest","length"],
+["ai,arena)/leaderboard/text/overall-no-style-control","20260130012509","https://arena.ai/leaderboard/
+cdx lmarena                                                HTTP 200       833 B  [["urlkey","timestamp","original","mimetype","statuscode","digest","length"],
+["ai,lmarena)/leaderboard/text","20260101210823","https://lmarena.ai/leaderboard/text","text/html","20
+
+== F. HuggingFace leaderboard mirror ==
+hf dataset api                                             HTTP 200     23603 B  
+  gated=False private=False lastModified=2026-10-21T03:07:03.000Z
+  license=['license:cc-by-4.0']
+hf README.md                                               HTTP 200     23498 B  
+  config text               present=True
+  config text_style_control present=True
+  schema column model_name               present=True
+  schema column organization             present=True
+  schema column rating                   present=True
+  schema column rank                     present=True
+  schema column category                 present=True
+  schema column leaderboard_publish_date present=True
+  license line=['license: cc-by-4.0']
+hf text parquet (range 0-3)                                HTTP 206         4 B  content-range=None
+  parquet magic=b'PAR1'
+hf stats text                                              HTTP 200     28373 B  
+   rows=1212601
+   overall_rows=55466
+   date_min=2023-05-08 00:00:00 date_max=2026-10-20 00:00:00
+hf stats text_style_control                                HTTP 200     28297 B  
+   rows=1071011
+   overall_rows=51154
+   date_min=2024-08-28 00:00:00 date_max=2026-10-20 00:00:00
+hf datasets-server rows                                    HTTP 200      2008 B  
+  fields=['model_name', 'organization', 'license', 'rating', 'rating_lower', 'rating_upper', 'variance', 'vote_count', 'rank', 'category', 'leaderboard_publish_date']
+
+== G. HF mirror rank-1 spot checks against the backtest snapshot dates ==
+  snap 2026-07-21: mirror=('anthropic', 'claude-opus-4-6-thinking') expected_arm=Anthropic expected_model=claude-opus-4-6-thinking match=True
+  snap 2026-08-21: mirror=('anthropic', 'claude-opus-5-high') expected_arm=Anthropic expected_model=claude-opus-5-high match=True
+  snap 2026-09-13: mirror=('anthropic', 'claude-fable-5.1-max') expected_arm=Anthropic expected_model=claude-fable-5.1-max match=True
+
+== H. merged notes reused by this entry ==
+  ../../../../notes/batch1-verification/quant-007.md   exists=True size=10465
+  ../../../../notes/r1-audit/AUDIT.md                  exists=True size=15322
+  REPORT.md                                            exists=True size=4182
+  q007_hist.py                                         exists=True size=7483
+  q007_analyze.py                                      exists=True size=5628
+  q007_fills.py                                        exists=True size=2393
+  q007_verify.py                                       exists=True size=5834
+  q007_hist_sc.py                                      exists=True size=7491
+  fetch_output.txt                                     exists=True size=12547
+  analyze_output.txt                                   exists=True size=7658
+  fills_output.txt                                     exists=True size=652
+  verify_output.txt                                    exists=True size=4545
+  fetch_sc_output.txt                                  exists=True size=12547
+  backtest_raw.csv                                     exists=True size=12605
+  backtest_sc.csv                                      exists=True size=12605
+  q007_trades.py                                       exists=True size=8229
+  q007_trades_output.txt                               exists=True size=11528
+  q007_trades_fills.csv                                exists=True size=19617
+
+== SUMMARY ==
+hard failures (excluding expected 403/206): none
+note: arena/lmarena 403 is the entry's stated fact; parquet 206 is a range GET

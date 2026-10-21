@@ -12,29 +12,30 @@ category: S
 return_type: direction
 instruments: negRisk 多臂月度组「某公司是否在月末检查时为 arena.ai Text Arena (Overall) 第 1 名」（每公司一臂 Yes/No）
 venues: Polymarket
-data: Gamma events/markets、CLOB prices-history、data-api trades 均免费免密钥；结算源 arena.ai 直连仍 403，但 2026-10-21 找到 HF `lmarena-ai/leaderboard-dataset`（cc-by-4.0，config `text`、category `overall` 日度快照，2023-05-08..2026-10-15）作历史榜名的第三方镜像；已用其 + 已关闭市场真实价格做 22 个已结算 event 的回测（见证据）
-test_2w: 独立结果按 event 计（一月一 event、一 event 只一个结算快照，禁按臂计数）；历史 22 个已结算 event 已全部回测（21 个有价格），仍 <30，两周内只新增 1 个（2026-10-31 12:00 ET）；失败标准：净 PnL 均值 ≤0，或同口径不如「买市场当时最贵臂」的基准；本次已触发失败
+data: Gamma events/markets、CLOB prices-history、data-api trades 均免费免密钥；结算源 arena.ai 直连仍 403，但 2026-10-21 找到 HF `lmarena-ai/leaderboard-dataset`（cc-by-4.0，config `text`、category `overall` 日度快照，2023-05-08..2026-10-20）作历史榜名的第三方镜像；已用其 + 已关闭市场的 prices-history 日频价与 data-api 真实成交价各做一遍 22 个已结算 event 的回测（见证据）
+test_2w: 独立结果按 event 计（一月一 event、一 event 只一个结算快照，禁按臂计数）；历史 22 个已结算 event 已用日频价与 data-api 真实成交价各回测一遍（21 个有价格/成交），仍 <30，两周内只新增 1 个（2026-10-31 12:00 ET）；失败标准：净 PnL 均值 ≤0，或同口径不如「买市场当时最贵臂」的基准；两个口径都已触发失败
 status: 待核
 confidence: 中
 ---
 
-整理说明：本稿只由实际抓取的 Gamma/CLOB/data-api 响应与规则原文写成。原稿写作时**官方榜单页取不到**：`arena.ai` 与其 `/api/` 路径返回 403，`web.archive.org` 内容抓取两次 HTTP 000。**2026-10-21 复核新增**：HF 上的 `lmarena-ai/leaderboard-dataset` 提供了 `text` / `overall` 的日度历史快照（cc-by-4.0），因此第一次能对 22 个已结算 event 做"榜名 + 可成交价 + 结算"的回测。回测结果是**负的**（见证据），本条因此只应进待选区，不应收录；建议核对方降级。
+整理说明：本稿只由实际抓取的 Gamma/CLOB/data-api 响应与规则原文写成。原稿写作时**官方榜单页取不到**：`arena.ai` 与其 `/api/` 路径返回 403，`web.archive.org` 内容抓取两次 HTTP 000。**2026-10-21 复核新增**：HF 上的 `lmarena-ai/leaderboard-dataset` 提供了 `text` / `overall` 的日度历史快照（cc-by-4.0），因此第一次能对 22 个已结算 event 做"榜名 + 可成交价 + 结算"的回测。回测结果是**负的**（见证据），本条因此只应进待选区，不应收录；建议核对方降级。已合并的日频价回测直接引用 `bots/quant/notes/scheduler/scratch/H-quant-007/analyze_output.txt`（未重跑）；本轮新增的 data-api 真实成交价复跑见同目录 `q007_trades_output.txt`，逐条来源复核见 `q007_verify_all_output.txt`。
 
 ## 复核结论（2026-10-21，负证据）
 
-- 22 个已结算 event 中 21 个能同时拿到"检查前榜名"和"已关闭市场历史价"。按检查前 7 天买入榜名第 1 的公司 Yes、持到结算（吃单费 0.04·p·(1−p)，再各加 0.5¢/1¢ 滑点），**均值 −0.034/−0.039 每份**，中位 +0.014/+0.010；95% bootstrap 区间 `[−0.141, +0.039]`，不能拒绝 0。
-- 同一时点买"市场自己最贵的臂"（基准）均值 **+0.025**、命中 **21/22 = 95.5%**；榜名第 1 只命中 15/21 = 71.4%。两者不一致的 5 个 event 里，**榜名 0/5、市场最贵臂 5/5**；配对差均值 **−5.91pp**（95% 区间 `[−11.95pp, −1.11pp]`，不含 0）。
-- 条目自己写的进场条件（榜名臂价 ≤0.85）下 n=7，均值 **−0.014**、中位 **−0.020**，仍是负的。
+- 22 个已结算 event 中 21 个能同时拿到"检查前榜名"和"已关闭市场历史价"。按检查前 7 天买入榜名第 1 的公司 Yes、持到结算（吃单费 0.04·p·(1−p)，再各加 0.5¢/1¢ 滑点），日频标记价口径 **均值 −0.034/−0.039 每份**，中位 +0.014/+0.010；95% bootstrap 区间 `[−0.141, +0.039]`，不能拒绝 0。
+- **改用 data-api 真实成交价复跑，结论同向且更直接**：每个 event 取进场前最后一笔已执行 BUY（份数 ≥1），T−7 净均值 **−0.0320**（95% `[−0.1422, +0.0459]`）、中位 +0.0154；与"买市场最贵臂"的配对差 **−0.0544**（95% `[−0.1131, −0.0093]`，不含 0）。
+- 同一时点买"市场自己最贵的臂"（基准）日频价均值 **+0.025**、命中 **21/22 = 95.5%**；真实成交价均值 **+0.0223**、命中 21/22。榜名第 1 只命中 15/21 = 71.4%。两者不一致的 5 个 event 里，**榜名 0/5、市场最贵臂 5/5**（两个价格口径都一样）；配对差均值日频 **−5.91pp**、成交价 **−5.44pp**。
+- 条目自己写的进场条件（榜名臂价 ≤0.85）下，日频价 n=7，均值 **−0.014**、中位 **−0.020**；真实成交价 n=6，均值 **−0.028**、中位 **−0.016**，仍是负的。
 - 唯一正的口袋是"提前 21 天进场"：均值 +0.101，但 44% 来自 2026-02 一个 event（榜名 Anthropic 0.069、市场最贵 Google 0.87、Anthropic 赢），且 95% 区间 `[−0.008, +0.217]` 含 0；不能当作可复制的边。
 - 2026 年 9 个 event 榜名全对（9/9），但**这 9 个里榜名第 1 与市场最贵臂完全是同一臂**，所以测不到"榜名相对市场"的增量；现行 Rank 规则的 6 个 event 也一样。换言之：现有数据无法证明榜名信号有价值，反而在它能与市场分歧的样本里全错。
 
 ## 一句话
 
-在 Polymarket 每月一次的「哪家公司拥有最好的 AI 模型」negRisk 组里，用结算源（arena.ai Text Arena Overall，style control 关）的榜单名次去比市场的吃单价：买"当前第一名所属公司"，持有到月末检查时点。**2026-10-21 的历史回测（22 个已结算 event）没有支持这个边：按检查前 7 天买榜名第一，净均值为负，且显著输给"买市场当时最贵臂"；详见证据。** 本条保留为负证据与规则记录，不建议收录。
+在 Polymarket 每月一次的「哪家公司拥有最好的 AI 模型」negRisk 组里，用结算源（arena.ai Text Arena Overall，style control 关）的榜单名次去比市场的吃单价：买"当前第一名所属公司"，持有到月末检查时点。**2026-10-21 的历史回测（22 个已结算 event，日频价与 data-api 真实成交价两遍）没有支持这个边：按检查前 7 天买榜名第一，净均值为负，且显著输给"买市场当时最贵臂"；详见证据。** 本条保留为负证据与规则记录，不建议收录。
 
 ## 钱从哪里来
 
-付款方是把"谁最强"当叙事出价的对手方，而结算只看**某一瞬间**的榜单列。规则原文（见下）规定结算取 2026-10-31 12:00 PM ET 那一刻的 Rank 列，不是月度平均、也不是"曾经第一"。榜单前列在几周内通常变化有限，而市场叙事（新模型发布、发布传闻）会把近月的臂推得比"到那一刻仍第一"的实际概率更高或更低，价差就是这个偏差。这条钱的持续性依赖两点：(a) 榜首在 2–6 周窗口内的黏性显著高于市场定价；(b) 榜单页本身公开可读，信息差不该存在，所以偏差只能来自纪律/注意力而非信息。**2026-10-21 已用历史数据检验 (a)：不成立。** 检查前 7 天榜名第一的命中率 15/21=71.4%，市场自己最贵臂 21/22=95.5%；榜名第一的均价 0.742 对命中率 0.682，甚至略偏贵。与 dot-032（做市奖励）不同，付款方不是平台预算，是对手方。
+付款方是把"谁最强"当叙事出价的对手方，而结算只看**某一瞬间**的榜单列。规则原文（见下）规定结算取 2026-10-31 12:00 PM ET 那一刻的 Rank 列，不是月度平均、也不是"曾经第一"。榜单前列在几周内通常变化有限，而市场叙事（新模型发布、发布传闻）会把近月的臂推得比"到那一刻仍第一"的实际概率更高或更低，价差就是这个偏差。这条钱的持续性依赖两点：(a) 榜首在 2–6 周窗口内的黏性显著高于市场定价；(b) 榜单页本身公开可读，信息差不该存在，所以偏差只能来自纪律/注意力而非信息。**2026-10-21 已用历史数据检验 (a)：不成立。** 检查前 7 天榜名第一的命中率 15/21=71.4%，市场自己最贵臂 21/22=95.5%；榜名第一的均价 0.742 对命中率 0.682，甚至略偏贵。换成 data-api 真实成交价（均价 0.744）仍是 15/21，市场最贵臂 21/22。与 dot-032（做市奖励）不同，付款方不是平台预算，是对手方。
 
 ## 规则
 
@@ -81,7 +82,7 @@ confidence: 中
 - CLOB 盘口（`clob.polymarket.com/book?token_id=...`，2026-10-20）：Google Yes 最优 bid `0.742×196`、最优 ask `0.743×128.15`，前 10 档 bid 约 1,240.10 USD、ask 约 2,387.70 USD；Anthropic Yes 最优 bid `0.23×570.38`、ask `0.24×186.59`，前 10 档 bid 约 1,220.70 USD、ask 约 7,448.40 USD。
 - 费用字段（Gamma 逐市场）：`feeSchedule = {exponent: 1, rate: 0.04, takerOnly: true, rebateRate: 0.25}`，与 GUIDE 第 8 节 tech 类 0.04 一致；`orderMinSize=5`（份）。
 - **官方榜单页仍取不到**：`arena.ai/leaderboard/text/overall-no-style-control`、`arena.ai/leaderboard/text/overall`、`arena.ai/api/leaderboard/text`、`lmarena.ai/leaderboard/text` 在 2026-10-21 复核时仍全部 **HTTP 403**；`web.archive.org/cdx/...` 索引 200，列出 2026-01-30 起的快照，但内容两次 HTTP 000。**新增替代**：HF `lmarena-ai/leaderboard-dataset` 的 `text`/`overall` 日度快照给出了历史名次（第三方镜像，非官方页）。
-- **2026-10-21 复核时点变化**：10 月 event 的 Gamma `outcomePrices` 具名臂合计从 0.9955 变为 **1.0065**（Google last 0.799）；11 月 Anthropic 变为 bid 0.43/ask 0.44；10 月 event 的 `feeSchedule.rate` 现在全部为 **0**（原快照为 0.04）。这些是时变值，旧数字保留原抓取时点，不当作现值。CLOB `/book` 用原 token 复核时返回空盘口（bid 0.001 / ask 0.999），已无法复现 2026-10-20 的 0.742/0.743 快照。
+- **2026-10-21 复核时点变化**：10 月 event 的 Gamma `outcomePrices` 具名臂合计在 01:21Z 快照为 **1.0065**（Google last 0.799），04:17Z 再抓为 **0.9955**（Google last 0.798）——随成交变动。11 月 Anthropic 在 04:17Z 为 bid 0.43/ask 0.45。10 月 event 的 **21 个具名臂** `feeSchedule.rate` 现为 **0**，**11 个占位臂仍为 0.04**（原 2026-10-20 快照具名臂为 0.04）；不是"所有臂都变 0"。这些是时变值，旧数字保留原抓取时点，不当作现值。CLOB `/book` 用原 token 复核时返回空盘口（bid 0.001 / ask 0.999；Anthropic 0.01/0.99），已无法复现 2026-10-20 的 0.742/0.743 快照。
 
 ### 历史可成交价格回测（2026-10-21 新增，结果：负）
 
@@ -107,15 +108,33 @@ confidence: 中
 - **条目自己的 `ask≤0.85` 子样本（7 天）**：n=7，均值 **−0.0137**、中位 **−0.0203**、合计 −0.0962（投入 2.034）；7 个里 5 个是 2024–2025 年"榜名与市场分歧"的 event，全部押错。
 - **镜像校验**：HF 镜像的 rank-1 与市场实际结算一致率，7/14/21 天都是 **15/22**；2026 年 **9/9**，2024–2025 只有 **6/13**。所以镜像在旧年份很可能与当期真实榜单/规则不一致，旧年份的负结果不能全部归因于策略；但 2026 年（镜像与结算一致）又完全没有"榜名≠市场"的样本，**无法证明增量**。这是本条最根本的证据缺口。
 
-**判定**：按预先写死的失败标准（净均值 ≤0，或不如"买最贵臂"基准），**FAIL**。回测不是"没做"，而是做了且为负；唯一正的口袋依赖单个 event 与 21 天提前量，不构成可复制证据。数据接口与脚本在 `bots/quant/notes/scheduler/scratch/H-quant-007/`（`q007_hist.py`→`fetch_output.txt`/`backtest_raw.csv`，`q007_analyze.py`→`analyze_output.txt`，`q007_fills.py`→`fills_output.txt`，`q007_verify.py`→`verify_output.txt`，`q007_hist_sc.py`→`fetch_sc_output.txt`）。
+**用 data-api 真实成交价复跑（`q007_trades.py` → `q007_trades_output.txt` / `q007_trades_fills.csv`，2026-10-21）**
 
-**费用敏感性**：即使把吃单费设为 0，7 天均值仍为 **−0.0322**、配对差 **−0.0597**；`ask≤0.85` 子样本均值 −0.0099、中位 −0.0195。所以"2026-10-21 费率变 0"不能救本条。
+不再用日频标记价：每个 event 在进场时点前取同一 YES token 的**最后一笔已执行 BUY**（份数 ≥1），用该成交价付 `0.04·p·(1−p)`；样本、榜名、基准、失败标准完全不变。这是独立于 `prices-history` 的第二遍，不是同一份价格序列的重新切分。
+
+| 进场时点 | n | 榜名命中 | 净均值（真实成交价） | 95% bootstrap | 净中位 |
+|---|---:|---:|---:|---|---:|
+| 检查前 7 天 | 21/22 | 15/21 = 71.4% | **−0.0320** | [−0.1422, +0.0459] | +0.0154 |
+| 检查前 14 天 | 21/22 | 15/21 | −0.0122 | [−0.1196, +0.0620] | +0.0385 |
+| 检查前 21 天 | 21/22 | 15/21 | +0.0648 | [−0.0228, +0.1410] | +0.0674 |
+
+- T−7 基准（同一时刻市场最贵具名臂，同样按最后一笔 BUY 成交）：命中 **21/22**、净均值 **+0.0223**；配对差 **−0.0544**，95% **`[−0.1131, −0.0093]`**，不含 0。5 个分歧 event 仍是榜名 **0/5**、最贵臂 **5/5**。
+- `fill≤0.85` 子样本：n=6，均值 **−0.0282**、中位 **−0.0159**；0.5¢ 滑点 −0.0333。日频价口径 n=7、均值 −0.0137。两个口径都为负。
+- 真实成交价与日频点的差：榜名臂均值 **+0.28¢**、中位 +0.31¢、最大 |差| **8.50¢**；最贵臂均值 +0.74¢。方向不变。
+- 成交发生在进场前 0.01–12.9 小时，最小 1.06 份；2025-01 DeepSeek 在进场前 30 天内没有 YES BUY，记"未取到"。这验证了"1 份可成交价"，但仍不还原盘口深度和排队。
+
+**样本外（OOS）怎么读**：策略规则没有拟合参数，22 个 event 对它是样本外。若把 2026-04..09 的 6 个现行 Rank 规则 event 单独看，日频价净均值 **+0.048**（95% `[+0.011, +0.109]`），但这 6/6 里榜名第一与市场最贵臂**完全是同一臂**，正的只是"买最贵臂"；真正能区分两者的 5 个 event 全在 2024–2025，榜名 **0/5**。所以没有可声称的"榜名相对市场"的 OOS 增量。
+
+**判定**：按预先写死的失败标准（净均值 ≤0，或不如"买最贵臂"基准），日频价与真实成交价两个口径都 **FAIL**。回测不是"没做"，而是做了且为负；唯一正的口袋依赖单个 event 与 21 天提前量，不构成可复制证据。数据接口与脚本在 `bots/quant/notes/scheduler/scratch/H-quant-007/`（`q007_hist.py`→`fetch_output.txt`/`backtest_raw.csv`，`q007_analyze.py`→`analyze_output.txt`，`q007_fills.py`→`fills_output.txt`，`q007_trades.py`→`q007_trades_output.txt`/`q007_trades_fills.csv`，`q007_verify.py`→`verify_output.txt`，`q007_verify_all.py`→`q007_verify_all_output.txt`，`q007_hist_sc.py`→`fetch_sc_output.txt`）。
+
+**费用敏感性**：即使把吃单费设为 0，日频价 7 天均值仍为 **−0.0322**、配对差 **−0.0597**；`ask≤0.85` 子样本均值 −0.0099、中位 −0.0195。真实成交价口径费率为 0 时 7 天均值 **−0.0300**、中位 +0.0160。所以"2026-10-21 费率变 0"不能救本条。
 
 **稳健性检查（style control 口径）**：用同一数据集的并列 config `text_style_control`（2024-08-28 起有快照）重跑，22 个 event 的 `rank==1` 公司**完全相同**，7/14/21 天的命中与净收益也逐位一致（`q007_hist_sc.py` + `fetch_sc_output.txt`）。所以"config `text` 是否就是 no-style-control"这一不确定性**不影响本次结论**。
 
 **局限（不隐藏）**
 
-- `prices-history` 是日频最后成交/标记点，不等于可成交盘口；data-api 抽查 3 个 event 的进场前最后一笔真实买入为 0.985（vs 0.982）、0.710（vs 0.795，仅 1.41 份）、0.250（vs 0.220），差 0.3–8.5¢，无法还原深度与排队。
+- `prices-history` 是日频最后成交/标记点，不等于可成交盘口；改用 data-api 最后一笔 BUY 后，与日频点差均值 +0.28¢、最大 8.50¢，方向不变，但仍无法还原深度与排队。
+- data-api 只保留每个市场最近约 2 万笔成交；本回测用 `end=entry` 从进场时点向前取最后一笔，21/22 个 event 取到，2025-01 DeepSeek "未取到"。成交价是 1 份可成交价，不是 VWAP；每 event 只买 1 份，绝对金额不是实盘 PnL。
 - 镜像 `text` 是否与规则指定的 `overall-no-style-control` 页完全同口径，无法从官方页验证（403）；2026 年 9/9 吻合只是弱支持。
 - 镜像日期只有"日"，检查当天 2026-09-30 的快照 rank-1 是 Google，而市场在 12:00 ET 结算为 Anthropic；所以只使用检查前 7/14/21 天，避免当日歧义，但也意味着无法精确复现"检查瞬间"。
 - 没做 maker 成交假设；每 event 1 份，绝对金额不是实盘 PnL。
@@ -128,14 +147,14 @@ confidence: 中
 - `https://clob.polymarket.com/prices-history?market=<yes_token>&interval=max&fidelity=1440`：**已关闭市场也可取**的日频历史价（最后成交/标记点）。这是本次回测的价格来源；不需要密钥。
 - `https://data-api.polymarket.com/trades?market=<conditionId>&limit=1000&offset=N`：已关闭市场的逐笔成交（`side/price/size/timestamp/asset`），用于抽查历史价是否可成交；每个市场只能翻到最近约 2 万笔。
 - 结算源：`https://arena.ai/leaderboard/text/overall-no-style-control`（规则指定的那一页）。2026-10-21 仍 403，**无法直接取数**；`web.archive.org/cdx/...` 只给时间戳。
-- **历史榜名（第三方镜像）**：`https://huggingface.co/datasets/lmarena-ai/leaderboard-dataset`，config `text`（与 `text_style_control` 并列；**推断**为 no-style-control，官方页 403 无法确认）、`category="overall"`、列 `rank/organization/model_name/rating/leaderboard_publish_date`，日度快照 2023-05-08..2026-10-15，`gated=false`、CC-BY-4.0，免费免密钥。用 `https://datasets-server.huggingface.co/rows?...` 可先看 schema；完整 parquet `text/full-00000-of-00001.parquet` 约 60 MB，下载后只派生 `_cache/overall.csv`（3.7 MB）；原始 parquet 未保留、未入库。
+- **历史榜名（第三方镜像）**：`https://huggingface.co/datasets/lmarena-ai/leaderboard-dataset`，config `text`（与 `text_style_control` 并列；**推断**为 no-style-control，官方页 403 无法确认）、`category="overall"`、列 `rank/organization/model_name/rating/leaderboard_publish_date`，日度快照 **2023-05-08..2026-10-20**（`q007_verify_all_output.txt` 的 datasets-server 统计：text/overall 55,466 行；原稿的 10-15 已按本次复核更正），`gated=false`、CC-BY-4.0，免费免密钥。用 `https://datasets-server.huggingface.co/rows?...` 可先看 schema；完整 parquet `text/full-00000-of-00001.parquet` 约 60 MB，下载后只派生 `_cache/overall.csv`（3.7 MB）；原始 parquet 未保留、未入库。
 - 结算结果核对：Gamma 已结算 event 的 `outcomePrices`（0/1）。
 
 **同类数量与起始时间（本轮已核）**：series `10030`（`best-ai-company`，`Best AI Company`）最早 event `top-ai-model-on-december-31`（`endDate 2024-12-31`），至 2026-09 逐月连续，**已结算 22 个月度 event**（2024-12、2025-01…2025-12、2026-01…2026-09），加在开的 2026-10、2026-11 与年度 2026 = 25 个。即 **约每月 1 个同类 event**，规模从 5 臂（2024-12）增长到 32 臂（2026-10）/35 臂（2026-11）。独立结果按 event 数 = 每月 1 个。
 
 ## 两周内怎么检验
 
-- **历史回测已做（2026-10-21）**：22 个已结算 event、21 个有价格；7/14/21 天三个进场时点。结论 FAIL（细节见"证据"）。独立结果仍按 **event** 计，一个月一个，禁按臂/按天拆分。
+- **历史回测已做（2026-10-21，两遍）**：22 个已结算 event、21 个有价格/成交；7/14/21 天三个进场时点。日频价与 data-api 真实成交价都是 FAIL（细节见"证据"）。独立结果仍按 **event** 计，一个月一个，禁按臂/按天拆分。
 - 历史样本天花板：22 个 event < GUIDE 要求的 30 个，且 2026 年只有 9 个；两周内只新增 1 个（2026-10-31 12:00 ET 检查）。所以即使不看负结果，本条也**不满足门 6**，只能进待选区/forward，不能收录。
 - 若还要往前做 forward：每天用 HF 镜像或人工读榜记一次 Top1/Top2、榜名臂 bid/ask/深度；失败标准保持不变——净 PnL 均值 ≤0，或同口径不如"买市场当时最贵臂"。
 - 现行 Rank 规则的 6 个 event 已可做规则核对：2026-04..2026-09 的结算冠军与检查前 7 天榜名第一 **6/6 一致**（但同期市场最贵臂也 6/6 一致）。
@@ -143,7 +162,7 @@ confidence: 中
 ## 成本与容量
 
 - 吃单费（GUIDE 第 8 节公式，费率取 2026-10-20 抓到的 Gamma `feeSchedule.rate=0.04`）：每份费 = `0.04 × p × (1−p)`。maker 无费；本条按吃单算，因为需要确定成交。
-- **费率是时变的**：2026-10-21 复核时，2026-10 event 全部具名臂的 `feeSchedule` 已变为 `rate=0, rebateRate=0`。若按今天的字段算，成本只有半价差，回测里的 0.04 是**保守**处理；但这不改变负结论的方向。
+- **费率是时变的**：2026-10-21 04:17Z 复核时，2026-10 event 的 21 个具名臂 `feeSchedule` 为 `rate=0, rebateRate=0`（11 个占位臂仍 0.04）。若按今天的具名臂字段算，成本只有价差，回测里的 0.04 是**保守**处理；但这不改变负结论的方向（费率为 0 时真实成交价 T−7 均值仍 −0.0300）。
 - 每笔总成本 = 费 + 半个买卖价差。逐臂算术（p 用当时 ask）：
   - Google（10 月）ask 0.743：`0.04×0.743×0.257 = 0.00763804`；半价差 `(0.743−0.742)/2 = 0.0005`；合计 **0.00813804/份 = 买价的 1.0953%** → 盈亏平衡概率 75.11%。
   - Anthropic（10 月）ask 0.24：`0.04×0.24×0.76 = 0.007296`；半价差 `(0.24−0.23)/2 = 0.005`；合计 **0.012296/份 = 5.1233%** → 平衡概率 25.23%。
@@ -163,7 +182,7 @@ confidence: 中
 - **占位臂陷阱**：`Company A–M`/`Other` 显示 0.5、bid 0 ask 1，没有可成交盘；把"具名臂合计 0.9955<1"当无风险套利是错的。
 - **慢结算**：源不可用则市场保持开放，资金被锁到榜单恢复为止；永久不可用结算"Other"，可能让具名臂全部归零。
 - **流动性/价差**：11 月那期 3–4 美分价差，成本 4.7%–6.9%，方向稍微错一点就吃掉全部优势。
-- **回测已给出负结果**：检查前 7 天买榜名第一净均值 −0.034/份，且显著输给"买市场最贵臂"（配对差 −5.9pp）；条目自己的 `ask≤0.85` 子样本中位 −0.020。**不是"未验证"，是"已验证且不利"。**
+- **回测已给出负结果**：检查前 7 天买榜名第一净均值日频价 −0.034/份、真实成交价 −0.032/份，且显著输给"买市场最贵臂"（配对差 −5.9pp / −5.4pp）；条目自己的 `ask≤0.85` 子样本中位 −0.020 / −0.016。**不是"未验证"，是"已验证且不利"。**
 - **镜像可能失真**：HF 镜像在 2024–2025 只与结算 6/13 吻合，可能是镜像口径/回填问题；这会让旧年份的负结果偏保守或偏错，但 2026 年镜像 9/9 吻合、且没有"榜名≠市场"的样本，所以也无法把负结果翻成正证据。
 - **单一 event 依赖**：21 天提前量的正均值 44% 来自 2026-02 一个 event；若把它当"边"，样本量只有 1，属于典型事后挑样本。
 
@@ -174,14 +193,14 @@ confidence: 中
 ## 门槛自查
 
 1. 机制说得清：满足（描述层面） — 规则原文明确"按 10-31 12:00 PM ET 的 Rank 列结算、style control 关、排除 AutoEval"，付款方是把月末叙事定价过头的对手方。但机制赖以成立的关键假设"榜首黏性高于市场定价"**已被历史数据否证**（榜名 15/21 vs 市场最贵臂 21/22）。
-2. 有免费数据能检验：**部分满足（原为不满足）** — 价格、结算、历史榜名都能免费免密钥取得：Gamma + CLOB `prices-history` + data-api trades + HF 镜像。缺口是官方 `arena.ai` 仍 403，榜名只能用第三方镜像；镜像在 2024–2025 只与结算 6/13 吻合。
-3. 小资金能做：满足 — 单臂 500 份仅 120–372 美元（按 2026-10-20 ask），5,000/2,500 的约束不构成瓶颈；但 2026-10-21 复核时原 CLOB 盘口已为空、深度数字不可复现，容量结论只能按旧快照看。
+2. 有免费数据能检验：**部分满足（原为不满足）** — 价格、结算、历史榜名都能免费免密钥取得：Gamma + CLOB `prices-history` + data-api 真实成交价 + HF 镜像。缺口是官方 `arena.ai` 仍 403，榜名只能用第三方镜像；镜像在 2024–2025 只与结算 6/13 吻合。2026-10-21 逐条复核了全部出处（`q007_verify_all_output.txt`），并更正 HF 镜像日期上限为 2026-10-20。
+3. 小资金能做：**基本满足（受旧快照限制）** — 单臂 500 份仅 120–372 美元（按 2026-10-20 ask），5,000/2,500 的约束不构成瓶颈；但 2026-10-21 复核时原 CLOB 盘口已为空、深度数字不可复现，容量结论只能按旧快照看。历史 data-api 成交只能证明"1 份可成交"，不能证明 500 份的深度。
 4. 不重复：满足（本轮检索范围内） — `grep` 了 `bots/*/CLAIMS.md`、`bots/*/INDEX.md`、`known/`，无 arena/lmarena/AI model 相关条目；dot-032 是做市奖励，收益来源不同。quant-017 已按 supplement 回挂本条，不构成第二条新机制。
-5. 扣成本后粗算够用：**不满足** — 已按吃单费 + 0.5¢ 滑点算：7 天净均值 −0.034/份，条目自己的 `ask≤0.85` 子样本中位 −0.020；21 天的正均值不稳健且依赖单个 event。
+5. 扣成本后粗算够用：**不满足** — 日频价 7 天净均值 −0.034/份、真实成交价 −0.032/份；条目自己的 `ask≤0.85` 子样本中位 −0.020 / −0.016；21 天的正均值不稳健且依赖单个 event。
 6. 两周内能检验：不满足 — 历史自 2024-12 起只有 22 个已结算 event（21 个有价格），一个月才 1 个独立结果，两周内至多新增 1 个，凑不到 30 个；只能 forward 且长期。
-7. 出处可查：基本满足 — 规则原文、臂数、价格、费用、series 计数、HF 镜像、回测数字都有 URL + 访问日期 + 字段名/脚本；但官方结算页 403、镜像口径只能间接校验。
+7. 出处可查：基本满足 — 规则原文、臂数、价格、费用、series 计数、HF 镜像、回测数字都有 URL + 访问日期 + 字段名/脚本；2026-10-21 又用 `q007_verify_all.py` 对每个 URL 的 HTTP 状态与关键断言逐条复核，镜像 rank-1 抽查 3 个快照与回测一致；但官方结算页 403，镜像口径只能间接校验。
 
-**建议**：七条里 1（描述）与 4 满足、2 部分、3 受旧快照限制、5/6 不满足；核心边已被负回测否证。**建议核对方将本条降为草稿/退回（待选区），不要收录。**（按要求本次未改 `status` 与 `date`，降级由整合者执行。）
+**建议**：七条里 1（描述）与 4 满足、2 部分、3 基本满足但受旧快照限制、5/6 不满足；核心边已被两个价格口径的负回测否证。**建议核对方将本条降为草稿/退回（待选区），不要收录。**（按要求本次未改 `status` 与 `date`，降级由整合者执行。）
 
 ## 出处
 
@@ -199,15 +218,18 @@ confidence: 中
 
 **2026-10-21 复核新增（全部重新抓取，脚本与 stdout 在 `bots/quant/notes/scheduler/scratch/H-quant-007/`）**
 
-- https://gamma-api.polymarket.com/events?slug=which-company-has-the-best-ai-model-end-of-october — 访问 2026-10-21 — 已读（event 841230 仍在；32 臂；`updatedAt 2026-10-21T01:21:08Z`、volume 3,013,798.12、liquidity 1,521,898.35；Google last 0.799 / bid 0.799 / ask 0.800；Anthropic 0.20 / 0.18 / 0.19；具名臂合计 1.0065；**`feeSchedule.rate` 已变为 0**）→ 旧数字是 2026-10-20 时点快照，非现值。
-- https://gamma-api.polymarket.com/events?slug=which-company-has-the-best-ai-model-end-of-november — 访问 2026-10-21 — 已读（35 臂；Anthropic bid 0.43 / ask 0.44；Google 0.49 / 0.51；OpenAI 0.035 / 0.049；volume 344,129.62）
+- https://gamma-api.polymarket.com/events?slug=which-company-has-the-best-ai-model-end-of-october — 访问 2026-10-21 — 已读（event 841230 仍在；32 臂；`updatedAt 2026-10-21T01:21:08Z`、volume 3,013,798.12、liquidity 1,521,898.35；Google last 0.799 / bid 0.799 / ask 0.800；Anthropic 0.20 / 0.18 / 0.19；具名臂合计 1.0065；**21 个具名臂 `feeSchedule.rate` 已变为 0**（11 个占位臂仍 0.04））→ 旧数字是 2026-10-20 时点快照，非现值；04:17Z 再抓 Google last 0.798 / bid 0.796 / ask 0.798、Anthropic 0.18 / 0.17 / 0.18、具名臂合计 0.9955、volume 3,019,501.89、liquidity 1,496,804.12。
+- https://gamma-api.polymarket.com/events?slug=which-company-has-the-best-ai-model-end-of-november — 访问 2026-10-21 — 已读（35 臂；01:21Z：Anthropic bid 0.43 / ask 0.44、Google 0.49 / 0.51、OpenAI 0.035 / 0.049、volume 344,129.62；04:17Z：Anthropic 0.43 / 0.45、Google 0.49 / 0.50、OpenAI 0.031 / 0.048、volume 350,374.51）
 - https://gamma-api.polymarket.com/series/10030 — 访问 2026-10-21 — 已读（`Best AI Company`、`monthly`、`createdAt 2025-02-01T00:23:50Z`、`restricted=true`）
 - https://gamma-api.polymarket.com/events?series_id=10030&limit=60&closed=true — 访问 2026-10-21 — 已读（22 个已结算；臂数序列 5,6,12,15,12,13,16,13,12,15,23,15,17,25,25,25,27,29,19,26,32,32；含 "arena rank" 的现行规则 event 6 个）
 - https://gamma-api.polymarket.com/events?series_id=10030&limit=60&closed=false — 访问 2026-10-21 — 已读（3 个在开：2026 年度、2026-10、2026-11）
-- https://huggingface.co/api/datasets/lmarena-ai/leaderboard-dataset — 访问 2026-10-21 — 已读（`gated:false`、`private:false`、license `cc-by-4.0`、`lastModified 2026-10-20T03:03:04Z`）
+- https://huggingface.co/api/datasets/lmarena-ai/leaderboard-dataset — 访问 2026-10-21 — 已读（`gated:false`、`private:false`、license `cc-by-4.0`；复核时 `lastModified 2026-10-21T03:07:03Z`，是时变值）
 - https://huggingface.co/datasets/lmarena-ai/leaderboard-dataset/raw/main/README.md — 访问 2026-10-21 — 已读（configs 含 `text` 与 `text_style_control`；`full` = 所有历史发布；schema：`rank`、`organization`、`leaderboard_publish_date`；2024-01-09 Elo→Bradley-Terry、2025-05-16 style control 成默认）
-- https://huggingface.co/datasets/lmarena-ai/leaderboard-dataset/resolve/main/text/full-00000-of-00001.parquet — 访问 2026-10-21 — 已读（60 MB；筛 `category="overall"` 后派生 `_cache/overall.csv`，覆盖 2023-05-08..2026-10-15；原始 parquet 未保留）
+- https://huggingface.co/datasets/lmarena-ai/leaderboard-dataset/resolve/main/text/full-00000-of-00001.parquet — 访问 2026-10-21 — 已读（约 60 MB；Range GET 返回 206、magic `PAR1`；筛 `category="overall"` 后派生 `_cache/overall.csv`，datasets-server 统计覆盖 **2023-05-08..2026-10-20**、55,466 行；原始 parquet 未保留）
 - https://datasets-server.huggingface.co/rows?dataset=lmarena-ai%2Fleaderboard-dataset&config=text&split=full&offset=0&length=3 — 访问 2026-10-21 — 已读（schema 与首行，用于确认列名）
+- https://datasets-server.huggingface.co/statistics?dataset=lmarena-ai%2Fleaderboard-dataset&config=text&split=full — 访问 2026-10-21 — 已读（overall 55,466 行；发布日期 min 2023-05-08 / max 2026-10-20）
+- https://datasets-server.huggingface.co/statistics?dataset=lmarena-ai%2Fleaderboard-dataset&config=text_style_control&split=full — 访问 2026-10-21 — 已读（overall 51,154 行；min 2024-08-28 / max 2026-10-20）
+- https://datasets-server.huggingface.co/filter?dataset=lmarena-ai%2Fleaderboard-dataset&config=text&split=full&where=... — 访问 2026-10-21 — 已读（2026-07-21 / 2026-08-21 / 2026-09-13 三个快照的 rank-1 与 `backtest_raw.csv` 的 `lb_arm/lb_model` 逐项一致）
 - https://clob.polymarket.com/prices-history?market=114976310403134140071475285729050128086700898119247346798479138721789575328536&interval=max&fidelity=1440 — 访问 2026-10-21 — 已读（已关闭 2026-09 Anthropic 市场有日频历史；回测对所有具名臂用同一接口）
 - https://data-api.polymarket.com/trades?market=0x537df24dbae425e973a421983b6ee570d582cac06b5fdbebef099d3d07913985&limit=1000 — 访问 2026-10-21 — 已读（逐笔成交；抽查 3 个 event 的进场前最后一笔买价见 `fills_output.txt`）
 - https://arena.ai/leaderboard/text/overall-no-style-control — 访问 2026-10-21 — 已尝试，仍 **HTTP 403**，未作为数据源
@@ -216,3 +238,5 @@ confidence: 中
 - bots/quant/notes/batch1-verification/quant-007.md — 访问 2026-10-21 — 已读（复用其中 glm-5.3 对规则原文、22 个已结算 event、URL 403 状态的核对；本次重新抓取确认，未直接改原结论）
 - bots/quant/notes/r1-audit/AUDIT.md — 访问 2026-10-21 — 已读（r1 审计判"退回 0"，理由为结算源 403、只有 22 个 event、门 2/6 不满足；本次补了 HF 镜像与回测，但结论仍是负，故不推翻其退回判断）
 - 回测脚本与输出：`bots/quant/notes/scheduler/scratch/H-quant-007/q007_hist.py` + `fetch_output.txt` + `backtest_raw.csv`；`q007_analyze.py` + `analyze_output.txt`；`q007_fills.py` + `fills_output.txt`；`q007_verify.py` + `verify_output.txt` — 访问 2026-10-21 — 已跑（数字均从 stdout 原样抄录）
+- 真实成交价复跑：`bots/quant/notes/scheduler/scratch/H-quant-007/q007_trades.py` + `q007_trades_output.txt` + `q007_trades_fills.csv` — 访问 2026-10-21 — 已跑（21/22 个 event 取到进场前最后一笔 YES BUY；数字从 stdout 原样抄录）
+- 逐条来源复核：`bots/quant/notes/scheduler/scratch/H-quant-007/q007_verify_all.py` + `q007_verify_all_output.txt` — 访问 2026-10-21 — 已跑（所有 cited URL 的 HTTP 状态、规则原文短语、费率分布、HF 日期范围、镜像 rank-1 抽查）
