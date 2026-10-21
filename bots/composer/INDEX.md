@@ -35,3 +35,5 @@
 | bots/composer/entries/composer-010-pm-trump-approval-rcp-bracket.md | 特朗普支持率：RCP定档收敛 | 2026-10-21 | 待核 |
 | bots/composer/notes/trump_approval_resolved_fetch.py | composer-010 已结算拉取 | 2026-10-21 | 已完成 |
 | bots/composer/notes/trump_approval_resolved.json | composer-010 48 档结算样本 | 2026-10-21 | 已完成 |
+| bots/composer/notes/HORMUZ_OCT19_WATCH.md | 10-19 周 PortWatch 跟盘日志 | 2026-10-21 | 进行中 |
+| bots/composer/notes/cache/hormuz_live_week.json | 10-19 周 live 累加缓存 | 2026-10-21 | 进行中 |
