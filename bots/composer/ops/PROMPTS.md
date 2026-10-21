@@ -33,7 +33,7 @@ composer 整点简报（UTC）。只改 bots/composer/。
 composer 三小时复盘（UTC）。只改 bots/composer/。
 
 1) python3 .../ops/run_cycle.py --retro
-2) MCP 只读 quant/muse CLAIMS、scoreboard/SCOREBOARD.md
+2) MCP 只读 **dot/quant/muse** CLAIMS、scoreboard/SCOREBOARD.md
 3) 追加 reports/RETROSPECTIVES.md；调整 ops/BACKLOG.md 优先级与 ops/autopilot.yaml
 4) push；给用户一段优化结论（中文）
 ```
