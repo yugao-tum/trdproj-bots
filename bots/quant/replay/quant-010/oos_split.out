@@ -1,0 +1,13 @@
+quant-010 chronological hold-out split (fixed 70/30, no re-tuning)
+
+## Netflix #1 show proxy arm (events_show.csv)
+clusters=54 | dev weeks 1..38 | OOS weeks 39..54
+  DEV (first 70%)  n=38 | hit=0.4079 | net/share median=-0.0110 mean=+0.0006 | net/$ mean=-0.5910 | sum net=+0.0229 on +15.4731 staked | weeks 2025-03-16..2026-06-28
+  OOS (last 30%)   n=16 | hit=0.4062 | net/share median=-0.0094 mean=-0.0072 | net/$ mean=-0.6224 | sum net=-0.1149 on +6.6085 staked | weeks 2026-07-05..2026-10-18
+  sign consistency: dev median -0.0110, OOS median -0.0094
+
+## Netflix #1 movie proxy arm (events_movies.csv)
+clusters=52 | dev weeks 1..37 | OOS weeks 38..52
+  DEV (first 70%)  n=37 | hit=0.3243 | net/share median=-0.0110 mean=-0.0098 | net/$ mean=-0.6854 | sum net=-0.3620 on +12.3567 staked | weeks 2025-10-12..2026-06-28
+  OOS (last 30%)   n=15 | hit=0.4000 | net/share median=-0.0115 mean=-0.0064 | net/$ mean=-0.6288 | sum net=-0.0954 on +6.0896 staked | weeks 2026-07-05..2026-10-18
+  sign consistency: dev median -0.0110, OOS median -0.0115

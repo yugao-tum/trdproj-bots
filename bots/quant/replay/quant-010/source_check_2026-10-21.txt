@@ -1,0 +1,14 @@
+200 60473 https://gamma-api.polymarket.com/events?slug=what-will-be-the-top-global-netflix-show-this-week-october-20
+200 56480 https://gamma-api.polymarket.com/events?slug=what-will-be-the-top-us-netflix-show-this-week-october-20
+200 54589 https://gamma-api.polymarket.com/events?slug=1-spotify-song-this-week-october-16-20261012
+200 60488 https://gamma-api.polymarket.com/events?slug=1-spotify-song-in-the-us-this-week-october-23-10172026
+200 77094 https://gamma-api.polymarket.com/events?slug=1-song-on-spotify-this-week-april-3
+200 3 https://gamma-api.polymarket.com/events?slug=top-netflix-show-this-week
+404 3959 https://open.spotify.com/charts
+200 12516 https://charts.spotify.com/charts/view/regional-global-weekly/latest
+200 23351 https://kworb.net/spotify/
+200 89970 https://kworb.net/spotify/country/global_daily.html
+200 87018 https://kworb.net/spotify/country/us_daily.html
+200 3402520 https://www.netflix.com/tudum/top10/tv
+200 3382132 https://www.netflix.com/tudum/top10/united-states/tv
+403 5517 https://flixpatrol.com/top10/netflix/world/

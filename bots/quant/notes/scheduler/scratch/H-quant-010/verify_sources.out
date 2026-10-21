@@ -1,0 +1,31 @@
+quant-010 source verification, run 2026-10-21T06:17:10.106288+00:00 UTC
+
+PASS netflix-global HTTP 200 + non-empty | HTTP 200, markets=17
+PASS netflix-global description contains 'Tuesday, October 20, 2026, 3:00 PM ET' | len(desc)=626
+PASS netflix-global description contains 'previous week (Monday to Sunday)' | len(desc)=626
+PASS netflix-global description contains 'English only' | len(desc)=626
+PASS netflix-global description contains 'October 23, 2026, 11:59 PM ET' | len(desc)=626
+PASS netflix-global resolutionSource is Tudum tv | 'https://www.netflix.com/tudum/top10/tv'
+PASS netflix-global has 'Below: Limited Series' | outcomePrices=['1', '0'] bestBid=0.999 bestAsk=1
+FAIL netflix-global Below feeSchedule rate 0.05 takerOnly | {"exponent": 1, "rate": 0, "takerOnly": true, "rebateRate": 0}
+NOTE netflix-global current event volume=5622.471543000001 liquidity=None negRisk=True
+PASS netflix-us HTTP 200 + non-empty | HTTP 200, markets=16
+PASS netflix-us has 'Below: Limited Series' | outcomePrices=['1', '0'] bestBid=0.999 bestAsk=1
+NOTE netflix-us current volume=1914.8909059999999 liquidity=None
+PASS spotify-global-oct16 HTTP 200 + non-empty | HTTP 200, markets=14
+PASS spotify description has Fridays + Fri..Thu week | resolutionSource='https://open.spotify.com/charts'
+PASS spotify oct16 has KAROL G BbY WOW market | outcomePrices=['1', '0'] volume=4383.916683
+NOTE spotify-global-oct16 current event volume=8072.917061
+PASS spotify-us-oct23 HTTP 200 + non-empty | HTTP 200, markets=15
+PASS spotify-us-oct23 has 'Housewife' (prefix ok) | title='Housewife - Tate McRae' outcomePrices=['0.996', '0.004'] bestBid=0.994 bestAsk=0.998
+PASS spotify-us-oct23 has 'Nicole Kidman' (prefix ok) | title='Nicole Kidman - ADÉLA' outcomePrices=['0.0025', '0.9975'] bestBid=0.002 bestAsk=0.003
+PASS spotify historical april-3 HTTP 200 + non-empty | HTTP 200, markets=22
+PASS dead probe slug returns empty list | HTTP 200, body=None
+NOTE open.spotify.com/charts (entry's cited resolution source) HTTP 404
+NOTE charts.spotify.com weekly page HTTP 200, 12516 bytes (front-end app)
+NOTE https://kworb.net/spotify/ HTTP 200 bytes=23351 current-chart-date=n/a
+NOTE https://kworb.net/spotify/country/global_daily.html HTTP 200 bytes=89970 current-chart-date=2026/10/19
+NOTE https://kworb.net/spotify/country/us_daily.html HTTP 200 bytes=87018 current-chart-date=2026/10/19
+NOTE https://www.netflix.com/tudum/top10/tv HTTP 200 bytes=3402490 current-label=Global | 10/12/26 - 10/18/26
+NOTE https://www.netflix.com/tudum/top10/united-states/tv HTTP 200 bytes=3382141 current-label=United States | 10/12/26 - 10/18/26
+NOTE flixpatrol HTTP 403 bytes=5561 (entry says 403 on 2026-10-20)
