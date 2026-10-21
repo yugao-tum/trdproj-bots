@@ -1,0 +1,20 @@
+[
+  {
+    "file": "tradable_fills.py",
+    "commit": "766c28ea4804fab2b8b9a30b29b7cbe72ae033bc",
+    "blob_sha": "2c9434698d303831ced0613e4949c03e9b357ee7",
+    "url": "https://github.com/yugao-tum/trdproj-bots/blob/766c28ea4804fab2b8b9a30b29b7cbe72ae033bc/bots/quant/notes/scheduler/scratch/H-quant-020/tradable_fills.py",
+    "method": "Read-only GitHub fetch_file; stored with LF normalization",
+    "role": "Source code inspected only, never executed",
+    "sha256_lf": "eda41e2c6eda2fa51d6f3c916e39868e56a19adb2f0571396323a91ee8eef3ec"
+  },
+  {
+    "file": "tradable_fills.csv",
+    "commit": "766c28ea4804fab2b8b9a30b29b7cbe72ae033bc",
+    "blob_sha": "36e3110508319b172672c8613bfe92abdb6808d8",
+    "url": "https://github.com/yugao-tum/trdproj-bots/blob/766c28ea4804fab2b8b9a30b29b7cbe72ae033bc/bots/quant/notes/scheduler/scratch/H-quant-020/tradable_fills.csv",
+    "method": "Read-only GitHub fetch_file; stored with LF normalization",
+    "role": "Derived event table, not raw prints",
+    "sha256_lf": "4577d6555fd3b293f8fe241e03c71456b3ae0233761e108c19ba4a3dc047f335"
+  }
+]

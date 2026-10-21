@@ -1,0 +1,136 @@
+{
+  "fields": [
+    "slug",
+    "endDate",
+    "week",
+    "split",
+    "y",
+    "n_trades",
+    "buy_yes",
+    "buy_yes_ts",
+    "buy_yes_size",
+    "sell_yes",
+    "sell_yes_ts",
+    "any_yes",
+    "ask_observed",
+    "fee_observed",
+    "net_observed",
+    "ask_plus1c_same",
+    "fee_plus1c_same",
+    "net_plus1c_same",
+    "spread",
+    "truncated",
+    "capital_days"
+  ],
+  "rows": 101,
+  "unique_slugs": 101,
+  "priced": 97,
+  "split_total": {
+    "discovery": 54,
+    "holdout": 47
+  },
+  "groups": {
+    "pooled": {
+      "n": 97,
+      "wins": 50,
+      "mean_ask": 0.5174549134340206,
+      "fee_sensitivity": {
+        "0.05": {
+          "mean_fee": 0.012011310905106534,
+          "mean_net": -0.014002306813353956,
+          "median_net": 0.240625
+        },
+        "0.04": {
+          "mean_fee": 0.009609048724085226,
+          "mean_net": -0.011600044632332648,
+          "median_net": 0.2425
+        },
+        "0": {
+          "mean_fee": 0.0,
+          "mean_net": -0.0019909959082474245,
+          "median_net": 0.25
+        }
+      },
+      "mean_plus1c_net": 0.018801258879768516
+    },
+    "discovery": {
+      "n": 54,
+      "wins": 24,
+      "mean_ask": 0.5205391937611111,
+      "fee_sensitivity": {
+        "0.05": {
+          "mean_fee": 0.011976406718773543,
+          "mean_net": -0.0880711560354402,
+          "median_net": -0.422095
+        },
+        "0.04": {
+          "mean_fee": 0.009581125375018835,
+          "mean_net": -0.0856758746916855,
+          "median_net": -0.419676
+        },
+        "0": {
+          "mean_fee": 0.0,
+          "mean_net": -0.07609474931666667,
+          "median_net": -0.41
+        }
+      },
+      "mean_plus1c_net": -0.0493546550424231
+    },
+    "holdout": {
+      "n": 43,
+      "wins": 26,
+      "mean_ask": 0.5135816311627907,
+      "fee_sensitivity": {
+        "0.05": {
+          "mean_fee": 0.012055144069338662,
+          "mean_net": 0.07901438755856831,
+          "median_net": 0.44758
+        },
+        "0.04": {
+          "mean_fee": 0.009644115255470929,
+          "mean_net": 0.08142541637243605,
+          "median_net": 0.45006399999999996
+        },
+        "0": {
+          "mean_fee": 0.0,
+          "mean_net": 0.09106953162790697,
+          "median_net": 0.45999999999999996
+        }
+      },
+      "mean_plus1c_net": 0.10439240659600915
+    }
+  },
+  "max_absolute_reconstruction_errors": {
+    "ask_observed": 0.0,
+    "fee_observed": 0.0,
+    "net_observed": 0.0,
+    "capital_days": 0.0
+  },
+  "truncated_true": 0,
+  "selected_ask_age_hours": {
+    "min": 24.005555555555556,
+    "median": 26.62472222222222,
+    "max": 62.11416666666667,
+    "outside_24_to_72": 0
+  },
+  "ask_minus_bid_print": {
+    "n": 93,
+    "mean": 0.07163796130967742,
+    "median": 0.039999981399999995,
+    "negative": 4,
+    "same_timestamp": 2,
+    "abs_timestamp_gap_hours_median": 2.0616666666666665,
+    "abs_timestamp_gap_hours_max": 30.010277777777777
+  },
+  "selected_print_yes_equivalent_notional": {
+    "n": 97,
+    "min": 0.0055000000000000005,
+    "median": 4.835,
+    "max": 200.000000011916,
+    "at_least_200": 1
+  },
+  "local_sha256": {
+    "tradable_fills.py": "eda41e2c6eda2fa51d6f3c916e39868e56a19adb2f0571396323a91ee8eef3ec",
+    "tradable_fills.csv": "4577d6555fd3b293f8fe241e03c71456b3ae0233761e108c19ba4a3dc047f335"
+  }
+}

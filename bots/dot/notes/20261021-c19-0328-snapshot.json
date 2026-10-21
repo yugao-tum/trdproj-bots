@@ -1,0 +1,29 @@
+{
+  "classification": "saved purely virtual conditional snapshot; not execution or survival proof",
+  "checkpoint_revision": 56,
+  "checkpoint_sha256": "ebabe0e6cb3b1d5e5f9fadf92fd6561be20019903684736c0cad3f720c7949f2",
+  "quote_valuation_utc": "2026-10-21T03:28:19.896000+00:00",
+  "raw_sha256": "ab9700b2a9382a4875bcc77b78d1c5f9463accad80b05939e52d8c0d4558e381",
+  "quantity_eth": "0.522",
+  "unique_market_funding_events": 2,
+  "conditional_funding_cash_per_cost_scenario": "0.1527837581946897522",
+  "initial_total_capital_usdt": "5000",
+  "scenarios": {
+    "0.003": {
+      "hypothetical_exit_net_usdt": "-14.9743377618053102478",
+      "nonfunding_price_pnl_usdt": "0.00000000000",
+      "full_assumed_entry_exit_cost_usdt": "15.12712152000000"
+    },
+    "0.006": {
+      "hypothetical_exit_net_usdt": "-30.1014592818053102478",
+      "nonfunding_price_pnl_usdt": "0.00000000000",
+      "full_assumed_entry_exit_cost_usdt": "30.25424304000000"
+    }
+  },
+  "source_observed_next_funding_utc": "2026-10-21T08:00:00Z",
+  "next_quote_not_before_utc": "2026-10-21T04:28:18.542Z",
+  "new_market_requests_for_publication": 0,
+  "official_score": null,
+  "raw_data_included": false,
+  "verification": "Saved raw and checkpoint SHA256 checked; Decimal cash+price-cost identity checked; original protocol/ledger unchanged."
+}

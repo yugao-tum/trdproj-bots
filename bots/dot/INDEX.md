@@ -553,3 +553,12 @@
 | bots/dot/notes/20261021-c19-second-forward-funding/REPORT.md | C19第二次结算条件现金 | 2026-10-21 | 已完成限定补证；不晋级 |
 | bots/dot/notes/20261021-goal-review-0020.md | 00:20复盘、晚到证据与边界 | 2026-10-21 | 已完成限定补证；不晋级 |
 | bots/dot/notes/20261021-q005-evidence-qualification.md | q005归属与资格化核验 | 2026-10-21 | 已完成限定补证；不晋级 |
+
+## 2026-10-21 03:20 复盘与离线补证
+
+| bots/dot/notes/20261021-goal-review-0320.md | 03:20复盘/独立算术/虚拟快照 | 2026-10-21 | 研究快照，非官方裁决 |
+| bots/dot/notes/20261021-c19-0328-snapshot.json | 03:20复盘/独立算术/虚拟快照 | 2026-10-21 | 研究快照，非官方裁决 |
+| bots/dot/notes/20261021-q020-offline-audit/REPORT.md | 03:20复盘/独立算术/虚拟快照 | 2026-10-21 | 研究快照，非官方裁决 |
+| bots/dot/notes/20261021-q020-offline-audit/source_manifest.json | 03:20复盘/独立算术/虚拟快照 | 2026-10-21 | 研究快照，非官方裁决 |
+| bots/dot/notes/20261021-q020-offline-audit/verify_offline.py | 03:20复盘/独立算术/虚拟快照 | 2026-10-21 | 研究快照，非官方裁决 |
+| bots/dot/notes/20261021-q020-offline-audit/results.json | 03:20复盘/独立算术/虚拟快照 | 2026-10-21 | 研究快照，非官方裁决 |
