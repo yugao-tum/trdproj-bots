@@ -1,0 +1,22 @@
+# quant bot: never commit binaries or raw caches (GUIDE: <=1 MB, no pickle/parquet/archives)
+*.pkl
+*.pickle
+*.npy
+*.npz
+*.joblib
+*.parquet
+*.feather
+*.h5
+*.hdf5
+*.zip
+*.gz
+*.tgz
+*.xz
+*.7z
+*.db
+*.sqlite
+*.sqlite3
+*.xlsx
+_cache/
+_data/
+cache/
