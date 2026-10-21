@@ -1,0 +1,23 @@
+buckets=242, missing after24h first print=26
+
+[original] last print in [T-24h,T]
+Bab: n=18 wins=13 medianGross=+0.2400 medianNet=+0.2400 meanNet=+0.0068 totalNet=+0.1216 hit=0.7222
+Strait of Hormuz: n=52 wins=40 medianGross=+0.2050 medianNet=+0.2050 meanNet=+0.1274 totalNet=+6.6268 hit=0.7692
+ALL: n=70 wins=53 medianGross=+0.2250 medianNet=+0.2250 meanNet=+0.0964 totalNet=+6.7483 hit=0.7571
+
+[strict] first print at/after T
+Bab: n=26 wins=20 medianGross=+0.2300 medianNet=+0.2300 meanNet=+0.0443 totalNet=+1.1505 hit=0.7692
+Strait of Hormuz: n=81 wins=61 medianGross=+0.1900 medianNet=+0.1900 meanNet=+0.0666 totalNet=+5.3927 hit=0.7531
+ALL: n=107 wins=81 medianGross=+0.2000 medianNet=+0.2000 meanNet=+0.0612 totalNet=+6.5432 hit=0.7570
+
+[strict60] first print within 60 min after T, else unfillable
+Bab: n=1 wins=0 medianGross=-0.9200 medianNet=-0.9200 meanNet=-0.9200 totalNet=-0.9200 hit=0.0000
+Strait of Hormuz: n=16 wins=14 medianGross=+0.1900 medianNet=+0.1900 meanNet=+0.1708 totalNet=+2.7329 hit=0.8750
+ALL: n=17 wins=14 medianGross=+0.1900 medianNet=+0.1900 meanNet=+0.1066 totalNet=+1.8129 hit=0.8235
+
+Bab buckets=57, original fills=18, strict fills=26, strict60 fills=1
+Bab strict-unfillable buckets: how-many-ships-transit-bab-el-mandeb-strait-week-of-july-20-20260713200946341 230-239, how-many-ships-transit-bab-el-mandeb-strait-week-of-july-20-20260713200946341 240-249, how-many-ships-transit-bab-el-mandeb-strait-week-of-july-20-20260713200946341 250-259, how-many-ships-transit-bab-el-mandeb-strait-week-of-july-20-20260713200946341 260+, how-many-ships-transit-bab-el-mandeb-strait-week-of-july-27-20260724145553939 220-239, how-many-ships-transit-bab-el-mandeb-strait-week-of-july-27-20260724145553939 240+, how-many-ships-transit-bab-el-mandeb-strait-week-of-august-3-20260730202018839 180-199, how-many-ships-transit-bab-el-mandeb-strait-week-of-august-3-20260730202018839 220+, how-many-ships-transit-bab-el-mandeb-strait-week-of-august-10-1786098036061 200-219, how-many-ships-transit-bab-el-mandeb-strait-week-of-august-10-1786098036061 220+, how-many-ships-transit-bab-el-mandeb-strait-week-of-august-17-1786700461690 200+, how-many-ships-transit-bab-el-mandeb-strait-week-of-august-24 200-219, how-many-ships-transit-bab-el-mandeb-strait-week-of-august-24 220+, how-many-ships-transit-bab-el-mandeb-strait-week-of-august-31 <170, how-many-ships-transit-bab-el-mandeb-strait-week-of-august-31 210-229, how-many-ships-transit-bab-el-mandeb-strait-week-of-august-31 230+, how-many-ships-transit-bab-el-mandeb-strait-week-of-september-7 <170, how-many-ships-transit-bab-el-mandeb-strait-week-of-september-7 190-209, how-many-ships-transit-bab-el-mandeb-strait-week-of-september-7 230+, how-many-ships-transit-bab-el-mandeb-strait-week-of-september-14 190-209, how-many-ships-transit-bab-el-mandeb-strait-week-of-september-14 230+, how-many-ships-transit-bab-el-mandeb-strait-week-of-september-21 170-189, how-many-ships-transit-bab-el-mandeb-strait-week-of-september-21 190-209, how-many-ships-transit-bab-el-mandeb-strait-week-of-september-21 210-229, how-many-ships-transit-bab-el-mandeb-strait-week-of-september-21 230+, how-many-ships-transit-bab-el-mandeb-strait-week-of-september-28 190-209, how-many-ships-transit-bab-el-mandeb-strait-week-of-september-28 210-229, how-many-ships-transit-bab-el-mandeb-strait-week-of-september-28 230+, how-many-ships-transit-bab-el-mandeb-strait-week-of-october-5 170-189, how-many-ships-transit-bab-el-mandeb-strait-week-of-october-5 190-209, how-many-ships-transit-bab-el-mandeb-strait-week-of-october-5 230+
+Bab events with >=1 strict fill: 12/12
+Bab events with >=1 strict60 fill: 1/12
+
+wrote q018_strict_buckets.csv rows=242

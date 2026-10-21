@@ -1,0 +1,23 @@
+in-band events in q020-oos/events.csv: 101 (priced by original: 101)
+
+[original] last pre-decision print +1c
+DISCOVERY: n=54 unfillable=0 meanNet=-0.0494 medianNet=-0.4313 totalNet=-2.6652 perDollar=-0.1025 hit=0.4444 YESrate=0.4444 meanAsk=0.4814
+HOLDOUT: n=47 unfillable=0 meanNet=+0.0740 medianNet=+0.4376 totalNet=+3.4792 perDollar=+0.1517 hit=0.5745 YESrate=0.5745 meanAsk=0.4881
+POOLED: n=101 unfillable=0 meanNet=+0.0081 medianNet=+0.4277 totalNet=+0.8140 perDollar=+0.0166 hit=0.5050 YESrate=0.5050 meanAsk=0.4845
+
+[strict] first print at/after decision +1c
+DISCOVERY: n=54 unfillable=0 meanNet=-0.0543 medianNet=-0.3867 totalNet=-2.9305 perDollar=-0.1115 hit=0.4444 YESrate=0.4444 meanAsk=0.4868
+HOLDOUT: n=47 unfillable=0 meanNet=+0.0799 medianNet=+0.3979 totalNet=+3.7547 perDollar=+0.1654 hit=0.5745 YESrate=0.5745 meanAsk=0.4829
+POOLED: n=101 unfillable=0 meanNet=+0.0082 medianNet=+0.0314 totalNet=+0.8242 perDollar=+0.0168 hit=0.5050 YESrate=0.5050 meanAsk=0.4850
+
+[strict60] first print within 60 min after decision, else unfillable
+DISCOVERY: n=35 unfillable=19 meanNet=-0.0441 medianNet=-0.4221 totalNet=-1.5427 perDollar=-0.0901 hit=0.4571 YESrate=0.4571 meanAsk=0.4894
+HOLDOUT: n=12 unfillable=35 meanNet=+0.0482 medianNet=+0.0521 totalNet=+0.5780 perDollar=+0.1095 hit=0.5000 YESrate=0.5000 meanAsk=0.4399
+POOLED: n=47 unfillable=54 meanNet=-0.0205 medianNet=-0.3512 totalNet=-0.9647 perDollar=-0.0430 hit=0.4681 YESrate=0.4681 meanAsk=0.4768
+
+first post-decision print delay hours: n=101 min=0.005 median=1.102 max=18.521
+post-decision prints later than 60 min: 54/101
+
+HOLDOUT verdict: original=PASS strict=PASS strict60=INSUFFICIENT(n=12)
+
+wrote q020_strict_events.csv rows=101

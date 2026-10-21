@@ -1,0 +1,7 @@
+original rows=183 events=65, delay>1h fills=140
+[original = strict] first print at/after t0: fills=183 events=65 medianNet=+0.1147 meanNet=+0.0393 totalNet=+7.1969 hit=0.8415
+[strict60] first print within 60 min after t0: fills=43 events=29 medianNet=+0.1051 meanNet=+0.0381 totalNet=+1.6391 hit=0.7442
+strict60: events kept=29, unfillable events=36 (all their fills >60 min)
+original/strict event-level: events=65 medianSumNet=+0.2194 meanSumNet=+0.1107 hit=0.5692
+strict60 event-level: events=29 medianSumNet=+0.2105 meanSumNet=+0.0565 hit=0.6207
+fill delay hours: min=0.000 p25=1.190 median=6.300 p75=13.460 max=2875.670

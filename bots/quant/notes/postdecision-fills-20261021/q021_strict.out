@@ -1,0 +1,7 @@
+cache /tmp/quant-021-cache
+gamma events=401 matched=49 fit races=204
+primary selected n=23
+[original] VWAP to 100 shares after cutoff: n=23 wins=13 unfillable=0 meanNet=+0.2003 medianNet=+0.5789 totalNet=+4.6077 hit=0.5652
+[strict] first taker BUY after cutoff: n=23 wins=13 unfillable=0 meanNet=+0.1994 medianNet=+0.5789 totalNet=+4.5862 hit=0.5652
+[strict60] first taker BUY within 60 min: n=19 wins=11 unfillable=4 meanNet=+0.1921 medianNet=+0.5789 totalNet=+3.6490 hit=0.5789
+first-buy delay hours: min=0.129 median=0.625 max=2.986; >1h n=4/23
