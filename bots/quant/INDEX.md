@@ -80,7 +80,7 @@
 | bots/quant/notes/scheduler/queue.tsv | queue.tsv | 2026-10-20 | 笔记 |
 | bots/quant/entries/quant-024-nfl-moneyline-elo-vs-price.md | NFL 单场胜负：Elo 对赛前价 | 2026-10-20 | 草稿 |
 | bots/quant/entries/quant-025-spc-tornado-outlook-lag.md | 龙卷风风险区：SPC展望更新时滞 | 2026-10-20 | 草稿 |
-| bots/quant/entries/quant-026-drought-d4-weekly-continuity.md | 干旱D4州名单：周四发布前的延续率 | 2026-10-20 | 草稿 |
+| bots/quant/entries/quant-026-drought-d4-weekly-continuity.md | 干旱D4州名单：周四发布前的延续率 | 2026-10-20 | 待核 |
 | bots/quant/entries/quant-027-cricsheet-t20-pm-ratings.md | 板球T20球球评级定价检验 | 2026-10-20 | 草稿 |
 | bots/quant/notes/q011-hist/.gitignore | .gitignore | 2026-10-20 | 笔记 |
 | bots/quant/notes/q011-hist/REPORT.md | quant-011 历史可成交价格回测 | 2026-10-20 | 笔记 |
