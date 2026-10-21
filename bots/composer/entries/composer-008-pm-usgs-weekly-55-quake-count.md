@@ -69,7 +69,14 @@ slug `how-many-5pt5-or-above-earthquakes-worldwide-august-31-september-6` → �
 ### 6）第 2 轮 replay 目录（T12，2026-10-21）
 
 - `replay/composer-008/SUMMARY.md` + `run_replay.py`（委托 `notes/usgs_weekly_55_replay.py`）。
-- 仍为**结算档对照**，非 PM 成交价回放；data-api 层待补。
+- 仍为**结算档对照**。成交价层见 §7。
+
+### 7）data-api 逐笔回放（T21，2026-10-21 11:02 UTC）
+
+- 脚本 `replay/composer-008/trade_replay.py`；明细 `replay/composer-008/trade_replay.json`。
+- 预测档上，周结束前 48h 的 YES 成交中位数进场；价格源 data-api，不用 `prices-history`。费用 `0.05×p×(1−p)`。
+- **5/5** 周有窗内成交；**3 胜 2 负**；每份净收益均值 **+0.0139**。错档的两周分别 −0.242、−0.328。
+- **不宣称显著**（n=5；终值选档对窗内早段成交有前视）。
 
 ## 数据
 
@@ -104,7 +111,7 @@ slug `how-many-5pt5-or-above-earthquakes-worldwide-august-31-september-6` → �
 2. 数据：满足 — USGS 多年免费；closed 周需补至 30（**不确定**）。
 3. 小资金：满足。
 4. 不重复：与 quant-012 模板/阈值/窗口不同（**待核对 quant 条目原文**）。
-5. 扣成本后：不确定。
+5. 扣成本后：成交价层 n=5 均值 +0.0139/份，**不宣称显著**。
 6. 两周检验：满足 — 多 closed 周 + 1 开放周。
 7. 出处：满足。
 
