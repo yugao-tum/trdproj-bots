@@ -1,0 +1,50 @@
+== Gamma events ==
+united-airlines-ual-q3-consolidated-passenger-load-factor-20261008120016000: HTTP 200, markets=5, title='United Airlines (UAL) Q3 consolidated passenger load factor?'
+mcdonalds-mcd-q3-global-comparable-sales-growth-20261008120128000: HTTP 200, markets=5, title="McDonald's (MCD) Q3 global comparable sales growth?"
+united-airlines-ual-q2-consolidated-passenger-load-factor-20260618193152130: HTTP 200, markets=5, title='United Airlines (UAL) Q2 consolidated passenger load factor?'
+delta-dal-q2-passenger-load-factor: HTTP 200, markets=5, title='Delta (DAL) Q2 passenger load factor?'
+costco-q3-us-adjusted-comparable-sales-growth: HTTP 200, markets=6, title='Costco Q3 US adjusted comparable sales growth?'
+boeing-airplane-deliveries-above-in-q1: HTTP 200, markets=9, title='Boeing airplane deliveries above __ in Q1?'
+will-taiwan-semiconductor-tsm-q2-revenue-usd-be-above-20260618163305419: HTTP 200, markets=5, title='Will Taiwan Semiconductor (TSM) Q2 revenue (USD) be above __?'
+
+== Official / reference pages ==
+boeing: HTTP 200, bytes=79943
+   Total 143@ anes Programs ‍737 114 ‍767 6 ‍777 8 ‍787 15 Total 143 Defense, Space Security Programs AH-64 Apach | April 14, 2026@ 4_spanDate" class="evergreen-news-date-text">April 14, 2026</span> <span id="_ctrl0_ctl84_spanTime" clas
+tsmc_monthly: HTTP 200, bytes=196425
+   410,726@ --view-mode--default"> Apr. </div> </td> <td>410,726</td> <td>17.5%</td> </tr> <tr> <td> <div cla | 416,975@ h--view-mode--default"> May </div> </td> <td>416,975</td> <td>30.1%</td> </tr> <tr> <td> <div cla | 442,680@ --view-mode--default"> Jun. </div> </td> <td>442,680</td> <td>67.9%</td> </tr> <tr> <td> <div cla
+tsmc_3323: HTTP 200, bytes=177574
+   442.68@ u0026amp;nbsp;June 2026 was approximately NT$442.68 billion, an increase of\u0026amp;nbsp;6.2 pe | 2,404.48@ nue for January through June 2026 totaled NT$2,404.48\u0026amp;nbsp;billion, an increase of\u0026a
+tsmc_3326: HTTP 200, bytes=182325
+   1,270.38@ ) today announced consolidated revenue of NT$1,270.38 billion, net income of NT$706.56 billion, an | 40.20@ s.In US dollars, second quarter revenue was $40.20 billion, which increased 33.7% year-over-yea
+sec_tsmc_apr: HTTP 200, bytes=89884
+   410.73@  revenue for April 2026 was approximately NT$410.73 billion, a decrease of 1.1 percent from Marc
+sec_tsmc_may: HTTP 200, bytes=88161
+   416.98@ s, revenue for May 2026 was approximately NT$416.98 billion, an increase of 1.5 percent from Apr
+sec_tsmc_june: HTTP 200, bytes=88126
+   442.68@ , revenue for June 2026 was approximately NT$442.68 billion, an increase of 6.2 percent from May | 2,404.48@ nue for January through June 2026 totaled NT$2,404.48 billion, an increase of 35.6 percent compare
+sec_tsmc_q2: HTTP 200, bytes=28117
+   1,270.38@ ) today announced consolidated revenue of NT$1,270.38 billion, net income of NT$706.56 billion, an | 40.20@ ">In US dollars, second quarter revenue was $40.20 billion, which increased 33.7% year-over-yea
+costco_apr: HTTP 200, bytes=78667
+   8.0%@ hange were as follows: 4 Weeks 35 Weeks U.S. 8.0% 6.3% Canada 7.6% 7.8% Other International 6. | 7.8%@ nternational 11.5% 11.0% Total Company 11.6% 7.8% Digitally-Enabled 18.8% 21.6% Comparable sal
+costco_q3: HTTP 200, bytes=162168
+   6.8%@ Weeks 36 Weeks Adjusted* Adjusted* U.S. 9.4% 6.8% 7.1% 6.4% Canada 10.7% 6.2% 9.1% 7.6% Other  | 6.6%@ 1% 7.6% Other International 11.2% 5.9% 11.0% 6.6% Total Company 9.8% 6.6% 7.9% 6.6% Digitally-
+fool_march: HTTP 200, bytes=366609
+   6.2%@ d in the four-week month of January, and the 6.2% it reported in March -- a month dragged down
+sec_dal: HTTP 200, bytes=1524305
+   84.8@ -size:10pt;font-weight:400;line-height:100%">84.8&#160;</span></td><td style="background-color | 66,767@ -size:10pt;font-weight:400;line-height:100%">66,767&#160;</span></td><td style="background-color | 78,694@ -size:10pt;font-weight:400;line-height:100%">78,694&#160;</span></td><td style="background-color
+sec_ual: HTTP 200, bytes=612627
+   83.4@ t-size:9pt;font-weight:400;line-height:100%">83.4&#160;</font></td><td style="background-color | 72,765@ t-size:9pt;font-weight:400;line-height:100%">72,765&#160;</font></td><td style="background-color | 87,279@ t-size:9pt;font-weight:400;line-height:100%">87,279&#160;</font></td><td style="background-color
+airside_ual: HTTP 200, bytes=30508
+   82.3@ >%</small></th><td>79.2</td><td>85.1</td><td>82.3</td><td>82.4</td><td>85.9</td><td>87.1</td>< | 82.4@ h><td>79.2</td><td>85.1</td><td>82.3</td><td>82.4</td><td>85.9</td><td>87.1</td></tr><tr><th s | 85.9@ d><td>85.1</td><td>82.3</td><td>82.4</td><td>85.9</td><td>87.1</td></tr><tr><th scope="row">Pa
+airside_dal: HTTP 200, bytes=31281
+   82.7@ >%</small></th><td>81.1</td><td>85.0</td><td>82.7</td><td>84.9</td><td>88.1</td><td>88.2</td>< | 84.9@ h><td>81.1</td><td>85.0</td><td>82.7</td><td>84.9</td><td>88.1</td><td>88.2</td></tr><tr><th s | 88.1@ d><td>85.0</td><td>82.7</td><td>84.9</td><td>88.1</td><td>88.2</td></tr><tr><th scope="row">Pa
+bts_t100: HTTP 200, bytes=1141157
+
+== CLOB prices-history window boundary ==
+TSM $41B 15d: HTTP 200, points=272, body={"history":[{"t":1783209603,"p":0.505},{"t":1783213203,"p":0.565},{"t":1783216803,"p":0.56
+TSM $41B 16d: HTTP 400, points=-, body={"error":"invalid filters: 'startTs' and 'endTs' interval is too long"}
+
+
+== Boeing CLOB points are all after the 18:27 trade ==
+Boeing above-140: HTTP 200, [('2026-04-14 19:00Z', 0.575), ('2026-04-14 20:00Z', 0.785), ('2026-04-14 21:00Z', 0.785), ('2026-04-14 22:00Z', 0.785)]
+Boeing above-145: HTTP 200, [('2026-04-14 20:00Z', 0.445), ('2026-04-14 22:00Z', 0.415)]

@@ -12,7 +12,7 @@ category: S
 return_type: direction
 instruments: Polymarket「<公司> 本季 <KPI> 落在哪一档」区间市场，以及「<公司> 本季 <KPI> 是否 above <阈值>」阈值阶梯（Gamma tag `kpis`）
 venues: Polymarket
-data: Gamma `tag_slug=kpis`（2026-10-20 实取 192 个已关闭事件 / 931 个市场、102 个开放事件 / 494 个市场；2026-10-21 复核 196/951、102/497；规则原文、outcomePrices、feeSchedule、volume）；CLOB prices-history（已关闭市场可取，单次窗口 ≤6 天）；data-api trades（conditionId，逐笔，约最近 2 万笔/市场）；公司 IR / SEC 8-K / 月度经营数据；BTS T1（月度，滞后约 2 个月）。全部免费免密钥
+data: Gamma `tag_slug=kpis`（2026-10-20 实取 192 个已关闭事件 / 931 个市场、102 个开放事件 / 494 个市场；2026-10-21 复核 196/951、102/497；规则原文、outcomePrices、feeSchedule、volume）；CLOB prices-history（已关闭市场可按事件窗口取；1 分钟 fidelity 下实测 15 天可用、16 天报 interval too long，脚本保守按 6 天分块）；data-api trades（conditionId，逐笔，约最近 2 万笔/市场）；公司 IR / SEC 8-K / 月度经营数据；BTS T1（月度，滞后约 2 个月）。全部免费免密钥
 test_2w: 独立结果按公司-季度计；历史上同口径只有 5 个已结算事件（航空载客率 2、Costco 同店 1、Boeing 交付 1、TSMC 营收 1；严格规则内 0），前向每季约 2–4 个，两周内拿不到 30 个；失败标准：前向累计 ≥10 个事件时，规则净 PnL 中位 ≤0，或 nowcast 落在结算档的比例 ≤ 同批市场价隐含概率
 status: 草稿
 confidence: 中
@@ -22,7 +22,7 @@ confidence: 中
 
 ## 一句话
 
-只在“公司已经公开的月度经营数据足以把季度 KPI 分档钉死”时，买 nowcast 所在的那一档（或阈值阶梯的对应边）；本轮证据显示这类市场在 2026 年只有约 5 个已结算样本（4 个月度 + 1 个季度经营数据）：**Boeing 交付、TSM above-40 在信息发布后数小时内就被定价，没有滞后；TSM above-41 在发布后约 100 秒有一笔 taker `BUY No @0.9129`（净 +7.4¢/份），但 nowcast 距 41 只有 1.95%，按预注册的“≥2%”规则不算规则内，且月度 TWD 与季度 USD 需汇率折算；Delta 载客率命中但只有 37.55 份；UAL 载客率说明缺一个月时 1pp 档会猜错。** 因此本条当前是“模板 + 前向记录”，**不是可上线策略**。
+只在“公司已经公开的月度经营数据足以把季度 KPI 分档钉死”时，买 nowcast 所在的那一档（或阈值阶梯的对应边）；本轮证据显示这类市场在 2026 年只有约 5 个已结算样本（4 个月度 + 1 个季度经营数据）：**Boeing 交付在公告当天下午、TSM above-40 在发布后约 1.5 分钟就被定价，没有可吃的滞后；TSM above-41 在发布后约 100 秒有一笔 taker `BUY No @0.9129`（净 +7.4¢/份），但 nowcast 距 41 只有 1.95%，按预注册的“≥2%”规则不算规则内，且月度 TWD 与季度 USD 需汇率折算；Delta 载客率命中但只有 37.55 份；UAL 载客率说明缺一个月时 1pp 档会猜错。** 因此本条当前是“模板 + 前向记录”，**不是可上线策略**。
 
 ## 钱从哪里来
 
@@ -100,8 +100,8 @@ Costco 事件额外把“US adjusted comparable sales growth”定义为**剔除
 
 - `https://gamma-api.polymarket.com/events?tag_slug=kpis&limit=100&closed=true&order=endDate&ascending=false` 全量翻页（offset 0…200）：**2026-10-20 快照 192 个已关闭事件、931 个市场**（2026-10-21 复核为 **196 个已关闭事件、951 个市场**，新增 4 个已结算事件）；`endDate` 覆盖 2026-03 至 2027-01。
 - 同端点 `closed=false&order=endDate&ascending=true`：**2026-10-20 快照 102 个开放事件、494 个市场**（2026-10-21 复核 **102 个事件、497 个市场**）；其中 **61 个 endDate 在 2026-10、24 个在 2026-11**（10-21 复核为 57 / 26，属时间漂移）。
-- 费率：已关闭市场 **2026-10-20 快照 849 个 `rate=0.04`、50 个 `0.05`、4 个 `0.07`、28 个 `feeSchedule=null`**（2026-10-21 复核同分布，另 20 个 `rate=0`）。**开放市场 2026-10-21 复核：464 个 `rate=0`（`feeType=zero_fees`）、27 个 `0.04`、6 个 `0.05`**——2026-10-20 写入时把“开放市场 486 个 0.04、8 个 0.05”写错了，已更正；开放市场以免费为主，因此 §成本 的 0.04 是**保守上界**，不是当前开放市场的实际费率。
-- 事件累计成交额（Gamma `volume`，**来源自报，未核实**）：已关闭 **2026-10-20 快照合计 $4,599,544，中位 $8,102，p90 $39,168，最大 $893,324**（Tesla Q1 交付）；开放合计 **$1,761,353**，中位 **$3,780**，p90 **$9,163**。2026-10-21 复核：已关闭合计 **$4,703,475**、中位 **$8,353**；开放合计 **$1,682,295**、中位 **$3,850**、p90 **$7,410**。两组都只是带时间戳的快照，不是稳定常数。
+- 费率：已关闭市场 **2026-10-20 快照 849 个 `rate=0.04`、50 个 `0.05`、4 个 `0.07`、28 个 `feeSchedule=null`**（2026-10-21 复核同分布，另 20 个 `rate=0`）。**开放市场 2026-10-21 04:00 UTC 复核（497 个市场）：464 个 `rate=0`（`feeType=zero_fees`）、27 个 `0.04`、6 个 `0.05`**——2026-10-20 写入时把“开放市场 486 个 0.04、8 个 0.05”写错了，已更正；开放市场以免费为主，因此 §成本 的 0.04 是**保守上界**，不是当前开放市场的实际费率。
+- 事件累计成交额（Gamma `volume`，**来源自报，未核实**）：已关闭 **2026-10-20 快照合计 $4,599,544，中位 $8,102，p90 $39,168，最大 $893,324**（Tesla Q1 交付）；开放合计 **$1,761,353**，中位 **$3,780**，p90 **$9,163**。2026-10-21 04:00 UTC 复核：已关闭合计 **$4,703,475**、中位 **$8,353**；开放合计 **$1,690,567**、中位 **$3,850**、p90 **$7,711**。两组都只是带时间戳的快照，不是稳定常数。
 - 按标题关键词（2026-10-20 快照）：`revenue` 68、`comparable sales` 12、`margin` 9、`ARR` 7、`organic` 6、`deliveries` 5、`load factor` 2、`monthly active` 2、`subscriber` 2（10-21 复核 `revenue` 69、`margin` 10、`load factor` 3）。**绝大多数是季度才披露的指标，没有同口径月度序列。**
 
 ### 2）同口径公开经营数据事件（人工分类，全部 5 个；4 个月度 + Boeing 季度交付）
@@ -112,13 +112,13 @@ Costco 事件额外把“US adjusted comparable sales growth”定义为**剔除
 | TSM Q2 2026 营收（`…tsm-q2-revenue-usd…`） | revenue USD | 月度营收 Apr 410,726 + May 416,975 + Jun 442,680 = **NT$1,270,381m**；2026-07-13 公布 June；按公司 31.60 折 **$40.20B**（按指引 31.7 折 $40.08B） | 40.1–40.2 | above 40 = YES；above 41 = NO | above 41：07-13 **05:32:08**（发布后约 100 秒）`BUY No @0.9129` 514.01 份；06:46:29 的 `SELL No @0.8604` 是 taker 卖 NO，不是买入口。above 40：05:31:55 `BUY Yes @0.9345` 721.54 份 | above-41 有约 **+7.4¢/份（扣费+1¢，+8.1%）** 的吃单窗口；above-40 无滞后 |
 | Costco Q3 FY2026 US adjusted comp（`costco-q3-us-adjusted-comparable-sales-growth`） | US adjusted comps | 2026-05-06 公布 April：US adjusted **8.0%**；March US adjusted **6.2%**（二手）；Q3 12 周只覆盖其中 8 周 | 简单平均 ≈7.1% | **6.8%（US）；total company 6.6%** | 6.5–7.5 档首笔是 05-22 22:38:55 `BUY No @0.92` 20 份（**同一钱包在 3 秒内于 6 个档各买 NO 的篮式成交**，不是 YES 卖价）；该档首笔 `BUY Yes` 在 05-28 20:15:05、@0.88、11.25 份，已在财报发布后 | **不是可执行缺口**：只有 NO 买盘/篮式成交，没有财报前的 YES 卖价 |
 | Delta Q2 2026 载客率（`delta-dal-q2-passenger-load-factor`） | consolidated LF | BTS T1 月度（二手，引用 BTS）：Apr 82.7%、May 84.9%；June 88.1%（财报前未发布） | Apr+May 加权 **83.8%** | **84.8%** → 83–85 档 | 07-02 10:07:10 `BUY Yes @0.2381` 37.55 份（该档首笔 `BUY Yes` 实为 06-24 23:31 @0.46、101.46 份；07-02 只是 May 数据后的观察） | **命中**：83.8 在 83–85；毛 +0.762/份，但 June 缺失、BTS 发布时刻不明、样本只 37.55 份 |
-| UAL Q2 2026 载客率（`…ual-q2-consolidated-passenger-load-factor…`） | consolidated LF | 同上：Apr 82.3%、May 82.4%；June 85.9% | Apr+May 加权 **82.3%** | **83.4%** → 83–84 档 | **07-01 09:09:52** `BUY Yes 50 @0.07`（83–84，事后赢）；naive nowcast 实际会选 `<83`，该档在 07-01 附近没有对应的 YES 买盘 | **反例**：naive 部分月 nowcast 落在 82–83，会做错；需用季节补 June 才能得到 83.5 |
+| UAL Q2 2026 载客率（`…ual-q2-consolidated-passenger-load-factor…`） | consolidated LF | 同上：Apr 82.3%、May 82.4%；June 85.9% | Apr+May 加权 **82.3%** | **83.4%** → 83–84 档 | **07-01 09:09:52** `BUY Yes 50 @0.07`（83–84，事后赢）；naive nowcast 实际会选 `<83`，该档在 06-27 04:56:28 有 `BUY Yes 10 @0.16`（事后结算 0） | **反例**：naive 部分月 nowcast 落在 82–83，会做错；需用季节补 June 才能得到 83.5 |
 
 按预注册规则严格回看这 5 个事件：**没有 1 个同时满足全部条件**。TSM above-41 差在“nowcast 距阈值 ≥2%”（40.20 vs 41 = **1.95%**），且月度 TWD 与季度 USD 需要汇率折算，严格说不是同一口径；Boeing 是季度数据（不满足“至少 2 个月”）且公告无小时；DAL 只有 37.55 份（不满足 50 份）且 BTS 发布时刻不明；Costco 没有财报前可验证的 YES 卖价；UAL 的 naive nowcast 不在目标档内、`<83` 档会做错。**所以严格规则内样本是 0 个；只把“2% 距离”放宽到 1.9% 后，才剩 TSM above-41 1 笔（净 +8.1%/3 天，约 $469 本金）。**
 
 ### 3）三个细节
 
-**(a) Boeing 的公告时刻取不到。** 2026-04-14 的季度交付公告把 Q1 钉死在 143（Boeing 页面只写 `April 14, 2026`，没有小时；重取 2026-10-21 仍无 `dateModified` 可用）。第一笔 above-140 的 YES 成交在 18:27:46 UTC 就是 0.98，above-145 的 NO 在 18:32:22 就是 0.98；这只能证明“当天下午已定价”，**不能单独证明非前视**。CLOB 日线在 04-14 00:00 还显示 0.785 / 0.415，但那是**公告前**的最后价，不是公告后的可执行价。用日线会误以为有 21¢ 缺口。
+**(a) Boeing 的公告时刻取不到。** 2026-04-14 的季度交付公告把 Q1 钉死在 143（Boeing 页面只写 `April 14, 2026`，没有小时；重取 2026-10-21 仍无 `dateModified` 可用）。第一笔 above-140 的 YES 成交在 18:27:46 UTC 就是 0.98，above-145 的 NO 在 18:32:22 就是 0.98；这只能证明“当天下午已定价”，**不能单独证明非前视**。CLOB `prices-history` 本次复取最早只到 04-14 **19:00Z**（above-140 0.575、20:00 0.785；above-145 20:00 0.445、22:00 0.415），都在 18:27 成交之后；**没有取到公告前的 CLOB 点**，所以不能用它推断“公告前 0.785 / 有 21¢ 缺口”。
 
 **(b) TSM 的缺口在 USD 换算，且“首发价”是 taker 买 NO @0.9129，不是 0.8604。** TSMC 新闻页 `dateModified = 2026-07-13T13:30:28+08:00`（= **05:30:28Z**），发布后约 100 秒（05:32:08Z）有一笔 taker `BUY No @0.912887`、514.01 份；这才是可执行的吃单买入口。06:46:29 的 `SELL No @0.860366` 是 taker **卖** NO（对手方挂单买 NO），不能当买入口——上一版把它写成“taker 卖 NO … YES≈0.14 的 12–14¢ 窗口”是错的。按 0.9129 买入，扣 0.04 吃单费（0.00318/份）与 1¢ 半价差，净 **+0.0739/份（+8.1%）**，持有约 3 天；单笔 514 份约 **$469**。**但 40.20 距 41 只有 1.95%（<2%），按预注册规则不算规则内。**
 
@@ -142,14 +142,14 @@ Costco 事件额外把“US adjusted comparable sales growth”定义为**剔除
 | Boeing above-140 → YES | 不满足：季度数据、公告无时刻 | 04-14 18:27:46 `BUY Yes @0.98` 29 份 | 0.000784 | +0.009216 | +$0.27（+0.9%） | 3¢ 半价差转负（−$0.31），5¢ −$0.89 |
 | Costco 6.5–7.5 → YES | 不满足：财报前无可执行 YES 卖价 | 财报后 05-28 20:15:05 `BUY Yes @0.88` 11.25 份（上界，不计入规则） | 0.004224 | +0.105776 | +$1.19（+12.0%） | 首笔 05-22 `BUY No @0.92` 是篮式 NO，不是 YES 卖价 |
 | DAL 83–85 → YES | 不满足：37.55 份 < 50 份、BTS 时刻不明 | 07-02 10:07:10 `BUY Yes @0.238136` 37.55 份 | 0.007257 | +0.744607 | +$27.96（+312.7%） | 只作观察；该档首笔 YES 是 06-24 @0.46 |
-| UAL `<83`（naive） | 反例，不计入 | 07-01 附近 `<83` 无对应 YES 买盘 | — | — | — | naive 会选错档；不计 PnL |
+| UAL `<83`（naive） | 反例，不计入 | 06-27 04:56:28 `BUY Yes @0.16` 10 份 | 0.005376 | −0.175376 | −$1.75（−109.6%） | naive 会选错档；金额太小，不计入策略统计 |
 
 **回测结论：严格规则内 0 笔；唯一接近的 TSM above-41 在 1¢ 半价差下 +8.1%/3 天，但本金只有约 $469，且“距阈值 ≥2%”实际是 1.95%。这不足以支持任何“扣成本后够用”的结论，也不足以进 `待核`。**
 
 ## 数据
 
 - Gamma（免费免密钥）：`https://gamma-api.polymarket.com/events?tag_slug=kpis&limit=100&offset=<0..200>&closed=true&order=endDate&ascending=false`；`closed=false&order=endDate&ascending=true`。字段：`description`（规则原文）、`outcomePrices`（结算）、`feeSchedule`、`volume`、`clobTokenIds`、`conditionId`。
-- CLOB（免费免密钥）：`https://clob.polymarket.com/prices-history?market=<clobTokenId>&startTs=&endTs=&fidelity=60`。**单次窗口超过约 6 天会报 `invalid filters: 'startTs' and 'endTs' interval is too long`**；本轮按 6 天分块抓取，脚本已处理。
+- CLOB（免费免密钥）：`https://clob.polymarket.com/prices-history?market=<clobTokenId>&startTs=&endTs=&fidelity=60`。**2026-10-21 对一个 TSM $41B token 实测：1 分钟 fidelity 下 15 天窗口返回 200，16 天窗口报 `invalid filters: 'startTs' and 'endTs' interval is too long`**；`backtest.py` 仍保守按 6 天分块抓取。
 - data-api（免费免密钥）：`https://data-api.polymarket.com/trades?market=<conditionId>&limit=1000&offset=`。返回逐笔 `side`、`price`、`size`、`timestamp`、`outcome`；`side` 是 taker 方向。约最近 2 万笔/市场。
 - 公司/官方月度与季度数据：
   - Boeing Q1 交付公告（2026-04-14）：`https://investors.boeing.com/investors/news/press-release-details/2026/Boeing-Announces-First-Quarter-Deliveries/default.aspx`
@@ -176,7 +176,7 @@ Costco 事件额外把“US adjusted comparable sales growth”定义为**剔除
 
 ## 成本与容量
 
-- **费率（Gamma 实取）**：已关闭 KPI 市场绝大多数 `feeSchedule={"exponent":1,"rate":0.04,"takerOnly":true,"rebateRate":0.25}`（2026-10-20 快照 849/931）；少数 0.05（50 个）与 0.07（4 个，加密相关）。**但 2026-10-21 复核的开放市场 464/497 是 `rate=0`（`feeType=zero_fees`），只有 27 个 0.04、6 个 0.05。** 本条按 **0.04** 算，是保守上界，和 GUIDE 第 8 节“金融 0.04”一致；若实际成交在免费市场，净收益会更高。
+- **费率（Gamma 实取）**：已关闭 KPI 市场绝大多数 `feeSchedule={"exponent":1,"rate":0.04,"takerOnly":true,"rebateRate":0.25}`（2026-10-20 快照 849/931）；少数 0.05（50 个）与 0.07（4 个，加密相关）。**但 2026-10-21 04:00 UTC 复核的开放市场 497 个中 464 个是 `rate=0`（`feeType=zero_fees`），只有 27 个 0.04、6 个 0.05。** 本条按 **0.04** 算，是保守上界，和 GUIDE 第 8 节“金融 0.04”一致；若实际成交在免费市场，净收益会更高。
 - 吃单费（GUIDE 公式 `份数 × 费率 × p × (1−p)`）：
   - `p=0.2381`（DAL）：每份 `0.04×0.2381×0.7619 = 0.00726`，占投入 **3.05%**；
   - `p=0.9129`（TSM NO）：每份 `0.04×0.9129×0.0871 = 0.00318`，占投入 **0.35%**；
@@ -211,12 +211,12 @@ Costco 事件额外把“US adjusted comparable sales growth”定义为**剔除
 4. **不重复：满足** — 最接近的是 `quant-020`（财报 EPS 是否高于创建时 SeekingAlpha 一致预期，二元市场、按事件校准），本条是**数值 KPI 的分档/阈值**，结算看公司财报里的 revenue/comps/load factor/deliveries，不看 EPS 一致预期；`quant-010`（流媒体周榜）、`quant-015`（全球气温）、`quant-016`（烂番茄）都是“外部数据 nowcast”，但标的、结算源、数据频率不同。`known/KNOWN.md` 里 `A-A3-poly-cross-market`、`A-A5-poly-complete-set` 是跨市场/全套套利，`M-M4-poly-rewards` 是做市奖励，均不同。`bots/*/entries` grep `load factor|comparable sales|RASM|Boeing|TSM` 无同机制条目。
 5. **扣成本后粗算够用：不满足** — 按预注册规则，历史上**严格规则内 0 笔**：TSM above-41 距阈值只有 1.95%（<2%），放宽到 1.9% 后才算 1 笔，按 taker `BUY No @0.9129`、扣 0.04 吃单费与 1¢ 半价差，净 +0.0739/份（+8.1%/3 天，约 $469 本金）；DAL 83–85 的 +313% 只是观察（37.55 份，未过 50 份门槛，BTS 时刻不明）；Boeing/TSM above-40 扣成本后没有 edge；Costco 财报前没有可执行 YES 卖价。n=0（放宽后 n=1），不能判“够用”。
 6. **两周内能检验：不满足** — 独立结果按公司-季度计；前向每季约 2–4 个，两周最多 2–3 个，达不到 30；历史只有 5 个（4 个月度 + 1 个季度交付），其中严格规则内 0 个。失败标准已写死，但样本量本身就不够。
-7. **出处可查：满足** — 每个数字都有 URL/端点 + 访问日期 + 取数方式；规则原文逐字引用；Gamma `volume` 标了“来源自报，未核实”；BTS 月度标了“二手，引用 BTS T1”；逐笔成交、费率、回测脚本与 stdout 都在 `scratch/P-quant-030/`；未取到的（历史 L2、Boeing/BTS 精确发布时刻、Costco 财报前 YES 卖价）都写了“缺失”。
+7. **出处可查：满足（有一处复核缺口）** — 每个数字都有 URL/端点 + 访问日期 + 取数方式；TSMC 官方页 2026-10-21 复取时在 200/403 间抖动（`monthly-revenue` 与 `3326` 本次 200，`3323` 403），关键数字已用同日 SEC 6-K（April/May/June/Jan–Jun 与 Q2 营收、汇率）交叉核对；规则原文逐字引用；Gamma `volume` 标了“来源自报，未核实”；BTS 月度标了“二手，引用 BTS T1”；逐笔成交、费率、回测脚本与 stdout 都在 `scratch/P-quant-030/`；未取到的（历史 L2、Boeing/BTS 精确发布时刻、Costco 财报前 YES 卖价）都写了“缺失”。
 
 ## 出处
 
-- https://gamma-api.polymarket.com/events?tag_slug=kpis&limit=100&closed=true&order=endDate&ascending=false（offset 0…200）— 访问 2026-10-20，复核 2026-10-21 — 已读（10-20：192 个已关闭事件 / 931 个市场；10-21：196 / 951；费率 0.04 占 849；事件 volume 合计 $4,599,544 / $4,703,475，中位 $8,102 / $8,353）
-- https://gamma-api.polymarket.com/events?tag_slug=kpis&limit=100&closed=false&order=endDate&ascending=true — 访问 2026-10-20，复核 2026-10-21 — 已读（10-20：102 个开放事件 / 494 个市场；10-21：102 / 497；费率 10-21：464 个 rate=0、27 个 0.04、6 个 0.05）
+- https://gamma-api.polymarket.com/events?tag_slug=kpis&limit=100&closed=true&order=endDate&ascending=false（offset 0…200）— 访问 2026-10-20，复核 2026-10-21 04:00 UTC — 已读（10-20：192 个已关闭事件 / 931 个市场；10-21：196 / 951；费率 0.04 占 849；事件 volume 合计 $4,599,544 / $4,703,475，中位 $8,102 / $8,353）
+- https://gamma-api.polymarket.com/events?tag_slug=kpis&limit=100&closed=false&order=endDate&ascending=true — 访问 2026-10-20，复核 2026-10-21 04:00 UTC — 已读（10-20：102 个开放事件 / 494 个市场；10-21：102 / 497；费率 10-21：464 个 rate=0、27 个 0.04、6 个 0.05；开放 volume 合计 $1,690,567、p90 $7,711）
 - https://gamma-api.polymarket.com/events?slug=united-airlines-ual-q3-consolidated-passenger-load-factor-20261008120016000 — 访问 2026-10-20 — 已读（规则原文全文；5 档价格合计 0.9665：<82 0.0435、82–83 0.08、83–84 0.138、84–85 0.45、85+ 0.255）
 - https://gamma-api.polymarket.com/events?slug=mcdonalds-mcd-q3-global-comparable-sales-growth-20261008120128000 — 访问 2026-10-20 — 已读（同构区间规则；5 档；feeSchedule rate=0.04）
 - https://gamma-api.polymarket.com/events?slug=united-airlines-ual-q2-consolidated-passenger-load-factor-20260618193152130 — 访问 2026-10-20 — 已读（Q2 结算 83–84；5 档；volume $25,551）
@@ -224,12 +224,16 @@ Costco 事件额外把“US adjusted comparable sales growth”定义为**剔除
 - https://gamma-api.polymarket.com/events?slug=costco-q3-us-adjusted-comparable-sales-growth — 访问 2026-10-20 — 已读（US adjusted comps 定义；6 档；Q3 结算 6.5–7.5；fee rate=0.04）
 - https://gamma-api.polymarket.com/events?slug=boeing-airplane-deliveries-above-in-q1 — 访问 2026-10-20 — 已读（above 阈值阶梯；above 140 YES、above 145 NO；9 个市场）
 - https://gamma-api.polymarket.com/events?slug=will-taiwan-semiconductor-tsm-q2-revenue-usd-be-above-20260618163305419 — 访问 2026-10-20 — 已读（above 阈值阶梯；above 40 YES、above 41 NO；5 个市场）
-- https://clob.polymarket.com/prices-history?market=<clobTokenId>&startTs=&endTs=&fidelity=60 — 访问 2026-10-20 — 已读（单次窗口 >6 天报错；Boeing 04-14 00:00 公告前 0.785/0.415；Costco 05-14 全档 0.46 是无效中间价）
+- https://clob.polymarket.com/prices-history?market=<clobTokenId>&startTs=&endTs=&fidelity=60 — 访问 2026-10-20，复核 2026-10-21 — 已读（1 分钟 fidelity 下 15 天可用、16 天报 interval too long，脚本保守按 6 天分块；Boeing 本次最早点 04-14 19:00Z（晚于 18:27 成交，未取到公告前点）；Costco 05-14 全档多为 0.46，是无效中间价）
 - https://data-api.polymarket.com/trades?market=<conditionId>&limit=1000&offset=<0..N> — 访问 2026-10-20，复核 2026-10-21 — 已读（Boeing 04-14 18:27:46 `BUY Yes @0.98` 29 份；TSM 07-13 05:32:08 `BUY No @0.912887` 514.01 份（05:32:08 后的 06:46:29 `SELL No @0.860366` 是 taker 卖）；DAL 07-02 10:07:10 `BUY Yes 37.55 @0.238136`；Costco 6.5–7.5 档 05-22 22:38:55 `BUY No @0.92` 20 份（同钱包 22:38:53–55 在 6 档篮式）；UAL **07-01** 09:09:52 `BUY Yes 50 @0.07`）
 - https://investors.boeing.com/investors/news/press-release-details/2026/Boeing-Announces-First-Quarter-Deliveries/default.aspx — 访问 2026-10-20，复核 2026-10-21 — 已读（2026-04-14：737 114、767 6、777 8、787 15，Total 143；页面只写 `April 14, 2026`，无小时）
-- https://investor.tsmc.com/english/monthly-revenue/2026 — 访问 2026-10-20 — 已读（Apr 410,726；May 416,975；Jun 442,680；NT$m）
-- https://pr.tsmc.com/english/news/3323 — 访问 2026-10-20，复核 2026-10-21 — 已读（2026-07-13：June 营收 NT$442.68bn，Jan–Jun NT$2,404.48bn；页面 `dateModified = 2026-07-13T13:30:28+08:00` = 05:30:28Z）
-- https://pr.tsmc.com/english/news/3326 — 访问 2026-10-20 — 已读（2026-07-16：Q2 营收 NT$1,270.38bn；US$40.20bn；汇率 31.60）
+- https://investor.tsmc.com/english/monthly-revenue/2026 — 访问 2026-10-20 — 已读（Apr 410,726；May 416,975；Jun 442,680；NT$m；2026-10-21 复取 200/403 抖动，本次 200）
+- https://pr.tsmc.com/english/news/3323 — 访问 2026-10-20 — 已读（2026-07-13：June 营收 NT$442.68bn，Jan–Jun NT$2,404.48bn；页面 `dateModified = 2026-07-13T13:30:28+08:00` = 05:30:28Z；2026-10-21 复取 403，未能二次复核）
+- https://pr.tsmc.com/english/news/3326 — 访问 2026-10-20 — 已读（2026-07-16：Q2 营收 NT$1,270.38bn；US$40.20bn；汇率 31.60；2026-10-21 复取 200/403 抖动，本次 200）
+- https://www.sec.gov/Archives/edgar/data/1046179/000104617926000213/tsm-revenue20260508.htm — 访问 2026-10-21 — 已读（SEC 6-K：April 营收 NT$410.73bn，用于交叉核对月度表）
+- https://www.sec.gov/Archives/edgar/data/1046179/000104617926000367/tsm-revenue20260610.htm — 访问 2026-10-21 — 已读（SEC 6-K：May 营收 NT$416.98bn，用于交叉核对月度表）
+- https://www.sec.gov/Archives/edgar/data/1046179/000104617926000447/tsm-revenue20260713.htm — 访问 2026-10-21 — 已读（SEC 6-K：June 营收 NT$442.68bn、Jan–Jun NT$2,404.48bn，用于交叉核对 TSMC PR 页）
+- https://www.sec.gov/Archives/edgar/data/1046179/000104617926000451/a2q26e_withguidancexfinal.htm — 访问 2026-10-21 — 已读（SEC 6-K Ex.99.1：Q2 营收 NT$1,270.38bn、US$40.20bn、平均汇率 31.60，用于交叉核对 TSMC PR 页）
 - https://investor.costco.com/news/news-details/2026/Costco-Wholesale-Corporation-Reports-April-Sales-Results/default.aspx — 访问 2026-10-20 — 已读（2026-05-06：April 4 周 US adjusted comps 8.0%，total 7.8%；35 周 US 6.3%）
 - https://investor.costco.com/news/news-details/2026/Costco-Wholesale-Corporation-Reports-Third-Quarter-and-Year-To-Date-Operating-Results-For-Fiscal-2026/default.aspx — 访问 2026-10-20 — 已读（2026-05-28：Q3 12 周 US adjusted comps 6.8%，total company 6.6%）
 - https://www.fool.com/investing/2026/05/08/is-costco-stock-a-buy-sell-or-hold-after-april-sal/ — 访问 2026-10-20 — 二手（March adjusted total comps 6.2%，April 7.8%；仅用于 March 月度值，未在 Costco 官方稿中找到单列）
