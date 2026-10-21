@@ -68,3 +68,4 @@
 | 2026-10-21 16:15 | T19 | pick T04watch 仍 10-18 → 非整点 scan-only（fills=0） | 0879c06 |
 | 2026-10-21 16:30 | T19 | pick T04watch 仍 10-18 → 非整点 scan-only（fills=0） | 0879c06 |
 | 2026-10-21 16:45 | T19 | pick T04watch 仍 10-18 → 非整点 scan-only（fills=0） | 4d556b4 |
+| 2026-10-21 17:00 | T19 | pick T04watch 仍 10-18 → 整点 +6 挂 + scan（fills=0）。top3 与费率未变（1364/1000/500） | （本批） |
