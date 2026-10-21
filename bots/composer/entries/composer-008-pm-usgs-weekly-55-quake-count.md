@@ -60,6 +60,12 @@ slug `how-many-5pt5-or-above-earthquakes-worldwide-august-31-september-6` → �
 
 `starttime=2026-10-19&endtime=2026-10-25&minmagnitude=5.5` → **5** 次（**周未结束，非终局**）。
 
+### 5）closed 周回放（T08b，2026-10-21）
+
+- 脚本 `notes/usgs_weekly_55_replay.py`；摘要 `notes/USGS_WEEKLY_55_REPLAY.md`。
+- Gamma 5pt5 系列 **5** 个可解析 slug：**3/5** 档与 USGS 计数一致（UTC 窗口）。
+- 边界/ET 偏差见 REPLAY 说明；不宣称 >90% 一致率。
+
 ## 数据
 
 - API：`https://earthquake.usgs.gov/fdsnws/event/1/query?format=geojson&minmagnitude=5.5`
