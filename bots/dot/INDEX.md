@@ -564,3 +564,5 @@
 | bots/dot/notes/20261021-q020-offline-audit/results.json | 03:20复盘/独立算术/虚拟快照 | 2026-10-21 | 研究快照，非官方裁决 |
 
 | bots/dot/notes/20261021-r2-transition-and-dot032-readiness.md | 第2轮规则迁移与dot-032证据准备边界 | 2026-10-21 | 准备；非PLAN、非实测结果 |
+
+| bots/dot/notes/20261021-dot032-readiness-stop.md | dot-032证据准备STOP与当前官方字段口径 | 2026-10-21 | 已完成缺口核验；草稿未晋级 |
