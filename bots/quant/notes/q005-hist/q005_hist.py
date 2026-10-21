@@ -12,7 +12,9 @@ quant-005 历史可成交价回测：Polymarket Elon Musk / Trump 发帖数分�
     - series 11108  trump-truth-social "Trump Truth Social"  窗口 7d
   一个 event 的 10–12 个档位算 1 个独立结果；event 之间按结算时间重叠不合并。
   只保留至少一个档位已 resolved、且能取到结算 outcomePrices 的事件。
-  事件窗口 = [Gamma endDate − 窗口长度, Gamma endDate)；不采用 startDate（它是建盘时间）。
+  事件窗口 = [本地 noon ET − 2/7 天, 本地 noon ET)；把 Gamma endDate 转成
+  America/New_York 后在本地日历上减 2/7 天，因此跨 DST 的窗口是 47/49h（或 167/169h），
+  不再是固定 48h/168h。不采用 startDate（它是建盘时间）。
 
 【Decision time】
   主口径：窗口已过 50% 的时点 decision = start + 0.5 * duration。
@@ -23,8 +25,8 @@ quant-005 历史可成交价回测：Polymarket Elon Musk / Trump 发帖数分�
   帖子时间戳来自 xtracker keyless：
     https://xtracker.polymarket.com/api/users/elonmusk/posts
     https://xtracker.polymarket.com/api/users/realDonaldTrump/posts
-  历史窗口：与当前事件同长度、结束时间早于 decision、以 12h 为步长、结束时刻对齐
-  当前事件 endDate 的时/分/秒；要求窗口起点不早于该 feed 最早帖。walk-forward：
+  历史窗口：以本地 12h 为步长回溯、结束时刻对齐当前事件 endDate 的本地时/分/秒，
+  起点同样按本地日历减 2/7 天；要求窗口起点不早于该 feed 最早帖。walk-forward：
   只用 decision 之前已经结束的窗口的最终计数，不使用当前窗口结算结果。
   经验条件分布：历史窗口的“前 elapsed_fraction 时长计数” ≤ n_elapsed 者入选，
   并施加硬约束“最终计数 ≥ n_elapsed”（已经观测到 n 条，最终不可能更少）。
@@ -50,19 +52,25 @@ quant-005 历史可成交价回测：Polymarket Elon Musk / Trump 发帖数分�
   未触发的事件按 0 持仓处理（不进主 P&L 样本，但单独报告 all-event 口径）。
 
 【独立性与统计】
-  主 P&L 样本 = 50% 决策点触发买入的事件，每个事件一个结果。
+  canonical P&L 样本 = 冻结口径（仅 Elon 48h 系列）50% 决策点触发买入的事件。
+  Elon 48h 事件按窗口重叠去重：保留一个事件的起点 ≥ 上一个保留事件的终点
+  （相邻窗口 start == end 都保留；用 America/New_York 本地日历边界比较，
+  因此跨 DST 的 47h/49h 窗口不会因绝对 48h 间隔被误删）。
+  pooled（Elon 48h + Elon 7d + Trump 7d、未去重）50% 与 75% 仅作敏感性报告。
   ISO 周 block bootstrap（按 decision 所在 ISO 周分块，周内有放回抽样，
   10000 次，固定 seed=20260520）给均值的 95% 百分位 CI。
 
 【冻结失败标准（entry 原文）】
   逐事件（一个 event 的所有档 = 1 个结果）扣费后买入侧净收益中位数 ≤ 0 → FAIL。
   要求 ≥30 个独立事件结果；触发样本 <30 → INSUFFICIENT。
-  本脚本判据：triggered_events < 30 → INSUFFICIENT；否则 median(net_per_share) ≤ 0 → FAIL；
-  否则 PASS。PASS/FAIL 不看敏感性口径（敏感性只报告）。
+  本脚本判据：冻结口径触发事件 < 30 → INSUFFICIENT；否则 median(net_per_share) ≤ 0
+  （或 hit<0.5 且 mean≤0）→ FAIL；否则 PASS。PASS/FAIL 不看 pooled 敏感性口径。
 
 【数据/缓存/复现】
-  所有下载缓存在 _cache/（已 .gitignore）；重跑优先读缓存，输出不打印运行时刻，
-  仅打印首次抓取的 UTC 日期，因此同一缓存下 stdout 应逐字节一致。
+  所有下载缓存在 _cache/（已 .gitignore）；成交缓存只有完整分页成功才标
+  complete=true，失败/半截下载标 complete=false、本次不用于定价且下次重取；
+  没有 complete 字段的旧缓存一律视为不完整。输出不打印运行时刻，仅打印首次抓取的
+  UTC 日期，因此同一缓存下 stdout 应逐字节一致。
 """
 
 import csv
@@ -74,6 +82,7 @@ import re
 import sys
 import time
 from datetime import datetime, timezone, timedelta
+from zoneinfo import ZoneInfo
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from pathlib import Path
 
@@ -90,10 +99,11 @@ TRADE_CACHE.mkdir(parents=True, exist_ok=True)
 UA = {"User-Agent": "Mozilla/5.0 (quant-005 research; keyless public endpoints)"}
 TIMEOUT = 90
 SERIES = {
-    10816: {"tag": "elon48", "handle": "elonmusk", "hours": 48},
-    10000: {"tag": "elon7d", "handle": "elonmusk", "hours": 168},
-    11108: {"tag": "trump7d", "handle": "realDonaldTrump", "hours": 168},
+    10816: {"tag": "elon48", "handle": "elonmusk", "days": 2},
+    10000: {"tag": "elon7d", "handle": "elonmusk", "days": 7},
+    11108: {"tag": "trump7d", "handle": "realDonaldTrump", "days": 7},
 }
+NY = ZoneInfo("America/New_York")
 STEP = 12 * 3600          # 历史窗口步长 12h
 FRACS = (0.50, 0.75)
 PRICE_LOOKBACK = 6 * 3600 # decision 前 6h
@@ -177,18 +187,29 @@ def _trade_cache_file(cid):
 
 
 def fetch_trades_for_market(cid, need_lo, need_hi):
-    """Cache trades in [need_lo, need_hi]. Paginate newest-first until older than need_lo."""
+    """Fetch trades in [need_lo, need_hi], newest-first.
+
+    A cache entry is reusable only when it is explicitly marked complete=True,
+    has no stored error, and covers the requested bounds. Failed or partially
+    paginated downloads are stored with complete=False and are never reused;
+    they are also NOT returned as prices for the current run (the affected
+    market is excluded instead of being silently priced from missing pages).
+
+    Returns (trades, complete, error).
+    """
     p = _trade_cache_file(cid)
     if p.exists():
         try:
             c = json.loads(p.read_text())
-            if c.get("lo", 1e30) <= need_lo and c.get("hi", -1e30) >= need_hi:
-                return c.get("trades", [])
+            if (c.get("complete") is True and not c.get("error")
+                    and c.get("lo", 1e30) <= need_lo and c.get("hi", -1e30) >= need_hi):
+                return c.get("trades", []), True, None
         except Exception:  # noqa: BLE001
             pass
     got = []
     off = 0
     err = None
+    complete = False
     try:
         while off < 20000:
             d = _get_json("https://data-api.polymarket.com/trades",
@@ -196,6 +217,7 @@ def fetch_trades_for_market(cid, need_lo, need_hi):
             if not isinstance(d, list):
                 raise RuntimeError(f"non-list trades response: {str(d)[:200]}")
             if not d:
+                complete = True
                 break
             for x in d:
                 t = x.get("timestamp")
@@ -204,14 +226,21 @@ def fetch_trades_for_market(cid, need_lo, need_hi):
                 if need_lo <= t <= need_hi:
                     got.append([int(t), x.get("outcome"), float(x.get("price", 0)), float(x.get("size", 0))])
             if min(x["timestamp"] for x in d if x.get("timestamp") is not None) < need_lo:
+                complete = True
                 break
             if len(d) < 500:
+                complete = True
                 break
             off += 500
+        else:
+            err = "pagination hit 20000-offset limit before reaching need_lo"
     except Exception as e:  # noqa: BLE001
         err = str(e)
-    p.write_text(json.dumps({"lo": need_lo, "hi": need_hi, "error": err, "trades": got}))
-    return got
+    p.write_text(json.dumps({"lo": need_lo, "hi": need_hi, "complete": complete,
+                             "error": err, "trades": got}))
+    if not complete:
+        return [], False, err
+    return got, True, None
 
 
 # ---------------------------------------------------------------- bracket parsing
@@ -252,22 +281,34 @@ def iso_week(ts):
 
 
 # ---------------------------------------------------------------- model
-def empirical_model(posts, event_end, dur, frac, n_elapsed, brackets):
-    """Walk-forward windows ending before decision, aligned to event_end, step STEP."""
-    decision = event_end - (1.0 - frac) * dur
-    delta = event_end - decision
-    k = int(math.floor(delta / STEP)) + 1
+def empirical_model(posts, end_local, days, frac, n_elapsed, brackets):
+    """Walk-forward windows ending before decision, aligned to local-noon boundaries.
+
+    Event end is the Gamma endDate converted to America/New_York. Historical
+    window ends are obtained by subtracting 12h steps in *local wall time* and
+    starts by subtracting `days` local calendar days, so a window that spans a
+    DST transition keeps the advertised noon-ET-to-noon-ET boundaries (rather
+    than a fixed 168h/48h elapsed duration).
+    """
+    start_local = end_local - timedelta(days=days)
+    start_ts = start_local.timestamp()
+    end_ts = end_local.timestamp()
+    dur = end_ts - start_ts
+    decision = start_ts + frac * dur
     earliest = posts[0]
     pairs = []
+    k = 1
     while True:
-        he = event_end - k * STEP
+        he_local = end_local - timedelta(seconds=k * STEP)
+        he = he_local.timestamp()
         if he >= decision:
             k += 1
             continue
-        hs = he - dur
+        hs_local = he_local - timedelta(days=days)
+        hs = hs_local.timestamp()
         if hs < earliest:
             break
-        pe = hs + frac * dur
+        pe = hs + frac * (he - hs)
         i0 = int(np.searchsorted(posts, hs, side="left"))
         i1 = int(np.searchsorted(posts, pe, side="left"))
         j1 = int(np.searchsorted(posts, he, side="left"))
@@ -413,17 +454,21 @@ def boot_ci(values_by_week):
     return float(np.percentile(means, 2.5)), float(np.percentile(means, 97.5))
 
 
-def summarize(rows, key_share="net_per_share", key_dollar="net_per_dollar"):
-    vals = [r[key_share] for r in rows if r.get("triggered")]
-    dvals = [r[key_dollar] for r in rows if r.get("triggered")]
-    wins = [1.0 if r.get("win") else 0.0 for r in rows if r.get("triggered")]
+def summarize(rows, trigger_key, share_key, dollar_key, win_key, ts_key):
+    """Summarize an explicitly chosen decision-point field set.
+
+    The 75% sensitivity must not silently reuse the 50% fields, so every field
+    name (trigger flag, returns, win flag, timestamp) is passed in by the caller.
+    """
+    sel = [r for r in rows if r.get(trigger_key)]
+    vals = [r[share_key] for r in sel]
+    dvals = [r[dollar_key] for r in sel]
+    wins = [1.0 if r.get(win_key) else 0.0 for r in sel]
     if not vals:
         return {"n": 0}
     by_week = {}
-    for r in rows:
-        if not r.get("triggered"):
-            continue
-        by_week.setdefault(iso_week(r["decision_ts"]), []).append(r[key_share])
+    for r in sel:
+        by_week.setdefault(iso_week(r[ts_key]), []).append(r[share_key])
     ci_lo, ci_hi = boot_ci(by_week)
     return {
         "n": len(vals),
@@ -438,9 +483,47 @@ def summarize(rows, key_share="net_per_share", key_dollar="net_per_dollar"):
     }
 
 
-def all_event_summary(rows, key):
-    vals = [r.get(key, 0.0) if r.get("triggered") else 0.0 for r in rows]
-    return float(np.median(vals)), float(np.mean(vals)), float(np.mean([1.0 if r.get("win") else 0.0 for r in rows]))
+def all_event_summary(rows, key, trigger_key):
+    vals = [r.get(key, 0.0) if r.get(trigger_key) else 0.0 for r in rows]
+    wins = [1.0 if (r.get(trigger_key) and r.get("win_75" if trigger_key == "triggered_75" else "win")) else 0.0 for r in rows]
+    return float(np.median(vals)), float(np.mean(vals)), float(np.mean(wins))
+
+
+def _local_boundary_ts(r, key):
+    """Return an event window boundary on the America/New_York local calendar.
+
+    Window boundaries are local-noon ET instants (Gamma endDate minus calendar
+    days), so converting the stored UTC instant back to ET makes the
+    local-calendar comparison explicit. Two non-overlapping adjacent windows
+    satisfy start >= previous end even when DST makes them 47h/49h long.
+    """
+    return datetime.fromisoformat(r[key]).astimezone(NY).timestamp()
+
+
+def frozen_scope(rows):
+    """Frozen entry scope: Elon 48h only, deduplicate by actual window overlap.
+
+    Retain an event iff its start is at or after the end of the previously
+    retained event (adjacent windows, start == end, are both retained). This
+    replaces the old absolute >=48h elapsed-gap test, which dropped valid
+    non-overlapping windows across the spring DST transition.
+    """
+    erows = sorted([r for r in rows if r.get("series") == "elon48"],
+                   key=lambda r: _local_boundary_ts(r, "window_end_utc"))
+
+    def dedup(seq):
+        kept, last_end = [], None
+        for r in seq:
+            start = _local_boundary_ts(r, "window_start_utc")
+            if last_end is None or start >= last_end:
+                kept.append(r)
+                last_end = _local_boundary_ts(r, "window_end_utc")
+        return kept
+
+    kept_all = dedup(erows)
+    trig = [r for r in erows if r.get("triggered")]
+    kept_trig = dedup(trig)
+    return erows, kept_all, kept_trig
 
 
 def main():
@@ -451,7 +534,7 @@ def main():
     print("quant-005 历史可成交价回测")
     print(f"数据访问日期(UTC): {access_date}")
     print("Universe: Gamma closed=true series 10816 (Elon 48h), 10000 (Elon 7d), 11108 (Trump 7d)")
-    print(f"Decision: 50% (主), 75% (敏感性); 条件模式={COND_MODE}; 历史窗口步长 {STEP//3600}h; fee rate {FEE_RATE}; ask=trade+{SLIP}; edge buffer {EDGE_BUFFER}")
+    print(f"Decision: 50% (canonical=frozen; pooled=敏感性), 75% (pooled 敏感性); 条件模式={COND_MODE}; 历史窗口步长 {STEP//3600}h; fee rate {FEE_RATE}; ask=trade+{SLIP}; edge buffer {EDGE_BUFFER}")
     print()
 
     # ---- load event metadata + posts
@@ -478,9 +561,12 @@ def main():
     # ---- build per-event work items
     work = []
     for sid, cfg, e in events:
-        dur = cfg["hours"] * 3600
-        end = datetime.fromisoformat(e["endDate"].replace("Z", "+00:00")).timestamp()
-        start = end - dur
+        end_dt = datetime.fromisoformat(e["endDate"].replace("Z", "+00:00"))
+        end_local = end_dt.astimezone(NY)
+        start_local = end_local - timedelta(days=cfg["days"])
+        start = start_local.timestamp()
+        end = end_local.timestamp()
+        dur = end - start
         markets = e.get("markets", [])
         brackets = [parse_bracket(m.get("groupItemTitle")) for m in markets]
         if any(b is None for b in brackets):
@@ -499,8 +585,8 @@ def main():
         if res_idx is None or res_idx == -999 or res_idx < 0:
             continue
         work.append({"sid": sid, "cfg": cfg, "e": e, "dur": dur, "start": start, "end": end,
-                     "markets": markets, "brackets": brackets, "res_idx": res_idx,
-                     "res_yes": res_yes, "handle": cfg["handle"]})
+                     "end_local": end_local, "markets": markets, "brackets": brackets,
+                     "res_idx": res_idx, "res_yes": res_yes, "handle": cfg["handle"]})
 
     # ---- decide which events are model-eligible, then fetch trades for their markets
     eligible = []
@@ -510,19 +596,16 @@ def main():
             continue
         # quick check: at 50% decision, need at least MIN_HIST conditional windows. We cannot
         # know n_elapsed before computing it, so just prefilter by enough total history.
-        decision = w["end"] - (1.0 - FRACS[0]) * w["dur"]
+        decision = w["start"] + FRACS[0] * w["dur"]
         if decision - w["dur"] < p[0]:
             continue
         eligible.append(w)
 
-    need_lo = min(w["end"] - (1.0 - FRACS[0]) * w["dur"] - PRICE_LOOKBACK for w in eligible)
-    need_hi = max(w["end"] - (1.0 - FRACS[1]) * w["dur"] for w in eligible)
-    tier = need_hi
     # per-market cache range uses the event's own decision75 and decision50-6h
     jobs = {}
     for w in eligible:
-        d50 = w["end"] - (1.0 - FRACS[0]) * w["dur"]
-        d75 = w["end"] - (1.0 - FRACS[1]) * w["dur"]
+        d50 = w["start"] + FRACS[0] * w["dur"]
+        d75 = w["start"] + FRACS[1] * w["dur"]
         lo, hi = d50 - PRICE_LOOKBACK, d75
         for m in w["markets"]:
             cid = m["conditionId"]
@@ -532,8 +615,23 @@ def main():
                 a, b = jobs[cid]
                 jobs[cid] = (min(a, lo), max(b, hi))
 
+    # audit old/partial trade caches before fetching: only complete=True entries are reusable
+    cache_total = cache_stale = cache_legacy = 0
+    for f in TRADE_CACHE.glob("*.json"):
+        cache_total += 1
+        try:
+            c = json.loads(f.read_text())
+        except Exception:  # noqa: BLE001
+            cache_stale += 1
+            continue
+        if c.get("complete") is not True or c.get("error"):
+            cache_stale += 1
+            if "complete" not in c:
+                cache_legacy += 1
     print(f"可建模候选事件={len(eligible)}；待取成交的 conditionId={len(jobs)}（并发 8，缓存 _cache/trades）")
+    print(f"  trades 缓存审计: 已有 {cache_total} 个，需重取的不完整/旧格式 {cache_stale} 个（其中 v1 旧格式 {cache_legacy} 个）")
     trades_by_cid = {}
+    incomplete = []
     if jobs:
         done = 0
         with ThreadPoolExecutor(max_workers=8) as ex:
@@ -541,13 +639,19 @@ def main():
             for f in as_completed(futs):
                 cid = futs[f]
                 try:
-                    trades_by_cid[cid] = f.result()
+                    tr, ok, err = f.result()
+                    trades_by_cid[cid] = tr
+                    if not ok:
+                        incomplete.append((cid, err))
                 except Exception as exc:  # noqa: BLE001
                     trades_by_cid[cid] = []
-                    print(f"  WARN trades {cid}: {exc}")
+                    incomplete.append((cid, str(exc)))
                 done += 1
                 if done % 200 == 0:
                     print(f"  trades fetched {done}/{len(jobs)}")
+        print(f"  trades 抓取完整 {len(jobs) - len(incomplete)}/{len(jobs)}；不完整 {len(incomplete)} 个（已从定价中排除，complete=false，下次重取）")
+        for cid, err in incomplete[:5]:
+            print(f"  WARN trades {cid}: {err}")
     print()
 
     # ---- run model / pricing / decisions
@@ -589,9 +693,9 @@ def main():
 
         model = None
         for frac in FRACS:
-            decision = w["end"] - (1.0 - frac) * w["dur"]
+            decision = w["start"] + frac * w["dur"]
             n_elapsed = int(np.searchsorted(p, decision, side="left")) - int(np.searchsorted(p, w["start"], side="left"))
-            m = empirical_model(p, w["end"], w["dur"], frac, n_elapsed, w["brackets"])
+            m = empirical_model(p, w["end_local"], w["cfg"]["days"], frac, n_elapsed, w["brackets"])
             if frac == FRACS[0]:
                 model = m
                 if m is None:
@@ -672,9 +776,9 @@ def main():
         # sensitivity at 75%
         model75 = None
         for frac in FRACS[1:]:
-            decision75 = w["end"] - (1.0 - frac) * w["dur"]
+            decision75 = w["start"] + frac * w["dur"]
             n75 = int(np.searchsorted(p, decision75, side="left")) - int(np.searchsorted(p, w["start"], side="left"))
-            model75 = empirical_model(p, w["end"], w["dur"], frac, n75, w["brackets"])
+            model75 = empirical_model(p, w["end_local"], w["cfg"]["days"], frac, n75, w["brackets"])
         if model75 is not None:
             prices75 = price_event(w["markets"], trades_by_cid, model75["decision"])
             best75 = decide_trade(model75, prices75, w["brackets"])
@@ -698,12 +802,12 @@ def main():
     modeled = [r for r in out_rows if r.get("n_hist_windows") is not None and r.get("skip_reason") != "insufficient_conditional_history"]
     priced = [r for r in out_rows if r.get("priced_brackets") not in ("", 0, None)]
     trig = [r for r in out_rows if r.get("triggered")]
-    s50 = summarize(trig)
-    # sensitivity
-    rows75 = [r for r in out_rows if r.get("triggered_75")]
-    s75 = summarize(rows75)
-    all_med, all_mean, all_hit = all_event_summary(out_rows, "net_per_share")
-    all_med75, all_mean75, all_hit75 = all_event_summary(out_rows, "net_per_share_75")
+    s50 = summarize(trig, "triggered", "net_per_share", "net_per_dollar", "win", "decision_ts")
+    # sensitivity: explicit 75% fields, not the 50% fields
+    s75 = summarize(out_rows, "triggered_75", "net_per_share_75", "net_per_dollar_75",
+                    "win_75", "decision_ts_75")
+    all_med, all_mean, all_hit = all_event_summary(out_rows, "net_per_share", "triggered")
+    all_med75, all_mean75, all_hit75 = all_event_summary(out_rows, "net_per_share_75", "triggered_75")
 
     print("样本漏斗：")
     print(f"  全部 closed 事件={len(work)}；模型可建模={len(modeled)}；有可成交价={len(priced)}；50% 触发={len(trig)}")
@@ -711,7 +815,46 @@ def main():
         print(f"  skip {reason or '(其他)'}: {cnt}")
     print()
 
-    print("主口径（50% 决策点，保守经验分布，fee=0.05，hold-to-resolution）：")
+    # ---- FROZEN entry scope (PR #16): canonical scope, verdict and headline figures
+    erows, kept_all, kept_trig = frozen_scope(out_rows)
+    e_rows = [r for r in out_rows if r.get("series") == "elon48"]
+    s_e = summarize(e_rows, "triggered", "net_per_share", "net_per_dollar", "win", "decision_ts")
+    s_ka = summarize(kept_all, "triggered", "net_per_share", "net_per_dollar", "win", "decision_ts")
+    s_kt = summarize(kept_trig, "triggered", "net_per_share", "net_per_dollar", "win", "decision_ts")
+    if s_ka.get("n", 0) < 30:
+        frozen_verdict = "INSUFFICIENT"
+    elif (s_ka["median_share"] <= 0) or (s_ka["hit"] < 0.5 and s_ka["mean_share"] <= 0):
+        frozen_verdict = "FAIL"
+    else:
+        frozen_verdict = "PASS"
+
+    print("冻结 q005 口径（canonical VERDICT 与头条数字；entry 原文：主样本仅 Elon 48h；")
+    print("  重叠窗口按窗口边界去重；50% 决策点；保守经验分布，fee=0.05，hold-to-resolution）：")
+    if s_ka.get("n", 0) == 0:
+        print("  触发事件=0，无法计算。")
+    else:
+        print(f"  触发事件数 n={s_ka['n']}，覆盖 ISO 周={s_ka['weeks']}")
+        print(f"  每份净收益: median={s_ka['median_share']:.6f}, mean={s_ka['mean_share']:.6f}")
+        print(f"  每 $1 本金净收益: median={s_ka['median_dollar']:.6f}, mean={s_ka['mean_dollar']:.6f}")
+        print(f"  命中率={s_ka['hit']:.4f} ({int(round(s_ka['hit']*s_ka['n']))}/{s_ka['n']})")
+        if s_ka["ci_lo"] is not None:
+            print(f"  ISO 周 block bootstrap 95% CI of mean(每份) = [{s_ka['ci_lo']:.6f}, {s_ka['ci_hi']:.6f}] (B={BOOT_N}, seed={SEED})")
+        else:
+            print("  ISO 周 block bootstrap: 周数不足，未取到")
+    print(f"  去重明细 A（先对全部 Elon48 事件按窗口重叠去重）: 事件={len(kept_all)}, "
+          f"触发 n={s_ka.get('n',0)}, median={s_ka.get('median_share',float('nan')):.6f}, "
+          f"mean={s_ka.get('mean_share',float('nan')):.6f}, hit={s_ka.get('hit',float('nan')):.4f}")
+    print(f"  去重明细 B（先取触发行，再按窗口重叠去重）: n={s_kt.get('n',0)}, "
+          f"median={s_kt.get('median_share',float('nan')):.6f}, mean={s_kt.get('mean_share',float('nan')):.6f}, "
+          f"hit={s_kt.get('hit',float('nan')):.4f}")
+    print(f"  Elon48 事件行={len(e_rows)}；50% 触发（去重前，仅对照）: n={s_e.get('n',0)}, "
+          f"median={s_e.get('median_share',float('nan')):.6f}, mean={s_e.get('mean_share',float('nan')):.6f}, "
+          f"hit={s_e.get('hit',float('nan')):.4f}")
+    print(f"  冻结判据（median≤0，或 hit<0.5 且 mean≤0；n≥30）→ {frozen_verdict}"
+          f"（A 口径 n={s_ka.get('n',0)}）")
+    print()
+
+    print("敏感性 A（pooled：Elon 48h + Elon 7d + Trump 7d，未去重；50% 决策点；非冻结口径）：")
     if s50["n"] == 0:
         print("  触发事件=0，无法计算。")
     else:
@@ -726,7 +869,7 @@ def main():
     print(f"  all-event 口径（未触发=0）: median={all_med:.6f}, mean={all_mean:.6f}, hit={all_hit:.4f}")
     print()
 
-    print("敏感性（75% 决策点，其余口径相同）：")
+    print("敏感性 B（pooled：同上，未去重；75% 决策点；非冻结口径）：")
     if s75["n"] == 0:
         print("  触发事件=0，无法计算。")
     else:
@@ -757,18 +900,17 @@ def main():
     print(f"  可核对={resolver_checked}, 不一致={resolver_mismatch}")
     print()
 
-    # ---- verdict
-    print("判定（冻结标准：逐事件买入侧扣费后净收益中位数 ≤0 → FAIL；需 ≥30 个独立事件结果）：")
-    if s50["n"] < 30:
-        verdict = "INSUFFICIENT"
-        print(f"  INSUFFICIENT — 50% 触发样本 {s50['n']} < 30，不能按冻结标准判 PASS/FAIL。")
-    elif s50["median_share"] <= 0:
-        verdict = "FAIL"
-        print(f"  FAIL — 触发样本 n={s50['n']}，每份净收益中位数 {s50['median_share']:.6f} ≤ 0。")
+    # ---- canonical verdict: frozen q005 scope (Elon 48h, overlap-deduplicated)
+    print("判定（canonical：冻结 q005 口径 — Elon 48h、按窗口重叠去重、50% 决策点；")
+    print("  逐事件买入侧扣费后净收益 median≤0，或 hit<0.5 且 mean≤0 → FAIL；需 ≥30 个独立事件结果）：")
+    if frozen_verdict == "INSUFFICIENT":
+        print(f"  INSUFFICIENT — 冻结口径触发样本 {s_ka.get('n',0)} < 30，不能按冻结标准判 PASS/FAIL。")
+    elif frozen_verdict == "FAIL":
+        print(f"  FAIL — 冻结口径触发样本 n={s_ka['n']}，每份净收益中位数 {s_ka['median_share']:.6f}，"
+              f"hit={s_ka['hit']:.4f}，mean={s_ka['mean_share']:.6f}。")
     else:
-        verdict = "PASS"
-        print(f"  PASS — 触发样本 n={s50['n']}，每份净收益中位数 {s50['median_share']:.6f} > 0。")
-    print(f"  VERDICT={verdict}")
+        print(f"  PASS — 冻结口径触发样本 n={s_ka['n']}，每份净收益中位数 {s_ka['median_share']:.6f}。")
+    print(f"  VERDICT={frozen_verdict}")
     print()
     print(f"输出: {csv_path.name} ({csv_path.stat().st_size} bytes)")
 

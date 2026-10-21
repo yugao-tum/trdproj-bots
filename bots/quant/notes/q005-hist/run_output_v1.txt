@@ -1,0 +1,75 @@
+quant-005 历史可成交价回测
+数据访问日期(UTC): 2026-10-20
+Universe: Gamma closed=true series 10816 (Elon 48h), 10000 (Elon 7d), 11108 (Trump 7d)
+Decision: 50% (主), 75% (敏感性); 条件模式=le_ge; 历史窗口步长 12h; fee rate 0.05; ask=trade+0.01; edge buffer 0.01
+
+Universe 抓取：
+  series 10816 elon48: closed=126, 有已结算档=126, span=2026-01-03..2026-10-19, posts=13683 (2025-10-31..2026-10-20)
+  series 10000 elon7d: closed=187, 有已结算档=187, span=2024-06-07..2026-10-16, posts=13683 (2025-10-31..2026-10-20)
+  series 11108 trump7d: closed=73, 有已结算档=73, span=2026-02-13..2026-10-20, posts=5777 (2026-01-15..2026-10-20)
+
+可建模候选事件=297；待取成交的 conditionId=4852（并发 8，缓存 _cache/trades）
+  trades fetched 200/4852
+  trades fetched 400/4852
+  trades fetched 600/4852
+  trades fetched 800/4852
+  trades fetched 1000/4852
+  trades fetched 1200/4852
+  trades fetched 1400/4852
+  trades fetched 1600/4852
+  trades fetched 1800/4852
+  trades fetched 2000/4852
+  trades fetched 2200/4852
+  trades fetched 2400/4852
+  trades fetched 2600/4852
+  trades fetched 2800/4852
+  trades fetched 3000/4852
+  trades fetched 3200/4852
+  trades fetched 3400/4852
+  trades fetched 3600/4852
+  trades fetched 3800/4852
+  trades fetched 4000/4852
+  trades fetched 4200/4852
+  trades fetched 4400/4852
+  trades fetched 4600/4852
+  trades fetched 4800/4852
+
+样本漏斗：
+  全部 closed 事件=385；模型可建模=257；有可成交价=253；50% 触发=252
+  skip no_post_history_before_window: 87
+  skip insufficient_conditional_history: 39
+  skip no_executable_price_in_6h: 4
+  skip tracker_feed_gap: 2
+  skip no_positive_edge: 1
+
+主口径（50% 决策点，保守经验分布，fee=0.05，hold-to-resolution）：
+  触发事件数 n=252，覆盖 ISO 周=47
+  每份净收益: median=-0.034596, mean=-0.012555
+  每 $1 本金净收益: median=-1.047500, mean=-0.454007
+  命中率=0.0992 (25/252)
+  ISO 周 block bootstrap 95% CI of mean(每份) = [-0.048273, 0.026127] (B=10000, seed=20260520)
+  all-event 口径（未触发=0）: median=-0.014690, mean=-0.008218, hit=0.0649
+
+敏感性（75% 决策点，其余口径相同）：
+  触发事件数 n=197，覆盖 ISO 周=41
+  每份净收益: median=-0.036922, mean=-0.025202
+  每 $1 本金净收益: median=-1.047067, mean=-0.451793
+  命中率=0.0914 (18/197)
+  ISO 周 block bootstrap 95% CI of mean(每份) = [-0.067587, 0.020305]
+  all-event 口径: median=0.000000, mean=0.009362, hit=0.0649
+
+模型 vs 市场 对数损失（priced events，按有价档位重新归一化）：
+  n=225
+  保守经验模型: 4.230090
+  原始经验模型: 2.269900
+  NB 平滑检查:  1.802055
+  市场归一化价: 1.473311
+
+结算源一致性（tracker 最终计数落档 vs Gamma resolved 档）：
+  可核对=257, 不一致=20
+
+判定（冻结标准：逐事件买入侧扣费后净收益中位数 ≤0 → FAIL；需 ≥30 个独立事件结果）：
+  FAIL — 触发样本 n=252，每份净收益中位数 -0.034596 ≤ 0。
+  VERDICT=FAIL
+
+输出: events.csv (137274 bytes)

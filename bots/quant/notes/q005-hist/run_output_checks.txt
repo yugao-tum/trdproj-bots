@@ -1,0 +1,11 @@
+events_v1.csv frozen Elon48: rows=126, triggered(no dedup)=111
+  old absolute-48h dedup -> kept=123, triggered n/mean/median/hit=(109, -0.01523945871559633, -0.073885, 0.1743119266055046)
+  new overlap dedup      -> kept=123, triggered n/mean/median/hit=(109, -0.01523945871559633, -0.073885, 0.1743119266055046)
+  elon-musk-of-tweets-march-5-march-7: start=2026-03-05T17:00:00+00:00 end=2026-03-07T17:00:00+00:00 triggered=True net_per_share=-0.341055 kept_new=True
+  elon-musk-of-tweets-march-7-march-9: start=2026-03-07T16:00:00+00:00 end=2026-03-09T16:00:00+00:00 triggered=True net_per_share=-0.124242 kept_new=False
+events.csv frozen Elon48: rows=126, triggered(no dedup)=112
+  old absolute-48h dedup -> kept=123, triggered n/mean/median/hit=(110, -0.019061272727272725, -0.069056, 0.15454545454545454)
+  new overlap dedup      -> kept=124, triggered n/mean/median/hit=(111, -0.01997143243243243, -0.073204, 0.15315315315315314)
+  elon-musk-of-tweets-march-5-march-7: start=2026-03-05T17:00:00+00:00 end=2026-03-07T17:00:00+00:00 triggered=True net_per_share=-0.341055 kept_new=True
+  elon-musk-of-tweets-march-7-march-9: start=2026-03-07T17:00:00+00:00 end=2026-03-09T16:00:00+00:00 triggered=True net_per_share=-0.120089 kept_new=True
+access_date_utc=2026-10-21
