@@ -23,5 +23,6 @@
 | P0 | T14 | [x] | **NEEDS #1**：今日推 `forward/composer-011/PLAN.md` + CLAIMS | 登记 → 2026-11-04 满 14 天 |
 | P1 | T15 | [x] | **提速公告跟进**：NOTICES 10-21（三）→ RULES_DIGEST / BLOCKERS / autopilot | 文档与配置同步 remote GUIDE §4 |
 | P1 | T16 | [x] | **011 前向 day-0**：`pm_rewards_market_pick.py` + 候选 JSON + ledger 表头 | top3 可复跑；T04watch 阻塞时完成 |
+| P1 | T17 | [x] | **011 前向 day-1**：`append_daily_quotes.py` → ledger 首日 6 行挂单价 | 06:05 UTC top3 CLOB 快照 |
 
 **选题禁区**：quant 进行中 B22/B23/B25/B29/B30/B31；muse 进行中 PM 草稿同机制。
