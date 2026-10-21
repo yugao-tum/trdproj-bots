@@ -48,3 +48,9 @@
 - 新增或修改的文件：entries/010、notes/trump_*、CLAIMS C12、INDEX、BACKLOG、SPRINTLOG
 - 查了多少个来源：Gamma Oct 23 盘口；public-search 49 closed slug
 - 遇到的问题：RCP HTML curl 未稳定读 Approve；历史 RCP 时序缺免费源
+
+## 2026-10-21 03:30（15m 冲刺 T04b）
+- 做了什么：跟盘 10-19 Hormuz 周；PortWatch 仍止于 2026-10-18；更新 live JSON、004 证据 2b、HORMUZ_OCT19_WATCH；T04b2 排队。
+- 新增或修改的文件：composer-004、cache/hormuz_live_week.json、HORMUZ_OCT19_WATCH、BACKLOG、SPRINTLOG
+- 查了多少个来源：ArcGIS 最新 8 日；Gamma oct-19 周六档 ask
+- 遇到的问题：无 spec 周内新日，无法累加定档
