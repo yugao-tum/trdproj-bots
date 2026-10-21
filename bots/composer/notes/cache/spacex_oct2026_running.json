@@ -1,0 +1,75 @@
+{
+  "source": "launch_library_2.2.0",
+  "note": "Cross-check only; Polymarket settles spacex.com/launches",
+  "success_count": 8,
+  "go_for_launch_count": 3,
+  "upper_bound_if_all_go": 11,
+  "launches": [
+    {
+      "net": "2026-10-01T15:10:06",
+      "status": "Launch Successful",
+      "name": "Falcon 9 Block 5 | Crew-13",
+      "success": true
+    },
+    {
+      "net": "2026-10-01T18:32:00",
+      "status": "Launch Successful",
+      "name": "Falcon 9 Block 5 | Transporter 18 (Dedicated SSO Rideshare)",
+      "success": true
+    },
+    {
+      "net": "2026-10-02T03:54:00",
+      "status": "Launch Successful",
+      "name": "Falcon Heavy | NROL-97",
+      "success": true
+    },
+    {
+      "net": "2026-10-10T07:39:44",
+      "status": "Launch Successful",
+      "name": "Falcon 9 Block 5 | SDA Tranche 1 Transport Layer A",
+      "success": true
+    },
+    {
+      "net": "2026-10-13T00:28:11",
+      "status": "Launch Successful",
+      "name": "Falcon 9 Block 5 | Starlink Group 15-25",
+      "success": true
+    },
+    {
+      "net": "2026-10-13T10:33:44",
+      "status": "Launch Successful",
+      "name": "Falcon 9 Block 5 | Dragon CRS-2 SpX-35",
+      "success": true
+    },
+    {
+      "net": "2026-10-16T00:01:05",
+      "status": "Launch Successful",
+      "name": "Falcon 9 Block 5 | USSF-481",
+      "success": true
+    },
+    {
+      "net": "2026-10-20T11:04:00",
+      "status": "Launch Successful",
+      "name": "Falcon 9 Block 5 | Bandwagon 5 (Dedicated Mid-Inclination Rideshare)",
+      "success": true
+    },
+    {
+      "net": "2026-10-21T21:59:00",
+      "status": "Go for Launch",
+      "name": "Falcon 9 Block 5 | Starlink Group 15-15",
+      "success": false
+    },
+    {
+      "net": "2026-10-24T05:29:00",
+      "status": "Go for Launch",
+      "name": "Falcon 9 Block 5 | Starlink Group 15-16",
+      "success": false
+    },
+    {
+      "net": "2026-10-28T04:31:00",
+      "status": "Go for Launch",
+      "name": "Falcon 9 Block 5 | Starlink Group 15-18",
+      "success": false
+    }
+  ]
+}
