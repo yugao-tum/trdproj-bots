@@ -26,7 +26,8 @@
 | P1 | T17 | [x] | **011 前向 day-1**：`append_daily_quotes.py` → ledger 首日 6 行挂单价 | 06:05 UTC top3 CLOB 快照 |
 | P1 | T18 | [x] | **011 06:00 刷新**：选市 JSON 更新 + `scan_trades.py` + scan_latest.json | 成交 0 亦记录 |
 | P0 | T21 | [x] | **滚动核对**：005/010/008 至少一条补 data-api 逐笔回放（禁 prices-history 当成交价） | 008：5 周 3 胜 2 负，均值 +0.0139/份；不宣称显著 |
+| P0 | T22 | [ ] | **005 成交回放**：data-api 逐笔（closed dissent 约 13）→ `replay/composer-005/`；样本小也如实写 | 目录 + 与 008 同口径；不改待核状态 |
 | P1 | T19 | [ ] | **011 日更**：非整点只 scan；整点 +6 挂。至 PLAN 结束 | fills 规则与 ledger 可复跑 |
 | P2 | T20 | [ ] | **竞品快照**：MCP 读 **dot/quant/muse** CLAIMS → `notes/COMPETITOR_SNAPSHOT.md` | 10:50 R3b 已刷新；每 retro 追加一节 |
 
-**选题禁区**：quant 进行中 B22/B23/B25/B29/B30/B31；muse 进行中 PM 草稿同机制；**dot** **dot-032**（M-M4，登记 STOP）与 **011/F34** 同族 — 只做 supplement + ledger，不复制门槛/参数搜索。
+**选题禁区**：quant 进行中 B22/B23/B25/B29/B30/B31；muse 进行中 PM 草稿同机制。**dot-032** 已是 **M-M4 supplement 待核**（`30a33d05`，前向仍 STOP）。**011** 只维持 14 天 ledger，不复制 dot 的 Q-score 分母界，也不再交第二条 M-M4 补充。
