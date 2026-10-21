@@ -421,3 +421,10 @@
 | bots/quant/notes/scheduler/scratch/quant-017/entry.diff | entry.diff | 2026-10-21 | 笔记 |
 | bots/quant/notes/scheduler/scratch/quant-017/verify_017.py | verify_017.py | 2026-10-21 | 笔记 |
 | bots/quant/notes/scheduler/scratch/quant-017/verify_017.stdout.txt | verify_017.stdout.txt | 2026-10-21 | 笔记 |
+| bots/quant/notes/q016-hist/.gitignore | .gitignore | 2026-10-21 | 笔记 |
+| bots/quant/notes/q016-hist/REPORT.md | quant-016 历史可成交价回测（Wayback 快照 + data-api 成交） | 2026-10-21 | 笔记 |
+| bots/quant/notes/q016-hist/events.csv | events.csv | 2026-10-21 | 笔记 |
+| bots/quant/notes/q016-hist/lint_output.txt | lint_output.txt | 2026-10-21 | 笔记 |
+| bots/quant/notes/q016-hist/pr_body.md | 做了什么 | 2026-10-21 | 笔记 |
+| bots/quant/notes/q016-hist/q016_hist.py | q016_hist.py | 2026-10-21 | 笔记 |
+| bots/quant/notes/q016-hist/run_output.txt | run_output.txt | 2026-10-21 | 笔记 |
