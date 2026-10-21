@@ -1,0 +1,5 @@
+august-2026-temperature-increase-c-20260728155540489	HTTP 200	volume=15901.867726	openInterest=6722.919473
+october-2026-temperature-increase-c-20260928t160000000z	HTTP 200	volume=2522.6361540000003	openInterest=1660.558653
+january-2025-temperature-increase-c	HTTP 200	volume=4925571.471499	openInterest=0
+september-2025-temperature-increase-c	HTTP 200	volume=2415315.783064	openInterest=0
+GISTEMP header: sources:  GHCN-v4 1880-09/2026 + SST: ERSST v5 1880-09/2026

@@ -13,14 +13,14 @@ return_type: direction
 instruments: Polymarket「<Month> <YYYY> Temperature Increase (ºC)」月距平阶梯（通常 6 档、少数 5 档；档宽 0.04–0.07°C 随月变化，negRisk）
 venues: Polymarket
 data: Copernicus Climate Pulse 全球日均 2m 气温 CSV（免费免密钥，1940-01-01 起，最新 2026-10-18）+ NASA GISTEMP v4 LOTI 月表（免费免密钥，1880-01 起，最新 2026-09）；Polymarket Gamma/CLOB（免费免密钥；CLOB prices-history 只有 2 个事件非空，其中已关闭 1 个）+ Polymarket data-api 逐笔成交（免费免密钥，已关闭市场可读，覆盖 29 个已关闭月）；GISTEMP 首发布用 Wayback Machine 存档做代理（覆盖 30/33 个月），并用 29 个市场结算档反推首发布档
-test_2w: 独立结果按事件（每月 1 个，同月 lower/higher-strikes 变体合并）计；历史 29 个已关闭月已回测，模型 log loss 1.5263 vs 市场 0.7913（23/29 市场更好），按 400 USDT/月仓位 29 个月 −7,049 USDT → 已触发失败标准；两周最多再添 2 个新结果，凑不到 30
+test_2w: 独立结果按事件（每月 1 个，同月 lower/higher-strikes 变体合并）计；历史 29 个已关闭月已回测，模型 log loss 1.5263 vs 市场 0.7913（23/29 市场更好），OOS 2025-10..2026-09 为 1.7062 vs 0.5931（11/12 市场更好），按 400 USDT/月仓位 29 个月 −7,049 USDT、OOS 12 个月 −4,654 USDT → 已触发失败标准；两周最多再添 2 个新结果，凑不到 30
 status: 待核
 confidence: 中
 ---
 
-> **2026-10-20 改为待核**：占用 quant-006 降为草稿后空出的第 1 轮名额。门槛自查不变：2、4 不确定，5、6 不满足；按 GUIDE 第 2 节本条预期结局是**待选区**，提交理由是 321 个月走前校准（log loss 1.3638 vs 均匀 2.0794）与可复核的结算规则证据，不是收益证明。正文中“`status` 只给 `草稿`”的说法写于改状态之前，结论（应进待选区）不变。
+> **2026-10-20 改为待核**：占用 quant-006 降为草稿后空出的第 1 轮名额。门槛自查以文末 2026-10-21 版为准（4 已补查为满足；2 不确定，5、6 不满足）；按 GUIDE 第 2 节本条预期结局是**待选区**，提交理由是 321 个月走前校准（log loss 1.3638 vs 均匀 2.0794）与可复核的结算规则证据，不是收益证明。正文中“`status` 只给 `草稿`”的说法写于改状态之前，结论（应进待选区）不变。
 
-> **2026-10-21 加固（H-quant-015）**：新增 data-api 逐笔成交的 **29 个已关闭月可成交价回测**（脚本、stdout、逐月/逐笔 CSV 见 `bots/quant/notes/scheduler/scratch/H-quant-015/`）。结果**负面**：同一走前模型对市场的 log loss 为 **1.5263 vs 0.7913**（市场在 **23/29** 个月更好，符号检验 **p=0.0023**）；按条目的 200 USDT/档、400 USDT/月仓位，29 个月合计 **−7,049 USDT**（月均 **−243**，仅 **5/29** 个月为正，bootstrap 95% CI **−352..−118**）。因此本条**建议降为草稿/待选区**，不是可交易 edge。`status` 与 `date` 按队列要求未改。此前“没有价格回测”的结论已被本轮推翻；详见证据 9。
+> **2026-10-21 加固（H-quant-015）**：新增 data-api 逐笔成交的 **29 个已关闭月可成交价回测**（脚本、stdout、逐月/逐笔 CSV 见 `bots/quant/notes/scheduler/scratch/H-quant-015/`）。结果**负面**：同一走前模型对市场的 log loss 为 **1.5263 vs 0.7913**（市场在 **23/29** 个月更好，符号检验 **p=0.0023**）；按条目的 200 USDT/档、400 USDT/月仓位，29 个月合计 **−7,049 USDT**（月均 **−243**，仅 **5/29** 个月为正，bootstrap 95% CI **−352..−118**）。**第二遍（同轮）另做时间外样本拆分**：2025-10..2026-09 的 12 个 held-out 月，模型 **1.7062** vs 市场 **0.5931**，市场 **11/12** 更好（p=0.0063），12 个月合计 **−4,654 USDT**、**0/12** 月为正；并重验全部引用出处（`verify_sources_v2.out`），修掉两处引文与原文的格式出入。因此本条**建议降为草稿/待选区**（若主审按 §3.1「扣成本后不够」严格判，退回也成立），不是可交易 edge。`status` 与 `date` 按队列要求未改。此前“没有价格回测”的结论已被本轮推翻；详见证据 9。
 
 整理说明：本版把原稿的「样本内校准」整段替换为真正的走前检验（walk-forward）：目标期为 2000-01 至 2026-09，共 321 个月；每个目标月只用该月之前的数据估 ERA5→GISTEMP 映射。预测、概率、命中率、log loss、PIT、覆盖率都由本地脚本重算，公式和完整输出见 `bots/quant/notes/scheduler/scratch/quant-015/walkforward.out`（复用已合并记录）。价格侧：CLOB `prices-history` 仍然只有 2 个事件非空（已关闭 1 个），但 data-api 逐笔成交可以还原 **29 个已关闭月**的成交价；本轮据此补做了 29 个月的价格回测（证据 9）。结论是**市场更准、按条目仓位扣费后亏损**，不是收益证明。
 
@@ -136,7 +136,7 @@ NASA 没有公开的「首发布月表归档」；我改用 Wayback Machine 的 
 
 - `public-search?q=temperature increase&limit_per_type=100&events_status=all`（2026-10-21 抓取 HTTP 200，约 829 KB；响应字节数会小幅变化）返回 **33 个事件**：**32 个 closed、1 个 open**，共 **191 个 YES token**。
 - 按**标题里的月份**（不是 slug；`july-2025-temperature-increase-c-394` 的实际标题是 **August 2025**）归并：**30 个不同日历月（2024-04 … 2026-10，缺 2024-07）**；其中已关闭的 **29 个月**。变体/重复：2025-04 有 main + lower-ranges，2025-10 有 main + lower-strikes，2026-08 有 main + higher-strikes；2025-07 只有一个事件，2025-08 是 slug 带 `july` 的那个。按 GUIDE 第 2 节第 6 条，同月同一结算源只算 **1 个独立结果**。
-- **CLOB `prices-history` 仍然很窄**：对 191 个 YES token 逐个查 `https://clob.polymarket.com/prices-history?market=<token>&interval=max&fidelity=60`：**只有 2 个事件返回非空 history** —— `september-2026-temperature-increase-c`（6/6 档，**444–448 点**）和 `october-2026-temperature-increase-c-20260928t160000000z`（6/6 档，**475–481 点**，未关闭）。其余 **31 个事件的所有 token 全部返回 `history=[]`**。点数和首点是时变的：2026-10-20 的 454–458 点/`2026-09-20T16:00Z` 到 2026-10-21 已变成 448 点/`2026-09-21T02:00Z`。
+- **CLOB `prices-history` 仍然很窄**：对 191 个 YES token 逐个查 `https://clob.polymarket.com/prices-history?market=<token>&interval=max&fidelity=60`（`check_clob.py`，2026-10-21 重跑）：**只有 2 个事件返回非空 history** —— `september-2026-temperature-increase-c`（6/6 档，**441–445 点**）和 `october-2026-temperature-increase-c-20260928t160000000z`（6/6 档，**478–484 点**，未关闭）。其余 **31 个事件的所有 token 全部返回 `history=[]`**。点数和首点是时变的：同一天重跑已从 2026-10-20 的 454–458 点/`2026-09-20T16:00Z` 变成 2026-10-21 的 445 点/`2026-09-21T05:00Z`；数字只作当次快照。
 - **data-api 逐笔成交补上了价格侧**：`https://data-api.polymarket.com/trades?market=<conditionId>&start=...&end=...&limit=500&offset=N` 对已关闭市场可读；29 个已关闭月、每个 4–6 档都能取到决策时点之前的成交。用“最后一笔 ask 侧成交 + 1¢”做可成交价代理，29 个月全部有价格覆盖。这是**成交打印**，不是完整订单簿；且含少量同钱包对倒的异常打印（例：2026-09 `<1.30` 档同一钱包 0xF769… 在 1 小时内 0.707 买、0.015 卖），所以证据 9 同时给了去掉同钱包往返的敏感性。
 - 因此「已关闭且有价格」不再只有 1 个：**CLOB 中间价只有 1 个，data-api 成交价有 29 个**。但 29 仍差 1 个到 GUIDE 的 30 个历史独立结果；第 30 个月（2026-10）目前是 open，只能前向记录。
 - 唯一同时有 CLOB 中间价的已关闭事件（2026-09）n=1 对照：在 **2026-10-05 00:00Z** 取 6 档最近中间价并归一化，模型给结算档 0.3301，市场给 0.6880；实际结算在该档，**模型 log loss 1.1083，市场 0.3740**。到 **2026-10-09 16:00Z**，市场该档 0.9050（归一化 0.9972），模型仍是 0.3301。方向和 29 个月回测一致：**市场已经消化了 ERA5**。
@@ -146,19 +146,20 @@ NASA 没有公开的「首发布月表归档」；我改用 Wayback Machine 的 
 
 - 2024-04 至 2026-10 共 31 个日历月，**30 个有事件（缺 2024-07）**、33 个事件，平均约 **1.06 个事件/月**；按独立结果合并后仍是**每月 1 个**。已关闭的是 2024-04..2026-09 的 **29 个月**。
 - 所以本条的独立结果上限是 **12 个/年**，两周最多 2 个；本轮把 29 个历史月全部用完，仍差 1 个到 GUIDE 的 30 个门槛，第 30 个只能等 2026-10 结算后前向记录。
+- **第 30 个历史月确实不存在，不是没找**：除 `public-search` 的 33 个事件外，又用 `global temperature`、`temperature`、`climate`、`2023/2022 temperature`、`july 2024 temperature` 等 11 个查询扫过，并直接按 slug 猜测 `july-2024-temperature-increase-c`、`june-2023-…`、`december-2023-…`、`january-2024-…`、`march-2024-…`，Gamma 均返回空/无该月模板。2021–2023 只有 “hottest on record” 二元市场，不是同一 0.05°C 阶梯机制，不能算独立结果。
 
 ### 9）历史可成交价格回测：29 个已关闭月（本轮新做，负面）
 
 **方法（先写死，再看结果）**
 
 - **决策时点**：目标月次月 5 日 00:00 UTC。例：2026-09 在 2026-10-05 00:00Z 决策；此时 ERA5 整月已齐，GISTEMP 尚未发布。
-- **价格**：data-api 逐笔成交。优先取决策前最后一笔 YES `BUY`；没有则取 NO `BUY` 的补价（1−p）；再没有才用 YES/NO `SELL`（bid + 2¢）。买价 = 该打印 + 1¢ 半价差。不做 maker 假设。
+- **价格**：data-api 逐笔成交。优先取决策前最后一笔 YES `BUY`；没有则取 NO `BUY` 的补价（1−p）；再没有才用 YES/NO `SELL`（bid + 2¢）。买价 = 该打印 + 1¢ 半价差。不做 maker 假设。主规则**不限制打印年龄**（中位 5.0h、最大 131h）；9a 另给 ≤24h/≤6h/≤2h 的严格敏感性。
 - **模型**：与证据 3 完全相同的 rolling-120 走前模型；每个目标月只用之前 120 个月估 a、b、σ，不重新拟合、不调参。
 - **结算**：Gamma `outcomePrices`，即市场自己的首发布结算档；**不用现行 GISTEMP 修订值**。这样结算侧没有前视。
 - **费用**：`0.05 × ask × (1−ask)`/份（天气类 5%，Gamma `feeSchedule.rate=0.05`），不吃 maker 返佣。
 - **触发**：沿用规则 4，`p_model − ask > fee + 1¢ + 2¢`。
 - **仓位**：逐笔先按 1 份记，报每份净额；再按条目的真实仓位（每月 400 USDT、单档 ≤200、触发档等权，最多 6 档）折算月度 P&L。
-- **独立结果**：一个日历月 1 个，同月 main/lower-ranges/higher-strikes 变体不重复计数；29 个已关闭月 = 29 个独立结果。
+- **独立结果**：一个日历月 1 个，同月 main/lower-ranges/higher-strikes 变体不重复计数；29 个已关闭月 = 29 个独立结果。同月有多个变体时，回测取**档数最多、成交最多**的那一个事件（例如 2026-08 取 higher-strikes 而不是只有 5 笔成交的 main），其余变体只用来核对结算档。
 
 **主结果（`backtest_015.out`、`primary_months.csv`、`primary_trades.csv`）**
 
@@ -180,7 +181,35 @@ NASA 没有公开的「首发布月表归档」；我改用 Wayback Machine 的 
 - **正的头条数字是假象**：每份等权时合计 +0.2372，但中位数 −0.0256，且 74 笔里只有 6 笔命中；把最大 3 笔盈利去掉就变成 −2.3028/份。按条目的固定 USDT 仓位，低价长尾票会买到更多份数，亏损被放大，29 个月合计 −7,049 USDT。
 - **敏感性都不救**：决策推迟到次月 7 日，市场 log loss 降到 0.4296（市场 27/29 更好），交易净额 −2.7897/份（−76.7%）；推迟到 12 日，市场 0.1578（29/29 更好），净额 −2.2114/份（−104.7%）。零手续费仍为 **−6,534.93 USDT**；去掉同钱包往返异常打印后市场 log loss 0.7843、P&L 不变。方向一致：**越晚市场越准，策略越亏**。
 - **数据质量限制（照写）**：data-api 是成交打印，不是订单簿；同钱包对倒会打出远离中间价的异常价（2026-09 `<1.30` 档同一钱包 1 小时内 0.707 买、0.015 卖），所以主结果另给了去往返敏感性。对唯一同时有 CLOB 的 2026-09，data-api 代理归一化结算档概率 0.5211，CLOB 中间价 0.6880，差 0.1669；但两者都远高于模型 0.3301，结论不变。成交打印也可能滞后（74 笔触发的中位年龄 5.0h、最大 131h），1¢ 半价差是保守假设，真实盘口可能更宽。
-- **结论**：这不是“样本不足、无法判断”。29 个独立月、价格覆盖完整，**市场在统计上显著优于模型，按条目仓位扣费后亏损**。即使模型对档位的点预测有 37.9% 命中（高于 1/6），也不足以覆盖市场已经消化的信息和长尾票的仓位放大。**建议把本条降为草稿/待选区，不应按“可交易 edge”继续推进。**
+- **结论**：这不是“样本不足、无法判断”。29 个独立月、价格覆盖完整，**市场在统计上显著优于模型，按条目仓位扣费后亏损**。即使模型对档位的点预测有 37.9% 命中（高于 1/6），也不足以覆盖市场已经消化的信息和长尾票的仓位放大。**建议把本条降为草稿/待选区（严格按 §3.1「扣成本后不够」也可退回），不应按“可交易 edge”继续推进。**
+
+**9a）时间外样本（OOS）拆分与更严格的可成交价（本轮第二遍，`oos_strict_015.py` / `.out`）**
+
+模型从未用市场价拟合，所以 29 个月都可算“模型外样本”；但为了排除“刚好这一段有效”，这里再按时间切开，并把成交价限制在决策前更近的打印上。
+
+| 样本 / 价格规则 | 月数 | 模型 LL | 市场 LL | 市场更好 | 符号检验 p | 交易/命中 | 每份净额 | 400 USDT/月合计 | 正收益月 | bootstrap 95% CI（月均） |
+|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|
+| 全部 2024-04..2026-09，主规则 | 29 | 1.5263 | 0.7913 | 23/29 | 0.0023 | 74 / 6 | +0.2372（+4.28%） | −7,049 | 5/29 | −352..−118 |
+| 前段 2024-04..2025-09 | 17 | 1.3993 | 0.9312 | 12/17 | 0.1435 | 40 / 5 | +1.2605（+34.99%） | −2,395 | 5/17 | −319..+63 |
+| **held-out 2025-10..2026-09** | **12** | **1.7062** | **0.5931** | **11/12** | **0.0063** | **34 / 1** | **−1.0233（−52.76%）** | **−4,654** | **0/12** | **−419..−326** |
+| 全部 29 月，只取决策前 ≤24h 的打印 | 29 | 1.5263 | 0.7913 | 23/29 | 0.0023 | 64 / 6 | +0.9596（+19.80%） | −5,794 | 5/29 | −312..−75 |
+| 全部 29 月，只取 ≤6h | 29 | 1.5263 | 0.7913 | 23/29 | 0.0023 | 44 / 6 | +2.1921（+59.80%） | −2,561 | 6/29 | −202..+40 |
+| 全部 29 月，只取 ≤2h（事后窗口） | 29 | 1.5263 | 0.7913 | 23/29 | 0.0023 | 24 / 5 | +2.8690（+140.33%） | +428 | 5/29 | −98..+149 |
+| 全部 29 月，≤24h 且半价差 2¢ | 29 | 1.5263 | 0.7913 | 23/29 | 0.0023 | 62 / 6 | +0.3861（+7.15%） | −5,507 | 5/29 | −299..−67 |
+| 全部 29 月，≤24h 且半价差 3¢ | 29 | 1.5263 | 0.7913 | 23/29 | 0.0023 | 58 / 6 | +0.0765（+1.34%） | −5,636 | 6/29 | −299..−77 |
+
+- **OOS 是负的，而且更干净**：held-out 的 12 个月里市场 11/12 更准（p=0.0063），模型 log loss 1.7062 比全样本 1.5263 还差；按条目仓位 **12 个月亏 4,654 USDT，0/12 月为正**。这不是“样本内调参”的结果，模型参数每月只用过去 120 个月重估。
+- **前段与后段方向不同**：2024-04..2025-09 每份净额 +1.2605，但按固定 400 USDT/月仍是 −2,395（长尾仓位放大）；后段则每份和固定仓位都亏。**时间上不稳定**，不能拿前段的正每份均值当 edge。
+- **越严格越不救**：≤24h 和 ≤6h 仍是负的；只有事后挑的 **≤2h** 窗口转正（+428 USDT），但它只有 24 笔、5 个盈利月、CI **−98..+149 含 0**，是事后选择，不能当证据。半价差从 1¢ 加到 2¢/3¢，固定仓位亏损扩大到 −5,507/−5,636。
+- **无前视复核**：用原始 ERA5/GISTEMP CSV 重算 29 个走前 `pred`，与 `primary_months.csv` 的最大绝对差 **4.97e-07**（浮点误差级），说明回测没有把目标月或未来数据混进参数。
+
+**9b）出处逐条重验（`verify_sources_v2.py` / `.out`，2026-10-21）**
+
+- 把正文和出处里出现的 URL 逐条重新打开：Gamma Sept/Aug/higher-strikes、public-search、5 页 weather tag、ERA5 CSV、Pulse status、GISTEMP 月表/updates、Wayback CDX/快照、CLOB 单 token、data-api 样本，全部 HTTP 200；Wayback 第一次 SSL EOF，重试后 200。
+- **改了两处引文格式，不改结论**：(a) ERA5 表头原文每行以 `#` 开头且句子中间有换行，之前引用少了 `Description:`；现改为“去 `#` 并合并换行”后引用。(b) GISTEMP updates 的 `middle of every month` 在 HTML 里是 `<a>` 链接文字，直接对原始 HTML 搜会失败；现明确标注“去标签后的渲染文本”。
+- 价格覆盖复核：`primary_months.csv` 29 行全部有 `market_ll`（29/29），最少 1 笔触发、合计 74 笔；32 个已关闭事件文件中 `august-2026-…-20260728155540489` 只有 5 笔成交（未选为主事件，主事件用 higher-strikes），其余月份主事件都是 4–6 档有成交。
+- 成交额与 GISTEMP 表头也重取（`verify_volumes.py/.out`）：2026-08 volume **15,901.867726**、2026-10 **2,522.636154**、2025-01 **4,925,571.471499**、2025-09 **2,415,315.783064**，与正文四舍五入后的数字一致；GISTEMP 表头 `sources:  GHCN-v4 1880-09/2026 + SST: ERSST v5 1880-09/2026` 与引用一致。
+- 独立结果仍是 **29 个**：2024-07 没有月温阶梯事件，2023 及更早只有 “hottest on record” 二元市场；`public-search` 与 11 个补充查询、以及直接 slug 猜测都没有第 30 个月。**这道门槛不能靠再找数据绕过，只能等 2026-10 前向结算。**
 
 **逐月明细**
 
@@ -217,13 +246,13 @@ NASA 没有公开的「首发布月表归档」；我改用 Wayback Machine 的 
 | 2026-09 | 1.3861 | 1.35–1.39ºC | 1.38 | 1.1083 | 0.6259 | 3 | -0.0954 |
 ## 数据
 
-- **Copernicus Climate Pulse，全球日均 2m 气温 CSV（免费、免密钥、无需注册）**：`https://sites.ecmwf.int/data/climatepulse/data/series/era5_daily_series_2t_global.csv`。文件头注释（去掉行首 `#` 后的原文）：「This file contains daily global mean near-surface (2m) air temperature data from ERA5 from 1940 to 2026 as well as daily temperature anomalies relative to the 1991-2020 reference period.」列为 `date,2t,clim_91-20,ano_91-20,status`，单位 deg. C。2026-10-21 抓取 HTTP 200，1,198,262 bytes，31,722 行；末行 `2026-10-18,15.260,14.371,0.889,PRELIMINARY`；注释写「Last updated: 20 Oct 2026」。
+- **Copernicus Climate Pulse，全球日均 2m 气温 CSV（免费、免密钥、无需注册）**：`https://sites.ecmwf.int/data/climatepulse/data/series/era5_daily_series_2t_global.csv`。文件头注释（去掉行首 `#` 并合并换行后的原文）：「Description: This file contains daily global mean near-surface (2m) air temperature data from ERA5 from 1940 to 2026 as well as daily temperature anomalies relative to the 1991-2020 reference period.」列为 `date,2t,clim_91-20,ano_91-20,status`，单位 deg. C。2026-10-21 抓取 HTTP 200，1,198,262 bytes，31,722 行；末行 `2026-10-18,15.260,14.371,0.889,PRELIMINARY`；注释写「Last updated: 20 Oct 2026」。
 - **发布时滞（原文）**：「The ERA5 data available in the CDS are updated with a 5-day delay (120 hours) behind real-time. Note that the time series below includes values based on ERA5 data not yet available in the CDS (for days 2 to 5 behind real-time).」以及「If preliminary, the values will likely change (slightly) once the final ERA5 data for the day are available (typically 3 days behind real-time).」
-- **Pulse 状态文件**：`https://sites.ecmwf.int/data/climatepulse/status/climpulse_status.json` → `{"daily": 20261018, "monthly": 202609, "annual": 2025}`（2026-10-20，HTTP 200，63 bytes）。即整月 ERA5 到 2026-09 已可用。
-- **NASA GISTEMP v4 月表（免费、免密钥）**：`https://data.giss.nasa.gov/gistemp/tabledata_v4/GLB.Ts+dSST.txt`（HTTP 200，17,039 bytes；2026 行到 Sep 有值；表头来源行写 `GHCN-v4 1880-09/2026 + SST: ERSST v5 1880-09/2026`）。发布节奏原文（`https://data.giss.nasa.gov/gistemp/updates_v4/`，HTTP 200，19,967 bytes）：「Graphs and tables are updated around the middle of every month using the current data files provided by NOAA/NCEI (GHCN v4: meteorological stations, ERSST v5: ocean).」
+- **Pulse 状态文件**：`https://sites.ecmwf.int/data/climatepulse/status/climpulse_status.json` → `{"daily": 20261018, "monthly": 202609, "annual": 2025}`（2026-10-21 重验，HTTP 200，63 bytes）。即整月 ERA5 到 2026-09 已可用。
+- **NASA GISTEMP v4 月表（免费、免密钥）**：`https://data.giss.nasa.gov/gistemp/tabledata_v4/GLB.Ts+dSST.txt`（HTTP 200，17,039 bytes；2026 行到 Sep 有值；表头来源行写 `GHCN-v4 1880-09/2026 + SST: ERSST v5 1880-09/2026`）。发布节奏原文（`https://data.giss.nasa.gov/gistemp/updates_v4/`，HTTP 200，19,967 bytes；HTML 里 `middle of every month` 是链接文字，下面是去标签后的渲染文本）：「Graphs and tables are updated around the middle of every month using the current data files provided by NOAA/NCEI (GHCN v4: meteorological stations, ERSST v5: ocean).」
 - **GISTEMP 首发布代理**：Wayback CDX `https://web.archive.org/cdx/search/cdx?url=data.giss.nasa.gov%2Fgistemp%2Ftabledata_v4%2FGLB.Ts%2BdSST.txt&from=1999&to=2026&output=json&filter=statuscode%3A200&collapse=timestamp%3A6`（HTTP 200，16,974 bytes），取快照正文 `https://web.archive.org/web/<timestamp>id_/https://data.giss.nasa.gov/gistemp/tabledata_v4/GLB.Ts+dSST.txt`。这是第三方存档，不是 NASA 官方首发布。
 - **Polymarket 规则与结算**：`https://gamma-api.polymarket.com/events?slug=<slug>`（规则原文、`feeSchedule`、`outcomePrices`）；`https://gamma-api.polymarket.com/public-search?q=temperature%20increase&limit_per_type=100&events_status=all`（找同族）。
-- **Polymarket 价格（两套，用途不同）**：`https://clob.polymarket.com/prices-history?market=<YES token>&interval=max&fidelity=60` 只有 2 个事件非空，适合做单点中间价对照；`https://data-api.polymarket.com/trades?market=<conditionId>&limit=500&offset=N`（已关闭市场可读，`start`/`end` 为 Unix 秒）可还原 29 个已关闭月的逐笔成交，适合做证据 9 的成交价回测。data-api 是**成交打印**，不是完整订单簿。
+- **Polymarket 价格（两套，用途不同）**：`https://clob.polymarket.com/prices-history?market=<YES token>&interval=max&fidelity=60` 只有 2 个事件非空（2026-09 为 441–445 点，2026-10 为 478–484 点，点数时变），适合做单点中间价对照；`https://data-api.polymarket.com/trades?market=<conditionId>&limit=500&offset=N`（已关闭市场可读，`start`/`end` 为 Unix 秒）可还原 29 个已关闭月的逐笔成交，适合做证据 9 的成交价回测。data-api 是**成交打印**，不是完整订单簿。
 - **缺失，必须写清**：31 个事件的 191 个 YES token 在 CLOB `prices-history` 里全部返回空 history；只有 2 个事件有 CLOB 数据（已关闭 1 个）。所以**完整历史盘口仍然取不到**，只能用 data-api 成交打印 + 1¢ 半价差做代理；真实价差、深度、排队都无法还原。ERA5 的「当时首发布值」也没有免费历史归档，本文用的是当前再分析值；这是另一个未解决的 vintage 偏差。
 
 ## 两周内怎么检验
@@ -231,7 +260,8 @@ NASA 没有公开的「首发布月表归档」；我改用 Wayback Machine 的 
 - 独立结果**按事件数**：一个月 1 个，两周最多 2 个，**不可能在两周内拿到 30 个新结果**。按 GUIDE 第 2 节第 6 条，本条本应进**待选区**。
 - 已经做完、不需要等市场的事：
   - 2000-01…2026-09 的 **321 个月走前重估**（`walkforward.py`，两个免费 CSV），逐月命中、log loss、PIT、覆盖率和三个变体，写在证据 3/4；
-  - **29 个已关闭月的可成交价回测**（data-api；`backtest_015.py`），写在证据 9。
+  - **29 个已关闭月的可成交价回测**（data-api；`backtest_015.py`），写在证据 9；
+  - **时间外样本拆分 + 严格成交价敏感性**（`oos_strict_015.py`），2025-10..2026-09 held-out 12 个月模型 1.7062 vs 市场 0.5931、市场 11/12 更好（p=0.0063）、亏 4,654 USDT，写在证据 9a。
 - 历史独立结果是 **29 个**（2024-04…2026-09 的已关闭月；缺 2024-07，2026-10 仍 open），**差 1 个到 GUIDE 的 30 个门槛**；靠两周前向最多再添 2 个，补不上 1 个历史月。
 - 前向记录（可选，从 2026-10-20 起）：每天记 ERA5 的 `ano_91-20` 与 `status`、6 档 `bestBid/bestAsk/outcomePrices`、GISTEMP 表是否出现该月值（自证发布时滞天数），以及首发布 vs 后来修订值。至少连续记 12 个月，才有 12 个新独立结果。
 - **失败标准（写死）**：
@@ -239,7 +269,7 @@ NASA 没有公开的「首发布月表归档」；我改用 Wayback Machine 的 
   2. 累计到 ≥5 个已关闭且有价格的事件后，模型 log loss ≥ 市场 log loss，或按规则 4 的成交中位净额 ≤0 → 无 edge，进待选区或弃；
   3. 首发布 vs 修订的换档率 >30%，或 GISTEMP 在兜底日之后才发布（判最低档）出现一次 → 降权；
   4. 不允许用「没成交所以没亏」当正结果，也不允许拿 2026-08/09 两个 hit 当样本。
-- **按写死标准的判定（2026-10-21）**：已有 **29 个已关闭且有价格**的事件，超过第 2 条的「≥5」；模型 log loss **1.5263 > 市场 0.7913**，且按规则 4 的成交中位净额 **−0.0256/份 ≤0**。**第 2 条触发 → 判 FAIL，进待选区/草稿，不应按可交易 edge 推进。** 第 1 条未触发（29 个月模型 LL 1.5263 < 2.0794），第 3 条未触发（实际换档率 7/29=24.1% <30%）。
+- **按写死标准的判定（2026-10-21，含 OOS）**：已有 **29 个已关闭且有价格**的事件，超过第 2 条的「≥5」；模型 log loss **1.5263 > 市场 0.7913**，且按规则 4 的成交中位净额 **−0.0256/份 ≤0**。**第 2 条触发 → 判 FAIL，进待选区/草稿，不应按可交易 edge 推进。** 时间外样本更差：held-out 12 个月模型 **1.7062 > 市场 0.5931**，市场 11/12 更好（p=0.0063），0/12 月为正。第 1 条未触发（29 个月模型 LL 1.5263 < 2.0794），第 3 条未触发（实际换档率 7/29=24.1% <30%）。
 
 ## 成本与容量
 
@@ -252,7 +282,7 @@ NASA 没有公开的「首发布月表归档」；我改用 Wayback Machine 的 
 - **单笔能放多少**：200 USDT/档、400 USDT/月。按 `p=0.33`、200 USDT 计，吃单费约 6.7 USDT，半价差约 3 USDT —— 需要模型概率比价格高约 **0.05** 才划算（规则 4 的 2¢ 垫 + 3.35% 费 + 0.5¢ 半价差）。**这个门槛已经不低。**
 - **占款天数**：月末后进场 → GISTEMP 发布（月中）→ UMA 结算，约 **10–20 天**。
 - **一个月多少次机会**：1 个事件/月（含变体事件也是同一次）。近期成交额 11k–16k USD（2026-09 = 11,127.86，2026-08 = 15,901.87，2026-10 = 2,522.64），**400 USDT/月已接近近期单 event 成交额的 2–16%**；5,000 USDT 完全用不上——容量不是约束，机会频率和 edge 才是。
-- **本轮已有价格回测，且是负的**：`backtest_count = 29`（已关闭月），`observed_net_return`（400 USDT/月、单档 ≤200、扣 5% 吃单费和 1¢ 半价差）**为负**：29 个月合计 **−7,049.06 USDT**，月均 **−243.07**，仅 **5/29** 个月为正。按每份等权看是 +0.2372/份（+4.28%），但中位 −0.0256/份，且去掉最大 3 笔盈利后为 **−2.3028/份**；正的头条数字完全依赖少数低价长尾命中。**扣成本后正收益没有被证明，现有证据反而指向负收益。**
+- **本轮已有价格回测，且是负的**：`backtest_count = 29`（已关闭月），`observed_net_return`（400 USDT/月、单档 ≤200、扣 5% 吃单费和 1¢ 半价差）**为负**：29 个月合计 **−7,049.06 USDT**，月均 **−243.07**，仅 **5/29** 个月为正。按每份等权看是 +0.2372/份（+4.28%），但中位 −0.0256/份，且去掉最大 3 笔盈利后为 **−2.3028/份**；正的头条数字完全依赖少数低价长尾命中。**时间外样本（2025-10..2026-09）更差：12 个月 −4,653.84 USDT、0/12 月为正。** 扣成本后正收益没有被证明，现有证据反而指向负收益。
 
 ## 风险
 
@@ -260,9 +290,9 @@ NASA 没有公开的「首发布月表归档」；我改用 Wayback Machine 的 
 - **关系在近期漂移**：2024–2026 log loss 1.7819，明显差于全样本 1.3638；2026-03 单月 log loss 6.964。变暖加速、El Niño/La Niña 转换会让「过去 120 个月」的线性关系滞后。这不是可以靠调 σ 消掉的执行细节。
 - **ERA5 与 GISTEMP 不是同一个量**：ERA5 是再分析（含模式、同化），GISTEMP 是台站+ERSST 观测插值，极区处理和海洋覆盖都不一样。全样本 R² 高只说明平均关系好，不保证极端月。
 - **首发布 ≠ 修订值**：市场按首发布结算，但本轮回测用的是现行修订表；用 29 个市场结算档反推，**7/29 = 24.1%** 换 0.05°C 档，模型对首发布档命中 **11/29**、对修订档 13/29。真实结算精度比修订值回测低。
-- **市场已经消化 ERA5（本轮已有统计证据）**：29 个已关闭月里，市场在次月 5 日的 log loss **0.7913**，模型 **1.5263**，市场在 **23/29** 个月更好（符号检验 p=0.0023）。唯一有 CLOB 的 2026-09 也是市场 0.3740 vs 模型 1.1083。规则 4 在这类月份要么不触发，要么触发在「市场已经知道」的一侧。
-- **低价长尾票的仓位放大**：按每份等权，触发交易合计 +0.2372/份；按条目的固定 USDT 仓位，29 个月却是 −7,049 USDT。原因是 74 笔里只有 6 笔命中，低价票在固定金额下买到最多份数，亏损被放大。**不要用每份等权的正均值当收益证据。**
-- **成交打印不是订单簿**：data-api 有同钱包对倒打出的异常价（2026-09 `<1.30` 档同一钱包 1 小时内 0.707 买、0.015 卖），也有 5 天以上的陈旧打印；1¢ 半价差是乐观假设。去掉同钱包往返后主结论不变（市场 LL 0.7843、P&L −7,049），但单笔可成交价仍有误差。
+- **市场已经消化 ERA5（本轮已有统计证据）**：29 个已关闭月里，市场在次月 5 日的 log loss **0.7913**，模型 **1.5263**，市场在 **23/29** 个月更好（符号检验 p=0.0023）。唯一有 CLOB 的 2026-09 也是市场 0.3740 vs 模型 1.1083。规则 4 在这类月份要么不触发，要么触发在「市场已经知道」的一侧。**时间外样本更差**：2025-10..2026-09 模型 1.7062 vs 市场 0.5931，市场 11/12 更好（p=0.0063）。
+- **低价长尾票的仓位放大**：按每份等权，触发交易合计 +0.2372/份；按条目的固定 USDT 仓位，29 个月却是 −7,049 USDT。原因是 74 笔里只有 6 笔命中，低价票在固定金额下买到最多份数，亏损被放大。**不要用每份等权的正均值当收益证据。** 唯一转正的 ≤2h 窗口是事后挑的（24 笔、CI −98..+149 含 0），不能当稳健 edge。
+- **成交打印不是订单簿**：data-api 有同钱包对倒打出的异常价（2026-09 `<1.30` 档同一钱包 1 小时内 0.707 买、0.015 卖），也有 5 天以上的陈旧打印；1¢ 半价差是乐观假设。对唯一同时有 CLOB 的 2026-09，data-api 归一化结算档 0.5211 vs CLOB 中间价 0.6880，差 16.7¢，说明成交打印可能严重偏离真实盘口。去掉同钱包往返后主结论不变（市场 LL 0.7843、P&L −7,049），但单笔可成交价仍有误差。
 - **发布时点不可控**：GISTEMP 只说 "around the middle of every month"，没有确切日期；停牌时间可能早于预期，窗口被压缩。
 - **兜底条款**：NASA 到 `endDate` 前仍未发布则判**最低档**；买 `>1.4x` 档会直接归零。概率低但全损。
 - **成交额崩塌**：同模板从 2025-01 的 4.93M 掉到 2026-09 的 11k，池子小 → 价差宽、模型 edge 更容易被半价差吃掉。
@@ -275,17 +305,17 @@ NASA 没有公开的「首发布月表归档」；我改用 Wayback Machine 的 
 
 ## 门槛自查
 
-1. **机制说得清：满足** — 付钱方是「ERA5 已有整月答案但按旧信息定价」的对手方；量是发布时滞（ERA5 月末后 3–5 天 vs GISTEMP「around the middle of every month」），两个时滞都引了原文。但「这笔钱会持续存在」已被 29 个月价格回测否定：市场在次月 5 日更准，按条目仓位扣费后亏损。
+1. **机制说得清：满足** — 付钱方是「ERA5 已有整月答案但按旧信息定价」的对手方；量是发布时滞（ERA5 月末后 3–5 天 vs GISTEMP「around the middle of every month」），两个时滞都引了原文。门槛 1 只问机制是否说得清；能否持续赚钱是门槛 5 的事，已被 29 个月价格回测否定（市场在次月 5 日更准，按条目仓位扣费后亏损）。
 2. **有免费数据能检验：不确定（29/30）** — 预测侧完全够：ERA5 日均 CSV 1940 起、GISTEMP 月表 1880 起，都免费免密钥，已跑 321 个月走前检验。价格侧本轮用 data-api 成交打印拿到 **29 个已关闭月** 的可成交价，**差 1 个到 30**；CLOB `prices-history` 仍只有 1 个已关闭事件可用。第 30 个月（2026-10）目前 open，只能前向记录。
 3. **小资金能做：满足** — 400 USDT/月，远低于 2,500 单场所与 5,000 总资金；不加杠杆；买 YES 最大亏损就是本金。容量写清了：近期单 event 成交额 11k–16k USD，5,000 USDT 放不满。
-4. **不重复：不确定（需主审确认）** — 本轮重跑 `grep -ril -E "temperature|Copernicus|ERA5|hottest|气温|温度" known/ bots/*/CLAIMS.md bots/*/entries/`，命中：`bots/quant/CLAIMS.md`（本条自己的认领）、`bots/dot/entries/dot-001-late-day-observed-max-tail.md`、`dot-002-ensemble-calibration.md`（**城市日最高温**，NOAA 站点 timeseries，日内/次日）、`bots/quant/entries/quant-005-post-count-bracket-model.md`、`bots/quant/entries/quant-012-earthquake-count-base-rate.md`（只在文字里出现关键词，不是气温策略）。`known/KNOWN.md` 里 `grep -in -E "weather|temp|气温|天气"` **无命中**。差异：本条变量是**全球月平均距平**、结算源是 **NASA GISTEMP LOTI 月表**、周期是**月**、数据是 **ERA5 再分析**；dot 两条是**城市日最高温 + NOAA 站点观测 + 日**。收益来源不同，不是换城市换档位的变体。仓库内是否有更深层同类条目**我未逐条读完**，请主审裁决。
-5. **扣成本后粗算够用：不满足（已有 29 个月证据）** — 模型 log loss 1.5263 vs 市场 0.7913（23/29 市场更好，p=0.0023）；按 400 USDT/月、单档 ≤200、5% 吃单费和 1¢ 半价差，29 个月合计 **−7,049.06 USDT**，月均 −243.07，仅 5/29 月为正。每份等权的 +4.28% 去掉最大 3 笔盈利即变成 −2.3028/份。**扣成本后不是“够用”，是负的。**
+4. **不重复：满足** — 本轮重跑 `grep -ril -E "temperature increase|Copernicus|ERA5|GISTEMP|global temperature" bots/*/entries known/`，除本条外只命中 `composer-001`（space weather 周计数）、`composer-002`（飓风阶梯）、`quant-025`（龙卷风 outlook）、`quant-026`（干旱 D4）——机制都不同。最接近的是 `bots/dot/entries/dot-001-late-day-observed-max-tail.md` 与 `dot-002-ensemble-calibration.md`：两者都是**某城某日最高温**、结算按 NOAA 站点 hourly 观测、周期是**日**；本条是**全球月平均距平**、结算按 **NASA GISTEMP LOTI 月表**、数据是 **ERA5 再分析**、周期是**月**。变量、结算源、频率都不同，不是换城市/换档位的变体。`known/` 里 `weather|temp|气温|天气` 无命中。
+5. **扣成本后粗算够用：不满足（已有 29 个月 + OOS 证据）** — 模型 log loss 1.5263 vs 市场 0.7913（23/29 市场更好，p=0.0023）；按 400 USDT/月、单档 ≤200、5% 吃单费和 1¢ 半价差，29 个月合计 **−7,049.06 USDT**，月均 −243.07，仅 5/29 月为正。每份等权的 +4.28% 去掉最大 3 笔盈利即变成 −2.3028/份。时间外 **2025-10..2026-09**：模型 1.7062 vs 市场 0.5931（11/12 市场更好，p=0.0063），12 个月 **−4,653.84 USDT**，0/12 月为正。**扣成本后不是“够用”，是负的。**
 6. **两周内能检验：不满足** — 独立结果按事件计，1 个/月，两周最多 2 个；历史月已用尽也只有 29 个（缺 2024-07，2026-10 未结算），**差 1 个到 30**。按 GUIDE 第 2 节第 6 条，本类应进**待选区**。
-7. **出处可查：满足** — 每条规则数字都有 URL + 访问日期；走前回归、命中率、log loss、PIT、覆盖率、首发布代理、29 个月价格回测都是我用自己的脚本跑的，脚本与 stdout 在 `bots/quant/notes/scheduler/scratch/H-quant-015/`；Gamma 的 volume/liquidity/openInterest 标了「来源自报，未核实」；CLOB 31 个事件空 history、Wayback 只覆盖 30/33 个月、data-api 含同钱包异常打印，这些失败都照写，不掩饰。
+7. **出处可查：满足** — 每条规则数字都有 URL + 访问日期；走前回归、命中率、log loss、PIT、覆盖率、首发布代理、29 个月价格回测、OOS 拆分都是我用自己的脚本跑的，脚本与 stdout 在 `bots/quant/notes/scheduler/scratch/H-quant-015/`。本轮用 `verify_sources_v2.py` 重新打开全部引用 URL，修正了两处引文格式：ERA5 原文行首有 `#`、句中断行（已按“去 `#` 并合并换行”引用并补上 `Description:`），GISTEMP updates 的 `middle of every month` 在 HTML 里是链接文字（已注明去标签后引用）。Gamma 的 volume/liquidity/openInterest 标了「来源自报，未核实」；CLOB 31 个事件空 history、Wayback 只覆盖 30/33 个月、data-api 含同钱包异常打印，这些失败都照写，不掩饰。
 
 ## 出处
 
-- https://gamma-api.polymarket.com/events?slug=september-2026-temperature-increase-c — 访问 2026-10-21 — 已读（HTTP 200，26,351 bytes；规则原文、6 档标题与 `outcomePrices`、`feeSchedule` rate 0.05、`negRisk=true`、`restricted=true`、`endDate=2026-11-02T04:59:00Z`、volume 11127.859859、openInterest 8452.463409；6 档全部 `umaResolutionStatus=resolved`）
+- https://gamma-api.polymarket.com/events?slug=september-2026-temperature-increase-c — 访问 2026-10-21 — 已读（HTTP 200，约 26.3 KB（两次抓取 26,351/26,352 bytes）；规则原文、6 档标题与 `outcomePrices`、`feeSchedule` rate 0.05、`negRisk=true`、`restricted=true`、`endDate=2026-11-02T04:59:00Z`、volume 11127.859859、openInterest 8452.463409；6 档全部 `umaResolutionStatus=resolved`）
 - https://gamma-api.polymarket.com/events?slug=august-2026-temperature-increase-c-20260728155540489 — 访问 2026-10-21 — 已读（HTTP 200，25,839 bytes；`>1.29ºC` 档 `["1","0"]`；档位为 `<1.10 … >1.29`）
 - https://gamma-api.polymarket.com/events?slug=august-2026-temperature-increase-c-higher-strikes — 访问 2026-10-21 — 已读（HTTP 200，25,390 bytes；`1.38–1.41ºC` 档 `["1","0"]`，说明 2026-08 首发布落在 1.38–1.41，现行 GISTEMP 1.42 是后来修订）
 - https://gamma-api.polymarket.com/public-search?q=temperature%20increase&limit_per_type=100&events_status=all — 访问 2026-10-21 — 已读（HTTP 200，约 829 KB；33 个事件、32 closed、1 open、191 个 YES token；按标题 **30 个不同月份**，其中 **29 个已关闭**）
@@ -296,8 +326,9 @@ NASA 没有公开的「首发布月表归档」；我改用 Wayback Machine 的 
 - https://data.giss.nasa.gov/gistemp/updates_v4/ — 访问 2026-10-21 — 已读（HTTP 200，19,967 bytes；渲染文本「Graphs and tables are updated around the middle of every month …」，HTML 里 middle of every month 是链接文字）
 - https://web.archive.org/cdx/search/cdx?url=data.giss.nasa.gov%2Fgistemp%2Ftabledata_v4%2FGLB.Ts%2BdSST.txt&from=1999&to=2026&output=json&filter=statuscode%3A200&collapse=timestamp%3A6 — 访问 2026-10-21 — 已读（HTTP 200，16,974 bytes；82 个快照，2023-01 起 45 个）
 - https://web.archive.org/web/20251112105542id_/https://data.giss.nasa.gov/gistemp/tabledata_v4/GLB.Ts+dSST.txt — 访问 2026-10-21 — 已读（HTTP 200，16,934 bytes；2025 行含 Jan–Aug 值）
-- https://clob.polymarket.com/prices-history?market=<YES token>&interval=max&fidelity=60（对 191 个 token 逐一请求）— 访问 2026-10-21 — 已读（脚本 `check_clob.py`；只有 2 个事件非空，其余 `history=[]`；非空 token 共 12 个）
-- https://clob.polymarket.com/prices-history?market=9561250571098553460692263040980922664627749350602993898138030564733182354111&interval=max&fidelity=60 — 访问 2026-10-21 — 已读（HTTP 200，11,857 bytes；2026-09 `1.35–1.39` 档 **448 点**，首点 `2026-09-21T02:00Z` p=0.45，末点 `2026-10-09T16:00Z` p=0.905；点数和首点时变）
+- https://clob.polymarket.com/prices-history?market=<YES token>&interval=max&fidelity=60（对 191 个 token 逐一请求）— 访问 2026-10-21 — 已读（脚本 `check_clob.py` 重跑；只有 2 个事件非空：2026-09 各档 441–445 点、2026-10 各档 478–484 点，其余 `history=[]`；非空 token 共 12 个）
+- https://clob.polymarket.com/prices-history?market=9561250571098553460692263040980922664627749350602993898138030564733182354111&interval=max&fidelity=60 — 访问 2026-10-21 — 已读（HTTP 200，11,857 bytes；2026-09 `1.35–1.39` 档 **445 点**，首点 `2026-09-21T05:00Z` p=0.45，末点 `2026-10-09T16:00Z` p=0.905；点数和首点时变）
 - https://data-api.polymarket.com/trades?market=<conditionId>&limit=500&offset=N（`start`/`end` 为 Unix 秒；对 29 个已关闭月、每事件 4–6 档逐一请求）— 访问 2026-10-21 — 已读（脚本 `fetch_trades.py`；29 个已关闭月全部有决策前成交；74 笔触发，逐笔表 `primary_trades.csv`）
-- 本地脚本 `bots/quant/notes/scheduler/scratch/H-quant-015/` 下的 `fetch_core.py`、`fetch_trades.py`、`backtest_015.py`、`check_clob.py`、`verify_sources.py`、`revision_check.py`、`crosscheck_0905.py` — 2026-10-21 运行 — 自己算（来源复核、29 月成交价回测、CLOB 191 token、首发布档反推、data-api vs CLOB 对照）；stdout 为同名 `.out`，逐月/逐笔为 `primary_months.csv` / `primary_trades.csv`
+- 本地脚本 `bots/quant/notes/scheduler/scratch/H-quant-015/` 下的 `fetch_core.py`、`fetch_trades.py`、`backtest_015.py`、`oos_strict_015.py`、`check_clob.py`、`verify_sources.py`、`verify_sources_v2.py`、`verify_volumes.py`、`revision_check.py`、`crosscheck_0905.py`、`lint_015.py` — 2026-10-21 运行 — 自己算（**逐个 URL 重验**、29 月成交价回测、OOS 拆分与严格 freshness、CLOB 191 token、首发布档反推、data-api vs CLOB 对照）；stdout 为同名 `.out`，逐月/逐笔为 `primary_months.csv` / `primary_trades.csv`。`verify_sources_v2.out` 对两处引文格式的修正见门槛自查 7
 - 复用已合并记录：`bots/quant/notes/scheduler/scratch/quant-015/walkforward.out`、`firstrelease_local.out`（321 月走前回归与 Wayback 首发布代理，2026-10-20 运行；本轮只复核，不重跑）
+- Wayback CDX 在本轮重验时出现过一次 `SSL: UNEXPECTED_EOF_WHILE_READING`，重试后 HTTP 200（16,974 bytes、82 个快照）；这是网络抖动，不是来源消失，照写。

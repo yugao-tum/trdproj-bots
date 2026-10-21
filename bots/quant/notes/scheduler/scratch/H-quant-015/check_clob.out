@@ -1,5 +1,5 @@
-('september-2026-temperature-increase-c', True, [445, 447, 448, 445, 444, 445])
-('october-2026-temperature-increase-c-20260928t160000000z', False, [475, 481, 475, 481, 481, 479])
+('september-2026-temperature-increase-c', True, [442, 444, 445, 442, 441, 442])
+('october-2026-temperature-increase-c-20260928t160000000z', False, [478, 484, 478, 484, 484, 482])
 YES tokens queried: 191
 events with any nonempty: 2
 total nonempty token histories: 12

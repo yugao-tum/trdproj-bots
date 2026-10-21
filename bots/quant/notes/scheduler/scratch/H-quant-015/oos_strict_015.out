@@ -1,0 +1,57 @@
+SOURCE: backtest_015.build() replicated in this run
+====================================================================================================
+PRIMARY (all 29 closed months, last print at/before decision, +1c)
+months=29 paired=29 trades=74 hit=6
+model_ll=1.526256 market_ll=0.791265 model_better=6 market_better=23 sign_p=0.002316
+net/share=+0.237186 stake=5.542259 return_on_stake=+4.28% median_net=-0.025584 median_fill_age=5.0h median_ask=0.0315
+$400/mo fixed: total=-7049.06 avg=-243.07 positive=5/29 CI=-351.52..-117.99
+====================================================================================================
+TEMPORAL DEV 2024-04..2025-09 (17 available months; 2024-07 missing)
+months=17 paired=17 trades=40 hit=5
+model_ll=1.399250 market_ll=0.931156 model_better=5 market_better=12 sign_p=0.143463
+net/share=+1.260527 stake=3.602672 return_on_stake=+34.99% median_net=-0.022029 median_fill_age=3.4h median_ask=0.0360
+$400/mo fixed: total=-2395.22 avg=-140.90 positive=5/17 CI=-319.16..+62.54
+====================================================================================================
+TEMPORAL HOLDOUT/OOS 2025-10..2026-09 (12 months)
+months=12 paired=12 trades=34 hit=1
+model_ll=1.706181 market_ll=0.593086 model_better=1 market_better=11 sign_p=0.006348
+net/share=-1.023341 stake=1.939587 return_on_stake=-52.76% median_net=-0.028726 median_fill_age=6.3h median_ask=0.0305
+$400/mo fixed: total=-4653.84 avg=-387.82 positive=0/12 CI=-419.20..-325.55
+====================================================================================================
+STRICT: last ask-side print <= 72h at decision; stale brackets not priced/traded; +1c
+months=29 paired=29 trades=68 hit=6
+model_ll=1.526256 market_ll=0.791265 model_better=6 market_better=23 sign_p=0.002316
+net/share=+0.347744 stake=5.436871 return_on_stake=+6.40% median_net=-0.030931 median_fill_age=3.9h median_ask=0.0370
+$400/mo fixed: total=-6419.00 avg=-221.34 positive=5/29 CI=-333.65..-93.50
+====================================================================================================
+STRICT: last ask-side print <= 24h at decision; stale brackets not priced/traded; +1c
+months=29 paired=29 trades=64 hit=6
+model_ll=1.526256 market_ll=0.791265 model_better=6 market_better=23 sign_p=0.002316
+net/share=+0.959639 stake=4.846871 return_on_stake=+19.80% median_net=-0.028837 median_fill_age=3.8h median_ask=0.0355
+$400/mo fixed: total=-5794.15 avg=-199.80 positive=5/29 CI=-312.49..-74.78
+====================================================================================================
+STRICT: last ask-side print <= 6h at decision; stale brackets not priced/traded; +1c
+months=29 paired=29 trades=44 hit=6
+model_ll=1.526256 market_ll=0.791265 model_better=6 market_better=23 sign_p=0.002316
+net/share=+2.192105 stake=3.665925 return_on_stake=+59.80% median_net=-0.021505 median_fill_age=1.9h median_ask=0.0335
+$400/mo fixed: total=-2560.80 avg=-88.30 positive=6/29 CI=-201.92..+40.17
+====================================================================================================
+STRICT: last ask-side print <= 2h at decision; stale brackets not priced/traded; +1c
+months=29 paired=29 trades=24 hit=5
+model_ll=1.526256 market_ll=0.791265 model_better=6 market_better=23 sign_p=0.002316
+net/share=+2.868953 stake=2.044413 return_on_stake=+140.33% median_net=-0.028837 median_fill_age=0.5h median_ask=0.0502
+$400/mo fixed: total=+427.76 avg=+14.75 positive=5/29 CI=-97.70..+149.25
+====================================================================================================
+STRICT: <=24h; wider half-spread 0.02 (ask=print+0.02); fee 5%
+months=29 paired=29 trades=62 hit=6
+model_ll=1.526256 market_ll=0.791265 model_better=6 market_better=23 sign_p=0.002316
+net/share=+0.386055 stake=5.397871 return_on_stake=+7.15% median_net=-0.037101 median_fill_age=3.8h median_ask=0.0455
+$400/mo fixed: total=-5507.42 avg=-189.91 positive=5/29 CI=-299.05..-66.73
+====================================================================================================
+STRICT: <=24h; wider half-spread 0.03 (ask=print+0.03); fee 5%
+months=29 paired=29 trades=58 hit=6
+model_ll=1.526256 market_ll=0.791265 model_better=6 market_better=23 sign_p=0.002316
+net/share=+0.076513 stake=5.695708 return_on_stake=+1.34% median_net=-0.050285 median_fill_age=3.9h median_ask=0.0570
+$400/mo fixed: total=-5636.03 avg=-194.35 positive=6/29 CI=-298.84..-76.50
+====================================================================================================
+LOOKAHEAD CHECK: 29 walk-forward preds recomputed from raw CSV; max |diff| vs primary_months.csv = 4.974e-07
