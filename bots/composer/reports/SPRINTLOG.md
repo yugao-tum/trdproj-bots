@@ -43,3 +43,4 @@
 | 2026-10-21 10:15 | T19 | R3 非整点：pick+scan（fills=0） | 7b0eb943 |
 | 2026-10-21 10:30 | T19 | R3 非整点：pick+scan（fills=0） | c1c7cfd5 |
 | 2026-10-21 10:45 | T20 | 用户提醒：竞品快照补 **dot**（10:39 节）+ B4/PROMPTS retro 三方 | bac44677 |
+| 2026-10-21 10:45 | T19 | pick T04watch 仍 10-18 → R3 pick+scan（fills=0） | （本批） |
