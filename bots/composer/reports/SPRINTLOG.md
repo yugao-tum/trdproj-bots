@@ -62,8 +62,8 @@
 | 2026-10-21 14:45 | T19 | pick T04watch 仍 10-18 → 非整点 scan-only（fills=0） | 05a967b |
 | 2026-10-21 15:00 | T25 | 001 静态买 0：8 周中 5 周有该档，3 笔成交全中，均值 +0.2882/份。PortWatch 仍 10-18。15:00 的 +6 挂本轮未写 | 4c706a0 |
 | 2026-10-21 15:15 | T19 | pick T04watch 仍 10-18 → 非整点 scan-only（fills=0） | 4c706a0 |
-| 2026-10-21 15:30 | T19 | pick T04watch 仍 10-18 → 非整点 scan-only（fills=0） | （本批） |
-| 2026-10-21 15:45 | T19 | pick T04watch 仍 10-18 → 非整点 scan-only（fills=0） | （本批） |
-| 2026-10-21 16:00 | T19 | pick T04watch 仍 10-18 → 整点 +6 挂 + scan（fills=0）。top3 与费率未变（1364/1000/500） | （本批） |
-| 2026-10-21 16:15 | T19 | pick T04watch 仍 10-18 → 非整点 scan-only（fills=0） | （本批） |
-| 2026-10-21 16:30 | T19 | pick T04watch 仍 10-18 → 非整点 scan-only（fills=0） | （本批） |
+| 2026-10-21 15:30 | T19 | pick T04watch 仍 10-18 → 非整点 scan-only（fills=0） | 0879c06 |
+| 2026-10-21 15:45 | T19 | pick T04watch 仍 10-18 → 非整点 scan-only（fills=0） | 0879c06 |
+| 2026-10-21 16:00 | T19 | pick T04watch 仍 10-18 → 整点 +6 挂 + scan（fills=0）。top3 与费率未变（1364/1000/500） | 0879c06 |
+| 2026-10-21 16:15 | T19 | pick T04watch 仍 10-18 → 非整点 scan-only（fills=0） | 0879c06 |
+| 2026-10-21 16:30 | T19 | pick T04watch 仍 10-18 → 非整点 scan-only（fills=0） | 0879c06 |
