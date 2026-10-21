@@ -108,3 +108,9 @@
 - 新增或修改的文件：notes/pm_rewards_*、forward/011/ledger、011 条目、BACKLOG T16、INDEX、SPRINTLOG
 - 查了多少个来源：Gamma 150 markets；clobRewards 8 条 politics
 - 遇到的问题：T04watch 完成标准未达，保持 open
+
+## 2026-10-21 05:45（15m 冲刺 T17；T04watch 阻塞）
+- 做了什么：**T17** `forward/composer-011/append_daily_quotes.py`；ledger 首日 **6** 行 `挂`（top3 politics 奖励池，06:05 UTC CLOB 快照）。
+- 新增或修改的文件：append_daily_quotes.py、ledger.csv、BACKLOG T17、INDEX、HORMUZ watch、SPRINTLOG
+- 查了多少个来源：CLOB book ×3（Gamma top3）
+- 遇到的问题：T04watch 仍 open；真实成交行留待 data-api 跟盘

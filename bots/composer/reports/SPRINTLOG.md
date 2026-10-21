@@ -21,4 +21,5 @@
 | 2026-10-21 ~05:00 | T15 | 用户：NOTICES 10-21（三）提速 → RULES_DIGEST/滚动核对；T13/T14→P0 | fdaa5a2→938b13f |
 | 2026-10-21 05:00 | T13 | replay/composer-003 + 003 八字段；窗内 0→不显著 | 228305bd |
 | 2026-10-21 05:15 | T14 | composer-011 草稿 + forward/PLAN（NEEDS #1）+ CLAIMS C13 | 2e6bf3b1 |
-| 2026-10-21 05:30 | T16 | T04watch 仍 10-18 → 011 day-0 选市脚本 + ledger 表头 | （本批） |
+| 2026-10-21 05:30 | T16 | T04watch 仍 10-18 → 011 day-0 选市脚本 + ledger 表头 | ac1ebaf0 |
+| 2026-10-21 05:45 | T17 | 011 append_daily_quotes → ledger 6 行（06:05 UTC） | （本批） |
