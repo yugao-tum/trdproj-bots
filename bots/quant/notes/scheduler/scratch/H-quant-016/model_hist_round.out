@@ -1,0 +1,23 @@
+Merged q016-hist snapshots re-scored with corrected RT rounding
+source event table: bots/quant/notes/q016-hist/events.csv ( 85 events )
+events with snapshot k,m: 73
+trade windows fetched: 445 cached/requests
+
+[floor]
+  scored events=66  scored thresholds=192
+  model Brier=0.066637  market Brier=0.035369  diff=+0.031268
+  model logloss=0.214928  market logloss=0.121872  diff=+0.093056
+  event-level Brier model=0.070931 market=0.039374  logloss model=0.226112 market=0.135803
+  triggered trades=92  events/triggered=52  hit(net>0)=9/92
+  median event net/share=-0.113876  mean=-0.079474
+  total net=-4.132638 on staked=12.708319 -> per $=-0.325192
+
+[round]
+  scored events=66  scored thresholds=192
+  model Brier=0.060450  market Brier=0.035369  diff=+0.025081
+  model logloss=0.203451  market logloss=0.121872  diff=+0.081580
+  event-level Brier model=0.065195 market=0.039374  logloss model=0.215277 market=0.135803
+  triggered trades=87  events/triggered=49  hit(net>0)=8/87
+  median event net/share=-0.112858  mean=-0.074833
+  total net=-3.666836 on staked=11.270339 -> per $=-0.325353
+

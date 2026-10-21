@@ -12,13 +12,13 @@ category: S
 return_type: direction
 instruments: Polymarket「某片 Rotten Tomatoes All Critics Tomatometer 在 <日期> 10:00 AM ET 是否 ≥ T」嵌套阈值链（同一 event 内 3–15 个累积档，T = 25…99，多为 5 分间距、常在共识值附近加密到 1–2 分）
 venues: Polymarket
-data: RT 影片页 `criticsScore`（likedCount / notLikedCount / reviewCount，免费免密钥，抓 HTML）；Polymarket Gamma（规则、盘口、feeSchedule、clobRewards）、CLOB prices-history 与 data-api 逐笔成交（已关闭市场都可读，可做价格侧历史回测）；**历史"当时已出评论数"取不到**（RT reviews 页日期由 JS 渲染，HTML 里 0 个日期字段；Wayback/Common Crawl 本次也未取到），所以模型侧只能从现在起前向记录
-test_2w: 独立结果按 event 计（同片各档共享一次结算，算 1 个）；两周只覆盖 2026-10-26 与 2026-11-09 两批共约 5–6 个 event，凑不到 30；失败标准：模型对已结算 event 的 Brier/log loss 不优于市场中间价，或已成交份额中位已实现毛利 ≤0
+data: RT 影片页 `criticsScore`（likedCount / notLikedCount / reviewCount，免费免密钥，抓 HTML）；Polymarket Gamma（规则、盘口、feeSchedule、clobRewards）、CLOB prices-history 与 data-api 逐笔成交（已关闭市场都可读，可做价格侧历史回测）；历史 `(k,n)` 可由 Wayback CDX 的 RT 影片页快照回放（`notes/q016-hist/`：73/85 event 有主快照，中位滞后 30.7h；RT 自身 `/reviews` 页仍无日期字段），但**结算前最后一刻的计数**取不到
+test_2w: 独立结果按 event 计（同片各档共享一次结算，算 1 个）；历史 Wayback 快照已给出 66 个独立 priced event（`notes/q016-hist/`），模型 Brier/log loss 均差于市场、净收益为负，已触发失败标准；两周内新到期只有 2026-10-26 与 2026-11-09 两批约 5–6 个 event，凑不到 30；失败标准：模型对已结算 event 的 Brier/log loss 不优于市场中间价，或已成交份额中位已实现毛利 ≤0
 status: 待核
 confidence: 中
 ---
 
-整理说明：本条所有 Polymarket 计数、分档频率、盘口价格都是我在 2026-10-20 用下文 URL 现抓后自己算的（脚本 `calc_rt.py`，全文见 `notes/batch2-verification/quant-016.md`）；RT 那边的"分数=新鲜评论数/(新鲜+烂)"公式我用两部片子的实际页面核对过。**模型侧没有做成回测**：历史"某时刻已出多少条评论、其中几条新鲜"取不到（见数据节）。2026-10-21 我补做了**市场侧历史可成交价回测**（85 个已关闭 event、data-api 逐笔成交 + CLOB prices-history，扣吃单费和 1¢ 半价差；脚本与 stdout 见 `notes/scheduler/scratch/H-quant-016/`），结论对"市场存在可利用的窄档错价"这一前提**偏负**：T-24h 的市场价已经高度校准，预注册的三条模型无关规则全部净亏。该回测不能检验 Beta 模型本身（模型输入仍不可回放），所以本条现在只有"模板+基率+当期横截面+价格侧否证"的证据，**不是收益证明**；建议按 GUIDE 第 2 节第 6 条降为**待选区**，不要按收录推进。
+整理说明：本条所有 Polymarket 计数、分档频率、盘口价格都是我在 2026-10-20 用下文 URL 现抓后自己算的（脚本 `calc_rt.py`，全文见 `notes/batch2-verification/quant-016.md`）；RT 那边的"分数=新鲜评论数/(新鲜+烂)"公式我用两部片子的实际页面核对过。**模型侧现在有历史回测，而且是负的**：已合并的 `notes/q016-hist/REPORT.md`（提交 `e950778`）用 Wayback CDX 的 RT 影片页快照重建了 73/85 个 event 的 `(k,n)`，其中 66 个 event 有可成交价；按条目冻结的失败标准判 **FAIL**——模型 Brier 0.066637 vs 市场 0.035369、log loss 0.214928 vs 0.121872，92 笔触发交易 event 净中位 −0.113876/份、每美元 −0.325192。该笔记的模型用了旧稿的 floor 取整；我用它保存的同一批 `(k,n)` 按本条的 round half up 重算（`model_hist_round.py`），模型 Brier 仍 0.060450 vs 0.035369、log loss 0.203451 vs 0.121872，87 笔、event 净中位 −0.112858/份、每美元 −0.325353，结论不变。此前 2026-10-21 的**市场侧**回测（85 个已关闭 event、data-api 逐笔成交 + CLOB prices-history，扣吃单费和 1¢ 半价差）同样为负：T-24h 市场价高度校准，预注册的模型无关规则全部净亏。所以本条现在有"模板+基率+当期横截面+价格侧否证+模型侧历史 FAIL"的完整证据链，**不是收益证明**；建议按 GUIDE 第 2 节第 5、6 条降为**待选区**，不要按收录推进。
 
 ## 一句话
 
@@ -26,7 +26,7 @@ confidence: 中
 
 ## 钱从哪里来
 
-付钱给你的是**把"当前显示分数"当成"最终分数"的下注者**，以及只看新闻情绪不看样本量的人。这条钱能持续存在，是因为窄档的**抽样噪声本身**就足以让档位接近抛硬币：Tomatometer 是 k/(k+n) 的比例，二项标准差在 p=0.75、n=100 时是 `sqrt(0.75×0.25/100) = 0.0433`，即 **±4.3 分**；而 Polymarket 常把档位加密到 **2 分甚至 1 分间距**（见证据 3 的实例：`74+/72+/76+`、`48+/49+/51+`）。也就是说，即使当期分数完全公开，1–2 分间距的档位在 n≈100 时仍然是真随机；市场若按"离当期分数近就归 0/1"来定价，就会在这类档位上系统性给错价。第二个来源是**"到期没分数"的尾部**：85 个已关闭 event 里有 **14 个（16.5%）全部档位都结算 NO**（见证据 2、4），谁在低估这个尾部，钱就是他的。**但这两个故事都没有通过价格侧检验**：T-24h 的市场 Brier 只有 0.0248，84.6% 的 event 在 T-24h 就已指向正确边界（但 lo 中位价 0.872，不是 0/1），预注册的模型无关规则全部净亏（见证据 7）。所以下面写的是"假设的付钱方"，不是已证实的付钱方。
+付钱给你的是**把"当前显示分数"当成"最终分数"的下注者**，以及只看新闻情绪不看样本量的人。这条钱能持续存在，是因为窄档的**抽样噪声本身**就足以让档位接近抛硬币：Tomatometer 是 k/(k+n) 的比例，二项标准差在 p=0.75、n=100 时是 `sqrt(0.75×0.25/100) = 0.0433`，即 **±4.3 分**；而 Polymarket 常把档位加密到 **2 分甚至 1 分间距**（见证据 3 的实例：`74+/72+/76+`、`48+/49+/51+`）。也就是说，即使当期分数完全公开，1–2 分间距的档位在 n≈100 时仍然是真随机；市场若按"离当期分数近就归 0/1"来定价，就会在这类档位上系统性给错价。第二个来源是**"到期没分数"的尾部**：85 个已关闭 event 里有 **14 个（16.5%）全部档位都结算 NO**（见证据 2、4），谁在低估这个尾部，钱就是他的。**但这两个故事在历史数据里都没有兑现**：T-24h 的市场 Brier 只有 0.0248，84.6% 的 event 在 T-24h 就已指向正确边界（但 lo 中位价 0.872，不是 0/1），预注册的模型无关规则全部净亏（见证据 7）；模型侧用 Wayback 快照回放时，Beta 模型的 Brier/log loss 反而差于市场，扣成本后每美元亏约 32%（见证据 8）。所以下面写的是"假设的付钱方"，不是已证实的付钱方。
 
 ## 规则
 
@@ -56,8 +56,8 @@ confidence: 中
 
 ### 1) 模板和频率（Gamma 实抓，我数的）
 
-- `public-search?q=rotten tomatoes&limit_per_type=100` 返回 `pagination.totalResults = 163`；同结果里 50 个 event 的 slug 全是 `<film>-rotten-tomatoes-score-<YYYYMMDD>` 形态（个别 `-rotten-tomato-score`）。
-- 用 event 自带 tag（`rotten-tomatoes`，id 101453；同 event 另有 `movies`(53)、`pop-culture`(596)）拉清单：`closed=true&limit=500` → **85** 个已关闭 event、**530** 个市场、成交额合计 **$1,818,572.46**（2026-10-21 重抓不变）。在开清单会漂移：2026-10-20 快照是 **9** 个 event、**47** 个市场、**$56,087.15**；2026-10-21 重抓是 **9** 个 event、**49** 个市场、**$70,507.74**（同日 `clayface` volume 从 4,096.90 涨到 5,125.88）。下文凡引用在开盘口/成交额，均标明快照日期。
+- `public-search?q=rotten tomatoes&limit_per_type=100` 返回 `pagination.totalResults = 163`；同结果里 50 个 event 的 slug 全部属于 `<film>-rotten-tomatoes-score[-<数字>]` 族：**25** 个带 8 位 `YYYYMMDD`、**5** 个带 17 位时间戳（如 `tony-...-20260806170107426`）、**20** 个没有数字后缀（如 `scream-7-rotten-tomatoes-score`）；其中 1 个用单数 `-rotten-tomato-score`。2026-10-21 复核仍是 50/50（`verify_entry_citations.out`）。
+- 用 event 自带 tag（`rotten-tomatoes`，id 101453；同 event 另有 `movies`(53)、`pop-culture`(596)）拉清单：`closed=true&limit=500` → **85** 个已关闭 event、**530** 个市场、成交额合计 **$1,818,572.46**（2026-10-21 重抓不变）。在开清单会漂移：2026-10-20 快照是 **9** 个 event、**47** 个市场、**$56,087.15**；2026-10-21 首次重抓是 **9** 个 event、**49** 个市场、**$70,507.74**；同日再复核为 **$71,283.77**（9/49 不变；`clayface` volume 4,096.90 → 5,125.88 → 5,457.38）。下文凡引用在开盘口/成交额，均标明快照日期。
 - 每个 event 的市场数：平均 **6.24**，最少 3、最多 15。
 - 已关闭 event 的成交额：中位 **$11,727.77**、均值 $21,394.97、最大 **$241,440.63**。
 - 按 `endDate` 月份数已关闭 event：2026-03 **11**、04 **10**、05 **12**、06 **9**、07 **4**、08 **17**、09 **12**、10 **9**（10 月未完）→ 这 8 个月合计 **84** 个；另有 **1** 个已关闭 event 的 `endDate` 为空，故总数 85。**近期约每月 10 个 event**（84/8 = 10.5）。2026-07 只有 4 个，说明密度会波动，**不能把 8 月的 17 个外推**。
@@ -75,7 +75,7 @@ confidence: 中
 
 `volume=4096.90`、`liquidity=870.65`、`openInterest=1234.13`、`negRisk=false`、`feeSchedule={"exponent":1,"rate":0.05,"takerOnly":true,"rebateRate":0.25}`（**2026-10-20 快照**）。
 
-2026-10-21 重抓同一 event：`volume=5,125.88`、`liquidity=1,507.62`、`feeSchedule={"exponent":1,"rate":0,"takerOnly":true,"rebateRate":0}`，五档 `outcomePrices` 变成 `0.8505/0.665/0.320/0.140/0.0445`。**费率字段和盘口都会变**；回测按 0.05 保守计，见成本节。
+2026-10-21 重抓同一 event：`volume=5,125.88`、`liquidity=1,507.62`、`feeSchedule={"exponent":1,"rate":0,"takerOnly":true,"rebateRate":0}`，五档 `outcomePrices` 变成 `0.8505/0.665/0.320/0.140/0.0445`；同日再复核 `volume=5,457.38`、`liquidity=2,056.38`、`outcomePrices=0.8985/0.665/0.320/0.145/0.046`。**费率字段和盘口都会变**；回测按 0.05 保守计，见成本节。
 
 | 档 | bestBid | bestAsk | mid | `outcomePrices` | volume | `clobRewards` 日率 |
 |---|---|---|---|---|---|---|
@@ -114,11 +114,11 @@ confidence: 中
 对已关闭市场 `you-can-see-everything` 的 80+ token（`115247292569760568274899790090301720359959003343471261064290162154153281032682`）取 `prices-history?interval=max&fidelity=60`：**564 个点**，从 `2026-09-25T16:00:19Z` 的 `p=0.8745` 到 `2026-10-19T16:00:22Z` 的 `p=0.9995`，**最低 `p=0.5445` 出现在 `2026-09-26T06:00Z`**；`T−7d p=0.9785`、`T−3d p=0.989`、`T−1d p=0.998`。
 
 - 好消息：**已关闭的 RT 市场有小时级价格历史（`fidelity=60` 分钟，564 个点约合 24 天）**（不像地震那类市场返回 `{"history":[]}`），所以"市场侧"可以事后回测。
-- 坏消息：这次暴跌（0.8745 → 0.5445 → 1.0）说明**价格在早期会被单条评论打穿**，而**早期评论的时间序列我拿不到**（下节），所以"模型侧"无法事后回放。**这就是本条仍然不能验证 Beta 模型的原因。**
+- 坏消息：这次暴跌（0.8745 → 0.5445 → 1.0）说明**价格在早期会被单条评论打穿**。RT 自身页面不给历史计数，但 Wayback 影片页快照可以恢复 73/85 个 event 的 `(k,n)`（证据 8）；只是快照中位滞后 30.7h，早期评论的时间序列仍然稀疏，所以只能做"稀疏快照"回放，不能精确复现下单那一分钟。
 
 ### 7) 市场侧历史可成交价回测（2026-10-21 新做，模型无关，out-of-sample）
 
-**先说清楚：这一节检验的是"市场价是否已经足够有效"，不是 Beta 模型本身。** 模型侧仍然不可回放（下节），所以不能用这次回测给模型报收益。脚本 `backtest.py` / `extra_stats.py`，stdout 在 `notes/scheduler/scratch/H-quant-016/`。
+**先说清楚：这一节检验的是"市场价是否已经足够有效"，不是 Beta 模型本身。** Beta 模型的历史检验见证据 8（结果同样为负）。脚本 `backtest.py` / `extra_stats.py`，stdout 在 `notes/scheduler/scratch/H-quant-016/`。
 
 **样本与可成交价。** 85 个已关闭 event 中 84 个有 `endDate` 且能解析出 `N+` 档（另 1 个 `mufasa` 是区间写法且 `endDate` 为空），共 **525** 个档；结算价全部是 0/1（YES 242、NO 283）。对每个档取 event `endDate` 前 24h 的**最后一笔 data-api 成交**作为可成交价：YES 成交价原样，NO 成交价取 `1−价`；成交必须发生在决策时点前 24h 内。买价再加 **1¢ 半价差**和吃单费 `0.05×q×(1−q)`（`q` 为买入侧价格）。T-24h 有成交的档 **341** 个、event **82** 个（T-48h 374/82、T-6h 413/80、T-7d 109/35）；T-24h 成交距决策时点的中位数 **5.9h**。CLOB `prices-history` 同时取，T-24h 6h 内有价 **495** 个档/82 个 event；用 CLOB 价替代成交价做同一组规则，A/B/C 均值变成 **−0.023901 / −0.024166 / −0.031979**，方向不变（CLOB 点可能是 mid 或 last，不是 ask，所以只作敏感性）。所有规则在写脚本时预注册，没有拟合参数；全部 84 个可用 event 都是样本外，另按 `2026-08-01` 切成两段做稳定性检查。**局限**：成交价不是 ask，可能 stale（中位 5.9h、最长 24h），真实可成交价可能更差；固定 1¢ 半价差对 80+ 档是乐观值（快照 11¢）。这些偏差只会让回测结果更好看，不会让负结果翻正。
 
@@ -155,28 +155,46 @@ confidence: 中
 
 **一个必须标清楚的探索性结果（不是本条证据）**：把 T-24h 价格在 0.25–0.90 的所有档都买 YES，36 个档/31 个 event，每份均值 **+0.0881**、每 event 均值 **+0.1130**、正/负 22/9，符号检验 **p=0.0294**。这是我看完分桶表后追加的、**没有预注册**，而且是在多个桶里挑出来的；它最多说明"边界附近的 YES 可能被低估"，与条目的 maker 双边规则不是一回事，**不能拿来给 Beta 模型背书**。若要做，必须另立条目、另写预注册规则、前向验证。
 
-**结论（不粉饰）**：市场侧没有找到可用的净 edge；T-24h 的市场已经高度校准，边界档也基本定型。这与条目"市场会把 1–2 分窄档按 0/1 错误定价"的前提**相反**。Beta 模型本身仍无法历史回放（下一节），所以本条不能报任何模型收益；按 GUIDE 第 2 节第 5、6 条，建议降为**待选区**，不要按收录推进。
+**结论（不粉饰）**：市场侧没有找到可用的净 edge；T-24h 的市场已经高度校准，边界档也基本定型。这与条目"市场会把 1–2 分窄档按 0/1 错误定价"的前提**相反**。
+
+### 8) 模型侧历史回测（复用 `notes/q016-hist/`，按 round 修正后重算；2026-10-21）
+
+**来源与复用。** 已合并的 `bots/quant/notes/q016-hist/REPORT.md`（提交 `e950778`）做了本条此前认为做不了的模型侧回测：用 Wayback CDX 对 85 个已关闭 event 的 RT 影片页找 `[T−72h, T−12h]` 内最晚快照，解析 `criticsScore` 的 `(k,m)`；再用 data-api 同一窗口最后 6h 成交做可成交价。**73/85** 个 event 有主快照（**66** 个有可成交价，已过 30 门槛），主快照中位滞后 **30.70h**（最短 12.86h、最长 69.02h）。**我没有重跑整条抓取**：Wayback CDX 在本次复核时多次尝试中只有一次 200、其余 TLS 失败（`verify_entry_citations.out`），但同一归档页可打开（`web/20260508165855id_/.../the_sheep_detectives` HTTP 200，`k=101, notLiked=5, reviewCount=106, score=95`，与笔记 spot check 一致）；于是我直接复用其 `events.csv` 的 `(k,m)`，只重取同样的 6h data-api 成交窗口，复算下面两组数。脚本 `model_hist_round.py`，stdout `model_hist_round.out`。
+
+**A. 直接引用原笔记（旧 floor 口径）。** 模型 **Brier 0.066637 vs 市场 0.035369**（差 +0.031268），log loss **0.214928 vs 0.121872**（差 +0.093056）；92 笔触发 / 52 个 event，命中 9/92，event 净中位 **−0.113876/份**、均值 −0.079474，合计 **−4.132638** / 投入 12.708319 = **每美元 −0.325192**。敏感性窗口 `[T−7d,T−24h]` 也负（73 个 priced event、103 笔、每美元 −0.232801）。按条目冻结的失败标准（模型 Brier/log loss 不优于市场，或成交份额中位毛利 ≤0）**两条都触发 → FAIL**。
+
+**B. 按本条 round half up 重算（新）。** 原笔记的模型写成 `floor(100p)`，与本条已更正的取整口径冲突；把阈值改成 `p ≥ (T−0.5)/100` 后，在同一批 66 个 event / 192 个有价档上：
+
+| 口径 | 模型 Brier | 市场 Brier | 模型 log loss | 市场 log loss | 触发笔数 | event 净中位/份 | 每美元 |
+|---|---:|---:|---:|---:|---:|---:|---:|
+| floor（复现原笔记） | 0.066637 | 0.035369 | 0.214928 | 0.121872 | 92 | −0.113876 | −0.325192 |
+| **round half up（新）** | **0.060450** | 0.035369 | **0.203451** | 0.121872 | 87 | **−0.112858** | **−0.325353** |
+
+floor 行与 `q016-hist/run_output.txt` 小数点后 6 位一致（说明复算管线对得上）；round 只把模型 Brier 拉低 **0.006187**，仍比市场差 **0.025081**，净收益几乎不变（每美元 −0.325353），**不能翻正**。66 个 event 全部是历史已结算样本，没有拟合参数。
+
+**结论。** 这是本条第一次真正检验 Beta 模型（而不只是市场侧前提），结果**明确为负**：模型在 30+ 个独立 event 上比市场中间价更差，扣成本后每美元亏约 32%。此前"历史 `(k,n)` 取不到、只能前向记录"的说法已被 `q016-hist` 推翻；现在的正确说法是"**能回放，但回放结果 FAIL**"。局限仍要标清：快照不是结算前最后一刻（中位滞后 30.7h），盘口只有成交价 + 1¢ 半价差，真实 maker/ask 可能更差；这些偏差只会让负结果更负，不会翻正。按 GUIDE 第 2 节第 5、6 条，建议降为**待选区**，不要按收录推进。
 
 ## 数据
 
 - RT 影片页（免费、免密钥、无需登录）：`https://www.rottentomatoes.com/m/<slug>`。我用 `curl -sL -A "<桌面 UA>"` 拿到 HTTP 200，页面内有一行 JSON：`"criticsScore":{"likedCount":..,"notLikedCount":..,"ratingCount":..,"reviewCount":..,"score":"..","scorePercent":"..%","sentiment":"..","reviewsPageUrl":".."}`。`audienceScore` 是另一个对象，不要混。**注意**：这是抓 HTML，不是官方 API（RT 是否有公开 API：**未查到**）；UA/地区/反爬一变就可能抓不到，本次只是单次成功。
-- RT reviews 页（`/m/<slug>/reviews`）：HTTP 200，但**HTML 里 0 个评论日期字段**（`publicationDate/reviewDate/createDate/datePublished` 全部无匹配），列表由 JS 渲染 → **"某时刻已出多少条评论"无法事后回放**。这是本条的硬约束。2026-10-21 又试了 Wayback availability（HTTP 429）、`web.archive.org` CDX（TLS 000）、`archive.ph`（TLS 000）、Common Crawl 索引（HTTP 504），都**未取到**；没有找到任何免费的历史评论数快照。
+- RT reviews 页（`/m/<slug>/reviews`）：HTTP 200，但**HTML 里 0 个评论日期字段**（`publicationDate/reviewDate/createDate/datePublished` 全部无匹配），列表由 JS 渲染 → **RT 自身页面给不出"某时刻已出多少条评论"**。**但 Wayback 的影片页快照可以**（见下条）：`q016-hist` 用 CDX 拿到 73/85 个 event 的主快照，从 HTML 的 `criticsScore` 读出历史 `(k,m)`。2026-10-21 复核时 availability/archive.ph/Common Crawl 仍失败，CDX 本轮复核时好时坏（既有 HTTP 200，也有多次 TLS 000），所以这条路径**免费但可用性不稳**。
 - Polymarket Gamma（免费免密钥）：`https://gamma-api.polymarket.com/events?slug=<event-slug>`（规则原文、各档 `bestBid/bestAsk/outcomePrices/groupItemTitle`、`feeSchedule`、`clobRewards`）；`https://gamma-api.polymarket.com/events?tag_slug=rotten-tomatoes&limit=500&closed=true|false&order=endDate&ascending=false`（数频率）；`https://gamma-api.polymarket.com/public-search?q=rotten%20tomatoes&limit_per_type=100`（找同族）。
 - Polymarket CLOB（免费免密钥）：`https://clob.polymarket.com/prices-history?market=<tokenId>&interval=max&fidelity=60`，也支持 `startTs/endTs`；已关闭市场也有历史。
 - Polymarket data-api 逐笔成交（免费免密钥）：`https://data-api.polymarket.com/trades?market=<conditionId>&limit=500&offset=N`，字段 `side/outcome/price/size/timestamp`，最新在前；已关闭市场可读。本次回测对 525 个档各翻到 `endDate−9d`，共取 525/525 个市场。
-- 缺失：历史"当时评论数与新鲜比例"（必须现在起前向记录）；RT 的反爬稳定性；`resolutionSource` 为空导致的具体结算页面；14 个全 NO event 的成因拆分；历史盘口（只有成交价，没有 bid/ask，所以回测只能加固定半价差）。
+- Wayback（免费免密钥，但不稳定）：`https://web.archive.org/cdx/search/cdx?url=rottentomatoes.com/m/<slug>&output=json&from=...&to=...&filter=statuscode:200` 列快照，`https://web.archive.org/web/<ts>id_/https://www.rottentomatoes.com/m/<slug>` 取正文；完整实现、逐 event 明细与 stdout 在 `notes/q016-hist/`（`q016_hist.py`、`events.csv`、`run_output.txt`）。
+- 缺失：**结算前最后一刻**的 `(k,n)`（Wayback 快照中位滞后 30.7h，覆盖 73/85）；RT 的反爬稳定性；`resolutionSource` 为空导致的具体结算页面；14 个全 NO event 的成因拆分；历史盘口（只有成交价，没有 bid/ask，所以回测只能加固定半价差）。
 
 ## 两周内怎么检验
 
 - **独立结果按 event 数**：同一部片的所有档位共用一次结算（同一数据源、同一时点），算 **1 个**结果。两周内到期的是 `2026-10-26` 那批（clayface、klara-and-the-sun、ali-g-who-iz-i、wildwood 共 4 个）和 `2026-11-09` 那批（godzilla-minus-zero、wild-horse-nine 共 2 个）→ **最多 6 个 event**；`2026-11-23`、`2026-12-21` 的三批到期更晚。**因此两周内拿不到 30 个独立结果**，30 个约需 3 个月（按每月 10 个 event）。这一点如实写在这里；按 GUIDE 第 2 节第 6 条，本条应进**待选区**（是否留在待核由整合者按 15 条上限决定）。
-- **已经做完的历史检验（不能替代模型检验）**：85 个已关闭 event 的价格侧回测，T-24h 有 341 个档/82 个 event 的可成交价；预注册的 A/B/C 三条规则净收益全负，市场 Brier 0.024829 vs 常数 0.247659（证据 7）。这证明"市场侧能回测、且没有模型无关的便宜可捡"，但**没有**证明 Beta 模型的对错。
+- **已经做完的历史检验（市场侧与模型侧都为负）**：价格侧，T-24h 有 341 个档/82 个 event 的可成交价，预注册的 A/B/C 三条规则净收益全负，市场 Brier 0.024829 vs 常数 0.247659（证据 7）。模型侧，`q016-hist` 用 Wayback 快照拿到 66 个独立 priced event（≥30），模型 Brier/log loss 均差于市场，每美元 −0.325192；按本条 round 口径重算仍为每美元 −0.325353（证据 8）。这不是"没法检验"，而是**检验了、没通过**。
 - 前向记录（每天 4 次，UTC 00/06/12/18）：每片的 `(k, n, reviewCount, score, 抓取时刻)`；每个档位的 `bestBid/bestAsk/mid/outcomePrices`；我挂的单与实际成交。存成 CSV，字段写死。
-- 原计划的"Beta 先验 + 随机子样本"校准模拟**仍未做**：它需要历史 `(k,n)`，而 RT 只给最终计数、reviews 页无日期；在做出来之前不能把它写成证据。
+- 原计划的"Beta 先验 + 随机子样本"校准模拟仍未做；`q016-hist` 做的是固定 `Beta(k+1,m+1)` 的逐档回放（证据 8），已经足以触发失败标准，但不能代替"随机子样本"式的早期评论选择偏差校准。
 - **失败标准（成交前写死）**：
   1. 至少 1 个 event 结算后，模型对该 event 各档的 Brier 分数**不优于**市场 mid 的 Brier；
   2. 或已成交份额的中位已实现毛利 ≤0（毛利 = 票面 1.00 − 成交价，只算成交，不算未成交挂单）；
   3. 或两周内可用 event < 3 个 / 抓 RT 成功率 < 80% → 判"容量/数据失败"，进待选区而不是算策略失败。
-- 按证据 7，标准 1 的前置条件已经很苛刻：T-24h 市场 Brier 只有 0.0248，模型要在 82 个 event 上稳定优于它，必须有市场不知道的评论信息；目前没有证据。
+- 按证据 8，标准 1 已经触发：round 口径下模型 Brier 0.060450 vs 市场 0.035369（66 个 event / 192 个有价档），模型没有稳定优于市场。
 - 不允许的自我安慰：不能因为"挂单没成交"就报正收益；不能只报成交到的那几档。
 
 ## 成本与容量
@@ -186,7 +204,7 @@ confidence: 中
   - maker 费 0，另返对手吃单费的 `rebateRate=0.25`（25%；2026-10-21 在开市场已变成 0，返佣也归零）。
   - **每笔成本 = 费 + 半个买卖价差**。70+ 档半价差 **4.5¢**、80+ 档 **11¢**（2026-10-20 快照）——比模型在 n≈50 时的可分辨 edge 还大，所以吃单一定不行；maker 的代价换成"排队 + 逆向选择"，后者**未量化**。回测里 1¢ 半价差是乐观值，真实 80+ 档可能是 11¢，只会更差。
 - **单笔能放多少**：单档在险 100 份；70+ 档买 YES 于 0.45 ≈ 45 USDT，全链 5 档约 200–500 USDT，但 event 上限 300 USDT 会先撞到。占款天数 = 到 `endDate` 的 10:00 AM ET + 1–3 天结算滞后（`sense-and-sensibility` 实际 event `closedTime` 比规则读数晚约 2 小时）。
-- **一个月多少次机会**：近期约 **10 个 event/月**（证据 1），每个 event 3–15 个档 → 每月 60–150 个档位可选；但单个 event 成交额中位只有 **$11,727.77**。2026-10-21 在开的 9 个 event、49 个市场合计 **$70,507.74**，最小的 `dune-part-three` 只有 **$1,062.19**（2026-10-20 快照里 `klara-and-the-sun` 是 $297.91，一天就涨到 $6,072.78），**5,000 USDT 放不满**，给这条线 1,000 USDT 上限就够，剩余资金不被占用。
+- **一个月多少次机会**：近期约 **10 个 event/月**（证据 1），每个 event 3–15 个档 → 每月 60–150 个档位可选；但单个 event 成交额中位只有 **$11,727.77**。2026-10-21 在开的 9 个 event、49 个市场合计 **$70,507.74**（同日再复核 $71,283.77），最小的 `dune-part-three` 只有 **$1,062.19**（2026-10-20 快照里 `klara-and-the-sun` 是 $297.91，一天就涨到 $6,072.78），**5,000 USDT 放不满**，给这条线 1,000 USDT 上限就够，剩余资金不被占用。
 - **奖励（补贴，不是主收益）**：在开 event 的 `clobRewards` 日率实测 3 / 5 / 10 / 100 USDC/日不等（`klara-and-the-sun`、`ali-g-who-iz-i` 是 100，`avengers-doomsday` 是 3，`godzilla-minus-zero` 有 2 档是 10）；`dune-part-three` 没有 `clobRewards`。按 dot-032 记录的 Q-score 规则分摊，**不能当固定收入**（这类字段随时可改）。
 - **容量结论**：单 event 300 USDT、最多 4 个 event 并行 → 1,200 USDT 在险，远低于 2,500 单场所上限；但**容量受 event 成交额限制，不是受我的资金限制**。
 
@@ -200,7 +218,7 @@ confidence: 中
 - **`resolutionSource` 为空**：规则正文只说 "Rotten Tomatoes"，没给页面。若结算方看的是某个地区站或"Verified"标签下的分数，可能与我读的 `criticsScore` 不同。**未查到**具体页面。
 - **取错字段**：同一页 HTML 里还有别的百分数（`sense_and_sensibility_2026` 页面里我正则同时匹配到 `88%`、`81%`、`98%`，来自页内其它模块/推荐位），所以必须从那段 `criticsScore` JSON 里取值，不能用正则捞百分数；抓错字段会让每个档差 10 分以上。是否有独立的 `Top Critics` 字段、它与结算口径的关系：**未查到**。
 - **流动性与逆向选择**：`80+` 档 bid 0.04 / ask 0.26，`liquidity` 只有 870.65（2026-10-20 快照）；挂在这种档上成交时很可能是对手拿到了新评论。这个成本**未量化**。
-- **价格侧回测为负（新增，最直接的降级理由）**：T-24h 市场 Brier 0.024829（常数 0.247659），预注册的 A/B/C 三条模型无关规则每份净 −0.024966 / −0.018371 / −0.100814，两段时间都负（证据 7）。这说明"窄档错价"的前提在价格数据里看不到；模型即使有 edge，也必须来自市场没有的评论信息，而这条信息恰恰无法历史回放。
+- **价格侧与模型侧回测都为负（新增，最直接的降级理由）**：价格侧 T-24h 市场 Brier 0.024829（常数 0.247659），预注册的 A/B/C 三条模型无关规则每份净 −0.024966 / −0.018371 / −0.100814，两段时间都负（证据 7）。模型侧用 Wayback 快照回放 66 个独立 event，round 口径 Brier 0.060450 vs 市场 0.035369、每美元 −0.325353（证据 8）。"窄档错价"的前提在价格数据里看不到；评论信息**并非无法回放**，而是回放后模型仍输给市场。
 - **费率字段会变（新增）**：2026-10-21 在开市场多数 `feeSchedule.rate=0`，已关闭样本仍是 0.05。按 0.05 算是保守，但如果费率长期为 0，成本节的高估会压低表面收益；反过来，若费率再调高，maker 返佣也可能归零。**不要把 2026-10-20 的费率快照当成永久规则。**
 - **平台与结算**：`restricted=true`；UMA 提案，`umaBond=500`、`umaReward=5`、`customLiveness=0`，`automaticallyResolved=true`。客观分数出争议概率低，但"数据不可用 → 全判 No"这条兜底对买方是本金全损。
 
@@ -210,23 +228,23 @@ confidence: 中
 
 ## 门槛自查
 
-1. **机制说得清：不确定** — 叙述是清楚的：付钱方是"把当前分数当最终分数"的下注者；定量依据是二项标准差（n=100、p=0.75 时 ±4.3 分）与平台把档位加密到 2 分的实例，以及 14/85 的"无分数"尾部。但 2026-10-21 的价格侧回测（证据 7）显示 T-24h 市场 Brier 0.0248、84.6% 的 event 在 T-24h 已指向正确边界、`lo` 中位价 0.872（不是 0/1），**"市场会把窄档按 0/1 错误定价"这个前提没有被数据支持**。机制故事讲得通，付钱方的存在性没有证据。
-2. **有免费数据能检验：不满足（模型侧）** — 市场侧现在有了：Gamma + CLOB + data-api，85 个已关闭 event、525 个档，T-24h 有 341 个档/82 个 event 的可成交价（证据 7）。**模型侧仍不行**：RT reviews 页由 JS 渲染，HTML 里 0 个评论日期字段；Wayback/archive.today/Common Crawl 本次都取不到（429/TLS 000/504），所以"某时刻已出多少条评论、几条新鲜"**无法事后回放**，只能前向记录。历史 ≥30 个独立结果的"模型"数据拿不到。
+1. **机制说得清：不确定** — 叙述是清楚的：付钱方是"把当前分数当最终分数"的下注者；定量依据是二项标准差（n=100、p=0.75 时 ±4.3 分）与平台把档位加密到 2 分的实例，以及 14/85 的"无分数"尾部。但价格侧回测（证据 7）显示 T-24h 市场 Brier 0.0248、84.6% 的 event 在 T-24h 已指向正确边界；模型侧回放（证据 8）模型 Brier 0.060450 vs 市场 0.035369、扣成本每美元 −0.325353。**"市场会把窄档按 0/1 错误定价"这个前提没有被数据支持**，机制故事讲得通，付钱方的存在性没有证据。
+2. **有免费数据能检验：满足（有条件）** — 市场侧有 Gamma + CLOB + data-api，85 个已关闭 event、525 个档，T-24h 有 341 个档/82 个 event 的可成交价（证据 7）。模型侧也有：`q016-hist` 用免费 Wayback 快照恢复 73/85 个 event 的 `(k,n)`，其中 66 个有可成交价（≥30，证据 8）。**条件**是 Wayback 可用性不稳（2026-10-21 CDX 时好时坏，availability/archive.ph/Common Crawl 失败），快照中位滞后 30.7h；但"历史计数完全取不到"已不成立。
 3. **小资金能做：满足** — 300 USDT/event、≤4 event 并行、总计 ≤1,200 USDT，低于 2,500 单场所与 5,000 总资金；不加杠杆；买单最大亏损就是本金。容量写清了：受 event 成交额（中位 $11,727.77）限制，5,000 USDT 放不满。
 4. **不重复：满足** — r1-audit 已判 quant-016 与 quant-010 不同（同属文化 nowcast，但数据源/变量不同）；最近的邻居是 **quant-010（流媒体周榜）** 与 **dot-032（流动性奖励）**，本条收益来源是**评论抽样比例的统计预测**（`category: S`），不是榜单排名（E）也不是奖励份额（M）。共用 Gamma/CLOB 接口不等于同一机制。
-5. **扣成本后粗算够用：不满足** — 吃单侧本来就不行（70+ 半价差 4.5¢、80+ 11¢，加 1.25%–2.68% 的吃单费后没有 edge 空间）；本次历史回测把"模型无关的便宜"也排除了：预注册 A/B/C 三条规则每份净 −0.024966 / −0.018371 / −0.100814，maker 费 0 版本仍负，两个时间段都负。Beta 模型本身没被检验，所以不能报正收益；按现有证据，**扣成本后不够用**。
-6. **两周内能检验：不满足** — 独立结果按 event 计，两周只到期约 5–6 个 event，凑不到 30；30 个约需 3 个月（每月约 10 个）。历史价格侧虽有 82 个 event，但**模型信号不可回放**，不能用它冒充模型检验。按 GUIDE 第 2 节第 6 条，本类应进**待选区**。
-7. **出处可查：满足** — 每个数字都有 URL + 抓取日期 + 取数方式；2026-10-21 我把本条引用的 Gamma/CLOB/RT/data-api 全部重抓了一遍（`verify_sources.py` + `verify_sources.out`），并记录了会漂移的数（在开 47→49 个市场、$56,087→$70,508、`clayface` 费率 0.05→0、`sense` 78/102→82/106、`other_mommy` 15/87→16/89）。我自己算的量（163 / 85 / 530 / 84+1 / $1,818,572.46 / $11,727.77 / 70 与 14 的拆分 / 基率分布 / Beta 区间宽度 / 564 个价格点 / 22 个取整样本 / 341 档回测）都写了公式或中间量，脚本在 `notes/scheduler/scratch/H-quant-016/`。Gamma 自报的 volume/liquidity 标为"来源自报，未核实"。
+5. **扣成本后粗算够用：不满足** — 吃单侧本来就不行（70+ 半价差 4.5¢、80+ 11¢，加 1.25%–2.68% 的吃单费后没有 edge 空间）；市场侧预注册 A/B/C 三条规则每份净 −0.024966 / −0.018371 / −0.100814，maker 费 0 版本仍负，两个时间段都负（证据 7）。模型侧历史回放 round 口径模型 Brier 0.060450 vs 市场 0.035369、每美元 −0.325353，92→87 笔触发交易仍净亏（证据 8）。按现有证据，**扣成本后不够用**。
+6. **两周内能检验：满足（方法），但结果 FAIL** — 用已合并的 Wayback 快照，历史已有 66 个独立 priced event（≥30，证据 8），不必等两周；按冻结标准模型 Brier/log loss 差于市场、成交净值为负，已判 **FAIL**。若只看新到期，两周只有约 5–6 个 event，仍凑不到 30。按 GUIDE 第 2 节第 6 条，本类应进**待选区**。
+7. **出处可查：满足** — 每个数字都有 URL + 抓取日期 + 取数方式；2026-10-21 我又用 `verify_entry_citations.py` 把本条引用的 Gamma/CLOB/RT/data-api 逐项重抓（20 项 PASS、4 项归档端点当前失败；`verify_entry_citations.out`），并用 `check_rounding.py` 重跑 22 个页面（22/22 round、12 个能区分 floor/round 的样本全部 round；`check_rounding_recheck.out`）。会漂移的数都标了快照：在开 47→49 个市场、$56,087→$70,508→$71,284、`clayface` 费率 0.05→0、`sense` 78/102→82/106、`other_mommy` 15/87→16/89。历史模型侧数字来自 `notes/q016-hist/`，复算脚本 `model_hist_round.py` + stdout 在同目录。Gamma 自报的 volume/liquidity 标为"来源自报，未核实"。
 
-**总判**：7 条里没有 1 条全满足；门 2、5、6 不满足，门 1 的前提被价格数据削弱。按 GUIDE 第 2 节，本条应进**待选区**（不是收录），建议整合者降级；在拿到可回放的 `(k,n)` 历史序列之前，不要按"策略"推进。
+**总判**：7 条里没有 1 条全满足。门 5 明确不满足；门 1 的前提被价格侧和模型侧数据同时削弱；门 2、6 在方法上已满足（66 个历史独立 event 可回放），但回放结果 **FAIL**，所以不能按收录推进。按 GUIDE 第 2 节，本条应进**待选区**（不是收录），建议整合者降级；"拿到可回放的 `(k,n)` 历史序列"这个前置条件现在已经满足，结论是策略本身不通过，而不是数据拿不到。
 
 ## 出处
 
-- https://gamma-api.polymarket.com/public-search?q=rotten%20tomatoes&limit_per_type=100 — 访问 2026-10-20、2026-10-21 — 已读（两次都是 `pagination.totalResults=163`，50 个 event；50/50 的 slug 匹配 `<film>-rotten-tomatoes-score-<date>`；2026-10-21 第一条是 `klara-and-the-sun-rotten-tomatoes-score-20261026`）
-- https://gamma-api.polymarket.com/events?slug=clayface-rotten-tomatoes-score-20261026 — 访问 2026-10-20、2026-10-21 — 已读（规则原文含 "at 10:00 AM ET on October 26, 2026"、"All Critics"、"no data ... No"、"October 30, 2026, 11:59 PM ET"；`resolutionSource=""`；2026-10-20 快照 5 档、`feeSchedule.rate=0.05`、volume 4,096.90、liquidity 870.65；2026-10-21 重抓 volume 5,125.88、liquidity 1,507.62、`feeSchedule.rate=0`、五档 outcomePrices 0.8505/0.665/0.320/0.140/0.0445；tags 含 `rotten-tomatoes` id 101453）
+- https://gamma-api.polymarket.com/public-search?q=rotten%20tomatoes&limit_per_type=100 — 访问 2026-10-20、2026-10-21 — 已读（两次都是 `pagination.totalResults=163`、50 个 event；50/50 属于 `<film>-rotten-tomatoes-score[-<数字>]` 族，其中 25 个 8 位日期、5 个 17 位时间戳、20 个无后缀；2026-10-21 第一条是 `klara-and-the-sun-rotten-tomatoes-score-20261026`）
+- https://gamma-api.polymarket.com/events?slug=clayface-rotten-tomatoes-score-20261026 — 访问 2026-10-20、2026-10-21 — 已读（规则原文含 "at 10:00 AM ET on October 26, 2026"、"All Critics"、"no data ... No"、"October 30, 2026, 11:59 PM ET"；`resolutionSource=""`；2026-10-20 快照 5 档、`feeSchedule.rate=0.05`、volume 4,096.90、liquidity 870.65；2026-10-21 重抓 volume 5,125.88、liquidity 1,507.62、`feeSchedule.rate=0`、五档 outcomePrices 0.8505/0.665/0.320/0.140/0.0445；同日再复核 volume 5,457.38、liquidity 2,056.38、outcomePrices 0.8985/0.665/0.320/0.145/0.046；tags 含 `rotten-tomatoes` id 101453）
 - https://gamma-api.polymarket.com/events?slug=sense-and-sensibility-rotten-tomatoes-score-20261019 — 访问 2026-10-20、2026-10-21 — 已读（11 档全部已结算；YES 档 60/65/70/72/74/75/76，NO 档 78/80/85/90；event `closedTime=2026-10-19T16:03:29Z`、市场级 `umaEndDate` 在 16:02:02–16:03:29 之间、`umaResolutionStatus=resolved`、`automaticallyResolved=true`、`umaBond=500`、`umaReward=5`、`customLiveness=0`、`resolutionSource=""`）
 - https://gamma-api.polymarket.com/events?tag_slug=rotten-tomatoes&limit=500&closed=true&order=endDate&ascending=false — 访问 2026-10-20、2026-10-21 — 已读（两次都是 85 个已关闭 event、530 个市场、合计 $1,818,572.46；中位 $11,727.77、最大 $241,440.63；按月 11/10/12/9/4/17/12/9，合计 84，另 1 个 `endDate` 为空）
-- https://gamma-api.polymarket.com/events?tag_slug=rotten-tomatoes&limit=500&closed=false&order=endDate&ascending=false — 访问 2026-10-20、2026-10-21 — 已读（2026-10-20：9 个在开 event、47 个市场、$56,087.15；2026-10-21：9 个、49 个市场、$70,507.74；逐 event 的 volume 与 `clobRewards` 日率会漂移）
+- https://gamma-api.polymarket.com/events?tag_slug=rotten-tomatoes&limit=500&closed=false&order=endDate&ascending=false — 访问 2026-10-20、2026-10-21 — 已读（2026-10-20：9 个在开 event、47 个市场、$56,087.15；2026-10-21：9 个、49 个市场、$70,507.74，同日再复核 $71,283.77；逐 event 的 volume 与 `clobRewards` 日率会漂移）
 - https://gamma-api.polymarket.com/events?tag_slug=culture&limit=3 — 访问 2026-10-20 — 已读（HTTP 200，但返回 0 个 event；仅用于确认 tag 端点可达，本条实际用的是 event 自带的 `rotten-tomatoes` tag）
 - https://gamma-api.polymarket.com/tags?limit=200 — 访问 2026-10-20 — 已读（请求 limit=200 但实际只返回 100 条，`rotten-tomatoes` 不在其中；tag 是从 event 对象里读到的）
 - https://clob.polymarket.com/prices-history?market=115247292569760568274899790090301720359959003343471261064290162154153281032682&interval=max&fidelity=60 — 访问 2026-10-20、2026-10-21 — 已读（564 个点，0.8745@2026-09-25T16:00:19Z → 最低 0.5445@2026-09-26T06:00:18Z → 0.9995@2026-10-19T16:00:22Z；T−7d=0.9785、T−3d=0.989、T−1d=0.998；已关闭 RT 市场**有**价格历史）
@@ -235,10 +253,15 @@ confidence: 中
 - https://www.rottentomatoes.com/m/sense_and_sensibility_2026 — 访问 2026-10-20、2026-10-21 — 已读（2026-10-20：`likedCount:78, notLikedCount:24, reviewCount:102, score:"76"`，`78/102=0.7647`；2026-10-21：`82/24/106, score:"77"`，`82/106=0.7736`；两版都与四舍五入一致，旧稿"floor"推断错误）
 - https://www.rottentomatoes.com/m/other_mommy — 访问 2026-10-20、2026-10-21 — 已读（2026-10-20：`15/72/87, score:"17"`，`15/87=0.1724`；2026-10-21：`16/73/89, score:"18"`，`16/89=0.1798`；后者只有 round 能解释，floor 会给 17）
 - https://www.rottentomatoes.com/m/by_any_means — 访问 2026-10-20、2026-10-21 — 已读（`likedCount:0, notLikedCount:0, reviewCount:0`，**无 `score` 字段** → 该 event 全档 NO 属"缺数据"路径，不是"分数低"）
-- https://www.rottentomatoes.com/m/sense_and_sensibility_2026/reviews — 访问 2026-10-20、2026-10-21 — **抓到了 HTTP 200 但不可用**（2026-10-21 是 96,727 字节；`publicationDate/reviewDate/dateCreated/datePublished/createDate` 匹配数全部 0，列表为 JS 渲染）→ 历史"当时已出评论数"无法回放，这是本条没有模型侧回测的直接原因
+- https://www.rottentomatoes.com/m/sense_and_sensibility_2026/reviews — 访问 2026-10-20、2026-10-21 — **抓到了 HTTP 200 但 RT 页面本身不可用**（2026-10-21 是 96,727 字节；`publicationDate/reviewDate/dateCreated/datePublished/createDate` 匹配数全部 0，列表为 JS 渲染）→ RT 页面给不出逐条日期；历史 `(k,n)` 改用 Wayback 影片页快照（见下条与 `notes/q016-hist/`）
 - 取整样本（22 个 RT 影片页，2026-10-21 抓，`check_rounding.out`）：`https://www.rottentomatoes.com/m/the_wild_robot`（252/261=96.5517→97，floor 96）、`.../inside_out_2`（298/329=90.5775→91，floor 90）、`.../klara_and_the_sun`（5/21=23.8095→24，floor 23）、`.../wicked_for_good`（234/356=65.7303→66，floor 65）、`.../project_hail_mary`（407/430=94.6512→95，floor 94）等 — 访问 2026-10-21 — 已读；22/22 与 round 一致，12 个能区分 floor/round 的样本全部是 round
-- https://web.archive.org/、https://archive.ph/、https://index.commoncrawl.org/ — 访问 2026-10-21 — **未取到**（Wayback availability HTTP 429、CDX TLS 000；archive.today TLS 000；Common Crawl 索引 HTTP 504），所以没有历史评论数快照；不据此写任何数字
+- https://web.archive.org/cdx/search/cdx?url=rottentomatoes.com/m/<slug>&output=json&filter=statuscode:200 与 https://web.archive.org/web/<ts>id_/https://www.rottentomatoes.com/m/<slug> — 访问 2026-10-21 — 已读/时好时坏（`notes/q016-hist/` 成功用 CDX 取到 73 个主快照；本轮复核中 CDX 既有 HTTP 200 也有多次 TLS 000，归档页 `web/20260508165855id_/.../the_sheep_detectives` HTTP 200，`criticsScore` k=101/notLiked=5/reviewCount=106/score=95，与笔记 spot check 一致）
+- https://archive.org/wayback/available?url=rottentomatoes.com/m/sense_and_sensibility_2026&timestamp=20261018、https://archive.ph/newest/https://www.rottentomatoes.com/m/sense_and_sensibility_2026、https://index.commoncrawl.org/CC-MAIN-2026-39-index?url=rottentomatoes.com%2Fm%2Fsense_and_sensibility_2026&output=json — 访问 2026-10-21 — **未取到**（本次复核三个端点均为 TLS/连接失败；早先记录是 availability 429、archive.today TLS 000、Common Crawl 504）；不据此写任何数字
+- `bots/quant/notes/q016-hist/REPORT.md`、`q016_hist.py`、`events.csv`、`run_output.txt`（提交 `e950778`）— 访问/复用 2026-10-21 — 已读（模型侧历史回测：85 个 closed event、73 个主快照、66 个独立 priced event；模型 Brier 0.066637 vs 市场 0.035369、每美元 −0.325192，判 FAIL）
+- `bots/quant/notes/scheduler/scratch/H-quant-016/model_hist_round.py`、`model_hist_round.out` — 运行 2026-10-21 — 已读（复用 `q016-hist/events.csv`，只重取 6h 成交窗口；floor 行小数点后 6 位复现原笔记；round 口径模型 Brier 0.060450 vs 市场 0.035369、每美元 −0.325353）
+- `bots/quant/notes/scheduler/scratch/H-quant-016/check_rounding.py`、`check_rounding_recheck.out` — 运行 2026-10-21 — 已读（22 个有显示分数的 RT 页面：22/22 round、10/22 floor，12 个能区分两者的样本全部 round）
+- `bots/quant/notes/scheduler/scratch/H-quant-016/verify_entry_citations.py`、`verify_entry_citations.out` — 运行 2026-10-21 — 已读（逐项复核本条 24 个 URL/断言：20 PASS、4 个归档端点在本次复核时失败；不把失败端点当证据）
 - https://docs.polymarket.com/ 系列文档 — **本次未抓**，故不引用；费率取自各市场 `feeSchedule` 实取值与 GUIDE 第 8 节表格
-- 本次脚本与 stdout：`bots/quant/notes/scheduler/scratch/H-quant-016/`（`fetch_data.py`、`backtest.py`、`extra_stats.py`、`check_rounding.py`、`verify_sources.py` 及对应 `.out`；原始缓存 `_cache/` 已 gitignore，单文件 <1 MB）
+- 本次脚本与 stdout：`bots/quant/notes/scheduler/scratch/H-quant-016/`（`fetch_data.py`、`backtest.py`、`extra_stats.py`、`check_rounding.py`、`verify_sources.py`、`model_hist_round.py`、`verify_entry_citations.py` 及对应 `.out`；原始缓存 `_cache/` 已 gitignore，单文件 <1 MB）
 
 ---

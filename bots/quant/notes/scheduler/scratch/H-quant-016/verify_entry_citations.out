@@ -1,0 +1,37 @@
+access date: 2026-10-21 UTC
+
+== Gamma ==
+[PASS] public-search: HTTP 200, totalResults=163, events=50, family-pattern=50/50, 8-digit=25, 17-digit=5, no-suffix=20
+[PASS] clayface rules: HTTP 200, endDate=2026-10-26T14:00:00Z, markets=5, labels=['50+', '60+', '70+', '80+', '90+'], resolutionSource='', feeRate=0, volume=5457.381754
+[PASS] sense event: HTTP 200, markets=11, closedTime=2026-10-19T16:03:29Z, YES labels=['60+', '65+', '70+', '75+', '74+', '76+', '72+']
+[PASS] closed events: HTTP 200, events=85, markets=530, volume_sum=1818572.46, median=11727.77, max=241440.63, months=[('', 1), ('2026-03', 11), ('2026-04', 10), ('2026-05', 12), ('2026-06', 9), ('2026-07', 4), ('2026-08', 17), ('2026-09', 12), ('2026-10', 9)]
+[PASS] open events snapshot (may drift): HTTP 200, events=9, markets=49, volume_sum=71283.77, slugs=['dune-part-three-rotten-tomatoes-score-20261221', 'avengers-doomsday-rotten-tomatoes-score-20261221', 'the-hunger-games-sunrise-on-the-reaping-rotten-tomatoes-score-20261123', 'godzilla-minus-zero-rotten-tomatoes-score-20261109', 'wild-horse-nine-rotten-tomatoes-score-20261109', 'klara-and-the-sun-rotten-tomatoes-score-20261026', 'ali-g-who-iz-i-rotten-tomatoes-score-20261026', 'wildwood-rotten-tomatoes-score-20261026', 'clayface-rotten-tomatoes-score-20261026']
+[PASS] culture tag endpoint: HTTP 200, events=0
+[PASS] tags endpoint: HTTP 200, returned=100 (requested 200), has rotten-tomatoes=False
+
+== CLOB / data-api ==
+[PASS] CLOB prices-history: HTTP 200, points=564, first=2026-09-25T16:00:19+00:00 0.8745, last=2026-10-19T16:00:22+00:00 0.9995, min=2026-09-26T06:00:18+00:00 0.5445
+[PASS] data-api trades: HTTP 200, returned=5, fields_ok=True, first=1792401050 SELL Yes 0.995
+
+== Rotten Tomatoes ==
+[PASS] RT clayface: HTTP 200, 176721 bytes; criticsScore k=0, notLiked=0, reviewCount=0, score=None (entry: k=0, m=0, score=None)
+[PASS] RT sense_and_sensibility_2026: HTTP 200, 237909 bytes; criticsScore k=82, notLiked=24, reviewCount=106, score='77' (entry: k=82, m=24, score='77')
+[PASS] RT other_mommy: HTTP 200, 225482 bytes; criticsScore k=16, notLiked=73, reviewCount=89, score='18' (entry: k=16, m=73, score='18')
+[PASS] RT by_any_means: HTTP 200, 144458 bytes; criticsScore k=0, notLiked=0, reviewCount=0, score=None (entry: k=0, m=0, score=None)
+[PASS] RT /reviews has no dates: HTTP 200, bytes=95550, date-field matches={'publicationDate': 0, 'reviewDate': 0, 'dateCreated': 0, 'datePublished': 0, 'createDate': 0}
+
+== rounding samples (entry says 22/22 round, 12 decisive) ==
+[PASS] rounding the_wild_robot: HTTP 200, 248560 bytes; k=252, n=261, raw=96.5517, score=97, round=97, floor=96 (entry: k=252, n=261, score=97)
+[PASS] rounding inside_out_2: HTTP 200, 247134 bytes; k=298, n=329, raw=90.5775, score=91, round=91, floor=90 (entry: k=298, n=329, score=91)
+[PASS] rounding klara_and_the_sun: HTTP 200, 184789 bytes; k=5, n=21, raw=23.8095, score=24, round=24, floor=23 (entry: k=5, n=21, score=24)
+[PASS] rounding wicked_for_good: HTTP 200, 253933 bytes; k=234, n=356, raw=65.7303, score=66, round=66, floor=65 (entry: k=234, n=356, score=66)
+[PASS] rounding project_hail_mary: HTTP 200, 252154 bytes; k=407, n=430, raw=94.6512, score=95, round=95, floor=94 (entry: k=407, n=430, score=95)
+
+== archive / historical snapshots ==
+[FAIL] Wayback availability (current access): HTTP None, exception/TLS failure
+[FAIL] Wayback CDX (current access): HTTP None, exception/TLS failure
+[FAIL] archive.ph (current access): HTTP None, exception/TLS failure
+[FAIL] Common Crawl index (current access): HTTP None, exception/TLS failure
+[FAIL] q016-hist archived snapshot spot check: HTTP None
+
+summary: PASS=19 FAIL=5
