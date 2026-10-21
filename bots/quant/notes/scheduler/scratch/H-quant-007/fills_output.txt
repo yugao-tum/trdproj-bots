@@ -1,0 +1,6 @@
+which-company-has-the-best-ai-model-end-of-september-202607171 arm=Anthropic px_hist=0.9820  trades_page=2
+   data-api last fill <= entry: side=BUY price=0.9850 size=25.26 ts=1790176178 (entry=1790179200, 0.8h before)
+which-company-has-the-best-ai-model-end-of-april               arm=Anthropic px_hist=0.7950  trades_page=8
+   data-api last fill <= entry: side=BUY price=0.7100 size=1.41 ts=1776902186 (entry=1776902400, 0.1h before)
+which-company-has-best-ai-model-end-of-april                   arm=OpenAI    px_hist=0.2200  trades_page=1
+   data-api last fill <= entry: side=BUY price=0.2500 size=4.00 ts=1745397676 (entry=1745409600, 3.3h before)

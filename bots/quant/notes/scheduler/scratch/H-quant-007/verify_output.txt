@@ -1,0 +1,62 @@
+== 1. Gamma: October 2026 event ==
+gamma october event                                        HTTP 200   143267 B  
+  id 841230 endDate 2026-10-31T16:00:00Z startDate 2026-08-13T00:02:19Z
+  negRisk True arms 32 volume 3013798.12 liquidity 1521898.35 updatedAt 2026-10-21T01:21:08.771394Z
+  named 21 placeholders 11
+  feeSchedules {'{"exponent": 1, "rate": 0.04, "takerOnly": true, "rebateRate": 0.25}', '{"exponent": 1, "rate": 0, "takerOnly": true, "rebateRate": 0}'}
+  quote contains checked on October 31, 2026, 12:00 PM ET      True
+  quote contains overall-no-style-control                      True
+  quote contains Adjustments: None                             True
+  quote contains AutoEval                                      True
+  quote contains ordered primarily by their leaderboard rank   True
+  quote contains unrounded, granular values                    True
+  quote contains would be ranked ahead of                      True
+  quote contains Other                                         True
+  Google    last 0.799 bid 0.799 ask 0.8 tick 0.001 spread 0.001
+  Anthropic last 0.2 bid 0.18 ask 0.19 tick 0.01 spread 0.01
+  named-arm Yes sum 1.0065 (n=21)
+
+== 2. Gamma: November 2026 event ==
+gamma november event                                       HTTP 200   159808 B  
+  endDate 2026-12-01T04:59:00Z arms 35 volume 344129.62
+  Google    bid 0.49 ask 0.51 spread 0.02
+  Anthropic bid 0.43 ask 0.44 spread 0.01
+  OpenAI    bid 0.035 ask 0.049 spread 0.014
+
+== 3. Gamma: series 10030 ==
+series 10030                                               HTTP 200    43664 B  
+  title Best AI Company | recurrence monthly | createdAt 2025-02-01T00:23:50.592739Z | restricted True
+
+== 4. Gamma: closed events (count, first/last, rules) ==
+closed events                                              HTTP 200  1810300 B  
+  count 22 | first top-ai-model-on-december-31 2024-12-31T12:00:00Z | last which-company-has-the-best-ai-model-end-of-september-20260717143435868 2026-09-30T16:00:00Z
+  arms per event [5, 6, 12, 15, 12, 13, 16, 13, 12, 15, 23, 15, 17, 25, 25, 25, 27, 29, 19, 26, 32, 32]
+  rank-column rule events: 6
+
+== 5. Gamma: open events ==
+open events                                                HTTP 200   422283 B  
+  count 3 ['which-company-has-best-ai-model-end-of-2026', 'which-company-has-the-best-ai-model-end-of-october', 'which-company-has-the-best-ai-model-end-of-november']
+
+== 6. CLOB books cited in entry ==
+clob book Google                                           HTTP 200     4570 B  
+   bids [{'price': '0.001', 'size': '110488.92'}, {'price': '0.002', 'size': '95946.83'}] asks [{'price': '0.999', 'size': '2115551.77'}, {'price': '0.998', 'size': '106091.14'}]
+clob book Anthropic                                        HTTP 200     2399 B  
+   bids [{'price': '0.01', 'size': '230514'}, {'price': '0.02', 'size': '40680'}] asks [{'price': '0.99', 'size': '111012.92'}, {'price': '0.98', 'size': '10510.16'}]
+
+== 7. resolution-source pages (entry claims 403) ==
+https://arena.ai/leaderboard/text/overall-no-style-control HTTP 403     5703 B  403 expected per entry
+https://arena.ai/leaderboard/text/overall                  HTTP 403     5630 B  403 expected per entry
+https://arena.ai/api/leaderboard/text                      HTTP 403     5618 B  403 expected per entry
+https://lmarena.ai/leaderboard/text                        HTTP 403     5606 B  403 expected per entry
+
+== 8. Wayback CDX index ==
+wayback cdx arena                                          HTTP 200     1260 B  [["urlkey","timestamp","original","mimetype","statuscode","digest","length"],
+["ai,arena)/leaderboard/text/overall-no-style-control","20260130012509","https://arena.ai/leaderboard/text/overall-no-styl
+
+== 9. NEW source: HF lmarena leaderboard-dataset ==
+hf dataset api                                             HTTP 200    23588 B  
+  gated False private False lastModified 2026-10-20T03:03:04.000Z
+  license ['license:cc-by-4.0']
+hf rows api                                                HTTP 200     2008 B  
+  fields ['model_name', 'organization', 'license', 'rating', 'rating_lower', 'rating_upper', 'variance', 'vote_count', 'rank', 'category', 'leaderboard_publish_date']
+  first row {'model_name': 'claude-3-opus-20240229', 'organization': 'anthropic', 'license': 'Proprietary', 'rating': 1329.9901480635501, 'rating_lower': 1320.1029488183915, 'rating_upper': 1345.2101664873196, 'variance': 48.76712374004267, 'vote_count': 5843.0, 'rank': 1.0, 'category': 'chinese', 'leaderboard_publish_date': '2024-03-27'}
