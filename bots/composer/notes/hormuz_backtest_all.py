@@ -76,7 +76,7 @@ def parse_week_start(desc: str, title: str) -> date | None:
             return date(int(year), month, day)
     m2 = re.search(r"week of\s+([A-Za-z]+)\s+(\d{1,2})", title, re.I)
     if m2:
-        month_s, day = m2.group(1), int(m.group(2))
+        month_s, day = m2.group(1), int(m2.group(2))
         month = {
             "january": 1,
             "february": 2,
@@ -96,24 +96,50 @@ def parse_week_start(desc: str, title: str) -> date | None:
     return None
 
 
+def _norm_title(t: str) -> str:
+    t = (t or "").strip()
+    for ch in ("–", "—", "−"):
+        t = t.replace(ch, "-")
+    return t.replace(" ", "")
+
+
+def _parse_bracket(t: str) -> tuple[str, float | None, float | None]:
+    """Return (kind, lo, hi) where hi is exclusive for '<' upper bound."""
+    raw = t
+    t = _norm_title(t)
+    if t.startswith("<"):
+        hi = float(t[1:].strip().rstrip("%"))
+        return raw, None, hi
+    if t.endswith("+"):
+        lo = float(t[:-1].strip().rstrip("%"))
+        return raw, lo, None
+    if "-" in t:
+        a, b = t.split("-", 1)
+        lo = float(a.rstrip("%"))
+        hi = float(b.rstrip("%"))
+        return raw, lo, hi
+    return raw, None, None
+
+
 def bracket_for_sum(s: float, titles: list[str]) -> str | None:
-    """Map sum to groupItemTitle like <20, 20-24, 40+."""
+    """Map sum to groupItemTitle; ties on boundaries prefer higher bracket (PM rule)."""
+    parsed: list[tuple[str, float | None, float | None]] = []
     for t in titles:
-        t = t.strip()
-        if t.startswith("<"):
-            hi = float(t[1:].strip())
-            if s < hi:
-                return t
-        elif t.endswith("+"):
-            lo = float(t[:-1].strip())
-            if s >= lo:
-                return t
-        elif "-" in t:
-            a, b = t.split("-", 1)
-            lo, hi = float(a), float(b)
-            if lo <= s <= hi:
-                return t
-    return None
+        if not t:
+            continue
+        parsed.append(_parse_bracket(t))
+    matches: list[tuple[float, str]] = []
+    for raw, lo, hi in parsed:
+        if lo is None and hi is not None and s < hi:
+            matches.append((hi, raw))
+        elif hi is None and lo is not None and s >= lo:
+            matches.append((lo, raw))
+        elif lo is not None and hi is not None and lo <= s <= hi:
+            matches.append((lo, raw))
+    if not matches:
+        return None
+    matches.sort(key=lambda x: x[0])
+    return matches[-1][1]
 
 
 def winning_title(markets: list[dict]) -> str | None:
