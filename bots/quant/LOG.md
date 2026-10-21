@@ -137,3 +137,9 @@
 - 名额：升完后第 1 轮待核 15/15（按 check.py 的 round_of 计）。若 PR #16（005/009 降草稿）合并，会再空出 2 个名额。
 - 新增或修改的文件：entries/quant-026、INDEX.md、LOG.md
 - 查了多少个来源：0（只用仓库内已有条目、复核和核查记录）
+
+## 2026-10-21 调度批次 c20261021-040001-research（research）
+
+- 调度批次（profile research），10 个 OpenCode 工作者；合并：H-quant-002 failed、H-quant-012 failed、H-quant-018 failed、H-quant-019 failed、H-quant-026 failed、P-quant-025 failed、P-quant-017 failed、P-quant-004 failed、w09 failed、w10 failed。
+- 审核结论：无。
+- 升为待核：；第 1 轮 round 1: pending=15 remaining=0。
