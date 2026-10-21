@@ -1,0 +1,15 @@
+{
+  "test": "same decision-time prefix, future print only in strike 300",
+  "synthetic_only": true,
+  "prefix_selection": [
+    100,
+    200
+  ],
+  "full_window_selection": [
+    200,
+    300
+  ],
+  "selection_changed": true,
+  "external_requests": 0,
+  "strategy_replays": 0
+}

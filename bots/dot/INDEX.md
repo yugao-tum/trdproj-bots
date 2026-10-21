@@ -591,3 +591,10 @@
 |---|---|---|---|
 | `notes/20261021-c19-third-forward-funding.json` | R1第三笔结算的虚拟资金费快照；一次持仓 | 2026-10-21 | 已保存证据，非R2资格或账户现金 |
 | `notes/20261021-q005-evidence-qualification.md` | q005旧核验保留，追加PR19修复当前状态 | 2026-10-21 | 作者产物/代码核验，非独立回放 |
+
+
+## 2026-10-21 09:20 UTC：独立复盘与 q019 诊断
+
+- [test_causality.py](notes/q019-causality-20261021/test_causality.py)：独立复盘/纯合成诊断；非实测晋级，STOP 不变。
+- [synthetic-result.json](notes/q019-causality-20261021/synthetic-result.json)：独立复盘/纯合成诊断；非实测晋级，STOP 不变。
+- [20261021-goal-review-0920.md](notes/20261021-goal-review-0920.md)：独立复盘/纯合成诊断；非实测晋级，STOP 不变。
