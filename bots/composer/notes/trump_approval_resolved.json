@@ -1,0 +1,301 @@
+{
+  "fetched_utc": "2026-10-21 03:16",
+  "source": "gamma public-search + per-slug events",
+  "count": 49,
+  "events": [
+    {
+      "slug": "trump-approval-rating-on-march-14",
+      "title": "Trump approval rating on March 14?",
+      "endDate": "2025-03-14",
+      "winning_bracket": "47.5-47.9%"
+    },
+    {
+      "slug": "trump-approval-rating-on-march-21",
+      "title": "Trump approval rating on March 21?",
+      "endDate": "2025-03-21",
+      "winning_bracket": "47.5-47.9"
+    },
+    {
+      "slug": "trump-approval-rating-on-march-28",
+      "title": "Trump approval rating on March 28?",
+      "endDate": "2025-03-28",
+      "winning_bracket": "47.0-47.4"
+    },
+    {
+      "slug": "trump-approval-rating-on-april-4",
+      "title": "Trump approval rating on April 4?",
+      "endDate": "2025-04-04",
+      "winning_bracket": "46.5-46.9"
+    },
+    {
+      "slug": "trump-approval-rating-on-april-11",
+      "title": "Trump approval rating on April 11?",
+      "endDate": "2025-04-11",
+      "winning_bracket": "45.5-45.9"
+    },
+    {
+      "slug": "trump-approval-rating-on-april-18",
+      "title": "Trump approval rating on April 18?",
+      "endDate": "2025-04-18",
+      "winning_bracket": "45-45.9%"
+    },
+    {
+      "slug": "trump-approval-rating-on-april-25",
+      "title": "Trump approval rating on April 25?",
+      "endDate": "2025-04-25",
+      "winning_bracket": "44-44.9%"
+    },
+    {
+      "slug": "trump-approval-rating-on-may-2",
+      "title": "Trump approval rating on May 2?",
+      "endDate": "2025-05-02",
+      "winning_bracket": "44-44.9%"
+    },
+    {
+      "slug": "trump-approval-rating-on-may-9",
+      "title": "Trump approval rating on May 9?",
+      "endDate": "2025-05-09",
+      "winning_bracket": "44.0-44.4%"
+    },
+    {
+      "slug": "trump-approval-rating-on-may-16",
+      "title": "Trump approval rating on May 16?",
+      "endDate": "2025-05-16",
+      "winning_bracket": "45%+"
+    },
+    {
+      "slug": "trump-approval-rating-on-may-23",
+      "title": "Trump approval rating on May 23?",
+      "endDate": "2025-05-23",
+      "winning_bracket": "46%+"
+    },
+    {
+      "slug": "trump-approval-rating-on-may-30",
+      "title": "Trump approval rating on May 30?",
+      "endDate": "2025-05-30",
+      "winning_bracket": "45.5-45.9%"
+    },
+    {
+      "slug": "trump-approval-rating-on-june-6",
+      "title": "Trump approval rating on June 6?",
+      "endDate": "2025-06-06",
+      "winning_bracket": "46.5–46.9%"
+    },
+    {
+      "slug": "trump-approval-rating-on-june-13",
+      "title": "Trump approval rating on June 13?",
+      "endDate": "2025-06-13",
+      "winning_bracket": "45.0-45.4%"
+    },
+    {
+      "slug": "trump-approval-rating-on-june-20",
+      "title": "Trump approval rating on June 20?",
+      "endDate": "2025-06-20",
+      "winning_bracket": "46.0–46.4%"
+    },
+    {
+      "slug": "trump-approval-rating-on-june-27-634",
+      "title": "Trump approval rating on June 27?",
+      "endDate": "2025-06-27",
+      "winning_bracket": "45.0–45.4%"
+    },
+    {
+      "slug": "trump-approval-rating-on-july-4",
+      "title": "Trump approval rating on July 4?",
+      "endDate": "2025-07-04",
+      "winning_bracket": "44.5–44.9%"
+    },
+    {
+      "slug": "trump-approval-rating-on-july-11",
+      "title": "Trump approval rating on July 11?",
+      "endDate": "2025-07-11",
+      "winning_bracket": "44.5–44.9%"
+    },
+    {
+      "slug": "trump-approval-rating-on-july-18",
+      "title": "Trump approval rating on July 18?",
+      "endDate": "2025-07-18",
+      "winning_bracket": "44.0–44.4%"
+    },
+    {
+      "slug": "trump-approval-rating-on-july-25",
+      "title": "Trump approval rating on July 25?",
+      "endDate": "2025-07-25",
+      "winning_bracket": "44.5 – 44.9%"
+    },
+    {
+      "slug": "trump-approval-rating-on-august-8",
+      "title": "Trump approval rating on August 8?",
+      "endDate": "2025-08-08",
+      "winning_bracket": "43.5–43.9%"
+    },
+    {
+      "slug": "trump-approval-rating-on-august-15",
+      "title": "Trump approval rating on August 15?",
+      "endDate": "2025-08-15",
+      "winning_bracket": "43.5–43.9%"
+    },
+    {
+      "slug": "trump-approval-rating-on-august-22",
+      "title": "Trump approval rating on August 22?",
+      "endDate": "2025-08-22",
+      "winning_bracket": "44.0–44.4%"
+    },
+    {
+      "slug": "trump-approval-rating-on-august-29",
+      "title": "Trump approval rating on August 29?",
+      "endDate": "2025-08-29",
+      "winning_bracket": "44.0–44.4%"
+    },
+    {
+      "slug": "trump-approval-rating-on-september-5",
+      "title": "Trump approval rating on September 5?",
+      "endDate": "2025-09-05",
+      "winning_bracket": "44.0–44.4%"
+    },
+    {
+      "slug": "trump-approval-rating-on-september-26",
+      "title": "Trump approval rating on September 26?",
+      "endDate": "2025-09-26",
+      "winning_bracket": "43.5–43.9%"
+    },
+    {
+      "slug": "trump-approval-rating-on-october-10",
+      "title": "Trump approval rating on October 10?",
+      "endDate": "2025-10-11",
+      "winning_bracket": "43.5–43.9%"
+    },
+    {
+      "slug": "trump-approval-rating-on-october-10-513",
+      "title": "Trump approval rating on October 17?",
+      "endDate": "2025-10-18",
+      "winning_bracket": "44.0-44.4"
+    },
+    {
+      "slug": "trump-approval-rating-on-november-7",
+      "title": "Trump approval rating on November 7?",
+      "endDate": "2025-11-08",
+      "winning_bracket": "<42.5"
+    },
+    {
+      "slug": "trump-approval-rating-on-november-14",
+      "title": "Trump approval rating on November 14?",
+      "endDate": "2025-11-15",
+      "winning_bracket": "<41.5"
+    },
+    {
+      "slug": "trump-approval-rating-on-november-21",
+      "title": "Trump approval rating on November 21?",
+      "endDate": "2025-11-21",
+      "winning_bracket": "41.0–41.4"
+    },
+    {
+      "slug": "trump-approval-rating-on-december-5",
+      "title": "Trump approval rating on December 5?",
+      "endDate": "2025-12-05",
+      "winning_bracket": "41.0–41.4"
+    },
+    {
+      "slug": "trump-approval-rating-on-december-12",
+      "title": "Trump approval rating on December 12?",
+      "endDate": "2025-12-13",
+      "winning_bracket": "42.5+"
+    },
+    {
+      "slug": "trump-approval-rating-on-december-19",
+      "title": "Trump approval rating on December 19?",
+      "endDate": "2025-12-20",
+      "winning_bracket": "42.0–42.4"
+    },
+    {
+      "slug": "trump-approval-rating-on-december-31",
+      "title": "Trump approval rating on December 31?",
+      "endDate": "2026-01-01",
+      "winning_bracket": "42.0–43.9%"
+    },
+    {
+      "slug": "trump-approval-rating-on-january-2",
+      "title": "Trump approval rating on January 2?",
+      "endDate": "2026-01-02",
+      "winning_bracket": "41.5–41.9"
+    },
+    {
+      "slug": "trump-approval-rating-on-january-9",
+      "title": "Trump approval rating on January 9?",
+      "endDate": "2026-01-09",
+      "winning_bracket": "42.0–42.4"
+    },
+    {
+      "slug": "trump-approval-rating-on-january-16",
+      "title": "Trump approval rating on January 16?",
+      "endDate": "2026-01-17",
+      "winning_bracket": "41.5–41.9"
+    },
+    {
+      "slug": "trump-approval-rating-on-january-23",
+      "title": "Trump approval rating on January 23?",
+      "endDate": "2026-01-24",
+      "winning_bracket": "41.0–41.4"
+    },
+    {
+      "slug": "trump-approval-rating-on-january-30",
+      "title": "Trump approval rating on January 30?",
+      "endDate": "2026-01-31",
+      "winning_bracket": "41.0–41.4"
+    },
+    {
+      "slug": "trump-approval-rating-on-february-6",
+      "title": "Trump approval rating on February 6?",
+      "endDate": "2026-02-07",
+      "winning_bracket": "41.5–41.9"
+    },
+    {
+      "slug": "trump-approval-rating-on-february-13",
+      "title": "Trump approval rating on February 13?",
+      "endDate": "2026-02-14",
+      "winning_bracket": "40.5–40.9"
+    },
+    {
+      "slug": "trump-approval-rating-on-february-20",
+      "title": "Trump approval rating on February 20?",
+      "endDate": "2026-02-21",
+      "winning_bracket": "41.5–41.9"
+    },
+    {
+      "slug": "trump-approval-rating-on-february-27",
+      "title": "Trump approval rating on February 27?",
+      "endDate": "2026-02-27",
+      "winning_bracket": "42.0–42.4"
+    },
+    {
+      "slug": "trump-approval-rating-on-march-27",
+      "title": "Trump approval rating on March 27?",
+      "endDate": "2026-03-28",
+      "winning_bracket": "40.0–40.4"
+    },
+    {
+      "slug": "trump-approval-rating-on-april-3",
+      "title": "Trump approval rating on April 3?",
+      "endDate": "2026-04-04",
+      "winning_bracket": "39.0–39.4"
+    },
+    {
+      "slug": "trump-approval-rating-on-april-10",
+      "title": "Trump approval rating on April 10?",
+      "endDate": "2026-04-11",
+      "winning_bracket": "39.5–39.9"
+    },
+    {
+      "slug": "trump-approval-rating-on-april-24",
+      "title": "Trump approval rating on April 24?",
+      "endDate": "2026-04-25",
+      "winning_bracket": "39.0–39.4"
+    },
+    {
+      "slug": "trump-approval-rating-on-october-23",
+      "title": "Trump approval rating on October 23?",
+      "endDate": "2026-10-24",
+      "winning_bracket": null
+    }
+  ]
+}
