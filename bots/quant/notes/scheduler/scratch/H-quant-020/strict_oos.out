@@ -1,0 +1,44 @@
+H-quant-020 STRICT pre-selection OOS as_of=2026-10-21
+input: q020-oos/events.csv (1384 closed events) + tradable_fills.csv
+selection-window proxy: newest 250 closed events as of 2026-10-20
+cutoff (250th newest endDate): 2026-07-30T13:00:00+00:00
+in-band events: 101; with observed ask print: 97
+
+[0] where the old 60/40 split sits
+  discovery n=54  pre-selection=54  inside-selection-window=0
+  holdout   n=43  pre-selection=14  inside-selection-window=29
+
+[1] PRIMARY observed-ask fills, data-api band flag, fee=0.05
+STRICT_OOS (endDate < cutoff)      n= 68 YES=0.4706 meanAsk=0.5221 medianNet=-0.4120 meanNet=-0.0634 total=-4.3081 perDollar=-0.1214 CI=[-0.1638,+0.0366]
+SELECTION (endDate >= cutoff)      n= 29 YES=0.6207 meanAsk=0.5067 medianNet=+0.4476 meanNet=+0.1017 total=+2.9498 perDollar=+0.2008 CI=[-0.1822,+0.2824]
+POOLED (all observed)              n= 97 YES=0.5155 meanAsk=0.5175 medianNet=+0.2406 meanNet=-0.0140 total=-1.3582 perDollar=-0.0271 CI=[-0.1292,+0.0817]
+
+[2] Robustness: band membership from ORIGINAL CLOB p_24h (in_band_old)
+STRICT_OOS old-band                n= 42 YES=0.4762 meanAsk=0.5143 medianNet=-0.4322 meanNet=-0.0503 total=-2.1127 perDollar=-0.0978 CI=[-0.2097,+0.1023]
+SELECTION old-band                 n= 20 YES=0.6500 meanAsk=0.5000 medianNet=+0.4526 meanNet=+0.1376 total=+2.7516 perDollar=+0.2752 CI=[-0.2691,+0.3588]
+POOLED old-band                    n= 62 YES=0.5323 meanAsk=0.5097 medianNet=+0.3979 meanNet=+0.0103 total=+0.6389 perDollar=+0.0202 CI=[-0.1635,+0.1538]
+
+[3] Fee sensitivity, STRICT_OOS sample (data-api band flag)
+strict_oos fee=0.05                n= 68 YES=0.4706 meanAsk=0.5221 medianNet=-0.4120 meanNet=-0.0634 total=-4.3081 perDollar=-0.1214 CI=[-0.1638,+0.0366]
+strict_oos fee=0.04                n= 68 YES=0.4706 meanAsk=0.5221 medianNet=-0.4096 meanNet=-0.0610 total=-4.1464 perDollar=-0.1168 CI=[-0.1615,+0.0390]
+strict_oos fee=0.00                n= 68 YES=0.4706 meanAsk=0.5221 medianNet=-0.4000 meanNet=-0.0515 total=-3.4997 perDollar=-0.0986 CI=[-0.1520,+0.0486]
+
+[4] Fee sensitivity, SELECTION sample (data-api band flag)
+selection fee=0.05                 n= 29 YES=0.6207 meanAsk=0.5067 medianNet=+0.4476 meanNet=+0.1017 total=+2.9498 perDollar=+0.2008 CI=[-0.1822,+0.2824]
+selection fee=0.04                 n= 29 YES=0.6207 meanAsk=0.5067 medianNet=+0.4501 meanNet=+0.1042 total=+3.0212 perDollar=+0.2056 CI=[-0.1798,+0.2849]
+selection fee=0.00                 n= 29 YES=0.6207 meanAsk=0.5067 medianNet=+0.4600 meanNet=+0.1140 total=+3.3066 perDollar=+0.2250 CI=[-0.1701,+0.2948]
+
+[5] Same sample under q020-oos +1c assumption instead of observed ask
+STRICT_OOS +1c                     n= 68 YES=0.4706 meanAsk=0.4819 medianNet=-0.4221 meanNet=-0.0237 total=-1.6109 perDollar=-0.0492 CI=[-0.1243,+0.0785]
+SELECTION +1c                      n= 29 YES=0.6207 meanAsk=0.4899 medianNet=+0.4476 meanNet=+0.1184 total=+3.4346 perDollar=+0.2418 CI=[-0.1589,+0.2935]
+
+[6] cutoff sensitivity, observed ask, fee=0.05 (pre-cutoff sample)
+pre-2026-06-01                     n= 60 YES=0.4667 meanAsk=0.5263 medianNet=-0.4170 meanNet=-0.0715 total=-4.2923 perDollar=-0.1359 CI=[-0.1833,+0.0364]
+pre-2026-07-01                     n= 62 YES=0.4677 meanAsk=0.5300 medianNet=-0.4170 meanNet=-0.0741 total=-4.5962 perDollar=-0.1399 CI=[-0.1841,+0.0321]
+pre-2026-07-15                     n= 62 YES=0.4677 meanAsk=0.5300 medianNet=-0.4170 meanNet=-0.0741 total=-4.5962 perDollar=-0.1399 CI=[-0.1841,+0.0321]
+pre-2026-07-30                     n= 68 YES=0.4706 meanAsk=0.5221 medianNet=-0.4120 meanNet=-0.0634 total=-4.3081 perDollar=-0.1214 CI=[-0.1638,+0.0366]
+pre-2026-08-01                     n= 69 YES=0.4783 meanAsk=0.5216 medianNet=-0.4120 meanNet=-0.0552 total=-3.8106 perDollar=-0.1059 CI=[-0.1586,+0.0463]
+
+VERDICT: STRICT_OOS mean net per share is negative; the positive result
+is concentrated in the latest-250 window that was used to choose the band.
+This is not a clean out-of-sample pass.

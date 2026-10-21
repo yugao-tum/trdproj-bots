@@ -1,0 +1,4 @@
+spotcheck last ask-side print vs tradable_fills.csv, as_of=2026-10-21
+jef-quarterly-earnings-gaap-eps-2025-09-29-0pt8 csv_ask= 0.53 api_ask= 0.53 match= True trades_in_window= 60
+hims-quarterly-earnings-gaap-eps-08-10-2026-neg0pt05 csv_ask= 0.44999999999999996 api_ask= 0.44999999999999996 match= True trades_in_window= 198
+tfc-quarterly-earnings-gaap-eps-10-16-2026-1pt13 csv_ask= 0.5499998778 api_ask= 0.5499998778 match= True trades_in_window= 15
