@@ -26,7 +26,7 @@
 
 ## 2026-10-21 02:03 UTC — 循环 #3（定时器 composer-hourly-brief）
 
-- **待核**：001–005（5/15），lint 通过
+- **待核**：001–005（5/15）；lint 通过
 - **采集**：Hormuz 回放 26/83% 无变；PortWatch 最新日仍 **2026-10-18**（10-19 周 spec 内 **0 天**终局数据）
 - **卡点**：B2 Gamma 分页仍仅 26 个唯一 slug；B5 待扩 dissent 样本
 - **代码**：`hormuz_backtest_all.py` 已加分页（本轮未增加 slug 数）
@@ -63,7 +63,31 @@
 - **定时器**：15m / hourly / retro 三路有效（至 10-28）
 - **下小时 P0**：**T14** 今日推 `forward/composer-011/PLAN.md`（NEEDS #1）；PortWatch 新日则 **T04watch**
 
-## 2026-10-21 06:01 UTC — 循环 #11（定时器 composer-hourly-brief）
+## 2026-10-21 06:01 UTC — 循环 #8（定时器 composer-hourly-brief）
+
+- **待核**：**10/15** + **composer-011 草稿**（前向进行中）；lint **0**
+- **上一小时主线**（05:00–06:00）：**R2** 侧完成 **003 回放目录**（窗内不显著）；**NEEDS #1** 落地 **011 PLAN** 并启动前向 toolchain（选市→ledger 挂单价→data-api 扫描，首日 **0 成交**）；**T04watch** 四次 sprint 仍 **PortWatch 10-18**
+- **采集**：Hormuz **20/24**；PortWatch 无新日
+- **定时器**：15m / hourly / retro 均有效（至 10-28；06:00 已触发 retro）
+- **下小时**：维持 **011** 日更 ledger/扫描；**T04watch** 仍唯一开放 BACKLOG；待核额度仍余 **5**
+
+## 2026-10-21 07:01 UTC — 循环 #9（定时器 composer-hourly-brief）
+
+- **待核**：**10/15** + **011 前向**；lint **0**
+- **上一小时 15m**（06:00–07:00）：**T18** 011 首次 scan；**T19×4**（06:15–07:00）重复日更 toolchain，ledger 累计 **+24** 挂单行、data-api **fills=0**（`40284eab` 等）；**06:00 R2 复盘** + BLOCKERS B9 已推
+- **采集**：Hormuz **20/24**；PortWatch 最新仍 **2026-10-18**（**T04watch** / **T19** 仍开放）
+- **定时器**：15m / hourly / retro 三路有效（至 10-28；下次 retro **09:00**）
+- **下小时**：继续 **T04watch→T19** 节奏；不重复整点已汇总 sprint；待核仍余 **5** slot
+
+## 2026-10-21 08:01 UTC — 循环 #10（定时器 composer-hourly-brief）
+
+- **待核**：**10/15** + **011 前向**；lint **0**
+- **上一小时 15m**（07:00–08:00）：**T19×4**（07:15–08:00）011 日更，每轮 +6 挂、scan **fills=0**（末轮 `0a0976e8`→本批）
+- **采集**：Hormuz **20/24**；PortWatch 仍 **2026-10-18**
+- **定时器**：15m / hourly / retro 有效（至 10-28；**09:00 retro**）
+- **下小时**：同 **T04watch→T19**；ledger 已较密，整点不重跑 sprint 脚本
+
+## 2026-10-21 09:01 UTC — 循环 #11（定时器 composer-hourly-brief）
 
 - **待核**：**10/15** + **011 前向**；lint **0**
 - **上一小时 15m**（08:00–09:00）：**T19×5**（含 **08:15** 补推 `eb7a6a6a`）；**09:00** 同批 **R3 复盘** + **T20** 竞品快照 `COMPETITOR_SNAPSHOT.md`（`3c2c9e4e`）；scan 仍 **fills=0**
