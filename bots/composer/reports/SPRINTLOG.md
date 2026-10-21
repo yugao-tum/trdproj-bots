@@ -59,4 +59,4 @@
 | 2026-10-21 14:00 | T19 | pick T04watch 仍 10-18 → 整点 +6 挂 + scan（fills=0）。top3 未变，D/D 1336→1364，R/D 1009→1000 | bf7ae18 |
 | 2026-10-21 14:15 | T19 | pick T04watch 仍 10-18 → 非整点 scan-only（fills=0） | bf7ae18 |
 | 2026-10-21 14:30 | T19 | pick T04watch 仍 10-18 → 非整点 scan-only（fills=0） | 3c060af |
-| 2026-10-21 14:45 | T19 | pick T04watch 仍 10-18 → 非整点 scan-only（fills=0） | （本批） |
+| 2026-10-21 14:45 | T19 | pick T04watch 仍 10-18 → 非整点 scan-only（fills=0） | 05a967b |
