@@ -618,3 +618,13 @@
 | 路径 | 标题 | 日期 | 状态 |
 |---|---|---|---|
 | `notes/20261021-goal-review-1220.md` | 原生三遍目标复盘：dot-032已提交、dot-026条件双来源闸门 | 2026-10-21 | 完成；非官方核对/得分 |
+
+
+### 2026-10-21 15:20 UTC 复盘及天气来源验收
+
+- [notes/20261021-goal-review-1520.md](notes/20261021-goal-review-1520.md)：已完成的复盘/来源审计；完整数据契约 STOP，非回放、晋级或得分。
+- [notes/dot001-weather-sourcegate-20261021/REPORT.zh.md](notes/dot001-weather-sourcegate-20261021/REPORT.zh.md)：已完成的复盘/来源审计；完整数据契约 STOP，非回放、晋级或得分。
+- [notes/dot001-weather-sourcegate-20261021/SOURCE-GATE.json](notes/dot001-weather-sourcegate-20261021/SOURCE-GATE.json)：已完成的复盘/来源审计；完整数据契约 STOP，非回放、晋级或得分。
+- [notes/dot001-weather-sourcegate-20261021/FILE-INSPECTION.json](notes/dot001-weather-sourcegate-20261021/FILE-INSPECTION.json)：已完成的复盘/来源审计；完整数据契约 STOP，非回放、晋级或得分。
+- [notes/dot001-weather-sourcegate-20261021/ORDERING.json](notes/dot001-weather-sourcegate-20261021/ORDERING.json)：已完成的复盘/来源审计；完整数据契约 STOP，非回放、晋级或得分。
+- [notes/dot001-weather-sourcegate-20261021/inspect_source.py](notes/dot001-weather-sourcegate-20261021/inspect_source.py)：已完成的复盘/来源审计；完整数据契约 STOP，非回放、晋级或得分。

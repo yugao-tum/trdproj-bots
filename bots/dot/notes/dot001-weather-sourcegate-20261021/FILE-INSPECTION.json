@@ -1,0 +1,65 @@
+{
+  "schema": "event_type: string\nt: int64\nprice: double\nsize: double\nside: string\ntrade_id: string\nis_reseed: bool\nbids: string\nasks: string",
+  "rows": 3221,
+  "types": {
+    "snapshot": 3161,
+    "delta": 49,
+    "trade": 11
+  },
+  "is_reseed": {
+    "True": 367,
+    "False": 2794,
+    "None": 60
+  },
+  "min_time": "2026-07-14T02:07:10.118000+00:00",
+  "max_time": "2026-07-16T05:58:51.762000+00:00",
+  "time_unit": "epoch milliseconds inferred by agreement with CSV; not source-documented exchange or receive semantics",
+  "decision_utc": "2026-07-15T18:00:00+00:00",
+  "latest_stored_snapshot_at_or_before_T": {
+    "row_index": 2509,
+    "event_type": "snapshot",
+    "t": 1784138345732,
+    "utc_assuming_epoch_ms": "2026-07-15T17:59:05.732000+00:00",
+    "is_reseed": false,
+    "offset_from_T_ms": -54268
+  },
+  "first_stored_snapshot_or_trade_after_T": {
+    "row_index": 2510,
+    "event_type": "snapshot",
+    "t": 1784138405920,
+    "utc_assuming_epoch_ms": "2026-07-15T18:00:05.920000+00:00",
+    "is_reseed": false,
+    "offset_from_T_ms": 5920
+  },
+  "snapshot_before_T_structure": {
+    "bids": {
+      "level_count": 0,
+      "all_fields_present": true,
+      "all_sizes_positive": true
+    },
+    "asks": {
+      "level_count": 52,
+      "all_fields_present": true,
+      "all_sizes_positive": true
+    }
+  },
+  "rows_time_decreases": 0,
+  "repeated_timestamp_rows": 49,
+  "max_gap_ms": 248304,
+  "max_gap_from": "2026-07-14T17:01:43.935000+00:00",
+  "max_gap_to": "2026-07-14T17:05:52.239000+00:00",
+  "nearest_reseed_before_T": "2026-07-15T17:58:02.845000+00:00",
+  "nearest_reseed_after_T": "2026-07-15T18:05:43.690000+00:00",
+  "missing_schema_fields": [
+    "market_id",
+    "condition_id",
+    "token_id",
+    "exchange_time",
+    "receive_time",
+    "sequence_number",
+    "connection_id",
+    "rules",
+    "fee_schedule"
+  ],
+  "depth_reconstruction": "NOT RUN: token semantics and delta ordering/continuity unverified; structural snapshot is not validated executable book"
+}

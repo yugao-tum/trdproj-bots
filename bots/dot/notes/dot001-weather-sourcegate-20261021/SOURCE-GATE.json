@@ -1,0 +1,106 @@
+{
+  "result": "STOP_NO_BACKTEST_NO_PROMOTION",
+  "source_repo": "marketlenstrade/polymarket-historical-data",
+  "commit": "6eb9b8efda545eddafb2a8f75acb4bcbca6db019",
+  "directory": "nyc-weather-2026-07-16",
+  "attribution": "Marketlens, https://marketlens.trade",
+  "license": "CC BY 4.0, attribution retained from upstream discovery; license not independently fetched outside allowed directory",
+  "selection_rule": "Earliest event date from CSV event/question, then filename lexicographic; no price, outcome, or volume selection. Inspection scope amended original gate to permit schema inspection despite missing CSV token/rules.",
+  "selection": {
+    "market_id": "01a77489-79e6-55b6-95f0-a47778dd0bcf",
+    "condition_id": "0xe3a775b2a56fd19d838d92cbcd000c998b73431e357821b54bfdc1dcedd42da3",
+    "event": "Highest temperature in NYC on July 15?",
+    "question": "Will the highest temperature in New York City be between 108-109°F on July 15?",
+    "file": "history-01a77489-79e6-55b6-95f0-a47778dd0bcf-compact.parquet",
+    "data_start": "2026-07-14T02:07:10Z",
+    "data_end": "2026-07-16T05:57:15Z"
+  },
+  "decision_utc": "2026-07-15T18:00:00Z",
+  "decision_local": "2026-07-15 14:00 America/New_York",
+  "checks": {
+    "token_mapping": "UNKNOWN",
+    "timestamp_semantics": "UNKNOWN",
+    "continuous_book_validity": "UNKNOWN",
+    "reseed_gap_integrity": "UNKNOWN",
+    "delta_ordering": "UNKNOWN",
+    "historical_fee_schedule": "UNKNOWN",
+    "original_market_rules": "UNKNOWN",
+    "NOAA_as_of": "UNKNOWN",
+    "label_as_of": "UNKNOWN",
+    "depth_reconstruction": "UNKNOWN",
+    "official_admissibility": "UNKNOWN",
+    "metadata_access": "PASS",
+    "one_parquet_access": "PASS",
+    "csv_git_blob": "PASS",
+    "parquet_git_blob": "PASS",
+    "weather_only_identity": "PASS",
+    "filename_condition_link": "PASS",
+    "stored_t_before_after_decision": "PASS",
+    "README_event_dates_consistent_with_CSV": "FAIL",
+    "complete_data_contract": "FAIL"
+  },
+  "checksums": {
+    "markets.csv": {
+      "bytes": 14320,
+      "sha256": "df3b86dc3041e572446635068a0885b2adce683f1477313b585a5f0b303423df",
+      "git_blob_sha1": "58df53b0157494530433362c2fb32f0dd99cbe4c"
+    },
+    "history-01a77489-79e6-55b6-95f0-a47778dd0bcf-compact.parquet": {
+      "bytes": 438119,
+      "sha256": "9f23926cd1e02dcbacdfa32fd65d42c312c1ec4b50aa5300cb0f4b453cf0a857",
+      "git_blob_sha1": "a7543cfb10551a66232976d6b5df89eca0f51863"
+    }
+  },
+  "sample_scope": {
+    "markets": 33,
+    "event_dates_in_csv": [
+      "2026-07-15",
+      "2026-07-16",
+      "2026-07-17"
+    ],
+    "README_dates": [
+      "2026-07-16",
+      "2026-07-17",
+      "2026-07-18"
+    ],
+    "parquet_files_inspected": 1,
+    "independent_dates_upper_bound": 3,
+    "thirty_independent_samples": false
+  },
+  "classification": "Snapshot-bearing compact data, not merely trade proxy or snapshots.csv five-minute summary. Raw uncompressed exchange feed and precise executable book are NOT established.",
+  "findings": [
+    "CSV has condition-to-filename binding, but CSV and Parquet contain no token IDs or token orientation.",
+    "Parquet has 3161 snapshots, 49 deltas, 11 trades. All 49 delta records share timestamps with 11 trade groups; original within-group ordering and compact-transform semantics are not established.",
+    "367 snapshot reseeds exist, but no sequence or connection ID; inter-record gaps are observed gaps, not proven feed outages.",
+    "CSV data_end is 2026-07-16T05:57:15Z; actual Parquet max t is 2026-07-16T05:58:51.762Z, a metadata discrepancy of 96.762 seconds.",
+    "The selected July15 event is covered around its July15 18:00Z decision. It does not cover July16 18:00Z. Do not shift its date to match directory name.",
+    "July18 14:00 coverage is not demonstrated; CSV contains no July18 event and README total span ends July18 05:19Z.",
+    "One snapshot has parsed levels but no verified full-depth reconstruction; fee, original rules, NOAA availability and labels remain missing."
+  ],
+  "nonduplication": {
+    "fresh_read_utc": "2026-10-21T15:28Z",
+    "known_url": "https://api.github.com/repos/yugao-tum/trdproj-bots/contents/known/KNOWN.md",
+    "dot_claims_blob": "5f2ad767cbc6568ac8efa901001f629db07f9279",
+    "scope": "Existing dot C01 weather observation timing hypothesis only; no new claim, mechanism, or entry. known has no weather-named mechanism; this does not certify novelty against other claims."
+  },
+  "activity": {
+    "parquet_downloads_successful": 1,
+    "backtest": false,
+    "PnL": false,
+    "SDK": false,
+    "API_keys": false,
+    "paid_archive": false,
+    "crypto_files": false,
+    "remote_writes": 0,
+    "real_trades": 0,
+    "access_denials": 0,
+    "format_errors": 1
+  },
+  "audit_limitations": [
+    "Initial CSV diagnostic preview and directory README response exposed outcome/volume values inadvertently; they were not used for selection, conclusions or PnL. First structural shape diagnostic printed a price level; final evidence suppresses levels/prices.",
+    "GitHub fetch returned INVALID_ARGUMENT UTF-8-only for binary; official fetch_file(base64) of same file succeeded, not denial bypass.",
+    "Initial pyarrow install to default home failed read-only; installation to permitted shared path succeeded.",
+    "Full known and own claims were locally read for identity/scope; no strategy outcomes used."
+  ],
+  "next_requirement": "Obtain source-documented token orientation, timestamp provenance, compact delta transform/order, snapshot/reseed completeness and original rules through permitted public metadata before any replay. Requires expanded metadata-only scope if root README/license is to be read."
+}

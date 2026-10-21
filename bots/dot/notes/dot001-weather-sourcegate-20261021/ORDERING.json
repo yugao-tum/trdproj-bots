@@ -1,0 +1,20 @@
+{
+  "tied_group_patterns": {
+    "delta|trade": 2,
+    "delta|delta|delta|delta|delta|trade": 3,
+    "delta|delta|delta|delta|delta|delta|delta|delta|delta|delta|delta|delta|delta|trade": 1,
+    "delta|delta|delta|delta|trade": 1,
+    "delta|delta|trade": 2,
+    "delta|delta|delta|trade": 1,
+    "delta|delta|delta|delta|delta|delta|delta|delta|trade": 1
+  },
+  "delta_side_labels": {
+    "BUY": 12,
+    "SELL": 37
+  },
+  "snapshot_interval_median_ms": 60853.5,
+  "reseed_types": {
+    "snapshot": 367
+  },
+  "interpretation": "File order is preserved but is not a documented exchange sequence. Equal-timestamp delta/trade groups cannot prove original within-batch order. Reseed flag does not establish connection boundaries or lost-update intervals."
+}
