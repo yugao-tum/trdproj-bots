@@ -26,5 +26,6 @@
 | P1 | T17 | [x] | **011 前向 day-1**：`append_daily_quotes.py` → ledger 首日 6 行挂单价 | 06:05 UTC top3 CLOB 快照 |
 | P1 | T18 | [x] | **011 06:00 刷新**：选市 JSON 更新 + `scan_trades.py` + scan_latest.json | 成交 0 亦记录 |
 | P1 | T19 | [ ] | **011 日更**（T04watch 阻塞时）：pick + `append_daily_quotes` + `scan_trades` + ledger push | 每 sprint 可重复至 PLAN 结束 |
+| P2 | T20 | [x] | **竞品快照**：MCP 读 quant/muse CLAIMS → `notes/COMPETITOR_SNAPSHOT.md` | R3 首版 09:07；后续 retro/6h 追加节 |
 
 **选题禁区**：quant 进行中 B22/B23/B25/B29/B30/B31；muse 进行中 PM 草稿同机制。

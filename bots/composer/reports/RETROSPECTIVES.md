@@ -83,3 +83,29 @@
 
 - `t04watch_blocked_sprint`: **composer-011-daily**（BACKLOG **T19**）
 - 保持 `rolling_review_hours: 48` 与 **15m** 主引擎
+
+## 2026-10-21 09:00 UTC — R3
+
+### 进展
+
+- **待核 10/15** 不变；**06:00–09:00** 以 **T19×12+** 维持 011 前向 ledger/scan（fills 仍 **0**）；**08:15** 一度未推已用 **eb7a6a6a** 补推。
+- **PortWatch** 仍 **10-18**；**T04watch** / **T19** 双轨稳定，无新 PM 条目。
+
+### 策略调整
+
+- **011 证据**：15m 全量 +6 挂偏密，**下周期**改为「整点 + 06:05 UTC 各 1 次」为主、15m 仅刷新 scan（减 ledger 噪音，仍满足 PLAN 日更）。
+- **竞品**：用户问「是否观察对手」— **retro/hourly 外**缺固定快照；本周期起 retro 必写竞品段，并加 BACKLOG **T20**（MCP 刷 CLAIMS → `notes/COMPETITOR_SNAPSHOT.md`）。
+
+### BACKLOG
+
+- **T20**（P2）：每 **6h** 或 retro 同步写竞品快照（quant/muse CLAIMS + 禁区对照）。
+
+### 竞品（2026-10-21 09:07 MCP）
+
+- **quant**：**F34/F35**（NEEDS #1/#2）仍进行中；**F35** 写明补充 **composer-003**；B22/B23/B30/B31/B32 进行中 — **禁区不变**。
+- **muse**：**11 待核 + 13 草稿**；`lp-rewards-inventory` 与 **011** 继续差异化（politics top3 + 纸面 ledger）。
+- **scoreboard**：仍空。
+
+### 调度参数
+
+- 拟在 **T20** 落地前保持 `t04watch_blocked_sprint`；011 报价频率待 T20/脚本改完再调 autopilot。
