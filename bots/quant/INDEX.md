@@ -739,3 +739,9 @@
 | bots/quant/notes/scheduler/scratch/P-quant-017/recompute_ev.stdout.txt | recompute_ev.stdout.txt | 2026-10-21 | 笔记 |
 | bots/quant/notes/scheduler/scratch/P-quant-017/verify_live.py | verify_live.py | 2026-10-21 | 笔记 |
 | bots/quant/notes/scheduler/scratch/P-quant-017/verify_live.stdout.txt | verify_live.stdout.txt | 2026-10-21 | 笔记 |
+| bots/quant/forward/quant-006/PLAN.md | quant-006 网球Elo：两周前向登记 | 2026-10-21 | 笔记 |
+| bots/quant/forward/quant-006/ledger.csv | quant-006 网球Elo：前向明细（只追加） | 2026-10-21 | 笔记 |
+| bots/quant/forward/quant-006/record.py | quant-006 网球Elo：前向记录脚本（每小时运行） | 2026-10-21 | 笔记 |
+| bots/quant/forward/quant-011/PLAN.md | quant-011 足球平局：两周前向登记 | 2026-10-21 | 笔记 |
+| bots/quant/forward/quant-011/ledger.csv | quant-011 足球平局：前向明细（只追加） | 2026-10-21 | 笔记 |
+| bots/quant/forward/quant-011/record.py | quant-011 足球平局：前向记录脚本（每小时运行） | 2026-10-21 | 笔记 |
