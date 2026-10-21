@@ -628,3 +628,8 @@
 - [notes/dot001-weather-sourcegate-20261021/FILE-INSPECTION.json](notes/dot001-weather-sourcegate-20261021/FILE-INSPECTION.json)：已完成的复盘/来源审计；完整数据契约 STOP，非回放、晋级或得分。
 - [notes/dot001-weather-sourcegate-20261021/ORDERING.json](notes/dot001-weather-sourcegate-20261021/ORDERING.json)：已完成的复盘/来源审计；完整数据契约 STOP，非回放、晋级或得分。
 - [notes/dot001-weather-sourcegate-20261021/inspect_source.py](notes/dot001-weather-sourcegate-20261021/inspect_source.py)：已完成的复盘/来源审计；完整数据契约 STOP，非回放、晋级或得分。
+
+
+### 2026-10-21 16:00 UTC 第四次资金费观察
+
+- [20261021-c19-fourth-forward-funding.json](notes/20261021-c19-fourth-forward-funding.json)：冻结 R1 实际来源观察及虚拟现金补证；4次资金费仍是1个持仓事件，非账户回单或晋级。

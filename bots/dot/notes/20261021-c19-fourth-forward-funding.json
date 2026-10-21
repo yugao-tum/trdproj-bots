@@ -1,0 +1,53 @@
+{
+  "title": "dot-019 第四次实际来源资金费观察：冻结R1虚拟现金补证",
+  "scope": "Frozen R1 holding only; not R2 development or holdout evidence; no real trading or account receipt.",
+  "event_time_utc": "2026-10-21T16:00:00.001Z",
+  "funding_time_ms": 1792598400001,
+  "symbol": "ETHUSDT",
+  "rate": "0.00008498",
+  "mark": "2511.49000000",
+  "fixed_quantity": "0.522",
+  "cash_formula": "fixed_quantity * mark * rate",
+  "credit_per_scenario": "0.1114085913444000000",
+  "accumulated_funding_cash_per_scenario": "0.3323078796054897522",
+  "scenario_keys": [
+    "0.003",
+    "0.006"
+  ],
+  "unique_funding_events": 4,
+  "independent_holding_episodes": 1,
+  "position_is_real": false,
+  "meaning": "Actual-source funding observation applied to a frozen virtual holding; not an account cash receipt, total net profit, executable exit, full-path survival proof, or four independent episodes.",
+  "checkpoint": {
+    "revision": 98,
+    "sha256": "b65b6cf0b8cbf053f5447e7ef2abe208a80bf8d8b8b2002e3a2ccc29eae81fd5"
+  },
+  "source_evidence": {
+    "request_id": "funding-a11d56e352aa4526be42c301b6d00f4e",
+    "raw_response_sha256": "ff697cd95c9aba9f94e066be81e8dbf402d9f6f931efd140fbec9c2caeb542d5",
+    "independent_audit_sha256": "767b11b3c0241962bba0d160567b5d92a26b07cdccfde978c389c26dbdbfcd09",
+    "raw_data_redistributed": false
+  },
+  "verification": {
+    "audit": "PASS",
+    "frozen_hashes_verified": 18,
+    "publisher_decimal_calculation": "PASS",
+    "publisher_checkpoint_hash": "PASS",
+    "publisher_current_cash_each_scenario": "PASS"
+  },
+  "schedule": {
+    "next_funding_time_utc": null,
+    "next_funding_observed": false,
+    "budget_reset_utc": "2026-10-21T17:00:10.308Z",
+    "budget_reset_is_funding_due": false,
+    "next_quote_earliest_utc": "2026-10-21T16:30:51.622Z"
+  },
+  "publication": {
+    "new_market_calls": 0,
+    "new_model_calls": 0,
+    "entry_changes": false,
+    "strategy_changes": false,
+    "stage_changes": false,
+    "official_score": null
+  }
+}
