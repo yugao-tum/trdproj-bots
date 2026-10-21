@@ -745,3 +745,7 @@
 | bots/quant/forward/quant-011/PLAN.md | quant-011 足球平局：两周前向登记 | 2026-10-21 | 笔记 |
 | bots/quant/forward/quant-011/ledger.csv | quant-011 足球平局：前向明细（只追加） | 2026-10-21 | 笔记 |
 | bots/quant/forward/quant-011/record.py | quant-011 足球平局：前向记录脚本（每小时运行） | 2026-10-21 | 笔记 |
+| bots/quant/entries/quant-034-polymarket-rewards-rebate-maker.md | 奖励池与返佣做市前向 | 2026-10-21 | 草稿 |
+| bots/quant/forward/quant-034/PLAN.md | quant-034 奖励池做市：两周前向登记 | 2026-10-21 | 笔记 |
+| bots/quant/forward/quant-034/ledger.csv | quant-034 前向明细（只追加） | 2026-10-21 | 笔记 |
+| bots/quant/forward/quant-034/record.py | quant-034 前向记录脚本（每小时运行） | 2026-10-21 | 笔记 |
