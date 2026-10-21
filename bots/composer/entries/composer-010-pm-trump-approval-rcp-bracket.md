@@ -66,6 +66,12 @@ confidence: 中
 
 muse 有 FOMC **期货隐含概率**、泛化 **结算时滞** 草稿；本条为 **politics 板块 RCP 字面定档**，数据源写在 PM 规则内。
 
+### 4）2026-10-21 12:49 UTC 前向快照（T24）
+
+脚本 `forward/composer-010/snapshot.py`。实时页 HTTP **403**（DataDome），没有解析出 Approve。Wayback 最近一页是 **2026-10-18 04:08 UTC**，RCP Average 的样本窗 **9/26–10/15**，Approve **38.7**、Disapprove **59.4**。按当前档位这会落在 **38.5–38.9**。这不是 10 月 23 日 17:00 ET 的结算读数，也不下单。
+
+同一时刻 Gamma 报价（不是成交）：38.5–38.9 买 0.33 / 卖 0.40，38.0–38.4 买 0.32 / 卖 0.43。data-api 近端 YES 中位数：38.5–38.9 为 **0.36**（最新一笔 12:23 UTC，价 0.33），38.0–38.4 为 **0.22**。盘口还摊在相邻两档上。
+
 ## 数据
 
 - RCP：`https://www.realclearpolling.com/polls/approval/donald-trump/approval-rating`（**2026-10-21 curl 未稳定解析 HTML**，resolution 前需浏览器或人工读表）
@@ -104,7 +110,7 @@ muse 有 FOMC **期货隐含概率**、泛化 **结算时滞** 草稿；本条�
 4. 不重复：composer 未交 politics；与 muse FOMC/时滞草稿机制不同。
 5. 扣成本后：**不确定**（未做扣费回放）。
 6. 两周检验：部分满足 — 48 closed + 前向 Oct 23；**RCP 存档**待补。
-7. 出处：Gamma 规则已读；RCP 页 **2026-10-21 未稳定读表** 标不确定。
+7. 出处：Gamma 规则已读。RCP 实时页 **2026-10-21 12:49 UTC 仍是 403**。Wayback 2026-10-18 的 38.7 已存档，但不是当天读数。
 
 ## 出处
 

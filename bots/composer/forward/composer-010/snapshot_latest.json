@@ -1,0 +1,136 @@
+{
+  "generated_utc": "2026-10-21T12:49:17Z",
+  "event_slug": "trump-approval-rating-on-october-23",
+  "gamma_http": 200,
+  "event_end": "2026-10-24T03:59:00Z",
+  "live_rcp": {
+    "url": "https://www.realclearpolling.com/polls/approval/donald-trump/approval-rating",
+    "http": 403,
+    "bytes": 782,
+    "approve": null,
+    "note": "DataDome block; no Approve value parsed"
+  },
+  "wayback": {
+    "available_http": 200,
+    "timestamp": "20261018040844",
+    "page_http": 200,
+    "note": "Wayback copy. Not the live page and not the 2026-10-23 17:00 ET print.",
+    "parsed": {
+      "sample_window": "9/26 - 10/15",
+      "approve": 38.7,
+      "disapprove": 59.4
+    }
+  },
+  "archive_approve_maps_to": "38.5–38.9",
+  "mapping_note": "Conditional on the Wayback figure still being the live average. It is not a trade.",
+  "markets": [
+    {
+      "bracket": "<37.5",
+      "conditionId": "0xa5434282bd83112611d7b49b68fef59bbca8eea69e39dcb1ee06392d95a5e38d",
+      "bestBid": 0.017,
+      "bestAsk": 0.046,
+      "book_note": "Gamma bestBid/bestAsk are quotes, not fills",
+      "trades": {
+        "http": 200,
+        "yes_in_page": 9,
+        "latest": {
+          "ts": "2026-10-20T03:50:08Z",
+          "price": 0.015,
+          "size": 0.01
+        },
+        "median_30_in_band": 0.07,
+        "n_median": 6
+      }
+    },
+    {
+      "bracket": "37.5–37.9",
+      "conditionId": "0x327699d2c9b3560ba7d1dc616a51e5378a02c9053e129432441f2b23c000d553",
+      "bestBid": 0.07,
+      "bestAsk": 0.13,
+      "book_note": "Gamma bestBid/bestAsk are quotes, not fills",
+      "trades": {
+        "http": 200,
+        "yes_in_page": 17,
+        "latest": {
+          "ts": "2026-10-21T11:10:15Z",
+          "price": 0.08,
+          "size": 40
+        },
+        "median_30_in_band": 0.07,
+        "n_median": 17
+      }
+    },
+    {
+      "bracket": "38.0–38.4",
+      "conditionId": "0x7459e68cbe164143ed4fcb776c142dad35f15a06089503893a06991392563daa",
+      "bestBid": 0.32,
+      "bestAsk": 0.43,
+      "book_note": "Gamma bestBid/bestAsk are quotes, not fills",
+      "trades": {
+        "http": 200,
+        "yes_in_page": 29,
+        "latest": {
+          "ts": "2026-10-21T11:01:29Z",
+          "price": 0.32,
+          "size": 30
+        },
+        "median_30_in_band": 0.22,
+        "n_median": 29
+      }
+    },
+    {
+      "bracket": "38.5–38.9",
+      "conditionId": "0x05ca75b19c229c8784ad36bc7ae1b548c18a3010f9b31eb915960126c9080193",
+      "bestBid": 0.33,
+      "bestAsk": 0.4,
+      "book_note": "Gamma bestBid/bestAsk are quotes, not fills",
+      "trades": {
+        "http": 200,
+        "yes_in_page": 35,
+        "latest": {
+          "ts": "2026-10-21T12:23:21Z",
+          "price": 0.33,
+          "size": 4.99
+        },
+        "median_30_in_band": 0.36,
+        "n_median": 30
+      }
+    },
+    {
+      "bracket": "39.0–39.4",
+      "conditionId": "0x59e223d45fb1dcc38c035bf9a8368e6fbf3efc4b6065841a564a76afe1b2d513",
+      "bestBid": 0.09,
+      "bestAsk": 0.21,
+      "book_note": "Gamma bestBid/bestAsk are quotes, not fills",
+      "trades": {
+        "http": 200,
+        "yes_in_page": 32,
+        "latest": {
+          "ts": "2026-10-21T10:37:27Z",
+          "price": 0.27,
+          "size": 20
+        },
+        "median_30_in_band": 0.252,
+        "n_median": 30
+      }
+    },
+    {
+      "bracket": "39.5+",
+      "conditionId": "0xa2171e9add531329b8f124b07fce5fa00083af0b45cfa00f55d2a7d6c25338ed",
+      "bestBid": 0.05,
+      "bestAsk": 0.08,
+      "book_note": "Gamma bestBid/bestAsk are quotes, not fills",
+      "trades": {
+        "http": 200,
+        "yes_in_page": 14,
+        "latest": {
+          "ts": "2026-10-21T11:51:00Z",
+          "price": 0.05,
+          "size": 45.93
+        },
+        "median_30_in_band": 0.06,
+        "n_median": 14
+      }
+    }
+  ]
+}

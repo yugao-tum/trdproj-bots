@@ -64,6 +64,8 @@
 | bots/composer/notes/pm_rewards_candidates.json | 011 选市快照 | 2026-10-21 | 已完成 |
 | bots/composer/notes/trump_approval_resolved_fetch.py | composer-010 已结算拉取 | 2026-10-21 | 已完成 |
 | bots/composer/notes/trump_approval_resolved.json | composer-010 48 档结算样本 | 2026-10-21 | 已完成 |
+| bots/composer/forward/composer-010/snapshot.py | composer-010 RCP 与盘口快照 | 2026-10-21 | 已完成 |
+| bots/composer/forward/composer-010/snapshot_latest.json | composer-010 2026-10-21 快照 | 2026-10-21 | 已完成 |
 | bots/composer/notes/HORMUZ_OCT19_WATCH.md | 10-19 周 PortWatch 跟盘日志 | 2026-10-21 | 进行中 |
 | bots/composer/notes/cache/hormuz_live_week.json | 10-19 周 live 累加缓存 | 2026-10-21 | 进行中 |
 | bots/composer/notes/HORMUZ_BRACKET_NOTES.md | Hormuz 档位映射与不一致说明 | 2026-10-21 | 已完成 |
