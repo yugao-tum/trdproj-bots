@@ -7,7 +7,7 @@ date: 2026-10-21
 market: polymarket
 pm_category: cross
 kind: supplement
-improves: dot-032
+improves: composer-011, dot-032
 category: M
 return_type: service
 instruments: Polymarket 二元市场 YES/NO 双边限价买单（流动性奖励池 + 吃单费返佣）
@@ -165,12 +165,28 @@ contribution: 不清楚
 
 与 muse-800 的区别：muse-800 做 crypto 5 分钟 Up/Down 的完整集铸造 + 双边 post-only 卖单，收益主要来自 taker rebate 和价差；本条做长日期二元奖励市场，不铸造完整集、不卖单、只挂双边买单，收益主要来自流动性奖励，返佣是次要项。与 known/M-M4-poly-rewards 的关系：M-M4 是主项目已有的“预测市场挂单领奖励”机制，dot-032 是它的规则整理稿；本条是对 dot-032 的补充，不是新机制。
 
+## 与 composer-011 的关系（先到先得）
+
+composer-011（2026-10-21 07:16 CEST 推送，早于本条 08:12 CEST）和本条是**同一机制**：在有 CLOB 流动性奖励池的 Polymarket 二元市场双边挂被动单，赚奖励 + maker 返佣 ± 价差，付款方都是平台奖励预算和 taker 费返佣池，同属 known/M-M4-poly-rewards。按 GUIDE 第 3.3 节，本条不占新机制，只是 composer-011（及 dot-032）的补充；两份前向登记都已冻结，规则以各自 PLAN 为准，本节只陈述差异，不改 `forward/quant-034/PLAN.md`。
+
+| 方面 | composer-011 | quant-034 |
+|---|---|---|
+| 选市 | 每天 06:00 UTC 按 Gamma `rewardsDailyRate` 降序取前 3 个 politics/crypto/finance 市场，每日可换 | 开始时按 `/rewards/markets/current` 冻结最多 40 个 event：日率≥$20、`rewards_min_size`=20、`max_spread`≥3、`feeSchedule.rate`>0、价格 0.10–0.90、`endDate`≥2026-11-20，跨板块；维护期跌破 $10 等退出 |
+| 报价 | 只在 Yes token 上挂买+卖两边，`bid=min(best_bid+0.001, mid−maxSpread/2)`、ask 对称，spread<0.02 当日不报 | YES、NO 各挂一笔**买单**（不挂卖单、不裸卖），`bid=floor_to_tick(min(best_ask−tick, mid−0.01))`，须 `0≤s≤rewardsMaxSpread`；mid 移动>3¢ 撤单暂停 1 小时 |
+| 份数/库存 | 每边 max(minSize,200)、≤400 份；净 Yes 绝对值≤500 | 每侧 20 股（=minSize）；每 outcome 库存≤40 股；期末按 best_bid 卖出并计 taker 费 |
+| 成交判定 | data-api 成交价**等于**挂单价且方向相反即成交，当日该价位量<size 时部分成交；另扣半个 spread | 只算挂单后、`side=SELL`、`price≤我们买价` 的 taker 成交，且须累计超过挂单时可见的 `queue_ahead`（价格不劣于我们的全部 bid）才算我们成交；不另扣半 spread，逆向选择由期末平仓实现 |
+| 奖励公式 | 满足 minSize/maxSpread 记 1 单位，按 `rate × 1/3` 均分，不用 Q-score | 按官方 Q-score（`S=((v−s)/v)^2`、`Q_min` 含 `c=3.0`）对比盘口其他可见订单算份额，小时样本平均 × 当日 `total_daily_rate`；按市场-日套 $1 最低支付 |
+| 返佣 | 对手 taker 费 × 固定 20% | 逐笔 `C×feeRate×p×(1−p)×rebateRate`，取各市场 `feeSchedule`（15–25%，geopolitics 0）；按市场-日套 $1 最低支付 |
+| 独立结果 | 每日最多 3 个市场，14 天内累计 distinct conditionId 才可能到 30 | 一开始即有 37–40 个 event，同市场跨日合并 |
+
+上述差异只是检验口径不同，不说明本条更好：两条都尚无实测，谁的口径更接近真实收益要等两份 RESULT.md 对照，所以 `kind` 仍写 `supplement` 而不写 `improvement`。
+
 ## 门槛自查
 
 1. **机制说得清**：满足 — 付款方是平台流动性奖励预算和 taker 费返佣池；Q-score、返佣比例、费率和最低支付都有官方原文，规则和记账口径写在 PLAN 里。
 2. **有免费数据能检验**：满足（有限制）— Gamma、CLOB `/rewards/markets/current`、`/rewards/markets/{condition_id}`、`/books`、data-api `/trades` 都免费免密钥；历史 L2 没有公开源，所以只能前向，不能回放；登记快照 37 个 event 已在 2026-10-21T05:16Z 核对，开始时按同一规则重选最多 40 个。
 3. **小资金能做**：满足 — 每侧 20 股、每 outcome 最多 40 股库存，最多 40 个市场最大占用约 $2,400，低于单场所 2,500；总资金 5,000，不加杠杆、不借钱、不裸卖。
-4. **不重复**：满足 — `kind: supplement`，`improves: dot-032`；和 muse-800（5m 完整集铸造）、muse 的返佣/奖励池草稿、known/M-M4 的付款方相同但执行市场、库存路径和记账不同；本条只补 dot-032 的执行与证据，不主张新机制。
+4. **不重复**：满足 — `kind: supplement`，`improves: composer-011, dot-032`；同机制 composer-011 先推送，本条只补执行口径；和 muse-800（5m 完整集铸造）、muse 的返佣/奖励池草稿、known/M-M4 的付款方相同但执行市场、库存路径和记账不同；本条只补 dot-032 的执行与证据，不主张新机制。
 5. **扣成本后粗算够用**：不确定 — 没有历史回放，奖励份额和逆向选择成本事前不可知；快照 Q 份额不能当预测。本条正是用 14 天前向回答这个问题，不硬写正收益。
 6. **两周内能检验**：满足 — 登记快照 37、运行时最多 40 个 event、14 天、固定失败标准（有效 event<30 或每 event 净 PnL 中位≤0 或总净 PnL≤0）；若维护期市场退出，按实际有效 event 数如实判定。
 7. **出处可查**：满足 — 官方文档、CLOB/Gamma/data-api 端点、快照日期和数字都给了链接与访问日期；来源自报的对照条目（dot-032、muse-800）已标“未独立审计”，未把它们的收益当本条证据。

@@ -167,3 +167,8 @@
 - 调度批次（profile research），10 个 OpenCode 工作者；合并：H-quant-021 merged、H-quant-001 merged、H-quant-014 merged、H-quant-018 merged、P-quant-020 merged、P-quant-025 merged、P-quant-031 merged、B32 failed、w10 merged。
 - 审核结论：H-quant-021 FIX、H-quant-001 FIX、H-quant-014 DROP、H-quant-018 FIX、P-quant-020 DROP、P-quant-025 FIX、P-quant-031 DROP。
 - 升为待核：；第 1 轮 round 1: pending=14 remaining=1。
+
+## 2026-10-21 quant-034 对照 composer-011
+
+- composer-011（07:16 CEST 推送）与 quant-034（08:12 CEST）同为 Polymarket 奖励池/返佣双边做市（M-M4-poly-rewards），按 GUIDE 第 3.3 节先到先得，quant-034 `improves` 改为 `composer-011, dot-032`，`kind` 保持 `supplement`（两条均无实测，不主张更好）。
+- 条目新增“与 composer-011 的关系”一节，列选市、报价、份数、成交、奖励、返佣、独立结果差异；`forward/quant-034/PLAN.md` 未改。
