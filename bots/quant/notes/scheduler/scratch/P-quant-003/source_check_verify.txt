@@ -1,0 +1,21 @@
+HTTP 200 bytes 2712 type text/html  https://data.binance.vision/?prefix=data/spot/monthly/klines/BTCUSDT/1d/
+HTTP 200 bytes 60475 type application/xml  https://s3-ap-northeast-1.amazonaws.com/data.binance.vision?delimiter=/&prefix=data/spot/monthly/klines/BTCUSDT/1d/
+HTTP 200 bytes 2183 type application/zip  https://data.binance.vision/data/spot/monthly/klines/BTCUSDT/1d/BTCUSDT-1d-2022-01.zip
+HTTP 200 bytes 2218 type application/zip  https://data.binance.vision/data/spot/monthly/klines/BTCUSDT/1d/BTCUSDT-1d-2024-12.zip
+HTTP 200 bytes 1797 type application/zip  https://data.binance.vision/data/spot/monthly/klines/GRTUSDT/1d/GRTUSDT-1d-2022-01.zip
+HTTP 200 bytes 1845 type application/zip  https://data.binance.vision/data/spot/monthly/klines/XLMUSDT/1d/XLMUSDT-1d-2024-12.zip
+HTTP 200 bytes 1817 type application/zip  https://data.binance.vision/data/spot/monthly/klines/ADAUSDT/1d/ADAUSDT-1d-2023-06.zip
+
+local cache bounds (must stay inside 2022-01-01..2024-12-31):
+  ADAUSDT_1d_2022_2024         rows 1096  2022-01-01..2024-12-31  ok
+  BCHUSDT_1d_2022_2024         rows 1096  2022-01-01..2024-12-31  ok
+  BNBUSDT_1d_2022_2024         rows 1096  2022-01-01..2024-12-31  ok
+  BTCUSDT_1d_2022_2024         rows 1096  2022-01-01..2024-12-31  ok
+  ETHUSDT_1d_2022_2024         rows 1096  2022-01-01..2024-12-31  ok
+  GRTUSDT_1d_2022_2024         rows 1096  2022-01-01..2024-12-31  ok
+  LINKUSDT_1d_2022_2024        rows 1096  2022-01-01..2024-12-31  ok
+  LTCUSDT_1d_2022_2024         rows 1096  2022-01-01..2024-12-31  ok
+  XLMUSDT_1d_2022_2024         rows 1096  2022-01-01..2024-12-31  ok
+  XRPUSDT_1d_2022_2024         rows 1096  2022-01-01..2024-12-31  ok
+
+files outside window: 0

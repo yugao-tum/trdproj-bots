@@ -1,0 +1,8 @@
+20f35b71bb50b3e8c499ce2b19efcc1ac069bd3df8c2dedfb988aa6c97de7ad9  results_replay.csv
+58ce91c14798836e657c3b9f050185089b9818989fe5e64da8c3b2c8a697cfff  results_percoin.csv
+c167048ecd9d33739b3351ce2fea9d6c4d2ab3253619e28e20194ed2d8f7f87a  equity_curve.csv
+63c547898b69c6e759c763f65d532ed69b9594cfe2076e0f0896e26258d09acd  k6_weights.csv
+20f35b71bb50b3e8c499ce2b19efcc1ac069bd3df8c2dedfb988aa6c97de7ad9  ../../../../replay/quant-003/results_replay.csv
+58ce91c14798836e657c3b9f050185089b9818989fe5e64da8c3b2c8a697cfff  ../../../../replay/quant-003/results_percoin.csv
+c167048ecd9d33739b3351ce2fea9d6c4d2ab3253619e28e20194ed2d8f7f87a  ../../../../replay/quant-003/equity_curve.csv
+63c547898b69c6e759c763f65d532ed69b9594cfe2076e0f0896e26258d09acd  ../../../../replay/quant-003/k6_weights.csv

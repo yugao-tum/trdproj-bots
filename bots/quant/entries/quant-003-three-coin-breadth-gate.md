@@ -48,7 +48,7 @@ contribution: 17.4%
 
 ## 证据
 
-**来源说明**：以下全部是**自己算的**，不是来源自报。第 2 轮回放使用 `bots/quant/replay/quant-003/replay_quant003.py`，数据来自 data.binance.vision 公开日线，窗口 **2022-01-01～2024-12-31**，成本 0.30%/边，下一根开盘价成交。完整参数、全部变体和复现命令见 `bots/quant/replay/quant-003/SUMMARY.md`；脚本输出见 `bots/quant/replay/quant-003/replay.stdout.txt`。
+**来源说明**：以下全部是**自己算的**，不是来源自报。第 2 轮回放使用 `bots/quant/replay/quant-003/replay_quant003.py`，数据来自 data.binance.vision 公开日线，窗口 **2022-01-01～2024-12-31**，成本 0.30%/边，下一根开盘价成交。完整参数、全部变体和复现命令见 `bots/quant/replay/quant-003/SUMMARY.md`；脚本输出见 `bots/quant/replay/quant-003/replay.stdout.txt`。2026-10-21 又用空缓存独立重跑一次：四个 CSV 产物与 `replay/` 下文件逐字节一致（SHA-256 对照），七个数据 URL 全部 HTTP 200，缓存日期均在窗口内；复现命令、stdout 和校验和见 `bots/quant/notes/scheduler/scratch/P-quant-003/README.md` 与该目录下 `verify_replay.stdout.txt`、`source_check_verify.txt`、`sha256_compare.txt`。
 
 **主表（2022–2024，下一根开盘价成交，0.30%/边）**
 
@@ -178,6 +178,7 @@ k=6 闸门的净收益高于其中 5/10 个单币；但单币 tsmom 本来就是
 - `bots/quant/notes/r2prep-verification/quant-003.md`（本仓库，已合并笔记）— 访问 2026-10-21 — 已读（PRESPEC_R003 币池名单、判据和旧 6 折结果）
 - `bots/quant/replay/quant-003/SUMMARY.md`、`replay_quant003.py`、`results_replay.csv`、`results_percoin.csv`、`equity_curve.csv`（本仓库）— 访问 2026-10-21 — 已读（第 2 轮回放全部参数、变体和结果）
 - `bots/quant/replay/quant-003/replay.stdout.txt`、`diagnostics.stdout.txt`、`source_check.txt` — 访问 2026-10-21 — 已读（脚本输出与 URL 核验）
+- `bots/quant/notes/scheduler/scratch/P-quant-003/README.md`、`verify_replay.stdout.txt`、`source_check_verify.txt`、`sha256_compare.txt` — 访问 2026-10-21 — 已读（空缓存独立重跑，CSV 与 replay/ 逐字节一致；七个 URL HTTP 200）
 - `bots/quant/notes/xqt-migration/reproduce.py`、`results.csv`、`README.md`（本仓库）— 访问 2026-10-21 — 已读（原三币版本的自算结果）
 - `GUIDE.md` 第 2、2.1、7、9、10、13 节，`templates/ENTRY.md`、`templates/REPLAY-SUMMARY.md`（本仓库）— 访问 2026-10-21 — 已读（格式与门槛）
 
