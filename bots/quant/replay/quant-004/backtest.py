@@ -22,6 +22,12 @@ GAMMA = 'https://gamma-api.polymarket.com/events'
 DATA = 'https://data-api.polymarket.com/trades'
 S = requests.Session()
 
+# Frozen sample window (matches the entry's `window:` field). New weekly events
+# created after 2026-10-19 are deliberately excluded so a rerun keeps the same
+# event set even though Gamma is a live endpoint.
+WIN_START = '2025-03-21T00:00:00Z'
+WIN_END = '2026-10-19T23:59:59Z'
+
 def iso(ts):
     return datetime.fromisoformat(ts.replace('Z', '+00:00'))
 
@@ -39,6 +45,8 @@ def fetch_events():
             if not (e.get('title') or '').startswith('What will Trump say this week'):
                 continue
             if not e.get('endDate') or not e.get('creationDate'):
+                continue
+            if not (WIN_START <= e['creationDate'] <= WIN_END and e['endDate'] <= WIN_END):
                 continue
             for m in e.get('markets', []):
                 try:
@@ -82,10 +90,15 @@ def trades_for(cond):
         return _trades[cond]
     out, off = [], 0
     while off < 40000:
-        r = S.get(DATA, params={'market': cond, 'limit': 10000, 'offset': off}, timeout=60)
-        if r.status_code != 200:
-            break
-        b = r.json()
+        b = None
+        for attempt in range(5):
+            r = S.get(DATA, params={'market': cond, 'limit': 10000, 'offset': off}, timeout=60)
+            if r.status_code == 200:
+                b = r.json()
+                break
+            time.sleep(1.5 * (attempt + 1))
+        if b is None:
+            raise RuntimeError(f'data-api failed for market {cond} offset {off}')
         if not b:
             break
         out += b

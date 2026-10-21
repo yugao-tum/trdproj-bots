@@ -51,3 +51,12 @@
 ## lint
 
 `python3 tools/check.py lint --bot quant` 见运行输出。
+
+## 2026-10-21 w05 复核追加
+
+- 重跑 `bots/quant/replay/quant-004/backtest.py`：主规则复现 17 笔 / +131.89 USDT / t=0.67 / 胜率 52.9% / 回撤 2.60% / 年化 +2.87%；stdout 存 `backtest.stdout.w05-rerun.txt`。
+- 发现并修复静默丢单：data-api 偶发非 200 时旧 `trades_for` 直接 `break`，第一次重跑因此只有 16 笔（+115.00、t=0.59）。已加 5 次重试、持续失败抛错，修复后恢复 17 笔。
+- 独立算术复核 `verify_replay.py`（不 import 回测脚本）：`arithmetic_mismatches=0`（`verify_replay.stdout.txt`）。
+- 敏感性 `sensitivity.py`：去最大 1/2/3 笔后合计 +47.43 / −25.82 / −90.40；bootstrap 95% 区间合计 −251.24..+493.63（`sensitivity.stdout.txt`）。点估计脆弱，维持 `result: 不显著`。
+- 来源复核 `verify_sources.py`：PDF 条款 11/11 命中；Gamma 1,317 关闭事件 / 80 周 / 1,315 市场；data-api 旧市场 832 笔；两个 404 仍 404（`verify_sources.stdout.txt`）。实时值有漂移（开盘事件 19、Kansas volume 9507.35、Netflix 闭市后费率 0、presidency 28,405），条目按访问日标注。
+- 结论：作为可交易策略 **建议 DROP**；仅作为“小成交规模下历史词频基准率无效”的反证保留，`status: 草稿` 与 `date: 2026-10-20` 未动，8 个第 2 轮字段与 SUMMARY 一致。

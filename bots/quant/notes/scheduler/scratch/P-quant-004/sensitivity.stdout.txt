@@ -1,0 +1,7 @@
+n 17 total 131.89 median 14.7
+drop_top1: total=47.43 median=0.86
+drop_top2: total=-25.82 median=-12.98
+drop_top3: total=-90.40 median=-13.24
+by_word Counter({'Transgender': 6, 'Six Seven': 6, 'Sleepy Joe': 2, 'No No No': 1, 'Barack Hussein Obama': 1, 'Through The Roof': 1})
+wins 9 losses 8
+bootstrap_mean_95ci -14.78 29.04 total_95ci -251.24 493.63

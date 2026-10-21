@@ -6,7 +6,8 @@
 ## 如何复现
 - 脚本：`bots/quant/replay/quant-004/backtest.py`（Python 3 + `requests`，其余为标准库；无密钥、无付费数据）。运行：
   `python3 bots/quant/replay/quant-004/backtest.py`
-  首次运行会把 Gamma 事件压缩成 `bots/quant/notes/scheduler/scratch/P-quant-004/_cache/trump_weekly_markets.csv`（<1 MB，`_cache/` 已 gitignore）；逐笔成交只在内存中使用，不落盘。stdout 见 `bots/quant/notes/scheduler/scratch/P-quant-004/backtest.stdout.txt`。
+  首次运行会把 Gamma 事件压缩成 `bots/quant/notes/scheduler/scratch/P-quant-004/_cache/trump_weekly_markets.csv`（<1 MB，`_cache/` 已 gitignore）；逐笔成交只在内存中使用，不落盘。stdout 见 `bots/quant/notes/scheduler/scratch/P-quant-004/backtest.stdout.txt` 与本 worktree 的重跑 `backtest.stdout.w05-rerun.txt`。
+- 可复现性：data-api 是实时接口，偶发非 200。脚本对每个市场最多重试 5 次，持续失败则抛错（不再静默当作“无成交”）；2026-10-21 发现旧版无重试时会少算 1 个事件（16 笔/+115.00），修复后复现 17 笔/+131.89。脚本另把样本窗冻结在 `creationDate/endDate <= 2026-10-19`，之后新开的周事件不会混进来，与条目 `window` 一致。
 - 主规则（**事前写死**）：p̂ = 同名历史周 Laplace `(hits+1)/(n+2)`，要求 n≥6 且历史周 `endDate` 严格早于当周 `creationDate`；决策时点 = `creationDate` + 2 小时；在此时点之后取该 token 的**第一笔 taker BUY 打印**；`|p̂−成交价|−成本 > 0.10` 才进场；YES/NO 两边都做；每事件只取 edge 最大的一笔，名义额 ≤100 USDT。
 - 参数：阈值（edge）0.10；最少历史周 6；滑点 0.01 USDT/份；吃单费率 0.04；最小成交打印名义额 10 USDT；单笔名义额 ≤100 USDT（且不超过该打印的名义额）。
 - 数据下载地址和访问日期：
@@ -61,6 +62,13 @@
 |---|---|---|
 | Q04（6 个） | R1/R2/R3 三条价格档规则 × H24/H6 两个入场时点；另有期间型事件剔除后的子样本 | 条目“证据·补充” |
 | Q04b（24 个） | 4 个样本块 × 2 种半价差（0.01/0.02）× 3 条规则；全部列出 | 条目“证据·补充二” |
+
+## 2026-10-21 复核（工作目录 w05）
+
+- 重跑 `python3 bots/quant/replay/quant-004/backtest.py`：逐字复现 17 笔、+131.89 USDT、t=0.67、胜率 52.9%、回撤 2.60%、年化 +2.87%（`backtest.stdout.w05-rerun.txt`）。
+- 独立算术复核：`verify_replay.py` 从 `trades.csv` 原始列重算费、份数、PnL、t、回撤、年化，`arithmetic_mismatches=0`（`verify_replay.stdout.txt`）。
+- 脆弱性：去掉最大 1 笔后合计 +47.43，去掉最大 2 笔后 −25.82，去掉最大 3 笔后 −90.40；事件 bootstrap 均值 95% 区间 −14.78..+29.04 USDT/事件，合计 −251.24..+493.63 USDT（`sensitivity.stdout.txt`）。
+- 来源复核：`verify_sources.py` 只读重取上列 URL；PDF 条款 11/11 命中，Gamma 1,317 关闭事件 / 80 周事件 / 1,315 市场、data-api 旧市场 832 笔与条目一致。实时数值有漂移（开盘事件 19 vs 23、Kansas volume、Netflix 闭市后费率 0、presidency 28,405），条目按访问日标注；旧周市场 `feeSchedule=null` 仍按 0.04 计费，偏保守。
 
 ## 结论
 

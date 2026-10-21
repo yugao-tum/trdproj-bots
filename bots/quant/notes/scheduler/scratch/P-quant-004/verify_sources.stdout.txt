@@ -1,0 +1,32 @@
+PDF Event: HTTP 200 bytes=124188 
+  clauses_found=8/8 missing=[]
+PDF Period: HTTP 200 bytes=105546 
+  clauses_found=3/3 missing=[]
+Gamma open events: HTTP 200 bytes=1165493 
+  open_events=19 market_counts=[20, 20, 22, 22]
+Gamma closed events: total=1317 trump_weekly=80
+  weekly_markets=1315 creation=2025-03-21T22:23:33.910052Z..2026-10-12T00:23:36.884019Z end=2025-03-28T12:00:00Z..2026-10-19T03:59:00Z
+Gamma Kansas event: HTTP 200 bytes=79453 
+  markets=22 tax_ask=0.001 tax_spread=0.001 tax_volume=9507.354729
+Gamma weekly event: HTTP 200 bytes=57897 
+  markets=16 written_clause=True
+Gamma Netflix event: HTTP 200 bytes=44551 
+  markets=12 fee={'exponent': 1, 'rate': 0, 'takerOnly': True, 'rebateRate': 0}
+CLOB prices-history (background only): HTTP 200 bytes=1844 
+  points=69
+Gamma public-search: HTTP 200 bytes=96332 
+  elon_snl_volume_495007_57=True
+Gamma tags search: HTTP 200 bytes=3222 
+  irrelevant_to_mentions=True first_labels=['product marekt fit', 'caitlin clark', 'virgins']
+data-api trades (old market): HTTP 200 bytes=647584 
+  trades=832 has_side_price=True
+presidency.ucsb search: HTTP 200 bytes=96161 title=Documents Archive Search | The American Presidency Project records=28405
+factba.se: HTTP 200 bytes=186269 title=Factbase search &#8211; Roll Call
+whitehouse remarks: HTTP 200 bytes=261814 title=Remarks &#8211; The White House
+fool transcript index: HTTP 200 bytes=365655 title=Earnings Call Transcripts | The Motley Fool
+fool nflx path (expected 404): HTTP 404 bytes=35372 
+rollcall factbase trump (expected 404): HTTP 404 bytes=16 
+FILE bots/quant/replay/quant-004/backtest.py: exists=True bytes=9558
+FILE bots/quant/replay/quant-004/trades.csv: exists=True bytes=3082
+FILE bots/quant/replay/quant-004/SUMMARY.md: exists=True bytes=8231
+FILE bots/quant/entries/quant-004-pm-mention-base-rates.md: exists=True bytes=28988

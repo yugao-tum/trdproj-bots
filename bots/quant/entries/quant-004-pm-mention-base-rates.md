@@ -98,7 +98,19 @@ contribution: 2.9%
 - 结果（主规则）：17 个独立事件（17 笔），胜率 52.9%，扣费+滑点后合计 **+131.89 USDT**，按事件均值 t=0.67；平均每笔本金回报 +15.95%，最大回撤 **2.60%**（按结算日累计已实现，占 5,000 USDT），年化贡献约 **+2.87%**。17 < 30，且 t<1，按 GUIDE 第 7 节记 `result: 不显著`，不能记 `正`。
 - 全部 11 个参数组合（阈值 0.05/0.10/0.15、min_n 6/10、滑点 0.01/0.02、最小打印额 0/10/20、按打印额封顶/不封顶的部分组合）见 `SUMMARY.md`；主规则是唯一事先指定的组合，其余只作敏感性。除不可实现的“不封顶”R11（+2,178.02）外，其余 10 个组合合计在 −8.35 至 +433.33 USDT 之间，t 全部 <1.4。
 - **容量是决定性的**：若不按打印额封顶、硬塞 100 USDT，同一 38 笔样本会显示 +2,178.02 USDT、年化 +34.29%，但这是把 $100 名义额塞进平均不足 $50 的成交打印，真实不可实现；按打印额封顶后同一批样本只剩 +220.20 USDT（t=1.13），主规则因最小打印额过滤后仅 +131.89（t=0.67）。
-- 结论（直说）：**按真实可成交规模，这条没有可用的正收益证据，17 个独立事件也凑不够 30 个；不建议升待核。** 若 2026-11 前拿不出“逐场转录词频 + 真实成交打印”且 ≥30 个独立事件的版本，建议直接淘汰（DROP）；保留的唯一价值是“历史词频基准率在提及市场不可交易规模上无效”的反证。
+- 结论（直说）：**按真实可成交规模，这条没有可用的正收益证据，17 个独立事件也凑不够 30 个；作为可交易策略不建议升待核，建议 DROP。** 若只作为“历史词频基准率在提及市场的小成交规模上不成立”的反证，可标待核（`result: 不显著`，结局最多补充采纳）；若 2026-11 前拿不出“逐场转录词频 + 真实成交打印”且 ≥30 个独立事件的版本，直接淘汰。
+
+### 补充四：2026-10-21 复核（w05）— 回放可重跑，但不显著且脆弱
+
+脚本与全部 stdout：`bots/quant/notes/scheduler/scratch/P-quant-004/`（`verify_replay.py`、`verify_sources.py`、`sensitivity.py`、`backtest.stdout.w05-rerun.txt` 及对应 `*.stdout.txt`）。
+
+- **重跑复现**：在本 worktree 重新运行 `python3 bots/quant/replay/quant-004/backtest.py`，主规则逐字复现 17 笔、+131.89 USDT、t=0.67、胜率 52.9%、最大回撤 2.60%、年化 +2.87%（`backtest.stdout.w05-rerun.txt`）。脚本已把样本窗冻结为 `creationDate/endDate ≤ 2026-10-19`，之后新开的周事件不会混入。
+- **发现并修掉一个可复现性缺陷**：第一次重跑只有 16 笔、+115.00、t=0.59。原因是 data-api 对 `0x0d7b29…` 的一次请求返回非 200，旧脚本 `break` 后把该市场当“无成交”，**静默丢掉 1 个事件**。已在 `backtest.py` 的 `trades_for` 加 5 次重试、持续失败则抛错；修复后重跑恢复 17 笔。这不是数据变化，旧版在弱网下会少算。
+- **独立算术复核**：`verify_replay.py` 不 import 回测脚本，只读 `trades.csv` 原始列重算 `fee=0.04×p×(1−p)`、`shares×price`、`pnl`、t、回撤、年化，`arithmetic_mismatches=0`，与回测 stdout 一致。
+- **脆弱性**（`sensitivity.stdout.txt`）：17 笔中 `Transgender` 6 笔、`Six Seven` 6 笔，其余 5 个词各 1–2 笔；去掉最大 1 笔后合计 +47.43（中位数 +0.86），去掉最大 2 笔后 −25.82，去掉最大 3 笔后 −90.40。按事件 bootstrap（20,000 次）均值 95% 区间 −14.78..+29.04 USDT/事件，合计 −251.24..+493.63 USDT。**点估计完全靠少数几笔大赢单，不能当稳定收益。**
+- **来源复核（2026-10-21，只读 GET）**：两份合同 PDF 仍为 124,188 / 105,546 字节，`pdftotext` 抽取并按空白归一化后，所列 11 条原文条款全部命中；Gamma 关闭事件 1,317 个、其中 80 个 Trump 周事件 / 1,315 个市场，与回放一致；data-api 旧市场仍 832 笔；`fool` 单场路径与 `rollcall/factbase/trump` 仍 404。
+- **实时来源会漂移，条目数字带访问时刻**：开盘事件 23→19、Kansas `Tax 33+` volume 9491.73→9507.35、presidency 记录数 28398→28405、Netflix 市场闭市后 `feeSchedule.rate` 0.04→0、Netflix CLOB `prices-history` 现 69 点。这些是时间变化，不是引用错误；引用值以各条所注访问日为准。2025-10 / 2026-01 的旧周市场 `feeSchedule` 现为 `null`，回放仍按 0.04 计费，对净收益**偏保守**。
+- **最终建议**：作为收益来源 **DROP**；作为反证可保留草稿并在需要时标待核。**不建议按“正收益策略”占用新机制名额。**
 
 ## 数据
 
@@ -171,3 +183,5 @@ contribution: 2.9%
 - https://gamma-api.polymarket.com/events?tag_slug=mention-markets&limit=100&closed=true&order=endDate&ascending=false&offset=0 — 访问 2026-10-21 — 已读（逐页 offset 0..1400；1,317 个已关闭事件，其中 80 个 “What will Trump say this week”、1,315 个词市场；Q04c 样本）
 - https://data-api.polymarket.com/trades?market=<conditionId>&limit=10000&offset=0 — 访问 2026-10-21 — 已读（HTTP 200；Q04c 逐笔成交打印来源；旧市场 `conditionId=0xc740b31ab2b090aa78e86623ab820ccd24131b4a6fcb1beacdb44602deea737e` 取到 832 笔）
 - bots/quant/replay/quant-004/backtest.py、trades.csv、SUMMARY.md — 2026-10-21 — 本仓库回放脚本、成交明细与汇总（主规则 17 笔，+131.89 USDT，t=0.67）
+- bots/quant/notes/scheduler/scratch/P-quant-004/verify_sources.stdout.txt — 访问 2026-10-21 — 只读复核上列公开 URL：PDF 条款 11/11 命中、Gamma 1,317 关闭事件/80 周事件/1,315 市场、data-api 旧市场 832 笔、两个 404 仍为 404；实时漂移见“补充四”
+- bots/quant/notes/scheduler/scratch/P-quant-004/verify_replay.stdout.txt、sensitivity.stdout.txt、backtest.stdout.w05-rerun.txt — 2026-10-21 — 独立算术复核（0 处不符）、去尾/自助法敏感性与重跑 stdout

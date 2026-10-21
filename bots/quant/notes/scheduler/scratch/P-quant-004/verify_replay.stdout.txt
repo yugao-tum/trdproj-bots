@@ -1,0 +1,7 @@
+rows=17 independent_events=17
+total_pnl=131.89 USD mean=7.76 sd=47.46 t=0.67
+win_rate=0.5294
+max_drawdown=129.82 USD = 2.60% of 5000
+window=2025-11-02..2026-10-04 days=336
+annualised=2.87% (total/5000*365.25/336)
+arithmetic_mismatches=0
