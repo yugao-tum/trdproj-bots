@@ -1,0 +1,51 @@
+==============================================================================
+quant-012 replay: tradable-price fills after decision time
+==============================================================================
+
+[1] closed ladder events pulled from Gamma: 68
+    USGS M5.5+ events since 2000-01-01: 13228
+    USGS M6.5+ events since 2000-01-01: 1222
+    USGS M7.0+ events since 2000-01-01: 399
+
+[2] events with a resolved bracket: 68; skipped: 0
+
+[3] canonical signal-level (first print at/after window start, taker NO, fee 0.05)
+    filled brackets = 183; independent events = 65; strict groups = 40
+    median net/share = +0.1147; mean net/share = +0.0393
+    total net = +7.1969 USDT on 145.5814 USDT notional (1 share each) = +4.94%
+    fee-0 total = +8.4186 USDT = +5.78%
+    fill delay after t0: median 6.30h, p90 38.71h, max 2875.67h
+    NO won 154/183 brackets; NO lost 29
+
+[3b] capacity portfolio (sleeve 1,000 USDT; 100 shares/bracket; <=300 USDT/event)
+    filled brackets = 137; independent events = 65; skipped for cash/event cap = 46
+    net = +372.73 USDT on 10529.53 USDT cost = +3.54% (fee 0.05)
+    cash at end = 1470.47 USDT (start 1000)
+    max drawdown (daily, realised only) = 21.53% (327.32 USDT)
+    sample span = 320.3 days; annualised contribution on 5000 USDT = +8.50%
+
+[4] splits of the canonical signal (1 share each, net per share, fee 0.05)
+    all                  n=183 events=65 median=+0.1147 mean=+0.0393 total=+7.1969 = +4.94%
+    delay <= 24h         n=155 events=60 median=+0.1051 mean=+0.0159 total=+2.4666 = +2.01%
+    M6.5+                n= 70 events=35 median=+0.1292 mean=+0.0451 total=+3.1559 = +6.41%
+    M5.5+                n=105 events=28 median=+0.1147 mean=+0.0228 total=+2.3922 = +2.66%
+    M7.0+                n=  8 events= 2 median=+0.0668 mean=+0.2061 total=+1.6488 = +26.10%
+    fill < 2026-07-01    n=101 events=38 median=+0.1147 mean=+0.0720 total=+7.2698 = +9.57%
+    fill >= 2026-07-01   n= 82 events=27 median=+0.1051 mean=-0.0009 total=-0.0729 = -0.10%
+
+[5] baseline variant: last print in [t0-24h, t0), same taker rule
+    n=103 events=50 median=+0.1147 mean=+0.0107 total=+1.1010 = +1.41%
+
+[5b] variant: conditional intra-week model (entry rule 2, k<3), same fills
+    n=180 events=63 median=+0.1051 mean=+0.0367 total=+6.6077 = +4.55%
+    k_seen distribution = {0: 148, 1: 19, 2: 13}
+
+[6] model vs market log loss (events with every bracket priced post-t0)
+    events=68 model=1.552162 market=1.630808 model_better=35
+
+[7] USGS own count vs resolved bracket: 59/68 MATCH
+    M5.5+  19/28
+    M6.5+  38/38
+    M7.0+  2/2
+
+[8] wrote trades.csv (183 signal rows, 137 in portfolio), events.csv (68 rows), equity.csv (322 rows)

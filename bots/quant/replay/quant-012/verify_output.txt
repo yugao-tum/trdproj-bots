@@ -1,0 +1,15 @@
+[OK ] gamma tag=earthquake closed: HTTP 200, events=69, how-many ladder events=37
+[OK ] gamma event rules: HTTP 200, markets=7, keyword hits={'United States Geological Survey': True, '48 hours': True, 'lowest bracket': True, 'anywhere on Earth': True}
+       live feeSchedule rates on this event: [0]
+[OK ] USGS count M6.5+ 2015..2026: 462 (entry says 462)
+[OK ] USGS count M7.0+ 2015..2026: 153 (entry says 153)
+[OK ] USGS count M5.5+ 2015..2026: 5031 (entry says 5031)
+[OK ] USGS CSV catalog: HTTP 200, rows=1519 (header incl.), mag>=6.5 rows=1222
+[OK ] data-api trades: HTTP 200, n=5, has ['outcome', 'price', 'side', 'size', 'timestamp']
+[OK ] CLOB prices-history closed token: HTTP 200, body={"history":[]}
+
+[OK ] local trades.csv: 184 lines (expected 184 incl. header)
+[OK ] local events.csv: 69 lines (expected 69 incl. header)
+[OK ] local equity.csv: 323 lines (expected 323 incl. header)
+
+ALL EXTERNAL CHECKS PASS: True

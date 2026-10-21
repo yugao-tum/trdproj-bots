@@ -1,0 +1,42 @@
+==============================================================================
+quant-012 replay extra statistics
+==============================================================================
+rows: 183 fills over 65 events
+
+[1] net PnL per NO share (fee 0.05, 1 cent concession)
+    mean = +0.0393; event-clustered bootstrap 95% CI = [-0.0036, +0.0836]
+    95% CI includes zero: YES
+
+[2] event totals (1 share per bracket): 65 events, positive 37, negative 28
+    median event total = +0.2194 USDT/share-lot
+    mean event total   = +0.1107
+    worst event        = -0.8660; best = +1.3786
+
+[3] fill delay after decision time t0
+    <= 6h      n= 90 mean=+0.0166 total=+1.4949 = +2.20% of notional
+    6h..24h    n= 65 mean=+0.0150 total=+0.9718 = +1.78% of notional
+    24h..72h   n= 18 mean=+0.1373 total=+2.4721 = +16.02% of notional
+    > 72h      n= 10 mean=+0.2258 total=+2.2582 = +29.40% of notional
+
+[4] month split (1 share each)
+    2025-12 n=  5 total=+0.2702 = +5.73%
+    2026-01 n=  5 total=+0.2751 = +7.45%
+    2026-02 n= 12 total=+0.1167 = +1.50%
+    2026-03 n=  5 total=+0.5678 = +23.96%
+    2026-04 n= 21 total=+1.3635 = +8.81%
+    2026-05 n= 27 total=+3.7150 = +17.61%
+    2026-06 n= 26 total=+0.9615 = +4.61%
+    2026-07 n= 17 total=-0.6116 = -4.22%
+    2026-08 n= 33 total=-0.4801 = -1.70%
+    2026-09 n= 22 total=+0.3577 = +1.93%
+    2026-10 n= 10 total=+0.6612 = +7.99%
+
+[5] log loss on the SAME 29 events q012-hist priced fully before t0
+    events = 29
+    pre-window price : model 1.4455 vs market 1.4152
+    post-t0 price    : model 1.4455 vs market 1.4415
+
+[6] fee sensitivity and notional
+    notional (1 share each) = 145.5814 USDT
+    net fee 0.05 = +7.1969 (+4.94%)
+    net fee 0    = +8.4186 (+5.78%)
