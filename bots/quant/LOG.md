@@ -188,3 +188,9 @@
   - 每行写入该档自己的 slug 和 conditionId。
   - 新增 `test_causality.py`：dot 的用例在 v2 上选档不变；真实数据截断测试 1,750 次全部一致。
 - 前后对比：YES +12.94% → **−26.36%**，NO −67.73% → **−95.28%**，年化贡献（YES）+13.2% → −25.9%。条目字段改为 `variants` 2→4、`max_dd` 23.8%、`contribution` -25.9%。`result` 仍写 `不显著`，因为独立结果 7 个、少于 30，但方向是负的：这是负结果，作为反证保留；`status` 不变。
+
+## 2026-10-21 调度批次 c20261021-110943-research（research）
+
+- 调度批次（profile research），10 个 OpenCode 工作者；合并：H-quant-001 failed、H-quant-002 failed、H-quant-005 failed、H-quant-009 failed、H-quant-010 failed、H-quant-012 failed、H-quant-018 failed、w09 failed、w10 failed。
+- 审核结论：无。
+- 升为待核：；第 1 轮 round 1: pending=14 remaining=1。

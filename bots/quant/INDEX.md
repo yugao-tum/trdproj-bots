@@ -966,3 +966,15 @@
 | bots/quant/replay/quant-019/replay_summary.json | replay_summary.json | 2026-10-21 | 笔记 |
 | bots/quant/replay/quant-019/verify_sources.py | verify_sources.py | 2026-10-21 | 笔记 |
 | bots/quant/replay/quant-019/verify_sources.stdout.txt | verify_sources.stdout.txt | 2026-10-21 | 笔记 |
+| bots/quant/notes/q016-hist/events_v1.csv | events_v1.csv | 2026-10-21 | 笔记 |
+| bots/quant/notes/q016-hist/pr_body_v2.md | Review comment 1 — `q016_hist.py:867`: zero-trade priced eve | 2026-10-21 | 笔记 |
+| bots/quant/notes/q016-hist/run_output_v1.txt | run_output_v1.txt | 2026-10-21 | 笔记 |
+| bots/quant/notes/q016-hist/v2_audit.py | v2_audit.py | 2026-10-21 | 笔记 |
+| bots/quant/notes/q016-hist/v2_audit_output.txt | v2_audit_output.txt | 2026-10-21 | 笔记 |
+| bots/quant/notes/q016-hist/v2_evidence.py | v2_evidence.py | 2026-10-21 | 笔记 |
+| bots/quant/notes/q016-hist/v2_evidence.txt | v2_evidence.txt | 2026-10-21 | 笔记 |
+| bots/quant/replay/quant-019/test_causality.py | test_causality.py | 2026-10-21 | 笔记 |
+| bots/quant/replay/quant-019/test_causality.stdout.txt | test_causality.stdout.txt | 2026-10-21 | 笔记 |
+| bots/quant/replay/quant-019/v1-lookahead/fills.csv | fills.csv | 2026-10-21 | 笔记 |
+| bots/quant/replay/quant-019/v1-lookahead/replay.stdout.txt | replay.stdout.txt | 2026-10-21 | 笔记 |
+| bots/quant/replay/quant-019/v1-lookahead/replay_summary.json | replay_summary.json | 2026-10-21 | 笔记 |
