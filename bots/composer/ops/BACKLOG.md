@@ -10,9 +10,10 @@
 | P0 | T10 | [x] | **composer-010** PM（finance/politics 空白；muse 未覆盖） | composer-010 politics 待核 |
 | P1 | T04b | [x] | **004 补充**：跟 10-19 Hormuz 周 PortWatch 新日 → `notes/cache/hormuz_live_week.json` | 03:30 仍无 10-19 日；已跟盘+004 §2b |
 | P1 | T04b2 | [x] | **004 续跟**：PortWatch ≥2026-10-19 落库后更新 live JSON + 004 累加 | 03:45 仍无新日；watch 已更 |
-| P1 | T04b3 | [ ] | **004 续跟**：PortWatch ≥2026-10-19 落库后更新 live JSON + 004 累加 | `days_known`≥1 |
+| P1 | T04b3 | [x] | **004 续跟**：PortWatch ≥2026-10-19 落库后更新 live JSON + 004 累加 | 04:00 仍无；合并 T04watch |
+| P1 | T04watch | [ ] | **004 跟盘**：PortWatch≥10-19 落库 → live JSON + 004 累加节 | `days_known`≥1（sprint 自动查） |
 | P1 | T07 | [x] | ~~composer-007~~（已由 007–009 覆盖） | 取消 |
-| P2 | T04c | [ ] | Hormuz bracket 映射修复（提高回放一致率） | backtest matched 提升或文档说明 |
-| P2 | T03b | [ ] | OKX 四币 12mo funding 面板（补 003 样本） | notes 脚本 + 003 supplement 或 LOG |
+| P2 | T04c | [x] | Hormuz bracket 映射修复（提高回放一致率） | 解析归一+边界规则；20/24；见 BRACKET_NOTES |
+| P2 | T03b | [x] | OKX 四币 12mo funding 面板（补 003 样本） | 四币 JSON+面板；API ~93d/币 |
 
 **选题禁区**：quant 进行中 B22/B23/B25/B29/B30/B31；muse 进行中 PM 草稿同机制。
