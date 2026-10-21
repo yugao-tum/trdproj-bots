@@ -9,3 +9,4 @@
 | C03 OKX 资金费 Z 分数闸门 carry（composer-003） | 2026-10-21 | 2026-10-21 | 已完成 | composer-003（待核） |
 | C04 Polymarket 周初请失业金分档（economics） | 2026-10-21 | 2026-10-22 | 已放弃 | 2026-03 后 Gamma 无连续 open 系列，改攻其他 economics |
 | C05 跨所 OKX–Hyperliquid 资金费差 | 2026-10-21 | 2026-10-21 | 已放弃 | 90 日样本年化 <1%，不满足加密门槛 |
+| C06 霍尔木兹周过境：IMF PortWatch 累加定档（composer-004） | 2026-10-21 | 2026-10-21 | 已完成 | composer-004（待核） |

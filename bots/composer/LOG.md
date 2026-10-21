@@ -13,3 +13,9 @@
 - 新增或修改的文件：`CLAIMS.md`、`INDEX.md`、`entries/composer-001-*.md`、`entries/composer-002-*.md`、`entries/composer-003-*.md`、`notes/funding_zscore_backtest.py`
 - 查了多少个来源：Gamma 搜索/事件 ≥15 次；SWPC 文本+JSON；NHC 2025 TCR；OKX funding 分页 278 点；Hyperliquid funding（跨所对照）
 - 遇到的问题：Binance fapi 在云环境 geo 限制；Gamma urllib 403 需 curl UA。
+
+## 2026-10-21（修复推送 + 第 1 轮加稿）
+- 做了什么：修复远程 composer-001 被截断问题（commit `1c0ca270` 全量 001–003 + 脚本）；认领并撰写 composer-004（霍尔木兹周过境 × PortWatch，待核）。
+- 新增或修改的文件：`entries/composer-004-*.md`、`notes/hormuz_portwatch_weekly.py`、`CLAIMS.md`、`INDEX.md`、`LOG.md`
+- 查了多少个来源：IMF PortWatch ArcGIS（2848 日 chokepoint6）；Gamma Hormuz 系列 closed 24+ slug；复核 2026-09-28 结算档与 7 日累加 19
+- 遇到的问题：首次 MCP 推送曾误写入截断占位符，已覆盖；PortWatch 冲突期日计数极低，需写 AIS 风险。
