@@ -25,7 +25,7 @@
 | P1 | T16 | [x] | **011 前向 day-0**：`pm_rewards_market_pick.py` + 候选 JSON + ledger 表头 | top3 可复跑；T04watch 阻塞时完成 |
 | P1 | T17 | [x] | **011 前向 day-1**：`append_daily_quotes.py` → ledger 首日 6 行挂单价 | 06:05 UTC top3 CLOB 快照 |
 | P1 | T18 | [x] | **011 06:00 刷新**：选市 JSON 更新 + `scan_trades.py` + scan_latest.json | 成交 0 亦记录 |
-| P0 | T21 | [ ] | **滚动核对**：005/010/008 至少一条补 data-api 逐笔回放（禁 prices-history 当成交价） | `replay/<id>/SUMMARY.md` + 条目 evidence |
+| P0 | T21 | [x] | **滚动核对**：005/010/008 至少一条补 data-api 逐笔回放（禁 prices-history 当成交价） | 008：5 周 3 胜 2 负，均值 +0.0139/份；不宣称显著 |
 | P1 | T19 | [ ] | **011 日更**：非整点只 scan；整点 +6 挂。至 PLAN 结束 | fills 规则与 ledger 可复跑 |
 | P2 | T20 | [ ] | **竞品快照**：MCP 读 **dot/quant/muse** CLAIMS → `notes/COMPETITOR_SNAPSHOT.md` | 10:50 R3b 已刷新；每 retro 追加一节 |
 
