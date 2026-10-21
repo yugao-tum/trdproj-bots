@@ -32,3 +32,36 @@ python3 tools/check.py lint --bot quant
 - 7 门：1 部分满足；2、3、7 满足；4 不确定；5 仅在 0.30%/边、且不作为“改进采纳”时成立（1.00%/边推荐版折年 7.75%）；6 **不满足**（独立关闭段 24/18/8 <30）。
 - `result: 不显著` 保持不变；没有把任何数字上调或改成显著。
 - 建议：不按“改进采纳”（2.0）或收录计分；按待选区（1.0）或退回处理。若要继续，最有价值的是补足独立关闭段/做前向，而不是继续在本窗口调参。
+
+## 2026-10-21（batch c20261021-120001，按 review/c20261021-120001-research.md）
+
+| # | 复核指出的问题 | 改了什么 | 证据 |
+|---|---|---|---|
+| 1 | 家族校正 p 值被错误归给 SMA50（条目 `:31`、`:83`、`:115`、`:127`、`:139`、`:144`、`:149`）。`familywise` 是 SMA50/100/200 的 max-statistic，最佳实际变体是 **SMA100**；p(DD)=0.278 不能当 SMA50 的结果。 | 上述位置全部改为“家族 max-statistic 取最佳变体 SMA100”，并补上 SMA50 自己的单闸门 placebo：p(compound≥实际)=0.065、p(Sharpe≥实际)=0.084、p(DD≤实际)=0.756（实际更好的 DD 尾概率 0.244）。结论仍为“不显著”，未改任何收益/回撤数字。 | 重跑 `run_replay.py` 的 `familywise` 块：`best_compound_pct=83.41`、`best_dd_pct=-23.28`、`best_sharpe=1.141`、`p_family_compound=0.066`、`p_family_dd=0.278`、`p_family_sharpe=0.084`；`placebo.SMA50` 为 0.065/0.756/0.084。见 `bots/quant/replay/quant-001/replay_results.json`。 |
+| 2 | 外部来源被写成“最大回撤显著下降”（条目 `:38`、`:150`、`:164`，`SUMMARY.md` 变体表第 9 行）。原文有夏普接近翻倍的表述和回撤对比，但没有回撤差异的显著性检验。 | 改为“最大回撤明显下降；原文未给回撤差异的显著性检验”。同时遵守 GUIDE §9：原文样本早于 2021，具体数字按第 2 轮规则不抄入条目，写“见原文”。未删掉“来源自报，未核实”。 | `verify_sources_round2_stdout.txt`：作者版 PDF HTTP 200、444,689 字节；`pdftotext` 命中 “The Sharpe ratio improves from 0.53” / “0.97 for its risk-managed version” / “maximum drawdown ... -96.69% versus -45.20%”；未命中任何回撤显著性检验的说法。ScienceDirect 仍 403（如实标注）。 |
+| 3 | 门 4 仍未决；不能因为条目给了区别就改成“满足”或另占新机制名额。 | 保留 `kind: improvement`、`improves: T-T2-vm`、`slot: -`；`:147` 继续写“不确定”，并保留与 `T-T1-turtle`（突破入场/加仓 vs VM 仓位上的二元 SMA50 开关）的具体区别，交主审裁决。 | front matter 第 9–11、21 行未动；`known/KNOWN.md` 的 `T-T2-vm`、`T-T1-turtle` 行。 |
+| 4 | 门 5/6 不满足，贡献 21.0% 不能当可外推预期。 | `:148`/`:149` 保持“作为改进不满足”“不满足”；`:122` 保留 21.0% 全样本粗算，并继续注明 2024 单年约 0.4%。未上调任何数字。 | `run_holdout.py` 重跑：2024 SMA50 +0.39%；1.00%/边 SMA50 折年 7.75%；关闭段 24/18/8。 |
+| 5 | 8 个 front-matter 字段与 `SUMMARY.md` 一致性。 | 未改字段：`evidence: 回放`、`result: 不显著`、`slot: -`、`variants: 8`、`variants_ext: 不清楚`、`window: 2022-01-01..2024-12-31`、`max_dd: -24.6%（日线）`、`contribution: 21.0%`。只同步了 `SUMMARY.md` 的 p 值归属与外部引文措辞。 | `verify_replay_entry.py`：108 checks，0 failed；`lint --bot quant`：问题 0 个。 |
+| 6 | 每个引用来源要能打开、说所声称的话。 | 本轮重跑 `verify_sources.py`、`verify_cited_local.py`；外部 URL 状态与条目一致，44 个本地引用全部存在且 <1 MB、非二进制。 | `verify_sources_round2_stdout.txt`、`verify_cited_local_stdout.txt`（44/44 OK）。 |
+
+## 重跑与检查（本轮）
+
+```bash
+python3 bots/quant/replay/quant-001/run_replay.py
+python3 bots/quant/replay/quant-001/run_holdout.py
+python3 bots/quant/notes/scheduler/scratch/H-quant-001/verify_sources.py
+python3 bots/quant/notes/scheduler/scratch/H-quant-001/verify_cited_local.py
+python3 bots/quant/notes/scheduler/scratch/H-quant-001/verify_replay_entry.py
+python3 tools/check.py lint --bot quant
+```
+
+- `run_replay.py`：VM +23.31%、SMA50 +59.73%、SMA100 +83.41%、SMA200 +48.97%；关闭段 24/18/8；家族 p=0.066/0.084/0.278，最佳实际变体 SMA100；与 `replay_results.json` 一致（仅 `generated_utc` 更新）。
+- `run_holdout.py`：2024 VM −8.64%、SMA50 +0.39%、SMA100 +2.10%、SMA200 −16.29%；walk-forward +96.04%，与 always-SMA100 逐日相同。
+- `verify_replay_entry.py`：108/0；`lint --bot quant`：问题 0 个。
+- `status: 待核`、`date: 2026-10-20`、文件名、`id` 均未改。
+
+## 诚实结论（本轮）
+
+- 建议不变：**待选区（1.0）/反证**，不按“改进采纳”（2.0）或收录计分。
+- 门 1 部分满足；2、3、7 满足；4 不确定；5、6 不满足；`result: 不显著`。
+- 21.0% 只是全样本账户级算术，2024 单年约 0.4%，不可当预期；若主审要求“稳定优于原版”，可直接退回。
