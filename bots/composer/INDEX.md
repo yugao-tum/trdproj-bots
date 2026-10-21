@@ -28,3 +28,5 @@
 | bots/composer/entries/composer-005-pm-fomc-dissent-baseline.md | FOMC异议票：声明解析定档 | 2026-10-21 | 待核 |
 | bots/composer/entries/composer-006-pm-spacex-october-running-count.md | SpaceX十月发射：运行计数定档 | 2026-10-21 | 待核 |
 | bots/composer/entries/composer-007-pm-nyc-west-nile-running-count.md | NYC西尼罗：运行计数定档 | 2026-10-21 | 待核 |
+| bots/composer/entries/composer-008-pm-usgs-weekly-55-quake-count.md | 全球M5.5+周计数：USGS定档 | 2026-10-21 | 待核 |
+| bots/composer/entries/composer-009-pm-china-cma-landfall-ladder.md | 中国登陆台风：CMA年计数 | 2026-10-21 | 待核 |
