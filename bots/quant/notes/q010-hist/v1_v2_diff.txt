@@ -1,0 +1,16 @@
+events.csv: old rows=82 new rows=82 common keys=82
+  p_model changed rows: 62/82
+  filter_pass changed rows: 0/82
+  key set changed: old-only=0 new-only=0
+  net changed rows: 0/82
+  ask changed rows: 0/82
+  won changed rows: 0/82
+  oracle_net changed rows: 0/82
+events_movies.csv: old rows=85 new rows=85 common keys=85
+  p_model changed rows: 53/85
+  filter_pass changed rows: 0/85
+  key set changed: old-only=0 new-only=0
+  net changed rows: 0/85
+  ask changed rows: 0/85
+  won changed rows: 0/85
+  oracle_net changed rows: 0/85

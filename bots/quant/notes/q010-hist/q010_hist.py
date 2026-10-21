@@ -95,7 +95,14 @@ STATISTICS: 10000 cluster-block bootstrap of the mean net/share, fixed seed 42.
   Settlement check: Netflix-computed #1 vs Gamma-resolved winner.
 
 CACHE: every download is cached under _cache/ (gitignored).  A rerun with the
-  cache present performs no network I/O and prints identical numbers.
+  cache present performs no network I/O and prints identical numbers.  Cached
+  payloads are type/size validated before reuse; a malformed or truncated
+  download is refetched instead of being treated as complete.
+
+VERDICT SCOPE (v2): the frozen signal criterion applies to the entry's original
+  daily-chart nowcast, which was NOT evaluated here (no keyless daily archive).
+  The overall verdict is therefore UNVERIFIED.  The previous-week-#1 persistence
+  proxy gets its own verdict, explicitly labelled "PROXY ONLY".
 
 Usage: python3 q010_hist.py [--refresh]
 """
@@ -159,14 +166,29 @@ def _cache_path(key):
     return CACHE / (hashlib.sha1(key.encode("utf-8")).hexdigest() + ".json")
 
 
-def get_json(url, params=None, retries=6):
-    """Cached JSON GET; identical URL+params -> same cached bytes."""
+def _read_json_cache(path, expect):
+    """Return cached JSON only if it is structurally complete, else None."""
+    if not path.exists():
+        return None
+    try:
+        data = json.loads(path.read_text(encoding="utf-8"))
+    except Exception:  # noqa: BLE001
+        return None
+    if expect is not None and not isinstance(data, expect):
+        return None
+    return data
+
+
+def get_json(url, params=None, retries=6, expect=list):
+    """Cached JSON GET; malformed/partial cache entries are refetched."""
     key = url
     if params:
         key += "?" + urllib.parse.urlencode(sorted(params.items()))
     path = _cache_path(key)
-    if path.exists() and not REFRESH:
-        return json.loads(path.read_text(encoding="utf-8"))
+    if not REFRESH:
+        cached = _read_json_cache(path, expect)
+        if cached is not None:
+            return cached
     last = None
     for attempt in range(retries):
         try:
@@ -175,6 +197,8 @@ def get_json(url, params=None, retries=6):
                 raise RuntimeError("HTTP %s" % r.status_code)
             r.raise_for_status()
             data = r.json()
+            if expect is not None and not isinstance(data, expect):
+                raise RuntimeError("unexpected JSON type: %s" % type(data).__name__)
             CACHE.mkdir(parents=True, exist_ok=True)
             tmp = path.with_suffix(".tmp")
             tmp.write_text(json.dumps(data, separators=(",", ":")), encoding="utf-8")
@@ -186,20 +210,41 @@ def get_json(url, params=None, retries=6):
     raise RuntimeError("GET failed: %s (%s)" % (url, last))
 
 
+def _valid_tsv(path, name):
+    """A Tudum TSV is complete only if header and a plausible row count parse."""
+    try:
+        with open(path, encoding="utf-8", newline="") as fh:
+            rd = csv.DictReader(fh, delimiter="\t")
+            fields = set(rd.fieldnames or [])
+            need = {"week", "category", "weekly_rank"}
+            if name.endswith("countries.tsv"):
+                need |= {"country_name", "season_title", "show_title"}
+            else:
+                need |= {"season_title", "show_title"}
+            if not need <= fields:
+                return False
+            n = sum(1 for _ in rd)
+        return n >= (50000 if name.endswith("countries.tsv") else 5000)
+    except Exception:  # noqa: BLE001
+        return False
+
+
 def download(url, name, retries=6):
     path = CACHE / name
-    if path.exists() and not REFRESH:
+    if path.exists() and not REFRESH and _valid_tsv(path, name):
         return path
     last = None
     for attempt in range(retries):
         try:
             r = _SESSION.get(url, timeout=300)
             r.raise_for_status()
-            if len(r.content) < 1000:
+            if len(r.content) < 500_000:
                 raise RuntimeError("suspiciously small body: %d" % len(r.content))
             CACHE.mkdir(parents=True, exist_ok=True)
             tmp = path.with_suffix(".tmp")
             tmp.write_bytes(r.content)
+            if not _valid_tsv(tmp, name):
+                raise RuntimeError("incomplete TSV body: %d bytes" % len(r.content))
             tmp.replace(path)
             return path
         except Exception as exc:  # noqa: BLE001
@@ -328,18 +373,26 @@ def fee_rate_for(market):
 
 
 def last_trade_before(condition_id, t_pub):
-    """Newest data-api trade with ts <= t_pub.  Pages past post-resolution trades."""
+    """Newest data-api trade with ts <= t_pub.  Pages past post-resolution trades.
+
+    A page shorter than the requested limit is the last page, so stop there
+    instead of fetching (and caching) a spurious empty page.  Cached pages are
+    type-checked by get_json; malformed pages are refetched, not reused.
+    """
+    limit = 500
     offset = 0
     while offset <= 10000:
         tr = get_json(DATA_API + "/trades",
-                      {"market": condition_id, "limit": 500, "offset": offset})
+                      {"market": condition_id, "limit": limit, "offset": offset})
         if not tr:
             return None
         cand = [x for x in tr if float(x.get("timestamp", 0)) <= t_pub]
         if cand:
             return max(cand, key=lambda x: float(x["timestamp"]))
         # every trade on this page is after T_pub; page is newest-first
-        offset += 500
+        if len(tr) < limit:
+            return None
+        offset += limit
     return None
 
 
@@ -432,6 +485,7 @@ def main():
             u["skip"] = "no_prior_week"
             work.append(u)
             continue
+        u["signal_eligible"] = True
         prior_no1 = prior[0][1]
         u["computed_no1"] = cur[0][1]
         markets = u["event"].get("markets") or []
@@ -498,12 +552,24 @@ def main():
             funnel[u["skip"]] = funnel.get(u["skip"], 0) + 1
             continue
         ts = u["pub"].astimezone(dt.timezone.utc).timestamp()
+        lower = ts - PRIMARY_WINDOW_H * 3600
         for it in u["candidates"]:
-            it["trade"] = price_map.get((it["market"].get("conditionId"), ts))
+            raw = price_map.get((it["market"].get("conditionId"), ts))
+            it["trade"] = None
+            it["trade_too_old"] = False
+            if raw:
+                if float(raw.get("timestamp", 0)) >= lower:
+                    it["trade"] = raw
+                else:
+                    it["trade_too_old"] = True
         pred = u["pred"]
         if not pred.get("trade"):
-            u["skip"] = "no_fill_in_24h"
-            funnel["no_fill_in_24h"] = funnel.get("no_fill_in_24h", 0) + 1
+            if pred.get("trade_too_old"):
+                u["skip"] = "fill_too_old"
+                funnel["fill_too_old"] = funnel.get("fill_too_old", 0) + 1
+            else:
+                u["skip"] = "no_fill_in_24h"
+                funnel["no_fill_in_24h"] = funnel.get("no_fill_in_24h", 0) + 1
         else:
             u["skip"] = None
 
@@ -635,8 +701,10 @@ def main():
     cl_dollars = cluster_values(rows, "net_per_dollar")
     hits = [r["won"] for r in rows]
     cl_hits = cluster_values(rows, "won")
+    # The proxy makes a prediction even when the previous #1 is not listed in
+    # the current event: that is a signal miss, not a missing observation.
     sig_units = [u for u in work
-                 if u.get("pred") is not None and u.get("computed_no1")]
+                 if u.get("signal_eligible") and u.get("computed_no1")]
     sig_hits = [u["signal_hit"] for u in sig_units]
     sig_cl = cluster_values(
         [{"week": u["week"], "v": u["signal_hit"]} for u in sig_units], "v")
@@ -713,7 +781,7 @@ def main():
     print("  simulated market-events: %d" % len(rows))
     print("  independent chart-week clusters: %d" % len(cl_nets))
     print("")
-    print("SIGNAL PROXY HIT RATE (entry's own signal criterion)")
+    print("SIGNAL PROXY HIT RATE (PROXY ONLY; original daily-chart signal NOT evaluated)")
     print("  n chart-scope weeks with a prediction: %d | clusters: %d" % (
         len(sig_units), len(sig_cl)))
     print("  hit rate (events): %.4f (%d/%d) | cluster mean: %.4f" % (
@@ -789,14 +857,20 @@ def main():
     print("")
     print("VERDICT RULE (frozen, entry's own): <30 clusters with fill -> INSUFFICIENT;")
     print("else FAIL if signal hit rate < 80%% or cluster median net/share <= 0; else PASS.")
+    print("SCOPE: the rule's signal clause is about the entry's daily-chart nowcast.")
+    print("       That signal was NOT evaluated here, so its verdict stays UNVERIFIED.")
+    print("       The proxy below is scored only to describe the substitute.")
+    print("")
+    print("VERDICT (OVERALL / ORIGINAL entry signal): UNVERIFIED")
+    print("  reason: no keyless historical Netflix daily chart; original signal not tested.")
     if len(cl_nets) < 30:
-        verdict = "INSUFFICIENT"
+        proxy_verdict = "INSUFFICIENT"
     elif mean(sig_cl) < 0.80 or med(cl_nets) <= 0:
-        verdict = "FAIL"
+        proxy_verdict = "FAIL"
     else:
-        verdict = "PASS"
-    print("VERDICT: %s" % verdict)
-    print("  clusters=%d | signal cluster hit=%.4f | trade cluster hit=%.4f | cluster median net/share=%+.4f" % (
+        proxy_verdict = "PASS"
+    print("VERDICT (PROXY ONLY, previous-week-#1 persistence): %s" % proxy_verdict)
+    print("  clusters=%d | proxy signal cluster hit=%.4f | trade cluster hit=%.4f | cluster median net/share=%+.4f" % (
         len(cl_nets), mean(sig_cl), mean(cl_hits), med(cl_nets)))
 
     # ---------------- write events_<kind>.csv ----------------

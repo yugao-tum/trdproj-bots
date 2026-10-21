@@ -1,12 +1,13 @@
 # quant-010 历史可成交价回测（Netflix 周榜 #1 + data-api 成交）
 
-**结论：FAIL（可成交价历史检验为负；不是 INSUFFICIENT）**
+**结论：原始信号 UNVERIFIED（未验证）；替代代理“上周 #1 连庄”单独判 FAIL（代理口径，不代表原信号失败）**
 
-- 主口径（条目自己的 #1 show 模板）：53 个独立 chart-week 簇、82 笔可成交模拟；信号代理命中率 **39.62%**（簇口径），簇中位净收益 **−0.0110/份**，均未达到条目的 80% / >0 门槛。
-- 扩展口径（Netflix #1 movie，补全“全部周榜”枚举）：52 个簇、85 笔；命中率 **34.91%**，簇中位净收益 **−0.0110/份**，同样 FAIL。
+- 条目原信号是“发布前日榜累计 nowcast”。Netflix 没有 keyless 历史日榜，本次**没有**评估原信号，因此不能对原信号下 FAIL 或 PASS；按冻结规则，原信号结论保持 **UNVERIFIED**。
+- 替代代理（上一期同榜 #1）主口径：53 个独立 chart-week 簇、82 笔可成交模拟；代理命中率 **37.89%（36/95）**，簇口径 **38.68%**；簇中位净收益 **−0.0110/份**。代理口径按冻结标准判 **FAIL**。
+- 扩展口径（Netflix #1 movie）：52 个簇、85 笔；代理命中率 **34.02%（33/97）**，簇口径 **33.96%**；簇中位净收益 **−0.0110/份**。代理口径同样 **FAIL**。
 - “100% 会赢”的上界诊断：买入最终赢家，show 有 **81.33%** 的赢家单净收益 ≤0，movie 为 **87.18%**；条目示例 A 的“吃单即使全赢也亏”在多数事件上成立，但不是每一笔（均值 show +0.0099、movie +0.0014，来自少数低价冷门赢家）。
 
-所有数字均来自本目录脚本 `q010_hist.py` 的 stdout（`run_output.txt`、`run_output_movies.txt`）及它生成的 `events.csv`、`events_movies.csv`。未取到的数据明确写“未取到”。
+所有数字均来自本目录脚本 `q010_hist.py` 的 stdout（`run_output.txt`、`run_output_movies.txt`；v1 对照为 `run_output_v1.txt`、`run_output_movies_v1.txt`）及它生成的 `events.csv`、`events_movies.csv`，或本目录 `cache_audit.txt`。未取到的数据明确写“未取到”。
 
 ## 1. 数据来源与访问日期
 
@@ -32,15 +33,15 @@
 
 - **Universe**：Gamma 两个 show 系列的全部 closed event（#1 global + #1 US），同一 (scope, chart-week) 重复 event 取 volume 最大者；movie 系列用同一管线单独跑，作为“全部周榜”补全。`#2` 与“多少 views”系列不属于 #1 模板，未纳入（series id 见脚本头）。
 - **独立结果**：一个 chart-week = 一簇；同周 global + US 合并为一簇（条目自己的独立性规则），簇内两份净收益取平均。show 主口径 53 簇；movie 52 簇。
-- **信号（明确标注为代理）**：条目真正的信号是“本周日榜累计 → 官方周榜 #1”，但 Netflix 没有 keyless 的日榜历史（FlixPatrol 403），所以用条目允许的最简单冻结代理：**上一期已发布周榜的同榜 #1 预测本周 #1**；只有当这个实体在当前 event 的候选市场里上市时才交易。模型分布：上一周排名 r=1..10 权重 11−r，未进上一周 Top10 的候选权重 0.1，再归一化。
-- **决策时点与价格**：从 Gamma `description` 解析官方更新时间（“<weekday>, <Month D, YYYY>, 3:00 PM ET”），解析不到时用 endDate 当日 15:00 ET（仅 1 个 event）。取 **[T_pub−24h, T_pub]** 内该候选市场最后一条 data-api 成交；`ask = YES成交价 + 0.01`（半个价差）；持有到 Gamma `outcomePrices` 结算。
+- **信号（明确标注为代理）**：条目真正的信号是“本周日榜累计 → 官方周榜 #1”，但 Netflix 没有 keyless 的日榜历史（FlixPatrol 403），所以用条目允许的最简单冻结代理：**上一期已发布周榜的同榜 #1 预测本周 #1**；只有当这个实体在当前 event 的候选市场里上市时才交易；若未上市，交易记“未上市”，但信号仍记一次 miss。模型分布：上一周排名 r=1..10 权重 11−r，未进上一周 Top10 的候选权重 0.1，再归一化。
+- **决策时点与价格**：从 Gamma `description` 解析官方更新时间（“<weekday>, <Month D, YYYY>, 3:00 PM ET”），解析不到时用 endDate 当日 15:00 ET（仅 1 个 event）。取 **[T_pub−24h, T_pub]** 内各候选市场最后一条 data-api 成交（窗口外的旧成交不再进入模型/校准）；`ask = YES成交价 + 0.01`（半个价差）；持有到 Gamma `outcomePrices` 结算。
 - **费用**：按 GUIDE §8，`份数 × rate × ask × (1−ask)`；rate 优先用市场 `feeSchedule.rate`，否则 `feesEnabled=false` 记 0（历史市场），再否则用文化类 0.05。另做“全部按 0.05”的敏感性。
 - **Brier / log loss**：只在“有决策窗成交价的非 Other 候选”上做多分类；模型与市场在同一子集上归一化。
 - **失败标准（条目原文）**：
   - “信号：30 个历史周中，发布前 24h 的 #1 预测命中率 < 80%，判失败。”
   - “成本：前向每笔按‘吃单费 + 半个价差’计，若已成交样本的中位净收益 ≤ 0，判失败。”
   - “若无法取得至少 30 个独立周事件，或无法取得可执行 bid/ask，结论写‘未验证’，不写‘有效’。”
-  - 本脚本的操作化：可成交簇 <30 → INSUFFICIENT；否则信号簇命中率 <80% 或簇中位净收益 ≤0 → FAIL；两者都过才 PASS。
+  - 本脚本的操作化：可成交簇 <30 → INSUFFICIENT；否则代理信号簇命中率 <80% 或簇中位净收益 ≤0 → 代理口径 FAIL；两者都过才 PASS。原信号因未被评估，整体保持 UNVERIFIED。
 - **敏感性**：决策窗改为 12h（同一“最后一条成交”规则）；另报“全部 0.05 费”一档。Bootstrap：按周重采样 10000 次，固定 seed 42。
 
 ## 3. 结果（`run_output.txt` 原样）
@@ -60,12 +61,12 @@ FUNNEL
   independent chart-week clusters: 53
 ```
 
-### 3.2 信号代理（条目自己的命中率标准）
+### 3.2 信号代理（仅代理口径；原信号未评估）
 
 ```
-SIGNAL PROXY HIT RATE (entry's own signal criterion)
-  n chart-scope weeks with a prediction: 93 | clusters: 53
-  hit rate (events): 0.3871 (36/93) | cluster mean: 0.3962
+SIGNAL PROXY HIT RATE (PROXY ONLY; original daily-chart signal NOT evaluated)
+  n chart-scope weeks with a prediction: 95 | clusters: 53
+  hit rate (events): 0.3789 (36/95) | cluster mean: 0.3868
 ```
 
 ### 3.3 主口径（买代理预测的 #1，按 ask 吃单，持有到结算）
@@ -118,13 +119,13 @@ SENSITIVITY 2: all-in 0.05 culture fee (ignores historical feesEnabled=false)
 
 ```
 MODEL vs MARKET (priced non-Other candidates, multi-class)
-  n events: 75 | mean priced candidates/event: 7.92
-  Brier model 0.8742 | market 0.0027 | diff(market-model) -0.8715
-  logloss model 2.7923 | market 0.0169 | diff(market-model) -2.7754
+  n events: 75 | mean priced candidates/event: 5.09
+  Brier model 0.8113 | market 0.0026 | diff(market-model) -0.8087
+  logloss model 2.4245 | market 0.0127 | diff(market-model) -2.4118
   model better on Brier: 0/75
 ```
 
-市场 Brier 接近 0，是因为决策价取的是“发布前 24h 内最后一条成交”，实际常在发布前几分钟；此时市场已基本知道结果。这个对比对市场极有利，不能当作“日榜信号无用”的证据，但说明**可成交时点市场已经有效**。
+市场 Brier 接近 0（0.0026），是因为决策价取的是“发布前 24h 内最后一条成交”，实际常在发布前几分钟；此时市场已基本知道结果。这个对比对市场极有利，不能当作“日榜信号无用”的证据，但说明**可成交时点市场已经有效**。v2 把非预测候选的成交也限制在 24h 窗口内，priced 候选/事件从 7.92 降到 5.09，Brier 与 logloss 因此有变化（见 §7）。
 
 ### 3.8 结算核对
 
@@ -143,36 +144,41 @@ deduped (scope, chart-week) events: 97
 chart-week span: 2025-10-12 .. 2026-10-18 (53 unique weeks)
   simulated market-events: 85
   independent chart-week clusters: 52
-  hit rate (events): 0.3474 (33/95) | cluster mean: 0.3491
+  hit rate (events): 0.3402 (33/97) | cluster mean: 0.3396
   net/share: median -0.0110 | mean -0.0086 | cluster median -0.0110 | cluster mean -0.0088
   cluster bootstrap 95% CI of mean net/share: [-0.0117, -0.0063]
   share of winners with net<=0: 0.8718
-VERDICT: FAIL
-  clusters=52 | signal cluster hit=0.3491 | trade cluster hit=0.3462 | cluster median net/share=-0.0110
+VERDICT (OVERALL / ORIGINAL entry signal): UNVERIFIED
+VERDICT (PROXY ONLY, previous-week-#1 persistence): FAIL
+  clusters=52 | proxy signal cluster hit=0.3396 | trade cluster hit=0.3462 | cluster median net/share=-0.0110
 ```
 
 ## 4. 结论
 
-`run_output.txt` 的 `VERDICT: FAIL` 是主口径；`run_output_movies.txt` 的 movie 扩展同样是 `FAIL`。
+`run_output.txt` 和 `run_output_movies.txt` 现在都把两个口径分开写：
 
-- 独立簇 53（show）/ 52（movie），都 ≥30，排除 INSUFFICIENT。
-- 信号命中率 39.62% / 34.91%，远低于条目的 80%。
+- `VERDICT (OVERALL / ORIGINAL entry signal): UNVERIFIED`——原信号（日榜累计 nowcast）没有被这次回测评估，因此不能判 PASS/FAIL。
+- `VERDICT (PROXY ONLY, previous-week-#1 persistence): FAIL`——替代代理在冻结的 80% / 中位净收益 >0 标准下失败。
+
+代理口径的具体数字：
+
+- 独立簇 53（show）/ 52（movie），都 ≥30，排除代理口径的 INSUFFICIENT。
+- 代理命中率 38.68% / 33.96%，远低于条目的 80%。
 - 簇中位净收益 −0.0110/份（show）与 −0.0110/份（movie），均 ≤0。
-- 按条目自己的失败标准，**FAIL**。
 
-**重要的解释边界**：这次测的不是条目的“日榜累计 nowcast”，而是唯一能免费回溯的代理“上周 #1 是否连庄”。代理失败不能证明日榜 nowcast 一定失败；但它证明了两件事：(1) 用最简单的历史信号定义，扣可成交成本后是负的；(2) 在发布前最后一条成交的价位上，市场已经把本周结果定价得接近确定（Brier 0.0027），靠“等官方榜发布后收敛”的吃单路径没有空间。
+**重要的解释边界**：这次测的不是条目的“日榜累计 nowcast”，而是唯一能免费回溯的代理“上周 #1 是否连庄”。代理失败不能证明日榜 nowcast 一定失败；它只说明 (1) 用最简单的历史信号定义，扣可成交成本后是负的；(2) 在发布前最后一条成交的价位上，市场已经把本周结果定价得接近确定（Brier 0.0026），靠“等官方榜发布后收敛”的吃单路径没有空间。因此条目结论只能是**原信号未验证 + 代理为负**，不能写成“条目 FAIL”。
 
 ## 5. 对门槛 5 / 6 的含义
 
-- **门槛 5（扣成本后粗算够用）：仍不满足。** 条目示例 A 的“吃单全赢也亏”在历史样本里是多数情形：show 赢家单 81.33% 净 ≤0，movie 87.18% 净 ≤0。只有少数“市场没定价到的冷门赢家”能把均值拉正（show 均值 +0.0099/份），但这不是可事前识别的信号，不能当作策略收益。中位数为 0 或负，按 GUIDE §8 的门槛读法就是不够用。
-- **门槛 6（两周内能检验）：从“不确定”变为“可检验，但代理口径结果为负”。** 现在有 53 个 show 周 + 52 个 movie 周的可成交价历史回放，方法可复跑；但条目真正的日榜信号仍无法用 keyless 历史复现（Netflix 日榜历史未取到，Spotify 历史日榜未取到）。因此：
-  - 若按“能否用公开数据做至少 30 个独立结果”的字面标准，**可检验性已证明**；
-  - 若按“能否验证条目原信号”，**仍不确定**，不能因为这次 FAIL 就宣称日榜 nowcast 无效。
+- **门槛 5（扣成本后粗算够用）：在代理口径下仍不满足。** 条目示例 A 的“吃单全赢也亏”在历史样本里是多数情形：show 赢家单 81.33% 净 ≤0，movie 87.18% 净 ≤0。只有少数“市场没定价到的冷门赢家”能把均值拉正（show 均值 +0.0099/份），但这不是可事前识别的信号，不能当作策略收益。中位数为 0 或负，按 GUIDE §8 的门槛读法就是不够用。
+- **门槛 6（两周内能检验）：代理回放可复跑，但原信号仍无法验证。** 现在有 53 个 show 周 + 52 个 movie 周的可成交价历史回放；但条目真正的日榜信号仍无法用 keyless 历史复现（Netflix 日榜历史未取到，Spotify 历史日榜未取到）。因此：
+  - 若按“能否用公开数据做至少 30 个独立结果”的字面标准，代理回放的**可检验性**已证明；
+  - 若按“能否验证条目原信号”，**仍未验证**，不能因为代理为负就宣称日榜 nowcast 无效。
   - 无论哪种读法，都不能把本条从 `待核` 升为“有效”；门槛 5 依旧是硬伤。
 
 ## 6. 限制
 
-1. **代理不是原信号**：上周 #1 连庄率约 40%，而条目假设日榜能在发布前锁定冠军；两者信息量差一个数量级。FAIL 主要打的是“可成交价 + 简单历史信号”，不是直接打死日榜 nowcast。
+1. **代理不是原信号**：上周 #1 连庄率约 40%，而条目假设日榜能在发布前锁定冠军；两者信息量差一个数量级。代理为负主要打的是“可成交价 + 简单历史信号”，不是直接打死日榜 nowcast。
 2. **决策价偏晚**：任务口径是“发布前 24h 内最后一条成交”，实际常在 T_pub 前几分钟；市场此时已接近结算，Brier/logloss 对市场极有利。若改成 T_pub−24h 整点价，结果可能不同；本次未事后改口径。
 3. **Netflix 日榜历史未取到**：FlixPatrol 2026-10-20 仍 403；没有用它构造信号。
 4. **Spotify 未纳入**：kworb keyless 页面只有当前日/当前累计，没有历史逐日归档；未取到可用历史日榜。
@@ -182,7 +188,18 @@ VERDICT: FAIL
 8. **data-api 覆盖**：每个市场最多约 2 万笔；本样本未触及上限，但更早/更热的市场可能取不全。
 9. **单 event 1 份**：P&L 是“每份”口径，不是 500 份容量测试；容量、冲击、同时挂 2 个 event 的组合效应未测。
 
-## 7. 复现与检查
+## 7. v2 修复（review findings）
+
+v2 只改实现与结论口径，不重调参数。old/new 数字来自 `run_output_v1.txt` / `run_output_movies_v1.txt` 与 `run_output.txt` / `run_output_movies.txt`；逐事件差异见 `v1_v2_diff.txt`；缓存审计见 `cache_audit.txt`。
+
+1. **P1 原信号 verdict 被代理替代**（review: `q010_hist.py:795`）。确认是真 bug：旧输出 `VERDICT: FAIL` 直接把代理命中率塞进原信号的冻结规则。v2 输出 `VERDICT (OVERALL / ORIGINAL entry signal): UNVERIFIED`，另列 `VERDICT (PROXY ONLY, previous-week-#1 persistence): FAIL`。原信号仍未验证。
+2. **P2 候选成交越过 24h 窗口**（review: `q010_hist.py:535`）。确认是真 bug：只有预测候选在模拟阶段检查了 `ts >= T_pub - 24h`，其他候选的 `last_trade_before` 可返回任意旧成交，进入 `p_model` 和 Brier/logloss 的 `priced` 集。v2 对所有候选统一只保留窗口内成交；窗口外的预测候选仍计入 `fill_too_old`。效果：show 的 priced 候选/事件 7.92 -> 5.09，Brier model 0.8742 -> 0.8113，logloss model 2.7923 -> 2.4245；movie 8.04 -> 5.59，Brier 0.9224 -> 0.9269，logloss 2.9756 -> 2.6418。`p_model` 在 show 62/82 行、movie 53/85 行变化，但价格筛选触发数不变（show 47 笔/36 簇，movie 53/37），主口径净收益、`ask`、`won`、oracle 净收益逐行不变（`v1_v2_diff.txt`）。
+3. **P2 未上市的代理预测未计入信号分母**（review: `q010_hist.py:642`）。确认是真 bug：旧 `sig_units` 要求 `pred is not None`，把 2 个 `prior_no1_not_listed` 排除。v2 把“上周 #1 不在当前候选”记作信号 miss。show 分母 93 -> 95，命中 36/93=0.3871 -> 36/95=0.3789，簇均值 0.3962 -> 0.3868；movie 95 -> 97，33/95=0.3474 -> 33/97=0.3402，簇均值 0.3491 -> 0.3396。
+4. **q005 类缓存 bug 检查**。旧实现直接 `json.loads` 任意已存在缓存，TSV 只检查 >1000 bytes，分页在“找到候选”时停止、可能缓存尾部空页；当前缓存中未发现已损坏的页，但这是同一类风险。v2 的 `get_json` 校验缓存必须是 `list`（否则重取），`download` 校验 TSV 表头+最少行数且校验通过后才原子替换，`last_trade_before` 把短页当作末页。审计（`cache_audit.txt`）：3231 个 list、1 个 dict（不被当前脚本任何 key 引用）、0 个 parse 失败、0 个“短页后面还有非空页”、0 个“空且非末页”；两个 TSV 均 `valid=True`（global 11,080 行；countries 515,920 行）。因此缓存修复本身不改变数字，本次复跑全部命中缓存。
+
+**VERDICT 是否变化**：变了，但不是“FAIL -> PASS”。旧文字把原信号写成 `FAIL`；v2 把原信号改为 `UNVERIFIED`，代理仍为 `FAIL`。可成交主口径的净收益数字没有变（show 簇中位 −0.0110、movie −0.0110），信号分母与 Brier 有小幅变化。诚实结论：**代理进一步变差（38.68% / 33.96%），原信号依旧无法验证。**
+
+## 8. 复现与检查
 
 ```bash
 cd bots/quant/notes/q010-hist
@@ -191,16 +208,20 @@ python3 q010_hist.py --kind movie    # movie 扩展
 ```
 
 - 缓存目录 `_cache/` 已由本目录 `.gitignore` 排除，不入库。
-- 两次 from-cache 重跑的 `run_output.txt`、`run_output_movies.txt`、`events.csv`、`events_movies.csv` 已用 `diff` 验证逐字节一致（diff=0）。
+- v2 的两次 from-cache 重跑的 `run_output.txt`、`run_output_movies.txt`、`events.csv`、`events_movies.csv` 已用 `diff` 验证逐字节一致（diff=0）。
 - `python3 tools/check.py lint` 输出保存在 `lint_output.txt`；该命令在 `bots/muse/entries/*.md` 上因缺字段 `KeyError: 'id'` 崩溃（不是本目录文件），崩溃前的输出已原样保留。
 
-## 8. 文件
+## 9. 文件
 
 - `q010_hist.py` — 枚举、抓价、模拟、统计；头部为冻结的预声明。
-- `run_output.txt` — show 主口径 stdout。
-- `run_output_movies.txt` — movie 扩展 stdout。
-- `events.csv` — show 逐事件明细（82 行）。
-- `events_movies.csv` — movie 逐事件明细（85 行）。
+- `run_output.txt` — v2 show 主口径 stdout。
+- `run_output_movies.txt` — v2 movie 扩展 stdout。
+- `run_output_v1.txt` — v1 show stdout（保留对照）。
+- `run_output_movies_v1.txt` — v1 movie stdout（保留对照）。
+- `events.csv` — v2 show 逐事件明细（82 行）。
+- `events_movies.csv` — v2 movie 逐事件明细（85 行）。
+- `v1_v2_diff.txt` — v1/v2 逐事件差异统计。
+- `cache_audit.txt` — 缓存完整性审计（JSON 类型、分页短页/空页、TSV 行数）。
 - `source_check.txt` — 2026-10-20 对 Tudum / FlixPatrol / kworb 的 HTTP 状态与字节数原始记录。
 - `lint_output.txt` — `tools/check.py lint` 原始输出。
 - `.gitignore` — 排除 `_cache/`、`_data/`。

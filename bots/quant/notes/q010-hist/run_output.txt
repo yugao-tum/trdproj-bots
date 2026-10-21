@@ -18,9 +18,9 @@ FUNNEL
   simulated market-events: 82
   independent chart-week clusters: 53
 
-SIGNAL PROXY HIT RATE (entry's own signal criterion)
-  n chart-scope weeks with a prediction: 93 | clusters: 53
-  hit rate (events): 0.3871 (36/93) | cluster mean: 0.3962
+SIGNAL PROXY HIT RATE (PROXY ONLY; original daily-chart signal NOT evaluated)
+  n chart-scope weeks with a prediction: 95 | clusters: 53
+  hit rate (events): 0.3789 (36/95) | cluster mean: 0.3868
 
 PRIMARY ARM (buy proxy's predicted #1 at ask, hold to resolution)
   n market-events: 82 | n clusters: 53
@@ -51,9 +51,9 @@ SENSITIVITY 2: all-in 0.05 culture fee (ignores historical feesEnabled=false)
   net/share: median -0.0115 | mean -0.0035 | cluster median -0.0115
 
 MODEL vs MARKET (priced non-Other candidates, multi-class)
-  n events: 75 | mean priced candidates/event: 7.92
-  Brier model 0.8742 | market 0.0027 | diff(market-model) -0.8715
-  logloss model 2.7923 | market 0.0169 | diff(market-model) -2.7754
+  n events: 75 | mean priced candidates/event: 5.09
+  Brier model 0.8113 | market 0.0026 | diff(market-model) -0.8087
+  logloss model 2.4245 | market 0.0127 | diff(market-model) -2.4118
   model better on Brier: 0/75
 
 SETTLEMENT CHECK (Tudum computed #1 vs Gamma resolved market)
@@ -61,7 +61,13 @@ SETTLEMENT CHECK (Tudum computed #1 vs Gamma resolved market)
 
 VERDICT RULE (frozen, entry's own): <30 clusters with fill -> INSUFFICIENT;
 else FAIL if signal hit rate < 80%% or cluster median net/share <= 0; else PASS.
-VERDICT: FAIL
-  clusters=53 | signal cluster hit=0.3962 | trade cluster hit=0.3962 | cluster median net/share=-0.0110
+SCOPE: the rule's signal clause is about the entry's daily-chart nowcast.
+       That signal was NOT evaluated here, so its verdict stays UNVERIFIED.
+       The proxy below is scored only to describe the substitute.
+
+VERDICT (OVERALL / ORIGINAL entry signal): UNVERIFIED
+  reason: no keyless historical Netflix daily chart; original signal not tested.
+VERDICT (PROXY ONLY, previous-week-#1 persistence): FAIL
+  clusters=53 | proxy signal cluster hit=0.3868 | trade cluster hit=0.3962 | cluster median net/share=-0.0110
 
 wrote events.csv (82 rows)
