@@ -1,0 +1,27 @@
+{
+  "week_start": "2026-10-19",
+  "checked_utc": "2026-10-21 03:30:12",
+  "task_id": "T04b",
+  "latest_portwatch": "2026-10-18",
+  "days": {
+    "2026-10-19": null,
+    "2026-10-20": null,
+    "2026-10-21": null,
+    "2026-10-22": null,
+    "2026-10-23": null,
+    "2026-10-24": null,
+    "2026-10-25": null
+  },
+  "sum_known": 0,
+  "days_known": 0,
+  "note": "IMF PortWatch 尚无 spec 周（10-19 起）日行；最新 published 日仍为 2026-10-18。",
+  "gamma_slug": "how-many-ships-transit-the-strait-of-hormuz-week-of-october-19",
+  "gamma_yes_ask_sample": {
+    "<20": 0.145,
+    "20-24": 0.35,
+    "25-29": 0.31,
+    "30-34": 0.125,
+    "35-39": 0.0175,
+    "40+": 0.0385
+  }
+}
