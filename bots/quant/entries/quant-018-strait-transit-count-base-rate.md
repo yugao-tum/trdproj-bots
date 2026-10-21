@@ -13,12 +13,20 @@ return_type: direction
 instruments: Polymarket「How many ships transit the Strait of Hormuz / Bab el-Mandeb Strait, week of …?」5–6 档 negRisk 周度计数阶梯
 venues: Polymarket
 data: IMF PortWatch「Daily_Chokepoints_Data」ArcGIS REST（免费免密钥，2019-01-01 起）；Polymarket Gamma/CLOB（免费免密钥，已关闭市场的逐档价格历史只覆盖部分事件）；UMA 结算结果
-test_2w: 独立结果按 weekly event 计（不按档）；历史侧 43 个已关闭事件已做完价格与成交价检验，但有触发成交的事件仅 10 个、同点全档有价事件 24 个（都 <30），两周内只能再前向记录约 4 个，门 6 不满足；失败标准是已成交 NO 份额的中位已实现毛利≤0，或两周成交<20 份，或 30 个历史事件上基准率 Brier 不优于市场价
+test_2w: 独立结果按 weekly event 计（不按档）；历史侧 43 个已关闭事件做完价格侧检验，有真实成交价可回放的 13 个（10 个有触发成交）、同点全档有价事件 24 个（都 <30），两周内只能再前向记录约 4 个，门 6 不满足；失败标准是已成交 NO 份额的中位已实现毛利≤0，或两周成交<20 份，或 30 个历史事件上基准率 Brier 不优于市场价
 status: 待核
 confidence: 低
+evidence: 回放
+result: 不显著
+slot: -
+variants: 2
+variants_ext: -
+window: 2026-07-20..2026-10-18
+max_dd: -
+contribution: 1.5%
 ---
 
-整理说明：本条的板块调研、模板计数、PortWatch 复算、费用与盘口数字都是我在 2026-10-20 本会话用 curl/urllib 现场取的（无密钥、无登录、未交易）；脚本 `pw_weekly.py`、`pw_verify.py`、`pw_calib.py` 全码附在文末 `notes/batch2-verification/quant-018.md`。初稿**没有做收益回测**：已关闭市场的逐档价格历史当时只有 6 个事件可取全，只能做 6 个事件的小样本校准，不能当盈利证明。2026-10-20 复核已补做 43 个已关闭事件的价格侧历史检验（“证据 4.4”）与同时点 data-api 成交配对检验；**2026-10-21 H-quant-018 再补做真实成交价可执行回测**（“证据 4.5”，含 1 个 post-draft OOS 事件），并重新核对原有 15 个外部出处（新增的 OOS 事件与成交另由回测脚本现场取）。加固结论：份额中位为正，但事件层不显著、独立事件 <30，**建议降为待选区**；理由见 4.5 与门槛自查。
+整理说明：本条的板块调研、模板计数、PortWatch 复算、费用与盘口数字都是我在 2026-10-20 本会话用 curl/urllib 现场取的（无密钥、无登录、未交易）；脚本 `pw_weekly.py`、`pw_verify.py`、`pw_calib.py` 全码附在文末 `notes/batch2-verification/quant-018.md`。初稿**没有做收益回测**：已关闭市场的逐档价格历史当时只有 6 个事件可取全，只能做 6 个事件的小样本校准，不能当盈利证明。2026-10-20 复核已补做 43 个已关闭事件的价格侧历史检验（“证据 4.4”）与同时点 data-api 成交配对检验；**2026-10-21 H-quant-018 再补做真实成交价可执行回测**（“证据 4.5”，含 1 个 post-draft OOS 事件），并重新核对出处节 17 个外部 URL（原有 15 个 + OOS 事件与 data-api 成交；2026-10-21 复跑全部 HTTP 200）。该回测已在第 2 轮格式下固化为可运行回放 `bots/quant/replay/quant-018/`（脚本、参数、数据地址、`SUMMARY.md`、逐份 `trades.csv`），条目字段 `evidence: 回放`、`result: 不显著` 与回放产物一致，见“证据 4.6”。加固结论：份额中位为正，但事件层不显著、独立事件 <30，**建议降为待选区**；理由见 4.5、4.6 与门槛自查。
 
 ## 一句话
 
@@ -186,6 +194,20 @@ Hormuz 同一快照（为什么不做）：六档中价 `<20 0.30 / 20-24 0.347 
 - 唯一 post-draft OOS 事件 +0.5900（3 份）为正，但 n=1 事件，无法抵消上面的不确定性。
 - 有触发成交的独立事件 **10 个 < 30**；同点全档价格完整事件 24/43 < 30。按 GUIDE §2 第 6 条，**门 6 仍不满足**。因此本条不应按“已验证可盈利”收录；建议主判降为**待选区**，保留前向记录。
 
+### 4.6 第 2 轮回放产物（H-quant-018，2026-10-21）
+
+4.5 的回测已固化为可复跑的回放目录 `bots/quant/replay/quant-018/`：`replay.py`（无网络、读冻结输入）、`inputs/buckets_bab.csv`（12 个草稿期 Bab 事件，由 `notes/q018-paired/buckets.csv` sha1 `962b0b2434581fdf75a6ea8210836a6931baa6e3` 原样投影）、`inputs/oos_bab_oct12.csv`（1 个 post-draft OOS）、`trades.csv`（39 份成交）、`stdout.txt`、`SUMMARY.md`。回放把规则里的“挂 maker 买 NO”近似为 `[T−24h,T]` 内**最后一笔真实成交价**（同一秒取对 NO 买方最差的最高 YES 价），没有模拟排队位置；这是公开数据能给的最保守成交近似，不是盘口。运行 `python3 bots/quant/replay/quant-018/replay.py` 得到：
+
+| 口径 | 份数 | 独立事件 | 总净 | 每美元 | 事件中位 | 事件胜 |
+|---|---:|---:|---:|---:|---:|---:|
+| base 1¢ 全样本 | 21 | 10 | +0.7116 | +0.0465 | +0.0850 | 5/10 |
+| base 1¢ 草稿期 | 18 | 9 | +0.1216 | +0.0094 | **−0.1800** | 4/9 |
+| base 1¢ post-draft OOS | 3 | 1 | +0.5900 | +0.2448 | +0.5900 | 1/1 |
+| 5¢ 压力全样本 | 18 | 10 | +0.2416 | +0.0176 | +0.2550 | 6/10 |
+| 5¢ 压力草稿期 | 15 | 9 | **−0.2284** | **−0.0203** | +0.2000 | 5/9 |
+
+事件聚类 bootstrap 全样本每份 95% 区间 `[-0.158, +0.188]`、每美元 `[-0.216, +0.261]`，跨 0。事件序列最大回撤 −1.4600 USDT（按 200 USDT/event 上限折 −0.73%，不是账户级）。年化贡献粗算：草稿期每美元 +0.0094 × 200 USDT/event × 约 39 次/年 ÷ 5,000 = **1.5%**。`variants: 2`（base 1¢、5¢ 压力；压力下重新判定触发），`variants_ext: -`。**独立事件 10 < 30，`result: 不显著`**；没有把份额中位 +0.24 当成事件层结论。所有参数、数据地址和变体表见 `bots/quant/replay/quant-018/SUMMARY.md`。
+
 ## 数据
 
 - **IMF PortWatch（本条核心，免费、免密钥、无需注册）**：ArcGIS FeatureServer `https://services9.arcgis.com/weJ1QsnbMYJlCHdG/arcgis/rest/services/Daily_Chokepoints_Data/FeatureServer/0/query`，字段 `date, portname, n_total, n_container, n_dry_bulk, n_general_cargo, n_roro, n_tanker, capacity...`；`where=portname IN ('Bab el-Mandeb Strait','Strait of Hormuz')`；单页上限 1,000 行（`exceededTransferLimit=true`），需 `resultOffset` 翻页。覆盖 **2019-01-01 起**；我 2026-10-20 抓时最大 `date` 是 **2026-10-11**（5,682 行 / 每海峡 2,841 天）。**2026-10-21 复核**：5,696 行 / 每海峡 2,848 天 / 最新 **2026-10-18**（407 个完整周），见 `notes/scheduler/scratch/H-quant-018/verify_sources_stdout.txt`。
@@ -197,7 +219,7 @@ Hormuz 同一快照（为什么不做）：六档中价 `<20 0.30 / 20-24 0.347 
 ## 两周内怎么检验
 
 - **独立结果按 event 计，不按档、不按市场**：一个周度 event 的 5–6 个档共享同一个 PortWatch 计数，算 1 个结果；同一周两条海峡共用同一份源、同一驱动（地区冲突），按严口径也算 1 个，宽口径算 2 个。
-- **历史侧（已完成，2026-10-20/21）**：43 个已关闭事件的价格侧检验已做完——首价完整 43/43、周起点价完整 34/43，Brier 与 Bab 交易 P&L 见“证据 4.4”；2026-10-21 又用真实成交价补做 10 个有触发成交事件的 NO 回测（含 1 个 post-draft OOS），见“证据 4.5”。结论是标准 (1) 的份额口径 PASS，但事件层不显著；标准 (3) 只对首价 PASS，周起点价口径下模型劣于市场；历史侧**不能**把独立事件补到 30。
+- **历史侧（已完成，2026-10-20/21）**：43 个已关闭事件的价格侧检验已做完——首价完整 43/43、周起点价完整 34/43，Brier 与 Bab 交易 P&L 见“证据 4.4”；2026-10-21 又用真实成交价补做 10 个有触发成交事件的 NO 回测（含 1 个 post-draft OOS），见“证据 4.5”，并固化为 `bots/quant/replay/quant-018/`（“证据 4.6”）。结论是标准 (1) 的份额口径 PASS，但事件层不显著；标准 (3) 只对首价 PASS，周起点价口径下模型劣于市场；历史侧**不能**把独立事件补到 30。
 - **前向侧**：每周 2 个 event（两海峡），两周 4 个，凑不到 30；只能当"先看成交"的小样本。**门 6 因此不满足。**
 - 每天记录：PortWatch 当日新发布的 `date, portname, n_total`；各档 `bestBid/bestAsk/outcomePrices`；我的挂单、成交、库存。
 - **失败标准（写死，事后不改）**：
@@ -211,7 +233,8 @@ Hormuz 同一快照（为什么不做）：六档中价 `<20 0.30 / 20-24 0.347 
 - **费用**：该族市场 Gamma 返回 `feesEnabled=false`、`feeSchedule=null`（2026-10-20 快照，`bab … week-of-october-19` 的 `170-189` 档），与 GUIDE 第 8 节"地缘 0"一致，**吃单费为 0**。按 GUIDE 公式 `费=份数×费率×p×(1−p)`，费率 0 时费用 0；maker 亦 0（另有 `clobRewards`，见下）。
 - **每笔成本 = 费 + 半个买卖价差**：以 `<170` 档为例，YES 价差 `0.16−0.127=0.033`，半价差 `0.0165/份`。上面 4.2 的 `+0.0682` 已按可成交的 NO 卖价（`1−YES bid`）算，即已跨过价差；若按中价成交则要再加半价差，故实际期望应打折看。
 - **单笔能放多少**：`<170` 档 NO 挂 `0.873`、100 份 ≈ **87.3 USDT**；单 event 上限 200 USDT，两条海峡同时做也只到 400 USDT。
-- **一个月多少次机会**：每周 2 个 event（Hormuz + Bab，2026-07-13 起每周都有；更早 Hormuz 也是每周一个）→ **约 8–9 个 event/月**。但真正会触发挂单的只有外侧档，多数周只有 0–2 档触发。
+- **一个月多少次机会**：每周 2 个 event（Hormuz + Bab，2026-07-13 起每周都有；更早 Hormuz 也是每周一个）→ **约 8–9 个 event/月**。但真正会触发挂单的只有外侧档，多数周只有 0–2 档触发；回放里 Bab 草稿期 12 个事件有 9 个至少一档触发。
+- **对 5,000 USDT 的年化贡献（第 2 轮粗算）**：只做 Bab，草稿期每美元投入 **+0.0094** × 单 event 上限 **200 USDT** × 每年约 **39** 次触发（52 周 × 9/12）÷ 5,000 = **1.5%**。这是回放份额口径的粗算，bootstrap 区间跨 0，且是税前、无滑点之外成本；不等于可稳定拿到的收益。
 - **容量**：event 成交额（Gamma 自报，**未用成交明细复现**）Bab 12 个已关闭事件合计 **$265,080**、Hormuz 30 个（不含日期解析失败的 `mar-10-16`）合计 **$6,332,007**；open 的 Bab `week of october 19` `volume=13,595.37`、`liquidity=53,710.93`。**几百到几十万美元/event** 的量级，1,000 USDT 的专线额度放得下，但 5,000 USDT 放不满——赚的钱对总资金微不足道，这是本条的主要缺点。`volume` 是 Gamma 自报且会变（2026-10-21 复核 Hormuz `week of october 19` 已从 5,539.66 变 17,026.44），这里只作量级参考，未用成交明细复现。
 - **流动性奖励（补贴，不是主收益）**：该市场 `clobRewards` 是**逐档（逐 leg）**字段，2026-10-20 快照的 5 档 `rewardsDailyRate` 依次为 **6/39/42/5/8**（`170-189` 档为 39；各档 `rewardsAmount=0`、`startDate=2026-10-20`、`endDate=2500-12-31`）、`rewardsMinSize=50`、`rewardsMaxSpread=8.5`；按 Q-score 规则（见 dot-032）`170-189` 档 $39/日由所有合格 maker 分。**2026-10-21 复核已漂移为 1/53/41/5/无、`rewardsMinSize=20`**，见 `notes/scheduler/scratch/H-quant-018/verify_sources_stdout.txt`；这条不靠它，只把它当噪声补贴，且奖励参数逐日可变。
 
@@ -236,13 +259,13 @@ Hormuz 同一快照（为什么不做）：六档中价 `<20 0.30 / 20-24 0.347 
 2. **有免费数据能检验：满足（有条件）** — 结算源 IMF PortWatch 免费免密钥、2019 起有日度数据，我复算 43 个已关闭事件中 41 个可比对的里 34 个与结算档位一致（2026-07-13 起 25/25）；预言机结算结果也在 Gamma 免费可读。2026-10-20 复核已取到 43/43 个事件的首价与 34/43 的周起点价；2026-10-21 又补到同时点 data-api 成交价（24/43 事件全档有价）和 1 个 post-draft OOS 事件。但价格是已成交打印、不是完整盘口，历史深度缺失。
 3. **小资金能做：满足** — 87.3 USDT/档、200 USDT/event、本条专线 1,000 USDT，远低于单场所 2,500 与总资金 5,000；不加杠杆；NO 买单最大亏损就是本金。
 4. **不重复：不确定** — 2026-10-21 复核时 `grep -rl "pm_category: geopolitics" bots/*/entries/` 已能查到 `composer-004`、`dot-051` 与本条：板块**不再空白**，不能按“开新路”加分；其中 composer-004 与本条是同一 PortWatch 周转模板。但**机制同族于 quant-012（地震周计数基准率）**：同样是"免费计数源的经验分布 vs 计数阶梯"。真正的差别是：这里吃单费为 0（quant-012 是 0.05）、结算源存在**事后修订**与 9 天级发布滞后（2026-10-21 复核时已恢复至 3 天；所以周内无任何部分信息，不能做 nowcast，只能做纯预测）、档宽 20 对 sd 13.51 的量级。与 dot C04（政治官宣与未结算窗口）、C10（截止日型时间衰减）、C11（新闻后过度反应）都不同：本条不依赖任何公告、不依赖截止日临近的时间价值、也不预测新闻后的修正方向。按主审判法，本条已按 `kind: supplement` 并入 quant-012。composer-004 的提交时间晚于本条（2026-10-20 06:50 +0200 vs composer 2026-10-21 08:57 +0800），按 GUIDE §3.3 先到先得，应保留 quant-018 为主、composer-004 作补充；本条仍只按“同一机制补充”定位，不主张独立开新路。
-5. **扣成本后粗算够用：不确定（偏负，2026-10-21 真实成交价回测后）** — 吃单费 0；1¢ 基础成本下全样本 21 份 / 10 事件，份额中位 +0.2400/份、每美元 +0.0465，但事件中位仅 +0.0850、事件 5 胜 5 负，事件聚类 bootstrap 每美元 95% 区间 **[-0.216, +0.261]** 跨 0；草稿期 12 事件事件中位 **−0.1800**，5¢ 压力下每美元 **−0.0203**。唯一 post-draft OOS 事件 +0.5900（n=1）不能改变结论。不足以宣称扣成本后稳定为正；按门 5 不应收录。
-6. **两周内能检验：不满足** — 独立结果按 event 计；有触发成交的事件只有 **10 个 < 30**，同一时点全档都有成交价的事件也只有 **24/43**（Bab **5/12**），均低于 30；前向两周只有约 4 个 event，不能补足。冻结标准 (3) 因此 **INSUFFICIENT**。这是本条不能收录的主要原因。
-7. **出处可查：满足** — 2026-10-21 用 `notes/scheduler/scratch/H-quant-018/verify_sources.py` 重抓原有 **15/15 个外部 URL，全部 HTTP 200、0 FAIL**（stdout 见同目录 `verify_sources_stdout.txt`）；PortWatch 的 5,682 行、405 个完整周、12 周序列、34/7/2 的 MATCH/MISMATCH 明细、Brier 与 P&L 数字都是我自己脚本算的，全码附在 `notes/batch2-verification/quant-018.md` 与本轮 scratch；Gamma 的 `volume/liquidity` 标了"来源自报，未核实"；快照漂移（PortWatch 行数/最新日期、clobRewards、盘口）已照写。两个失败/未核实项（PortWatch 页面→服务的对应、3–5 月 MISMATCH 的解释）仍照写。
+5. **扣成本后粗算够用：不确定（偏负，2026-10-21 真实成交价回放后）** — 吃单费 0；1¢ 基础成本下全样本 21 份 / 10 事件，份额中位 +0.2400/份、每美元 +0.0465，但事件中位仅 +0.0850、事件 5 胜 5 负，事件聚类 bootstrap 每美元 95% 区间 **[-0.216, +0.261]** 跨 0；草稿期 12 事件事件中位 **−0.1800**，5¢ 压力下每美元 **−0.0203**。唯一 post-draft OOS 事件 +0.5900（n=1）不能改变结论。回放产物见 `bots/quant/replay/quant-018/`，年化贡献粗算仅 **1.5%**。不足以宣称扣成本后稳定为正；按门 5 不应收录。
+6. **两周内能检验：不满足** — 独立结果按 event 计；有触发成交的事件只有 **10 个 < 30**，同一时点全档都有成交价的事件也只有 **24/43**（Bab **5/12**），均低于 30；前向两周只有约 4 个 event，不能补足。冻结标准 (3) 因此 **INSUFFICIENT**。这是本条不能收录的主要原因（`result: 不显著` 也是按这一条，而不是因为回放净收益为负）。
+7. **出处可查：满足** — 2026-10-21 用 `notes/scheduler/scratch/H-quant-018/verify_sources.py` 重抓出处节的 **17/17 个外部 URL，全部 HTTP 200、0 FAIL**（stdout 见同目录 `verify_sources_stdout.txt`；较早一版只列 15 个，加入 OOS 事件与 data-api 成交后为 17 个）；回放输入与参数在 `bots/quant/replay/quant-018/SUMMARY.md`，可离线复跑；PortWatch 的 5,682 行、405 个完整周、12 周序列、34/7/2 的 MATCH/MISMATCH 明细、Brier 与 P&L 数字都是我自己脚本算的，全码附在 `notes/batch2-verification/quant-018.md` 与本轮 scratch；Gamma 的 `volume/liquidity` 标了"来源自报，未核实"；快照漂移（PortWatch 行数/最新日期、clobRewards、盘口）已照写。两个失败/未核实项（PortWatch 页面→服务的对应、3–5 月 MISMATCH 的解释）仍照写。
 
 ## 结论与建议
 
-七条门槛里，1/2/3/4/7 基本满足（其中 4 是“同一机制补充”，不主张独立开新路），**5 不确定且偏负，6 不满足**（独立事件 <30）。按 GUIDE §2“七条全部满足才收录”，本条**不应按收录处理**；建议主判降为**待选区**，保留前向记录，并把 2026-10-12 的 post-draft OOS 事件继续跟踪。`status` 与 `date` 未改（仍为 `待核` / `2026-10-20`），是否降级由 integrator 决定。
+七条门槛里，1/2/3/4/7 基本满足（其中 4 是“同一机制补充”，不主张独立开新路），**5 不确定且偏负，6 不满足**（独立事件 <30）。按 GUIDE §2“七条全部满足才收录”，本条**不应按收录处理**；建议主判降为**待选区**，保留前向记录，并把 2026-10-12 的 post-draft OOS 事件继续跟踪。第 2 轮交付已按 GUIDE §2.1/§7 补齐：`evidence: 回放`（`bots/quant/replay/quant-018/` 可复跑）、`result: 不显著`（10 个独立事件 < 30，bootstrap 区间跨 0）、`variants: 2`、`window: 2026-07-20..2026-10-18`、`contribution: 1.5%`。这是**负/不显著证据**，不是可盈利证明。`status` 与 `date` 未改（仍为 `待核` / `2026-10-20`），是否降级由 integrator 决定。
 
 ## 出处
 
@@ -264,6 +287,9 @@ Hormuz 同一快照（为什么不做）：六档中价 `<20 0.30 / 20-24 0.347 
 - GUIDE.md 第 2、7、8、10、11 节 — 访问 2026-10-20 — 已读（费用公式、地缘费率 0、七条门槛、分类代码）
 - https://gamma-api.polymarket.com/events?slug=how-many-ships-transit-bab-el-mandeb-strait-week-of-october-12-20261006t134953677z — 访问 2026-10-21 — 已读（post-draft OOS 事件，结算 `170-189`，5 档全部 `feesEnabled=false`）
 - https://data-api.polymarket.com/trades?market=0xc3f0b47231b149f564840ae702749014a9f1a63c39d20375d505eba509f10039&limit=500&offset=0 — 访问 2026-10-21 — 已读（新 OOS 事件 `170-189` 档的逐笔成交；脚本按 conditionId 逐档分页，见 `tradable_backtest.py`）
-- `bots/quant/notes/scheduler/scratch/H-quant-018/verify_sources_stdout.txt` — 访问 2026-10-21 — 已读（原有 15 个外部 URL 全部 HTTP 200、0 FAIL；PortWatch 行数/最新日期、`clobRewards`、`volume` 漂移均记录）
+- `bots/quant/notes/scheduler/scratch/H-quant-018/verify_sources_stdout.txt` — 访问 2026-10-21 — 已读（出处节 17 个外部 URL 全部 HTTP 200、0 FAIL；PortWatch 行数/最新日期、`clobRewards`、`volume` 漂移均记录）
+- `bots/quant/replay/quant-018/SUMMARY.md` — 访问 2026-10-21 — 已读（第 2 轮回放：参数、数据地址、2 个变体、独立事件数与全部结果）
+- `bots/quant/replay/quant-018/stdout.txt` 与 `trades.csv` — 访问 2026-10-21 — 已读（`python3 replay.py` 逐字输出；39 份成交）
+- `bots/quant/replay/quant-018/inputs/buckets_bab.csv`（sha1 `205f1fac…`）与 `inputs/oos_bab_oct12.csv`（sha1 `420531cd…`）— 访问 2026-10-21 — 已读（冻结输入，来自 `notes/q018-paired/buckets.csv` 与 2026-10-21 现场 OOS 数字）
 - `bots/quant/notes/scheduler/scratch/H-quant-018/tradable_backtest_stdout.txt` 与 `tradable_fills.csv` — 2026-10-21 — 已读（真实成交价 NO 回测，含 1 个 post-draft OOS；复用 `q018-paired/buckets.csv`）
 - `bots/quant/notes/scheduler/scratch/H-quant-018/brier_start_check_stdout.txt` — 2026-10-21 — 已读（周起点价 Brier 0.7436 vs 模型 0.7747，复现 dot-051）

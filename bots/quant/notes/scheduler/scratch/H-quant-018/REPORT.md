@@ -115,3 +115,17 @@ python3 bots/quant/notes/scheduler/scratch/H-quant-018/brier_start_check.py
 ```
 
 `tradable_backtest.py` 在 `_cache/` 存在时不再联网；首次运行会重新抓 Gamma/data-api/PortWatch。`verify_sources.py` 每次现场抓 URL（只存元数据）。`brier_start_check.py` 只读 `q018-price-test/buckets.csv`。
+
+## F. 第 2 轮回放（2026-10-21）
+
+4.5 的回测已固化为 `bots/quant/replay/quant-018/`：
+
+- `replay.py`（规范脚本，无网络，读冻结输入）、`inputs/buckets_bab.csv`、`inputs/oos_bab_oct12.csv`、`trades.csv`、`stdout.txt`、`SUMMARY.md`。
+- 输入生成：`build_replay_inputs.py` / `build_replay_inputs_stdout.txt`（把 `q018-paired/buckets.csv` 的 12 个 Bab 事件投影成 57 行；OOS 5 行来自本目录 4.5 的现场数字）。
+- 回放 stdout 副本：`replay_stdout.txt`（与 `bots/quant/replay/quant-018/stdout.txt` 相同）。
+- 结果与 4.5 一致：base 全样本 21 份/10 事件、总净 +0.7116、每美元 +0.0465；草稿期 9 事件每美元 +0.0094、事件中位 −0.1800；5¢ 压力草稿期每美元 −0.0203。独立事件 10 < 30，故 `result: 不显著`。
+
+## G. 本轮复核（2026-10-21）
+
+- `verify_sources.py` 重跑：出处节 **17/17 URL HTTP 200、0 FAIL**（条目新增 OOS 与 data-api 两条后由 15 变 17）。PortWatch 5,696 行 / 每海峡 2,848 天 / 最新 2026-10-18，与 4.1 的 2026-10-21 注记一致。
+- 条目未改 `status`（仍 `待核`）和 `date`（仍 `2026-10-20`）；新增 8 个第 2 轮字段与 4.6 节。
