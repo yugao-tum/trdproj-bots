@@ -2,11 +2,12 @@
 version: 1
 
 schedule:
-  # Cloud Agent 侧用 cursor-subscriptions subscribe_timer（cron UTC）
+  # Cloud Agent：15m 赶进度（主引擎）；整点简报；3h 复盘
+  sprint_cron: "*/15 * * * *"
   hourly_brief_cron: "0 * * * *"
   retro_every_hours: 3
   retro_cron: "0 */3 * * *"
-  # VM 侧 tmux 守护（仅采集/校验，不代替 GitHub MCP 推送）
+  # VM tmux：与 15m 同频轻采集（不唤醒 Agent）
   watchdog_interval_seconds: 900
 
 concurrency:

@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""composer autonomous cycle: watchdog (cache only), hourly, retro."""
+"""composer autonomous cycle: watchdog, sprint (15m), hourly, retro."""
 from __future__ import annotations
 
 import argparse
@@ -104,6 +104,71 @@ def write_state(mode: str, results: dict):
     print(json.dumps(payload, indent=2))
 
 
+def count_pending_entries() -> int:
+    index = ROOT / "INDEX.md"
+    if not index.exists():
+        return 0
+    return index.read_text(encoding="utf-8").count("待核")
+
+
+def pick_backlog_task() -> dict:
+    """First open [ ] row in BACKLOG.md by P0, P1, P2."""
+    path = OPS / "BACKLOG.md"
+    if not path.exists():
+        return {"task_id": None, "reason": "no BACKLOG.md"}
+    rows = []
+    for line in path.read_text(encoding="utf-8").splitlines():
+        if "[ ]" not in line or not line.strip().startswith("|"):
+            continue
+        parts = [p.strip() for p in line.split("|")]
+        parts = [p for p in parts if p]
+        if len(parts) < 4 or parts[2] != "[ ]":
+            continue
+        pri, tid, _, desc = parts[0], parts[1], parts[2], parts[3]
+        rows.append((pri, tid, desc))
+    order = {"P0": 0, "P1": 1, "P2": 2}
+    rows.sort(key=lambda r: order.get(r[0], 9))
+    if not rows:
+        return {"task_id": None, "reason": "backlog_empty"}
+    pri, tid, desc = rows[0]
+    return {"task_id": tid, "priority": pri, "description": desc[:120]}
+
+
+def task_hormuz_live_week() -> dict:
+    """Oct 19 2026 Hormuz week partial sum for T04b."""
+    import datetime as dt
+
+    script = ROOT / "notes" / "hormuz_backtest_all.py"
+    if not script.exists():
+        return {"hormuz_live": "skip"}
+    snippet = """
+import json, datetime as dt
+from pathlib import Path
+import importlib.util
+spec = importlib.util.spec_from_file_location("hb", sys.argv[1])
+mod = importlib.util.module_from_spec(spec)
+spec.loader.exec_module(mod)
+by = mod.load_portwatch()
+start = dt.date(2026, 10, 19)
+days = [(start + dt.timedelta(i)).isoformat() for i in range(7)]
+vals = {d: by.get(d) for d in days}
+known = sum(v for v in vals.values() if v is not None)
+n_known = sum(1 for v in vals.values() if v is not None)
+print(json.dumps({"week_start": start.isoformat(), "days": vals, "sum_known": known, "days_known": n_known, "latest_portwatch": max(by.keys()) if by else None}))
+"""
+    code, out = run(
+        ["python3", "-c", "import sys,json\n" + snippet, str(script)],
+    )
+    if code != 0:
+        return {"hormuz_live": "fail", "tail": out[-300:]}
+    try:
+        out_obj = json.loads(out.strip().split("\n")[-1])
+    except json.JSONDecodeError:
+        return {"hormuz_live": "fail", "raw": out[-300:]}
+    (CACHE / "hormuz_live_week.json").write_text(json.dumps(out_obj, indent=2), encoding="utf-8")
+    return {"hormuz_live": "ok", **out_obj}
+
+
 def load_yaml_tasks() -> dict:
     # minimal parse without pyyaml dependency
     cfg = OPS / "autopilot.yaml"
@@ -125,14 +190,31 @@ def load_yaml_tasks() -> dict:
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--watchdog", action="store_true")
+    ap.add_argument("--sprint", action="store_true", help="15m: light采集 + 推荐 BACKLOG 任务")
     ap.add_argument("--hourly", action="store_true")
     ap.add_argument("--retro", action="store_true")
     args = ap.parse_args()
-    mode = "watchdog" if args.watchdog else "hourly" if args.hourly else "retro" if args.retro else "watchdog"
+    if args.sprint:
+        mode = "sprint"
+    elif args.watchdog:
+        mode = "watchdog"
+    elif args.hourly:
+        mode = "hourly"
+    elif args.retro:
+        mode = "retro"
+    else:
+        mode = "watchdog"
     tasks = load_yaml_tasks()
-    if mode == "watchdog":
+    if mode in ("watchdog", "sprint"):
         tasks["entry_lint"] = False
+        tasks["hormuz_replay"] = mode == "hourly"
+    if mode == "sprint":
+        tasks["hormuz_replay"] = False
     results = run_parallel(tasks)
+    if mode == "sprint":
+        results["backlog_pick"] = pick_backlog_task()
+        results["pending_review"] = count_pending_entries()
+        results["hormuz_live"] = task_hormuz_live_week()
     write_state(mode, results)
     return 0
 
