@@ -1,0 +1,89 @@
+==============================================================================
+quant-014 historical executable-price backtest
+==============================================================================
+SPX closes: FRED SP500 CSV, 2512 trading days 2016-10-20..2026-10-19
+Universe queries: series 10383/10603/10856 + public-search SPX, S&P 500, spx close, spx above, S&P 500 above
+
+=== ENUMERATED CLOSED EVENTS ===
+daily_updown     events= 252  span=2025-10-15..2026-10-19
+weekly_above     events=   2  span=2025-11-14..2026-03-20
+monthly_above    events=   3  span=2026-01-31..2026-03-31
+monthly_close    events=   2  span=2026-01-31..2026-03-31
+excluded by design: spx-opens-up-or-down (same day as up/down), spx-hit-* (ever-touched), SPY, open events
+
+legs built=303  unusable=0 (no date/strike/outcome)
+fetching data-api trades for 303 conditionIds (cache-first)...
+  ... 50/303
+  ... 100/303
+  ... 150/303
+  ... 200/303
+  ... 250/303
+  ... 300/303
+
+=== SAMPLE FUNNEL (primary decision = close-6h) ===
+events enumerated (closed, modelable types) = 259
+legs (event x market)                         = 303
+legs with a fill in the 6h window             = 295
+events with >=1 priced leg                    = 259
+events with >=1 triggered leg                 = 229
+legs triggered                                = 240
+skip reasons (legs): {'no_trade_in_6h': 8}
+
+per type:
+type              events  priced  trigEv trigLegs
+daily_updown         252     252     224     224
+weekly_above           2       2       0       0
+monthly_above          3       3       3       9
+monthly_close          2       2       2       7
+
+YES/NO split (triggered legs): YES=103  NO=137
+
+=== SPX SOURCE CROSS-CHECK (5 random resolution dates) ===
+FRED close vs Polymarket outcomePrices-implied settlement
+event                                          market       FRED close prev close  mkt YES  implied match
+spx-up-or-down-on-october-21-2025              spx-up-or-do    6735.35    6735.13    1.000    1.000 OK
+spx-up-or-down-on-may-13-2026                  spx-up-or-do    7444.25    7400.96    1.000    1.000 OK
+spx-up-or-down-on-january-28-2026              spx-up-or-do    6978.03    6978.60    0.000    0.000 OK
+spx-above-jan-2026                             >$7,040         6939.03    6969.01    0.000    0.000 OK
+sp-500-spx-above-end-of-february               >$7,140         6878.88    6908.86    0.000    0.000 OK
+matched 5/5
+
+=== PRIMARY RESULTS (decision = resolution close - 6h) ===
+all triggered legs                 legs= 240  mean=-0.00743  median=-0.14482  hit=0.258  total_net=-1.78  per_$1=-0.0287
+daily subset |p6-0.5|>=0.10 FADE   legs= 194  gross_mean=+0.02267  net_mean=+0.00650  net_median=-0.14482  hit=0.222
+daily subset |p6-0.5|>=0.10 FOLLOW legs= 194  gross_mean=-0.02267  net_mean=-0.03835  net_median=+0.11578  hit=0.773
+daily subset FADE                  total_net=+1.26  per_$1=0.0311
+  triggered legs / daily_updown    legs= 224  mean=-0.00090  median=-0.15510  hit=0.246  total_net=-0.20  per_$1=-0.0038
+  triggered legs / weekly_above    legs=   0  mean=+nan  median=+nan  hit=nan  total_net=+0.00  per_$1=nan
+  triggered legs / monthly_above   legs=   9  mean=-0.06948  median=-0.02078  hit=0.444  total_net=-0.63  per_$1=-0.1363
+  triggered legs / monthly_close   legs=   7  mean=-0.13662  median=-0.07260  hit=0.429  total_net=-0.96  per_$1=-0.2442
+
+per-event (mean net/share across triggered legs of the event):
+all triggered events               events= 229  mean=-0.00390  median=-0.15510  hit=0.245  weeks= 54  boot95=[-0.05942,+0.05348]
+daily triggered events             events= 224  mean=-0.00090  median=-0.15510  hit=0.246  weeks= 54  boot95=[-0.05831,+0.05860]
+daily subset events                events= 194  mean=+0.00650  median=-0.14482  hit=0.222  weeks= 54  boot95=[-0.04872,+0.06235]
+
+=== SENSITIVITY (decision = previous US close) ===
+priced legs=233  triggered=86
+sensitivity triggered legs         legs=  86  mean=+0.06948  median=-0.11982  hit=0.477  total_net=+5.98  per_$1=0.1745
+sensitivity daily events           events=  83  mean=+0.07425  median=-0.22686  hit=0.482  weeks= 44  boot95=[-0.02342,+0.17149]
+
+=== CALIBRATION / BRIER (primary market quote) ===
+daily priced events = 252
+Brier  model P(up)=0.5      = 0.25000
+Brier  constant 0.50        = 0.25000
+Brier  constant 0.53        = 0.24923
+Brier  market p6            = 0.17783
+logloss model P(up)=0.5     = 0.69315
+logloss constant 0.53       = 0.69161
+logloss market p6           = 0.52842
+all priced legs=295  Brier model=0.22486  market=0.16054
+
+=== VERDICT (frozen criterion) ===
+criterion #1: daily taker subset |p6-0.5|>=0.10, net mean <= 0 -> FAIL
+criterion #3: model Brier worse than constant 0.53 on >=30 events -> FAIL
+subset n=194  net_mean=+0.00650  net_median=-0.14482  weeks=54
+model Brier=0.25000 vs constant 0.53=0.24923 on 252 events
+VERDICT: FAIL
+
+wrote events.csv (303 legs)
