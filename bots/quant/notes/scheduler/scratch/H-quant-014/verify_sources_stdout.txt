@@ -1,0 +1,47 @@
+quant-014 source verification, 2026-10-21 05:14 UTC
+====================================================================================================
+OK   daily event HTTP/JSON                                    spx-up-or-down-on-october-20-2026
+OK   daily rule: official SPX closing price                   
+OK   daily rule: exactly equal -> 50-50                       
+OK   daily rule: WSJ Historical Prices                        
+OK   daily resolutionSource = WSJ                             https://www.wsj.com/market-data/stocks
+OK   daily endDate = 2026-10-20T20:00:00Z                     2026-10-20T20:00:00Z
+OK   daily startDate = 2026-10-19T12:00:52Z                   2026-10-19T12:00:52Z
+TIME daily feeSchedule now {'exponent': 1, 'rate': 0, 'takerOnly': True, 'rebateRate': 0} (entry snapshot 2026-10-20: rate=0.04)
+OK   daily feeSchedule is a recognised taker schedule         
+OK   daily resolved now (outcomePrices 1/0)                   ["1", "0"]
+OK   Dec ladder HTTP/JSON                                     spx-close-dec-2026
+OK   Dec ladder rule: final trading day Dec 2026              
+OK   Dec ladder rule: between brackets -> higher              
+OK   Dec ladder rule: Yahoo ^GSPC source                      
+OK   Dec ladder has 6 markets                                 6
+OK   Dec ladder endDate = 2026-12-31T21:00:00Z                2026-12-31T21:00:00Z
+     Dec ladder groupItemTitles: ['<$6,000', '$6,000-$6,500', '$6,500-$7,000', '>$8,000', '$7,000-$7,500', '$7,500-$8,000']
+OK   series 10383 returns 100 closed events                   100
+OK   series 10383 month counts 06..09 = 21 each, Oct >=13     {'2026-06': 21, '2026-07': 21, '2026-08': 21, '2026-09': 21, '2026-10': 14}
+OK   series 10383 total volume ~10.7-10.8m (self-reported)    10718368.34
+OK   CLOB 2026-10-16 closed market has price history          30 points
+OK   CLOB 2026-09-18 closed market returns empty history      []
+OK   CLOB history coverage on 100 closed events (entry said 21; now 22) 22/100 non-empty
+OK   NVDA event HTTP/JSON                                     nvda-close-above-on-october-20-2026
+OK   NVDA rule: Pyth closing price, no rounding               
+OK   NVDA rule: equal -> No                                   
+OK   NVDA has 5 strikes 210..230                              ['$210', '$215', '$220', '$225', '$230']
+TIME NVDA feeSchedule now {'exponent': 1, 'rate': 0, 'takerOnly': True, 'rebateRate': 0} (entry snapshot 2026-10-20: rate=0.04)
+OK   NVDA feeSchedule is a recognised taker schedule          
+OK   public-search q=SPX                                      20 events
+OK   public-search q=NVDA                                     20 events
+OK   Yahoo as-of 2026-10-19 has 1,254 bars                    1254
+OK   Yahoo first/last 2021-10-20..2026-10-19                  2021-10-20..2026-10-19
+OK   Yahoo 2021-10-20 close 4536.19                           4536.19
+OK   Yahoo 2026-10-19 close 7690.73                           7690.73
+OK   sigma20 = 0.0904                                         0.0904
+OK   sigma60 = 0.1100                                         0.1100
+OK   sigma252 = 0.1271                                        0.1271
+OK   up days 664/1253                                         664/1253
+OK   data-api /trades returns per-trade fills                 5 rows
+OK   data-api trade has timestamp/price/side/outcome          
+OK   stooq still returns JS challenge (entry did not use it)  HTTP 200, 796 bytes
+OK   FRED SP500 CSV reachable now                             HTTP 200, 48903 bytes
+====================================================================================================
+checks OK=40 FAIL=0

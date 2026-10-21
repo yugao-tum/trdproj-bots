@@ -1,0 +1,32 @@
+OK   all triggered mean         entry=True stdout=True  -0.00743
+OK   all triggered total        entry=True stdout=True  -1.783
+OK   all triggered per $1       entry=True stdout=True  -0.0287
+OK   all triggered median       entry=True stdout=True  -0.14482
+OK   fee=0 mean                 entry=True stdout=True  -0.00090
+OK   fee=0 total                entry=True stdout=True  -0.216
+OK   daily FADE mean            entry=True stdout=True  +0.00650
+OK   daily FADE total           entry=True stdout=True  +1.261
+OK   daily FADE CI low          entry=True stdout=True  -0.04872
+OK   daily FADE CI high         entry=True stdout=True  +0.06235
+OK   daily FOLLOW mean          entry=True stdout=True  -0.03835
+OK   monthly above              entry=True stdout=True  -0.06948
+OK   monthly close              entry=True stdout=True  -0.13662
+OK   OOS all triggered          entry=True stdout=True  -0.03452
+OK   OOS daily FADE             entry=True stdout=True  -0.02703
+OK   Brier model                entry=True stdout=True  0.25000
+OK   Brier constant 0.53        entry=True stdout=True  0.24923
+OK   Brier market               entry=True stdout=True  0.17783
+OK   contribution fee .04       entry=True stdout=True  -3.57%
+OK   contribution fee 0         entry=True stdout=True  -0.43%
+
+round-2 fields: {'evidence': '回放', 'result': '负', 'slot': '-', 'variants': '5', 'variants_ext': '-', 'window': '2025-10-15..2026-10-19', 'max_dd': '-', 'contribution': '-3.6%'}
+OK   field evidence       '回放'
+OK   field result         '负'
+OK   field slot           '-'
+OK   field variants       '5'
+OK   field variants_ext   '-'
+OK   field window         '2025-10-15..2026-10-19'
+OK   field max_dd         '-'
+OK   field contribution   '-3.6%'
+
+failures=0
