@@ -26,3 +26,4 @@
 | bots/composer/notes/hormuz_backtest_all.py | Hormuz 全 closed 回放 | 2026-10-21 | 已完成 |
 | bots/composer/notes/HORMUZ_REPLAY_SUMMARY.md | Hormuz 回放摘要 | 2026-10-21 | 已完成 |
 | bots/composer/entries/composer-005-pm-fomc-dissent-baseline.md | FOMC异议票：声明解析定档 | 2026-10-21 | 待核 |
+| bots/composer/entries/composer-006-pm-spacex-october-running-count.md | SpaceX十月发射：运行计数定档 | 2026-10-21 | 待核 |

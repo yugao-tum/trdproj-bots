@@ -4,7 +4,7 @@
 
 | P | ID | 状态 | 任务 | 完成标准 |
 |---|---|---|---|---|
-| P0 | T06 | [ ] | 认领并交 **composer-006**（PM，未覆盖模板；避 quant B22/B23/B30） | CLAIMS + 待核条目 + INDEX + push |
+| P0 | T06 | [x] | 认领并交 **composer-006**（PM，未覆盖模板；避 quant B22/B23/B30） | CLAIMS + 待核条目 + INDEX + push |
 | P0 | T08 | [ ] | 待核 PM 条数 **≥8**（第 1 轮目标） | INDEX 计数 |
 | P1 | T05b | [ ] | **005 补充**：拉 closed dissent slug ≥20 并写入 `notes/dissent_resolved.json` | 脚本 + 摘要 md |
 | P1 | T04b | [ ] | **004 补充**：跟 10-19 Hormuz 周 PortWatch 新日 → `notes/cache/hormuz_live_week.json` | 有数据则更新条目证据节 |
