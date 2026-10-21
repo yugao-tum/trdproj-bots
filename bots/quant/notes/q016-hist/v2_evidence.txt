@@ -1,0 +1,10 @@
+== recheck empty CDX caches (genuine empty vs partial) ==
+fantasy_life: broad[2026-03-13..2026-04-09] captures=11 in_window[2026-03-23 14:00..2026-03-30 14:00]=0
+  broad timestamps: 20260322221657, 20260322230629, 20260330151610, 20260330151625, 20260330151942, 20260331121145, 20260401232412, 20260402083335, 20260405095447, 20260406025313, 20260407001223
+the_weight_2026: broad[2026-09-04..2026-10-01] captures=5 in_window[2026-09-14 14:00..2026-09-21 14:00]=0
+  broad timestamps: 20260905004229, 20260905004319, 20260905004334, 20260910074913, 20261001065908
+
+== old fallback slug vs corrected slug (live RT, keyless) ==
+over_your_live_body: HTTP 404; title='Rotten Tomatoes: Movies'; bytes=87021
+over_your_dead_body: HTTP 200; title='Over Your Dead Body'; bytes=171716
+over_your_dead_body_2026: HTTP 200; title='Over Your Dead Body (2026)'; bytes=213036

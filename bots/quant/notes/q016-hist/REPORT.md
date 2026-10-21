@@ -2,8 +2,9 @@
 
 - 分支：`quant-review/q016-hist`
 - 数据访问日：**2026-10-21**
-- 脚本：`q016_hist.py`；输出：`run_output.txt`；逐 event 明细：`events.csv`
+- 脚本：`q016_hist.py`；v2 输出：`run_output.txt`；v1 输出（保留）：`run_output_v1.txt`；逐 event 明细：`events.csv`（v1 对照：`events_v1.csv`）
 - 全部为免费、免密钥公开 GET；未登录、未下单、未使用任何付费数据。
+- **2026-10-21 v2 修复**：下面“判定 / 结果 / 局限”是 v1 原始内容（保留）；两处 PR #18 review 修复、v1 vs v2 数字和修订后的映射/缓存审计见文末 **“v2 修复”**。v1 的 **FAIL** 结论不变。
 
 ## 判定
 
@@ -56,7 +57,7 @@
 - **event 结果**：该 event 所有触发档的 `net` 求和（等份）。Bootstrap 按 event 重采样，10,000 次，seed **20261021**。
 - **Brier / log loss**：所有 scored threshold；event 级为“先按 event 取均值、再对 event 等权平均”。
 
-## 结果（复制自 `run_output.txt`）
+## 结果（v1；复制自 `run_output_v1.txt`）
 
 ### Universe / 快照
 
@@ -146,7 +147,105 @@ python3 q016_hist.py > run_output.txt
 
 脚本优先读 `_cache/`（已 gitignore）。本次从缓存连续重跑两次，`run_output.txt` 与 `events.csv` 均逐字节一致：
 
-- `run_output.txt` sha256 `dbfce42c1e03c802eecf3a8e719068e703ea2ba18bf86b97375fdd060058a9fa`
-- `events.csv` sha256 `d0e9121aebadb6e5a8872294aef06b38f1e9f15b6ad7e07e99d02083a1628065`
+- v1 `run_output_v1.txt` sha256 `dbfce42c1e03c802eecf3a8e719068e703ea2ba18bf86b97375fdd060058a9fa`
+- v1 `events_v1.csv` sha256 `d0e9121aebadb6e5a8872294aef06b38f1e9f15b6ad7e07e99d02083a1628065`
+- v2 输出与审计的校验和见文末 **“v2 修复”**。
 
 Lint：`python3 tools/check.py lint` 仍因仓库既有 `bots/muse/entries/muse-700-*.md`、`muse-701-*.md` 缺字段而 `KeyError: 'id'`，与本次改动无关；原始输出见 `lint_output.txt`。
+
+---
+
+## v2 修复（2026-10-21，PR #18 review comments）
+
+对应 PR #18 的两条 P2 inline comments：`q016_hist.py:867`（无触发 event 被漏出 event 统计）和 `q016_hist.py:303`（未验证的 RT slug fallback 被算作 mapped）。v2 数字来自 `run_output.txt` / `events.csv`；v1 对照来自 `run_output_v1.txt` / `events_v1.csv`；审计与证据分别见 `v2_audit_output.txt`、`v2_evidence.txt`。
+
+### 1) P2#1：无触发 event 必须贡献 0（primary 用全部 priced event）
+
+冻结口径原文（先于看盈亏写在脚本头）：
+
+> `Event result = sum of net/share over its triggered thresholds (equal one share each).`
+> —— `bots/quant/notes/q016-hist/q016_hist.py`（PRE-DECLARED DESIGN）
+
+以及条目冻结的独立结果口径：
+
+> `独立结果按 event 计（同片各档共享一次结算，算 1 个）`
+> —— `bots/quant/entries/quant-016-rotten-tomatoes-beta-model.md`（frontmatter `test_2w`）
+
+同一脚本的冻结判定还写明：`>= 30 and (... OR median event net <= 0 ...) -> FAIL`。无触发时“所有触发档 net 求和”是空和，空和 = **0**；因此 **PRIMARY = 全部 priced event（无触发的 14 个 event 记 0）**。旧代码只在 `ev_trades` 非空时把 event 加进 `event_nets`，是把这 14 个 0 丢掉了；旧的 triggered-only 视图只能作为 SECONDARY。
+
+| event 统计口径 | event 数 | median net/share | mean net/share | event-cluster bootstrap 95% CI |
+|---|---:|---:|---:|---:|
+| **PRIMARY：全部 priced event，无触发记 0（v2）** | 66 | **-0.054190** | **-0.062616** | **[-0.132925, +0.014020]** |
+| SECONDARY：仅 triggered event（v1 旧口径） | 52 | -0.113876 | -0.079474 | [-0.168443, +0.017816] |
+
+reviewer 的数字由 v2 代码独立复现：median 从 **-0.113876 → -0.054190**（review 写约 -0.0542），mean 从 **-0.079474 → -0.062616**（review 写约 -0.0626）。14 个 zero-trigger priced event 为：`minions-monsters-...`、`mutiny-...`、`normal-...`、`practical-magic-2-...`、`project-hail-mary-...`、`scary-movie-...`、`scream-7-...`、`shaun-the-sheep-...`、`the-breadwinner-...`、`the-invite-...`、`the-sheep-detectives-...`、`undertone-...`、`verity-...`、`you-me-tuscany-...`（完整 slug 见 `run_output.txt`）。
+
+敏感性窗口同样改为 PRIMARY 含 0、SECONDARY 仅触发：73 个 priced event 的 median **-0.026219**、mean **-0.055922**、CI **[-0.134821, +0.024336]**；57 个 triggered event 的 median **-0.104500**、mean **-0.071619**、CI **[-0.168442, +0.031436]**。Brier / log loss / 已成交份额中位毛利不受 event 是否记 0 影响，v1 与 v2 完全相同。
+
+### 2) P2#2：fallback slug 必须先验证，否则标 unmapped
+
+v1 声称 **85/85 mapped**，实际是 **83 个 exact-title + 2 个未验证 fallback**（`evil_dead_burn`、`over_your_live_body`）。根因是 RT search 的维护页（1307 字节，`Maintenance in progress`）被当成 HTTP 200 成功结果缓存并复用；fallback 又直接用 Polymarket slug 拼 RT slug，未做任何存在性/标题校验。
+
+- `over-your-live-body` → `/m/over_your_live_body`：live RT **HTTP 404**（`v2_evidence.txt`），旧版却计为 mapped，然后因无快照静默丢掉。
+- 修正后从 RT search 取到正确的 2026 页面 `/m/over_your_dead_body_2026`：live RT **HTTP 200**，title `Over Your Dead Body (2026)`。
+
+v2 修复分两层：
+
+1. **搜索页校验**：维护页/错误页不再写入也不再复用为成功搜索；发现旧缓存是维护页时删除并重取。
+2. **fallback 校验**：任何非 exact-title 的候选 slug 都必须通过 live RT 页面验证——页面存在、规范化标题与影片名一致、有年份时与 event 年份差 ≤1；否则该 event 标为 `slug_fallback_unmapped`，`rt_slug` 置空，不计入 mapped。
+
+结果：v2 **mapped 85/85，mapping methods = {'rt_search_exact_title': 85}**，即全部 exact-title + 年份最近验证；**unmapped = 0**。这不是把错误 fallback 硬算成 mapped，而是修正了被维护页掩盖的正确页面（`over_your_live_body` 仍是 404，已不再使用）。如果搜索重取失败，fallback 校验会把旧 slug 404 判为 unmapped——这是 v2 的保险。
+
+映射修正后新增 `over_your_dead_body_2026` 的 Wayback 快照 `20260426124238`，但该 event 在 `[t-6h,t]` 内没有可成交 trade（`priced_thresholds=0`），所以 priced event 仍为 **66**、P&L 样本不变。快照覆盖因此从 v1 **primary 73 / sensitivity 80** 变为 **74 / 81**；无主快照 event 从 **11** 降到 **10**；快照分与最终区间一致仍为 **51/74**（v1 `51/73`），有显示分仍为 **74/74**。
+
+### 3) Wayback / trade 缓存的“失败下载被当成完整”审计
+
+- **rt_search**：确实存在该类 bug（2 个维护页被缓存为成功搜索，导致 v1 的 2 个 fallback）。v2 已修；重跑后缓存审计 `rt_search files=84 maintenance_or_invalid=0`。
+- **Wayback 快照 HTML**：`wayback snapshot files=109 partial_or_error=0`；没有截断 HTML、维护页或 Wayback 错误页被当成完整快照。v2 的 `fetch_snapshot` 现在会校验 `<html>` 完整性/维护页并在失败时删除缓存。
+- **CDX**：`cdx files=90 invalid=0`；其中 4 个是合法空列表。对可疑的 `fantasy_life`、`the_weight_2026` 做了 wider-window 重查：`fantasy_life` 周边 11 个 capture、但目标窗口内 **0** 个；`the_weight_2026` 周边 5 个 capture、目标窗口内 **0** 个（`v2_evidence.txt`），所以它们是**真为空**，不是 partial 缓存。另两个空列表属于已弃用的旧 slug `over_your_live_body` 和结算后窗口。
+- **data-api trades**：`trade files=669 invalid=0 max_rows=131 files_with_>=500_rows=0`；当前样本没有触发 500 行分页上限，也没有非法 JSON。v2 仍加了保护：JSON 非 list、分页到 50 页仍满 500 行时拒绝写缓存，避免把 partial 当 complete。
+- **CDX / timemap**：非空但无法解析的响应现在会删除缓存并报错，不再把 `[]` 写回当成“完整空结果”。
+
+### 4) v1 vs v2 关键数字
+
+| 指标 | v1 | v2 |
+|---|---:|---:|
+| mapped | 85/85（83 exact + 2 未验证 fallback） | **85/85（85 exact，全部验证）** |
+| 无主快照 event | 11 | 10 |
+| primary / sensitivity 有快照 event | 73 / 80 | 74 / 81 |
+| priced events / scored thresholds | 66 / 192 | 66 / 192 |
+| triggered trades / triggered events | 92 / 52 | 92 / 52 |
+| **PRIMARY median event net/share** | （v1 只报 triggered-only） | **-0.054190** |
+| **PRIMARY mean event net/share** | （v1 只报 triggered-only） | **-0.062616** |
+| PRIMARY bootstrap 95% CI | （v1 只报 triggered-only） | [-0.132925, +0.014020] |
+| **SECONDARY median / mean** | -0.113876 / -0.079474 | -0.113876 / -0.079474 |
+| median filled-share gross | -0.034787 | -0.034787 |
+| Brier model / market / diff | 0.066637 / 0.035369 / +0.031268 | 同左 |
+| LogLoss model / market / diff | 0.214928 / 0.121872 / +0.093056 | 同左 |
+| sensitivity PRIMARY median / mean | （v1 只报 triggered-only） | -0.026219 / -0.055922 |
+| sensitivity SECONDARY median / mean | -0.104500 / -0.071619 | -0.104500 / -0.071619 |
+| **VERDICT** | **FAIL** | **FAIL** |
+
+### 5) 冻结 VERDICT 是否改变
+
+**不改变，仍为 FAIL。** PRIMARY 纳入 14 个 0 后 median event net 从 -0.113876 变为 **-0.054190**，仍 ≤ 0；已成交份额中位毛利仍为 **-0.034787** ≤ 0；模型 Brier 仍比市场差 **+0.031268**，log loss 仍差 **+0.093056**。映射修复只修正了 1 个无成交 event 的快照，没有增加 priced event。因此冻结判定 `median event net <= 0`、`median filled-share gross <= 0` 以及模型校准差于市场三项仍触发，FAIL 不变。
+
+v2 的 3 个随机 spot check 因候选集多了 1 个有快照 event 而换成了 `the-odyssey` / `sense-and-sensibility` / `they-will-kill-you`，原始输出见 `run_output.txt`；上面 v1 节的 3 个 spot check 保留为 v1 记录。
+
+### 6) 复现与文件
+
+```bash
+cd bots/quant/notes/q016-hist
+python3 q016_hist.py > run_output.txt          # 缓存复用；v2 stdout
+python3 v2_audit.py > v2_audit_output.txt       # v1 vs v2、映射、缓存审计
+python3 v2_evidence.py > v2_evidence.txt        # 空 CDX 重查、旧/新 slug live 状态
+```
+
+v2 校验和（来自 `v2_audit_output.txt`）：
+
+- `run_output.txt` sha256 `46f410db4fc04f452430a8bbd88c040f2121af4827ea9bc12d8dcfba98bcdead`
+- `events.csv` sha256 `7c8bd5972c7805fb32a39d1666a79142e3f447f2e53a4990c2ef917e51a1f626`
+- v1 `run_output_v1.txt` sha256 `dbfce42c1e03c802eecf3a8e719068e703ea2ba18bf86b97375fdd060058a9fa`
+- v1 `events_v1.csv` sha256 `d0e9121aebadb6e5a8872294aef06b38f1e9f15b6ad7e07e99d02083a1628065`
+
+原始下载仍在 gitignore 的 `_cache/`（v2 新增的 CDX/快照/trade 也只写 `_cache/`）；提交文件均 <1 MB。
