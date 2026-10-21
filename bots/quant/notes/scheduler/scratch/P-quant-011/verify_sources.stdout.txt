@@ -1,0 +1,65 @@
+quant-011 source verification, access 2026-10-21, keyless GET only
+
+== Polymarket fee documentation ==
+https://docs.polymarket.com/trading/fees
+  HTTP 200 text/html; charset=utf-8 404710 bytes
+  contains 'feeRate': True
+  contains 'Makers are never charged fees': True
+  contains 'Only takers pay fees': True
+  contains 'Sports': True
+  fee formula snippet: fee = C × feeRate × p × (1 - p) Where C = number of shares traded and p = price of the shares. See Market Details to read the
+
+https://gamma-api.polymarket.com/markets?slug=epl-liv-ars-2026-11-01-draw
+  HTTP 200 application/json 6294 bytes -> 1 market(s)
+  question: Will Liverpool FC vs. Arsenal FC end in a draw?
+  bestBid=0.25 bestAsk=0.27 spread=0.02 lastTradePrice=None
+  outcomePrices=["0.26", "0.74"] liquidity=3591.03 endDate=2026-11-01T16:30:00Z
+  orderPriceMinTickSize=0.01 orderMinSize=5 negRisk=True
+  feeSchedule={"exponent": 1, "rate": 0.05, "takerOnly": true, "rebateRate": 0.15}
+  description contains 'first 90 minutes of regular play plus stoppage time': True
+  description contains 'If the game is postponed': True
+  description contains 'If the game is canceled entirely, with no make-up game': True
+  description contains 'The primary resolution source for this market is the official statistics': True
+  description contains 'If no acceptable data is available within 24 hours': True
+  description contains 'Revisions to officially declared final scores': True
+
+https://gamma-api.polymarket.com/markets?slug=sea-ata-par-2026-11-02-draw
+  HTTP 200 application/json 6132 bytes -> 1 market(s)
+  question: Will Atalanta BC vs. Parma Calcio 1913 end in a draw?
+  bestBid=0.09 bestAsk=0.3 spread=0.21 lastTradePrice=None
+  outcomePrices=["0.195", "0.805"] liquidity=152.8013 endDate=2026-11-02T19:45:00Z
+  orderPriceMinTickSize=0.01 orderMinSize=5 negRisk=True
+  feeSchedule={"exponent": 1, "rate": 0.05, "takerOnly": true, "rebateRate": 0.15}
+  description contains 'first 90 minutes of regular play plus stoppage time': True
+  description contains 'If the game is postponed': True
+  description contains 'If the game is canceled entirely, with no make-up game': True
+  description contains 'The primary resolution source for this market is the official statistics': True
+  description contains 'If no acceptable data is available within 24 hours': True
+  description contains 'Revisions to officially declared final scores': True
+
+== Gamma closed-event keyset (EPL) ==
+https://gamma-api.polymarket.com/events/keyset?closed=true&tag_slug=EPL&limit=100
+  HTTP 200 application/json 1251790 bytes; events=100 next_cursor=yes
+  sample event: premier-league-winner | Premier League Winner | draw markets=0
+
+== data-api per-trade fills ==
+https://data-api.polymarket.com/trades?market=0x89b086c6255e0c11f2d25f82cd59ae128aa93f67613fed62f5a6b37475223d29&limit=5
+  HTTP 200 application/json 4295 bytes; trades=5
+  keys: asset,bio,conditionId,eventSlug,icon,name,outcome,outcomeIndex,price,profileImage,profileImageOptimized,proxyWallet,pseudonym,side,size,slug,timestamp,title,transactionHash
+  sample: side=SELL outcome=No price=0.996 size=135.25 timestamp=1723847880
+
+== football-data.co.uk CSVs (8 separate URLs) ==
+  https://www.football-data.co.uk/mmz4281/2223/E0.csv -> HTTP 200 176180 bytes rows=380
+  https://www.football-data.co.uk/mmz4281/2223/I1.csv -> HTTP 200 171573 bytes rows=380
+  https://www.football-data.co.uk/mmz4281/2324/E0.csv -> HTTP 200 172196 bytes rows=380
+  https://www.football-data.co.uk/mmz4281/2324/I1.csv -> HTTP 200 167015 bytes rows=380
+  https://www.football-data.co.uk/mmz4281/2425/E0.csv -> HTTP 200 197110 bytes rows=380
+  https://www.football-data.co.uk/mmz4281/2425/I1.csv -> HTTP 200 191722 bytes rows=380
+  https://www.football-data.co.uk/mmz4281/2526/E0.csv -> HTTP 200 203438 bytes rows=380
+  https://www.football-data.co.uk/mmz4281/2526/I1.csv -> HTTP 200 196217 bytes rows=380
+
+== CLOB prices-history (entry's example token) ==
+https://clob.polymarket.com/prices-history?market=115347507753485536976403009642719279973942206992108120088763998979109693996472&interval=max&fidelity=60
+  HTTP 200 application/json 878 bytes; points=32
+  first={'t': 1792454444, 'p': 0.315} last={'t': 1792563562, 'p': 0.195}
+  note: prices-history is NOT used as a fill price in the replay; the replay uses data-api trades.

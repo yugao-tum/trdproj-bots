@@ -1,0 +1,59 @@
+{
+  "entry": "quant-011",
+  "generated_utc": "2026-10-21",
+  "purpose": "Real-trade-price replay of the soccer draw base-rate rule; all results net of taker fee and an explicit 1c half-spread.",
+  "leagues": {
+    "E0": {"name": "Premier League", "gamma_tags": ["EPL", "premier-league"], "slug_prefixes": ["epl-"]},
+    "I1": {"name": "Serie A", "gamma_tags": ["serie-a"], "slug_prefixes": ["ita-", "serie-a-", "italian-serie-a-"]},
+    "SP1": {"name": "La Liga", "gamma_tags": ["la-liga"], "slug_prefixes": ["lal-", "la-liga-"]},
+    "D1": {"name": "Bundesliga", "gamma_tags": ["bundesliga"], "slug_prefixes": ["bun-", "bundesliga-"]},
+    "F1": {"name": "Ligue 1", "gamma_tags": ["ligue-1"], "slug_prefixes": ["fl1-", "ligue-1-"]}
+  },
+  "football_data": {
+    "url_template": "https://www.football-data.co.uk/mmz4281/<season>/<league>.csv",
+    "seasons": ["1718", "1819", "1920", "2021", "2122", "2223", "2324", "2425", "2526", "2627"],
+    "base_rate_formula": "qD = (1/B365D) / (1/B365H + 1/B365D + 1/B365A)",
+    "bucket_start": 0.14,
+    "bucket_width": 0.04,
+    "min_bucket_n": 30,
+    "walk_forward": "only football-data seasons strictly before the match season",
+    "fallback": "pooled five-league same-bucket prior seasons, still requiring n >= 30"
+  },
+  "decision_time": "kickoff - 1 hour (Gamma gameStartTime, UTC)",
+  "windows_hours_before_kickoff_minus_1h": {
+    "primary": [6, 0],
+    "sensitivity": [24, 1],
+    "freshness": [1, 0]
+  },
+  "executable_price": {
+    "source": "data-api /trades per-trade prints",
+    "rule": "last YES print in the window; a NO print at p is converted to YES = 1 - p",
+    "ask": "last YES print + 0.01 (one tick / modelled half-spread)",
+    "no_print": "unpriced, no fill",
+    "lookahead": "none; the print timestamp must be <= kickoff - 1h (and >= window start)"
+  },
+  "trade_filter": {
+    "ask_min": 0.15,
+    "ask_max": 0.30,
+    "edge_buffer": 0.02,
+    "rule": "ask <= base_rate - 0.02",
+    "size": "1 share per triggered match; one match = one independent result",
+    "exit": "hold to settlement"
+  },
+  "costs": {
+    "taker_fee_rate": 0.05,
+    "taker_fee_formula": "0.05 * ask * (1 - ask) per share",
+    "half_spread": 0.01,
+    "fee_note": "sports taker rate 0.05; makers pay 0; the 1c half-spread is already inside ask and is not charged twice"
+  },
+  "capital": {
+    "stake_per_match_usdt": 50,
+    "account_usdt": 5000,
+    "venue_cap_usdt": 2500,
+    "open_exposure_cap_usdt": 500
+  },
+  "evaluation_window": "2024-08-16..2026-10-19",
+  "base_rate_history_start": "2017-08-04",
+  "variants": 3,
+  "diagnostics": ["zero fee, 1c half-spread kept", "raw last print, zero fee and zero spread"]
+}

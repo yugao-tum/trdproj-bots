@@ -1,0 +1,97 @@
+quant-011 historical executable-price backtest
+access date: 2026-10-21 | leagues: E0, I1, SP1, D1, F1
+fee=0.05 half_spread=0.01 threshold=0.02 band=[0.15,0.30]
+primary window [T-6h,T], sensitivity [T-24h,T-1h], T=kickoff-1h
+
+Gamma closed soccer events with a draw market in chosen leagues: 2090
+  by league: E0=828, I1=19, SP1=491, D1=376, F1=376
+football-data rows with FTR and B365 odds: 16451 (seasons 1718..2627)
+
+Linkage: 2019 / 2090 events matched to a football-data row (96.6%), 69 unmatched, 2 duplicate events collapsed
+Unmatched examples:
+  E0 | epl-eve-liv-2024-12-07 | Everton vs. Liverpool | no football-data row
+  E0 | epl-ast-tot-2025-05-18 | Aston Villa vs. Tottenham | no football-data row
+  I1 | serie-a-ac-milan-vs-lazio | Serie A: AC Milan vs. Lazio | no football-data row
+  I1 | serie-a-juventus-vs-parma | Serie A: Juventus vs. Parma | no football-data row
+  SP1 | la-liga-barcelona-vs-atltico-madrid | La Liga: Barcelona vs. Atlético Madrid | no football-data row
+  SP1 | la-liga-real-madrid-vs-getafe | La Liga: Real Madrid vs. Getafe | no football-data row
+  SP1 | lal-lev-vil-2025-12-14 | Levante UD vs. Villarreal CF | no football-data row
+  SP1 | lal-ray-ovi-2026-02-07 | Rayo Vallecano de Madrid vs. Real Oviedo | no football-data row
+  SP1 | lal-rrc-vil-2026-08-16 | Real Racing Club vs. Villarreal CF | no football-data row
+  SP1 | lal-get-rrc-2026-08-23 | Getafe CF vs. Real Racing Club | no football-data row
+  SP1 | lal-rrc-elc-2026-08-28 | Real Racing Club vs. Elche CF | no football-data row
+  SP1 | lal-ray-rrc-2026-09-05 | Rayo Vallecano de Madrid vs. Real Racing Club | no football-data row
+  SP1 | lal-rrc-ala-2026-09-12 | Real Racing Club vs. Deportivo Alavés | no football-data row
+  SP1 | lal-bar-rrc-2026-09-16 | FC Barcelona vs. Real Racing Club | no football-data row
+  SP1 | lal-cel-rrc-2026-09-19 | RC Celta de Vigo vs. Real Racing Club | no football-data row
+
+Downloading data-api trades for 2019 linked draw markets ...
+  250 / 2019 markets fetched
+  500 / 2019 markets fetched
+  750 / 2019 markets fetched
+  1000 / 2019 markets fetched
+  1250 / 2019 markets fetched
+  1500 / 2019 markets fetched
+  1750 / 2019 markets fetched
+  2000 / 2019 markets fetched
+  trade fetch errors: 0
+
+Priced (primary window has a print): 1986 / 2019 matched matches
+Resolved draw outcome available: 2019; agrees with FTR: 2019 (100.0%)
+
+Primary window results (one share per triggered match, mismatches excluded):
+| group | priced | triggered | median net/share | mean net/share | total net/share | total per $ staked | hit rate |
+|---|---:|---:|---:|---:|---:|---:|---:|
+| ALL | 1986 | 161 | -0.2389 | -0.0525 | -8.4533 | -22.82% | 18.6% |
+| E0 | 825 | 31 | -0.1667 | -0.0205 | -0.6367 | -11.76% | 16.1% |
+| I1 | 13 | 4 | -0.3003 | -0.0503 | -0.2012 | -17.34% | 25.0% |
+| SP1 | 465 | 61 | -0.2594 | -0.0649 | -3.9566 | -25.72% | 19.7% |
+| D1 | 363 | 58 | -0.2389 | -0.0494 | -2.8640 | -21.45% | 19.0% |
+| F1 | 320 | 7 | -0.2594 | -0.1136 | -0.7949 | -45.95% | 14.3% |
+| 2024/25 | 409 | 31 | -0.1771 | -0.0491 | -1.5210 | -24.24% | 16.1% |
+| 2025/26 | 1320 | 107 | -0.2491 | -0.0582 | -6.2241 | -24.64% | 18.7% |
+| 2026/27 | 257 | 23 | -0.2389 | -0.0308 | -0.7082 | -12.88% | 21.7% |
+
+Sensitivity window [T-24h,T-1h] results:
+| group | priced | triggered | median net/share | mean net/share | total net/share | total per $ staked | hit rate |
+|---|---:|---:|---:|---:|---:|---:|---:|
+| ALL | 2000 | 164 | -0.2389 | -0.0074 | -1.2122 | -3.21% | 23.2% |
+| E0 | 826 | 34 | -0.1667 | +0.0234 | +0.7963 | +13.36% | 20.6% |
+| I1 | 13 | 4 | -0.2799 | -0.0401 | -0.1603 | -14.31% | 25.0% |
+| SP1 | 471 | 57 | -0.2594 | -0.0678 | -3.8657 | -26.98% | 19.3% |
+| D1 | 365 | 60 | -0.2389 | +0.0394 | +2.3619 | +16.75% | 28.3% |
+| F1 | 325 | 9 | -0.2594 | -0.0383 | -0.3443 | -15.24% | 22.2% |
+| 2024/25 | 414 | 31 | -0.1667 | +0.0538 | +1.6690 | +27.41% | 25.8% |
+| 2025/26 | 1328 | 109 | -0.2491 | -0.0363 | -3.9549 | -15.23% | 21.1% |
+| 2026/27 | 258 | 24 | -0.2183 | +0.0447 | +1.0737 | +18.80% | 29.2% |
+
+Freshness window [T-1h,T] summary:
+| group | priced | triggered | median net/share | mean net/share | total net/share | total per $ staked | hit rate |
+|---|---:|---:|---:|---:|---:|---:|---:|
+| ALL | 1829 | 151 | -0.2389 | -0.0598 | -9.0347 | -26.03% | 17.9% |
+| E0 | 790 | 30 | -0.1667 | -0.0157 | -0.4700 | -8.94% | 16.7% |
+| I1 | 8 | 3 | -0.3003 | -0.3003 | -0.9009 | -103.55% | 0.0% |
+| SP1 | 443 | 60 | -0.2594 | -0.0616 | -3.6972 | -24.43% | 20.0% |
+| D1 | 328 | 51 | -0.2389 | -0.0622 | -3.1717 | -27.05% | 17.6% |
+| F1 | 260 | 7 | -0.2594 | -0.1136 | -0.7949 | -45.95% | 14.3% |
+
+Primary trigger diagnostics: n=161, base_rate median=0.2816, ask median=0.2400, fee median=0.00912
+  zero-fee stress (ask still includes 1c half-spread): median=-0.2300 mean=-0.0437 total=-7.0402 per $ staked=-19.01%
+Priced matches with modelled half-spread >0.02: 0 / 1986
+
+Probability scores on 1982 priced matches (outcome = FTR):
+  Brier base=0.18578 market=0.18487  (market loss - base loss=-0.00091)
+  LogLoss base=0.55686 market=0.55419  (market loss - base loss=-0.00268)
+  Brier sign test: base better 988, market better 994, ties 0, two-sided p=0.9106
+  LogLoss sign test: base better 988, market better 994, ties 0, two-sided p=0.9106
+    E0 n=825 Brier base=0.19358 market=0.19186
+    I1 n=13 Brier base=0.29171 market=0.28025
+    SP1 n=462 Brier base=0.18272 market=0.18181
+    D1 n=362 Brier base=0.17744 market=0.17727
+    F1 n=320 Brier base=0.17523 market=0.17600
+
+VERDICT: FAIL (median net/share -0.2389 <= 0)
+
+wrote matches.csv (2019 rows)
+Linkage by league: E0=826, I1=17, SP1=477, D1=370, F1=329
+Resolution match rate by league: E0=100.0%, I1=100.0%, SP1=100.0%, D1=100.0%, F1=100.0%

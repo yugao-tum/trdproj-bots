@@ -1,0 +1,78 @@
+{
+  "window": {
+    "start": "2024-08-16",
+    "end": "2026-10-19",
+    "days": 795,
+    "years": 2.1766
+  },
+  "stake_usdt": 50.0,
+  "account_usdt": 5000.0,
+  "variants": [
+    {
+      "name": "primary [T-6h,T]",
+      "triggered": 161,
+      "first": "2024-08-25",
+      "last": "2026-10-18",
+      "median_net_per_share": -0.238855,
+      "mean_net_per_share": -0.052505,
+      "total_net_per_share": -8.453346,
+      "total_per_dollar": -0.228221,
+      "mean_per_match_return": -0.22183,
+      "hit_rate": 0.186335,
+      "annual_triggers": 73.969,
+      "annual_pnl_usdt": -820.43,
+      "contribution_pct": -16.41,
+      "realized_max_dd_usdt": 2239.15,
+      "realized_max_dd_pct_account": 44.78
+    },
+    {
+      "name": "sensitivity [T-24h,T-1h]",
+      "triggered": 164,
+      "first": "2024-08-25",
+      "last": "2026-10-18",
+      "median_net_per_share": -0.238855,
+      "mean_net_per_share": -0.007391,
+      "total_net_per_share": -1.212189,
+      "total_per_dollar": -0.032092,
+      "mean_per_match_return": -0.016685,
+      "hit_rate": 0.231707,
+      "annual_triggers": 75.347,
+      "annual_pnl_usdt": -62.86,
+      "contribution_pct": -1.26,
+      "realized_max_dd_usdt": 1153.95,
+      "realized_max_dd_pct_account": 23.08
+    },
+    {
+      "name": "freshness [T-1h,T]",
+      "triggered": 151,
+      "first": "2024-08-25",
+      "last": "2026-10-18",
+      "median_net_per_share": -0.238855,
+      "mean_net_per_share": -0.059832,
+      "total_net_per_share": -9.034651,
+      "total_per_dollar": -0.260288,
+      "mean_per_match_return": -0.24578,
+      "hit_rate": 0.178808,
+      "annual_triggers": 69.375,
+      "annual_pnl_usdt": -852.54,
+      "contribution_pct": -17.05,
+      "realized_max_dd_usdt": 2084.08,
+      "realized_max_dd_pct_account": 41.68
+    }
+  ],
+  "zero_fee_stress": {
+    "n": 161,
+    "median": -0.23,
+    "mean": -0.043728,
+    "total": -7.04019,
+    "per_dollar": -0.190069
+  },
+  "raw_print_zero_cost": {
+    "n": 161,
+    "median": -0.22,
+    "mean": -0.033728,
+    "total": -5.43019,
+    "per_dollar": -0.153264,
+    "mean_per_match_return": -0.144096
+  }
+}

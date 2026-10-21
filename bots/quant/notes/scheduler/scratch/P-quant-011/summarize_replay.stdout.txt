@@ -1,0 +1,40 @@
+matches.csv rows: 2019
+resolution_match true: 2019
+evaluation window: 2024-08-16..2026-10-19 (795 days, 2.177 years)
+stake per triggered match: 50 USDT; account: 5000 USDT
+
+VARIANT primary [T-6h,T]
+  triggered=161 >=30: True
+  date range: 2024-08-25..2026-10-18
+  median net/share=-0.2389 mean net/share=-0.0525 total=-8.4533
+  total per $ staked=-22.82%; mean per-match return=-22.18% (median -103.75%); hit rate=18.6%
+  annual triggers=74.0; annual P&L at 50 USDT/match=-820.4 USDT; contribution=-16.4% of 5000 USDT
+  realized max drawdown=-2239.2 USDT (44.8% of 5000; peak-to-trough, chronological, not mark-to-market)
+  cumulative realized P&L=-1785.7 USDT
+
+VARIANT sensitivity [T-24h,T-1h]
+  triggered=164 >=30: True
+  date range: 2024-08-25..2026-10-18
+  median net/share=-0.2389 mean net/share=-0.0074 total=-1.2122
+  total per $ staked=-3.21%; mean per-match return=-1.67% (median -103.75%); hit rate=23.2%
+  annual triggers=75.3; annual P&L at 50 USDT/match=-62.9 USDT; contribution=-1.3% of 5000 USDT
+  realized max drawdown=-1153.9 USDT (23.1% of 5000; peak-to-trough, chronological, not mark-to-market)
+  cumulative realized P&L=-136.8 USDT
+
+VARIANT freshness [T-1h,T]
+  triggered=151 >=30: True
+  date range: 2024-08-25..2026-10-18
+  median net/share=-0.2389 mean net/share=-0.0598 total=-9.0347
+  total per $ staked=-26.03%; mean per-match return=-24.58% (median -103.75%); hit rate=17.9%
+  annual triggers=69.4; annual P&L at 50 USDT/match=-852.5 USDT; contribution=-17.1% of 5000 USDT
+  realized max drawdown=-2084.1 USDT (41.7% of 5000; peak-to-trough, chronological, not mark-to-market)
+  cumulative realized P&L=-1855.6 USDT
+
+DIAGNOSTIC zero-fee stress on primary triggers (ask still includes 1c half-spread)
+  n=161 median=-0.2300 mean=-0.0437 total=-7.0402 per $ staked=-19.01%
+DIAGNOSTIC raw last print, zero fee and zero spread (not executable, ignores both costs)
+  n=161 median=-0.2200 mean=-0.0337 total=-5.4302 per $ staked=-15.33%
+  mean per-match return=-14.41%, median=-100.00%
+
+wrote /home/box/quant/oc-jobs/quant-batch/c20261021-080001-research/wt/w08/bots/quant/replay/quant-011/trades.csv (201 triggered-union rows, 38491 bytes)
+wrote /home/box/quant/oc-jobs/quant-batch/c20261021-080001-research/wt/w08/bots/quant/notes/scheduler/scratch/P-quant-011/summary.json
