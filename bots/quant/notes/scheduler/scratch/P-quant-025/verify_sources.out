@@ -1,0 +1,44 @@
+== URL re-fetch (2026-10-21) ==
+series	200	46686B	Wed, 21 Oct 2026 04:10:14 GMT
+events	200	7542315B	Wed, 21 Oct 2026 04:10:15 GMT
+event_sep30	200	140507B	Wed, 21 Oct 2026 04:10:15 GMT
+spc_1630_html	200	15897B	None
+spc_1630_zip	200	22126B	Wed, 30 Sep 2026 16:30:16 GMT
+spc_2000_html	200	16588B	None
+spc_final_html	200	11962B	None
+spc_entry	200	31159B	None
+trades_wichita	200	11424B	Wed, 21 Oct 2026 04:09:21 GMT
+trades_columbus	200	6218B	Wed, 21 Oct 2026 04:09:22 GMT
+
+== Gamma series / event counts ==
+series id 12689 slug tornado-risk-daily recurrence daily
+closed events now 63 first which-cities-face-tornado-risk-on-october-20-2026 last which-cities-face-tornado-risk-on-august-19-2026
+events in entry sample (<=2026-10-19) 62
+sep30 markets 25 volume 4935.376533
+chicago feeSchedule {'exponent': 1, 'rate': 0.05, 'takerOnly': True, 'rebateRate': 0.25}
+chicago resolutionSource https://www.spc.noaa.gov/products/outlook/day1otlk.html
+
+== SPC html key lines ==
+spc_1630_html | Updated:&nbsp;Wed Sep 30 16:26:43 UTC 2026&nbsp;(
+spc_1630_html | Valid 301630Z - 011200Z
+spc_2000_html | Updated:&nbsp;Wed Sep 30 19:58:05 UTC 2026&nbsp;(
+spc_2000_html | Valid 302000Z - 011200Z
+spc_final_html | Updated:&nbsp;Thu Oct  1 00:35:04 UTC 2026&nbsp;(
+spc_final_html | Valid 010100Z - 011200Z
+
+== cached geometry / headers (entry sample: events 2026-08-19..2026-10-19) ==
+1630 Last-Modified time-of-day 16:06 .. 17:03 n 62
+2000 Last-Modified time-of-day 19:35 .. 20:25 n 62
+final Last-Modified time-of-day 00:35 .. 01:41 n 62
+sample final files 62 ISSUE_ISO 2026-08-20T01:00:00+00:00 .. 2026-10-20T00:52:00+00:00
+final ISSUE time-of-day 00:28 .. 01:37
+
+== trade size ranges ==
+strict n 6 size min/max 20.01 300 yespx 0.01 0.2
+broad  n 10 size min/max 4.99478 300 yespx 0.01 0.19999999999999996
+
+== capacity arithmetic ==
+broad 16.93 x10 /62d = 2.73/day
+strict 16.03 x10 /62d = 2.59/day
+max-day 9.61 x10 = 96.10
+strict volume shares=712.11

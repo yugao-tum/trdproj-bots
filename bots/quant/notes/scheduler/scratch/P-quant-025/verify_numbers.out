@@ -1,0 +1,8 @@
+sample events 62 markets 1550
+markets_per_event [25]
+volume_sum 410598.793553
+fee_rate_005 (cached) 1550 of 1550
+live sample events 62 markets 1550
+restricted_true 1550 of 1550
+restricted_values ['True']
+fee_rate_005 (live) 1550 of 1550

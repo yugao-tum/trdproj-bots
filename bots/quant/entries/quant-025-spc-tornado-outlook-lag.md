@@ -39,7 +39,7 @@ confidence: 中
 ### 结算规则原文要点（以 Chicago, August 19, 2026 市场为例，逐字）
 
 - “This market will resolve to "Yes" if Chicago, IL falls within a tornado probability area rated ≥2% in the NOAA Storm Prediction Center Day 1 Convective Outlook on August 19, 2026. Otherwise, this market will resolve to "No".”
-- “If a city's coordinates fall inside any area rated 2% or higher, that city resolves "Yes". If a city is outside all tornado probability areas, or only within areas rated below 2%, that city resolves "No".”
+- “If the city's coordinates fall inside any area rated 2% or higher, that city resolves "Yes". If a city is outside all tornado probability areas, or only within areas rated below 2%, that city resolves "No".”
 - “Borderline cases can be independently confirmed using the polygon data (excluding the hatched SIGN overlay, which is not a probability rating) and the city's listed coordinates.”
 - “Resolution is based on the scheduled 01:00 UTC Day 1 Convective Outlook update issued on the following UTC calendar day. The SPC Day 1 outlook covers a 24-hour period from 12:00 UTC to 12:00 UTC the following day. Subsequent revisions published after that scheduled update will not be considered. If the SPC outlook is not published or is unavailable, the market remains open until data is available.”
 - “This market uses coordinates 41.8781, -87.6298 for Chicago, IL.”
@@ -54,7 +54,7 @@ confidence: 中
 1. **信号可用时点**：不用名义发布时刻，而用归档 GeoJSON 的 HTTP `Last-Modified` + 2 分钟。本样本：1630Z 文件 `Last-Modified` 16:06–17:03 UTC，2000Z 19:35–20:25，0100Z（final）00:35–01:41。前向执行时轮询文件，看到新 `ISSUE` 后下一分钟才允许下单。
 2. **窗口**：`[LM(1630Z)+2min, LM(2000Z)+2min)` 和 `[LM(2000Z)+2min, LM(final)+2min)`；`LM` 缺失则退回 `[16:45,19:55)` / `[20:20,次日01:15)`。不在 final 文件可抓取后入场（那一臂是结算时滞，另计，不与本条混合）。
 3. **信号**：用该时点已发布的归档 `day1otlk_YYYYMMDD_HHMM_torn.nolyr.geojson`，城市坐标落在任一 `LABEL≥0.02` 的多边形内 → 目标侧 YES；否则不交易（本条只做 YES 折价，不做 NO 侧）。
-4. **入场**：窗口内该城市市场第一笔 `BUY Yes` 成交，价格 ≤0.25；若第一笔不是 `BUY Yes` 或价格 >0.25，则跳过，不追、不改价。
+4. **入场**：窗口内该城市市场第一笔 `BUY Yes` 成交（之前的 `SELL Yes`/`BUY No` 不计），价格 ≤0.25；若窗口内没有 `BUY Yes` 或该笔价格 >0.25，则跳过，不追、不改价。
 5. **仓位**：按该笔成交 size 与 `$50 / 价格` 取小；单市场 ≤$50，单日 ≤$250，场所 ≤$2,500；不加杠杆。
 6. **出场**：持有到 UMA 结算；不设止损、不补仓。若 0100Z 最终展望把城市移出，损失为买入价+费。
 7. **失败/停止**：若连续 30 个有信号的独立日事件费后净≤0，停止；若 SPC 归档多边形与平台结算出现不一致，先停并复核规则。
@@ -63,6 +63,7 @@ confidence: 中
 
 ## 证据
 
+- **历史可成交价回放（data-api 已执行成交，不是盘口）**：以下 P&L 用窗口内真实成交价与成交份数，扣 0.05 吃单费 + 1¢/份缓冲；它证明这些成交真实发生过，不证明我们能在同一价格、同一数量成交。
 - **规则校验**：62 个已关闭日事件、1,550 个市场；用次日 0100Z 归档 `torn.nolyr.geojson` 对每个城市坐标做点在多边形内判断，与 Gamma `outcomePrices` 结算比对：**0/1,550 不一致**。10 个 YES、1,540 个 NO；有 YES 的日事件 6 个。
 - **展望更新**：1630Z 与 2000Z 的城级分类在 1,550 个市场上**完全相同**（0 个变化）；2000Z→0100Z 有 **5 个 True→False**、0 个 False→True。即所有城级变化都发生在最终 0100Z 更新，且都是「移出」。
 - **2000Z 在区内的 15 个城-日**：最终仍在区内 10 个（66.7%），被移出 5 个（Indianapolis 8/26、Des Moines 9/8、Omaha 9/14、Oklahoma City 10/14、Indianapolis 10/15）。
@@ -84,7 +85,8 @@ confidence: 中
 - 规则/结算/费：每个市场 `description`、`outcomePrices`、`feeSchedule`（`rate=0.05`, `takerOnly=true`, `rebateRate=0.25`）。
 - SPC 归档页：`https://www.spc.noaa.gov/products/outlook/archive/2026/day1otlk_20260930_1630.html`（200，Updated 16:26:43 UTC；Valid 301630Z–011200Z）；同目录 `day1otlk_YYYYMMDD_HHMM.html` 与 `-geojson.zip`。zip 内含 `day1otlk_..._torn.nolyr.geojson`（LABEL 0.02/0.05，带 ISSUE/VALID/EXPIRE 字段）。本条用 0100Z 次日文件做结算校验，1630Z/2000Z 文件做信号；可用时点用每个文件的 HTTP `Last-Modified`（`fetch_headers.py` → `_cache/last_modified.csv`）。
 - 成交：`https://data-api.polymarket.com/trades?market=<conditionId>&limit=1000`（免费免密钥；本例每市场 1–27 笔，全部 1,550 个市场共 10,674 笔）。历史盘口无公开源。
-- 脚本/输出：`bots/quant/notes/scheduler/scratch/B22/reproduce.py`、`reproduce.out`；抓取脚本 `fetch_outlooks.py`、`fetch_trades.py`、`fetch_headers.py`；分类 `classify.py`。原始缓存 `_cache/`（已 `.gitignore`）。
+- 脚本/输出：B22 原脚本 `bots/quant/notes/scheduler/scratch/B22/reproduce.py`、`reproduce.out`；本轮复核副本 `bots/quant/notes/scheduler/scratch/P-quant-025/reproduce.py`、`reproduce.out`、`verify_sources.out`、`verify_rules.out`（同源重跑）；抓取脚本 `fetch_outlooks.py`、`fetch_trades.py`、`fetch_headers.py`；分类 `classify.py`。原始缓存 `_cache/`（已 `.gitignore`）。
+- 2026-10-21 复核快照：series 已有 63 个已关闭事件（新增 2026-10-20）；本条样本固定为 2026-08-19..2026-10-19 的 62 个，新增事件未计入，以免改变已核对的样本口径。
 
 ## 两周内怎么检验
 
@@ -96,13 +98,13 @@ confidence: 中
 
 - 费率：天气 0.05（GUIDE §8；市场 `feeSchedule.rate=0.05`）。每份费 = `0.05×p×(1−p)`；p=0.08 时 0.37¢，p=0.011 时 0.05¢。半价差/滑点按 1¢/份计，另做 3¢、5¢ 敏感性。
 - 资金占用：买入到 UMA 结算约 1–3 天（0100Z 最终展望→UMA 提案/挑战；未逐笔核对 UMA 时间戳）。
-- 容量：严格口径 6 笔共 712.1 份、投入 $16.03；单笔最大 300 份（$3.30 @1.1¢）和 30 份（$6.00 @20¢）；最大单日成本 $9.61（2026-09-30）；宽口径 10 笔共 $16.93。按总投入放大 10 倍是 $16.93×10≈$169/62 天（约 $2.7/日，严格口径 $160.30≈$2.6/日）；$100/日是按最大单日 $9.61×10 的上限算的，不是平均值。即使按这个上限放大，单日也只有约 $100；**无法部署 5,000 USDT**。这是本条最大的硬伤。
+- 容量：严格口径 6 笔共 712.1 份、投入 $16.03；单笔最大 300 份（$3.30 @1.1¢）和 30 份（$6.00 @20¢）；最大单日成本 $9.61（2026-09-30）；宽口径 10 笔共 $16.93。按总投入放大 10 倍是 $16.93×10≈$169/62 天（约 $2.7/日，严格口径 $160.30≈$2.6/日）；$100/日是按最大单日 $9.61×10 的上限算的，不是平均值。即使按这个上限放大，单日也只有约 $100；**无法部署 5,000 USDT**。这是本条最大的经济容量硬伤，不是小资金门槛失败（单笔 ≤$50/市场、≤$250/日、≤$2,500/场所都在 GUIDE §2 门 3 的约束内；门 3 见下）。
 - 月机会：62 天 7 个宽口径独立日事件、3 个严格日事件 → 每月约 3.5 个宽口径/1.5 个严格信号。
 
 ## 风险
 
 - **预测风险**：0100Z 最终展望可能移出城市；样本 5/15 被移出。买入价 ≤0.25 时单笔最大亏损 25¢/份+费，损失有上限，但会连续出现（宽口径 10 笔里 5 笔是输的）。
-- **执行风险**：历史只有成交价，没有盘口；第一笔 `BUY Yes` 可能只是很小的量，或我们看到的成交已被别人吃掉。单笔 20–300 份的容量说明深度很薄；挂单可能排不到，吃单可能把价格推高。
+- **执行风险**：历史只有成交价，没有盘口；第一笔 `BUY Yes` 可能只是很小的量，或我们看到的成交已被别人吃掉。单笔 5–300 份（宽口径最小 4.99、最大 300；严格 20.01–300）的容量说明深度很薄；挂单可能排不到，吃单可能把价格推高。
 - **结算/规则风险**：最终展望的「scheduled 01:00 UTC update」以归档 `ISSUE` 为准（实际 00:28–01:37）；后续修订不采用。城市坐标是规则写死的，不能用城市中心/地图目测替代。极少数边界城市可能因坐标/多边形精度产生争议；本条 0/1,550 不一致，但样本只覆盖 2 个月。
 - **平台风险**：Gamma 字段显示 62 个事件的 1,550 个市场全部 `restricted=true`（2026-10-20 复核），实际交易资格未验证；UMA 争议会锁仓 4–6 天；天气板块流动性薄。
 - **数据风险**：SPC 归档页/GeoJSON 若改版或缺失，信号无法复现；GeoJSON 的 `Last-Modified` 可能比名义更新晚 30–60 分钟，前向执行必须等到文件真正可抓取，不能用名义 1630Z/2000Z 下单。
@@ -115,13 +117,17 @@ confidence: 中
 
 1. **机制说得清**：**满足（持续解释弱）**。付钱的是把 SPC「2% 概率标签」当成城市 2% 概率、或没跟上 1630Z/2000Z 更新的交易者。固定 25 城、每日重开、市场薄、报价更新慢，使这个口径差可能反复出现；但这只是弱解释，不是结构性保证，持续性未被独立证明。边界是有预测风险的折价买入，不是无风险套利。
 2. **有免费数据能检验**：**满足（仅前向记录替代口径）**。SPC 归档 GeoJSON、Gamma 规则/结算、data-api 成交全部免费免密钥；62 个日事件/1,550 个市场/10,674 笔成交，结算校验 0/1,550 不一致。但历史只有 6 个有 YES 的日事件、7 个宽口径/3 个严格低价信号，1,550 个市场高度相关，不能当 30 个独立结果；只能按「从 2026-10-20 起前向记录」的替代口径算数据可得。门 6 仍不满足。
-3. **小资金能做**：**不满足**。单笔 20–300 份、全样本投入 $16.03（严格）/$16.93（宽）；按总投入放大 10 倍约 $2.6–2.7/日，按最大单日成本 $9.61×10 的上限也只有约 $100/日；无法部署 5,000 USDT，容量是结构性硬伤。
+3. **小资金能做**：**满足（容量很小）**。单笔 ≤$50/市场、≤$250/日、≤$2,500/场所，符合 GUIDE §2 门 3 的小资金约束；但全样本投入仅 $16.03（严格）/$16.93（宽），放大 10 倍约 $2.6–2.7/日，最大单日上限约 $100/日，经济容量很小（详见“成本与容量”和门 5）。
 4. **不重复**：**满足**。结算源和付钱方都与其它天气条不同：dot-001/dot-002 用 `weather.gov` 站点逐时温度结算、交易站点观测/集合预报误差，quant-015 用 NASA GISTEMP 月表结算月距平，quant-026 用 USDM 州级 D4 面积百分比（`droughtmonitor.unl.edu`）结算周度州名单/州数；本条用 SPC Day-1 龙卷风概率多边形（`spc.noaa.gov`）结算「城市是否在 ≥2% 风险区」，付钱的是按旧展望或字面「2%」定价的对手方；quant-026 的 payer 则是把周度名单当独立事件的对手方。与 dot-004（已定事实后的报价收敛）的区别是 dot-004 要求事实与合同终局已逐字确认后才买，本条主臂在 0100Z 最终展望**之前**用 1630Z/2000Z 更新建仓，事实尚未最终确定，承担预测被修风险；与 muse-own-xmkt-resolution-lag 的区别同样是本条主臂赚展望更新时滞，不是 UMA 结算风险；本条的 0100Z 后臂被明确排除在主规则之外。
-5. **扣成本后粗算够用**：**不确定（样本内为正但只有 3 个独立日；不能当粗算够用）**。严格 6 笔扣 0.05 费+1¢ 缓冲净 +$658.23（+$629.75 @5¢）；宽口径 10 笔净 +$674.71。赢面 0.906–0.980/份、输面 ≤0.218/份，盈亏平衡生存率约 7.0%，历史宽口径 5/10 生存；但严格 6 笔的正收益集中在 2026-09-30 一天（+$623.63/$658.23，94.7%），只有 3 个独立日，属样本内少数事件，不能当扣成本后粗算够用。
+5. **扣成本后粗算够用**：**不确定（样本内为正但只有 3 个独立日；不能当粗算够用）**。严格 6 笔扣 0.05 费+1¢ 缓冲净 +$658.23（+$629.75 @5¢）；宽口径 10 笔净 +$674.71。赢面 0.906–0.980/份、输面 ≤0.218/份，盈亏平衡生存率约 7.0%，历史宽口径 5/10 生存；但严格 6 笔的正收益集中在 2026-09-30 一天（+$623.63/$658.23，94.7%），只有 3 个独立日，属样本内少数事件，不能当扣成本后粗算够用。经济容量也只有约 $17/62 天（放大 10 倍约 $2.6–2.7/日），无法部署 5,000 USDT。
 6. **两周内能检验**：**不满足**。两周约 14 个日事件、1–2 个低价信号；历史 62 天也只有 7 个宽口径/3 个严格独立日事件。要 30 个独立低价信号约需 8–9 个月（宽口径）或约 20 个月（严格口径）的前向记录。这是本条进待选区而非收录的主因。
-7. **出处可查**：**满足**。SPC 归档页/zip、Gamma series/event、data-api 成交、GUIDE §8 均已给出 URL 和访问日期；脚本与 stdout 在 scratch/B22。
+7. **出处可查**：**满足**。SPC 归档页/zip、Gamma series/event、data-api 成交、GUIDE §8 均已给出 URL 和访问日期；脚本与 stdout 在 scratch/B22 与本轮复核副本 scratch/P-quant-025。
+
+**本轮结论**：不应丢弃。机制、数据和出处成立，历史可成交价回放扣费后样本内为正；但历史只有 3–7 个独立低价信号（门 6 不满足），经济容量约 $17/62 天（门 5 不确定），只能保留为待选区候选，不能作为本轮 `待核` 晋升。
 
 ## 出处
+
+- 以下 URL 均于 2026-10-21 再次请求，全部 HTTP 200（`bots/quant/notes/scheduler/scratch/P-quant-025/verify_sources.out`）；原访问日期保留。
 
 - https://gamma-api.polymarket.com/series?slug=tornado-risk-daily — 访问 2026-10-20 — 已读（series id 12689，62 个事件，25 城/事件）
 - https://gamma-api.polymarket.com/events?series_id=12689&closed=true&limit=100&offset=0 — 访问 2026-10-20 — 已读（事件/市场/规则/结算/费）
@@ -135,3 +141,4 @@ confidence: 中
 - https://data-api.polymarket.com/trades?market=0x84cba6ff32d9afc8012f76e83d9c269c0f1c1d0c77c4ffde66b5396ab5a94391&limit=1000 — 访问 2026-10-20 — 已读（Columbus 市场成交，含 16:57:25 @0.01、42 份）
 - GUIDE.md §8（Polymarket 费率/公开数据） — 访问 2026-10-20 — 已读
 - bots/quant/notes/scheduler/scratch/B22/reproduce.py、reproduce.out、fetch_headers.py — 2026-10-20 — 已读（本条所有数字的复跑脚本与 stdout）
+- bots/quant/notes/scheduler/scratch/P-quant-025/{reproduce.py,reproduce.out,fetch_outlooks.py,fetch_headers.py,classify.py,fetch_trades.py,verify_sources.out,verify_rules.out,verify_numbers.out,verify_trades.out,issue_range.out} — 2026-10-21 — 已读（本轮从零重跑与 URL/规则/计数复核）
