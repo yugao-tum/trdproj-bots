@@ -583,3 +583,11 @@
 | `notes/dot032-score-bounds-20261021/validation/REPORT.md` | dot-032条件界/复盘：REPORT.md | 2026-10-21 | 已完成离线补充；STOP不变，非市场实测 |
 | `notes/dot032-score-bounds-20261021/validation/results.json` | dot-032条件界/复盘：results.json | 2026-10-21 | 已完成离线补充；STOP不变，非市场实测 |
 | `notes/dot032-score-bounds-20261021/validation/validate.py` | dot-032条件界/复盘：validate.py | 2026-10-21 | 已完成离线补充；STOP不变，非市场实测 |
+
+
+## 2026-10-21 08:00 UTC 既有证据追加
+
+| 路径 | 标题 | 日期 | 状态 |
+|---|---|---|---|
+| `notes/20261021-c19-third-forward-funding.json` | R1第三笔结算的虚拟资金费快照；一次持仓 | 2026-10-21 | 已保存证据，非R2资格或账户现金 |
+| `notes/20261021-q005-evidence-qualification.md` | q005旧核验保留，追加PR19修复当前状态 | 2026-10-21 | 作者产物/代码核验，非独立回放 |

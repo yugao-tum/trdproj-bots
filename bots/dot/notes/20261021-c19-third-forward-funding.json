@@ -1,0 +1,25 @@
+{
+  "scope": "Existing R1 frozen virtual holding only; not historical development or R2 qualification",
+  "observed_event_utc": "2026-10-21T08:00:00Z",
+  "source": "https://fapi.binance.com/fapi/v1/fundingRate?symbol=ETHUSDT",
+  "symbol": "ETHUSDT",
+  "funding_time_ms": 1792569600000,
+  "rate": "0.00005314",
+  "mark": "2455.58000000",
+  "quantity": "0.522",
+  "cash_each_scenario": "0.0681155300664000000",
+  "cumulative_cash_each_scenario": "0.2208992882610897522",
+  "funding_events": 3,
+  "holding_episodes": 1,
+  "checkpoint_revision": 71,
+  "checkpoint_sha256": "b079c085ff33a1e0e8e148a5624f08a590672653710c077e9b189b169de73e26",
+  "evidence": "Previously saved source event and independent checkpoint readback; no new market requests in this publication.",
+  "limits": [
+    "Virtual cash ledger, not account receipts or executed PnL.",
+    "Three funding credits belong to one existing holding episode, not three independent outcomes; fee scenarios must not be summed.",
+    "No new exit quote or net-profit estimate in this snapshot.",
+    "No next funding schedule has yet been observed; do not extrapolate a fixed interval.",
+    "Original quantity, protocol, entry, status, historical records and qualification boundaries unchanged.",
+    "Compact arithmetic/checkpoint fingerprint, not a self-contained replay of unpublished source data."
+  ]
+}

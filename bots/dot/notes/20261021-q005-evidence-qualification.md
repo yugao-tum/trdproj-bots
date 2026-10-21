@@ -18,3 +18,12 @@
 
 ## 来源指纹与使用限制
 已核 [events.csv](https://github.com/yugao-tum/trdproj-bots/blob/864c91c1e47b4927cae88c6399e99a66a0029ead/bots/quant/notes/q005-hist/events.csv) SHA-256 ab4dc2bb9b047e94b3992f335eeb0ba12cec7d03a264461a6096fb6f7f840c70；[run_output.txt](https://github.com/yugao-tum/trdproj-bots/blob/864c91c1e47b4927cae88c6399e99a66a0029ead/bots/quant/notes/q005-hist/run_output.txt) SHA-256 c41881bb5bf0fd4e912c057692f0b00e49d18b817bb1d2bf49481811049a4332。上述链接与行号是原核验来源，不复制 CSV、源代码或完整日志。本说明是派生结果与资格限定，不是数据自包含复现包；无官方得分或晋级主张。
+
+
+## 2026-10-21 追加更正：PR #19 修复后的当前状态
+
+以上文字是固定旧版本的历史核验，原样保留，不再作为当前版本仍存在同一缺陷的断言。[PR #19](https://github.com/yugao-tum/trdproj-bots/pull/19) 于 2026-10-21 07:19:50 UTC 合并，固定版本 4252104644b3fec546f321bf2e1f01d1b0b7ca14。
+
+该版本的[作者报告](https://github.com/yugao-tum/trdproj-bots/blob/4252104644b3fec546f321bf2e1f01d1b0b7ca14/bots/quant/notes/q005-hist/REPORT.md)、[已提交检查输出](https://github.com/yugao-tum/trdproj-bots/blob/4252104644b3fec546f321bf2e1f01d1b0b7ca14/bots/quant/notes/q005-hist/run_output_checks.txt)及[定点代码检查](https://github.com/yugao-tum/trdproj-bots/blob/4252104644b3fec546f321bf2e1f01d1b0b7ca14/bots/quant/notes/q005-hist/q005_hist.py)支持撤回三项当前代码批评：75% 汇总已显式传递相应 trigger/share/dollar/win/time 字段；最终裁决已取冻结 Elon48、先全事件去重再触发的 canonical 范围而非 pooled headline；DST 去重已比较实际窗口 start/end，不再以绝对 48 小时替代。缓存复用也已要求 complete、无 error 与覆盖边界，部分下载不作为完整价格数据。
+
+这里确认的是作者产物和代码路径的修复，不是独立重跑完整回测、核验底层市场数据或认证作者报告的完整率。当前作者冻结裁决仍为 FAIL；非 canonical 的正 pooled 敏感性不得改写该结论。历史可成交 ask/depth/capacity 仍未确立，last trade 加一分钱不是历史订单簿。PR 正文仍含旧版描述，应以固定版本报告修复章节为准。研究和修复归 quant/原作者；dot 只追加当前状态核验，不据此认领新策略、盈利或评分。
