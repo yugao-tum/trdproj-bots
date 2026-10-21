@@ -25,18 +25,18 @@ events enumerated (closed, modelable types) = 259
 legs (event x market)                         = 303
 legs with a fill in the 6h window             = 295
 events with >=1 priced leg                    = 259
-events with >=1 triggered leg                 = 231
-legs triggered                                = 251
+events with >=1 triggered leg                 = 229
+legs triggered                                = 240
 skip reasons (legs): {'no_trade_in_6h': 8}
 
 per type:
 type              events  priced  trigEv trigLegs
 daily_updown         252     252     224     224
-weekly_above           2       2       2       9
-monthly_above          3       3       3      11
+weekly_above           2       2       0       0
+monthly_above          3       3       3       9
 monthly_close          2       2       2       7
 
-YES/NO split (triggered legs): YES=96  NO=155
+YES/NO split (triggered legs): YES=103  NO=137
 
 === SPX SOURCE CROSS-CHECK (5 random resolution dates) ===
 FRED close vs Polymarket outcomePrices-implied settlement
@@ -49,24 +49,24 @@ sp-500-spx-above-end-of-february               >$7,140         6878.88    6908.8
 matched 5/5
 
 === PRIMARY RESULTS (decision = resolution close - 6h) ===
-all triggered legs                 legs= 251  mean=-0.01018  median=-0.13452  hit=0.247  total_net=-2.55  per_$1=-0.0406
+all triggered legs                 legs= 240  mean=-0.00743  median=-0.14482  hit=0.258  total_net=-1.78  per_$1=-0.0287
 daily subset |p6-0.5|>=0.10 FADE   legs= 194  gross_mean=+0.02267  net_mean=+0.00650  net_median=-0.14482  hit=0.222
 daily subset |p6-0.5|>=0.10 FOLLOW legs= 194  gross_mean=-0.02267  net_mean=-0.03835  net_median=+0.11578  hit=0.773
 daily subset FADE                  total_net=+1.26  per_$1=0.0311
   triggered legs / daily_updown    legs= 224  mean=-0.00090  median=-0.15510  hit=0.246  total_net=-0.20  per_$1=-0.0038
-  triggered legs / weekly_above    legs=   9  mean=-0.01363  median=-0.01144  hit=0.000  total_net=-0.12  per_$1=-1.0394
-  triggered legs / monthly_above   legs=  11  mean=-0.11584  median=-0.02078  hit=0.364  total_net=-1.27  per_$1=-0.2433
+  triggered legs / weekly_above    legs=   0  mean=+nan  median=+nan  hit=nan  total_net=+0.00  per_$1=nan
+  triggered legs / monthly_above   legs=   9  mean=-0.06948  median=-0.02078  hit=0.444  total_net=-0.63  per_$1=-0.1363
   triggered legs / monthly_close   legs=   7  mean=-0.13662  median=-0.07260  hit=0.429  total_net=-0.96  per_$1=-0.2442
 
 per-event (mean net/share across triggered legs of the event):
-all triggered events               events= 231  mean=-0.00486  median=-0.15510  hit=0.242  weeks= 54  boot95=[-0.06110,+0.05268]
+all triggered events               events= 229  mean=-0.00390  median=-0.15510  hit=0.245  weeks= 54  boot95=[-0.05942,+0.05348]
 daily triggered events             events= 224  mean=-0.00090  median=-0.15510  hit=0.246  weeks= 54  boot95=[-0.05831,+0.05860]
 daily subset events                events= 194  mean=+0.00650  median=-0.14482  hit=0.222  weeks= 54  boot95=[-0.04872,+0.06235]
 
 === SENSITIVITY (decision = previous US close) ===
-priced legs=233  triggered=100
-sensitivity triggered legs         legs= 100  mean=+0.06135  median=-0.02132  hit=0.430  total_net=+6.13  per_$1=0.1702
-sensitivity daily events           events=  75  mean=-0.00593  median=-0.14482  hit=0.227  weeks= 42  boot95=[-0.08416,+0.07569]
+priced legs=233  triggered=86
+sensitivity triggered legs         legs=  86  mean=+0.06948  median=-0.11982  hit=0.477  total_net=+5.98  per_$1=0.1745
+sensitivity daily events           events=  83  mean=+0.07425  median=-0.22686  hit=0.482  weeks= 44  boot95=[-0.02342,+0.17149]
 
 === CALIBRATION / BRIER (primary market quote) ===
 daily priced events = 252
@@ -77,7 +77,7 @@ Brier  market p6            = 0.17783
 logloss model P(up)=0.5     = 0.69315
 logloss constant 0.53       = 0.69161
 logloss market p6           = 0.52842
-all priced legs=295  Brier model=0.27416  market=0.16054
+all priced legs=295  Brier model=0.22486  market=0.16054
 
 === VERDICT (frozen criterion) ===
 criterion #1: daily taker subset |p6-0.5|>=0.10, net mean <= 0 -> FAIL

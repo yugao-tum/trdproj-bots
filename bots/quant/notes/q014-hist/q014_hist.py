@@ -95,6 +95,9 @@ UA = {"User-Agent": "Mozilla/5.0 (research; quant-014 historical backtest)"}
 SESSION = requests.Session()
 SESSION.headers.update(UA)
 
+AS_OF_CUTOFF = date(2026, 10, 19)
+AS_OF_CUTOFF_ISO = AS_OF_CUTOFF.isoformat()
+AS_OF_CUTOFF_TS = AS_OF_CUTOFF_ISO + "T23:59:59Z"
 FEE_RATE = 0.04
 HALF_SPREAD = 0.01
 EDGE_MULT = 2.0
@@ -174,7 +177,7 @@ def load_spx():
             continue
         dates.append(date(y, m, d))
         closes[date(y, m, d)] = v
-    dates.sort()
+    dates = sorted(d for d in dates if d <= AS_OF_CUTOFF)
     idx = {d: i for i, d in enumerate(dates)}
     closes_list = [closes[d] for d in dates]
     rets = [math.log(closes_list[i] / closes_list[i - 1])
@@ -210,22 +213,25 @@ def p_above(S, K, sig, T):
 def load_series(sid):
     out = []
     off = 0
-    while True:
+    while off < 10000:
         path = GAMMA_DIR / ("series_%d_%d.json" % (sid, off))
         data = fetch_json("https://gamma-api.polymarket.com/events", path,
                           {"series_id": sid, "limit": 100, "offset": off,
-                           "closed": "true", "order": "endDate", "ascending": "true"})
+                           "closed": "true", "order": "endDate", "ascending": "true",
+                           "end_date_max": AS_OF_CUTOFF_TS})
         out.extend(data)
-        if len(data) < 100 or off >= 2000:
+        if len(data) < 100:
             break
         off += 100
+    else:
+        raise RuntimeError("series %d pagination hit cap; not treating as complete" % sid)
     return out
 
 
 def load_search(q):
     out = []
     page = 1
-    while page <= 12:
+    while page <= 100:
         path = SEARCH_DIR / ("%s_%d.json" % (re.sub(r"[^a-z0-9]+", "_", q.lower()), page))
         data = fetch_json("https://gamma-api.polymarket.com/public-search", path,
                           {"q": q, "limit_per_type": 50, "events_status": "closed",
@@ -235,6 +241,8 @@ def load_search(q):
         if not data.get("pagination", {}).get("hasMore") or not evs:
             break
         page += 1
+    else:
+        raise RuntimeError("search %r pagination hit cap; not treating as complete" % q)
     return out
 
 
@@ -257,6 +265,11 @@ def classify(slug):
     return None
 
 
+def within_cutoff(e):
+    end = (e.get("endDate") or "")[:10]
+    return len(end) == 10 and end <= AS_OF_CUTOFF_ISO
+
+
 def load_universe():
     raw = {}
     for sid in SERIES:
@@ -271,7 +284,7 @@ def load_universe():
         if slug in seen:
             continue
         seen.add(slug)
-        if not e.get("closed"):
+        if not e.get("closed") or not within_cutoff(e):
             continue
         typ = classify(slug)
         if typ in (None, "daily_opens_excluded", "hit_excluded"):
@@ -387,7 +400,10 @@ def build_legs(events, dates, idx, closes, rets):
                                  "market_slug": m.get("slug"), "skip": "no_strike"})
                     continue
                 lo, hi = rng
-                p = p_above(spot, lo, sig, T) - p_above(spot, hi, sig, T)
+                if hi is None:
+                    p = p_above(spot, lo, sig, T)
+                else:
+                    p = p_above(spot, lo, sig, T) - p_above(spot, hi, sig, T)
                 kind = "above" if hi is None else "bracket"
             legs.append({
                 "type": typ, "event_slug": e["slug"], "market_slug": m.get("slug"),
@@ -403,31 +419,55 @@ def build_legs(events, dates, idx, closes, rets):
 # --------------------------------------------------------------------------
 # 3. Executable fills (data-api)
 # --------------------------------------------------------------------------
+TRADE_PAGE = 500
+TRADE_MAX_OFFSET = 20000
+
+
+def _trade_page(cid, off, tries=8):
+    last = None
+    for attempt in range(tries):
+        try:
+            r = SESSION.get("https://data-api.polymarket.com/trades",
+                            params={"market": cid, "limit": TRADE_PAGE, "offset": off},
+                            timeout=60)
+            if r.status_code == 200:
+                d = r.json()
+                if not isinstance(d, list):
+                    raise ValueError("unexpected trades payload")
+                return d
+            last = "HTTP %s" % r.status_code
+            time.sleep(1.0 + attempt)
+        except Exception as exc:
+            last = repr(exc)
+            time.sleep(1.2 + attempt)
+    raise RuntimeError("trade page %s offset %d failed: %s" % (cid, off, last))
+
+
 def load_trades(cid):
     path = TRADES_DIR / ("%s.json" % cid)
     if path.exists():
-        with open(path, encoding="utf-8") as f:
-            return json.load(f)
+        try:
+            with open(path, encoding="utf-8") as f:
+                doc = json.load(f)
+        except Exception:
+            doc = None
+        if (isinstance(doc, dict) and doc.get("complete") is True
+                and isinstance(doc.get("trades"), list)):
+            return doc["trades"]
     out = []
     off = 0
-    while off < 20000:
-        try:
-            r = SESSION.get("https://data-api.polymarket.com/trades",
-                            params={"market": cid, "limit": 500, "offset": off},
-                            timeout=60)
-            if r.status_code != 200:
-                time.sleep(1.0)
-                continue
-            d = r.json()
-        except Exception:
-            time.sleep(1.2)
-            continue
+    while off < TRADE_MAX_OFFSET:
+        d = _trade_page(cid, off)
         out.extend(d)
-        if len(d) < 500:
+        if len(d) < TRADE_PAGE:
             break
-        off += 500
-    with open(path, "w", encoding="utf-8") as f:
-        json.dump(out, f, ensure_ascii=False)
+        off += TRADE_PAGE
+    else:
+        raise RuntimeError("trade pagination hit cap for %s; not caching partial" % cid)
+    tmp = path.with_suffix(".json.tmp")
+    with open(tmp, "w", encoding="utf-8") as f:
+        json.dump({"complete": True, "trades": out}, f, ensure_ascii=False)
+    tmp.replace(path)
     return out
 
 
@@ -544,12 +584,12 @@ def boot_ci(vals_by_week):
     return (pct(means, 2.5), pct(means, 97.5), len(weeks))
 
 
-def event_nets(rows):
-    """One result per event: mean net/share over triggered legs."""
+def event_nets(rows, field="primary"):
+    """One result per event: mean net/share over triggered legs in `field`."""
     by = defaultdict(list)
     for r in rows:
-        if r.get("primary") and r["primary"].get("triggered"):
-            by[r["event_slug"]].append(r["primary"]["net"])
+        if r.get(field) and r[field].get("triggered"):
+            by[r["event_slug"]].append(r[field]["net"])
     return {k: mean(v) for k, v in by.items()}
 
 
@@ -641,6 +681,7 @@ def main():
     cids = sorted({l["condition_id"] for l in legs})
     print("fetching data-api trades for %d conditionIds (cache-first)..." % len(cids))
     trades = {}
+    failed = []
     with ThreadPoolExecutor(max_workers=MAX_WORKERS) as pool:
         futs = {pool.submit(load_trades, cid): cid for cid in cids}
         done = 0
@@ -648,11 +689,16 @@ def main():
             cid = futs[fut]
             try:
                 trades[cid] = fut.result()
-            except Exception:
-                trades[cid] = []
+            except Exception as exc:
+                failed.append((cid, str(exc)))
             done += 1
             if done % 50 == 0:
                 print("  ... %d/%d" % (done, len(cids)))
+    if failed:
+        for cid, msg in failed[:10]:
+            print("  trade fetch FAILED %s: %s" % (cid, msg), file=sys.stderr)
+        raise RuntimeError("%d/%d trade downloads incomplete; refusing partial results"
+                           % (len(failed), len(cids)))
 
     res_ts = {}
     prev_close_ts = {}
@@ -795,7 +841,7 @@ def main():
     print("priced legs=%d  triggered=%d" % (sum(1 for l in rows if l["sens"]), len(sens_rows)))
     leg_stats("sensitivity triggered legs", sens_rows, "sens")
     if sens_daily:
-        describe("sensitivity daily events", event_nets(sens_daily))
+        describe("sensitivity daily events", event_nets(sens_daily, "sens"))
 
     # calibration
     print("\n=== CALIBRATION / BRIER (primary market quote) ===")
