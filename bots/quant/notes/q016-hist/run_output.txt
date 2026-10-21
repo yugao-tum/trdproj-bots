@@ -5,17 +5,20 @@ closed events enumerated: 85
 date span (endDate): 2026-03-02 .. 2026-10-19   (one event has endDate=null, closedTime ['2024-12-23T19:03:39Z'])
 markets: 530 (cumulative-threshold markets 525, range-style 5)
 feeSchedule (rate, takerOnly) observed: {(0.05, True): 460}
-mapped to RT slug: 85/85
+mapped to RT slug (verified): 85/85
+mapping methods: {'rt_search_exact_title': 85}
 
-Wayback: events with primary snapshot=73  with sensitivity snapshot=80  no primary snapshot (excl. range)=11  range-excluded=1  capture-list source={'cdx': 73}
+Wayback: events with primary snapshot=74  with sensitivity snapshot=81  no primary snapshot (excl. range)=10  range-excluded=1  capture-list source={'cdx': 74}
   SNAP-SKIP mufasa-the-lion-king-rotten-tomatoes-score: range_style_brackets_excluded
 
 ==============================================================================
 -- primary window [T-72h, T-12h], price [t-6h, t]
    independent priced events=66  scored thresholds=192
-   triggered trades=92  events/triggered=52  YES=40  NO=52
-   median event net/share=-0.113876  mean event net/share=-0.079474
-   event-cluster bootstrap 95% CI of mean: [-0.168443, +0.017816]
+   triggered trades=92  events/triggered=52  events/zero-trigger=14  YES=40  NO=52
+   PRIMARY all priced events (zero-trigger event net=0): median event net/share=-0.054190  mean event net/share=-0.062616
+   PRIMARY event-cluster bootstrap 95% CI of mean: [-0.132925, +0.014020]
+   SECONDARY triggered-only events: median event net/share=-0.113876  mean event net/share=-0.079474
+   SECONDARY event-cluster bootstrap 95% CI of mean: [-0.168443, +0.017816]
    median trade gross/share=-0.034787  median trade net/share=-0.036465  mean trade net/share=-0.044920
    hit rate (net>0)=9/92 = 0.098
    total net=-4.132638 on staked=12.708319 -> per $ staked=-0.325192
@@ -24,9 +27,11 @@ Wayback: events with primary snapshot=73  with sensitivity snapshot=80  no prima
    event-level (equal weight per event) Brier model=0.070931 market=0.039374  LogLoss model=0.226112 market=0.135803
 -- sensitivity [T-7d, T-24h], price [t-6h, t]
    independent priced events=73  scored thresholds=218
-   triggered trades=103  events/triggered=57  YES=49  NO=54
-   median event net/share=-0.104500  mean event net/share=-0.071619
-   event-cluster bootstrap 95% CI of mean: [-0.168442, +0.031436]
+   triggered trades=103  events/triggered=57  events/zero-trigger=16  YES=49  NO=54
+   PRIMARY all priced events (zero-trigger event net=0): median event net/share=-0.026219  mean event net/share=-0.055922
+   PRIMARY event-cluster bootstrap 95% CI of mean: [-0.134821, +0.024336]
+   SECONDARY triggered-only events: median event net/share=-0.104500  mean event net/share=-0.071619
+   SECONDARY event-cluster bootstrap 95% CI of mean: [-0.168442, +0.031436]
    median trade gross/share=-0.041000  median trade net/share=-0.042966  mean trade net/share=-0.039634
    hit rate (net>0)=14/103 = 0.136
    total net=-4.082294 on staked=17.535528 -> per $ staked=-0.232801
@@ -34,9 +39,12 @@ Wayback: events with primary snapshot=73  with sensitivity snapshot=80  no prima
    LogLoss model=0.224015 market=0.149771 diff=+0.074244
    event-level (equal weight per event) Brier model=0.076955 market=0.055868  LogLoss model=0.242717 market=0.177844
 
-snapshot lag T-t: median=30.70h min=12.86h max=69.02h
-primary snapshots with displayed score: 73/73  (no-display-score snapshots use tail q0=0.164706; with a score q0=0)
-snapshot score equals final settlement interval (exact YES-range): 51/73  (all-NO events consistent with below-min: 11/12)
+priced events with zero triggers (primary; contribute 0 to PRIMARY stats): 14
+  minions-monsters-rotten-tomatoes-score-20260630143716847, mutiny-rotten-tomatoes-score-20260824, normal-rotten-tomatoes-score, practical-magic-2-rotten-tomatoes-score-20260914, project-hail-mary-rotten-tomatoes-score, scary-movie-rotten-tomatoes-score, scream-7-rotten-tomatoes-score, shaun-the-sheep-the-beast-of-mossy-bottom-rotten-tomatoes-score-20260921, the-breadwinner-rotten-tomatoes-score, the-invite-rotten-tomato-score, the-sheep-detectives-rotten-tomatoes-score, undertone-rotten-tomatoes-score, verity-rotten-tomatoes-score-20261005, you-me-tuscany-rotten-tomatoes-score
+
+snapshot lag T-t: median=30.60h min=12.86h max=69.02h
+primary snapshots with displayed score: 74/74  (no-display-score snapshots use tail q0=0.164706; with a score q0=0)
+snapshot score equals final settlement interval (exact YES-range): 51/74  (all-NO events consistent with below-min: 11/12)
 
 triggered event detail (primary):
   animal-farm-rotten-tomatoes-score: NO@20+ p=0.746 mid=0.900 net=-0.1149  sum_net=-0.1149
@@ -94,32 +102,32 @@ triggered event detail (primary):
 
 == spot checks (3 random events, seed 20261021)
 
--- the-sheep-detectives-rotten-tomatoes-score  (RT /m/the_sheep_detectives, primary snapshot 20260508165855)
-   archived criticsScore snippet: "criticsScore":{"averageRating":"7.30","certified":true,"likedCount":101,"notLikedCount":5,"ratingCount":106,"reviewCount":106,"score":"95","sentiment":"POSITIVE","reviewsPageUrl":"/m/the_sheep_detectives/reviews","scorePercent":"95%","title":"Tomatometer"}
-   parsed: liked=101 notLiked=5 reviewCount=106 score=95
-   Gamma settlement: YES max=90, next NO=95; final displayed score in [90,95)
-   first archive capture after settlement (20260516021756): liked=153 notLiked=10 reviewCount=163 score=94
-   live RT today (may have drifted): liked=208 notLiked=10 reviewCount=218 score=95
-
--- shaun-the-sheep-the-beast-of-mossy-bottom-rotten-tomatoes-score-20260921  (RT /m/shaun_the_sheep_the_beast_of_mossy_bottom, primary snapshot 20260921005214)
-   archived criticsScore snippet: "criticsScore":{"averageRating":"8.00","certified":false,"likedCount":61,"notLikedCount":1,"ratingCount":62,"reviewCount":62,"score":"98","sentiment":"POSITIVE","reviewsPageUrl":"/m/shaun_the_sheep_the_beast_of_mossy_bottom/reviews","scorePercent":"98%","title":"Tomatometer"}
-   parsed: liked=61 notLiked=1 reviewCount=62 score=98
-   Gamma settlement: YES max=95, next NO=100; final displayed score in [95,100)
-   first archive capture after settlement (20260925165938): liked=74 notLiked=1 reviewCount=75 score=99
-   live RT today (may have drifted): liked=86 notLiked=1 reviewCount=87 score=99
-
--- tony-rotten-tomatoes-score-20260806170107426  (RT /m/tony_2026, primary snapshot 20260808144617)
-   archived criticsScore snippet: "criticsScore":{"averageRating":"7.60","certified":true,"likedCount":77,"notLikedCount":4,"ratingCount":81,"reviewCount":81,"score":"95","sentiment":"POSITIVE","reviewsPageUrl":"/m/tony_2026/reviews","scorePercent":"95%","title":"Tomatometer"}
-   parsed: liked=77 notLiked=4 reviewCount=81 score=95
+-- the-odyssey-rotten-tomato-score  (RT /m/the_odyssey_2026, primary snapshot 20260720004142)
+   archived criticsScore snippet: "criticsScore":{"averageRating":"8.70","certified":true,"likedCount":359,"notLikedCount":19,"ratingCount":378,"reviewCount":378,"score":"95","sentiment":"POSITIVE","reviewsPageUrl":"/m/the_odyssey_2026/reviews","scorePercent":"95%","title":"Tomatometer"}
+   parsed: liked=359 notLiked=19 reviewCount=378 score=95
    Gamma settlement: YES max=95, next NO=96; final displayed score in [95,96)
-   first archive capture after settlement (20260815230829): liked=126 notLiked=8 reviewCount=134 score=94
-   live RT today (may have drifted): liked=217 notLiked=17 reviewCount=234 score=93
+   first archive capture after settlement (20260721120832): liked=383 notLiked=21 reviewCount=404 score=95
+   live RT today (may have drifted): liked=482 notLiked=33 reviewCount=515 score=94
+
+-- sense-and-sensibility-rotten-tomatoes-score-20261019  (RT /m/sense_and_sensibility_2026, sensitivity snapshot 20261016073011)
+   archived criticsScore snippet: "criticsScore":{"averageRating":"7.10","certified":false,"likedCount":56,"notLikedCount":18,"ratingCount":74,"reviewCount":74,"score":"76","sentiment":"POSITIVE","reviewsPageUrl":"/m/sense_and_sensibility_2026/reviews","scorePercent":"76%","title":"Tomatometer"}
+   parsed: liked=56 notLiked=18 reviewCount=74 score=76
+   Gamma settlement: YES max=76, next NO=78; final displayed score in [76,78)
+   first archive capture after settlement: 未取到
+   live RT today (may have drifted): liked=82 notLiked=24 reviewCount=106 score=77
+
+-- they-will-kill-you-rotten-tomatoes-score  (RT /m/they_will_kill_you, primary snapshot 20260329084503)
+   archived criticsScore snippet: "criticsScore":{"averageRating":"6.20","certified":false,"likedCount":73,"notLikedCount":38,"ratingCount":111,"reviewCount":111,"score":"66","sentiment":"POSITIVE","reviewsPageUrl":"/m/they_will_kill_you/reviews","scorePercent":"66%","title":"Tomatometer"}
+   parsed: liked=73 notLiked=38 reviewCount=111 score=66
+   Gamma settlement: YES max=65, next NO=70; final displayed score in [65,70)
+   first archive capture after settlement (20260331141320): liked=81 notLiked=47 reviewCount=128 score=63
+   live RT today (may have drifted): liked=119 notLiked=62 reviewCount=181 score=66
 
 ==============================================================================
 VERDICT: FAIL
   independent priced events (primary) = 66  (threshold for verdict: 30)
   model Brier 0.066637 vs market 0.035369
   model logloss 0.214928 vs market 0.121872
-  median event net -0.113876; median filled-share gross -0.034787
+  median event net -0.054190; median filled-share gross -0.034787
 
-wrote events.csv (30653 bytes, 85 rows)
+wrote events.csv (31387 bytes, 85 rows)

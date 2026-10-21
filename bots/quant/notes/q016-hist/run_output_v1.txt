@@ -1,0 +1,125 @@
+quant-016 historical executable-price backtest
+access date: 2026-10-21
+Gamma query: tag_slug=rotten-tomatoes&limit=500&closed=true&order=endDate&ascending=false
+closed events enumerated: 85
+date span (endDate): 2026-03-02 .. 2026-10-19   (one event has endDate=null, closedTime ['2024-12-23T19:03:39Z'])
+markets: 530 (cumulative-threshold markets 525, range-style 5)
+feeSchedule (rate, takerOnly) observed: {(0.05, True): 460}
+mapped to RT slug: 85/85
+
+Wayback: events with primary snapshot=73  with sensitivity snapshot=80  no primary snapshot (excl. range)=11  range-excluded=1  capture-list source={'cdx': 73}
+  SNAP-SKIP mufasa-the-lion-king-rotten-tomatoes-score: range_style_brackets_excluded
+
+==============================================================================
+-- primary window [T-72h, T-12h], price [t-6h, t]
+   independent priced events=66  scored thresholds=192
+   triggered trades=92  events/triggered=52  YES=40  NO=52
+   median event net/share=-0.113876  mean event net/share=-0.079474
+   event-cluster bootstrap 95% CI of mean: [-0.168443, +0.017816]
+   median trade gross/share=-0.034787  median trade net/share=-0.036465  mean trade net/share=-0.044920
+   hit rate (net>0)=9/92 = 0.098
+   total net=-4.132638 on staked=12.708319 -> per $ staked=-0.325192
+   Brier  model=0.066637 market=0.035369 diff=+0.031268
+   LogLoss model=0.214928 market=0.121872 diff=+0.093056
+   event-level (equal weight per event) Brier model=0.070931 market=0.039374  LogLoss model=0.226112 market=0.135803
+-- sensitivity [T-7d, T-24h], price [t-6h, t]
+   independent priced events=73  scored thresholds=218
+   triggered trades=103  events/triggered=57  YES=49  NO=54
+   median event net/share=-0.104500  mean event net/share=-0.071619
+   event-cluster bootstrap 95% CI of mean: [-0.168442, +0.031436]
+   median trade gross/share=-0.041000  median trade net/share=-0.042966  mean trade net/share=-0.039634
+   hit rate (net>0)=14/103 = 0.136
+   total net=-4.082294 on staked=17.535528 -> per $ staked=-0.232801
+   Brier  model=0.070161 market=0.045723 diff=+0.024439
+   LogLoss model=0.224015 market=0.149771 diff=+0.074244
+   event-level (equal weight per event) Brier model=0.076955 market=0.055868  LogLoss model=0.242717 market=0.177844
+
+snapshot lag T-t: median=30.70h min=12.86h max=69.02h
+primary snapshots with displayed score: 73/73  (no-display-score snapshots use tail q0=0.164706; with a score q0=0)
+snapshot score equals final settlement interval (exact YES-range): 51/73  (all-NO events consistent with below-min: 11/12)
+
+triggered event detail (primary):
+  animal-farm-rotten-tomatoes-score: NO@20+ p=0.746 mid=0.900 net=-0.1149  sum_net=-0.1149
+  buddy-rotten-tomatoes-score-20260831: NO@80+ p=0.948 mid=0.990 net=-0.0210  sum_net=-0.0210
+  coyote-vs-acme-rotten-tomatoes-score-20260831: NO@92+ p=0.964 mid=0.998 net=-0.0122; NO@96+ p=0.286 mid=0.660 net=-0.3614  sum_net=-0.3736
+  deep-water-rotten-tomatoes-score: NO@70+ p=0.777 mid=0.960 net=-0.0524  sum_net=-0.0524
+  desert-warrior-rotten-tomatoes-score: YES@50+ p=0.090 mid=0.010 net=-0.0210  sum_net=-0.0210
+  digger-rotten-tomatoes-score-20261005: NO@49+ p=0.737 mid=0.990 net=-0.0210; NO@50+ p=0.623 mid=0.979 net=-0.0327; NO@51+ p=0.498 mid=0.810 net=-0.2080; YES@53+ p=0.260 mid=0.061 net=-0.0743  sum_net=-0.3360
+  evil-dead-burn-rotten-tomatoes-score-20260708180406392: NO@70+ p=0.621 mid=0.941 net=-0.0722; YES@75+ p=0.159 mid=0.006 net=-0.0168  sum_net=-0.0890
+  faces-of-death-rotten-tomatoes-score: NO@64+ p=0.823 mid=0.980 net=-0.0319; NO@68+ p=0.555 mid=0.670 net=+0.6491; YES@70+ p=0.394 mid=0.093 net=-0.1074  sum_net=+0.5099
+  finding-emily-rotten-tomatoes-score: YES@88+ p=0.378 mid=0.200 net=+0.7817  sum_net=+0.7817
+  forbidden-fruits-rotten-tomatoes-score: NO@76+ p=0.643 mid=0.860 net=-0.1564; NO@79+ p=0.438 mid=0.530 net=-0.4925; YES@82+ p=0.236 mid=0.002 net=-0.0126; YES@85+ p=0.091 mid=0.001 net=-0.0115  sum_net=-0.6730
+  forgotten-island-rotten-tomatoes-score-20260928: NO@95+ p=0.260 mid=0.490 net=-0.5325  sum_net=-0.5325
+  hoppers-rotten-tomatoes-score: NO@96+ p=0.096 mid=0.160 net=+0.1436  sum_net=+0.1436
+  i-love-boosters-rotten-tomatoes-score: NO@89+ p=0.730 mid=0.978 net=-0.0331; YES@93+ p=0.220 mid=0.058 net=-0.0716  sum_net=-0.1047
+  in-the-grey-rotten-tomatoes-score: NO@40+ p=0.764 mid=0.960 net=-0.0524; NO@45+ p=0.542 mid=0.660 net=-0.3614; YES@55+ p=0.135 mid=0.005 net=-0.0157; YES@60+ p=0.043 mid=0.003 net=-0.0136  sum_net=-0.4430
+  insidious-out-of-the-further-rotten-tomatoes-score-20260824: NO@60+ p=0.488 mid=0.660 net=+0.6386  sum_net=+0.6386
+  is-god-is-rotten-tomatoes-score: YES@99+ p=0.032 mid=0.001 net=-0.0119  sum_net=-0.0119
+  lee-cronins-the-mummy-rotten-tomatoes-score: NO@45+ p=0.519 mid=0.750 net=-0.2696  sum_net=-0.2696
+  michael-rotten-tomatoes-score: NO@35+ p=0.832 mid=0.994 net=-0.0169; YES@40+ p=0.293 mid=0.013 net=-0.0240  sum_net=-0.0408
+  moana-rotten-tomatoes-score-20260630145544856: YES@35+ p=0.389 mid=0.200 net=-0.2183  sum_net=-0.2183
+  mortal-kombat-ii-rotten-tomatoes-score: NO@65+ p=0.461 mid=0.600 net=-0.4221; YES@70+ p=0.085 mid=0.010 net=-0.0210  sum_net=-0.4431
+  mother-mary-rotten-tomatoes-score: YES@80+ p=0.061 mid=0.009 net=-0.0199  sum_net=-0.0199
+  obsession-rotten-tomatoes-score: NO@95+ p=0.255 mid=0.430 net=+0.4078  sum_net=+0.4078
+  one-night-only-rotten-tomatoes-score-20260804175420044: YES@50+ p=0.391 mid=0.264 net=-0.2839  sum_net=-0.2839
+  onslaught-rotten-tomatoes-score-20260907: YES@56+ p=0.364 mid=0.112 net=+0.8726; YES@58+ p=0.223 mid=0.009 net=-0.0199; YES@60+ p=0.119 mid=0.004 net=-0.0147  sum_net=+0.8380
+  other-mommy-rotten-tomatoes-score-20261009: YES@20+ p=0.395 mid=0.178 net=-0.1956; YES@22+ p=0.263 mid=0.110 net=-0.1253  sum_net=-0.3209
+  passenger-rotten-tomatoes-score: YES@50+ p=0.187 mid=0.098 net=-0.1129  sum_net=-0.1129
+  paw-patrol-the-dino-movie-rotten-tomatoes-score-20260709174855589: NO@80+ p=0.461 mid=0.860 net=-0.1564  sum_net=-0.1564
+  primetime-rotten-tomatoes-score: NO@87+ p=0.462 mid=0.918 net=-0.0965  sum_net=-0.0965
+  project-hail-mary-rotten-tomatoes-score-higher-strikes: NO@93+ p=0.909 mid=0.981 net=-0.0304; NO@94+ p=0.749 mid=0.957 net=-0.0555; NO@95+ p=0.473 mid=0.662 net=-0.3594  sum_net=-0.4454
+  ready-or-not-2-here-i-come-rotten-tomatoes-score: NO@73+ p=0.698 mid=0.989 net=-0.0220; YES@76+ p=0.386 mid=0.210 net=-0.2286  sum_net=-0.2506
+  reminders-of-him-rotten-tomatoes-score: NO@55+ p=0.753 mid=0.980 net=-0.0315; YES@60+ p=0.430 mid=0.340 net=-0.3614  sum_net=-0.3928
+  resident-evil-rotten-tomatoes-score-20260921: NO@96+ p=0.286 mid=0.470 net=+0.4476  sum_net=+0.4476
+  runner-rotten-tomatoes-score-20260914: NO@64+ p=0.824 mid=0.990 net=-0.0210  sum_net=-0.0210
+  spa-weekend-rotten-tomatoes-score: YES@40+ p=0.215 mid=0.010 net=-0.0215  sum_net=-0.0215
+  spider-man-brand-new-day-rotten-tomatoes-score-20260630144021976: NO@90+ p=0.483 mid=0.950 net=-0.0628; YES@91+ p=0.253 mid=0.106 net=-0.1211; YES@92+ p=0.092 mid=0.003 net=-0.0136  sum_net=-0.1976
+  star-wars-the-mandalorian-and-grogu-rotten-tomatoes-score: NO@60+ p=0.772 mid=0.991 net=-0.0201; YES@65+ p=0.210 mid=0.101 net=-0.1154  sum_net=-0.1355
+  street-fighter-rotten-tomatoes-score-20261019: NO@40+ p=0.596 mid=0.790 net=-0.2286; YES@45+ p=0.234 mid=0.140 net=-0.1564  sum_net=-0.3850
+  the-bride-rotten-tomatoes-score: YES@60+ p=0.376 mid=0.018 net=-0.0294  sum_net=-0.0294
+  the-death-of-robin-hood-rotten-tomatoes-score: YES@70+ p=0.432 mid=0.070 net=+0.9163  sum_net=+0.9163
+  the-devil-wears-prada-2-rotten-tomatoes-score: YES@80+ p=0.156 mid=0.043 net=-0.0560  sum_net=-0.0560
+  the-drama-rotten-tomatoes-score: NO@72+ p=0.896 mid=0.997 net=-0.0136; NO@75+ p=0.651 mid=0.911 net=-0.1030; NO@77+ p=0.414 mid=0.911 net=-0.1035; YES@80+ p=0.120 mid=0.020 net=-0.0315  sum_net=-0.2515
+  the-end-of-oak-street-rotten-tomatoes-score-20260810194028622: NO@86+ p=0.458 mid=0.771 net=-0.2481  sum_net=-0.2481
+  the-fix-rotten-tomatoes-score-20260914: NO@15+ p=0.765 mid=0.819 net=-0.1991  sum_net=-0.1991
+  the-magic-faraway-tree-rotten-tomatoes-score: YES@80+ p=0.389 mid=0.125 net=-0.1408  sum_net=-0.1408
+  the-odyssey-rotten-tomato-score: NO@95+ p=0.435 mid=0.941 net=-0.0722; YES@96+ p=0.129 mid=0.010 net=-0.0210  sum_net=-0.0932
+  the-social-reckoning-rotten-tomatoes-score-20261009: NO@54+ p=0.497 mid=0.972 net=-0.0398; YES@56+ p=0.281 mid=0.120 net=-0.1357; YES@58+ p=0.124 mid=0.004 net=-0.0147  sum_net=-0.1902
+  the-super-mario-galaxy-movie-rotten-tomatoes-score: YES@45+ p=0.172 mid=0.019 net=-0.0299  sum_net=-0.0299
+  the-uprising-rotten-tomatoes-score-20260914: NO@52+ p=0.568 mid=0.790 net=-0.2286; NO@56+ p=0.316 mid=0.440 net=+0.4177  sum_net=+0.1892
+  they-will-kill-you-rotten-tomatoes-score: NO@60+ p=0.889 mid=0.998 net=-0.0126; NO@65+ p=0.551 mid=0.870 net=-0.1460; YES@70+ p=0.156 mid=0.011 net=-0.0220  sum_net=-0.1806
+  tony-rotten-tomatoes-score-20260806170107426: NO@90+ p=0.922 mid=0.990 net=-0.0210; NO@95+ p=0.391 mid=0.590 net=-0.4322  sum_net=-0.4532
+  whalefall-rotten-tomatoes-score-20261019: NO@70+ p=0.552 mid=0.969 net=-0.0430; YES@76+ p=0.060 mid=0.018 net=-0.0294  sum_net=-0.0723
+  you-can-see-everything-rotten-tomatoes-score-20261019: NO@96+ p=0.924 mid=0.990 net=-0.0210; NO@98+ p=0.618 mid=0.920 net=-0.0941; NO@99+ p=0.279 mid=0.660 net=-0.3614  sum_net=-0.4765
+
+== spot checks (3 random events, seed 20261021)
+
+-- the-sheep-detectives-rotten-tomatoes-score  (RT /m/the_sheep_detectives, primary snapshot 20260508165855)
+   archived criticsScore snippet: "criticsScore":{"averageRating":"7.30","certified":true,"likedCount":101,"notLikedCount":5,"ratingCount":106,"reviewCount":106,"score":"95","sentiment":"POSITIVE","reviewsPageUrl":"/m/the_sheep_detectives/reviews","scorePercent":"95%","title":"Tomatometer"}
+   parsed: liked=101 notLiked=5 reviewCount=106 score=95
+   Gamma settlement: YES max=90, next NO=95; final displayed score in [90,95)
+   first archive capture after settlement (20260516021756): liked=153 notLiked=10 reviewCount=163 score=94
+   live RT today (may have drifted): liked=208 notLiked=10 reviewCount=218 score=95
+
+-- shaun-the-sheep-the-beast-of-mossy-bottom-rotten-tomatoes-score-20260921  (RT /m/shaun_the_sheep_the_beast_of_mossy_bottom, primary snapshot 20260921005214)
+   archived criticsScore snippet: "criticsScore":{"averageRating":"8.00","certified":false,"likedCount":61,"notLikedCount":1,"ratingCount":62,"reviewCount":62,"score":"98","sentiment":"POSITIVE","reviewsPageUrl":"/m/shaun_the_sheep_the_beast_of_mossy_bottom/reviews","scorePercent":"98%","title":"Tomatometer"}
+   parsed: liked=61 notLiked=1 reviewCount=62 score=98
+   Gamma settlement: YES max=95, next NO=100; final displayed score in [95,100)
+   first archive capture after settlement (20260925165938): liked=74 notLiked=1 reviewCount=75 score=99
+   live RT today (may have drifted): liked=86 notLiked=1 reviewCount=87 score=99
+
+-- tony-rotten-tomatoes-score-20260806170107426  (RT /m/tony_2026, primary snapshot 20260808144617)
+   archived criticsScore snippet: "criticsScore":{"averageRating":"7.60","certified":true,"likedCount":77,"notLikedCount":4,"ratingCount":81,"reviewCount":81,"score":"95","sentiment":"POSITIVE","reviewsPageUrl":"/m/tony_2026/reviews","scorePercent":"95%","title":"Tomatometer"}
+   parsed: liked=77 notLiked=4 reviewCount=81 score=95
+   Gamma settlement: YES max=95, next NO=96; final displayed score in [95,96)
+   first archive capture after settlement (20260815230829): liked=126 notLiked=8 reviewCount=134 score=94
+   live RT today (may have drifted): liked=217 notLiked=17 reviewCount=234 score=93
+
+==============================================================================
+VERDICT: FAIL
+  independent priced events (primary) = 66  (threshold for verdict: 30)
+  model Brier 0.066637 vs market 0.035369
+  model logloss 0.214928 vs market 0.121872
+  median event net -0.113876; median filled-share gross -0.034787
+
+wrote events.csv (30653 bytes, 85 rows)

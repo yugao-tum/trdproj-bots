@@ -1,0 +1,52 @@
+== v1 vs v2 stdout ==
+metric                                                               v1                           v2
+mapped to RT slug                                                 85/85                        85/85
+Wayback primary/sensitivity                                       73/80                        74/81
+priced events / scored thresholds                                    66                           66
+triggered trades                                                     92                           92
+events triggered                                                     52                           52
+events zero-trigger                                                 n/a                           14
+PRIMARY median event net/share                                -0.113876                    -0.054190
+PRIMARY mean event net/share                                  -0.079474                    -0.062616
+PRIMARY bootstrap 95% CI                         [-0.168443, +0.017816]       [-0.132925, +0.014020]
+SECONDARY median event net/share                              -0.113876                    -0.113876
+SECONDARY mean event net/share                                -0.079474                    -0.079474
+SECONDARY bootstrap 95% CI                       [-0.168443, +0.017816]       [-0.168443, +0.017816]
+median filled-share gross                                     -0.034787                    -0.034787
+Brier model/market/diff                                        0.066637                     0.066637
+LogLoss model/market/diff                                      0.214928                     0.214928
+verdict priced events                                                66                           66
+VERDICT                                                            FAIL                         FAIL
+sensitivity priced/scored                                        73/218                       73/218
+sensitivity PRIMARY median / mean                                   n/a        -0.026219 / -0.055922
+sensitivity PRIMARY 95% CI                                          n/a       [-0.134821, +0.024336]
+sensitivity SECONDARY median / mean                                 n/a        -0.104500 / -0.071619
+
+== v1 mapping / events.csv ==
+mapped=85/85 methods={'rt_search_exact_title': 83, 'slug_fallback_no_exact_title': 2}
+unmapped=[]
+priced_events_with_zero_triggers=14 ['minions-monsters-rotten-tomatoes-score-20260630143716847', 'mutiny-rotten-tomatoes-score-20260824', 'normal-rotten-tomatoes-score', 'practical-magic-2-rotten-tomatoes-score-20260914', 'project-hail-mary-rotten-tomatoes-score', 'scary-movie-rotten-tomatoes-score', 'scream-7-rotten-tomatoes-score', 'shaun-the-sheep-the-beast-of-mossy-bottom-rotten-tomatoes-score-20260921', 'the-breadwinner-rotten-tomatoes-score', 'the-invite-rotten-tomato-score', 'the-sheep-detectives-rotten-tomatoes-score', 'undertone-rotten-tomatoes-score', 'verity-rotten-tomatoes-score-20261005', 'you-me-tuscany-rotten-tomatoes-score']
+no_primary_snapshot=11 ['by-any-means-rotten-tomatoes-score', 'fall-2-deadpoint-rotten-tomatoes-score', 'fantasy-life-rotten-tomatoes-score', 'heart-of-the-beast-rotten-tomatoes-score-20260928', 'ice-cream-man-rotten-tomatoes-score-20260804175216571', 'idiots-rotten-tomatoes-score', 'over-your-live-body-rotten-tomatoes-score', 'sense-and-sensibility-rotten-tomatoes-score-20261019', 'super-troopers-3-rotten-tomatoes-score-20260804175312529', 'the-dog-stars-rotten-tomatoes-score-20260831', 'the-weight-rotten-tomatoes-score-20260921']
+over-your-live-body-rotten-tomatoes-score: rt_slug='over_your_live_body' map_method=slug_fallback_no_exact_title map_note='' snap_p='' snap_s='' priced='0'
+evil-dead-burn-rotten-tomatoes-score-20260708180406392: rt_slug='evil_dead_burn' map_method=slug_fallback_no_exact_title map_note='' snap_p='20260711213912' snap_s='20260711213912' priced='3'
+
+== v2 mapping / events.csv ==
+mapped=85/85 methods={'rt_search_exact_title': 85}
+unmapped=[]
+priced_events_with_zero_triggers=14 ['minions-monsters-rotten-tomatoes-score-20260630143716847', 'mutiny-rotten-tomatoes-score-20260824', 'normal-rotten-tomatoes-score', 'practical-magic-2-rotten-tomatoes-score-20260914', 'project-hail-mary-rotten-tomatoes-score', 'scary-movie-rotten-tomatoes-score', 'scream-7-rotten-tomatoes-score', 'shaun-the-sheep-the-beast-of-mossy-bottom-rotten-tomatoes-score-20260921', 'the-breadwinner-rotten-tomatoes-score', 'the-invite-rotten-tomato-score', 'the-sheep-detectives-rotten-tomatoes-score', 'undertone-rotten-tomatoes-score', 'verity-rotten-tomatoes-score-20261005', 'you-me-tuscany-rotten-tomatoes-score']
+no_primary_snapshot=10 ['by-any-means-rotten-tomatoes-score', 'fall-2-deadpoint-rotten-tomatoes-score', 'fantasy-life-rotten-tomatoes-score', 'heart-of-the-beast-rotten-tomatoes-score-20260928', 'ice-cream-man-rotten-tomatoes-score-20260804175216571', 'idiots-rotten-tomatoes-score', 'sense-and-sensibility-rotten-tomatoes-score-20261019', 'super-troopers-3-rotten-tomatoes-score-20260804175312529', 'the-dog-stars-rotten-tomatoes-score-20260831', 'the-weight-rotten-tomatoes-score-20260921']
+over-your-live-body-rotten-tomatoes-score: rt_slug='over_your_dead_body_2026' map_method=rt_search_exact_title map_note='' snap_p='20260426124238' snap_s='20260426124238' priced='0'
+evil-dead-burn-rotten-tomatoes-score-20260708180406392: rt_slug='evil_dead_burn' map_method=rt_search_exact_title map_note='' snap_p='20260711213912' snap_s='20260711213912' priced='3'
+
+== sha256 ==
+dbfce42c1e03c802eecf3a8e719068e703ea2ba18bf86b97375fdd060058a9fa  run_output_v1.txt
+46f410db4fc04f452430a8bbd88c040f2121af4827ea9bc12d8dcfba98bcdead  run_output.txt
+d0e9121aebadb6e5a8872294aef06b38f1e9f15b6ad7e07e99d02083a1628065  events_v1.csv
+7c8bd5972c7805fb32a39d1666a79142e3f447f2e53a4990c2ef917e51a1f626  events.csv
+
+== cache audit (local _cache, gitignored) ==
+rt_search files=84 maintenance_or_invalid=0 []
+wayback snapshot files=109 partial_or_error=0 []
+cdx files=90 invalid=0 empty_lists=4 ['fantasy_life_202603231400_202603301400.json', 'over_your_live_body_202604201400_202604271400.json', 'the_weight_2026_202609141400_202609211400.json', 'sense_and_sensibility_2026_202610200200_202611181400.json']
+timemap files=4 invalid=0 []
+trade files=669 invalid=0 max_rows=131 files_with_>=500_rows=0

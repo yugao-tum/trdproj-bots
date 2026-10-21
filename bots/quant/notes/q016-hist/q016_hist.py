@@ -18,6 +18,13 @@ with the reason.  One event = one independent result (all its thresholds share o
 settlement).  Range-style brackets are excluded from trading/scoring, as the entry
 explicitly says "不做区间写法"; the only such event is reported separately.
 
+v2 review-fix (2026-10-21): RT search responses that are maintenance/error pages are
+never cached or reused as successful searches.  A slug built by the no-exact-title
+fallback is verified against a live RT film page (title, and year where available);
+a fallback that cannot be verified is marked UNMAPPED instead of counted as mapped.
+CDX / timemap / snapshot / trade caches are only written after a complete, parsable
+response, so a failed or partial download is not saved as complete.
+
 Decision time and snapshots
 ---------------------------
 T = the rule's reading time, parsed from the Gamma rules text as
@@ -72,6 +79,9 @@ Gross/share = payoff - entry_price; Net/share = gross/share - fee.
 Independent result / verdict
 ----------------------------
 Event result = sum of net/share over its triggered thresholds (equal one share each).
+v2: the empty sum for a priced event with no trigger is 0, so every priced event enters
+the PRIMARY event statistics (zero included).  The old triggered-only event statistics
+are retained as a labelled SECONDARY view.
 "Independent priced event" = an event with >= 1 threshold having BOTH a model snapshot
 and an executable trade in the price window.  Frozen criterion, mapped to the requested
 three-way verdict (pre-declared):
@@ -265,20 +275,98 @@ def parse_rt_search(page):
     return rows
 
 
-def map_event(e):
-    film = event_title_film(e)
-    event_year = int((e.get("endDate") or e.get("closedTime") or "2026")[:4])
+def valid_rt_search_page(page):
+    """A search response is usable only if it is a real page, not maintenance/error."""
+    if not page or "Maintenance in progress" in page:
+        return False
+    low = page.lower()
+    if 'data-qa="data-row"' in page:
+        return True
+    return ("no results" in low or "no matches" in low) and "<html" in low
+
+
+def rt_search_page(film):
     key = hashlib.sha1(film.encode("utf-8")).hexdigest()[:16]
     cache = CACHE / "rt_search" / f"{key}.html"
     if cache.exists():
         page = cache.read_text(encoding="utf-8", errors="replace")
-    else:
-        r = RT_SESSION.get("https://www.rottentomatoes.com/search",
-                           params={"search": film}, timeout=45)
-        page = r.text
-        if r.status_code == 200:
+        if valid_rt_search_page(page):
+            return page
+        # A maintenance/error body was previously saved as a successful search.
+        cache.unlink(missing_ok=True)
+    last = None
+    for attempt in range(3):
+        try:
+            r = RT_SESSION.get("https://www.rottentomatoes.com/search",
+                               params={"search": film}, timeout=45)
+            page = r.text
+            if r.status_code == 200 and valid_rt_search_page(page):
+                cache.parent.mkdir(parents=True, exist_ok=True)
+                cache.write_text(page, encoding="utf-8")
+                return page
+            last = f"HTTP {r.status_code}"
+        except Exception as e:
+            last = f"{type(e).__name__}: {e}"
+        time.sleep(1.0 * (attempt + 1))
+    print(f"  RT-SEARCH-FAIL {film!r}: {last}")
+    return ""
+
+
+def valid_rt_film_page(text):
+    if not text or len(text) < 2000 or "Maintenance in progress" in text:
+        return False
+    low = text.lower()
+    return "</html>" in low and "wayback machine has not archived" not in low
+
+
+def rt_live_page(slug):
+    cache = CACHE / "rt_live" / f"{safe_name(slug)}.html"
+    if cache.exists():
+        text = cache.read_text(encoding="utf-8", errors="replace")
+        if valid_rt_film_page(text):
+            return text
+        cache.unlink(missing_ok=True)
+    try:
+        r = RT_SESSION.get(f"https://www.rottentomatoes.com/m/{slug}", timeout=45)
+        if r.status_code == 200 and valid_rt_film_page(r.text):
             cache.parent.mkdir(parents=True, exist_ok=True)
-            cache.write_text(page, encoding="utf-8")
+            cache.write_text(r.text, encoding="utf-8")
+            return r.text
+    except Exception:
+        pass
+    return ""
+
+
+def rt_page_identity(text):
+    m = re.search(r"<title>(.*?)</title>", text, re.S | re.I)
+    title = html.unescape(m.group(1)).strip() if m else ""
+    title = re.sub(r"\s*\|\s*Rotten Tomatoes.*$", "", title, flags=re.I).strip()
+    mt = re.search(r"\((\d{4})\)\s*$", title)
+    year = int(mt.group(1)) if mt else None
+    if year is None:
+        my = re.search(r'"releaseYear"\s*:\s*"?(\d{4})', text)
+        if my:
+            year = int(my.group(1))
+    return title, year
+
+
+def verify_fallback_slug(slug, film, event_year):
+    page = rt_live_page(slug)
+    if not page:
+        return False, f"no_verified_live_page_for_{slug}"
+    title, year = rt_page_identity(page)
+    clean = re.sub(r"\(\d{4}\)\s*$", "", title).strip()
+    if norm_text(clean) != norm_text(film):
+        return False, f"title_mismatch:{slug}->{title!r}"
+    if year is not None and abs(year - event_year) > 1:
+        return False, f"year_mismatch:{slug}->{year} vs event {event_year}"
+    return True, f"verified_live_title={title!r}" + (f";year={year}" if year else "")
+
+
+def map_event(e):
+    film = event_title_film(e)
+    event_year = int((e.get("endDate") or e.get("closedTime") or "2026")[:4])
+    page = rt_search_page(film)
     rows = parse_rt_search(page)
     exact = [x for x in rows if norm_text(x["title"]) == norm_text(film)]
 
@@ -294,14 +382,32 @@ def map_event(e):
         return {
             "film": film, "rt_slug": pick["rt_slug"], "rt_title": pick["title"],
             "rt_year": pick["year"], "map_method": "rt_search_exact_title",
+            "map_verified": True,
             "map_note": "" if dy(pick) <= 1 else f"release_year_diff={dy(pick)}",
         }
-    # fallback: event slug's film part with hyphens -> underscores
+    # Fallback candidates: Polymarket slug film part, then title-derived slug, then
+    # title-derived slug with the event year.  Each candidate MUST be verified on a
+    # live RT film page before it can count as mapped.
     base = re.sub(r"-rotten-tomato(es)?-score.*$", "", e["slug"])
+    title_slug = re.sub(r"[^a-z0-9]+", "_", film.lower()).strip("_")
+    cands = []
+    for c in (base.replace("-", "_"), title_slug, f"{title_slug}_{event_year}"):
+        if c and c not in cands:
+            cands.append(c)
+    failures = []
+    for c in cands:
+        ok, note = verify_fallback_slug(c, film, event_year)
+        if ok:
+            return {
+                "film": film, "rt_slug": c, "rt_title": "", "rt_year": "",
+                "map_method": "slug_fallback_verified", "map_verified": True,
+                "map_note": note,
+            }
+        failures.append(note)
     return {
-        "film": film, "rt_slug": base.replace("-", "_"), "rt_title": "",
-        "rt_year": "", "map_method": "slug_fallback_no_exact_title",
-        "map_note": f"search_rows={len(rows)}",
+        "film": film, "rt_slug": "", "rt_title": "", "rt_year": "",
+        "map_method": "slug_fallback_unmapped", "map_verified": False,
+        "map_note": "search_rows=%d; %s" % (len(rows), " | ".join(failures)),
     }
 
 
@@ -336,6 +442,8 @@ def cdx_captures(rt_slug, start, end):
                 return cached
         except Exception:
             pass
+        # Invalid/partial cache: never reuse it as a complete capture list.
+        cache.unlink(missing_ok=True)
     params = {
         "url": f"rottentomatoes.com/m/{rt_slug}",
         "output": "json",
@@ -349,17 +457,27 @@ def cdx_captures(rt_slug, start, end):
     if text:
         try:
             j = json.loads(text)
-            if j and isinstance(j, list):
-                head = j[0]
-                for row in j[1:]:
-                    rec = dict(zip(head, row))
-                    rows.append({
-                        "ts": rec.get("timestamp", ""),
-                        "original": rec.get("original", ""),
-                        "status": rec.get("statuscode", ""),
-                    })
-        except Exception:
-            rows = []
+        except Exception as e:
+            cache.unlink(missing_ok=True)
+            raise RuntimeError(f"invalid CDX JSON for {rt_slug}: {e}") from e
+        if not isinstance(j, list):
+            cache.unlink(missing_ok=True)
+            raise RuntimeError(f"CDX response is not a JSON list for {rt_slug}")
+        if j:
+            head = j[0]
+            if not isinstance(head, list) or "timestamp" not in head:
+                cache.unlink(missing_ok=True)
+                raise RuntimeError(f"invalid CDX header for {rt_slug}")
+            for row in j[1:]:
+                if not isinstance(row, list):
+                    cache.unlink(missing_ok=True)
+                    raise RuntimeError(f"invalid CDX row for {rt_slug}")
+                rec = dict(zip(head, row))
+                rows.append({
+                    "ts": rec.get("timestamp", ""),
+                    "original": rec.get("original", ""),
+                    "status": rec.get("statuscode", ""),
+                })
     write_json(cache, rows)
     return rows
 
@@ -379,8 +497,10 @@ def timemap_captures(rt_slug):
                          "original": rec.get("original", ""),
                          "status": rec.get("statuscode", "")})
         return rows
-    except Exception:
-        return []
+    except Exception as e:
+        # Do not leave a partial/unparsable timemap on disk as if it were complete.
+        cache.unlink(missing_ok=True)
+        raise RuntimeError(f"invalid timemap for {rt_slug}: {e}") from e
 
 
 def availability_closest(rt_slug, when):
@@ -456,6 +576,17 @@ def extract_critics(page_text):
     return None
 
 
+def snapshot_page_ok(text):
+    if not text or len(text) < 2000:
+        return False
+    low = text.lower()
+    if "maintenance in progress" in low:
+        return False
+    if "wayback machine has not archived" in low or "blocked site error" in low:
+        return False
+    return "</html>" in low
+
+
 def fetch_snapshot(rt_slug, ts):
     cache = CACHE / "pages" / safe_name(rt_slug) / f"{ts}.html"
     if cache.exists():
@@ -464,6 +595,10 @@ def fetch_snapshot(rt_slug, ts):
         url = f"{ARCHIVE}/web/{ts}id_/https://www.rottentomatoes.com/m/{rt_slug}"
         raw = archive_get(url, cache_path=cache)
     text = raw.decode("utf-8", errors="replace")
+    if not snapshot_page_ok(text):
+        # A partial/error body must not survive in the cache as a complete snapshot.
+        cache.unlink(missing_ok=True)
+        raise RuntimeError(f"invalid/partial snapshot page for {rt_slug} at {ts}")
     return text
 
 
@@ -643,21 +778,37 @@ def get_trades(condition_id, start, end):
     cache = CACHE / "trades" / f"{safe_name(condition_id)}_{start_i}_{end_i}.json"
     if cache.exists():
         try:
-            return read_json(cache)
+            cached = read_json(cache)
+            if isinstance(cached, list) and all(isinstance(x, dict) for x in cached):
+                return cached
         except Exception:
             pass
+        cache.unlink(missing_ok=True)
     out = []
     offset = 0
-    for _ in range(5):
+    last_n = 0
+    for _ in range(50):
         r = http_get(f"{DATA_API}/trades", {
             "market": condition_id, "limit": 500, "offset": offset,
             "start": start_i, "end": end_i,
         }, tries=5)
-        chunk = r.json()
+        try:
+            chunk = r.json()
+        except Exception as e:
+            cache.unlink(missing_ok=True)
+            raise RuntimeError(f"invalid trade JSON for {condition_id}: {e}") from e
+        if not isinstance(chunk, list):
+            cache.unlink(missing_ok=True)
+            raise RuntimeError(f"trade response is not a list for {condition_id}")
         out.extend(chunk)
-        if len(chunk) < 500:
+        last_n = len(chunk)
+        if last_n < 500:
             break
         offset += 500
+    else:
+        # We stopped at the page cap with a full last page: more data may exist.
+        cache.unlink(missing_ok=True)
+        raise RuntimeError(f"trade pagination incomplete for {condition_id}; not caching")
     write_json(cache, out)
     return out
 
@@ -850,7 +1001,9 @@ def simulate(rows, which):
 # --------------------------------------------------------------------------------------
 def collect_metrics(rows, which):
     trades = []
-    event_nets = []
+    event_nets_all = []
+    event_nets_triggered = []
+    zero_trigger_events = []
     priced_events = 0
     model_b, mkt_b, model_l, mkt_l = [], [], [], []
     event_b_pairs, event_l_pairs = [], []
@@ -864,7 +1017,16 @@ def collect_metrics(rows, which):
             priced_events += 1
         if ev_trades:
             trades.extend(ev_trades)
-            event_nets.append(sum(d["net"] for d in ev_trades))
+        if scored:
+            # Declared event result = sum over triggered thresholds.  For a priced
+            # event with no trigger this is the empty sum, i.e. 0, and it must enter
+            # the PRIMARY event statistics.
+            ev_net = sum(d["net"] for d in ev_trades) if ev_trades else 0.0
+            event_nets_all.append(ev_net)
+            if ev_trades:
+                event_nets_triggered.append(ev_net)
+            else:
+                zero_trigger_events.append(row["event"]["slug"])
         if scored:
             eb_m, eb_k, el_m, el_k = [], [], [], []
             for d in scored:
@@ -882,12 +1044,18 @@ def collect_metrics(rows, which):
     staked = sum(d["entry"] for d in trades)
     total_net = sum(d["net"] for d in trades)
     gross = [d["gross"] for d in trades]
-    ci = bootstrap_mean(event_nets, SEED, BOOL_N)
+    ci_all = bootstrap_mean(event_nets_all, SEED, BOOL_N)
+    ci_trig = bootstrap_mean(event_nets_triggered, SEED, BOOL_N)
     return {
-        "trades": trades, "event_nets": event_nets, "priced_events": priced_events,
+        "trades": trades, "event_nets": event_nets_all,
+        "event_nets_triggered": event_nets_triggered,
+        "zero_trigger_events": zero_trigger_events,
+        "priced_events": priced_events,
         "staked": staked, "total_net": total_net,
-        "median_event_net": median(event_nets), "mean_event_net": mean(event_nets),
-        "ci": ci,
+        "median_event_net": median(event_nets_all), "mean_event_net": mean(event_nets_all),
+        "median_event_net_triggered": median(event_nets_triggered),
+        "mean_event_net_triggered": mean(event_nets_triggered),
+        "ci": ci_all, "ci_triggered": ci_trig,
         "median_gross": median(gross), "mean_net_trade": mean([d["net"] for d in trades]),
         "median_net_trade": median([d["net"] for d in trades]),
         "hit": (sum(1 for d in trades if d["net"] > 0), len(trades)),
@@ -906,13 +1074,20 @@ def print_metrics(name, met):
     tr = met["trades"]
     print(f"-- {name}")
     print(f"   independent priced events={met['priced_events']}  scored thresholds={met['n_scored']}")
-    print(f"   triggered trades={len(tr)}  events/triggered={len([x for x in met['event_nets']])}"
+    print(f"   triggered trades={len(tr)}  events/triggered={len(met['event_nets_triggered'])}"
+          f"  events/zero-trigger={len(met['zero_trigger_events'])}"
           f"  YES={sum(1 for d in tr if d['side']=='YES')}"
           f"  NO={sum(1 for d in tr if d['side']=='NO')}")
-    print(f"   median event net/share={fmt(met['median_event_net'])}"
-          f"  mean event net/share={fmt(met['mean_event_net'])}")
     lo, hi = met["ci"]
-    print(f"   event-cluster bootstrap 95% CI of mean: [{fmt(lo)}, {fmt(hi)}]")
+    print(f"   PRIMARY all priced events (zero-trigger event net=0):"
+          f" median event net/share={fmt(met['median_event_net'])}"
+          f"  mean event net/share={fmt(met['mean_event_net'])}")
+    print(f"   PRIMARY event-cluster bootstrap 95% CI of mean: [{fmt(lo)}, {fmt(hi)}]")
+    lo_t, hi_t = met["ci_triggered"]
+    print(f"   SECONDARY triggered-only events:"
+          f" median event net/share={fmt(met['median_event_net_triggered'])}"
+          f"  mean event net/share={fmt(met['mean_event_net_triggered'])}")
+    print(f"   SECONDARY event-cluster bootstrap 95% CI of mean: [{fmt(lo_t)}, {fmt(hi_t)}]")
     print(f"   median trade gross/share={fmt(met['median_gross'])}"
           f"  median trade net/share={fmt(met['median_net_trade'])}"
           f"  mean trade net/share={fmt(met['mean_net_trade'])}")
@@ -1038,10 +1213,15 @@ def main():
                 rate_counter[(fs.get("rate"), fs.get("takerOnly"))] += 1
     print(f"feeSchedule (rate, takerOnly) observed: {dict(sorted(rate_counter.items(), key=str))}")
     mapped = [r for r in rows if r["mp"]["rt_slug"]]
-    print(f"mapped to RT slug: {len(mapped)}/{len(rows)}")
+    methods = collections.Counter(r["mp"]["map_method"] for r in rows)
+    print(f"mapped to RT slug (verified): {len(mapped)}/{len(rows)}")
+    print(f"mapping methods: {dict(sorted(methods.items()))}")
     for r in rows:
         if not r["mp"]["rt_slug"]:
             print(f"  UNMAPPED {r['event']['slug']}: {r['mp']['map_note']}")
+    for r in rows:
+        if r["mp"]["map_method"] == "slug_fallback_verified":
+            print(f"  FALLBACK-VERIFIED {r['event']['slug']}: {r['mp']['rt_slug']} ({r['mp']['map_note']})")
 
     # archive snapshots
     for r in rows:
@@ -1081,6 +1261,10 @@ def main():
     print("\n" + "=" * 78)
     print_metrics("primary window [T-72h, T-12h], price [t-6h, t]", met_p)
     print_metrics("sensitivity [T-7d, T-24h], price [t-6h, t]", met_s)
+    if met_p["zero_trigger_events"]:
+        print(f"\npriced events with zero triggers (primary; contribute 0 to PRIMARY stats):"
+              f" {len(met_p['zero_trigger_events'])}")
+        print("  " + ", ".join(met_p["zero_trigger_events"]))
 
     # snapshot freshness / agreement
     lags = [(r["T"] - ts_of(r["primary"]["ts"])).total_seconds() / 3600.0
@@ -1158,8 +1342,8 @@ def main():
     # events.csv
     csv_path = OUT / "events.csv"
     fields = [
-        "event_slug", "event_title", "film", "rt_slug", "map_method",
-        "resolution_utc", "time_source", "event_end_date", "n_thresholds",
+        "event_slug", "event_title", "film", "rt_slug", "map_method", "map_verified",
+        "map_note", "resolution_utc", "time_source", "event_end_date", "n_thresholds",
         "range_excluded", "snapshot_ts_primary", "snapshot_lag_h", "k", "m", "n",
         "score_t", "tail_q0", "snapshot_ts_sens", "snapshot_lag_h_sens",
         "k_sens", "m_sens", "score_sens", "final_lo", "final_hi", "final_all_no",
@@ -1193,6 +1377,8 @@ def main():
                 "film": r["mp"]["film"],
                 "rt_slug": r["mp"]["rt_slug"],
                 "map_method": r["mp"]["map_method"],
+                "map_verified": r["mp"].get("map_verified", ""),
+                "map_note": r["mp"].get("map_note", ""),
                 "resolution_utc": r["T"].isoformat(),
                 "time_source": r["time_source"],
                 "event_end_date": r["event"].get("endDate") or "",
@@ -1219,9 +1405,12 @@ def main():
                 "triggered": len(tr),
                 "yes_triggered": sum(1 for d in tr if d["side"] == "YES"),
                 "no_triggered": sum(1 for d in tr if d["side"] == "NO"),
-                "event_net": round(sum(d["net"] for d in tr), 8) if tr else "",
-                "event_staked": round(sum(d["entry"] for d in tr), 8) if tr else "",
-                "event_hit": (sum(d["net"] for d in tr) > 0) if tr else "",
+                "event_net": (round(sum(d["net"] for d in tr), 8) if tr
+                              else (0.0 if scored else "")),
+                "event_staked": (round(sum(d["entry"] for d in tr), 8) if tr
+                                 else (0.0 if scored else "")),
+                "event_hit": ((sum(d["net"] for d in tr) > 0) if tr
+                              else (False if scored else "")),
                 "model_brier_event": (round(mean([brier(d["p"], d["y"]) for d in scored]), 8)
                                       if scored else ""),
                 "market_brier_event": (round(mean([brier(d["mid"], d["y"]) for d in scored]), 8)
