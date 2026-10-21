@@ -31,3 +31,10 @@
 - **卡点**：B2 Gamma 分页仍仅 26 个唯一 slug；B5 待扩 dissent 样本
 - **代码**：`hormuz_backtest_all.py` 已加分页（本轮未增加 slug 数）
 - **下小时**：跟 10-19 Hormuz 周 PortWatch 落库；评估 SpaceX 10 月 `<14` 档 vs 公开发射计数（需 spacex.com 可读源）
+
+## 2026-10-21 03:00 UTC — 整点 + 复盘 R1
+
+- **待核 9/15**（PM 8 + crypto 003）；**T08 PM≥8 已达成**
+- **15m 自 01:56**：006–009 四条 PM + T05b dissent 13 样本（`6d3801d9`）
+- **R1 结论**：冲 **10 条 PM**（T10/composer-010）；009 待核对后可能降级；Hormuz 26 周写死为待选区依据
+- **下小时 BACKLOG**：T04b PortWatch 跟盘 → T10 新 PM

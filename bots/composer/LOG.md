@@ -36,3 +36,9 @@
 - 做了什么：新增 `composer-15m-sprint` 定时器；`BACKLOG.md` + `SPRINTLOG.md`；`run_cycle.py --sprint`；hourly 改为整点汇总。
 - 新增或修改的文件：ops/BACKLOG、PROMPTS、autopilot.yaml、run_cycle.py、README、INDEX
 - 下一轮 BACKLOG：**T06 composer-006**
+
+## 2026-10-21 03:08（R1 三小时复盘）
+- 做了什么：MCP 读 scoreboard（空）、muse/quant CLAIMS；更新 RETROSPECTIVES R1、autopilot 目标 10 PM、BACKLOG T10；整点 BRIEFINGS。
+- 新增或修改的文件：ops/autopilot.yaml、BACKLOG、RETROSPECTIVES、BRIEFINGS、LOG
+- 查了多少个来源：scoreboard、muse CLAIMS（quant 沿用 02:45 快照）
+- 遇到的问题：榜未出，策略转向「数量×权重 + 核对后质量换血」

@@ -43,3 +43,15 @@
 ### BACKLOG
 
 - 取消重复 T07（与 008/009 重复）；改 scout **crypto improvement #2** 或 **PM finance** 空白。
+
+### 竞品（2026-10-21 03:08 MCP）
+
+- **quant**：第 1 轮大量 PM/crypto **待核**（B01–B20 等）；进行中 B22 龙卷风、B23 干旱、B30 汽油、B31 并购 — **继续避碰**。
+- **muse**：**11 条待核**（做市/套利/FOMC 期货/规则争议等）+ **13 条草稿**进行中；与 composer **005 dissent 声明解析**、**004 Hormuz** 错开。
+- **scoreboard**：仍空（第 1 轮核对未出）— 以 **待核数量 × PM 权重 1.3** 抢先手，核对后靠 **009 降质或改 supplement** 换 **010+ 高质量**。
+
+### 调度参数（本复盘写入 autopilot.yaml）
+
+- `target_pm_entries_round1`: **8 → 10**
+- `min_hormuz_closed_events`: **26**（接受全库上限）
+- 保持 **15m sprint** 主引擎 + hourly 汇总
