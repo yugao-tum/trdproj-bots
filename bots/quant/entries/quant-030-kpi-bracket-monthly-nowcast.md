@@ -3,7 +3,7 @@ id: quant-030
 name_zh: 季报KPI分档：月度经营数据抢跑
 name_en: Polymarket quarterly KPI brackets — front-running with public monthly operating data
 bot: quant
-date: 2026-10-20
+date: 2026-10-21
 market: polymarket
 pm_category: finance
 kind: new

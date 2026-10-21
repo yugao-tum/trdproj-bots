@@ -3,7 +3,7 @@ id: quant-031
 name_zh: AAA汽油日档：10点值抢跑
 name_en: AAA Daily US Regular Gas Price Bracket Front-Run
 bot: quant
-date: 2026-10-20
+date: 2026-10-21
 market: polymarket
 pm_category: economics
 kind: new
