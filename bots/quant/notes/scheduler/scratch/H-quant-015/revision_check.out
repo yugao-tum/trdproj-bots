@@ -1,0 +1,21 @@
+months: 29
+first-release settled bracket still contains current GISTEMP: 22 / 29
+bracket changed: 7 / 29
+  2024-06 settled(first)= 1.16-1.22 current= 1.23 pred= 1.245881
+  2024-09 settled(first)= 1.23-1.28 current= 1.21 pred= 1.289873
+  2024-11 settled(first)= 1.30-1.34 current= 1.29 pred= 1.294469
+  2025-06 settled(first)= 1.00-1.04 current= 1.06 pred= 1.052131
+  2025-10 settled(first)= 1.20–1.24ºC current= 1.18 pred= 1.270068
+  2026-03 settled(first)= 1.25–1.29ºC current= 1.3 pred= 1.107038
+  2026-08 settled(first)= 1.38–1.41ºC current= 1.42 pred= 1.412184
+model hit settled first-release: 11 / 29
+model hit current bracket (not in CSV; from backtest object): see backtest_015.out
+
+Wayback proxy (quoted from bots/quant/notes/scheduler/scratch/quant-015/firstrelease_local.out):
+  BRACKET CHANGE (2024, 1) first 1.21 revised 1.25 pred 1.253 bracket_first 24 bracket_rev 25 bracket_pred 25
+  BRACKET CHANGE (2024, 5) first 1.14 revised 1.16 pred 1.22 bracket_first 22 bracket_rev 23 bracket_pred 24
+  BRACKET CHANGE (2024, 6) first 1.25 revised 1.23 pred 1.246 bracket_first 25 bracket_rev 24 bracket_pred 25
+  BRACKET CHANGE (2024, 11) first 1.31 revised 1.29 pred 1.294 bracket_first 26 bracket_rev 25 bracket_pred 25
+  BRACKET CHANGE (2025, 6) first 1.03 revised 1.06 pred 1.052 bracket_first 20 bracket_rev 21 bracket_pred 21
+  BRACKET CHANGE (2025, 8) first 1.14 revised 1.17 pred 1.068 bracket_first 22 bracket_rev 23 bracket_pred 21
+  BRACKET CHANGE (2026, 3) first 1.28 revised 1.3 pred 1.107 bracket_first 25 bracket_rev 26 bracket_pred 22

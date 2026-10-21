@@ -1,0 +1,61 @@
+=== fetch/verify cited sources, 2026-10-21 UTC ===
+[OK] Gamma Sept event: HTTP 200, 26351 bytes, sha1=4f4a5e1efd3c
+   needle FOUND: 'September 2026 Temperature Increase'
+   needle FOUND: 'The brackets are mutually exclusive and collectively exhaustive'
+   needle FOUND: 'GLOBAL Land-Ocean Temperature Index in 0.01 degrees Celsius'
+   needle FOUND: 'regardless of whether the figure for September 2026 is later revised'
+   needle FOUND: 'this market will resolve to the lowest range bracket'
+   needle FOUND: '"rate":0.05'
+   needle FOUND: '"rebateRate":0.25'
+   needle FOUND: '"negRisk":true'
+   needle FOUND: '"restricted":true'
+   parsed: closed True start 2026-08-31T13:37:03Z end 2026-11-02T04:59:00Z volume 11127.859859 OI 8452.463409 markets 6
+   labels ['<1.30ºC', '1.30–1.34ºC', '1.35–1.39ºC', '1.40–1.44ºC', '1.45–1.49ºC', '>1.49ºC']
+   outcomes ['["0", "1"]', '["0", "1"]', '["1", "0"]', '["0", "1"]', '["0", "1"]', '["0", "1"]']
+   all resolved: True
+[OK] Gamma Aug event: HTTP 200, 25839 bytes, sha1=c69e86f9d250
+   needle FOUND: 'August 2026 Temperature Increase'
+   needle FOUND: '>1.29'
+   labels ['<1.10ºC', '1.10–1.14ºC', '1.15–1.19ºC', '1.20–1.24ºC', '1.25–1.29ºC', '>1.29ºC']
+   outcomes ['["0", "1"]', '["0", "1"]', '["0", "1"]', '["0", "1"]', '["0", "1"]', '["1", "0"]']
+[OK] Gamma public-search: HTTP 200, 829043 bytes, sha1=b5a9a896d485
+   needle FOUND: 'events'
+   events 33 closed 32 open 1 YES tokens 191
+   distinct calendar months by title: 30 [(2024, 4), (2024, 5), (2024, 6), (2024, 8), (2024, 9), (2024, 10), (2024, 11), (2024, 12), (2025, 1), (2025, 2), (2025, 3), (2025, 4), (2025, 5), (2025, 6), (2025, 7), (2025, 8), (2025, 9), (2025, 10), (2025, 11), (2025, 12), (2026, 1), (2026, 2), (2026, 3), (2026, 4), (2026, 5), (2026, 6), (2026, 7), (2026, 8), (2026, 9), (2026, 10)]
+   July 2025 slugs: ['july-2025-temperature-increase-c-513', 'july-2025-temperature-increase-c-394']
+   2025-08 titles: [('july-2025-temperature-increase-c-394', 'August 2025 Temperature Increase (ºC)')]
+[MISMATCH] ERA5 daily CSV: HTTP 200, 1198262 bytes, sha1=35b042bc2df8
+   needle MISSING: 'This file contains daily global mean near-surface (2m) air temperature data from ERA5'
+   needle FOUND: 'updated with a 5-day delay (120 hours)'
+   needle FOUND: 'typically 3 days behind real-time'
+   MISSING COUNT 1
+   lines 31722 last data line 2026-10-18,15.260,14.371,0.889,PRELIMINARY
+   last-updated comment ['# Last updated: 20 Oct 2026']
+[OK] Pulse status JSON: HTTP 200, 63 bytes, sha1=85d9ce888002
+   needle FOUND: 'daily'
+   needle FOUND: 'monthly'
+   needle FOUND: 'annual'
+   parsed {'daily': 20261018, 'monthly': 202609, 'annual': 2025}
+[OK] GISTEMP monthly table: HTTP 200, 17039 bytes, sha1=62c7253faa89
+   needle FOUND: 'GLOBAL Land-Ocean Temperature Index in 0.01 degrees Celsius'
+   needle FOUND: '2026'
+   2026 row ['2026   108  123  130  116  113  117  124  142  138 **** **** ****   **** ***    112  120  128 ****  2026']
+[MISMATCH] GISTEMP updates page: HTTP 200, 19967 bytes, sha1=f6e941e35df2
+   needle MISSING: 'Graphs and tables are updated around the middle of every month'
+   MISSING COUNT 1
+[OK] Wayback CDX: HTTP 200, 16974 bytes, sha1=2b35feda7459
+   needle FOUND: 'timestamp'
+   CDX rows 82 first 20190721182200 rows since 202301 45
+[OK] Wayback snapshot 20251112105542: HTTP 200, 16934 bytes, sha1=6b1fb205054f
+   needle FOUND: '2025'
+   2025 row ['2025   137  125  136  123  107  105  101  114 **** **** **** ****   **** ***    130  122  107 ****  2025']
+[OK] CLOB Sept 1.35-1.39 token: HTTP 200, 11857 bytes, sha1=b424bbbefc10
+   needle FOUND: 'history'
+   points 448 first [{'t': 1789956013, 'p': 0.45}] last [{'t': 1791561623, 'p': 0.905}]
+=== Gamma weather tag pages (cited as 5 pages, 500 closed events) ===
+  offset 0: HTTP 200, 5689245 bytes, 100 events
+  offset 100: HTTP 200, 6085687 bytes, 100 events
+  offset 200: HTTP 200, 6130158 bytes, 100 events
+  offset 300: HTTP 200, 5719891 bytes, 100 events
+  offset 400: HTTP 200, 6217725 bytes, 100 events
+  total scanned 500 matches ['september-2026-temperature-increase-c']

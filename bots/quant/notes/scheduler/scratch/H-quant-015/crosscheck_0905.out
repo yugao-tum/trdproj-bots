@@ -1,0 +1,10 @@
+decision 2026-10-05T00:00:00+00:00
+label             CLOB_mid  dataapi_ask  source        age_h
+<1.30ºC          0.1000    0.6650       Yes_BUY      10.7
+1.30–1.34ºC      0.0700    0.0500       No_BUY       10.7
+1.35–1.39ºC      0.6350    0.8400       Yes_BUY     177.4
+1.40–1.44ºC      0.0800    0.0300       No_BUY       10.7
+1.45–1.49ºC      0.0195    0.0110       No_BUY       10.7
+>1.49ºC          0.0185    0.0160       No_BUY       10.7
+CLOB raw sum 0.923 normalized settled bracket 0.688
+data-api ask sum 1.612 normalized settled bracket 0.5211
