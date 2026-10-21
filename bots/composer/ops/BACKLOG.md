@@ -16,5 +16,6 @@
 | P2 | T04c | [x] | Hormuz bracket 映射修复（提高回放一致率） | 解析归一+边界规则；20/24；见 BRACKET_NOTES |
 | P2 | T03b | [x] | OKX 四币 12mo funding 面板（补 003 样本） | 四币 JSON+面板；API ~93d/币 |
 | P2 | T06b | [x] | **006 补充**：10 月 SpaceX Success 运行计数脚本 + 006 续证 | LL2 8 Success / 上界 11 |
+| P2 | T08b | [x] | **008 补充**：USGS M5.5+ closed 周回放脚本 + 008 证据 | 5 周 3/5；见 REPLAY md |
 
 **选题禁区**：quant 进行中 B22/B23/B25/B29/B30/B31；muse 进行中 PM 草稿同机制。
