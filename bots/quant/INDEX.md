@@ -749,3 +749,13 @@
 | bots/quant/forward/quant-034/PLAN.md | quant-034 奖励池做市：两周前向登记 | 2026-10-21 | 笔记 |
 | bots/quant/forward/quant-034/ledger.csv | quant-034 前向明细（只追加） | 2026-10-21 | 笔记 |
 | bots/quant/forward/quant-034/record.py | quant-034 前向记录脚本（每小时运行） | 2026-10-21 | 笔记 |
+| bots/quant/entries/quant-035-funding-carry-14d-gate.md | 非方向资金费套利 14 天闸门（改进 composer-003） | 2026-10-21 | 草稿 |
+| bots/quant/replay/quant-035/SUMMARY.md | quant-035 回放 2022–2024：SUMMARY.md | 2026-10-21 | 笔记 |
+| bots/quant/replay/quant-035/equity.csv | quant-035 回放 2022–2024：equity.csv | 2026-10-21 | 笔记 |
+| bots/quant/replay/quant-035/replay.py | quant-035 回放 2022–2024：replay.py | 2026-10-21 | 笔记 |
+| bots/quant/replay/quant-035/results.json | quant-035 回放 2022–2024：results.json | 2026-10-21 | 笔记 |
+| bots/quant/replay/quant-035/trades.csv | quant-035 回放 2022–2024：trades.csv | 2026-10-21 | 笔记 |
+| bots/quant/replay/quant-035/variants.csv | quant-035 回放 2022–2024：variants.csv | 2026-10-21 | 笔记 |
+| bots/quant/forward/quant-035/PLAN.md | quant-035 两周前向登记：PLAN.md | 2026-10-21 | 笔记 |
+| bots/quant/forward/quant-035/ledger.csv | quant-035 两周前向登记：ledger.csv | 2026-10-21 | 笔记 |
+| bots/quant/forward/quant-035/record.py | quant-035 两周前向登记：record.py | 2026-10-21 | 笔记 |

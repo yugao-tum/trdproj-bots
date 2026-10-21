@@ -1,0 +1,95 @@
+id,family,symbol,venue,lookback_days,entry_thr,exit_thr,notional,budget,net,contribution,max_dd,episodes,fees,notes
+main_basket,main,"SOL,XRP,ADA,AVAX,HYPE",Binance+Hyperliquid,14,0.0,0.0,300x4+1200,600x4+2450,521.1127,3.4733,1.9467,55,221.8821,4x300 Binance sleeves + 1200 HYPE; 14-day mean >0
+coin_SOLUSDT_7d,per_coin,SOLUSDT,Binance,7,0.0,0.0,1200.0,2450.0,450.4461,3.0023,3.9507,24,364.4478,per-coin sleeve
+coin_SOLUSDT_14d,per_coin,SOLUSDT,Binance,14,0.0,0.0,1200.0,2450.0,797.3318,5.3143,1.5707,11,184.8189,per-coin sleeve
+coin_SOLUSDT_21d,per_coin,SOLUSDT,Binance,21,0.0,0.0,1200.0,2450.0,652.7913,4.3509,0.9679,9,148.7307,per-coin sleeve
+coin_SOLUSDT_28d,per_coin,SOLUSDT,Binance,28,0.0,0.0,1200.0,2450.0,663.9519,4.4253,0.6466,6,106.9752,per-coin sleeve
+coin_SOLUSDT_42d,per_coin,SOLUSDT,Binance,42,0.0,0.0,1200.0,2450.0,469.7218,3.1308,0.7502,6,95.6398,per-coin sleeve
+coin_SOLUSDT_14d_5bp,per_coin,SOLUSDT,Binance,14,5e-05,0.0,1200.0,2450.0,643.674,4.2902,1.2908,9,149.3785,entry only above 5bp/8h-equivalent
+coin_SOLUSDT_21d_5bp,per_coin,SOLUSDT,Binance,21,5e-05,0.0,1200.0,2450.0,610.3521,4.0681,0.7366,6,104.4916,21-day mean >5bp
+coin_SOLUSDT_21d_10bp,per_coin,SOLUSDT,Binance,21,0.0001,0.0,1200.0,2450.0,458.0542,3.053,0.4595,2,41.9626,21-day mean >10bp
+coin_SOLUSDT_always,per_coin,SOLUSDT,Binance,0,0.0,0.0,1200.0,2450.0,-3720.435,-24.7972,74.4081,298,4304.6907,hold while current funding >0
+coin_XRPUSDT_7d,per_coin,XRPUSDT,Binance,7,0.0,0.0,1200.0,2450.0,63.1013,0.4206,4.5736,22,332.5763,per-coin sleeve
+coin_XRPUSDT_14d,per_coin,XRPUSDT,Binance,14,0.0,0.0,1200.0,2450.0,218.8488,1.4587,2.6483,13,207.0024,per-coin sleeve
+coin_XRPUSDT_21d,per_coin,XRPUSDT,Binance,21,0.0,0.0,1200.0,2450.0,274.2248,1.8277,1.3547,8,135.2191,per-coin sleeve
+coin_XRPUSDT_28d,per_coin,XRPUSDT,Binance,28,0.0,0.0,1200.0,2450.0,332.158,2.2139,1.1085,6,108.8664,per-coin sleeve
+coin_XRPUSDT_42d,per_coin,XRPUSDT,Binance,42,0.0,0.0,1200.0,2450.0,395.9853,2.6393,0.7414,3,67.6011,per-coin sleeve
+coin_XRPUSDT_14d_5bp,per_coin,XRPUSDT,Binance,14,5e-05,0.0,1200.0,2450.0,320.6469,2.1372,0.6246,4,78.8657,entry only above 5bp/8h-equivalent
+coin_XRPUSDT_21d_5bp,per_coin,XRPUSDT,Binance,21,5e-05,0.0,1200.0,2450.0,329.2912,2.1948,0.6419,4,79.9711,21-day mean >5bp
+coin_XRPUSDT_21d_10bp,per_coin,XRPUSDT,Binance,21,0.0001,0.0,1200.0,2450.0,198.0166,1.3198,0.4582,1,29.1743,21-day mean >10bp
+coin_XRPUSDT_always,per_coin,XRPUSDT,Binance,0,0.0,0.0,1200.0,2450.0,-4431.7849,-29.5385,88.6335,335,4841.2381,hold while current funding >0
+coin_ADAUSDT_7d,per_coin,ADAUSDT,Binance,7,0.0,0.0,1200.0,2450.0,210.1244,1.4005,3.5136,22,315.3414,per-coin sleeve
+coin_ADAUSDT_14d,per_coin,ADAUSDT,Binance,14,0.0,0.0,1200.0,2450.0,379.2123,2.5275,2.4442,14,205.3867,per-coin sleeve
+coin_ADAUSDT_21d,per_coin,ADAUSDT,Binance,21,0.0,0.0,1200.0,2450.0,354.1252,2.3603,2.7872,15,219.1336,per-coin sleeve
+coin_ADAUSDT_28d,per_coin,ADAUSDT,Binance,28,0.0,0.0,1200.0,2450.0,433.2333,2.8876,1.1961,9,135.7361,per-coin sleeve
+coin_ADAUSDT_42d,per_coin,ADAUSDT,Binance,42,0.0,0.0,1200.0,2450.0,424.3464,2.8283,1.2268,8,123.142,per-coin sleeve
+coin_ADAUSDT_14d_5bp,per_coin,ADAUSDT,Binance,14,5e-05,0.0,1200.0,2450.0,428.6726,2.8572,1.1901,8,122.8905,entry only above 5bp/8h-equivalent
+coin_ADAUSDT_21d_5bp,per_coin,ADAUSDT,Binance,21,5e-05,0.0,1200.0,2450.0,418.5216,2.7895,1.0913,7,107.0047,21-day mean >5bp
+coin_ADAUSDT_21d_10bp,per_coin,ADAUSDT,Binance,21,0.0001,0.0,1200.0,2450.0,309.2951,2.0615,0.307,2,34.7507,21-day mean >10bp
+coin_ADAUSDT_always,per_coin,ADAUSDT,Binance,0,0.0,0.0,1200.0,2450.0,-3512.5947,-23.412,70.4766,283,4073.4217,hold while current funding >0
+coin_AVAXUSDT_7d,per_coin,AVAXUSDT,Binance,7,0.0,0.0,1200.0,2450.0,378.9844,2.526,3.7479,27,402.5109,per-coin sleeve
+coin_AVAXUSDT_14d,per_coin,AVAXUSDT,Binance,14,0.0,0.0,1200.0,2450.0,591.1691,3.9402,2.2974,16,238.2708,per-coin sleeve
+coin_AVAXUSDT_21d,per_coin,AVAXUSDT,Binance,21,0.0,0.0,1200.0,2450.0,550.494,3.6691,1.9653,15,225.2719,per-coin sleeve
+coin_AVAXUSDT_28d,per_coin,AVAXUSDT,Binance,28,0.0,0.0,1200.0,2450.0,549.6595,3.6636,1.3272,12,177.8007,per-coin sleeve
+coin_AVAXUSDT_42d,per_coin,AVAXUSDT,Binance,42,0.0,0.0,1200.0,2450.0,664.1827,4.4269,0.8802,7,98.2886,per-coin sleeve
+coin_AVAXUSDT_14d_5bp,per_coin,AVAXUSDT,Binance,14,5e-05,0.0,1200.0,2450.0,637.2691,4.2475,0.888,8,120.8634,entry only above 5bp/8h-equivalent
+coin_AVAXUSDT_21d_5bp,per_coin,AVAXUSDT,Binance,21,5e-05,0.0,1200.0,2450.0,637.8008,4.251,0.989,7,109.9667,21-day mean >5bp
+coin_AVAXUSDT_21d_10bp,per_coin,AVAXUSDT,Binance,21,0.0001,0.0,1200.0,2450.0,485.2798,3.2345,0.4455,3,47.5647,21-day mean >10bp
+coin_AVAXUSDT_always,per_coin,AVAXUSDT,Binance,0,0.0,0.0,1200.0,2450.0,-3568.6863,-23.7858,71.3484,300,4324.6644,hold while current funding >0
+coin_HYPE_7d,per_coin,HYPE,Hyperliquid,7,0.0,0.0,1200.0,2450.0,86.2665,0.575,0.1474,1,16.9081,per-coin sleeve
+coin_HYPE_14d,per_coin,HYPE,Hyperliquid,14,0.0,0.0,1200.0,2450.0,25.9847,0.1732,0.1066,1,13.6014,per-coin sleeve
+coin_HYPE_21d,per_coin,HYPE,Hyperliquid,21,0.0,0.0,1200.0,2450.0,-4.9205,-0.0328,0.1352,1,14.0934,per-coin sleeve
+coin_HYPE_28d,per_coin,HYPE,Hyperliquid,28,0.0,0.0,1200.0,2450.0,0.0,0.0,0.0,0,0.0,per-coin sleeve
+coin_HYPE_42d,per_coin,HYPE,Hyperliquid,42,0.0,0.0,1200.0,2450.0,0.0,0.0,0.0,0,0.0,per-coin sleeve
+coin_HYPE_14d_5bp,per_coin,HYPE,Hyperliquid,14,5e-05,0.0,1200.0,2450.0,25.9847,0.1732,0.1066,1,13.6014,entry only above 5bp/8h-equivalent
+coin_HYPE_21d_5bp,per_coin,HYPE,Hyperliquid,21,5e-05,0.0,1200.0,2450.0,-4.9205,-0.0328,0.1352,1,14.0934,21-day mean >5bp
+coin_HYPE_21d_10bp,per_coin,HYPE,Hyperliquid,21,0.0001,0.0,1200.0,2450.0,-4.9205,-0.0328,0.1352,1,14.0934,21-day mean >10bp
+coin_HYPE_always,per_coin,HYPE,Hyperliquid,0,0.0,0.0,1200.0,2450.0,88.9461,0.5928,0.9238,3,48.733,hold while current funding >0
+basket_7d,basket,"SOL,XRP,ADA,AVAX,HYPE",Binance+Hyperliquid,7,0.0,0.0,300x4+1200,600x4+2450,361.1524,2.4071,3.7513,96,369.6537,"same basket, other lookback"
+basket_21d,basket,"SOL,XRP,ADA,AVAX,HYPE",Binance+Hyperliquid,21,0.0,0.0,300x4+1200,600x4+2450,451.5301,3.0095,1.5734,48,195.6565,"same basket, other lookback"
+basket_28d,basket,"SOL,XRP,ADA,AVAX,HYPE",Binance+Hyperliquid,28,0.0,0.0,300x4+1200,600x4+2450,493.318,3.288,0.8622,33,131.97,"same basket, other lookback"
+one_slot_14d,one_slot,"SOL,XRP,ADA,AVAX",Binance,14,0.0,0.0,1200.0,2450.0,202.6595,1.3508,2.6266,16,240.5361,"one coin at a time, highest mean"
+one_slot_21d,one_slot,"SOL,XRP,ADA,AVAX",Binance,21,0.0,0.0,1200.0,2450.0,253.4434,1.6892,1.2937,12,181.9159,"one coin at a time, highest mean"
+one_slot_42d,one_slot,"SOL,XRP,ADA,AVAX",Binance,42,0.0,0.0,1200.0,2450.0,318.7677,2.1246,1.1225,8,129.0229,"one coin at a time, highest mean"
+one_slot_63d,one_slot,"SOL,XRP,ADA,AVAX",Binance,63,0.0,0.0,1200.0,2450.0,403.1007,2.6867,0.843,5,75.371,"one coin at a time, highest mean"
+one_slot_189d,one_slot,"SOL,XRP,ADA,AVAX",Binance,189,0.0,0.0,1200.0,2450.0,439.1928,2.9273,1.3479,5,81.5124,"one coin at a time, highest mean"
+HYPE_1d,hype_extra,HYPE,Hyperliquid,1,0.0,0.0,1200.0,2450.0,157.1779,1.0476,0.1793,1,20.9069,short-history sensitivity
+HYPE_2d,hype_extra,HYPE,Hyperliquid,2,0.0,0.0,1200.0,2450.0,133.6273,0.8906,0.2662,1,19.3212,short-history sensitivity
+HYPE_3d,hype_extra,HYPE,Hyperliquid,3,0.0,0.0,1200.0,2450.0,132.1187,0.8806,0.119,1,19.6408,short-history sensitivity
+HYPE_5d,hype_extra,HYPE,Hyperliquid,5,0.0,0.0,1200.0,2450.0,115.7855,0.7717,0.1431,1,19.2592,short-history sensitivity
+HYPE_7d,hype_extra,HYPE,Hyperliquid,7,0.0,0.0,1200.0,2450.0,86.2665,0.575,0.1474,1,16.9081,short-history sensitivity
+HYPE_21d,hype_extra,HYPE,Hyperliquid,21,0.0,0.0,1200.0,2450.0,-4.9205,-0.0328,0.1352,1,14.0934,short-history sensitivity
+HYPE_28d,hype_extra,HYPE,Hyperliquid,28,0.0,0.0,1200.0,2450.0,0.0,0.0,0.0,0,0.0,short-history sensitivity
+HYPE_42d,hype_extra,HYPE,Hyperliquid,42,0.0,0.0,1200.0,2450.0,0.0,0.0,0.0,0,0.0,short-history sensitivity
+HYPE_N42_0,hype_events,HYPE,Hyperliquid,1.75,0.0,0.0,1200.0,2450.0,136.4461,0.9094,0.1119,1,18.9294,fixed 42 hourly funding observations
+HYPE_N42_5bp,hype_events,HYPE,Hyperliquid,1.75,5e-05,0.0,1200.0,2450.0,136.4461,0.9094,0.1119,1,18.9294,fixed 42 hourly funding observations
+HYPE_N63_0,hype_events,HYPE,Hyperliquid,2.625,0.0,0.0,1200.0,2450.0,124.2976,0.8285,0.1936,1,19.3764,fixed 63 hourly funding observations
+HYPE_N63_5bp,hype_events,HYPE,Hyperliquid,2.625,5e-05,0.0,1200.0,2450.0,124.2976,0.8285,0.1936,1,19.3764,fixed 63 hourly funding observations
+HYPE_N84_0,hype_events,HYPE,Hyperliquid,3.5,0.0,0.0,1200.0,2450.0,129.0764,0.8603,0.1182,1,19.5568,fixed 84 hourly funding observations
+HYPE_N84_5bp,hype_events,HYPE,Hyperliquid,3.5,5e-05,0.0,1200.0,2450.0,129.0764,0.8603,0.1182,1,19.5568,fixed 84 hourly funding observations
+HYPE_N168_0,hype_events,HYPE,Hyperliquid,7.0,0.0,0.0,1200.0,2450.0,86.2665,0.575,0.1474,1,16.9081,fixed 168 hourly funding observations
+HYPE_N168_5bp,hype_events,HYPE,Hyperliquid,7.0,5e-05,0.0,1200.0,2450.0,86.2665,0.575,0.1474,1,16.9081,fixed 168 hourly funding observations
+HYPE_N336_0,hype_events,HYPE,Hyperliquid,14.0,0.0,0.0,1200.0,2450.0,25.9847,0.1732,0.1066,1,13.6014,fixed 336 hourly funding observations
+HYPE_N336_5bp,hype_events,HYPE,Hyperliquid,14.0,5e-05,0.0,1200.0,2450.0,25.9847,0.1732,0.1066,1,13.6014,fixed 336 hourly funding observations
+HYPE_N504_0,hype_events,HYPE,Hyperliquid,21.0,0.0,0.0,1200.0,2450.0,-4.9205,-0.0328,0.1352,1,14.0934,fixed 504 hourly funding observations
+HYPE_N504_5bp,hype_events,HYPE,Hyperliquid,21.0,5e-05,0.0,1200.0,2450.0,-4.9205,-0.0328,0.1352,1,14.0934,fixed 504 hourly funding observations
+SOL_z30_0.5,zscore,SOLUSDT,Binance,0,0.0,0.0,1200.0,2450.0,-5271.0842,-35.1325,105.4217,378,5443.6707,composer-003-style 30-event z>0.5
+SOL_z30_1.0,zscore,SOLUSDT,Binance,0,0.0,0.0,1200.0,2450.0,-2981.0379,-19.8691,59.6208,213,3065.016,z>1.0
+SOL_14d_basis,basis,SOLUSDT,Binance,14,0.0,0.0,1200.0,2450.0,-1269.1134,-8.4588,25.3823,104,1507.0131,require perp premium >0 at entry
+SOL_63d_0,sol_extra,SOLUSDT,Binance,63,0.0,0.0,1200.0,2450.0,512.0669,3.413,0.6096,5,84.4454,SOL-only long-lookback sensitivity
+SOL_63d_5bp,sol_extra,SOLUSDT,Binance,63,5e-05,0.0,1200.0,2450.0,414.8117,2.7648,0.4506,3,52.8745,SOL-only long-lookback sensitivity
+SOL_63d_10bp,sol_extra,SOLUSDT,Binance,63,0.0001,0.0,1200.0,2450.0,390.3833,2.602,0.4213,1,27.742,SOL-only long-lookback sensitivity
+SOL_189d_0,sol_extra,SOLUSDT,Binance,189,0.0,0.0,1200.0,2450.0,1234.2269,8.2263,1.088,2,81.6188,SOL-only long-lookback sensitivity
+SOL_189d_5bp,sol_extra,SOLUSDT,Binance,189,5e-05,0.0,1200.0,2450.0,245.519,1.6364,0.2875,1,20.8265,SOL-only long-lookback sensitivity
+coin_XRPUSDT_63d_0,per_coin_long,XRPUSDT,Binance,63,0.0,0.0,1200.0,2450.0,390.5806,2.6033,0.7093,2,53.6617,long-lookback per-coin sensitivity
+coin_XRPUSDT_63d_5bp,per_coin_long,XRPUSDT,Binance,63,5e-05,0.0,1200.0,2450.0,415.8925,2.772,0.7671,2,56.7426,long-lookback per-coin sensitivity
+coin_XRPUSDT_189d_0,per_coin_long,XRPUSDT,Binance,189,0.0,0.0,1200.0,2450.0,397.4264,2.6489,0.7859,2,60.8304,long-lookback per-coin sensitivity
+coin_XRPUSDT_189d_5bp,per_coin_long,XRPUSDT,Binance,189,5e-05,0.0,1200.0,2450.0,191.9996,1.2797,0.4004,1,26.3701,long-lookback per-coin sensitivity
+coin_ADAUSDT_63d_0,per_coin_long,ADAUSDT,Binance,63,0.0,0.0,1200.0,2450.0,375.172,2.5006,1.2018,5,77.8784,long-lookback per-coin sensitivity
+coin_ADAUSDT_63d_5bp,per_coin_long,ADAUSDT,Binance,63,5e-05,0.0,1200.0,2450.0,319.8651,2.1319,0.2826,1,22.3175,long-lookback per-coin sensitivity
+coin_ADAUSDT_189d_0,per_coin_long,ADAUSDT,Binance,189,0.0,0.0,1200.0,2450.0,465.5023,3.1026,0.7259,3,57.872,long-lookback per-coin sensitivity
+coin_ADAUSDT_189d_5bp,per_coin_long,ADAUSDT,Binance,189,5e-05,0.0,1200.0,2450.0,302.1467,2.0139,0.2832,1,22.2969,long-lookback per-coin sensitivity
+coin_AVAXUSDT_63d_0,per_coin_long,AVAXUSDT,Binance,63,0.0,0.0,1200.0,2450.0,594.9432,3.9654,0.7455,5,73.9223,long-lookback per-coin sensitivity
+coin_AVAXUSDT_63d_5bp,per_coin_long,AVAXUSDT,Binance,63,5e-05,0.0,1200.0,2450.0,434.1716,2.8938,0.5706,3,41.2346,long-lookback per-coin sensitivity
+coin_AVAXUSDT_189d_0,per_coin_long,AVAXUSDT,Binance,189,0.0,0.0,1200.0,2450.0,394.6291,2.6303,0.4908,1,21.8171,long-lookback per-coin sensitivity
+coin_AVAXUSDT_189d_5bp,per_coin_long,AVAXUSDT,Binance,189,5e-05,0.0,1200.0,2450.0,461.4772,3.0758,0.58,1,24.6721,long-lookback per-coin sensitivity
