@@ -1,0 +1,23 @@
+file /workspace/oc-jobs/quant-batch/c20261021-060001-research/wt/w02/bots/quant/entries/quant-012-earthquake-count-base-rate.md
+fields 17
+  id: OK = quant-012
+  name_zh: OK = 地震周计数：按USGS基率定价
+  name_en: OK = Earthquake weekly-count ladders priced with Gutenberg-Richter / USGS base rates
+  bot: OK = quant
+  date: OK = 2026-10-20
+  market: OK = polymarket
+  pm_category: OK = weather
+  kind: OK = new
+  improves: OK = -
+  category: OK = S
+  return_type: OK = direction
+  instruments: OK = Polymarket「本周全球 M6.5+（或 M5.5+）地震发生几次」分档（0/1/2/3/4/5/>5 共 7 档、negRisk）+「M7.0+ 在某日前是否发生」二元
+  venues: OK = Polymarket
+  data: OK = USGS FDSN event API（免费免密钥，2000 年起完整目录）；Polymarket Gamma/CLOB（免费免密钥，CLOB 历史盘口只到市场创建后约 3–4 天）；已关闭市场的逐笔成交可从 data-api 读到（免费免
+  test_2w: OK = 按 event 计独立结果；68 个已关闭事件里 40 个严格组中只有 35 个有窗口前价格、34 个有成交（≥30），不是 40 个都有价；时间外样本 2026-07..10 的 45 个成交档合计 −1.99%（费 0.05）/−1.2
+  status: OK = 待核
+  confidence: OK = 中
+id matches filename: True
+date: 2026-10-20 (unchanged 2026-10-20: True )
+status: 待核 (unchanged 待核: True )
+bytes: 43399

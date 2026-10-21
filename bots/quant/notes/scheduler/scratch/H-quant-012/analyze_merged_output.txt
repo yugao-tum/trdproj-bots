@@ -1,0 +1,49 @@
+quant-012 H-quant-012 merged-evidence recheck
+merged dir: /workspace/oc-jobs/quant-batch/c20261021-060001-research/wt/w02/bots/quant/notes/q012-hist
+buckets md5 f563d8e005f13217a4478f0f7638ecd1 events md5 61ca26645b55de274abba1fb45e44c48
+I01 md5, for comparison:
+  I01 buckets f563d8e005f13217a4478f0f7638ecd1 events 61ca26645b55de274abba1fb45e44c48
+
+sample: events=68 buckets=514 traded=103
+strict groups=40 with>=1 price=35 with>=1 trade=34
+  M5.5+ events=28 traded=56
+  M6.5+ events=38 traded=47
+  M7.0+ events=2 traded=0
+
+HEADLINE (as reported by merged run_output.txt):
+  all traded NO                n=103 win= 80 (77.7%) median_gross=+0.1200 median_net=+0.1147 [+0.1051,+0.1340] mean_net=+0.0107 [-0.0628,+0.0799] total=+1.1010/78.0863=+1.41%
+    same, fee=0                median_net=+0.1200 mean_net=+0.0186 total=+1.9137/78.0863=+2.45%
+
+TIME SPLIT (out-of-sample = window_start >= 2026-07-01):
+  in-sample < 2026-07-01       n= 58 win= 43 (74.1%) median_gross=+0.1350 median_net=+0.1292 [+0.1099,+0.1804] mean_net=+0.0318 [-0.0707,+0.1287] total=+1.8469/40.6284=+4.55%
+    same, fee=0                median_net=+0.1350 mean_net=+0.0409 total=+2.3716/40.6284=+5.84%
+  out-of-sample >= 2026-07-01  n= 45 win= 37 (82.2%) median_gross=+0.1100 median_net=+0.1051 [+0.0955,+0.1243] mean_net=-0.0166 [-0.1247,+0.0795] total=-0.7459/37.4579=-1.99%
+    same, fee=0                median_net=+0.1100 mean_net=-0.0102 total=-0.4579/37.4579=-1.22%
+
+SERIES SPLIT:
+  M5.5+ traded NO              n= 56 win= 47 (83.9%) median_gross=+0.1188 median_net=+0.1136 [+0.1003,+0.1243] mean_net=+0.0019 [-0.0897,+0.0851] total=+0.1090/46.5305=+0.23%
+    same, fee=0                median_net=+0.1188 mean_net=+0.0084 total=+0.4695/46.5305=+1.01%
+  M6.5+ traded NO              n= 47 win= 33 (70.2%) median_gross=+0.1500 median_net=+0.1436 [+0.0266,+0.3091] mean_net=+0.0211 [-0.0973,+0.1314] total=+0.9920/31.5558=+3.14%
+    same, fee=0                median_net=+0.1500 mean_net=+0.0307 total=+1.4442/31.5558=+4.58%
+
+LOG LOSS (model vs market, paired per event with every bracket priced):
+  all                          n=29 model=1.4455 market=1.4152 diff(market-model)=-0.0304 [-0.2726,+0.1365] model_better=15/29
+  in-sample < 2026-07-01       n=25 model=1.3931 market=1.3614 diff(market-model)=-0.0317 [-0.2950,+0.1578] model_better=12/25
+  out-of-sample >= 2026-07-01  n= 4 model=1.7732 market=1.7511 diff(market-model)=-0.0221 [-0.2952,+0.1393] model_better=3/4
+  M6.5+ only                   n=18 model=1.0554 market=1.0605 diff(market-model)=+0.0051 [-0.0577,+0.0813] model_better=7/18
+  M5.5+ only                   n=11 model=2.0838 market=1.9954 diff(market-model)=-0.0884 [-0.6968,+0.3259] model_better=8/11
+  USGS match only              n=25 model=1.3107 market=1.3560 diff(market-model)=+0.0454 [-0.0476,+0.1463] model_better=12/25
+
+USGS own-count vs resolved bracket by split:
+  in-sample < 2026-07-01       35/39 MATCH
+  out-of-sample >= 2026-07-01  24/29 MATCH
+
+Worst / best traded NO by net per share:
+  -0.9141 how-many-5pt5-or-above-earthquakes-worldwide-august-31-september-6 [12] yes_pre=0.100000 model=0.061268 no=0.910000
+  -0.8853 how-many-5pt5-or-above-earthquakes-april-20-april-26 [8] yes_pre=0.130000 model=0.112282 no=0.880000
+  -0.8660 how-many-5pt5-or-above-earthquakes-worldwide-october-12-october-18 [9] yes_pre=0.150000 model=0.098823 no=0.860000
+  +0.5165 how-many-6pt5-or-above-earthquakes-may-18-may-24 [0] yes_pre=0.538923 model=0.475897 no=0.471077
+  +0.5376 how-many-6pt5-or-above-earthquakes-may-11-may-17 [0] yes_pre=0.560000 model=0.476242 no=0.450000
+  +0.5577 how-many-6pt5-or-above-earthquakes-march-16-march-22 [0] yes_pre=0.580000 model=0.476104 no=0.430000
+
+FEE NOTE: recorded taker fee 0.05*... ; current 2026-10-21 Gamma check is in verify_output.txt

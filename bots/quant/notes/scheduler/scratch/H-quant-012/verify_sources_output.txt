@@ -1,0 +1,65 @@
+quant-012 source verification, accessed 2026-10-21 (UTC)
+
+[USGS]
+OK  200   264996B USGS CSV 2000-01-01..2026-10-01 minmag6.4
+    lines=1513 (header='time,latitude,longitude,depth,mag,magTyp') mag>=6.5=1216 7d_bins=1395 sum=1216 mean=0.8717
+    dist={0: 663, 1: 440, 2: 178, 3: 70, 4: 29, 5: 5, 6: 7, 7: 1, 8: 1, 12: 1}
+    P(>=3)=0.0817 P(>=5)=0.0108
+    sections: 2016+=434 2021+=243 2025-10+=42
+OK  200       32B USGS count 2015-2026 minmag 6.5
+     {'count': 462, 'maxAllowed': 20000}
+OK  200       32B USGS count 2015-2026 minmag 7.0
+     {'count': 153, 'maxAllowed': 20000}
+OK  200       33B USGS count 2015-2026 minmag 5.5
+     {'count': 5031, 'maxAllowed': 20000}
+OK  200      473B USGS text 2026-10-12..2026-10-19 minmag6.5
+    lines=4
+     #EventID|Time|Latitude|Longitude|Depth/km|Author|Catalog|Contributor|ContributorID|MagType|Magnitude|MagAuthor|EventLocationName
+     us6000u2mq|2026-10-16T03:35:31.925|51.9848|157.2701|135|us|us|us|us6000u2mq|mww|6.9|us|76 km NE of Ozernovskiy, Russia
+     us6000u214|2026-10-13T12:23:07.248|-0.4085|-19.4308|10|us|us|us|us6000u214|mww|6.8|us|central Mid-Atlantic Ridge
+     us6000u1z5|2026-10-13T05:44:46.919|0.1685|-19.8598|10|us|us|us|us6000u1z5|mww|6.7|us|central Mid-Atlantic Ridge
+OK  200    23464B USGS search page needle=FOUND
+
+[Gamma event snapshots]
+OK  200    35598B Gamma event how-many-6pt5-or-above-earthquakes-worldwide-october-19-october-25
+    closed=False endDate=2026-10-26T03:59:00Z volume=6025.908212 liquidity=7533.111 negRisk=True
+    feeSchedules=[{'exponent': 1, 'rate': 0, 'takerOnly': True, 'rebateRate': 0}, {'exponent': 1, 'rate': 0, 'takerOnly': True, 'rebateRate': 0}, {'exponent': 1, 'rate': 0, 'takerOnly': True, 'rebateRate': 0}, {'exponent': 1, 'rate': 0, 'takerOnly': True, 'rebateRate': 0}, {'exponent': 1, 'rate': 0, 'takerOnly': True, 'rebateRate': 0}, {'exponent': 1, 'rate': 0, 'takerOnly': True, 'rebateRate': 0}, {'exponent': 1, 'rate': 0, 'takerOnly': True, 'rebateRate': 0}]
+    rule needle FOUND: 'between October 19, 2026'
+    rule needle FOUND: 'United States Geological Survey'
+    rule needle FOUND: '48 hours'
+    rule needle FOUND: 'lowest bracket'
+    rule needle FOUND: 'anywhere on Earth'
+    brackets=['0', '1', '2', '3', '4', '5', 'more than 5']
+    prices=['["0.515", "0.485"]', '["0.32", "0.68"]', '["0.08", "0.92"]', '["0.0405", "0.9595"]', '["0.018", "0.982"]', '["0.005", "0.995"]', '["0.0065", "0.9935"]']
+OK  200    34159B Gamma event how-many-6pt5-or-above-earthquakes-worldwide-october-12-october-18
+    closed=False endDate=2026-10-19T03:59:00Z volume=15189.732514 liquidity=840.44426 negRisk=True
+    feeSchedules=[{'exponent': 1, 'rate': 0.05, 'takerOnly': True, 'rebateRate': 0.25}, {'exponent': 1, 'rate': 0.05, 'takerOnly': True, 'rebateRate': 0.25}, {'exponent': 1, 'rate': 0.05, 'takerOnly': True, 'rebateRate': 0.25}, {'exponent': 1, 'rate': 0, 'takerOnly': True, 'rebateRate': 0}, {'exponent': 1, 'rate': 0, 'takerOnly': True, 'rebateRate': 0}, {'exponent': 1, 'rate': 0, 'takerOnly': True, 'rebateRate': 0}, {'exponent': 1, 'rate': 0.05, 'takerOnly': True, 'rebateRate': 0.25}]
+    brackets=['0', '1', '2', '3', '4', '5', 'more than 5']
+    prices=['["0", "1"]', '["0", "1"]', '["0", "1"]', '["0.935", "0.065"]', '["0.1", "0.9"]', '["0.0395", "0.9605"]', '["0", "1"]']
+
+[Gamma search / tag]
+OK  200   922866B Gamma public-search q=earthquake all
+    events=50 has_oct19=True
+OK  200  1538068B Gamma public-search q=magnitude all
+    how-many-7pt0-or-above-earthquakes-by-june-30 volume=1941867.6990960008
+    how-many-7pt0-or-above-earthquakes-in-2026 volume=1477696.8733699995
+OK  200  1498114B Gamma tag=earthquake closed
+    events=69 volume_sum=5,869,974.95
+    title_counts={'how-many': 37, 'megaquake': 17, '7.0 or above': 12, 'other': 3}
+    months={'2024-09': 1, '2024-10': 1, '2024-11': 1, '2025-02': 1, '2025-04': 1, '2025-05': 3, '2025-07': 5, '2025-08': 6, '2025-09': 3, '2025-10': 1, '2025-11': 1, '2025-12': 3, '2026-01': 1, '2026-03': 3, '2026-06': 5, '2026-07': 9, '2026-08': 10, '2026-09': 9, '2026-10': 5}
+    endDate range=2024-09-30T12:00:00Z .. 2026-10-19T03:59:00Z
+
+[CLOB]
+OK  200     2665B CLOB prices-history open token 0
+     {"history":[{"t":1792162843,"p":0.345},{"t":1792166433,"p":0.255},{"t":1792170034,"p":0.45},{"t":1792177228,"p":0.445},{"t":1792180829,"p":0.45},{"t":1792184454,"p":0.45},{"t":1792
+OK  200       15B CLOB prices-history closed token
+     {"history":[]}
+
+
+[data-api / markets-slug / paging]
+OK  200     1906B data-api trades example
+    n=2 fields=['asset', 'bio', 'conditionId', 'eventSlug', 'icon', 'name', 'outcome', 'outcomeIndex', 'price', 'profileImage', 'profileImageOptimized', 'proxyWallet', 'pseudonym', 'side', 'size', 'slug', 'timestamp', 'title', 'transactionHash']
+OK  200        3B Gamma markets?slug=event-slug
+     []
+
+OK  200   922866B Gamma public-search closed page=1
