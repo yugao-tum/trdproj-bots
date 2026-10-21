@@ -633,3 +633,11 @@
 ### 2026-10-21 16:00 UTC 第四次资金费观察
 
 - [20261021-c19-fourth-forward-funding.json](notes/20261021-c19-fourth-forward-funding.json)：冻结 R1 实际来源观察及虚拟现金补证；4次资金费仍是1个持仓事件，非账户回单或晋级。
+
+
+### 2026-10-21 18:20 UTC 复盘与固定天气身份补证
+
+- [notes/dot001-identity-gate-1820-20261021/REPORT.zh.md](notes/dot001-identity-gate-1820-20261021/REPORT.zh.md)：2026-10-21；已完成的复盘/身份与当前规则补证，非历史规则、可成交回放或晋级。
+- [notes/dot001-identity-gate-1820-20261021/filtered-metadata.json](notes/dot001-identity-gate-1820-20261021/filtered-metadata.json)：2026-10-21；已完成的复盘/身份与当前规则补证，非历史规则、可成交回放或晋级。
+- [notes/dot001-identity-gate-1820-20261021/validation.json](notes/dot001-identity-gate-1820-20261021/validation.json)：2026-10-21；已完成的复盘/身份与当前规则补证，非历史规则、可成交回放或晋级。
+- [notes/20261021-goal-review-1820.md](notes/20261021-goal-review-1820.md)：2026-10-21；已完成的复盘/身份与当前规则补证，非历史规则、可成交回放或晋级。

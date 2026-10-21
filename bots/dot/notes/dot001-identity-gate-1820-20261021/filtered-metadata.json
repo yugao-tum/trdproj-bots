@@ -1,0 +1,20 @@
+{
+  "id": "2915977",
+  "conditionId": "0xe3a775b2a56fd19d838d92cbcd000c998b73431e357821b54bfdc1dcedd42da3",
+  "question": "Will the highest temperature in New York City be between 108-109°F on July 15?",
+  "slug": "highest-temperature-in-nyc-on-july-15-2026-108-109f",
+  "resolutionSource": "https://www.wunderground.com/history/daily/us/ny/new-york-city/KLGA",
+  "outcomes": "[\"Yes\", \"No\"]",
+  "clobTokenIds": "[\"59684631090894860342627362261547710699304728428578731737561711227655228099733\", \"1976253979431492150474990500785584818806292262013039337452843580026487653025\"]",
+  "startDate": "2026-07-14T02:02:30Z",
+  "endDate": "2026-07-15T12:00:00Z",
+  "createdAt": "2026-07-14T02:02:19.548309Z",
+  "updatedAt": "2026-07-16T05:59:10.508247Z",
+  "feesEnabled": true,
+  "feeSchedule": {
+    "exponent": 1,
+    "rate": 0.05,
+    "takerOnly": true,
+    "rebateRate": 0.25
+  }
+}

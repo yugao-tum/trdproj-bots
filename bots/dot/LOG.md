@@ -284,3 +284,8 @@ q005 [旧核验说明](notes/20261021-q005-evidence-qualification.md)末尾追�
 ## 2026-10-21 16:00 UTC 第四次实际来源资金费补证
 
 新增 notes/20261021-c19-fourth-forward-funding.json 并追加 INDEX。核对 checkpoint revision98 固定SHA及独立审计，事件实际时刻16:00:00.001Z，rate0.00008498、mark2511.49、冻结q0.522，单次虚拟现金0.1114085913444，四次累计0.3323078796054897522；两个原成本情景金额相同，仍仅1个独立持仓事件。是实际来源应用到冻结R1虚拟账本，不是账户到账、净利润或完整生存证明，不用于R2开发。下一资金费时刻未知，17:00:10.308仅预算重置，不当作事件到期。发布前fresh规则、known、四方CLAIMS及官方记录与此前一致；发布阶段0市场/模型调用。不改entry、CLAIMS、冻结材料、策略、阶段、评分或他方文件；原始数据不上传。
+
+
+## 2026-10-21 18:20 UTC 复盘与固定天气身份补证
+
+追加[原生三遍复盘](notes/20261021-goal-review-1820.md)及固定July15 condition身份报告/最小元数据/验证元数据。一次既有Gamma HTTP200确认condition、题目及显式Yes/No token配对；Wunderground KLGA为结算源，不把NOAA替代它；endDate与CSV close_time相差24小时仍未解释。追加纠正前轮每行token/双时间戳/sequence万能门槛：YES-centric/compact契约可支持限定存储快照结构验证，但当前规则/费率不等于历史版本，as-of和可执行性仍未证。规则、known、四方认领及官方记录在29f5c1d986a2f673de59ddebb76d8b96386450d1刷新，43条/11待核/32草稿不变，官方仍无结果。新增4份小型说明/元数据，LOG/INDEX仅追加；不上传原始数据、不改entry/CLAIMS/冻结/他方/评分。发布阶段市场、模型、Reason、Pi调用0，无新机制、收益结论或阶段变化。

@@ -1,0 +1,84 @@
+{
+  "result": "IDENTITY_AND_CURRENT_RULES_BOUND_NOT_HISTORICAL_REPLAY_READY",
+  "condition_id": "0xe3a775b2a56fd19d838d92cbcd000c998b73431e357821b54bfdc1dcedd42da3",
+  "question_exact_csv_match": true,
+  "event_date": "2026-07-15",
+  "event_date_evidence": "2026 slug and description date 15 Jul 26; not inferred from directory name",
+  "token_mapping": [
+    {
+      "outcome_label": "Yes",
+      "token_id": "59684631090894860342627362261547710699304728428578731737561711227655228099733",
+      "array_index": 0
+    },
+    {
+      "outcome_label": "No",
+      "token_id": "1976253979431492150474990500785584818806292262013039337452843580026487653025",
+      "array_index": 1
+    }
+  ],
+  "token_mapping_basis": "Explicit returned Yes/No outcomes paired positionally with clobTokenIds; not inferred from first token without labels. File side convention remains dependent on Marketlens YES-centric source documentation.",
+  "station": "LaGuardia Airport Station / KLGA",
+  "resolution_source": "https://www.wunderground.com/history/daily/us/ny/new-york-city/KLGA",
+  "date_boundary": "All times on named calendar day at source; exact timezone/civil-day boundary is not explicitly specified in returned rules.",
+  "precision": "Source whole degrees Fahrenheit; no separate tie rounding algorithm specified.",
+  "missing_data_policy": "Not explicitly specified.",
+  "revision_policy": "Consider revisions until first datapoint for next date is published; ignore subsequent alterations.",
+  "settlement_earliest": "Cannot resolve before first datapoint for following date is published. No actual resolution result fetched or used.",
+  "historical_rules_vintage": "UNPROVEN: fetched current description, not archived pre-decision rules. updatedAt after decision does not identify which field changed.",
+  "historical_fee_vintage": "UNPROVEN: current feeSchedule only.",
+  "date_discrepancy": {
+    "gamma_endDate": "2026-07-15T12:00:00Z",
+    "csv_close_time": "2026-07-16T12:00:00Z",
+    "difference_hours": 24,
+    "interpretation": "Unresolved field-semantics/date discrepancy; Gamma endDate alone does not establish order acceptance cutoff or eligibility at decision."
+  },
+  "scope": "One prior exact-condition request and one prior existing-file inspection; publication adds no market/model requests. No PnL or execution validation.",
+  "local_validation": {
+    "selected_csv_identity": {
+      "market_id": "01a77489-79e6-55b6-95f0-a47778dd0bcf",
+      "condition_id": "0xe3a775b2a56fd19d838d92cbcd000c998b73431e357821b54bfdc1dcedd42da3",
+      "series": "nyc-daily-weather",
+      "event": "Highest temperature in NYC on July 15?",
+      "question": "Will the highest temperature in New York City be between 108-109°F on July 15?",
+      "open_time": "2026-07-14T02:02:30Z",
+      "close_time": "2026-07-16T12:00:00Z",
+      "data_start": "2026-07-14T02:07:10Z",
+      "data_end": "2026-07-16T05:57:15Z",
+      "file": "history-01a77489-79e6-55b6-95f0-a47778dd0bcf-compact.parquet"
+    },
+    "parquet_filename": "history-01a77489-79e6-55b6-95f0-a47778dd0bcf-compact.parquet",
+    "parquet_sha256": "9f23926cd1e02dcbacdfa32fd65d42c312c1ec4b50aa5300cb0f4b453cf0a857",
+    "schema_names": [
+      "event_type",
+      "t",
+      "price",
+      "size",
+      "side",
+      "trade_id",
+      "is_reseed",
+      "bids",
+      "asks"
+    ],
+    "row_count": 3221,
+    "event_type_counts": {
+      "snapshot": 3161,
+      "delta": 49,
+      "trade": 11
+    },
+    "timestamp_unit_assumption": "epoch milliseconds, source timing provenance not independently established",
+    "min_t": 1783994830118,
+    "max_t": 1784181531762,
+    "decision_t": 1784138400000,
+    "last_snapshot_t_at_or_before_decision": 1784138345732,
+    "first_snapshot_t_after_decision": 1784138405920,
+    "parquet_files_read_this_task": 1
+  },
+  "source_request": {
+    "source_url": "https://gamma-api.polymarket.com/markets?condition_ids=0xe3a775b2a56fd19d838d92cbcd000c998b73431e357821b54bfdc1dcedd42da3&closed=any&limit=1",
+    "request_count": 1,
+    "http_status": 200,
+    "response_received_utc": "2026-10-21T18:21:54.604139+00:00",
+    "bytes_read": 7051,
+    "response_sha256": "708bea0e0e5b7bc403e27b4d5a75d35c0825b7d40c8e9888a6dc86f566990198"
+  }
+}
