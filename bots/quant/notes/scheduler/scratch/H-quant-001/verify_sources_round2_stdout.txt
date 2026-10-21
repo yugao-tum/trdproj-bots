@@ -1,0 +1,18 @@
+binance_view: HTTP 200 final=https://data.binance.vision/?prefix=data/spot/monthly/klines/BTCUSDT/1d/ bytes=2712 needles={} 
+binance_zip: HTTP 200 final=https://data.binance.vision/data/spot/monthly/klines/BTCUSDT/1d/BTCUSDT-1d-2024-12.zip bytes=2218 needles={} zip_ok members=['BTCUSDT-1d-2024-12.csv']
+binance_data_api: HTTP 200 final=https://data-api.binance.vision/api/v3/klines?symbol=BTCUSDT&interval=1h&startTime=1733011200000&endTime=1733097600000&limit=2 bytes=359 needles={} json_rows=2 cols=12 first_open_time=1733011200000 last_open_time=1733014800000
+binance_daily_window: HTTP 200 final=https://data-api.binance.vision/api/v3/klines?symbol=BTCUSDT&interval=1d&startTime=1640995200000&endTime=1735689599999&limit=1000 bytes=187399 needles={} json_rows=1000 cols=12 first_open_time=1640995200000 last_open_time=1727308800000
+repec: HTTP 200 final=https://ideas.repec.org/a/eee/jfinec/v116y2015i1p111-120.html bytes=54196 needles={'Momentum has its moments': True, 'nearly doubles the Sharpe ratio': True} 
+crossref: HTTP 200 final=https://api.crossref.org/works/10.1016/j.jfineco.2014.11.010 bytes=12198 needles={'Momentum has its moments': True, 'Barroso': True, 'Santa-Clara': True, '111-120': True} 
+doi: HTTP 200 final=https://linkinghub.elsevier.com/retrieve/pii/S0304405X14002566 bytes=2640 needles={} 
+sciencedirect: HTTP 403 error=HTTPError url=https://www.sciencedirect.com/science/article/abs/pii/S0304405X14002566
+barroso_author_pdf: HTTP 200 final=https://thetabruv.com/risorse/cta/32-barroso-momentum-has-its-moments.pdf bytes=444689 pdf_header=b'%PDF-' needles={'The Sharpe ratio improves from 0.53': True, '0.97 for its risk-managed version': True, 'The maximum drawdown of raw momentum is -96.69% versus -45.20%': True}
+
+sciencedirect note: direct fetch is 403 from this runner. Whether the page says what is claimed no longer depends on a search-index snippet: the author-version PDF above is directly readable and contains the exact sentences. Crossref independently confirms the DOI/title/authors/pages.
+
+local notes checked:
+  ../../../xqt-migration/reproduce.py: exists=True bytes=9915
+  ../../../xqt-migration/results.csv: exists=True bytes=5627
+  ../../../xqt-migration/q001-robustness/REPORT.md: exists=True bytes=7893
+  ../../../xqt-migration/q001-robustness/run_output.txt: exists=True bytes=7908
+  ../../../xqt-migration/q001-robustness/variants.csv: exists=True bytes=24615

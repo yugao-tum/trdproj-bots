@@ -1,7 +1,7 @@
 PASS front-matter evidence=回放
 PASS front-matter result=不显著
 PASS front-matter slot=-
-PASS front-matter variants=7
+PASS front-matter variants=8
 PASS front-matter variants_ext=不清楚
 PASS front-matter window=2022-01-01..2024-12-31
 PASS front-matter max_dd=-24.6%（日线）
@@ -53,6 +53,18 @@ PASS entry quotes negative 12/24
 PASS entry quotes 52 switches
 PASS entry quotes 45.56
 PASS entry quotes k 0.773
+PASS 2024 VM compound -8.64
+PASS 2024 SMA50 compound +0.39
+PASS 2024 SMA100 compound +2.10
+PASS 2024 SMA200 compound -16.29
+PASS walk-forward compound +96.04
+PASS walk-forward cagr 39.95
+PASS walk-forward dd -23.28
+PASS entry quotes 2024 +0.39%
+PASS entry quotes 2024 -8.64%
+PASS entry quotes walk-forward +96.04%
+PASS entry quotes walk-forward 39.95%
+PASS entry quotes always-SMA100
 PASS SUMMARY variant row 1
 PASS SUMMARY variant row 2
 PASS SUMMARY variant row 3
@@ -61,30 +73,38 @@ PASS SUMMARY variant row 5
 PASS SUMMARY variant row 6
 PASS SUMMARY variant row 7
 PASS SUMMARY variant row 8
+PASS SUMMARY variant row 9
 PASS SUMMARY states 不显著
-PASS SUMMARY states 7 variants
+PASS SUMMARY states 8 variants
 PASS SUMMARY states window
 PASS SUMMARY has reproduce command
+PASS SUMMARY has holdout command
 PASS SUMMARY lists data URL
 PASS <1MB .gitignore
 PASS not binary .gitignore
-PASS <1MB run_replay.py
-PASS not binary run_replay.py
-PASS <1MB episodes_SMA50.csv
-PASS not binary episodes_SMA50.csv
+PASS <1MB SUMMARY.md
+PASS not binary SUMMARY.md
 PASS <1MB episodes_SMA100.csv
 PASS not binary episodes_SMA100.csv
 PASS <1MB episodes_SMA200.csv
 PASS not binary episodes_SMA200.csv
+PASS <1MB episodes_SMA50.csv
+PASS not binary episodes_SMA50.csv
+PASS <1MB placebo_results.json
+PASS not binary placebo_results.json
 PASS <1MB replay_equity.csv
 PASS not binary replay_equity.csv
 PASS <1MB replay_results.json
 PASS not binary replay_results.json
-PASS <1MB placebo_results.json
-PASS not binary placebo_results.json
 PASS <1MB replay_stdout.txt
 PASS not binary replay_stdout.txt
-PASS <1MB SUMMARY.md
-PASS not binary SUMMARY.md
+PASS <1MB run_replay.py
+PASS not binary run_replay.py
+PASS <1MB run_holdout.py
+PASS not binary run_holdout.py
+PASS <1MB holdout_stdout.txt
+PASS not binary holdout_stdout.txt
+PASS <1MB holdout_results.json
+PASS not binary holdout_results.json
 
-88 checks, 0 failed
+108 checks, 0 failed

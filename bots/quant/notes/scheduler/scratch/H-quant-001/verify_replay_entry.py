@@ -36,7 +36,7 @@ def ck(name, ok, detail=""):
 # --- round-2 front matter ---
 expect = {
     "evidence": "回放", "result": "不显著", "slot": "-",
-    "variants": "7", "variants_ext": "不清楚",
+    "variants": "8", "variants_ext": "不清楚",
     "window": "2022-01-01..2024-12-31",
     "max_dd": "-24.6%（日线）", "contribution": "21.0%",
 }
@@ -86,18 +86,37 @@ ck("entry quotes 52 switches", "46 次切换" in norm)
 ck("entry quotes 45.56", "45.56" in norm)
 ck("entry quotes k 0.773", "0.773" in norm)
 
+# --- holdout / walk-forward numbers ---
+HO = json.loads((REPLAY / "holdout_results.json").read_text())
+h = HO["splits"]["holdout_2024"]
+ck("2024 VM compound -8.64", f"{h['VM']['compound_pct']:+.2f}" == "-8.64")
+ck("2024 SMA50 compound +0.39", f"{h['VM_x_SMA50']['compound_pct']:+.2f}" == "+0.39")
+ck("2024 SMA100 compound +2.10", f"{h['VM_x_SMA100']['compound_pct']:+.2f}" == "+2.10")
+ck("2024 SMA200 compound -16.29", f"{h['VM_x_SMA200']['compound_pct']:+.2f}" == "-16.29")
+wf = HO["walk_forward"]["metrics"]
+ck("walk-forward compound +96.04", f"{wf['compound_pct']:+.2f}" == "+96.04")
+ck("walk-forward cagr 39.95", f"{wf['cagr_pct']:.2f}" == "39.95")
+ck("walk-forward dd -23.28", f"{wf['max_dd_pct']:.2f}" == "-23.28")
+ck("entry quotes 2024 +0.39%", "+0.39%" in norm)
+ck("entry quotes 2024 -8.64%", "-8.64%" in norm)
+ck("entry quotes walk-forward +96.04%", "+96.04%" in norm)
+ck("entry quotes walk-forward 39.95%", "39.95%" in norm)
+ck("entry quotes always-SMA100", "always-SMA100" in norm)
+
 # --- SUMMARY completeness ---
-for i in range(1, 9):
+for i in range(1, 10):
     ck(f"SUMMARY variant row {i}", re.search(rf"^\| {i} \|", summary, re.M) is not None)
 ck("SUMMARY states 不显著", "不显著" in summary)
-ck("SUMMARY states 7 variants", "**7**" in summary)
+ck("SUMMARY states 8 variants", "**8**" in summary)
 ck("SUMMARY states window", "2022-01-01..2024-12-31" in summary)
 ck("SUMMARY has reproduce command", "run_replay.py" in summary)
+ck("SUMMARY has holdout command", "run_holdout.py" in summary)
 ck("SUMMARY lists data URL", "data-api.binance.vision/api/v3/klines" in summary)
 
 # --- files: size and binary extensions ---
 bad_ext = {".pkl", ".pickle", ".parquet", ".npy", ".zip", ".gz", ".bz2", ".xz",
-           ".db", ".sqlite", ".xlsx", ".pdf", ".feather", ".h5", ".arrow"}
+           ".db", ".sqlite", ".xlsx", ".pdf", ".feather", ".h5", ".arrow",
+           ".pyc", ".so", ".bin"}
 for p in REPLAY.rglob("*"):
     if p.is_file():
         ck(f"<1MB {p.name}", p.stat().st_size < 1_000_000, f"{p.stat().st_size} bytes")

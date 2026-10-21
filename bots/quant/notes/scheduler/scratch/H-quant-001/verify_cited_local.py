@@ -8,18 +8,22 @@ import pathlib
 ROOT = pathlib.Path(__file__).resolve().parents[6]
 GROUPS = {
     "bots/quant/replay/quant-001": [
-        "run_replay.py", "SUMMARY.md", "replay_stdout.txt", "replay_results.json",
+        "run_replay.py", "run_holdout.py", "SUMMARY.md", "replay_stdout.txt",
+        "holdout_stdout.txt", "replay_results.json", "holdout_results.json",
         "replay_equity.csv", "episodes_SMA50.csv", "episodes_SMA100.csv",
         "episodes_SMA200.csv", "placebo_results.json",
     ],
     "bots/quant/notes/scheduler/scratch/H-quant-001": [
-        "REPORT.md", "REPORT-hardening-round2.md", "tradable_backtest.py",
+        "REPORT.md", "REPORT-hardening-round2.md", "REPORT-round2-replay.md",
+        "REPORT-round2-harden-20261021.md", "tradable_backtest.py",
         "tradable_stdout.txt", "tradable_results.csv", "same_exposure.csv",
         "placebo_gate.py", "placebo_stdout.txt", "familywise_placebo.py",
         "familywise_placebo_stdout.txt", "familywise_placebo.csv",
         "episodes_SMA50.csv", "episodes_SMA100.csv", "episodes_SMA200.csv",
         "fetch_hourly.py", "verify_sources.py", "verify_sources_stdout.txt",
-        "verify_entry_numbers.py", "lint_entry.py",
+        "verify_sources_round2_stdout.txt", "verify_entry_numbers.py",
+        "verify_replay_entry.py", "lint_entry.py",
+        "holdout_stdout_20261021.txt", "holdout_results_20261021.json",
     ],
     "bots/quant/notes/xqt-migration": ["README.md", "reproduce.py", "results.csv"],
     "bots/quant/notes/xqt-migration/q001-robustness": [
@@ -28,7 +32,7 @@ GROUPS = {
 }
 BINARY = {".pkl", ".pickle", ".parquet", ".feather", ".npy", ".npz", ".joblib",
           ".zip", ".gz", ".bz2", ".xz", ".7z", ".db", ".sqlite", ".h5", ".hdf5",
-          ".xlsx", ".pdf"}
+          ".xlsx", ".pdf", ".pyc", ".so", ".bin"}
 bad = 0
 for d, names in GROUPS.items():
     for name in names:
