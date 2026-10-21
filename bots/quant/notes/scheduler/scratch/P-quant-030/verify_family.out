@@ -1,0 +1,12 @@
+CLOSED events 196 markets 951
+  fee rates: {0.04: 849, 0: 20, None: 28, 0.07: 4, 0.05: 50}
+  feeType: {'tech_fees': 25, 'zero_fees': 20, 'finance_prices_fees': 824, None: 28, 'crypto_fees_v2': 4, 'economics_fees': 37, 'general_fees': 13}
+  event volume: sum 4703475 median 8353 p90 39168 max 893324
+  endDate months: {'': 1, '2026-03': 1, '2026-04': 8, '2026-05': 42, '2026-06': 24, '2026-07': 84, '2026-08': 15, '2026-09': 1, '2026-10': 18, '2026-12': 1, '2027-01': 1}
+OPEN events 102 markets 497
+  fee rates: {0: 464, 0.04: 27, 0.05: 6}
+  feeType: {'zero_fees': 464, 'finance_prices_fees': 14, 'tech_fees': 13, 'general_fees': 6}
+  event volume: sum 1682295 median 3850 p90 7410 max 1195592
+  endDate months: {'2026-10': 57, '2026-11': 26, '2026-12': 13, '2027-01': 2, '2027-03': 2, '2027-05': 2}
+closed metric keywords: [('revenue', 69), ('comparable sales', 12), ('margin', 10), ('arr', 7), ('organic', 6), ('deliveries', 5), ('comparable store sales', 4), ('orders', 4), ('load factor', 3), ('bookings', 2), ('same store', 2), ('shipments', 2), ('subscriber', 2), ('monthly active', 2), ('same restaurant', 1)]
+closed markets-per-event: {1: 5, 3: 11, 4: 24, 5: 140, 6: 7, 7: 3, 8: 1, 9: 4, 10: 1}

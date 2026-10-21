@@ -1,0 +1,48 @@
+=== 5 same-caliber cases, pre-registered rule ===
+
+[1] TSM Q2 revenue above-41 -> NO; release 2026-07-13 05:30:28Z (TSMC dateModified)
+  first taker BUY NO after release: 2026-07-13 05:32:08 taker BUY No @0.912887 size=514.01 (used 514.01)
+   half-spread 0c: fee/share=0.003181 net/share=+0.083932 total=+43.14 USDC return-on-cost=+9.2%
+   half-spread 1c: fee/share=0.003181 net/share=+0.073932 total=+38.00 USDC return-on-cost=+8.1%
+   half-spread 3c: fee/share=0.003181 net/share=+0.053932 total=+27.72 USDC return-on-cost=+5.9%
+   half-spread 5c: fee/share=0.003181 net/share=+0.033932 total=+17.44 USDC return-on-cost=+3.7%
+
+[2] TSM above-40 -> YES (nowcast 40.2 is only 0.5% from 40; fails 2% distance)
+  first taker BUY YES after release: 2026-07-13 05:31:55 taker BUY Yes @0.934495 size=721.54 (used 721.54)
+   half-spread 0c: fee/share=0.002449 net/share=+0.063057 total=+45.50 USDC return-on-cost=+6.7%
+   half-spread 1c: fee/share=0.002449 net/share=+0.053057 total=+38.28 USDC return-on-cost=+5.7%
+   half-spread 3c: fee/share=0.002449 net/share=+0.033057 total=+23.85 USDC return-on-cost=+3.5%
+   half-spread 5c: fee/share=0.002449 net/share=+0.013057 total=+9.42 USDC return-on-cost=+1.4%
+
+[3] Boeing Q1 deliveries above-140 -> YES (release time not published; 18:26 is date-consistent only)
+  first taker BUY YES on release date: 2026-04-14 18:27:46 taker BUY Yes @0.980000 size=29.00 (used 29.00)
+   half-spread 0c: fee/share=0.000784 net/share=+0.019216 total=+0.56 USDC return-on-cost=+2.0%
+   half-spread 1c: fee/share=0.000784 net/share=+0.009216 total=+0.27 USDC return-on-cost=+0.9%
+   half-spread 3c: fee/share=0.000784 net/share=-0.010784 total=-0.31 USDC return-on-cost=-1.1%
+   half-spread 5c: fee/share=0.000784 net/share=-0.030784 total=-0.89 USDC return-on-cost=-3.1%
+
+[4] Costco 6.5-7.5 -> YES; first print after April sales is taker BUY NO (basket), not a YES ask
+  first bracket print (BUY NO, 2026-05-22): 2026-05-22 22:38:55 taker BUY No @0.920000 size=20.00 (used 20.00)
+   half-spread 0c: fee/share=0.002944 net/share=-0.922944 total=-18.46 USDC return-on-cost=-100.3%
+   half-spread 1c: fee/share=0.002944 net/share=-0.932944 total=-18.66 USDC return-on-cost=-101.4%
+   half-spread 3c: fee/share=0.002944 net/share=-0.952944 total=-19.06 USDC return-on-cost=-103.6%
+   half-spread 5c: fee/share=0.002944 net/share=-0.972944 total=-19.46 USDC return-on-cost=-105.8%
+  first taker BUY YES (2026-05-28, after earnings release): 2026-05-28 20:15:05 taker BUY Yes @0.880000 size=11.25 (used 11.25)
+   half-spread 0c: fee/share=0.004224 net/share=+0.115776 total=+1.30 USDC return-on-cost=+13.2%
+   half-spread 1c: fee/share=0.004224 net/share=+0.105776 total=+1.19 USDC return-on-cost=+12.0%
+   half-spread 3c: fee/share=0.004224 net/share=+0.085776 total=+0.96 USDC return-on-cost=+9.7%
+   half-spread 5c: fee/share=0.004224 net/share=+0.065776 total=+0.74 USDC return-on-cost=+7.5%
+
+[5] Delta Q2 83-85 -> YES (fails 50-share liquidity gate)
+  first taker BUY YES: 2026-07-02 10:07:10 taker BUY Yes @0.238136 size=37.55 (used 37.55)
+   half-spread 0c: fee/share=0.007257 net/share=+0.754607 total=+28.34 USDC return-on-cost=+316.9%
+   half-spread 1c: fee/share=0.007257 net/share=+0.744607 total=+27.96 USDC return-on-cost=+312.7%
+   half-spread 3c: fee/share=0.007257 net/share=+0.724607 total=+27.21 USDC return-on-cost=+304.3%
+   half-spread 5c: fee/share=0.007257 net/share=+0.704607 total=+26.46 USDC return-on-cost=+295.9%
+
+[6] UAL Q2: naive Apr+May nowcast 82.3 -> '<83' (actual 83.4, loses)
+  first taker BUY YES in <83: 2026-06-27 04:56:28 taker BUY Yes @0.160000 size=10.00 (used 10.00)
+   half-spread 0c: fee/share=0.005376 net/share=-0.165376 total=-1.65 USDC return-on-cost=-103.4%
+   half-spread 1c: fee/share=0.005376 net/share=-0.175376 total=-1.75 USDC return-on-cost=-109.6%
+   half-spread 3c: fee/share=0.005376 net/share=-0.195376 total=-1.95 USDC return-on-cost=-122.1%
+   half-spread 5c: fee/share=0.005376 net/share=-0.215376 total=-2.15 USDC return-on-cost=-134.6%

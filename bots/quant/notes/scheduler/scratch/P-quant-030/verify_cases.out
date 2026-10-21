@@ -1,0 +1,40 @@
+====================================================================================================
+boeing-airplane-deliveries-above-in-q1 | volume 13843.8 | markets 9
+  [120] trades=17 vol=589.545 out=["1", "0"] closed=True
+  [125] trades=14 vol=284.72400000000005 out=["1", "0"] closed=True
+  [130] trades=14 vol=316.328 out=["1", "0"] closed=True
+  [135] trades=9 vol=245.991 out=["1", "0"] closed=True
+  [140] trades=10 vol=442.9945 out=["1", "0"] closed=True
+  [145] trades=26 vol=781.9837919999999 out=["0", "1"] closed=True
+  [150] trades=48 vol=10058.493428999993 out=["0", "1"] closed=True
+  [155] trades=10 vol=662.6645 out=["0", "1"] closed=True
+  [160] trades=8 vol=461.07773 out=["0", "1"] closed=True
+====================================================================================================
+costco-q3-us-adjusted-comparable-sales-growth | volume 3881.4 | markets 6
+  [<4.5%] trades=37 vol=928.308341 out=["0", "1"] closed=True
+  [4.5%–5.5%] trades=24 vol=692.1226199999999 out=["0", "1"] closed=True
+  [5.5%–6.5%] trades=14 vol=379.885157 out=["0", "1"] closed=True
+  [6.5%–7.5%] trades=11 vol=620.5319499999999 out=["1", "0"] closed=True
+  [7.5%–8.5%] trades=38 vol=996.406106 out=["0", "1"] closed=True
+  [8.5%+] trades=15 vol=264.14290000000005 out=["0", "1"] closed=True
+====================================================================================================
+united-airlines-ual-q2-consolidated-passenger-load-factor-20260618193152130 | volume 25551.16 | markets 5
+  [<83%] trades=46 vol=1332.739666 out=["0", "1"] closed=True
+  [83%-84%] trades=79 vol=10338.094761 out=["1", "0"] closed=True
+  [84%-85%] trades=84 vol=4410.395672999999 out=["0", "1"] closed=True
+  [85%-86%] trades=175 vol=7230.040441 out=["0", "1"] closed=True
+  [86%+] trades=64 vol=2239.8848070000004 out=["0", "1"] closed=True
+====================================================================================================
+delta-dal-q2-passenger-load-factor | volume 9703.88 | markets 5
+  [<81%] trades=50 vol=573.1159609999999 out=["0", "1"] closed=True
+  [81%–83%] trades=44 vol=434.558313 out=["0", "1"] closed=True
+  [83%–85%] trades=150 vol=5525.644941000001 out=["1", "0"] closed=True
+  [85%–87%] trades=78 vol=2827.7990389999995 out=["0", "1"] closed=True
+  [87%+] trades=32 vol=342.75871699999993 out=["0", "1"] closed=True
+====================================================================================================
+will-taiwan-semiconductor-tsm-q2-revenue-usd-be-above-20260618163305419 | volume 35118.91 | markets 5
+  [$39B] trades=70 vol=7298.807883 out=["1", "0"] closed=True
+  [$40B] trades=166 vol=12063.351348999997 out=["1", "0"] closed=True
+  [$41B] trades=115 vol=5160.398351000001 out=["0", "1"] closed=True
+  [$42B] trades=78 vol=5534.871915 out=["0", "1"] closed=True
+  [$43B] trades=65 vol=5061.479294999999 out=["0", "1"] closed=True
