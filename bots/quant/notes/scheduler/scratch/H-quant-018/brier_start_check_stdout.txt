@@ -1,0 +1,10 @@
+input: bots/quant/notes/q018-price-test/buckets.csv
+first-price normalised: n=43 mean=0.806019
+start-price normalised: n=34 mean=0.743627
+paired 34 events: model=0.774672 start=0.743627 start-model=-0.031045
+Bab subset (start-price complete):
+  n=11 model=0.876901 start=0.811195 start-model=-0.065706
+Hormuz subset (start-price complete):
+  n=23 model=0.725780 start=0.711312 start-model=-0.014468
+
+Interpretation: the entry's '周起点价子集' row used first_p (0.8060 for all 43; 0.8093 on the 34-event subset), not start_p.  With the price actually used by the start-of-week strategy, the market (0.7436) beats the model (0.7747) on the same 34 events.  Standard (3) therefore PASSes only for the first-price comparison.

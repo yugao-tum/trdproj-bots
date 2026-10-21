@@ -1,0 +1,43 @@
+cited URLs: 15; access date 2026-10-21
+
+[PASS] HTTP 200 3929991B https://gamma-api.polymarket.com/events?tag_slug=geopolitics&limit=500&closed=true&order=endDate&ascending=false
+        100 events returned (entry claims 100 per page)
+[PASS] HTTP 200 4415746B https://gamma-api.polymarket.com/events?tag_slug=geopolitics&limit=500&closed=false&order=endDate&ascending=true
+        100 events returned (entry claims 100 per page)
+[PASS] HTTP 200 2422242B https://gamma-api.polymarket.com/events?tag_slug=geopolitics&limit=100&closed=true&offset=100&order=endDate&ascending=false
+        100 events returned (entry claims 100 per page)
+[PASS] HTTP 200 25993B https://gamma-api.polymarket.com/events?slug=how-many-ships-transit-bab-el-mandeb-strait-week-of-october-5
+        resolved=['190-209'], volume=13097.774817000001, window_text_present=True
+[PASS] HTTP 200 28012B https://gamma-api.polymarket.com/events?slug=how-many-ships-transit-bab-el-mandeb-strait-week-of-october-19
+        labels=['<170', '170-189', '190-209', '210-229', '230+'], feesEnabled=[False, False, False, False, False], clobRewards_rates=[1, 53, 41, 5, None], rewardsMinSize=[20], rewardsMaxSpread=[8.5] (bid/ask/reward params drift noted in entry)
+[PASS] HTTP 200 31377B https://gamma-api.polymarket.com/events?slug=how-many-ships-transit-the-strait-of-hormuz-week-of-october-19
+        labels=['<20', '20-24', '25-29', '30-34', '35-39', '40+'], volume=17026.438948 (entry snapshot volume=5539.661748)
+[PASS] HTTP 200 1291375B https://gamma-api.polymarket.com/public-search?q=how%20many%20ships%20transit&limit_per_type=100&events_status=all
+        47 events (47 how-many-*)
+[PASS] HTTP 200 26278B https://gamma-api.polymarket.com/public-search?q=UKMTO&limit_per_type=50&events_status=all
+        1 events: ['how-many-ukmto-notices-october-1925']
+[PASS] HTTP 200 1494794B https://gamma-api.polymarket.com/public-search?q=Strait%20of%20Hormuz&limit_per_type=50&events_status=all
+        50 events returned
+[PASS] HTTP 200 596478B https://gamma-api.polymarket.com/public-search?q=Bab%20el-Mandeb&limit_per_type=50&events_status=all
+        23 events returned
+[PASS] HTTP 200 37443B https://services9.arcgis.com/weJ1QsnbMYJlCHdG/arcgis/rest/services?f=json
+        services include Daily_Chokepoints_Data=True
+[PASS] HTTP 200 9558B https://services9.arcgis.com/weJ1QsnbMYJlCHdG/arcgis/rest/services/Daily_Chokepoints_Data/FeatureServer/0?f=json
+        fields=['date', 'year', 'month', 'day', 'portid', 'portname', 'n_container', 'n_dry_bulk', 'n_general_cargo', 'n_roro', 'n_tanker', 'n_cargo', 'n_total', 'capacity_container', 'capacity_dry_bulk', 'capacity_general_cargo', 'capacity_roro', 'capacity_tanker', 'capacity_cargo', 'capacity', 'ObjectId']
+[PASS] HTTP 200 82566B https://services9.arcgis.com/weJ1QsnbMYJlCHdG/arcgis/rest/services/Daily_Chokepoints_Data/FeatureServer/0/query?where=portname IN ('Bab el-Mandeb Strait','Strait of Hormuz')&outFields=date,portname,n_total&returnGeometry=false&f=json&resultOffset=0&resultRecordCount=1000&orderByFields=date ASC
+        first page features=1000, exceededTransferLimit=True
+[PASS] HTTP 200 216134B https://portwatch.imf.org/pages/6b1814d64903461b98144a6cc25eb79c
+        page bytes=216134; direct FeatureServer link in HTML=False
+[PASS] HTTP 200 8684B https://clob.polymarket.com/prices-history?market=83323157431384565919039651171113228419822107706617450318634509280075717583619&interval=max&fidelity=60
+        history points=327; first={'t': 1790816418, 'p': 0.255}; last={'t': 1791986417, 'p': 0.9755}
+
+== extra checks ==
+PortWatch both count: 5696
+PortWatch Bab count: 2848
+PortWatch latest row: {'date': '2026-10-18', 'portname': 'Bab el-Mandeb Strait', 'n_total': 32}
+
+entry snapshot (2026-10-20): 5,682 rows, each strait 2,841 days, latest 2026-10-11
+2026-10-21 re-check above: row counts and latest date have advanced; the dated snapshot is not false,
+but a reader re-running the cited query today will get more rows.  This is recorded, not hidden.
+
+summary: 15 URLs, PASS=15, CHANGED=0, FAIL=0

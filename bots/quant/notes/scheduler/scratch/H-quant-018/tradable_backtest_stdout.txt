@@ -1,0 +1,50 @@
+quant-018 tradable-price NO backtest; run 2026-10-21
+draft history source: bots/quant/notes/q018-paired/buckets.csv sha1 962b0b2434581fdf75a6ea8210836a6931baa6e3
+draft history: 12 Bab events, 35 buckets with a [T-24h,T] trade price
+post-draft event: how-many-ships-transit-bab-el-mandeb-strait-week-of-october-12-20261006t134953677z
+  prior 12 complete weeks: [('2026-07-20', 198), ('2026-07-27', 215), ('2026-08-03', 178), ('2026-08-10', 206), ('2026-08-17', 206), ('2026-08-24', 184), ('2026-08-31', 178), ('2026-09-07', 191), ('2026-09-14', 173), ('2026-09-21', 190), ('2026-09-28', 207), ('2026-10-05', 198)]
+  buckets/model/entry: <170 p_m=0.0588 p_yes=0.2; 170-189 p_m=0.2941 p_yes=0.21000000500000005; 190-209 p_m=0.4706 p_yes=0.22000001690000004; 210-229 p_m=0.1176 p_yes=0.25; 230+ p_m=0.0588 p_yes=0.17
+  resolved: ['170-189']
+fee rates read from Gamma: [0.0] (feesEnabled=false => 0 for all events)
+
+== trigger/fill counts ==
+case       sample                   
+base_1c    draft_history                18
+           post_draft_oos_2026_10_12     3
+stress_5c  draft_history                15
+           post_draft_oos_2026_10_12     3
+
+== results (1 share per triggered bucket, fee included) ==
+
+base_1c
+  all (13 events): shares=21 events=10 wins=16 median=+0.2400/sh mean=+0.0339/sh total=+0.7116 invested=15.2884 per$=+0.0465 hit=0.7619 | event_total=+0.7116 event_median=+0.0850 event_win=5/10 | boot mean95%=[-0.158,+0.188] per$95%=[-0.216,+0.261]
+  draft history (12 events): shares=18 events=9 wins=13 median=+0.2400/sh mean=+0.0068/sh total=+0.1216 invested=12.8784 per$=+0.0094 hit=0.7222 | event_total=+0.1216 event_median=-0.1800 event_win=4/9 | boot mean95%=[-0.212,+0.183] per$95%=[-0.290,+0.260]
+  post-draft OOS (1 event): shares=3 events=1 wins=3 median=+0.1900/sh mean=+0.1967/sh total=+0.5900 invested=2.4100 per$=+0.2448 hit=1.0000 | event_total=+0.5900 event_median=+0.5900 event_win=1/1 | boot mean95%=[+0.197,+0.197] per$95%=[+0.245,+0.245]
+  draft weeks < 2026-09-01 (post-hoc split): shares=10 events=6 wins=7 median=+0.3004/sh mean=-0.0018/sh total=-0.0184 invested=7.0184 per$=-0.0026 hit=0.7000 | event_total=-0.0184 event_median=+0.0450 event_win=3/6 | boot mean95%=[-0.441,+0.242] per$95%=[-0.607,+0.363]
+  draft weeks >= 2026-09-01 (post-hoc split): shares=8 events=3 wins=6 median=+0.2350/sh mean=+0.0175/sh total=+0.1400 invested=5.8600 per$=+0.0239 hit=0.7500 | event_total=+0.1400 event_median=-0.1800 event_win=1/3 | boot mean95%=[-0.083,+0.285] per$95%=[-0.111,+0.399]
+
+stress_5c
+  all (13 events): shares=18 events=10 wins=14 median=+0.2000/sh mean=+0.0134/sh total=+0.2416 invested=13.7584 per$=+0.0176 hit=0.7778 | event_total=+0.2416 event_median=+0.2550 event_win=6/10 | boot mean95%=[-0.198,+0.182] per$95%=[-0.257,+0.240]
+  draft history (12 events): shares=15 events=9 wins=11 median=+0.2000/sh mean=-0.0152/sh total=-0.2284 invested=11.2284 per$=-0.0203 hit=0.7333 | event_total=-0.2284 event_median=+0.2000 event_win=5/9 | boot mean95%=[-0.257,+0.188] per$95%=[-0.338,+0.254]
+  post-draft OOS (1 event): shares=3 events=1 wins=3 median=+0.1500/sh mean=+0.1567/sh total=+0.4700 invested=2.5300 per$=+0.1858 hit=1.0000 | event_total=+0.4700 event_median=+0.4700 event_win=1/1 | boot mean95%=[+0.157,+0.157] per$95%=[+0.186,+0.186]
+  draft weeks < 2026-09-01 (post-hoc split): shares=9 events=6 wins=6 median=+0.2808/sh mean=-0.0576/sh total=-0.5184 invested=6.5184 per$=-0.0795 hit=0.6667 | event_total=-0.5184 event_median=-0.0150 event_win=3/6 | boot mean95%=[-0.488,+0.212] per$95%=[-0.631,+0.308]
+  draft weeks >= 2026-09-01 (post-hoc split): shares=6 events=3 wins=5 median=+0.1950/sh mean=+0.0483/sh total=+0.2900 invested=4.7100 per$=+0.0616 hit=0.8333 | event_total=+0.2900 event_median=+0.2000 event_win=2/3 | boot mean95%=[-0.100,+0.200] per$95%=[-0.130,+0.250]
+
+== per-event P&L, base_1c ==
+week_start                                                                               slug                    sample  shares    profit     cost  per_dollar
+2026-07-20      how-many-ships-transit-bab-el-mandeb-strait-week-of-july-20-20260713200946341             draft_history       1 -0.819179 0.819179   -1.000000
+2026-08-03     how-many-ships-transit-bab-el-mandeb-strait-week-of-august-3-20260730202018839             draft_history       1  0.350000 0.650000    0.538462
+2026-08-10        how-many-ships-transit-bab-el-mandeb-strait-week-of-august-10-1786098036061             draft_history       2  0.740000 1.260000    0.587302
+2026-08-17        how-many-ships-transit-bab-el-mandeb-strait-week-of-august-17-1786700461690             draft_history       3  0.740771 2.259229    0.327887
+2026-08-24                      how-many-ships-transit-bab-el-mandeb-strait-week-of-august-24             draft_history       1 -0.770000 0.770000   -1.000000
+2026-08-31                      how-many-ships-transit-bab-el-mandeb-strait-week-of-august-31             draft_history       2 -0.260000 1.260000   -0.206349
+2026-09-07                    how-many-ships-transit-bab-el-mandeb-strait-week-of-september-7             draft_history       3 -0.180000 2.180000   -0.082569
+2026-09-14                   how-many-ships-transit-bab-el-mandeb-strait-week-of-september-14             draft_history       3 -0.250000 2.250000   -0.111111
+2026-09-28                   how-many-ships-transit-bab-el-mandeb-strait-week-of-september-28             draft_history       2  0.570000 1.430000    0.398601
+2026-10-12 how-many-ships-transit-bab-el-mandeb-strait-week-of-october-12-20261006t134953677z post_draft_oos_2026_10_12       3  0.590000 2.410000    0.244813
+
+== verdict under the entry's frozen criteria ==
+(1) median realised gross profit of filled NO shares <= 0? median=+0.2400 => PASS
+(1-event-level) event median net profit = +0.0850; event hit rate = 0.5000
+(3) >=30 independent events with same-time tradable prices? 10 events (<30) => INSUFFICIENT
+post-draft OOS is 1 event; it is reported, not used to claim significance.
