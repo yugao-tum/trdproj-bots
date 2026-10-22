@@ -73,3 +73,37 @@ because it exceeded 1 MB; `fetch_data.py` re-downloads it.
   counts 78/102→82/106 and 15/87→16/89.
 - Added evidence §7 with the historical price-side backtest and an explicit negative
   verdict for gate 5/6.
+
+---
+
+## 2026-10-22 更新（本轮 H-quant-016 改进工作）
+
+**本文上文的“模型侧不可检验”结论已被后续合并笔记推翻，不要按上文引用。** 已合并的
+`bots/quant/notes/q016-hist/`（提交 `e950778`）用 Wayback CDX 快照恢复了历史 `(k,m)`，
+其中 66 个 event 有可成交价；`model_hist_round.py` 按本条 round-half-up 重算后模型仍
+Brier 0.060450 vs 市场 0.035369、每美元 −0.325353，判 FAIL。
+
+本轮把证据做成可重跑的成交价回放（canonical）：
+
+- 目录：`bots/quant/replay/quant-016/`
+- 脚本：`replay_model.py`（Beta 模型）、`replay_market.py`（市场侧 A/B/C）
+- 汇总：`SUMMARY.md`（窗口 2026-03-02..2026-10-19；66 个独立 priced event；23 个变体）
+- 逐笔/逐 event：`trades_model.csv`、`events_model.csv`
+- stdout 副本：本目录 `replay_model_copy.out`、`replay_market_copy.out`、`replay_model_clob_copy.out`
+
+2026-10-22 复核要点：
+
+- `verify_entry_citations.py` 重抓：Gamma/CLOB/data-api/RT 18 PASS；Wayback CDX 恢复 200，
+  归档快照 spot check 通过；availability / archive.ph / Common Crawl 仍 TLS 失败。
+  stdout：`verify_entry_citations_replay.out`。
+- RT 实时页按日期漂移：`clayface` 2026-10-22 为 67/22/89、score 75（条目只把带日期的快照当证据）。
+- 取整重跑：23 个有显示分数的页面 23/23 round、11 个可区分样本全部 round。
+  stdout：`check_rounding_replay.out`。
+
+主回放数字（与已合并 `model_hist_round.out` 逐位一致）：
+
+- 66 event / 192 有价档；87 笔 / 49 event；命中 8/87；Brier 0.060450 vs 0.035369；
+  PRIMARY event 中位 −0.046602/份、均值 −0.055558/份；合计 −3.666836 / 投入 11.270339
+  = 每美元 **−0.325353**。
+- 模拟 300 USDT/event、5,000 USDT 账户：第 27/66 个 event 本金耗尽；max_dd 100%；
+  线性年化贡献 −203.6%，按现金账户上限报告 −100%。

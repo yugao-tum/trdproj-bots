@@ -1,0 +1,51 @@
+sense_and_sensibility_2026: k=84 n=108 raw=77.7778 score=78 floor=77 round=78 match=ROUND
+other_mommy: k=17 n=91 raw=18.6813 score=19 floor=18 round=19 match=ROUND
+clayface: k=67 n=89 raw=75.2809 score=75 floor=75 round=75 match=BOTH
+by_any_means: HTTP 200 k=0 n=0 score=None (no display score)
+the_wild_robot: k=252 n=261 raw=96.5517 score=97 floor=96 round=97 match=ROUND
+inside_out_2: k=298 n=329 raw=90.5775 score=91 floor=90 round=91 match=ROUND
+deadpool_and_wolverine: k=326 n=421 raw=77.4347 score=77 floor=77 round=77 match=BOTH
+dune_part_two: k=429 n=466 raw=92.0601 score=92 floor=92 round=92 match=BOTH
+barbie: k=448 n=509 raw=88.0157 score=88 floor=88 round=88 match=BOTH
+you_can_see_everything: k=152 n=156 raw=97.4359 score=97 floor=97 round=97 match=BOTH
+klara_and_the_sun: k=9 n=34 raw=26.4706 score=26 floor=26 round=26 match=BOTH
+ali_g_who_iz_i: HTTP 200 k=0 n=0 score=None (no display score)
+wildwood: k=56 n=56 raw=100.0000 score=100 floor=100 round=100 match=BOTH
+godzilla_minus_zero: k=41 n=43 raw=95.3488 score=95 floor=95 round=95 match=BOTH
+wild_horse_nine: k=84 n=90 raw=93.3333 score=93 floor=93 round=93 match=BOTH
+avengers_doomsday: HTTP 200 k=0 n=0 score=None (no display score)
+dune_part_three: HTTP 200 k=0 n=0 score=None (no display score)
+mufasa_the_lion_king: k=124 n=221 raw=56.1086 score=56 floor=56 round=56 match=BOTH
+wicked_for_good: k=234 n=356 raw=65.7303 score=66 floor=65 round=66 match=ROUND
+zootopia_2: k=209 n=228 raw=91.6667 score=92 floor=91 round=92 match=ROUND
+superman: HTTP 200 k=0 n=0 score=None (no display score)
+jurassic_world_rebirth: k=204 n=406 raw=50.2463 score=50 floor=50 round=50 match=BOTH
+fantastic_four_first_steps: HTTP 404 no criticsScore
+the_odyssey: HTTP 200 k=0 n=0 score=None (no display score)
+project_hail_mary: k=407 n=430 raw=94.6512 score=95 floor=94 round=95 match=ROUND
+altar: HTTP 200 k=0 n=1 score=None (no display score)
+roofman: k=189 n=218 raw=86.6972 score=87 floor=86 round=87 match=ROUND
+good_boy: HTTP 200 k=0 n=0 score=None (no display score)
+the_smashing_machine: HTTP 200 k=0 n=0 score=None (no display score)
+one_battle_after_another: k=421 n=448 raw=93.9732 score=94 floor=93 round=94 match=ROUND
+sinners: HTTP 200 k=0 n=0 score=None (no display score)
+a_minecraft_movie: k=92 n=194 raw=47.4227 score=47 floor=47 round=47 match=BOTH
+lilo_and_stitch: k=132 n=154 raw=85.7143 score=86 floor=85 round=86 match=ROUND
+how_to_train_your_dragon: k=207 n=210 raw=98.5714 score=99 floor=98 round=99 match=ROUND
+
+== summary ==
+pages with score: 23
+match floor=12/23  match round=23/23
+both=12 floor-only=0 round-only=11 neither=0
+disagreements (floor != round):
+  sense_and_sensibility_2026: 84/108=77.7778 score=78 floor=77 round=78 -> 78
+  other_mommy: 17/91=18.6813 score=19 floor=18 round=19 -> 19
+  the_wild_robot: 252/261=96.5517 score=97 floor=96 round=97 -> 97
+  inside_out_2: 298/329=90.5775 score=91 floor=90 round=91 -> 91
+  wicked_for_good: 234/356=65.7303 score=66 floor=65 round=66 -> 66
+  zootopia_2: 209/228=91.6667 score=92 floor=91 round=92 -> 92
+  project_hail_mary: 407/430=94.6512 score=95 floor=94 round=95 -> 95
+  roofman: 189/218=86.6972 score=87 floor=86 round=87 -> 87
+  one_battle_after_another: 421/448=93.9732 score=94 floor=93 round=94 -> 94
+  lilo_and_stitch: 132/154=85.7143 score=86 floor=85 round=86 -> 86
+  how_to_train_your_dragon: 207/210=98.5714 score=99 floor=98 round=99 -> 99

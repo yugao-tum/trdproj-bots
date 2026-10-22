@@ -1,0 +1,61 @@
+quant-016 model replay | closed Rotten Tomatoes Tomatometer events
+inputs: snapshots.csv (Wayback (k,m)), universe.csv (Gamma brackets),
+        data-api trades (fill price), CLOB prices-history (sensitivity)
+costs: taker fee 0.05*q*(1-q) + 1c half-spread; 1 share/bracket; hold to resolution
+independent unit: event; all closed events are out-of-sample
+
+== M1 floor, main [T-72h,T-12h], fills, taker ==
+  events with snapshot: 74
+  scored events=66  scored brackets=192
+  Brier model=0.066637 market=0.035369 diff=+0.031268
+  logloss model=0.214928 market=0.121872 diff=+0.093056
+  triggered trades=92 events/triggered=52 hit(net>0)=9/92
+  PRIMARY all priced events: median event net/share=-0.054190 mean=-0.062616
+  total net=-4.132638 on staked=12.708319 -> per $=-0.325192
+
+== M2 round, main, fills, taker (CANONICAL) ==
+  events with snapshot: 74
+  scored events=66  scored brackets=192
+  Brier model=0.060450 market=0.035369 diff=+0.025081
+  logloss model=0.203451 market=0.121872 diff=+0.081580
+  triggered trades=87 events/triggered=49 hit(net>0)=8/87
+  PRIMARY all priced events: median event net/share=-0.046602 mean=-0.055558
+  total net=-3.666836 on staked=11.270339 -> per $=-0.325353
+
+== M3 round, sens [T-7d,T-24h], fills, taker ==
+  events with snapshot: 81
+  scored events=73  scored brackets=218
+  Brier model=0.064620 market=0.045723 diff=+0.018897
+  logloss model=0.213639 market=0.149771 diff=+0.063868
+  triggered trades=102 events/triggered=55 hit(net>0)=15/102
+  PRIMARY all priced events: median event net/share=-0.020980 mean=-0.036595
+  total net=-2.671421 on staked=17.126652 -> per $=-0.155980
+
+== M4 round, main, fills, maker fee 0 (1c spread) ==
+  events with snapshot: 74
+  scored events=66  scored brackets=192
+  Brier model=0.060450 market=0.035369 diff=+0.025081
+  logloss model=0.203451 market=0.121872 diff=+0.081580
+  triggered trades=92 events/triggered=51 hit(net>0)=8/92
+  PRIMARY all priced events: median event net/share=-0.051737 mean=-0.062407
+  total net=-4.118829 on staked=12.118829 -> per $=-0.339870
+
+== M5 round, main, CLOB prices-history, taker ==
+  events with snapshot: 74
+  scored events=74  scored brackets=442
+  Brier model=0.038814 market=0.024737 diff=+0.014078
+  logloss model=0.140450 market=0.089193 diff=+0.051257
+  triggered trades=181 events/triggered=64 hit(net>0)=25/181
+  PRIMARY all priced events: median event net/share=-0.062597 mean=-0.050865
+  total net=-3.763997 on staked=28.006000 -> per $=-0.134400
+
+== canonical replay summary ==
+priced events=66  window=2026-03-02..2026-10-19
+median event net/share=-0.046602  mean=-0.055558
+per $ staked=-0.325353  result=负
+modeled max drawdown (300 USDT/event on 5,000)=100.0%  (equity reaches 0 after event 27/66)
+modeled annual contribution on 5,000 = per$ * 300 * events/year / 5000 = -203.6% -> reported -100.0% (cash-funded loss capped at -100%)
+(events/year=104.3)
+NOTE: the modeled % assumes the losing replay repeats; it is not a forecast.
+wrote events_model.csv 66 rows
+wrote trades_model.csv 87 rows

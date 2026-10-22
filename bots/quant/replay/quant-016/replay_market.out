@@ -1,0 +1,55 @@
+quant-016 market replay | closed Rotten Tomatoes Tomatometer brackets
+events=84 brackets=525 window=2026-03-02..2026-10-19
+execution: last data-api print at/before T-h + 1c half-spread + taker 0.05*q*(1-q); hold to resolution; 1 share/bracket
+independent unit = event; no fitted parameter
+
+horizon  priced_brackets  priced_events  median_fill_age_h  median_clob_age_h
+T-48h     374     82      5.94      0.98
+T-24h     341     82      5.90      0.98
+T-6h      413     80      4.26      1.98
+
+== T-24h price calibration (last fill, YES-equivalent) ==
+bucket        n   events  mean_p  realised_yes  brier
+[0.00,0.05)   156     60  0.0078  0.0000  0.0002
+[0.05,0.10)    14     13  0.0785  0.0714  0.0639
+[0.10,0.25)    11     11  0.1642  0.1818  0.1466
+[0.25,0.50)     8      8  0.4100  0.5000  0.2346
+[0.50,0.75)    16     14  0.6139  0.6875  0.2271
+[0.75,0.90)    11     11  0.8275  1.0000  0.0316
+[0.90,0.95)     9      8  0.9215  1.0000  0.0063
+[0.95,1.00)   116     57  0.9907  1.0000  0.0002
+overall market Brier (bracket-level): 0.024829
+YES base rate: 0.451613  constant-Brier: 0.247659
+
+== pre-registered rules (taker fee + 1c half-spread) ==
+T-48h A buy NO : brackets= 131 events= 57 mean_net=-0.033131 median_net=-0.020495 total_net=-4.340109 event_mean=-0.035010 pos/neg=0/57 z=-7.55
+T-48h B buy YES: brackets= 172 events= 62 mean_net=-0.005608 median_net=-0.016951 total_net=-0.964563 event_mean=-0.009606 pos/neg=3/59 z=-7.11
+T-48h C buy NO : brackets=  40 events= 36 mean_net=-0.059512 median_net=+0.234527 total_net=-2.380471 event_mean=-0.057672 pos/neg=19/17 z=+0.33
+T-24h A buy NO : brackets= 125 events= 59 mean_net=-0.024966 median_net=-0.020495 total_net=-3.120756 event_mean=-0.025633 pos/neg=0/59 z=-7.68
+T-24h B buy YES: brackets= 170 events= 64 mean_net=-0.018371 median_net=-0.014199 total_net=-3.123080 event_mean=-0.011254 pos/neg=1/63 z=-7.75
+T-24h C buy NO : brackets=  24 events= 22 mean_net=-0.100814 median_net=-0.360254 total_net=-2.419546 event_mean=-0.115258 pos/neg=9/13 z=-0.85
+T-6h A buy NO : brackets= 180 events= 63 mean_net=-0.017897 median_net=-0.011152 total_net=-3.221445 event_mean=-0.019596 pos/neg=0/63 z=-7.94
+T-6h B buy YES: brackets= 220 events= 71 mean_net=-0.008070 median_net=-0.011326 total_net=-1.775495 event_mean=-0.008198 pos/neg=2/69 z=-7.95
+T-6h C buy NO : brackets=  10 events= 10 mean_net=-0.094716 median_net=-0.406838 total_net=-0.947163 event_mean=-0.094716 pos/neg=4/6 z=-0.63
+
+== maker-fee-0 variant (T-24h, 1c spread still charged) ==
+A/B/C A buy NO : n= 125 events= 59 mean_net=-0.024283 event_mean=-0.024918 total_net=-3.035353
+A/B/C B buy YES: n= 170 events= 64 mean_net=-0.017724 event_mean=-0.010490 total_net=-3.013070
+A/B/C C buy NO : n=  24 events= 22 mean_net=-0.089090 event_mean=-0.103553 total_net=-2.138167
+
+== CLOB-price sensitivity at T-24h (CLOB = last/mid, not a fill) ==
+priced brackets: 495 events: 82
+A buy NO : brackets= 186 events= 64 mean_net=-0.023901 event_mean=-0.027631 pos/neg=0/64
+B buy YES: brackets= 234 events= 68 mean_net=-0.024166 event_mean=-0.026806 pos/neg=0/68
+C buy NO : brackets=  43 events= 39 mean_net=-0.031979 event_mean=-0.049232 pos/neg=18/21
+
+market-implied boundary vs final boundary at T-24h (threshold points)
+  n=65 exact=55 |error|<=2=59
+  YES lo: mean_net=+0.0308 total=+1.5731 pos/neg=31/20
+  NO hi: mean_net=-0.0272 total=-1.3884 pos/neg=32/19
+
+exploratory buy YES on 0.25<=p<=0.90 at T-24h (NOT pre-registered)
+  brackets=36 events=31 mean_net=+0.0881 event_mean=+0.1130 event_median=+0.1987 pos/neg=22/9 sign_test_p=0.0294
+
+event-level Brier (mean over brackets, then over events)
+  events=82 market=0.029557 constant=0.250723
