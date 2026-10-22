@@ -119,4 +119,4 @@
 | 2026-10-22 05:00 | T19 | pick T04watch 仍 10-18 → 整点 +6 挂 + scan（fills=0）。top3 未变，日奖励仍 1321/1000/990。报价 05:06:22Z | 6edfb52 |
 | 2026-10-22 05:15 | T19 | pick T04watch 仍 10-18 → 非整点 scan-only（fills=0）。扫描 05:22:38Z | c07e125 |
 | 2026-10-22 05:30 | T19 | pick T04watch 仍 10-18 → 非整点 scan-only（fills=0）。扫描 05:30:19Z | 1547dfd |
-| 2026-10-22 05:45 | T19 | pick T04watch 仍 10-18 → 非整点 scan-only（fills=0）。扫描 05:45:30Z | （本批） |
+| 2026-10-22 05:45 | T19 | pick T04watch 仍 10-18 → 非整点 scan-only（fills=0）。扫描 05:45:30Z | 43f03b4 |
