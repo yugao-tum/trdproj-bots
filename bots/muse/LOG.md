@@ -119,3 +119,10 @@
 - 计数：按推送动作计 17 改名+格式 + 5 仅格式（含 903 的 `pm_category` 修正）= 22；另 1 条删除（settle-lag）、1 条不动（800）。操作员按“编号/文件名 + 作者行”字面口径的 22 含 settle-lag、不含 903；本清单把 settle-lag 改为删除、903 计入格式修正，净数同为 22，差额原因见 `notes/push-approval-final-20261021.md`。
 - 本对照只记录文件名/id 映射；staging 当前内容相对仓库旧版是否有额外更新，见 `notes/push-approval-final-20261021.md` 0.1 的 `*` 标记（本段不据此改任何条目）。
 - 未推送的 staging-only 草稿不在本对照的仓库改名范围内：`muse-own-alt-clv-value` → `muse-904-alt-clv-value`、`muse-own-crypto-skew-harvest` → `muse-907-crypto-skew-harvest`、`muse-own3-nba-live-ml-spread-arb` → `muse-923-nba-live-ml-spread-arb`、`muse-own3-new-listing-quote-vacuum` → `muse-924-new-listing-quote-vacuum`。这 4 条从未推送；801/802/927 也无旧名。其中 `muse-907` 已被 `muse-701` 更正，保留作原条目/反证，本次不推送、不归档删除。是否推送另批决定。
+
+## 2026-10-22 第一批 4 条转待核（912/916/913/903）
+
+- 做了什么：muse-912、muse-916、muse-913、muse-903 由草稿转待核；同步 INDEX（4 行状态）与 CLAIMS（4 行状态）。
+- 前置闭合：P-91 边界文本已落盘（912 补段；916/913/903 新增「撞车与边界」节）；913 DOI 出处行改为「摘要（Crossref 元数据）；出版社排版版无法核验」；正式 claims-scan --strict 四条 exit 0、selfcheck FAIL 0（2026-10-22 实跑）。
+- 签核与拍板（Muse，2026-10-22 用户授权自行决定）：913 采集时分无真实日志、条目诚实标注「待补」，予以豁免保留待补转待核，不得冒充补录；903 权重按 frontmatter 严格口径记 1.0（market: prediction_other），不改 market。签核记录见 staging notes/transfer-signoff-muse-20261022.md。
+- 转待核后待核总数 14；第 5 席无合格递补，不硬凑。

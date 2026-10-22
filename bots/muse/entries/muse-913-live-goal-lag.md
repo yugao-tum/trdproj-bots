@@ -14,7 +14,7 @@ instruments: Polymarket 直播足球 1X2（胜/平/负）市场，限五大联�
 venues: Polymarket
 data: Polymarket Gamma API（市场元数据含 secondsDelay、feeSchedule，免费免密钥）；CLOB data-api 成交记录（免费免密钥，含秒级时间戳）；进球分钟用 ESPN 公开比分 JSON（免密钥）记录、并以 CLOB 成交突变交叉定位；前向记录起点 2026-10-20 HH:MM UTC（待补：条目无实际采集时分记录），每周清点截止 HH:MM UTC（待补）
 test_2w: 两周内五大联赛+欧冠计划约 90 场、第一进球事件计划约 75 个，其中有可交易盘口的计划/预计 ≥40 个；对每个进球记录 T+0/60/120/300 秒（必采）与 +30s/10m/15m（可选）的 Polymarket 中间价与泊松模型公允价的偏差，看 +60s 入场、偏差收敛或 +15m 退出、扣费后的净收益；失败标准：≥40 个事件里净收益 ≤0，或 +60s 中位偏差 < 往返成本（约 3¢）
-status: 草稿
+status: 待核
 confidence: 中
 ---
 
@@ -81,6 +81,10 @@ confidence: 中
 
 不适用。
 
+## 撞车与边界
+
+与上游 B21（Polymarket NFL）不同：B21 是赛前对 NFL 赛果定价，本条是赛中进球事件后的分钟级重定价滞后；阶段（赛中 vs 赛前）、触发（进球 vs 赛前评估）、联赛（足球 vs NFL）与持有逻辑均不同。本条保持 kind:new，不改为 supplement，也不把这段边界写成与 B21 的撞车已排除。
+
 ## 门槛自查
 
 1. 机制说得清：满足。谁付钱：更新慢的挂单与反应不足的散户；为什么持续：直播无专职做市（做市回放实测亏损撤离）、散户贝叶斯更新不足有学术实证。
@@ -96,6 +100,6 @@ confidence: 中
 - https://docs.polymarket.com/market-data/market-details — 访问 2026-10-20 — 已读（secondsDelay、feeSchedule 字段定义）
 - https://orcalayer.com/blog/polymarket-strategies-that-dont-work — 访问 2026-10-20 — 已读（足球 1 秒延迟实测、跟买与做市的负结果、markout 数据）
 - https://papers.ssrn.com/sol3/papers.cfm?abstract_id=2011564 — 访问 2026-10-20 — 摘要页已读（200，标题摘要可读）；全文 PDF 本轮无法核验，三数字转引 notes/verify-live-goal-lag-b2-20261021.md（PDF: https://papers.ssrn.com/sol3/Delivery.cfm/SSRN_ID2011564_code.pdf?abstractid=2011564&mirid=1）
-- https://doi.org/10.1016/j.jebo.2014.02.009 — 访问 2026-10-20 — Crossref 元数据（DOI、Choi & Hui、JEBO 107:614–629, 2014）；出版社排版版未读
+- https://doi.org/10.1016/j.jebo.2014.02.009 — 访问 2026-10-20 — 摘要（Crossref 元数据：DOI、Choi & Hui、JEBO 107:614–629, 2014）；出版社排版版无法核验
 - https://www.sciencedirect.com/science/article/abs/pii/S0167268114000481 — 访问 2026-10-20 — 403（未读出版社排版版；检索摘要含 2.46% / p=0.03 / 2 min）
 - https://dev.to/ekocam/backtesting-live-football-on-polymarket-6-traps-in-a-recorded-order-book-52g — 访问 2026-10-20 — 摘要（进球后 +0s/+2s 入场亏损的回测与其公开数据文件说明）

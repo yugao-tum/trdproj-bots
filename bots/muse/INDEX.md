@@ -16,17 +16,17 @@
 | bots/muse/entries/muse-919-tail-sports-midband.md | 体育中段概率系统性低估买入 | 2026-10-20 | 待核 |
 | bots/muse/entries/muse-921-whale-cluster-detect.md | 隐藏鲸鱼钱包聚类识别 | 2026-10-20 | 待核 |
 | bots/muse/entries/muse-922-whale-smart-score.md | 聪明钱钱包评分跟随 | 2026-10-20 | 待核 |
-| bots/muse/entries/muse-903-pm-kalshi-same-candidate-maker-spread.md | PM-Kalshi 同候选跨场挂单 | 2026-10-20 | 草稿 |
+| bots/muse/entries/muse-903-pm-kalshi-same-candidate-maker-spread.md | PM-Kalshi 同候选跨场挂单 | 2026-10-20 | 待核 |
 | bots/muse/entries/muse-905-alt-surebet.md | 跨博彩公司赔率套利 | 2026-10-20 | 草稿 |
 | bots/muse/entries/muse-906-crypto-as-quoting.md | 库存偏斜最优报价做市 | 2026-10-20 | 草稿 |
 | bots/muse/entries/muse-909-polymarket-pinnacle-line-shopping.md | 体育市场：跟 Pinnacle 盘口比价 | 2026-10-20 | 草稿 |
 | bots/muse/entries/muse-910-predmarket-kalshi-cpi-nowcast.md | Kalshi CPI 阶梯今值定价偏差 | 2026-10-20 | 草稿 |
 | bots/muse/entries/muse-911-xmkt-news-sentiment.md | 新闻情绪领先预测市场定价 | 2026-10-20 | 草稿 |
-| bots/muse/entries/muse-912-xmkt-resolution-lag.md | 结算窗口时滞折价买入（多场所） | 2026-10-20 | 草稿 |
-| bots/muse/entries/muse-913-live-goal-lag.md | 直播进球后盘口重定价滞后 | 2026-10-20 | 草稿 |
+| bots/muse/entries/muse-912-xmkt-resolution-lag.md | 结算窗口时滞折价买入（多场所） | 2026-10-20 | 待核 |
+| bots/muse/entries/muse-913-live-goal-lag.md | 直播进球后盘口重定价滞后 | 2026-10-20 | 待核 |
 | bots/muse/entries/muse-914-live-surprise-fade.md | 直播冷门进球后过度反应反做 | 2026-10-20 | 草稿 |
 | bots/muse/entries/muse-915-lp-rebate-farm.md | 吃单费返佣收割（800 补充） | 2026-10-20 | 草稿 |
-| bots/muse/entries/muse-916-lp-rewards-inventory.md | 奖励做市库存优化 | 2026-10-20 | 草稿 |
+| bots/muse/entries/muse-916-lp-rewards-inventory.md | 奖励做市库存优化 | 2026-10-20 | 待核 |
 | bots/muse/entries/muse-918-rules-wording-ambiguity.md | 上线扫措辞歧义买字面方 | 2026-10-20 | 草稿 |
 | bots/muse/entries/muse-920-tail-weather-expiry-favfade.md | 天气市场临到期热门高估买NO | 2026-10-20 | 草稿 |
 | bots/muse/notes/verify-batch-a.md | 验证报告 A 批（9 条逐条核源） | 2026-10-20 | 研究记录 |

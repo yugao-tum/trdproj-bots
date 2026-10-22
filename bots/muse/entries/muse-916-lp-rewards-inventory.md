@@ -14,7 +14,7 @@ instruments: 有流动性奖励池（Gamma clobRewards 非空）的长日期二�
 venues: Polymarket（global CLOB，Polygon）
 data: Gamma clobRewards/rewardsMinSize/rewardsMaxSpread（免密钥，实时确认池子是否在开）、CLOB book（当前深度，历史 L2 无免费源）、data-api trades（markout）；前向自 2026-10-20 起记录
 test_2w: 前向 14 天，对 ≥30 个有池市场（事件簇计）逐日记录：账面 Q 份额估算、实际到账奖励、成交 markout、merge 次数；与「固定 50 股双边」基线纸面并行对比；失败：净现金流（奖励−markout−资金占用代理）中位 ≤ 0，或相对基线无改善（净值差中位 ≤ 0）
-status: 草稿
+status: 待核
 confidence: 中
 ---
 
@@ -94,6 +94,10 @@ confidence: 中
 4. **毒性门**：原版无逆向选择规则；本版对计划内事件、急动、跌出计分区间、高 markout 日四种情形给出撤单/减半/外移的明确动作。
 5. **池子存活筛选**：原版未处理「奖励项目已结束」的状态（crypto TWAP 奖励 2026-08 已结束）；本版以 Gamma clobRewards 实时非空为进门条件。
 怎么验证改进：两周检验与基线（原版固定参数）纸面并行对比，净现金流中位差 ≤ 0 即判改进不成立（见检验节）。
+
+## 撞车与边界
+
+与上游 C49（再质押安全服务费与罚没风险）不同：C49 做外部 AVS 安全服务费与罚没风险，本条赚 Polymarket 流动性奖励池，不涉及质押、AVS 或罚没；与 C33（预测市场持有奖励净收益）不同：C33 做持有头寸奖励，本条按 Q-score 双边挂单领奖励池，付款科目与动作不同。与 C32（平台流动性激励）同族：本条按 dot-032/M-M4 计 improvement，不另计新机制；本条不改为 new，也不主张与 C49/C33/C32 的边界已由工具正式通过。
 
 ## 门槛自查
 
