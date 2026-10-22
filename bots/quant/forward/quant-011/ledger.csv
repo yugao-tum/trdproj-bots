@@ -1,1 +1,2 @@
 time_utc,event_id,market,action,side,price,price_source,size,fee,pnl,note
+2026-10-22T04:33:25Z,-,-,更正,-,,none:gap_note,0,0,0,"corrects=none;recorder_outage: box scheduler (bin/forward.sh hourly) was stopped 2026-10-21T11:23Z..2026-10-22T04:24Z; ticks 00:05Z-04:05Z after the 00:00Z start were missed; 2 three-way matches with a draw market (event_ids 1154461;1154465, startTime 03:10Z) started before the first tick and were skipped per PLAN (no backfill; no post-decision book snapshot can be recovered). Not counted as results."
