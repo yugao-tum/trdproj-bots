@@ -95,6 +95,7 @@ def main():
     for r in trades:
         r["shares"] = float(r["port_shares"])
         r["cost"] = float(r["port_cost"])
+        r["fee"] = float(r["fee_005"]) * float(r["port_shares"])
         r["payoff"] = 0.0 if int(r["resolved_yes"]) else 1.0
         r["fill_ts"] = datetime.fromisoformat(r["fill_utc"]).timestamp()
         r["settle_ts"] = float(r["settle_ts"])
@@ -115,7 +116,7 @@ def main():
         day_end = datetime(d.year, d.month, d.day, 23, 59, 59, tzinfo=timezone.utc).timestamp()
         for i, r in enumerate(trades):
             if i not in opened and r["fill_ts"] <= day_end:
-                cash -= r["cost"]
+                cash -= r["cost"] + r["fee"]
                 open_pos.append((i, r))
                 opened.add(i)
         for item in list(open_pos):

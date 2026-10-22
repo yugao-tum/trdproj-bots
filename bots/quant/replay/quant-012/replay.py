@@ -557,8 +557,9 @@ def main():
             open_pos.remove(p)
             done.append(p)
         cost = SHARES_PER_BUCKET * float(b["no_entry"])
+        fee = SHARES_PER_BUCKET * FEE_RATE * float(b["no_entry"]) * (1.0 - float(b["no_entry"]))
         used = per_event_used.get(b["event_slug"], 0.0)
-        if used + cost > MAX_USDT_PER_EVENT or cost > cash:
+        if used + cost > MAX_USDT_PER_EVENT or cost + fee > cash:
             skipped_cash += 1
             continue
         b = dict(b)
@@ -566,7 +567,7 @@ def main():
         b["cost"] = round(cost, 6)
         b["pnl_fee005"] = round(SHARES_PER_BUCKET * float(b["net_per_share"]), 6)
         b["pnl_fee0"] = round(SHARES_PER_BUCKET * float(b["net_per_share_fee0"]), 6)
-        cash -= cost
+        cash -= cost + fee
         per_event_used[b["event_slug"]] = used + cost
         open_pos.append(b)
     for p in open_pos:

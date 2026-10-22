@@ -19,10 +19,10 @@ quant-012 replay: tradable-price fills after decision time
 
 [3b] capacity portfolio (sleeve 1,000 USDT; 100 shares/bracket; <=300 USDT/event)
     filled brackets = 137; independent events = 65; skipped for cash/event cap = 46
-    net = +372.73 USDT on 10529.53 USDT cost = +3.54% (fee 0.05)
-    cash at end = 1470.47 USDT (start 1000)
-    max drawdown (daily, realised only) = 21.53% (327.32 USDT)
-    sample span = 320.3 days; annualised contribution on 5000 USDT = +8.50%
+    net = +367.93 USDT on 10534.53 USDT cost = +3.49% (fee 0.05)
+    cash at end = 1367.93 USDT (start 1000)
+    max drawdown (daily, realised only) = 21.60% (327.32 USDT)
+    sample span = 320.3 days; annualised contribution on 5000 USDT = +8.39%
 
 [4] splits of the canonical signal (1 share each, net per share, fee 0.05)
     all                  n=183 events=65 median=+0.1147 mean=+0.0393 total=+7.1969 = +4.94%
