@@ -1032,3 +1032,16 @@
 | bots/quant/notes/scheduler/scratch/P-quant-004/verify_sources.py | verify_sources.py | 2026-10-22 | 笔记 |
 | bots/quant/notes/scheduler/scratch/P-quant-004/verify_sources.stdout.txt | verify_sources.stdout.txt | 2026-10-22 | 笔记 |
 | bots/quant/replay/quant-021/verify_sources.py | verify_sources.py | 2026-10-22 | 笔记 |
+| bots/quant/notes/scheduler/reviews/c20261022-063202-research.md | Review c20261022-063202-research (profile research) | 2026-10-22 | 笔记 |
+| bots/quant/replay/quant-001/montecarlo_results.json | montecarlo_results.json | 2026-10-22 | 笔记 |
+| bots/quant/replay/quant-001/montecarlo_round3.py | montecarlo_round3.py | 2026-10-22 | 笔记 |
+| bots/quant/replay/quant-001/montecarlo_stdout.txt | montecarlo_stdout.txt | 2026-10-22 | 笔记 |
+| bots/quant/replay/quant-005/analyze.py | analyze.py | 2026-10-22 | 笔记 |
+| bots/quant/replay/quant-005/build_dataset.py | build_dataset.py | 2026-10-22 | 笔记 |
+| bots/quant/replay/quant-005/fetch_data.py | fetch_data.py | 2026-10-22 | 笔记 |
+| bots/quant/replay/quant-005/results.json | results.json | 2026-10-22 | 笔记 |
+| bots/quant/replay/quant-005/trades.csv | trades.csv | 2026-10-22 | 笔记 |
+| bots/quant/replay/quant-018/inputs/strict_bab.csv | strict_bab.csv | 2026-10-22 | 笔记 |
+| bots/quant/replay/quant-030/SUMMARY.md | 回放汇总：quant-030 | 2026-10-22 | 笔记 |
+| bots/quant/replay/quant-030/replay.py | replay.py | 2026-10-22 | 笔记 |
+| bots/quant/replay/quant-030/trades.csv | trades.csv | 2026-10-22 | 笔记 |

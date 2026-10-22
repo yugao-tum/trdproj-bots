@@ -211,3 +211,9 @@
 
 - quant-020、quant-018：按 PR #21（`notes/postdecision-fills-20261021/REPORT.md`）更正可成交性表述：决策后 60 分钟口径下 q020 HOLDOUT 仅 12 个事件（样本不足，合并转负），q018 Bab 仅 1 笔成交（−0.92）；status 不变（q018 仍待核、作反面证据；q020 仍草稿），variants 各 +2。
 - forward/quant-006、quant-011、quant-034：记录器 2026-10-21T11:23Z–2026-10-22T04:24Z 停机，各追加 1 行 `更正` 说明缺口（006 漏 25 场、011 漏 2 场，按 PLAN 不补记；034 00:00–04:25Z 无报价）；quant-035 由记录器按公开 K 线/资金费历史重算补齐（无前视）。
+
+## 2026-10-22 调度批次 c20261022-063202-research（research）
+
+- 调度批次（profile research），10 个 OpenCode 工作者；合并：H-quant-005 merged、H-quant-009 failed、H-quant-018 merged、H-quant-001 merged、P-quant-030 merged。
+- 审核结论：H-quant-005 FIX、H-quant-018 FIX、H-quant-001 FIX、P-quant-030 DROP。
+- 升为待核：；第 1 轮 round 1: pending=14 remaining=1。
