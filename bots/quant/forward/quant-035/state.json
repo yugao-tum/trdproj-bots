@@ -1,9 +1,9 @@
 {
   "start": "2026-10-22T00:00:00Z",
   "end": "2026-11-05T00:00:00Z",
-  "last_run_utc": "2026-10-22T08:41:25Z",
-  "generated_through_utc": "2026-10-22T08:41:25Z",
-  "expected_rows": 8,
+  "last_run_utc": "2026-10-22T09:12:39Z",
+  "generated_through_utc": "2026-10-22T09:12:39Z",
+  "expected_rows": 9,
   "appended": 1,
   "corrections": 0
 }
