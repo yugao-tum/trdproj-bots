@@ -1,5 +1,5 @@
 {
-  "generated_utc": "2026-10-21T12:49:17Z",
+  "generated_utc": "2026-10-22T00:18:49Z",
   "event_slug": "trump-approval-rating-on-october-23",
   "gamma_http": 200,
   "event_end": "2026-10-24T03:59:00Z",
@@ -27,8 +27,8 @@
     {
       "bracket": "<37.5",
       "conditionId": "0xa5434282bd83112611d7b49b68fef59bbca8eea69e39dcb1ee06392d95a5e38d",
-      "bestBid": 0.017,
-      "bestAsk": 0.046,
+      "bestBid": 0.014,
+      "bestAsk": 0.042,
       "book_note": "Gamma bestBid/bestAsk are quotes, not fills",
       "trades": {
         "http": 200,
@@ -45,8 +45,8 @@
     {
       "bracket": "37.5–37.9",
       "conditionId": "0x327699d2c9b3560ba7d1dc616a51e5378a02c9053e129432441f2b23c000d553",
-      "bestBid": 0.07,
-      "bestAsk": 0.13,
+      "bestBid": 0.08,
+      "bestAsk": 0.11,
       "book_note": "Gamma bestBid/bestAsk are quotes, not fills",
       "trades": {
         "http": 200,
@@ -63,26 +63,26 @@
     {
       "bracket": "38.0–38.4",
       "conditionId": "0x7459e68cbe164143ed4fcb776c142dad35f15a06089503893a06991392563daa",
-      "bestBid": 0.32,
-      "bestAsk": 0.43,
+      "bestBid": 0.37,
+      "bestAsk": 0.39,
       "book_note": "Gamma bestBid/bestAsk are quotes, not fills",
       "trades": {
         "http": 200,
-        "yes_in_page": 29,
+        "yes_in_page": 30,
         "latest": {
-          "ts": "2026-10-21T11:01:29Z",
-          "price": 0.32,
-          "size": 30
+          "ts": "2026-10-21T15:43:03Z",
+          "price": 0.37,
+          "size": 20
         },
         "median_30_in_band": 0.22,
-        "n_median": 29
+        "n_median": 30
       }
     },
     {
       "bracket": "38.5–38.9",
       "conditionId": "0x05ca75b19c229c8784ad36bc7ae1b548c18a3010f9b31eb915960126c9080193",
-      "bestBid": 0.33,
-      "bestAsk": 0.4,
+      "bestBid": 0.31,
+      "bestAsk": 0.35,
       "book_note": "Gamma bestBid/bestAsk are quotes, not fills",
       "trades": {
         "http": 200,
@@ -99,15 +99,15 @@
     {
       "bracket": "39.0–39.4",
       "conditionId": "0x59e223d45fb1dcc38c035bf9a8368e6fbf3efc4b6065841a564a76afe1b2d513",
-      "bestBid": 0.09,
-      "bestAsk": 0.21,
+      "bestBid": 0.13,
+      "bestAsk": 0.17,
       "book_note": "Gamma bestBid/bestAsk are quotes, not fills",
       "trades": {
         "http": 200,
-        "yes_in_page": 32,
+        "yes_in_page": 34,
         "latest": {
-          "ts": "2026-10-21T10:37:27Z",
-          "price": 0.27,
+          "ts": "2026-10-21T12:56:41Z",
+          "price": 0.18,
           "size": 20
         },
         "median_30_in_band": 0.252,
