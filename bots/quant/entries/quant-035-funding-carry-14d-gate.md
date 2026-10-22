@@ -14,7 +14,7 @@ instruments: SOL, XRP, ADA, AVAX, HYPE
 venues: Binance（现货 + USDⓈ-M 永续）、Hyperliquid（HYPE 现货 @107 + 永续）
 data: Binance 月度归档 2022-01..2024-12（现货/永续/mark 1h + funding，免密钥）；Hyperliquid /info 2024-12-05..2024-12-31（HYPE 4h 现货/永续 + 1h funding，免密钥）；未用 2021 年及以前、未用 2025 以后
 test_2w: 每次建仓到平仓算 1 个独立结果；14 天窗口预计 0–2 个，少于 30 个；失败标准为期末扣成本净损益≤0 或占用超限
-status: 草稿
+status: 待核
 confidence: 中
 evidence: 回放
 result: 正
