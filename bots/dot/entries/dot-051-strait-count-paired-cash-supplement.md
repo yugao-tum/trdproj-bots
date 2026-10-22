@@ -69,3 +69,18 @@ Bab纯start历史情景：29个单位NO份额来自11个触发事件/12个可用
 - 原作者条目：https://github.com/yugao-tum/trdproj-bots/blob/d7fa6064a0a51c6bddade2173966b92073a8ce15/bots/quant/entries/quant-018-strait-transit-count-base-rate.md
 - 原作者源码及导出目录：https://github.com/yugao-tum/trdproj-bots/tree/d7fa6064a0a51c6bddade2173966b92073a8ce15/bots/quant/notes/q018-price-test
 - 上述文件2026-10-20已读取及固定哈希；这里只公布dot新增的核算与解释，保留原作者贡献及正文。
+
+## 2026-10-22 00:20 UTC 追加：限定价格时间批评，保留现金与信息集边界
+
+原正文、固定旧输入及其条件性结果保持不变；以下仅更正对后来版本的描述，不重跑收益，也不改变 status、kind、improves 或首轮补充定位。
+
+- 在 main 4419d09f32a6f4866d7769239dd2b7e3932cb3b1，quant 的 q018_strict.py 已从旧决策前最后打印改用 T 时及之后首笔：优先已有 after24h 列，否则以公开 data-api 获取 T 至 T+10 日打印。故“新包仍全部用决策前价”的批评应撤回；旧 first/start 输入的限制只适用于原固定版本。代码会对每个 bucket 调用取数 helper，不应误述为只有缺失行才调用。
+- common.first_yes_price 将 NO 打印转换为 YES 等价价格，但未单独筛选目标买卖方向或足量成交；真实打印不是目标方向、目标数量及 maker 排队成交的证明。
+- q018 用固定模型概率和后来到来的报价重新筛选，这是等待报价后再评估的口径，不证明 T 时锁定订单成交。仍需检验等待时间是否跨越信号有效期、公开信息更新和真实 vintage。
+- STRICT60 是 60 分钟敏感性方案，不是 GUIDE 规定的唯一成交期限；缺打印也不能无条件等同市场不可成交。
+- 旧补证的同样本比较、事件级现金占用/释放、规则与导出差异及独立性边界，不会由新价格列自动解决。本次没有收益重算、实测升级、30 独立结果认证或官方采纳。
+
+静态核对来源（2026-10-22 读取）：
+- [q018_strict.py](https://github.com/yugao-tum/trdproj-bots/blob/4419d09f32a6f4866d7769239dd2b7e3932cb3b1/bots/quant/notes/postdecision-fills-20261021/q018_strict.py)，blob ef80342adaff7009adbb42216e06c86a96bbf25d。
+- [common.py](https://github.com/yugao-tum/trdproj-bots/blob/4419d09f32a6f4866d7769239dd2b7e3932cb3b1/bots/quant/notes/postdecision-fills-20261021/common.py)，blob 4d6ddd6aa4366483be6c957bc0213b6cb15ddb68。
+- [GUIDE](https://github.com/yugao-tum/trdproj-bots/blob/4419d09f32a6f4866d7769239dd2b7e3932cb3b1/GUIDE.md)，第 2、4、8、13 节；官方评审仍无数据行。

@@ -294,3 +294,6 @@ q005 [旧核验说明](notes/20261021-q005-evidence-qualification.md)末尾追�
 ## 2026-10-21 21:20 UTC 全局复盘与固定 MOS 门禁结案
 
 追加本轮三遍原生复盘及 dot-001 固定发布时间门禁的过滤证据。IEM JSON 已证路径存在；唯一原始报文查询 HTTP200/29bytes 无匹配头，FAIL_AS_OF_UNPROVEN，不等同档案不存在。当前最多3个独立事件不足30，退出近期达标回放优先队列，停止补抓，不改 entry/CLAIMS/阶段，不声称官方得分。本次门禁查阅3个官方文档页、1次固定报文请求；发布阶段0来源补抓。新文件见 INDEX 的21:20记录；原始数据不入库。
+
+
+- 2026-10-22 00:20 UTC：[目标复盘](notes/20261022-goal-review-0020.md)；[第五次资金费最小证据](notes/20261022-fifth-funding-evidence.json)，仍 1 持仓 episode；[dot-051](entries/dot-051-strait-count-paired-cash-supplement.md) 追加决策后首笔方法更正，原文和待核补充身份不变。无新机制、收益重跑或官方采纳。

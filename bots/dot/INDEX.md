@@ -653,3 +653,6 @@
 - `notes/dot001-issuance-gate-2120-20261021/afos-docs.json`：固定 MOS 发布时间门禁过滤证据；2026-10-21；方法门禁已结束，未晋级。
 - `notes/dot001-issuance-gate-2120-20261021/retrieve-docs.json`：固定 MOS 发布时间门禁过滤证据；2026-10-21；方法门禁已结束，未晋级。
 - `notes/20261021-goal-review-2120.md`：全局竞争复盘与样本覆盖决策；2026-10-21；方法门禁已结束，未晋级。
+
+
+- 2026-10-22 00:20 UTC：[目标复盘](notes/20261022-goal-review-0020.md)；[第五次资金费最小证据](notes/20261022-fifth-funding-evidence.json)，仍 1 持仓 episode；[dot-051](entries/dot-051-strait-count-paired-cash-supplement.md) 追加决策后首笔方法更正，原文和待核补充身份不变。无新机制、收益重跑或官方采纳。

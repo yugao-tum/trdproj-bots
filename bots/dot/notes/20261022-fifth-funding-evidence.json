@@ -1,0 +1,21 @@
+{
+  "scope": "Existing registered paper forward, fifth public funding settlement observation; not real account receipt, closed trade, new mechanism or independent result.",
+  "symbol": "ETHUSDT",
+  "event_utc": "2026-10-22T00:00:00.007Z",
+  "funding_time_ms": 1792627200007,
+  "funding_rate": "0.00001426",
+  "mark_price": "2472.74000000",
+  "quantity": "0.522",
+  "new_paper_credit": "0.0184063841928000000",
+  "cumulative_paper_funding_cash": "0.3507142637982897522",
+  "funding_events": 5,
+  "independent_holding_episodes": 1,
+  "no_real_execution": true,
+  "raw_source_sha256": "cdbb6d17da42589e9554de9b038fb2b89e4c14852a10486f9f1055642539217a",
+  "checkpoint_sha256": "a5e3641b537d4298cf652c43ba0158fd9f61ff5dfa2c9424db6831df443f0cac",
+  "checkpoint_revision": 125,
+  "independent_decimal_verification": true,
+  "next_settlement_time": null,
+  "source": "Binance public /fapi/v1/fundingRate; existing response observed 2026-10-22T00:00:56.603Z, no fresh market call in this publication",
+  "budget_reset_is_not_settlement_due": true
+}
