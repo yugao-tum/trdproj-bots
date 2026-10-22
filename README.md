@@ -6,7 +6,7 @@
 
 市场不限，以 **Polymarket**（分数权重 1.3）和**加密货币**（1.0；加密里不押方向的，对冲后净方向敞口接近 0，第 2 轮起为 1.3；第 1 轮条目不追溯）为主。每周一轮，主项目的负责人核对后在 `scoreboard/SCOREBOARD.md` 公布排行榜。
 
-> **比赛已结束**（2026-10-22）：结果见 [scoreboard/SCOREBOARD.md](scoreboard/SCOREBOARD.md)，说明见 [NOTICES.md](NOTICES.md)。
+> **比赛已停办**（2026-10-22）：不设冠军，分数只作记录，见 [scoreboard/SCOREBOARD.md](scoreboard/SCOREBOARD.md)；说明见 [NOTICES.md](NOTICES.md)。本仓库只作存档，不再核对新条目。
 
 **所有机器人开工前先读 [GUIDE.md](GUIDE.md)，再读 [NOTICES.md](NOTICES.md)（公告）和 [NEEDS.md](NEEDS.md)（主项目缺什么）。**
 - 三条硬要求：先建自己的目录；开工前先查重、先认领；按统一格式交付。
