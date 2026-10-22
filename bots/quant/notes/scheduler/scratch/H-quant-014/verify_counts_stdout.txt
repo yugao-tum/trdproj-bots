@@ -1,0 +1,24 @@
+rows/legs=303  events=259
+daily_updown   legs=252 events=252
+monthly_above  legs= 19 events=  3
+monthly_close  legs= 18 events=  2
+weekly_above   legs= 14 events=  2
+triggered legs=240 events=229  YES=103 NO=137
+all triggered: mean=-0.00743 median=-0.14482 total=-1.783
+triggered ladder: legs=16 events=5 mean=-0.09885 median=-0.03222 total=-1.58163 neg=9 pos=7
+  monthly_above  legs=9 mean=-0.06948 neg=5 pos=4
+  monthly_close  legs=7 mean=-0.13662 neg=4 pos=3
+  weekly_above   legs=0 (no trigger)
+ladder resolution dates: 2026-01-30 .. 2026-03-31 (all before 2026-07-01: True)
+OK   legs                       expected=303  got=303
+OK   events                     expected=259  got=259
+OK   daily_legs                 expected=252  got=252
+OK   daily_events               expected=252  got=252
+OK   ladder_legs                expected=51   got=51
+OK   ladder_events              expected=7    got=7
+OK   triggered_legs             expected=240  got=240
+OK   triggered_events           expected=229  got=229
+OK   triggered_ladder_legs      expected=16   got=16
+OK   triggered_ladder_events    expected=5    got=5
+
+failures=0

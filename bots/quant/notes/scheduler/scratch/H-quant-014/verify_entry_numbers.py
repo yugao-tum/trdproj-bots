@@ -47,6 +47,16 @@ def main():
         bad += 0 if ok else 1
         print("%-4s %-26s entry=%s stdout=%s  %s"
               % ("OK" if ok else "FAIL", name, in_entry, in_out, token))
+    counts = (pathlib.Path(__file__).resolve().parent / "verify_counts_stdout.txt").read_text(encoding="utf-8")
+    for name, entry_token, count_token in (
+            ("ladder triggered legs", "16 条触发阶梯腿", "triggered ladder: legs=16"),
+            ("ladder triggered mean", "-0.09885", "mean=-0.09885")):
+        in_entry = entry_token in text
+        in_counts = count_token in counts
+        ok = in_entry and in_counts
+        bad += 0 if ok else 1
+        print("%-4s %-26s entry=%s counts=%s  %s"
+              % ("OK" if ok else "FAIL", name, in_entry, in_counts, count_token))
     fields = dict(re.findall(r"^(evidence|result|slot|variants|variants_ext|window|max_dd|contribution): (.+)$",
                              text, re.M))
     print("\nround-2 fields: %s" % fields)
@@ -56,6 +66,10 @@ def main():
         ok = fields.get(k) == v
         bad += 0 if ok else 1
         print("%-4s field %-14s %r" % ("OK" if ok else "FAIL", k, fields.get(k)))
+    stale = "7 条阶梯腿全部为负"
+    ok = stale not in text
+    bad += 0 if ok else 1
+    print("%-4s stale ladder-count phrase absent" % ("OK" if ok else "FAIL"))
     print("\nfailures=%d" % bad)
     return 1 if bad else 0
 

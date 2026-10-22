@@ -17,8 +17,15 @@
   ```
 - 出处复核（需要网络，只读公开接口）：
   ```bash
-  python3 verify_sources.py  # 2026-10-21 运行：OK=40 FAIL=0；stdout 见 notes/scheduler/scratch/H-quant-014/verify_sources_stdout.txt
+  python3 verify_sources.py  # 2026-10-21 与 2026-10-22 两次运行均 OK=40 FAIL=0
   ```
+  stdout 见 `notes/scheduler/scratch/H-quant-014/verify_sources_stdout.txt`（10-21）与 `verify_sources_stdout_20261022.txt`（10-22）。
+- 账目复核（离线，只读 `events.csv`）：
+  ```bash
+  python3 ../../notes/scheduler/scratch/H-quant-014/verify_counts.py
+  ```
+  2026-10-22 运行 failures=0；stdout 见同目录 `verify_counts_stdout.txt`。该脚本订正了“7 条阶梯腿全部为负”的计数错误：实际是 **16 条触发阶梯腿 / 5 个 event**，9 负 7 正，均值 −0.09885/份。
+- 2026-10-22 复核：`python3 summarize.py` 输出与 `summarize_stdout.txt` 逐字节一致（diff 为空，见 `notes/scheduler/scratch/H-quant-014/summarize_diff_20261022.txt`）。
 - 参数（冻结，未按结果调参）：
   - 模型：零漂移对数正态；`sigma` = 决策日前 20 个交易日对数收益的年化标准差（`stdev * sqrt(252)`）；`T = 剩余交易日 / 252`；`P(S_T>K)=Phi((ln(S/K)-sigma^2*T/2)/(sigma*sqrt(T)))`；日频 Up/Down 直接取 `P(up)=0.5000`（entry 原文）。
   - 报价：决策时点前 6 小时窗口内**最后一笔 data-api 成交**为 `p_yes`；`ask=p_yes+0.01`、`bid=p_yes-0.01`（1¢ tick，entry 的半价差假设）。`No`/`Down` 成交按 `1-price` 映射。
@@ -41,12 +48,12 @@
 - 资金和容量：每条腿 100 份，单 event ≤300 USDT、同时 ≤3 个 event；日频约 21 event/月，阶梯 1–2 event/月。成交额几千到十几万美元/event（Gamma 自报），但宽价差使实际可放金额远小于该数。
 
 ## 汇总结果
-- 独立结果数及计法：**259 个 event**（252 日频 + 2 weekly above + 3 monthly above + 2 monthly close），303 条腿；229 个 event 至少触发一条腿，240 条腿触发。日频 FADE 子集 **194 个 event / 54 个 ISO 周**。
+- 独立结果数及计法：**259 个 event**（252 日频 + 2 weekly above + 3 monthly above + 2 monthly close），**303 条腿**（252 日频腿 + 51 阶梯腿）；229 个 event 至少触发一条腿，240 条腿触发（其中阶梯触发 5 event / 16 腿）。日频 FADE 子集 **194 个 event / 54 个 ISO 周**。
 - 扣成本后净收益（`python3 summarize.py` 输出，抄自 `summarize_stdout.txt`）：
   - 全部触发腿：均值 **−0.00743/份**，中位数 **−0.14482**，命中率 0.258，总净 **−1.783** 份，每 $1 投入 **−0.0287**。
   - 日频 FADE 子集：毛 **+0.02267/份**，扣费 **+0.00650/份**，中位数 **−0.14482**，总净 **+1.261**；ISO 周 bootstrap 95% CI **[-0.04872,+0.06235]**，跨 0。
   - 日频 FOLLOW（entry 原测试方向）：毛 **−0.02267**，扣费 **−0.03835**，总净 **−7.440**。
-  - 阶梯：monthly above **−0.06948/份**（9 条腿），monthly close **−0.13662/份**（7 条腿），两个方向都负。
+  - 阶梯：16 条触发腿（5 个 event）合计均值 **−0.09885/份**，9 负 7 正；monthly above **−0.06948/份**（9 条腿，5 负 4 正），monthly close **−0.13662/份**（7 条腿，4 负 3 正）。类型均值都为负，但不是“每一条腿都为负”。
   - OOS（2026-07-01..2026-10-19）：全部触发腿 **−0.03452/份**（72 条腿，总净 −2.486）；日频 FADE **−0.02703**，FOLLOW **−0.00451**，两者都负。
   - 校准：日频 252 event，模型 Brier **0.25000**，常数 0.53 **0.24923**，市场 p6 **0.17783**；OOS 模型 0.25000、常数 0.53 0.25327、市场 0.14319。模型（0.5）不比常数 0.53 好，远不如市场报价。
 - 最大回撤：不适用（Polymarket 事件型、无按日盯市的账户权益曲线；`max_dd: -`）。若按逐 event 已实现损益序列看，样本内累计净值为 −1.783 份、无正收益段。

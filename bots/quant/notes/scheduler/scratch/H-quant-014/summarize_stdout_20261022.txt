@@ -1,0 +1,45 @@
+================================================================================================
+quant-014 replay summary (offline from events.csv; fee=0.04/side unless stated)
+================================================================================================
+legs=303  events=259  triggered_legs=240  triggered_events=229
+event types: {'daily_updown': 252, 'monthly_above': 19, 'monthly_close': 18, 'weekly_above': 14}
+triggered by type: {'daily_updown': 224, 'monthly_above': 9, 'monthly_close': 7}
+YES/NO: {'NO': 137, 'YES': 103}
+date span: 2025-10-15..2026-10-19
+
+--- PRIMARY: entry rule (model vs tradable, 2x(fee+half-spread)), decision close-6h ---
+all triggered legs (fee 0.04)          legs=240  mean=-0.00743  median=-0.14482  hit=0.258  total=-1.783  per_$1=-0.0287
+all triggered legs (fee 0)             legs=240  mean=-0.00090  median=-0.14000  hit=0.258  total=-0.216  per_$1=-0.0035
+  daily_updown (fee 0.04)              legs=224  mean=-0.00090  median=-0.15510  hit=0.246  total=-0.202  per_$1=-0.0038
+  daily_updown (fee 0)                 legs=224  mean=+0.00576  median=-0.15000  hit=0.246  total=+1.290  per_$1=+0.0240
+  monthly_above (fee 0.04)             legs=  9  mean=-0.06948  median=-0.02078  hit=0.444  total=-0.625  per_$1=-0.1363
+  monthly_above (fee 0)                legs=  9  mean=-0.06545  median=-0.02000  hit=0.444  total=-0.589  per_$1=-0.1284
+  monthly_close (fee 0.04)             legs=  7  mean=-0.13662  median=-0.07260  hit=0.429  total=-0.956  per_$1=-0.2442
+  monthly_close (fee 0)                legs=  7  mean=-0.13087  median=-0.07000  hit=0.429  total=-0.916  per_$1=-0.2339
+
+--- DAILY |p6-0.5|>=0.10 subset: FADE (model 0.5) vs FOLLOW (entry's original test) ---
+FADE     legs=194  gross=+0.02267  net(fee .04)=+0.00650  net(fee 0)=+0.01267  median=-0.14482  hit=0.222  total=+1.261
+FOLLOW   legs=194  gross=-0.02267  net(fee .04)=-0.03835  net(fee 0)=-0.03267  median=+0.11578  hit=0.773  total=-7.440
+FADE weekly-cluster bootstrap 95% CI [-0.04872,+0.06235] over 54 ISO weeks (seed 20261020)
+
+--- OUT-OF-SAMPLE TIME SPLIT (dev <= 2026-06-30, OOS >= 2026-07-01) ---
+dev all triggered (fee .04)            legs=168  mean=+0.00418  median=-0.14482  hit=0.286  total=+0.702  per_$1=+0.0152
+  dev daily FADE   n=128  net=+0.02379  median=-0.14482  total=+3.045
+  dev daily FOLLOW n=128  net=-0.05580  median=+0.11578  total=-7.142
+OOS all triggered (fee .04)            legs= 72  mean=-0.03452  median=-0.17051  hit=0.194  total=-2.486  per_$1=-0.1551
+  OOS daily FADE   n= 66  net=-0.02703  median=-0.16156  total=-1.784
+  OOS daily FOLLOW n= 66  net=-0.00451  median=+0.13158  total=-0.297
+
+--- CALIBRATION / BRIER (daily Up/Down, p_model = 0.5) ---
+all  n=252  Brier model=0.25000  const 0.50=0.25000  const 0.53=0.24923  market=0.17783
+dev  n=176  Brier model=0.25000  const 0.50=0.25000  const 0.53=0.24749  market=0.19278
+OOS  n= 76  Brier model=0.25000  const 0.50=0.25000  const 0.53=0.25327  market=0.14319
+
+--- CONTRIBUTION TO 5,000 USDT (100 shares/triggered leg, one sample year) ---
+fee 0.04 total net/share=-1.783 -> 100 shares=-178.3 USDT -> -3.57% of 5,000
+fee 0    total net/share=-0.216 -> 100 shares=-21.6 USDT -> -0.43% of 5,000
+
+--- FROZEN FAILURE CRITERION ---
+criterion #1 daily taker subset net mean <= 0: mean=+0.00650 -> not triggered
+criterion #3 model Brier worse than 0.53 on >=30 events: 0.25000 vs 0.24923 -> TRIGGERED
+VERDICT: FAIL (criterion #3 full sample; OOS net and every ladder leg negative)

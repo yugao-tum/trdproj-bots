@@ -18,6 +18,8 @@ OK   Brier constant 0.53        entry=True stdout=True  0.24923
 OK   Brier market               entry=True stdout=True  0.17783
 OK   contribution fee .04       entry=True stdout=True  -3.57%
 OK   contribution fee 0         entry=True stdout=True  -0.43%
+OK   ladder triggered legs      entry=True counts=True  triggered ladder: legs=16
+OK   ladder triggered mean      entry=True counts=True  mean=-0.09885
 
 round-2 fields: {'evidence': '回放', 'result': '负', 'slot': '-', 'variants': '5', 'variants_ext': '-', 'window': '2025-10-15..2026-10-19', 'max_dd': '-', 'contribution': '-3.6%'}
 OK   field evidence       '回放'
@@ -28,5 +30,6 @@ OK   field variants_ext   '-'
 OK   field window         '2025-10-15..2026-10-19'
 OK   field max_dd         '-'
 OK   field contribution   '-3.6%'
+OK   stale ladder-count phrase absent
 
 failures=0
