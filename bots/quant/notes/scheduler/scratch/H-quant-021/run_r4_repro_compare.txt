@@ -1,0 +1,20 @@
+primary              equal=True
+bootstrap            equal=True
+per_season           equal=True
+fit                  equal=True
+p0                   equal=True
+events               equal=True
+pole_wins            equal=True
+mean_p_hist          equal=True
+mean_modelA          equal=True
+break_even_gap       equal=True
+months               equal=True
+annual_usdt          equal=True
+contribution_pct     equal=True
+cross_section        equal=True
+variants             equal=True
+generated_utc committed=2026-10-22T05:09:54Z fresh=2026-10-22T05:21:03Z (expected to differ)
+trades.csv           byte_identical=True sha256=a2c011ee72534d92 bytes=2908
+all_events.csv       byte_identical=True sha256=8a33c6c5f6b13cb2 bytes=10690
+cross_section.csv    byte_identical=True sha256=2f99e2a8bb08ebb6 bytes=42466
+ALL_EQUAL

@@ -376,6 +376,10 @@ def main():
         p_hist, age_hist = last_price(token, cut, cache_dir)
         trades = fetch_trades(market, cut, start, cache_dir)
         tr = [t for t in trades if t["asset"] == token]
+        pre = [t for t in tr if t["timestamp"] <= cut]
+        last_pre = max(pre, key=lambda z: z["timestamp"]) if pre else None
+        p_last_trade = last_pre["price"] if last_pre else None
+        p_last_trade_ts = last_pre["timestamp"] if last_pre else None
         post = sorted([t for t in tr if cut < t["timestamp"] < start], key=lambda z: z["timestamp"])
         buys = [t for t in post if t["side"] == "BUY"]
         first, _ = vwap(buys, 1)
@@ -392,7 +396,8 @@ def main():
         rec = {
             "key": key, "race": race["name"], "season": race["season"], "date": race["date"],
             "pole": race["pole"], "margin": race.get("margin"), "y": y,
-            "p_hist": p_hist, "age_hist_h": age_hist,
+            "p_hist": p_hist, "age_hist_h": age_hist, "p_last_trade": p_last_trade,
+            "p_last_trade_ts": p_last_trade_ts,
             "first": first, "exec20": e20, "exec100": e100, "q100": q100,
             "exec100_1h": e1, "exec100_3h": e3,
             "n_buy": len(buys), "buy_shares": sum(t["size"] for t in buys),
@@ -537,6 +542,9 @@ def main():
             for r in cross_rows:
                 writer.writerow([r["key"], r["driver"], r["is_pole"], r["p"], r["y"], round(net(r["y"], r["p"]), 6)])
 
+    add("V28", "A", "A cushion .05 midnight, trigger=last data-api trade<=cutoff", "exec100",
+        trigger(rows, "A", trigger_key="p_last_trade"))
+
     months = None
     if primary:
         first_date = min(dt.date.fromisoformat(r["date"]) for r in primary)
@@ -575,8 +583,9 @@ def main():
     (HERE / "results.json").write_text(json.dumps(results, ensure_ascii=False, indent=1))
     with (HERE / "all_events.csv").open("w", newline="") as fh:
         writer = csv.writer(fh)
-        cols = ["key", "race", "season", "date", "pole", "margin", "modelA", "p_hist", "first", "exec20",
-                "exec100", "exec100_1h", "exec100_3h", "p_hist_q", "exec100_q", "y", "n_buy", "buy_shares"]
+        cols = ["key", "race", "season", "date", "pole", "margin", "modelA", "p_hist", "p_last_trade",
+                "p_last_trade_ts", "first", "exec20", "exec100", "exec100_1h", "exec100_3h",
+                "p_hist_q", "exec100_q", "y", "n_buy", "buy_shares"]
         writer.writerow(cols)
         for r in rows:
             writer.writerow([r.get(c) for c in cols])

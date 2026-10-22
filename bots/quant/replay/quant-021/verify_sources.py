@@ -322,16 +322,22 @@ def main():
           str(result["break_even_gap"]))
     check("contribution 4.54%", abs(result["contribution_pct"] - 4.54) < 0.01,
           f"{result['contribution_pct']:.2f}% months={result['months']:.2f}")
-    check("27 variants, ids V01..V27", len(result["variants"]) == 27
-          and {v["id"] for v in result["variants"]} == {f"V{i:02d}" for i in range(1, 28)},
+    check("28 variants, ids V01..V28", len(result["variants"]) == 28
+          and {v["id"] for v in result["variants"]} == {f"V{i:02d}" for i in range(1, 29)},
           str(len(result["variants"])))
     v = {x["id"]: x for x in result["variants"]}
     for vid, want in (("V02", 0.1994), ("V03", 0.2000), ("V04", 0.2089), ("V05", 0.1973),
                       ("V06", 0.1889), ("V07", 0.2336), ("V09", 0.1562), ("V11", 0.2539),
                       ("V12", 0.1684), ("V16", 0.1419), ("V18", 0.1850), ("V22", 0.4506),
-                      ("V26", -0.0183)):
+                      ("V26", -0.0183), ("V28", 0.2336)):
         check(f"{vid} mean {want:+.4f}", abs(v[vid]["mean"] - want) < 0.0002, f"{v[vid]['mean']:+.4f}")
     ae = list(csv.DictReader((HERE / "all_events.csv").open()))
+    v28 = [x for x in ae if x["p_last_trade"] not in ("", "None")
+           and float(x["p_last_trade"]) <= float(x["modelA"]) - 0.05]
+    v28_pre = all(float(x["p_last_trade_ts"]) <= rr.iso_ts(x["date"], "00:00:00Z") for x in v28)
+    check("V28 trigger uses only pre-cutoff data-api prints, n=22",
+          len(v28) == 22 and v["V28"]["n"] == 22 and v28_pre,
+          f"n={len(v28)} pre_cut={v28_pre}")
     check("all_events.csv 49 rows, 32 wins, 2024-09-01..2026-10-11",
           len(ae) == 49 and sum(1 for x in ae if float(x["y"]) == 1) == 32
           and min(x["date"] for x in ae) == "2024-09-01"
@@ -359,13 +365,13 @@ def main():
     check("evidence 回放", field("evidence") == "回放", str(field("evidence")))
     check("result 不显著", field("result") == "不显著", str(field("result")))
     check("slot -", field("slot") == "-", str(field("slot")))
-    check("variants 27", field("variants") == "27", str(field("variants")))
+    check("variants 28", field("variants") == "28", str(field("variants")))
     check("variants_ext -", field("variants_ext") == "-", str(field("variants_ext")))
     check("window 2014-03-16..2026-10-11", field("window") == "2014-03-16..2026-10-11", str(field("window")))
     check("max_dd - (Polymarket, optional)", field("max_dd") == "-", str(field("max_dd")))
     check("contribution 4.5%", field("contribution") == "4.5%", str(field("contribution")))
     check("entry cites this verifier", "verify_sources.py" in entry)
-    check("replay SUMMARY has 27 variant rows", (HERE / "SUMMARY.md").read_text().count("| V") >= 27)
+    check("replay SUMMARY has 28 variant rows", (HERE / "SUMMARY.md").read_text().count("| V") >= 28)
     files = [p for p in HERE.iterdir() if p.is_file()]
     check("all replay files < 1 MB", all(p.stat().st_size < 1_000_000 for p in files),
           f"largest={max(p.stat().st_size for p in files)} bytes")

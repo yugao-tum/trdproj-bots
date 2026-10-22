@@ -1,8 +1,8 @@
 # 回放汇总：quant-021
 
 **条目**：`quant-021-f1-pole-winner-base-rate.md`（F1 杆位车手 / 分站冠军，Polymarket）
-**生成**：2026-10-21（`results.json` 内 `generated_utc` 为准，UTC）
-**结论先行**：按真实逐笔成交价回放，主规则 23 笔、每份净 **+0.2003**，但事件级 bootstrap 95% 区间 **[-0.0101, +0.4115]** 含 0，独立触发结果 **23 < 30**。因此 `result: 不显著`，不是已证实的 edge；容量也很小（年化约 **4.5%**）。
+**生成**：2026-10-21；2026-10-22 冷缓存复核重跑（`results.json` 内 `generated_utc` 为准，UTC）
+**结论先行**：按真实逐笔成交价回放，主规则 23 笔、每份净 **+0.2003**，但事件级 bootstrap 95% 区间 **[-0.0101, +0.4115]** 含 0，独立触发结果 **23 < 30**。因此 `result: 不显著`，不是已证实的 edge；容量也很小（年化约 **4.5%**）。新增 V28 把触发价也换成 data-api 真实成交后为 22 笔、**+0.2336/份**，但样本更少，只作无前视的稳健性检查，仍不改 `result`。
 
 ## 如何复现
 
@@ -30,7 +30,7 @@
 ## 成交和成本
 
 - 成交价和时点：**data-api 逐笔 taker BUY**。cutoff = 正赛日 00:00 UTC（排位已结束，49/49 排位开始 +2h ≤ cutoff，最小余量 0h、中位 8h）；只取 `(cutoff, 正赛开始)` 区间内该杆位车手 YES token 的 taker BUY，按时间累计到 100 份的 VWAP（`exec100`）。首笔成交距 cutoff 中位 0.62h、最大 2.99h；累计 100 份中位 1.04h、最大 6.38h。
-- 前视检查：触发价用 cutoff 时刻 CLOB `prices-history` 最后抽样点（中位年龄 1.00h），成交只用其后的真实成交；另测 1h/3h 延迟，结论不变。CLOB 价格历史**只做触发参考，不当成交价**。
+- 前视检查：主规则触发价用 cutoff 时刻 CLOB `prices-history` 最后抽样点（中位年龄 1.00h），成交只用其后的真实成交；另测 1h/3h 延迟，结论不变。CLOB 价格历史**只做触发参考，不当成交价**。V28 进一步把触发也改成 cutoff 前最后一笔 data-api 成交（taker+maker 的成交打印，时间戳严格 ≤ cutoff），完全不依赖 CLOB。
 - 全部成本：吃单费 5%（按 `feeSchedule`）+ 半价差 1¢（历史 L2 无公开来源，取保守值）。敏感性：费率 7% + 半价差 5¢ 时主规则均值仍 +0.1561/份；费率 3% + 0¢ 时 +0.2145/份；规则 B 在半价差 5¢ 时为 +0.1284/份（(3.8733−0.04×23)/23）。
 - 资金和容量：每笔 100 份、按 0.48 价约 48 USDT/站，总资金 5,000 USDT、单场所 ≤2,500。23 笔触发中，cutoff 后赛前 YES taker BUY 总量最小 1,089 份、中位 13,669 份；100 份约占中位买量 0.7%。这**不是**当时 L2 深度，不能据此放大到 500 份。
 
@@ -50,7 +50,7 @@
 
 ## 所有变体（所有市场都要写，看了不用的也算）
 
-- variants（自己的）：**27**
+- variants（自己的）：**28**
 - variants_ext（外部来源）：**-**（只引用 Ergast/Polymarket 的原始数据与基率，没有引用外部策略变体结果）
 
 | 序号 | 自己 / 外部来源 | 规则与全部参数 | 窗口 | 结果和位置 |
@@ -82,8 +82,11 @@
 | V25 | 自己 | 横截面：买所有 p≤0.15 | 同上 | n=836 胜6 -15.4719，-0.0185 |
 | V26 | 自己 | 横截面：买所有 p≤0.20 | 同上 | n=852 胜9 -15.6303，-0.0183 |
 | V27 | 自己 | 横截面：买所有 p≤0.30 | 同上 | n=879 胜17 -15.0430，-0.0171 |
+| V28 | 自己 | A 分档，cushion 5¢，触发=cutoff 前最后一笔 data-api 成交，fill=`exec100` | 同上 | n=22 胜13 +5.1391，**+0.2336** |
 
-说明：V04/V14/V23–V27 的成交价是 CLOB 最后抽样价或横截面参考价，**不是可成交价**，只作对照，不进入主结论。V01–V03、V05–V13、V15–V22 的成交价均来自 data-api 逐笔成交。
+说明：V04/V14/V23–V27 的成交价是 CLOB 最后抽样价或横截面参考价，**不是可成交价**，只作对照，不进入主结论。V01–V03、V05–V13、V15–V22、V28 的成交价均来自 data-api 逐笔成交；V28 的触发价也来自 data-api（cutoff 前最后一笔），是唯一既不依赖 CLOB、也不拿赛后成交价当触发（无前视）的规则。
+
+V28 与 V07 的 22 笔完全相同：V07 用赛后 `exec100` 同时触发和成交（含前视），V28 用 cutoff 前最后一笔成交触发、赛后 `exec100` 成交，因此 V28 是 V07 的无前视版本。V28 相对 V01 只少 1 笔（2024-17 阿塞拜疆，`p_hist` 触发但 cutoff 前最后一笔成交未触发），而这一笔恰是主规则最差的一笔（-0.5315/份）；所以 +0.2336 的提高来自“少掉一笔事后亏损”，**不能当作独立 edge 改善**，也不改变 `result: 不显著`。
 
 ## 其他检查
 
@@ -103,10 +106,10 @@
   python3 verify_sources.py --cache /tmp/quant-021-verify-cache
   ```
 
-- 该脚本做两类检查，共 **89 项 PASS、0 FAIL**：
+- 该脚本做两类检查，共 **91 项 PASS、0 FAIL**（2026-10-22 冷缓存复核；新增 V28 前视检查后 89→91）：
   1. 重取全部引用来源：Ergast 2014–2026（269 场，150/269、110/204、40/65、12/17；分档 n=36/68/65/20；OOS log loss 0.6706 vs 0.6781、Brier 0.2388 vs 0.2425）；Gamma 5 页（401 event / 149 个 Winner-Pole-Podium / 3,433 市场）；4 个 event 的结算原文逐字命中；CLOB 15 天 200、20 天 400（原文错误串）、`interval=max` 有数据；data-api 字段与 49 个市场成交。
-  2. 从 `results.json`/`trades.csv`/`all_events.csv`/`cross_section.csv` 重算：主规则 23 笔、13 胜、+4.6077/+0.2003、sd 0.5204、t=1.85；bootstrap [-0.0101,+0.4115]、P(mean≤0)=0.031；年化 4.54%；27 个变体；横截面 940 个有价市场、p≤0.20 的 852 个为 -0.0183/份；以及 49 场成交缺口（first−p_hist +0.0096、exec100−p_hist +0.0086）、触发笔前后的 BUY/SELL 计数（21/2）与成交延迟中位数。
-- 独立重跑（另建目录，不复用已提交的派生文件）：`/tmp/q021-replay-check/run_replay.py`。`results.json` 的 `primary`/`bootstrap`/`per_season`/`fit`/`cross_section`/`variants` 等全部相等；`trades.csv`、`all_events.csv`、`cross_section.csv` 与提交版**字节一致**。stdout：`bots/quant/notes/scheduler/scratch/H-quant-021/run_r3_replay_repro.txt`、`run_r3_repro_compare.txt`。
+  2. 从 `results.json`/`trades.csv`/`all_events.csv`/`cross_section.csv` 重算：主规则 23 笔、13 胜、+4.6077/+0.2003、sd 0.5204、t=1.85；bootstrap [-0.0101,+0.4115]、P(mean≤0)=0.031；年化 4.54%；28 个变体；V28 的 22 笔触发时点全部严格早于 cutoff；横截面 940 个有价市场、p≤0.20 的 852 个为 -0.0183/份；以及 49 场成交缺口（first−p_hist +0.0096、exec100−p_hist +0.0086）、触发笔前后的 BUY/SELL 计数（21/2）与成交延迟中位数。
+- 独立重跑（另建目录，不复用已提交的派生文件）：2026-10-21 的 `/tmp/q021-replay-check/run_replay.py` 与 2026-10-22 的 `/tmp/q021-r4-replay/run_replay.py`（全新 `/tmp/q021-r4-cache`）。`results.json` 的 `primary`/`bootstrap`/`per_season`/`fit`/`cross_section`/`variants` 等全部相等；`trades.csv`、`all_events.csv`、`cross_section.csv` 与提交版**字节一致**。stdout：`bots/quant/notes/scheduler/scratch/H-quant-021/run_r3_replay_repro.txt`、`run_r3_repro_compare.txt`、`run_r4_replay_repro.txt`、`run_r4_repro_compare.txt`、`run_r4_verify_sources.txt`。
 
 ## 不可靠或失败原因（再列一次）
 

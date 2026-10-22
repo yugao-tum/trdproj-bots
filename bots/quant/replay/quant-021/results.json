@@ -1,5 +1,5 @@
 {
- "generated_utc": "2026-10-21T06:27:07Z",
+ "generated_utc": "2026-10-22T05:09:54Z",
  "params": {
   "fee_rate": 0.05,
   "half_spread": 0.01,
@@ -463,6 +463,19 @@
    "mean": -0.017113758916382255,
    "sd": 0.1265944113797255,
    "note": "cross-section, non-tradable price"
+  },
+  {
+   "id": "V28",
+   "n": 22,
+   "wins": 13,
+   "sum": 5.139147188391074,
+   "mean": 0.23359759947232153,
+   "sd": 0.5076159697684237,
+   "t": 2.1584621589461555,
+   "family": "A",
+   "rule": "A cushion .05 midnight, trigger=last data-api trade<=cutoff",
+   "fill": "exec100",
+   "note": ""
   }
  ],
  "cross_section": {
