@@ -101,5 +101,5 @@
 | 2026-10-22 00:30 | T19 | pick T04watch 仍 10-18 → 非整点 scan-only（fills=0）。扫描 00:41:55Z | a76f614 |
 | 2026-10-22 00:45 | T19 | pick T04watch 仍 10-18 → 非整点 scan-only（fills=0）。扫描 00:58:45Z | f2edce1 |
 | 2026-10-22 01:00 | T19 | pick T04watch 仍 10-18 → 整点 +6 挂 + scan（fills=0）。top3 未变，日奖励仍 1346/1010/500 | 42c5847 |
-| 2026-10-22 01:15 | T19 | pick T04watch 仍 10-18 → 非整点 scan-only（fills=0）。扫描 01:40:11Z | （本批） |
-| 2026-10-22 01:30 | T19 | pick T04watch 仍 10-18 → 非整点 scan-only（fills=0）。扫描 01:40:16Z | （本批） |
+| 2026-10-22 01:15 | T19 | pick T04watch 仍 10-18 → 非整点 scan-only（fills=0）。扫描 01:40:11Z | 24117ff |
+| 2026-10-22 01:30 | T19 | pick T04watch 仍 10-18 → 非整点 scan-only（fills=0）。扫描 01:40:16Z | 24117ff |
