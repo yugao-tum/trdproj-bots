@@ -1,5 +1,3 @@
-> 作者：Muse 直属 agent（muse-agent-2）｜ 试运行第 1 批
-
 ---
 id: muse-701
 name_zh: 偏斜收割条目的符号更正
@@ -9,7 +7,7 @@ date: 2026-10-20
 market: crypto
 pm_category: -
 kind: supplement
-improves: muse-own-crypto-skew-harvest
+improves: muse-907
 category: V
 return_type: insurance
 instruments: BTC（Deribit 反向期权）
@@ -20,9 +18,11 @@ status: 待核
 confidence: 高
 ---
 
+> 作者：Muse 直属 agent（muse-agent-2）｜ 试运行第 1 批
+
 ## 一句话
 
-`muse-own-crypto-skew-harvest` 写的是“卖出 10Δ put、买入 25Δ put，净收权利金 C”；但 25Δ put 更接近平值、价格更贵，这个组合实际是**净付权利金**的 bear put spread（debit），不是信用价差；原条目的现金流、最大亏损公式和“收割偏斜”的方向都反了。
+`muse-907` 写的是“卖出 10Δ put、买入 25Δ put，净收权利金 C”；但 25Δ put 更接近平值、价格更贵，这个组合实际是**净付权利金**的 bear put spread（debit），不是信用价差；原条目的现金流、最大亏损公式和“收割偏斜”的方向都反了。
 
 ## 钱从哪里来
 
@@ -46,7 +46,7 @@ confidence: 高
 
 ## 证据
 
-- 原条目自身的规则（`staging/bots/muse/entries/muse-own-crypto-skew-harvest.md` 第 33–37 行）写明“卖出 1 单位 10Δ put（K1），买入 1 单位 25Δ put（K2，K2 > K1），净收权利金 C”。在同一到期上，K2 > K1 的 put 更贵，因此卖 K1 买 K2 必为 debit；这是无套利关系，不需要回测。
+- 原条目自身的规则（`staging/bots/muse/entries/muse-907-crypto-skew-harvest.md` 第 33–37 行）写明“卖出 1 单位 10Δ put（K1），买入 1 单位 25Δ put（K2，K2 > K1），净收权利金 C”。在同一到期上，K2 > K1 的 put 更贵，因此卖 K1 买 K2 必为 debit；这是无套利关系，不需要回测。
 - 2026-10-20 的 Deribit 盘口：79000P（约 10Δ）bid 0.0008 / ask 0.0010；80500P（约 25Δ）bid 0.0029 / ask 0.0033。按可成交价，卖低买高，净付 0.0025 BTC；按中间价也净付约 0.0022 BTC。
 - 原条目引用的 MDPI/arXiv 证据支持“波动率溢价/下行保护溢价存在”，但不支持“卖 10Δ 买 25Δ 能收 C”；证据与规则之间有一处符号跳跃。
 - 原条目的 `test_2w` 要求“每日建仓 1 单位 bull put spread”，但按它的腿序这是 bear put spread（买高卖低），检验会把“方向性看跌”当成“偏斜收割”，结果不可解释。
@@ -85,14 +85,14 @@ confidence: 高
 1. 机制说得清：**满足**。卖低买高必为 debit，这是同一到期 put 的无套利关系；原文的“净收 C”不成立。
 2. 有免费数据能检验：**满足**。Deribit 公共 API 的 bid/ask 与 delta 即可复核，无需历史数据。
 3. 小资金能做：**不适用**。这是更正，不是新策略；但 0.1 BTC 单位下信用价差的净收被手续费吃掉，已写明。
-4. 不重复：**满足**。这是对 `muse-own-crypto-skew-harvest` 的补充，不另立新机制。
+4. 不重复：**满足**。这是对 `muse-907` 的补充，不另立新机制。
 5. 扣成本后粗算够用：**不适用**。更正不主张新收益；只指出原条目的净收/成本算错。
 6. 两周内能检验：**满足**。两个到期的四腿报价即可证伪，不需要 30 个结果。
 7. 出处可查：**满足**。原条目行号、Deribit 合约 URL、访问日期、阅读程度齐全。
 
 ## 出处
 
-- `staging/bots/muse/entries/muse-own-crypto-skew-harvest.md` — 访问 2026-10-20 — 已读（第 33–37 行：卖 10Δ put、买 25Δ put、净收 C；第 56–58 行：28 个到期检验）
+- `staging/bots/muse/entries/muse-907-crypto-skew-harvest.md` — 访问 2026-10-20 — 已读（第 33–37 行：卖 10Δ put、买 25Δ put、净收 C；第 56–58 行：28 个到期检验）
 - https://www.deribit.com/api/v2/public/get_order_book?instrument_name=BTC-21OCT26-79000-P — 访问 2026-10-20 — 已调用（bid 0.0008 / ask 0.0010，delta −0.087）
 - https://www.deribit.com/api/v2/public/get_order_book?instrument_name=BTC-21OCT26-80500-P — 访问 2026-10-20 — 已调用（bid 0.0029 / ask 0.0033，delta −0.267）
 - https://www.deribit.com/api/v2/public/get_order_book?instrument_name=BTC-21OCT26-78000-P — 访问 2026-10-20 — 已调用（5Δ 对照腿）

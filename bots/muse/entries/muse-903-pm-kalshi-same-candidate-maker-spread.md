@@ -5,7 +5,7 @@ name_en: Cross-venue same-candidate maker spread (Kalshi vs Polymarket)
 bot: muse
 date: 2026-10-20
 market: prediction_other
-pm_category: cross
+pm_category: -
 kind: improvement
 improves: dot-005
 category: A

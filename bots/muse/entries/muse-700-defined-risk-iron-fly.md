@@ -1,5 +1,3 @@
-> 作者：Muse 直属 agent（muse-agent-2）｜ 试运行第 1 批
-
 ---
 id: muse-700
 name_zh: 月到期铁鹰：有界短波动率
@@ -19,6 +17,8 @@ test_2w: 用已到期月度期权重建 2025-11 至 2026-10 的 30 个“标的�
 status: 待核
 confidence: 中
 ---
+
+> 作者：Muse 直属 agent（muse-agent-2）｜ 试运行第 1 批
 
 ## 一句话
 

@@ -77,3 +77,45 @@
 - 不提交 4 条：muse-own-crypto-skew-harvest（验证不通过：期权腿方向与现金流公式自相矛盾，机制已被 muse-701 取代）、muse-802（流动性薄、证据仅静态估计）、muse-own-alt-clv-value（是评估指标非独立策略）、muse-801（链上费收复核不达标，维持撤回）。
 - 草稿 14 条的后续：修引用规格与门槛标注（pinnacle、news-sentiment、lp-rewards）、同机制合并（resolution-lag 与 kalshi-settle-lag）、补核验（903、live-surprise-fade），计划 2026-10-23 前分批转待核，待核总数不超过 15。
 - 风险/边界：没有交易、没有钱包/密钥/账户；验证中发现的问题均已如实记录，未修饰后提交。
+
+## 2026-10-21 格式修复推送包：新旧文件名对照
+
+- 依据：`repo-docs/guidance-1021/NOTICES.md` 第 4 条（2026-10-25 23:59 UTC 前改格式）。本段只追加，不改上方任何历史行；改名不改先后，首次推送时间仍按旧文件在仓库的记录计算。
+- 范围：仓库当前 `bots/muse/entries` 24 条。下表 17 条为“改名+格式”：`id` 改为 `muse-三位编号`，文件名同步改为 `muse-三位数-英文短名.md`。
+- 17 条改名对照：
+
+| 旧文件名 | 新文件名 | 新 id |
+|---|---|---|
+| `muse-own-alt-surebet.md` | `muse-905-alt-surebet.md` | `muse-905` |
+| `muse-own-crypto-as-quoting.md` | `muse-906-crypto-as-quoting.md` | `muse-906` |
+| `muse-own-polymarket-fed-futures-fomc.md` | `muse-908-polymarket-fed-futures-fomc.md` | `muse-908` |
+| `muse-own-polymarket-pinnacle-line-shopping.md` | `muse-909-polymarket-pinnacle-line-shopping.md` | `muse-909` |
+| `muse-own-predmarket-kalshi-cpi-nowcast.md` | `muse-910-predmarket-kalshi-cpi-nowcast.md` | `muse-910` |
+| `muse-own-xmkt-news-sentiment.md` | `muse-911-xmkt-news-sentiment.md` | `muse-911` |
+| `muse-own-xmkt-resolution-lag.md` | `muse-912-xmkt-resolution-lag.md` | `muse-912` |
+| `muse-own2-live-goal-lag.md` | `muse-913-live-goal-lag.md` | `muse-913` |
+| `muse-own2-live-surprise-fade.md` | `muse-914-live-surprise-fade.md` | `muse-914` |
+| `muse-own2-lp-rebate-farm.md` | `muse-915-lp-rebate-farm.md` | `muse-915` |
+| `muse-own2-lp-rewards-inventory.md` | `muse-916-lp-rewards-inventory.md` | `muse-916` |
+| `muse-own2-rules-dispute-window.md` | `muse-917-rules-dispute-window.md` | `muse-917` |
+| `muse-own2-rules-wording-ambiguity.md` | `muse-918-rules-wording-ambiguity.md` | `muse-918` |
+| `muse-own2-tail-sports-midband.md` | `muse-919-tail-sports-midband.md` | `muse-919` |
+| `muse-own2-tail-weather-expiry-favfade.md` | `muse-920-tail-weather-expiry-favfade.md` | `muse-920` |
+| `muse-own2-whale-cluster-detect.md` | `muse-921-whale-cluster-detect.md` | `muse-921` |
+| `muse-own2-whale-smart-score.md` | `muse-922-whale-smart-score.md` | `muse-922` |
+
+- 仅改格式、不改名的 5 条（作者行从 `---` 之前移到 frontmatter 之后；903 另修 `pm_category`）：
+
+| 文件名（新旧同名） | 动作 |
+|---|---|
+| `muse-700-defined-risk-iron-fly.md` | 仅格式：作者行后移 |
+| `muse-701-skew-harvest-sign-correction.md` | 仅格式：作者行后移；`improves` 同步为 `muse-907` |
+| `muse-900-polymarket-cross-event-logical-arb.md` | 仅格式：作者行后移 |
+| `muse-901-negrisk-no-basket-conversion-supplement.md` | 仅格式：作者行后移 |
+| `muse-903-pm-kalshi-same-candidate-maker-spread.md` | 仅格式：`pm_category: cross` → `-`，`market` 仍 `prediction_other` |
+
+- 删除 1 条：`muse-own-predmarket-kalshi-settle-lag.md` → 删除（内容已并入 `muse-912-xmkt-resolution-lag.md`；CLAIMS 保留“已合并”历史行）。
+- 未改 1 条：`muse-800-polymarket-5m-complete-set-mm.md`（首行已是 `---`，id/文件名合规）。
+- 计数：按推送动作计 17 改名+格式 + 5 仅格式（含 903 的 `pm_category` 修正）= 22；另 1 条删除（settle-lag）、1 条不动（800）。操作员按“编号/文件名 + 作者行”字面口径的 22 含 settle-lag、不含 903；本清单把 settle-lag 改为删除、903 计入格式修正，净数同为 22，差额原因见 `notes/push-approval-final-20261021.md`。
+- 本对照只记录文件名/id 映射；staging 当前内容相对仓库旧版是否有额外更新，见 `notes/push-approval-final-20261021.md` 0.1 的 `*` 标记（本段不据此改任何条目）。
+- 未推送的 staging-only 草稿不在本对照的仓库改名范围内：`muse-own-alt-clv-value` → `muse-904-alt-clv-value`、`muse-own-crypto-skew-harvest` → `muse-907-crypto-skew-harvest`、`muse-own3-nba-live-ml-spread-arb` → `muse-923-nba-live-ml-spread-arb`、`muse-own3-new-listing-quote-vacuum` → `muse-924-new-listing-quote-vacuum`。这 4 条从未推送；801/802/927 也无旧名。其中 `muse-907` 已被 `muse-701` 更正，保留作原条目/反证，本次不推送、不归档删除。是否推送另批决定。

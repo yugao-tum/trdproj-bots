@@ -1,5 +1,3 @@
-> 作者：deepseek worker（muse）｜ 第 1 轮
-
 ---
 id: muse-901
 name_zh: NegRisk NO 转换费与实现证据
@@ -14,11 +12,13 @@ category: A
 return_type: convergence
 instruments: "negRiskAugmented=false、3–8 个命名结果的互斥事件；买 1–m 个 NO，经 NegRiskAdapter 转成 (m−1) 份 collateral + 其余结果的 YES"
 venues: Polymarket（global，Polygon）
-data: "Gamma 事件/市场对象（negRisk、negRiskAugmented、outcomes、endDate、feeSchedule，免费免密钥）；CLOB 当前盘口（免费免密钥）；NegRiskAdapter 公开源码与 Polygon 地址；Polygon RPC 本轮全部超时，当前 feeBips 未读到；论文有 2,098 个 YES-side / 36 个 NO-side 转换 episode，非公开 L2"
+data: "Gamma 事件/市场对象（negRisk、negRiskAugmented、outcomes、endDate、feeSchedule，免费免密钥）；CLOB 当前盘口（免费免密钥）；NegRiskAdapter 公开源码与 Polygon 地址；Polygon RPC 2026-10-20 复核可用，7 个样本 negRisk 事件 feeBips 均为 0（getQuestionCount 3/5/5/4/7/5/3 与事件结果数一致）；3 结果样本盘口扣费后约 −4¢/组；论文有 2,098 个 YES-side / 36 个 NO-side 转换 episode，非公开 L2"
 test_2w: "只做 negRiskAugmented=false、3–8 个结果的完整事件；前向记录 12 个独立事件、≥30 个 conversion bundle（同一事件同一方向的多个 bundle 只按事件计主结果）；逐腿可成交 ask/bid、taker fee、转换 feeBips=0/50/100 三档、Polygon gas、非原子执行和退出成本全部计入；失败：事件级扣费净收益均值 ≤0，或可执行 bundle 覆盖 <80%，或任一转换后支付低于理论下界"
 status: 待核
 confidence: 中
 ---
+
+> 作者：deepseek worker（muse）｜ 第 1 轮
 
 ## 一句话
 
@@ -60,7 +60,7 @@ confidence: 中
 - **路径 C：买 1 个 NO_A，转换成其余所有 YES，按 bid 卖出**。收入 `Σ bid_yes_j`；成本 `ask_no_A + 转换费 + 卖出费 + gas + 缓冲`。这是论文中的 converter-enabled 方向，也是 NO-side 机会的主要实现方式。
 
 - 单腿费用按 Polymarket `C × r × p × (1−p)` 逐腿计，p 用该腿实际成交价；买 NO 时用 NO 价格，不能拿 YES 价格代入。
-- 转换费按 `feeBips` 计；当前 `feeBips` 未读到，必须做 0/50/100 三档敏感性（0%、0.5%、1%），不能假设为 0。
+- 转换费按 `feeBips` 计；2026-10-20 的 7 个样本事件读到 0，但仍做 0/50/100 三档敏感性（0%、0.5%、1%），不能假设所有事件都为 0。
 - gas 是整笔 USD，不是每份；Polygon gas 未实测，按实际链上 gas 计，并加失败重试预算。
 - 执行顺序：先买 NO 腿，确认全部成交或按最坏情况退出，再调用转换；转换后如果卖 YES，逐腿按 bid 卖出，未卖出的 YES 持有到结算或按最坏情况折价。
 
@@ -71,17 +71,17 @@ confidence: 中
 - **来源自报，未核实**：arXiv 2608.00666 重建约 $1.118M 机制相关利润，其中 converter-enabled 约 $1.086M（约 97%），settlement-based basket formation 约 $32,283；CLOB 样本中 YES-side 正向 episode 2,098 个、NO-side 仅 36 个；exact-duration 子样本 253 个 YES / 5 个 NO，中位持续 16.15 秒 / 7.99 秒；conversion bundle 与 CLOB 买入在 5 个 block（约 10 秒）内匹配；top-10 地址拿走约 75% converter 利润。
 - 论文称 converter-enabled 利润在 NegRisk Adapter 于 2023-11-28 部署后，从 2024-01 开始出现；NO-side 违规更少、更短，方向上符合“转换通道在 NO 侧可用、YES 侧不可用”的机制解释。论文也承认 NO-side 样本极小，不能做强统计比较。
 - 论文的 $1.086M 是作者从链上转换调用与 CLOB 成交匹配重建的，样本、方法和地址聚类都未独立复现；本条只把它当作“机制存在且曾被利用”的证据，不当作当前收益预测。
-- 本次未取得当前 `feeBips`，也未取得当前可执行盘口（Polygon RPC 与 Gamma/CLOB 重取均超时）；因此没有“今天某事件费后为正”的实时例子，只有机制、代码和论文证据。
+- 2026-10-20 复核：`polygon-bor-rpc.publicnode.com` 可读，7 个样本事件（3/5/5/4/7/5/3 结果）的 `getFeeBips` 均返回 0，且 7 个 `getQuestionCount` 全部与 Gamma 结果数一致；3 结果样本（PSG–FCB）按当前 CLOB 盘口买 2 个 NO、转换后卖 YES，扣 taker fee 后约 **−4¢/组**，未发现可执行正边际。因此仍没有“今天某事件费后为正”的实时例子，只有机制、代码、样本费率和论文证据。
 
 ## 数据
 
 - **Gamma**：`https://gamma-api.polymarket.com/events?slug=...`；取 `negRisk`、`negRiskAugmented`、`outcomes`、`endDate`、`feeSchedule`；免费免密钥。
 - **CLOB**：`https://clob.polymarket.com/book?token_id=...`；取当前全深度盘口；免费免密钥；历史 L2 无免费源。
 - **NegRiskAdapter**：Polygon `0xd91E80cF2E7be2e162c6513ceD06f1dD0dA35296`；`negRiskCtfExchange` `0xC5d563A36AE78145C45a50134d48A1215220f80a`；`negRiskFeeModule` `0x78769D50Be1763ed1CA0D5E878D93f05aabff29e`；USDC `0x2791bca1f2de4661ed88a30c99a7a9449aa84174`。合约源码：`https://github.com/Polymarket/neg-risk-ctf-adapter`。
-- **`feeBips` 查询**：`getFeeBips(bytes32)` selector `0x2582cb5e`；也可读 `MarketDataManager.feeBips()`。需要具体 `marketId`；本轮没有可用 RPC，未取。
-- **Polygon RPC**：本轮 `polygon-rpc.com`、`polygon-bor-rpc.publicnode.com`、`polygon.drpc.org`、`1rpc.io/matic`、`rpc.ankr.com/polygon`、`polygon-mainnet.public.blastapi.io` 全部超时；部署前必须换可用 RPC 复核。
+- **`feeBips` 查询**：`getFeeBips(bytes32)` selector `0x2582cb5e`；也可读 `MarketDataManager.feeBips()`。2026-10-20 用 `polygon-bor-rpc.publicnode.com` 对 7 个样本事件的 `negRiskMarketID` 查询，均返回 0；并用 `getQuestionCount(bytes32)` selector `0xb7f75d2c` 逐个核对 marketId（3/5/5/4/7/5/3 与事件结果数一致）。
+- **Polygon RPC**：2026-10-20 复核：`polygon-rpc.com`、`1rpc.io/matic`、`rpc.ankr.com/polygon`、`polygon-mainnet.public.blastapi.io`、`polygon.llamarpc.com`、`polygon.meowrpc.com` 超时；`polygon-bor-rpc.publicnode.com` 与 `polygon.drpc.org` 可用（均返回 feeBips=0）。
 - **论文**：`https://arxiv.org/abs/2608.00666`；样本包含 32,702 个事件、259M 笔交易；没有公开的逐笔 L2 数据。
-- **缺失**：当前 `feeBips`、当前可执行深度、Polygon gas、转换失败率、转换后 YES 的卖盘深度；这些都需要前向记录或链上查询补齐。
+- **缺失**：全量事件的 `feeBips` 普查、当前可执行深度、Polygon gas、转换失败率、转换后 YES 的卖盘深度；这些都需要前向记录或链上查询补齐。
 
 ## 两周内怎么检验
 
@@ -98,11 +98,11 @@ confidence: 中
 - **示例**：3 个结果、买 2 个 NO、每个 40¢，成本 80¢；转换后得 1 份 collateral + 1 个 YES；若 `feeBips=0`、YES bid 25¢，收入 1.25，毛利 45¢（未计逐腿费和 gas）；若 `feeBips=100`，转换费约 `2×1%×amount`（相对输入约 2%），收入降到约 1.23，仍为正但缓冲变薄。该例是纸面算术，不是当前盘口。
 - **容量**：单事件最多 $1,000，单场所总未平仓 + 费用 + 退出缓冲 ≤$2,500；3–8 腿可以缩量，单腿深度未测。论文的 converter 利润集中在少数地址，说明容量存在但竞争激烈。
 - **资金占用**：转换前买 NO、转换后卖 YES 的路径只占用数分钟到数小时；持有到结算的路径占用数天，按事件结算日计算年化，不能把单次 2% 直接乘 365。
-- **粗略净收益**：若单次转换路径毛利 3–5%、逐腿费 1–2%、gas 和缓冲 0.5%，净 0.5–3.5%；只有 `feeBips=0` 或很低时才够用。`feeBips` 未知是本条最大的定量不确定性。
+- **粗略净收益**：若单次转换路径毛利 3–5%、逐腿费 1–2%、gas 和缓冲 0.5%，净 0.5–3.5%；只有 `feeBips=0` 或很低时才够用。全量 `feeBips` 未普查、且样本盘口未出现正边际，是本条最大的定量不确定性。
 
 ## 风险
 
-- **`feeBips` 未知**：合约支持转换费，且费用按每个输出单位扣；如果当前费率非零，8 结果事件的转换费可能达到输入金额的 7%。在读到真实 `feeBips` 前，不能把“转换免费”当假设。
+- **`feeBips` 样本外未知**：合约支持转换费，且费用按每个输出单位扣；如果某个事件费率非零，8 结果事件的转换费可能达到输入金额的 7%。2026-10-20 的 7 个样本为 0，但未穷举所有事件，仍不能把“转换免费”当成全量假设。
 - **结果集不完整/Other**：`negRiskAugmented=true` 时买全命名 NO 不是完整集；Other 的定义会变化，转换可能得到不可交易的 placeholder YES。本条只做非 augmented。
 - **非原子执行**：先买 NO 腿，部分成交会留下裸露的 NO；转换后卖 YES 也可能只成交一部分。已成交腿的退出成本和撤单延迟必须计入。
 - **结算源/日期不一致**：同一事件的不同市场可能 `endDate` 不同；转换后的 YES 支付取决于对应结果，若结算延迟或争议，资金占用会拉长。
@@ -115,17 +115,17 @@ confidence: 中
 - `dot-006` 只写了“NO_A 可转换为其余每个结果的 YES”，没有给出 adapter 的精确费用公式、费用同时从 collateral 和 YES 扣除、以及 `(n−1)` 倍放大；本条补上合约级公式和 0/50/100 bps 敏感性。
 - `dot-006` 的两周检验目标为 30 个独立事件，但 arXiv 的 NO-side exact-duration 样本只有 5 个；本条把主结果改为 12 个事件、30 个 bundle，避免用不可能达到的事件数硬凑。
 - `dot-006` 没有 converter-enabled 的实证；本条补上 2,098 个 YES-side / 36 个 NO-side episode、16.15s/7.99s 中位持续、5 block 匹配和 97% 利润占比，作为“转换通道曾被实际利用”的证据。
-- `dot-006` 把 `feeBips` 当成未取的 gas 级细节；本条把它提升为决定策略是否成立的核心变量，并给出查询 selector 和地址。
+- `dot-006` 把 `feeBips` 当成未取的 gas 级细节；本条把它提升为决定策略是否成立的核心变量，并给出查询 selector、地址和 2026-10-20 的 7 个样本读数（均为 0）。
 
 ## 门槛自查
 
 1. **机制说得清**：满足。买 NO 篮子→转换→collateral+YES 的支付关系、费用公式和三条路径均已写出；付款方是逐腿错价的对手方。
-2. **有免费数据能检验**：部分满足。Gamma/CLOB/合约地址免费；当前 `feeBips` 和盘口因 RPC 超时未取；历史 L2 无免费源，只能前向记录。
+2. **有免费数据能检验**：部分满足。Gamma/CLOB/合约地址免费；2026-10-20 已读到样本 `feeBips=0` 和盘口，但未穷举事件、未测深度；历史 L2 无免费源，只能前向记录。
 3. **小资金能做**：满足（在可访问 Polymarket 的前提下）。单事件 ≤$1,000、总额 ≤$2,500，无杠杆；3–8 腿可缩量。
 4. **不重复**：满足（作为 supplement）。`dot-006` 已覆盖机制；本条只交新增的合约费用公式、费用放大和 converter-enabled 实证，`improves: dot-006`。
-5. **扣成本后粗算够用**：不确定。示例在 `feeBips=0` 时为正，在 100 bps 时可能转负；当前费率未读到，不能宣称费后一定为正。
+5. **扣成本后粗算够用**：不确定。2026-10-20 读到 7 个事件 `feeBips=0`，但 3 结果样本盘口扣费后约 −4¢/组，未发现可执行正边际；仍不能宣称费后一定为正。
 6. **两周内能检验**：部分满足。12 个事件、30 个 bundle 的目标已写死；NO-side 机会频率可能不足，届时如实记 N，不把扫描次数当结果。
-7. **出处可查**：满足。合约源码、官方负风险文档、arXiv 论文、Polygon 地址均有链接和访问日期；未取的 `feeBips`/盘口已明确标注。
+7. **出处可查**：满足。合约源码、官方负风险文档、arXiv 论文、Polygon 地址均有链接和访问日期；`feeBips` 与盘口样本已补核，全量深度仍未取得。
 
 ## 出处
 
@@ -133,5 +133,7 @@ confidence: 中
 - https://docs.polymarket.com/concepts/negative-risk — 访问 2026-10-19 — 已读（NO→其余 YES 的转换关系、augmented 的 Other 警告；来自 `dot-006` 同日读取）
 - https://arxiv.org/abs/2608.00666 — 访问 2026-10-20 — 已读（converter-enabled 利润、2,098/36 episode、16.15s/7.99s、5 block 匹配、top-10 75%；来源自报，未核实）
 - https://github.com/Polymarket/neg-risk-ctf-adapter — 访问 2026-10-20 — 已读（仓库结构、部署地址引用；地址同时来自已保存的 `addresses.json`）
-- https://polygonscan.com/address/0xd91E80cF2E7be2e162c6513ceD06f1dD0dA35296 — 访问 2026-10-20 — 摘要（adapter 地址；本轮 RPC 超时，未读取链上状态）
+- https://polygonscan.com/address/0xd91E80cF2E7be2e162c6513ceD06f1dD0dA35296 — 访问 2026-10-20 — 摘要（adapter 地址；2026-10-20 复核经 publicnode RPC 读到 feeBips=0，见下）
+- https://polygon-bor-rpc.publicnode.com — 访问 2026-10-20 — 已调用（JSON-RPC eth_call；`getFeeBips` 7 个 negRisk marketId 均为 0；7 个 `getQuestionCount` 与事件结果数 3/5/5/4/7/5/3 一致）
+- https://gamma-api.polymarket.com/events?slug=ucl-psg-fcb-2026-10-20 — 访问 2026-10-20 — 已读（negRisk=true、negRiskAugmented=false、3 结果、feeSchedule rate=0.05；CLOB 盘口样本）
 - https://docs.polymarket.com/trading/fees — 访问 2026-10-20 — 已读（taker fee 公式、politics r≈0.04；来自同日已保存的官方正文）
