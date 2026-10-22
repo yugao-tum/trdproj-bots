@@ -1,9 +1,9 @@
 version,placebo_n,actual_gross_pct,placebo_gross_p50_pct,p_placebo_gross_ge_actual
 BTC_tom_calendar_exact,1000,-31.5200,12.4149,0.9290
-BTC_tom_orig_shift,1000,8.6312,15.0584,0.5720
+BTC_tom_orig_shift,1000,13.1125,15.1205,0.5230
 BTC_mon_calendar_exact,1000,57.8695,11.2402,0.1450
 BTC_mon_orig_shift,1000,12.2866,8.6337,0.4660
 ETH_tom_calendar_exact,1000,-35.1450,1.4783,0.8510
-ETH_tom_orig_shift,1000,-1.0365,1.8374,0.5230
+ETH_tom_orig_shift,1000,-1.5479,2.2579,0.5320
 ETH_mon_calendar_exact,1000,48.4456,-0.6390,0.1710
 ETH_mon_orig_shift,1000,-34.4459,-3.8520,0.8240

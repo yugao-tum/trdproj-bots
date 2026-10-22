@@ -12,8 +12,8 @@ category: E
 return_type: direction
 instruments: BTC, ETH 现货
 venues: Binance 现货
-data: Binance 公开日线 + 1h K 线（data.binance.vision / data-api.binance.vision，免密钥；本条回放用 2022-01-01～2024-12-31）
-test_2w: 运行 bots/quant/replay/quant-002/ 的 fetch_data.py、backtest.py、verify_sources.py，按“次日开盘成交、每边 0.30%”重跑；独立结果按 TOM 月窗口（35 个）和周一窗口（156–157 个）计；失败标准：8 个规则版本在 0.30%/边下 3 年连乘为负，或单窗口净收益 t 检验不显著为正（本条两者都成立）
+data: Binance 公开日线 + 1h K 线（data.binance.vision / data-api.binance.vision，免密钥；本条只用 2022-01-01～2024-12-31，1d/1h 各 1,096 行/币；aggTrades 免密钥端点只回溯到 2024-10-08）
+test_2w: 运行 bots/quant/replay/quant-002/ 的 fetch_data.py、backtest.py、verify_results.py、verify_sources.py，按“次日开盘成交、每边 0.30%”重跑；独立结果按 TOM 月窗口（35 个）和周一窗口（156–157 个）计；失败标准：8 个规则版本在 0.30%/边下 3 年连乘为负，或单窗口净收益 t 检验不显著为正（本条两者都成立）
 status: 待核
 confidence: 高
 evidence: 回放
@@ -33,7 +33,7 @@ contribution: -7.5%
 ## 钱从哪里来
 
 - 原机制（E-E2-turn-of-month）的说法是月初月末资金流（发薪、定投、调仓）集中，造成固定日历窗口的超额收益。
-- 本条不提出新收益来源，只补“这个现金流在 BTC/ETH 现货上扣成本后是否还在”的样本外证据；结论是 0.30%/边下不在。毛收益层面 BTC 周一（精确日历）名义上最接近正效应（+0.36%/窗口），但盈亏平衡每边成本约 0.18%，低于 GUIDE 的 0.30%，且同换手 placebo 的 p=0.145，不能算可交易优势。
+- 本条不提出新收益来源，只补“这个现金流在 BTC/ETH 现货上扣成本后是否还在”的样本外证据；结论是 0.30%/边下不在。毛收益层面只有 BTC 周一（精确日历）的 t 检验接近边界（+0.36%/窗口，t=1.21，单边 p=0.114；同换手 placebo p=0.145），但盈亏平衡每边成本约 0.18%，低于 GUIDE 的 0.30%，不能算可交易优势。
 
 ## 规则
 
@@ -53,7 +53,7 @@ contribution: -7.5%
 
 ### 证据 B：2022-2024 可成交价回放（新增，`bots/quant/replay/quant-002/`）
 
-- 脚本：`fetch_data.py`（下载/缓存）、`backtest.py`（回放）、`verify_sources.py`（出处复核）；汇总：`SUMMARY.md`；明细：`results_variants.csv`、`trades.csv`、`placebo.csv`；stdout 副本在 `bots/quant/notes/scheduler/scratch/H-quant-002/round2_*.txt`。
+- 脚本：`fetch_data.py`（下载/缓存）、`backtest.py`（回放）、`verify_results.py`（逐笔复算、回撤与字段自检）、`verify_sources.py`（出处复核）；汇总：`SUMMARY.md`；明细：`results_variants.csv`、`trades.csv`、`placebo.csv`；stdout 副本在 `bots/quant/notes/scheduler/scratch/H-quant-002/round2_*.txt`。
 - 数据：Binance 日线 + 1h K 线，2022-01-01～2024-12-31，免费免密钥；1d 1,096 行/币，1h 26,303 行/币。
 - 成本与成交：主口径次日开盘价，0.30%/边；敏感性首小时 VWAP，0.30%/边。净收益 = `(1+毛收益)×(1−0.003)²−1`；日线净值按收盘盯市，含浮亏。
 
@@ -65,14 +65,14 @@ contribution: -7.5%
 | ETH TOM（精确日历） | 35 | −47.45% | −19.31% | −55.00% | −1.70% | −2.06 | 0.976 | −0.55% |
 | BTC 周一（精确日历） | 157 | −38.54% | −14.99% | −55.72% | −0.24% | −0.81 | 0.791 | 0.18% |
 | ETH 周一（精确日历） | 157 | −42.21% | −16.72% | −55.61% | −0.26% | −0.76 | 0.775 | 0.17% |
-| BTC TOM（原代码，错后一天） | 36 | −12.50% | −4.36% | −27.04% | −0.25% | −0.31 | 0.619 | 0.18% |
-| ETH TOM（原代码，错后一天） | 36 | −20.29% | −7.28% | −43.63% | −0.44% | −0.43 | 0.665 | 0.08% |
+| BTC TOM（原代码，错后一天） | 35 | −8.34% | −2.86% | −27.04% | −0.13% | −0.15 | 0.561 | 0.24% |
+| ETH TOM（原代码，错后一天） | 35 | −20.22% | −7.26% | −43.63% | −0.45% | −0.43 | 0.664 | 0.08% |
 | BTC 周一（原代码，错后一天） | 156 | −56.02% | −23.97% | −62.37% | −0.49% | −2.26 | 0.988 | 0.06% |
 | ETH 周一（原代码，错后一天） | 156 | −74.33% | −36.46% | −79.71% | −0.82% | −3.24 | 0.999 | −0.11% |
 
-- 8 个版本在 0.30%/边、次日开盘下全部为负；换成首小时 VWAP 后仍然 8 个全负（−15.33% 到 −74.03%）。即 8 个规则版本 × 2 种可成交价 = 16 个结果全部为负，没有一个是正的。
-- 8 个版本的净均值单边 t 检验 p=0.62–1.00，没有一个显著为正；按本条事先写死的失败标准，全部判“不值得继续”。
-- 毛收益层面，BTC 周一（精确）均值 +0.36%/窗口，t=1.21，单边 p=0.114，是 8 个版本里名义上最接近正的；但盈亏平衡每边成本约 0.18%，低于 GUIDE 的 0.30%。同换手随机窗口 placebo（1,000 次，随机星期）中它的毛收益 +57.87% 排 p=0.145——不显著。其余版本的毛均值在 −1.11% 到 +0.35% 之间，没有一个显著为正。
+- 8 个版本在 0.30%/边、次日开盘下全部为负；换成首小时 VWAP 后仍然 8 个全负（−11.97% 到 −74.03%）。即 8 个规则版本 × 2 种可成交价 = 16 个结果全部为负，没有一个是正的。
+- 8 个版本的净均值单边 t 检验 p=0.56–1.00，没有一个显著为正；按本条事先写死的失败标准，全部判“不值得继续”。
+- 毛收益层面，BTC 周一（精确）均值 +0.36%/窗口，t=1.21，单边 p=0.114；同换手随机窗口 placebo（1,000 次，随机星期）中它的毛收益 +57.87% 排 p=0.145，仍不显著。BTC TOM（原代码错位）的毛均值更高（+0.47%/窗口），但 t=0.56、单边 p=0.289、placebo p=0.523，同样不显著。其余版本毛均值在 −1.11% 到 +0.34% 之间，没有一个显著为正。
 - 逐年看，2024 单年 BTC 周一精确 +13.68%、ETH 周一精确 +29.51%，但同两个版本 2022、2023 均为负，3 年合计 −38.54%/−42.21%；不能拿单年正数翻案。完整逐年数字在 `SUMMARY.md` 和 `results_variants.csv`。
 - 第 1 轮曾在 0.10%/边下看到少数正结果，但正结果会随“首小时 vs 末小时”成交时点换一组；本回放只按 GUIDE 的 0.30%/边，不再把 0.10% 当证据，也不引用含 2025 年段的旧数字。
 
@@ -82,7 +82,9 @@ contribution: -7.5%
 - `https://data.binance.vision/data/spot/monthly/klines/BTCUSDT/1d/BTCUSDT-1d-2024-12.zip`：HTTP 200，zip 成员 `BTCUSDT-1d-2024-12.csv`，31 行 × 12 列；ETH 月包 31 行 × 12 列。
 - 完整日线/1h 查询 URL（带 `symbol`、`interval`、`startTime`、`endTime`）：HTTP 200，12 列；分页取完 2022-01-01～2024-12-31。
 - `aggTrades` 2024-10-09 00:00–01:00 UTC：43,529 笔；首笔成交价 62,160.50 = 当日日线开盘价 62,160.50（差 0.000000 bp）；逐笔 VWAP 62,126.14842703 = 1h K 线首小时 VWAP 62,126.14842703（差 0.000000 bp）。证明开盘价/VWAP 来自真实成交，不是模型价。
+- 同一“开盘价 = 当日首笔成交”检查扩到 2024-10-09～2024-12-28 每 4 天采样：BTC、ETH 各 21 天，首笔成交价与日线开盘价最大差 0.000000 bp（`aggtrades_open_sample_BTC/ETH`）。
 - `known/KNOWN.md` 第 48 行存在 `| E-E2-turn-of-month | 月末月初持有 |`。
+- `verify_results.py`（本地 0 failed checks）：用 `trades.csv` 766 笔逐笔净收益重新连乘，与 `results_variants.csv` 的 8 个主口径结果一致（误差 <1e-5）；1,532 个进出价全部落在当日 `[low, high]`；周一交易跨 1 天、TOM 交易跨 4 天；2022-01 的 TOM 错位首窗被 2022-01-01 边界截断（只有 3 天），已按“剔除截断窗口”规则删掉，所以 TOM 全部为 35 窗。
 - 条目 front matter 的 `id: quant-002`、`date: 2026-10-20`、`status: 待核` 未改。
 
 ## 数据
@@ -90,11 +92,11 @@ contribution: -7.5%
 - 日线/1h：`https://data-api.binance.vision/api/v3/klines?symbol=BTCUSDT&interval=1d&startTime=1640995200000&endTime=1735689599999&limit=1000`；`interval=1h` 同结构；`symbol=ETHUSDT` 同结构。免费免密钥，2022-01-01～2024-12-31。
 - 月包样例：`https://data.binance.vision/data/spot/monthly/klines/BTCUSDT/1d/BTCUSDT-1d-2024-12.zip`（ETHUSDT 同结构）。
 - 逐笔：`https://data-api.binance.vision/api/v3/aggTrades?symbol=BTCUSDT&startTime=1728432000000&endTime=1728435599999&limit=1000`。该免密钥端点只回溯到 2024-10-08，所以逐笔复核用 2024-10-09；日线/1h 覆盖完整 2022-2024。
-- 原始缓存放在 `bots/quant/replay/quant-002/_cache/`（已 `_cache/` gitignore，单文件 <1 MB 的 CSV；原始 1h 缓存约 3 MB，只在本地，不进仓库）。
+- 原始缓存放在 `bots/quant/replay/quant-002/_cache/`（已 `_cache/` gitignore，单文件 <1 MB 的 CSV）。1h 的原始分页不落盘（约 3 MB），只保存派生的首/末小时 VWAP，避免大文件进仓库。
 
 ## 两周内怎么检验
 
-- 运行 `cd bots/quant/replay/quant-002 && python3 fetch_data.py && python3 backtest.py && python3 verify_sources.py`；首次下载约 7 分钟，回放约 8 秒，复核约 8 秒。
+- 运行 `cd bots/quant/replay/quant-002 && python3 fetch_data.py && python3 backtest.py && python3 verify_results.py && python3 verify_sources.py`；首次下载约 1–7 分钟，回放约 8 秒，自检约 2 秒，出处复核约 60 秒。
 - 独立结果：TOM 35 个月窗口、周一 156–157 个周窗口，均超过 30；另有 1,000 次同换手 placebo。
 - 失败标准（事先写死）：0.30%/边、可成交价下 8 个规则版本 3 年连乘为负，或单窗口净收益 t 检验不显著为正。本条的 8 个版本两项都成立，所以判“BTC/ETH 现货上的 TOM/周一不值得继续”。
 - 诚实限制：2022-2024 是规则冻结后的时序样本，不是从未见过的盲样本；真正独立的样本只能从 2026-10 之后前向记录。本条不声称已经过了盲测。
@@ -102,9 +104,10 @@ contribution: -7.5%
 ## 成本与容量
 
 - 每个 TOM 窗口进出各一次：0.30%/边 → 每月约 0.60%；周一每周进出一次 → 每月约 2.6%。成本是结果翻负的主因。
-- 最好的毛收益版本 BTC 周一（精确）盈亏平衡每边成本约 0.18%；GUIDE 要求按 0.30%/边粗算，故仍为负。0.10%/边下可能为正，但那依赖成交时点，不能当成稳定优势。
+- 盈亏平衡每边成本最高的是 BTC TOM（原代码错位）约 0.24%，其次是 BTC 周一（精确）约 0.18%；两者都低于 GUIDE 的 0.30%/边，故仍为负。0.10%/边下可能为正，但那依赖成交时点，不能当成稳定优势。
 - 容量：单币最多 2,500 USDT；5,000 USDT 总资金若同时做 BTC 和 ETH，每个币 1,250 USDT，合计仍不超过 Binance 单场所约 2,500 USDT 的上限。这类窗口每月/每周只进出一次，容量不是问题。
 - 对 5,000 USDT 的年化贡献：主变体 BTC 周一精确年化 −14.99%，占用 2,500 USDT 单币袖套，`−14.99% × 2,500 ÷ 5,000 = −7.49%`，字段取 `-7.5%`。最差变体 ETH 周一错位为 `−36.46% × 2,500 ÷ 5,000 = −18.23%`。这是负贡献，正是本条要报告的结论。
+- 最大回撤口径：字段 `55.7%` 是 2,500 USDT 单币袖套的日线回撤（含浮亏）；账户级（另 2,500 现金不动）主变体为 −29.33%，最差变体（ETH 周一错位）为 −44.24%（`verify_results.py`）。
 
 ## 风险
 
@@ -130,7 +133,7 @@ contribution: -7.5%
 
 ## 出处
 
-- bots/quant/replay/quant-002/fetch_data.py、backtest.py、verify_sources.py、SUMMARY.md、results_variants.csv、trades.csv、placebo.csv — 访问 2026-10-21 — 已读（本次运行）
+- bots/quant/replay/quant-002/fetch_data.py、backtest.py、verify_results.py、verify_sources.py、SUMMARY.md、results_variants.csv、trades.csv、placebo.csv — 访问 2026-10-21 — 已读（本次运行）
 - bots/quant/notes/scheduler/scratch/H-quant-002/round2_fetch_stdout.txt、round2_backtest_stdout.txt、round2_verify_stdout.txt — 访问 2026-10-21 — 已读（本次运行副本）
 - bots/quant/notes/xqt-migration/README.md、reproduce.py、results.csv — 访问 2026-10-21 — 已读（本 bot 2026-10-20 运行；只复用规则定义，不抄 2025–2026 数字）
 - https://data.binance.vision/?prefix=data/spot/monthly/klines/BTCUSDT/1d/ — 访问 2026-10-21 — 已读（HTTP 200，2,712 字节）

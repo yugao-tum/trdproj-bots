@@ -8,6 +8,7 @@ Checks (all keyless public endpoints, all inside the 2022-2024 development windo
  4. aggTrades for 2024-10-09 00:00-01:00 UTC: first trade price == daily open;
     trade VWAP == first-hour VWAP in _cache/hourly_BTC.csv (proves the fill is a
     real traded price, not a modelled one).
+ 4b. same open == first-trade check on a 20-day sample (2024-10-09..2024-12-29).
  5. Local merged notes exist; the old xqt-migration window is as claimed.
  6. known/KNOWN.md contains E-E2-turn-of-month.
  7. Entry front matter keeps id/date/status.
@@ -118,6 +119,39 @@ def main():
     except Exception as e:
         lines.append(f"aggtrades_2024_10_09: ERROR {type(e).__name__} {getattr(e, 'code', '')}")
 
+    # 4b. open == first trade of the day on a sample across the available tail.
+    # The keyless aggTrades endpoint only reaches back to 2024-10-08, so sample
+    # every 4th day from 2024-10-09 to 2024-12-29 (inside the 2022-2024 window).
+    try:
+        base = "https://data-api.binance.vision/api/v3/aggTrades"
+        dates = pd.date_range("2024-10-09", "2024-12-29", freq="4D", tz="UTC")
+        for sym in ("BTC", "ETH"):
+            daily = pd.read_csv(CACHE / f"daily_{sym}.csv", parse_dates=["date"],
+                                index_col="date")
+            worst, n, missing = 0.0, 0, 0
+            for ts in dates:
+                t0 = int(ts.timestamp() * 1000)
+                url = f"{base}?symbol={sym}USDT&startTime={t0}&endTime={t0 + 59999}&limit=1"
+                try:
+                    _, _, body = fetch(url, timeout=30)
+                    arr = json.loads(body)
+                except Exception:
+                    missing += 1
+                    continue
+                if not arr:
+                    missing += 1
+                    continue
+                first = float(arr[0]["p"])
+                k_open = float(daily.loc[ts.strftime("%Y-%m-%d"), "open"])
+                worst = max(worst, abs(first / k_open - 1.0) * 1e4)
+                n += 1
+            lines.append(f"aggtrades_open_sample_{sym}: days={n} missing={missing} "
+                         f"max_abs_diff_bp={worst:.6f} "
+                         f"window={dates[0].date()}..{dates[-1].date()}")
+    except Exception as e:
+        lines.append(f"aggtrades_open_sample: ERROR {type(e).__name__} "
+                     f"{getattr(e, 'code', '')}")
+
     # 5. local merged notes
     lines.append("")
     lines.append("local merged notes:")
@@ -135,14 +169,14 @@ def main():
     # 5b. replay artefacts and scratch stdout copies
     lines.append("")
     lines.append("replay artefacts:")
-    for rel in ["SUMMARY.md", "fetch_data.py", "backtest.py", "results_variants.csv",
-                "trades.csv", "placebo.csv"]:
+    for rel in ["SUMMARY.md", "fetch_data.py", "backtest.py", "verify_results.py",
+                "results_variants.csv", "trades.csv", "placebo.csv"]:
         p = HERE / rel
         lines.append(f"  replay/quant-002/{rel}: exists={p.exists()} "
                      f"bytes={p.stat().st_size if p.exists() else 0}")
     scratch = NOTES / "scheduler" / "scratch" / "H-quant-002"
     for rel in ["round2_fetch_stdout.txt", "round2_backtest_stdout.txt",
-                "round2_verify_stdout.txt"]:
+                "round2_verify_results_stdout.txt", "round2_verify_stdout.txt"]:
         p = scratch / rel
         lines.append(f"  scratch/H-quant-002/{rel}: exists={p.exists()} "
                      f"bytes={p.stat().st_size if p.exists() else 0}")

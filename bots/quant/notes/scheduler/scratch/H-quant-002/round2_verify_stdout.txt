@@ -1,0 +1,44 @@
+listing_BTC: HTTP 200 bytes=2712 url=https://data.binance.vision/?prefix=data/spot/monthly/klines/BTCUSDT/1d/
+zip_BTC_2024_12: HTTP 200 bytes=2218 member=BTCUSDT-1d-2024-12.csv rows=31 cols=12 first=1733011200000 last=1735603200000 url=https://data.binance.vision/data/spot/monthly/klines/BTCUSDT/1d/BTCUSDT-1d-2024-12.zip
+listing_ETH: HTTP 200 bytes=2712 url=https://data.binance.vision/?prefix=data/spot/monthly/klines/ETHUSDT/1d/
+zip_ETH_2024_12: HTTP 200 bytes=2128 member=ETHUSDT-1d-2024-12.csv rows=31 cols=12 first=1733011200000 last=1735603200000 url=https://data.binance.vision/data/spot/monthly/klines/ETHUSDT/1d/ETHUSDT-1d-2024-12.zip
+klines_BTC_1d: HTTP 200 rows=1000 cols=12 url=https://data-api.binance.vision/api/v3/klines?symbol=BTCUSDT&interval=1d&startTime=1640995200000&endTime=1735689599999&limit=1000
+klines_BTC_1h: HTTP 200 rows=1000 cols=12 url=https://data-api.binance.vision/api/v3/klines?symbol=BTCUSDT&interval=1h&startTime=1640995200000&endTime=1735689599999&limit=1000
+klines_ETH_1d: HTTP 200 rows=1000 cols=12 url=https://data-api.binance.vision/api/v3/klines?symbol=ETHUSDT&interval=1d&startTime=1640995200000&endTime=1735689599999&limit=1000
+klines_ETH_1h: HTTP 200 rows=1000 cols=12 url=https://data-api.binance.vision/api/v3/klines?symbol=ETHUSDT&interval=1h&startTime=1640995200000&endTime=1735689599999&limit=1000
+derived_BTC: daily_rows=1096 2022-01-01..2024-12-31; hourly_vwap_rows=1096
+derived_ETH: daily_rows=1096 2022-01-01..2024-12-31; hourly_vwap_rows=1096
+aggtrades_2024_10_09: HTTP 200 pages=44 trades=43529 first_trade=62160.50000000 daily_open=62160.50000000 open_diff_bp=0.000000 url=https://data-api.binance.vision/api/v3/aggTrades?symbol=BTCUSDT&startTime=1728432000000&endTime=1728435599999&limit=1000
+aggtrades_vwap_2024_10_09: trades_vwap=62126.14842703 kline_first_hour_vwap=62126.14842703 diff_bp=-0.000000
+aggtrades_open_sample_BTC: days=21 missing=0 max_abs_diff_bp=0.000000 window=2024-10-09..2024-12-28
+aggtrades_open_sample_ETH: days=21 missing=0 max_abs_diff_bp=0.000000 window=2024-10-09..2024-12-28
+
+local merged notes:
+  xqt-migration/README.md: exists=True bytes=5407
+  xqt-migration/reproduce.py: exists=True bytes=9915
+  xqt-migration/results.csv: exists=True bytes=5627
+  README states 2020-12-31..2026-10-13 full-window protocol: True
+  results.csv M3 rows: 8 names, e.g. ['M3_BTC_mon_calendar_exact', 'M3_BTC_mon_orig_shift', 'M3_BTC_tom_calendar_exact']
+
+replay artefacts:
+  replay/quant-002/SUMMARY.md: exists=True bytes=10370
+  replay/quant-002/fetch_data.py: exists=True bytes=4003
+  replay/quant-002/backtest.py: exists=True bytes=13854
+  replay/quant-002/verify_results.py: exists=True bytes=7882
+  replay/quant-002/results_variants.csv: exists=True bytes=4469
+  replay/quant-002/trades.csv: exists=True bytes=73646
+  replay/quant-002/placebo.csv: exists=True bytes=475
+  scratch/H-quant-002/round2_fetch_stdout.txt: exists=True bytes=190
+  scratch/H-quant-002/round2_backtest_stdout.txt: exists=True bytes=5431
+  scratch/H-quant-002/round2_verify_results_stdout.txt: exists=True bytes=3259
+  scratch/H-quant-002/round2_verify_stdout.txt: exists=True bytes=3204
+
+known/KNOWN.md contains '| E-E2-turn-of-month | 月末月初持有 |': True
+
+entry: bots/quant/entries/quant-002-tom-monday-oos-counterevidence.md
+  id: quant-002
+  date: 2026-10-20
+  status: 待核
+  evidence: 回放
+  result: 负
+  window: 2022-01-01..2024-12-31

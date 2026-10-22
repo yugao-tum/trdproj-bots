@@ -1,0 +1,64 @@
+quant-002 replay (Binance spot, 2022-01-01..2024-12-31, fee 0.30%/side)
+Fill 1 = next bar open (primary, GUIDE 9); fill 2 = first-hour VWAP (sensitivity).
+No parameters fitted; all 8 rule variants x 2 fills = 16 results reported.
+
+BTC: 2022-01-01..2024-12-31, 1096 daily bars
+ETH: 2022-01-01..2024-12-31, 1096 daily bars
+
+=== PRIMARY: next bar open, 0.30%/side, 2022-2024 ===
+               version  n_windows  compound_pct  annualized_pct  max_dd_pct  mean_net_pct  t_net  p_one_sided_net  mean_gross_pct  breakeven_fee_per_side_pct  avg_exposure  contribution_pct
+BTC_tom_calendar_exact         35       -44.509         -17.836     -51.754        -1.597 -2.456            0.990          -1.004                      -0.502         0.128            -8.918
+    BTC_tom_orig_shift         35        -8.342          -2.864     -27.042        -0.129 -0.154            0.561           0.473                       0.236         0.128            -1.432
+BTC_mon_calendar_exact        157       -38.542         -14.988     -55.716        -0.241 -0.814            0.791           0.360                       0.180         0.143            -7.494
+    BTC_mon_orig_shift        156       -56.024         -23.969     -62.369        -0.488 -2.264            0.988           0.111                       0.056         0.142           -11.984
+ETH_tom_calendar_exact         35       -47.446         -19.313     -55.002        -1.702 -2.061            0.976          -1.110                      -0.555         0.128            -9.656
+    ETH_tom_orig_shift         35       -20.221          -7.259     -43.626        -0.450 -0.428            0.664           0.150                       0.075         0.128            -3.629
+ETH_mon_calendar_exact        157       -42.211         -16.716     -55.609        -0.259 -0.757            0.775           0.343                       0.171         0.143            -8.358
+    ETH_mon_orig_shift        156       -74.326         -36.463     -79.712        -0.817 -3.243            0.999          -0.219                      -0.110         0.142           -18.231
+
+=== SENSITIVITY: first-hour VWAP, 0.30%/side ===
+               version  n_windows  compound_pct  annualized_pct  max_dd_pct  mean_net_pct  t_net  p_one_sided_net
+BTC_tom_calendar_exact         35       -44.890         -18.024     -52.778        -1.621 -2.578            0.993
+    BTC_tom_orig_shift         35       -11.971          -4.164     -28.004        -0.237 -0.277            0.608
+BTC_mon_calendar_exact        157       -29.001         -10.796     -54.046        -0.151 -0.517            0.697
+    BTC_mon_orig_shift        156       -57.363         -24.749     -63.772        -0.509 -2.393            0.991
+ETH_tom_calendar_exact         35       -51.055         -21.205     -59.137        -1.911 -2.418            0.989
+    ETH_tom_orig_shift         35       -25.137          -9.205     -44.984        -0.616 -0.570            0.714
+ETH_mon_calendar_exact        157       -34.182         -13.022     -53.880        -0.179 -0.533            0.703
+    ETH_mon_orig_shift        156       -74.030         -36.219     -78.765        -0.807 -3.124            0.999
+
+=== Fill sensitivity (compound %, 0.30%/side) ===
+fill                    first_hour_vwap  next_open
+version                                           
+BTC_mon_calendar_exact           -29.00     -38.54
+BTC_mon_orig_shift               -57.36     -56.02
+BTC_tom_calendar_exact           -44.89     -44.51
+BTC_tom_orig_shift               -11.97      -8.34
+ETH_mon_calendar_exact           -34.18     -42.21
+ETH_mon_orig_shift               -74.03     -74.33
+ETH_tom_calendar_exact           -51.06     -47.45
+ETH_tom_orig_shift               -25.14     -20.22
+
+=== Yearly net returns (next bar open, 0.30%/side) ===
+BTC_tom_calendar_exact: 2022=-13.08%, 2023=-6.91%, 2024=-31.42%
+BTC_tom_orig_shift: 2022=-1.51%, 2023=4.36%, 2024=-10.82%
+BTC_mon_calendar_exact: 2022=-29.94%, 2023=-22.83%, 2024=13.68%
+BTC_mon_orig_shift: 2022=-30.43%, 2023=9.0%, 2024=-42.01%
+ETH_tom_calendar_exact: 2022=-11.95%, 2023=4.7%, 2024=-42.99%
+ETH_tom_orig_shift: 2022=11.59%, 2023=12.37%, 2024=-36.38%
+ETH_mon_calendar_exact: 2022=-29.25%, 2023=-36.93%, 2024=29.51%
+ETH_mon_orig_shift: 2022=-29.55%, 2023=-10.17%, 2024=-59.43%
+
+=== Placebo: same turnover, random windows, 1,000 draws, next-bar open, 0.30% ===
+               version  placebo_n  actual_gross_pct  placebo_gross_p50_pct  p_placebo_gross_ge_actual
+BTC_tom_calendar_exact       1000           -31.520                 12.415                      0.929
+    BTC_tom_orig_shift       1000            13.112                 15.120                      0.523
+BTC_mon_calendar_exact       1000            57.869                 11.240                      0.145
+    BTC_mon_orig_shift       1000            12.287                  8.634                      0.466
+ETH_tom_calendar_exact       1000           -35.145                  1.478                      0.851
+    ETH_tom_orig_shift       1000            -1.548                  2.258                      0.532
+ETH_mon_calendar_exact       1000            48.446                 -0.639                      0.171
+    ETH_mon_orig_shift       1000           -34.446                 -3.852                      0.824
+
+independent results: TOM 35 monthly windows; Monday 156-157 weekly windows;
+all >= 30.  Windows truncated by the 2022-01-01 or 2024-12-31 boundary are dropped.

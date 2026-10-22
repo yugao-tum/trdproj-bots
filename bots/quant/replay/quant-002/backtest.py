@@ -73,6 +73,12 @@ def blocks_from_mask(mask, index, kind, shift):
         # its true first day (previous month end) is outside 2022-01-01.
         if kind == "tom" and not shift and s == 0 and index[s].day <= 3:
             continue
+        # The off-by-one TOM variant is built by shifting the exact mask; the
+        # first January block loses its first day because 2021-12-31 is outside
+        # the development window.  Drop that truncated block instead of
+        # reporting a 3-day window as if it were the 4-day rule.
+        if kind == "tom" and shift and s <= 1 and index[s].day <= 4:
+            continue
         if kind == "mon" and shift and s == 0 and len(index) > 1:
             pass
         out.append((s, x))
@@ -311,8 +317,8 @@ def main():
         lines.append(f"{r.version}: 2022={r.y2022_pct}%, 2023={r.y2023_pct}%, 2024={r.y2024_pct}%")
     lines += ["", "=== Placebo: same turnover, random windows, 1,000 draws, next-bar open, 0.30% ===",
               pd.DataFrame(placebo_rows).round(3).to_string(index=False)]
-    lines += ["", f"independent results: TOM 35-36 monthly windows; Monday 156-157 weekly windows;",
-              "all >= 30.  Windows touching the 2022-01-01 or 2024-12-31 boundary are dropped."]
+    lines += ["", "independent results: TOM 35 monthly windows; Monday 156-157 weekly windows;",
+              "all >= 30.  Windows truncated by the 2022-01-01 or 2024-12-31 boundary are dropped."]
     text = "\n".join(lines)
     print(text)
     (HERE / "_cache" / "backtest_stdout.txt").write_text(text + "\n")

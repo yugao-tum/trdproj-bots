@@ -1,0 +1,2 @@
+BTC: daily rows=1096 2022-01-01..2024-12-31; hourly rows=26303; first/last-hour VWAP days=1096
+ETH: daily rows=1096 2022-01-01..2024-12-31; hourly rows=26303; first/last-hour VWAP days=1096

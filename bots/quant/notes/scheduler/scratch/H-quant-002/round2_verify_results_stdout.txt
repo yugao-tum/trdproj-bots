@@ -1,0 +1,58 @@
+results rows=16  trades rows=766
+OK   16 results = 8 frozen rules x 2 fill conventions
+OK   all 16 net compounds < 0 (worst -74.33%, best -8.34%)
+OK   8 primary next-open variants
+OK   BTC_mon_calendar_exact: trades.csv recompound -38.5424% == results_variants -38.5421%
+OK   BTC_mon_orig_shift: trades.csv recompound -56.0239% == results_variants -56.0238%
+OK   BTC_tom_calendar_exact: trades.csv recompound -44.5089% == results_variants -44.5087%
+OK   BTC_tom_orig_shift: trades.csv recompound -8.3417% == results_variants -8.3418%
+OK   ETH_mon_calendar_exact: trades.csv recompound -42.2108% == results_variants -42.2108%
+OK   ETH_mon_orig_shift: trades.csv recompound -74.3265% == results_variants -74.3262%
+OK   ETH_tom_calendar_exact: trades.csv recompound -47.4462% == results_variants -47.4461%
+OK   ETH_tom_orig_shift: trades.csv recompound -20.2216% == results_variants -20.2215%
+OK   calendar integrity: Monday trades span 1 day (Mon->Tue) or Tue->Wed (off-by-one); TOM trades span 4 days
+OK   all trades inside 2022-01-01..2024-12-31 (2022-01-03..2024-12-31)
+OK   BTC_mon_calendar_exact: 157 independent windows >= 30
+OK   BTC_mon_orig_shift: 156 independent windows >= 30
+OK   BTC_tom_calendar_exact: 35 independent windows >= 30
+OK   BTC_tom_orig_shift: 35 independent windows >= 30
+OK   ETH_mon_calendar_exact: 157 independent windows >= 30
+OK   ETH_mon_orig_shift: 156 independent windows >= 30
+OK   ETH_tom_calendar_exact: 35 independent windows >= 30
+OK   ETH_tom_orig_shift: 35 independent windows >= 30
+OK   all 1532 fill prices inside the daily [low, high] range
+
+=== max drawdown (daily mark, 2022-2024, next-open, 0.30%/side) ===
+                        sleeve_dd_pct  account_dd_pct
+version                                              
+BTC_mon_calendar_exact         -55.72          -29.33
+BTC_mon_orig_shift             -62.37          -32.92
+BTC_tom_calendar_exact         -51.75          -27.68
+BTC_tom_orig_shift             -27.04          -14.89
+ETH_mon_calendar_exact         -55.61          -27.80
+ETH_mon_orig_shift             -79.71          -44.24
+ETH_tom_calendar_exact         -55.00          -29.63
+ETH_tom_orig_shift             -43.63          -24.96
+OK   BTC_mon_calendar_exact: rebuilt sleeve max DD -55.72% == field -55.72%
+OK   BTC_mon_orig_shift: rebuilt sleeve max DD -62.37% == field -62.37%
+OK   BTC_tom_calendar_exact: rebuilt sleeve max DD -51.75% == field -51.75%
+OK   BTC_tom_orig_shift: rebuilt sleeve max DD -27.04% == field -27.04%
+OK   ETH_mon_calendar_exact: rebuilt sleeve max DD -55.61% == field -55.61%
+OK   ETH_mon_orig_shift: rebuilt sleeve max DD -79.71% == field -79.71%
+OK   ETH_tom_calendar_exact: rebuilt sleeve max DD -55.00% == field -55.00%
+OK   ETH_tom_orig_shift: rebuilt sleeve max DD -43.63% == field -43.63%
+OK   id unchanged: quant-002
+OK   date unchanged: 2026-10-20
+OK   evidence=回放
+OK   result=负
+OK   window=2022-01-01..2024-12-31
+OK   variants=16 == 16 results
+OK   variants_ext=0
+OK   contribution -7.5% == -7.49%
+OK   max_dd 55.7%（日线，BTC 周一精确） == |-55.72%| sleeve
+
+=== account-level view (2,500 USDT sleeve + 2,500 cash) ===
+BTC Monday exact: sleeve DD -55.72%, account DD -29.33%
+worst account DD: -44.24% (ETH_mon_orig_shift)
+
+PASS: 0 failed checks
