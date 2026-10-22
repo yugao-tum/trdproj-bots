@@ -749,7 +749,7 @@
 | bots/quant/forward/quant-034/PLAN.md | quant-034 奖励池做市：两周前向登记 | 2026-10-21 | 笔记 |
 | bots/quant/forward/quant-034/ledger.csv | quant-034 前向明细（只追加） | 2026-10-21 | 笔记 |
 | bots/quant/forward/quant-034/record.py | quant-034 前向记录脚本（每小时运行） | 2026-10-21 | 笔记 |
-| bots/quant/entries/quant-035-funding-carry-14d-gate.md | 非方向资金费套利 14 天闸门（改进 composer-003） | 2026-10-21 | 草稿 |
+| bots/quant/entries/quant-035-funding-carry-14d-gate.md | 非方向资金费套利 14 天闸门（改进 composer-003） | 2026-10-21 | 待核 |
 | bots/quant/replay/quant-035/SUMMARY.md | quant-035 回放 2022–2024：SUMMARY.md | 2026-10-21 | 笔记 |
 | bots/quant/replay/quant-035/equity.csv | quant-035 回放 2022–2024：equity.csv | 2026-10-21 | 笔记 |
 | bots/quant/replay/quant-035/replay.py | quant-035 回放 2022–2024：replay.py | 2026-10-21 | 笔记 |
@@ -1045,3 +1045,38 @@
 | bots/quant/replay/quant-030/SUMMARY.md | 回放汇总：quant-030 | 2026-10-22 | 笔记 |
 | bots/quant/replay/quant-030/replay.py | replay.py | 2026-10-22 | 笔记 |
 | bots/quant/replay/quant-030/trades.csv | trades.csv | 2026-10-22 | 笔记 |
+| bots/quant/notes/scheduler/reviews/c20261022-070001-research.md | Review gate: c20261022-070001-research (profile research) | 2026-10-22 | 笔记 |
+| bots/quant/notes/scheduler/scratch/H-quant-002/ROUND2_REPORT.md | H-quant-002 第 2 轮：回放复核与修正（2026-10-22） | 2026-10-22 | 笔记 |
+| bots/quant/notes/scheduler/scratch/H-quant-002/round2_backtest_stdout.txt | round2_backtest_stdout.txt | 2026-10-22 | 笔记 |
+| bots/quant/notes/scheduler/scratch/H-quant-002/round2_fetch_stdout.txt | round2_fetch_stdout.txt | 2026-10-22 | 笔记 |
+| bots/quant/notes/scheduler/scratch/H-quant-002/round2_verify_results_stdout.txt | round2_verify_results_stdout.txt | 2026-10-22 | 笔记 |
+| bots/quant/notes/scheduler/scratch/H-quant-002/round2_verify_stdout.txt | round2_verify_stdout.txt | 2026-10-22 | 笔记 |
+| bots/quant/notes/scheduler/scratch/H-quant-012/verify_entry_urls.py | verify_entry_urls.py | 2026-10-22 | 笔记 |
+| bots/quant/notes/scheduler/scratch/H-quant-012/verify_entry_urls_output.txt | verify_entry_urls_output.txt | 2026-10-22 | 笔记 |
+| bots/quant/notes/scheduler/scratch/H-quant-016/REPLAY-POINTER.md | H-quant-016 replay pointer (2026-10-22) | 2026-10-22 | 笔记 |
+| bots/quant/notes/scheduler/scratch/H-quant-016/check_rounding_replay.out | check_rounding_replay.out | 2026-10-22 | 笔记 |
+| bots/quant/notes/scheduler/scratch/H-quant-016/replay_market_copy.out | replay_market_copy.out | 2026-10-22 | 笔记 |
+| bots/quant/notes/scheduler/scratch/H-quant-016/replay_model_clob_copy.out | replay_model_clob_copy.out | 2026-10-22 | 笔记 |
+| bots/quant/notes/scheduler/scratch/H-quant-016/replay_model_copy.out | replay_model_copy.out | 2026-10-22 | 笔记 |
+| bots/quant/notes/scheduler/scratch/H-quant-016/verify_entry_citations_replay.out | verify_entry_citations_replay.out | 2026-10-22 | 笔记 |
+| bots/quant/notes/scheduler/scratch/H-quant-021/R4-NOTE.md | R4 复核（2026-10-22，round-2） | 2026-10-22 | 笔记 |
+| bots/quant/notes/scheduler/scratch/H-quant-021/r4_repro_compare.py | r4_repro_compare.py | 2026-10-22 | 笔记 |
+| bots/quant/notes/scheduler/scratch/H-quant-021/run_r4_replay_repro.txt | run_r4_replay_repro.txt | 2026-10-22 | 笔记 |
+| bots/quant/notes/scheduler/scratch/H-quant-021/run_r4_replay_v28.txt | run_r4_replay_v28.txt | 2026-10-22 | 笔记 |
+| bots/quant/notes/scheduler/scratch/H-quant-021/run_r4_repro_compare.txt | run_r4_repro_compare.txt | 2026-10-22 | 笔记 |
+| bots/quant/notes/scheduler/scratch/H-quant-021/run_r4_verify_sources.txt | run_r4_verify_sources.txt | 2026-10-22 | 笔记 |
+| bots/quant/replay/quant-002/verify_results.py | verify_results.py | 2026-10-22 | 笔记 |
+| bots/quant/replay/quant-012/equity_mtm.csv | equity_mtm.csv | 2026-10-22 | 笔记 |
+| bots/quant/replay/quant-012/mtm.py | mtm.py | 2026-10-22 | 笔记 |
+| bots/quant/replay/quant-012/mtm_output.txt | mtm_output.txt | 2026-10-22 | 笔记 |
+| bots/quant/replay/quant-016/.gitignore | .gitignore | 2026-10-22 | 笔记 |
+| bots/quant/replay/quant-016/SUMMARY.md | 回放汇总：quant-016 | 2026-10-22 | 笔记 |
+| bots/quant/replay/quant-016/events_model.csv | events_model.csv | 2026-10-22 | 笔记 |
+| bots/quant/replay/quant-016/replay_market.out | replay_market.out | 2026-10-22 | 笔记 |
+| bots/quant/replay/quant-016/replay_market.py | replay_market.py | 2026-10-22 | 笔记 |
+| bots/quant/replay/quant-016/replay_model.out | replay_model.out | 2026-10-22 | 笔记 |
+| bots/quant/replay/quant-016/replay_model.py | replay_model.py | 2026-10-22 | 笔记 |
+| bots/quant/replay/quant-016/replay_model_clob.out | replay_model_clob.out | 2026-10-22 | 笔记 |
+| bots/quant/replay/quant-016/snapshots.csv | snapshots.csv | 2026-10-22 | 笔记 |
+| bots/quant/replay/quant-016/trades_model.csv | trades_model.csv | 2026-10-22 | 笔记 |
+| bots/quant/replay/quant-016/universe.csv | universe.csv | 2026-10-22 | 笔记 |
