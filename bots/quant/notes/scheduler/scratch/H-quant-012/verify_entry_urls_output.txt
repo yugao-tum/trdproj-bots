@@ -1,0 +1,73 @@
+entry: bots/quant/entries/quant-012-earthquake-count-base-rate.md
+unique cited URLs: 18
+
+[OK ] HTTP 200 https://earthquake.usgs.gov/fdsnws/event/1/query?format=csv&starttime=2000-01-01&endtime=2026-10-01&minmagnitude=6.4&orderby=time-asc
+       rows=1513 mag>=6.5=1216
+[OK ] HTTP 200 https://earthquake.usgs.gov/fdsnws/event/1/count?format=geojson&starttime=2015-01-01&endtime=2026-01-01&minmagnitude=6.5
+       count=462
+[OK ] HTTP 200 https://earthquake.usgs.gov/fdsnws/event/1/count?format=geojson&starttime=2015-01-01&endtime=2026-01-01&minmagnitude=7.0
+       count=153
+[OK ] HTTP 200 https://earthquake.usgs.gov/fdsnws/event/1/count?format=geojson&starttime=2015-01-01&endtime=2026-01-01&minmagnitude=5.5
+       count=5031
+[OK ] HTTP 200 https://earthquake.usgs.gov/fdsnws/event/1/query?format=text&starttime=2026-10-12&endtime=2026-10-19&minmagnitude=6.5
+       events=3 ids=['us6000u2mq', 'us6000u214', 'us6000u1z5']
+[OK ] HTTP 200 https://earthquake.usgs.gov/earthquakes/search/
+       title_ok=True
+[OK ] HTTP 200 https://gamma-api.polymarket.com/events?slug=how-many-6pt5-or-above-earthquakes-worldwide-october-19-october-25
+       closed=False markets=7 keywords=True
+[OK ] HTTP 200 https://gamma-api.polymarket.com/events?slug=how-many-6pt5-or-above-earthquakes-worldwide-october-12-october-18
+       closed=False markets=7 keywords=True
+[OK ] HTTP 200 https://gamma-api.polymarket.com/public-search?q=earthquake&limit_per_type=50&events_status=all
+       events=50
+[OK ] HTTP 200 https://gamma-api.polymarket.com/public-search?q=magnitude&limit_per_type=50&events_status=all
+       events=50
+[OK ] HTTP 200 https://gamma-api.polymarket.com/events?tag_slug=earthquake&limit=500&closed=true&order=endDate&ascending=false
+       events=69 how-many=37 volume=5869974.95
+[OK ] HTTP 200 https://clob.polymarket.com/prices-history?market=2500092545816023700094480893694885475686508335314406123382468585117526026802&interval=max&fidelity=60
+       history_points=120
+[OK ] HTTP 200 https://clob.polymarket.com/prices-history?market=101519993085150541985963030400073395102135944737997204045298260898135285026732&interval=max&fidelity=60
+       history_points=0
+[OK ] HTTP 200 https://gamma-api.polymarket.com/public-search?q=earthquake&limit_per_type=50&events_status=closed&page=1
+       events=50
+[OK ] HTTP 200 https://data-api.polymarket.com/trades?market=0xcc51bf3e53b2cb6ca7e49c53ed4fc6f906684c0ec61206441d85759448c3b2b7&limit=500&offset=N
+       n=33 fields_ok=True
+[OK ] HTTP 200 https://gamma-api.polymarket.com/markets?slug=how-many-6pt5-or-above-earthquakes-worldwide-october-19-october-25
+       body=[]
+
+[OK ] HTTP 200 https://data-api.polymarket.com/trades?market=0xe88699f06db8629bf5497f00343d0bc4c52497eae0476212b5bff381769d863a&limit=2&offset=0
+       n=2 fields_ok=True
+[OK ] HTTP 200 https://data-api.polymarket.com/trades?market=0xcc51bf3e53b2cb6ca7e49c53ed4fc6f906684c0ec61206441d85759448c3b2b7&limit=5&offset=0
+       n=5 fields_ok=True
+
+local evidence paths cited in 出处:
+[OK ] bots/quant/notes/scheduler/scratch/I01/q012_hist.py -> bots/quant/notes/scheduler/scratch/I01/q012_hist.py
+[OK ] run_output.txt -> bots/quant/notes/q012-hist/run_output.txt
+[OK ] verify.py -> bots/quant/notes/scheduler/scratch/I01/verify.py
+[OK ] verify_output.txt -> bots/quant/notes/scheduler/scratch/I01/verify_output.txt
+[OK ] buckets.csv -> bots/quant/notes/q012-hist/buckets.csv
+[OK ] events.csv -> bots/quant/notes/q012-hist/events.csv
+[OK ] bots/quant/notes/q012-hist/REPORT.md -> bots/quant/notes/q012-hist/REPORT.md
+[OK ] q012_hist.py -> bots/quant/notes/q012-hist/q012_hist.py
+[OK ] bots/quant/notes/scheduler/scratch/H-quant-012/analyze_merged.py -> bots/quant/notes/scheduler/scratch/H-quant-012/analyze_merged.py
+[OK ] analyze_merged_output.txt -> bots/quant/notes/scheduler/scratch/H-quant-012/analyze_merged_output.txt
+[OK ] bots/quant/notes/scheduler/scratch/H-quant-012/verify_sources.py -> bots/quant/notes/scheduler/scratch/H-quant-012/verify_sources.py
+[OK ] verify_sources_output.txt -> bots/quant/notes/scheduler/scratch/H-quant-012/verify_sources_output.txt
+[OK ] bots/quant/notes/scheduler/scratch/H-quant-012/maker_proxy.py -> bots/quant/notes/scheduler/scratch/H-quant-012/maker_proxy.py
+[OK ] maker_proxy_output.txt -> bots/quant/notes/scheduler/scratch/H-quant-012/maker_proxy_output.txt
+[OK ] bots/quant/replay/quant-012/replay.py -> bots/quant/replay/quant-012/replay.py
+[OK ] bots/quant/replay/quant-012/analysis.py -> bots/quant/replay/quant-012/analysis.py
+[OK ] analysis_output.txt -> bots/quant/replay/quant-012/analysis_output.txt
+[OK ] bots/quant/replay/quant-012/trades.csv -> bots/quant/replay/quant-012/trades.csv
+[OK ] equity.csv -> bots/quant/replay/quant-012/equity.csv
+[OK ] cond_trades.csv -> bots/quant/replay/quant-012/cond_trades.csv
+[OK ] bots/quant/replay/quant-012/verify_sources.py -> bots/quant/replay/quant-012/verify_sources.py
+[OK ] bots/quant/replay/quant-012/SUMMARY.md -> bots/quant/replay/quant-012/SUMMARY.md
+[OK ] bots/quant/replay/quant-012/mtm.py -> bots/quant/replay/quant-012/mtm.py
+[OK ] mtm_output.txt -> bots/quant/replay/quant-012/mtm_output.txt
+[OK ] equity_mtm.csv -> bots/quant/replay/quant-012/equity_mtm.csv
+[OK ] bots/quant/notes/scheduler/scratch/H-quant-012/verify_entry_urls.py -> bots/quant/notes/scheduler/scratch/H-quant-012/verify_entry_urls.py
+[OK ] verify_entry_urls_output.txt -> bots/quant/notes/scheduler/scratch/H-quant-012/verify_entry_urls_output.txt
+[OK ] bots/composer/entries/composer-008-pm-usgs-weekly-55-quake-count.md -> bots/composer/entries/composer-008-pm-usgs-weekly-55-quake-count.md
+[OK ] bots/quant/notes/priority/quant-012.md -> bots/quant/notes/priority/quant-012.md
+
+ALL CITED SOURCES/POINTERS OK: True

@@ -1,13 +1,14 @@
 # 回放汇总：quant-012
 
 条目：`bots/quant/entries/quant-012-earthquake-count-base-rate.md`（`status: 待核` 未改，`date: 2026-10-20` 未改）
-生成：2026-10-21 UTC。本目录是 round-2 的**真实成交价回放**（canonical replay）。
+生成：2026-10-21 UTC；2026-10-22 UTC 复跑并补 mark-to-market 回撤。本目录是 round-2 的**真实成交价回放**（canonical replay）。
 
 ## 如何复现
 
 - 脚本：
   - `replay.py` — 拉 Gamma 事件、data-api 逐笔成交、USGS 目录，算信号、成交、组合与回撤；输出 `trades.csv`、`events.csv`、`equity.csv`。
   - `analysis.py` — 只读 `trades.csv`/`events.csv`，算事件聚类 bootstrap CI、按延迟分桶、按月拆分，并与 `bots/quant/notes/q012-hist/events.csv` 对数（同一 29 个事件的前/后价格 log loss）。
+  - `mtm.py` — 只读 `trades.csv` 与 `_cache/` 的原始成交打印，按日把未平仓档位按“当日最后一笔成交”重新盯市，算**含浮亏**的最大回撤；输出 `equity_mtm.csv`。
   - `verify_sources.py` — 重抓本回放引用的全部公开端点，核对 HTTP 状态与关键数字。
 - 依赖：`python3`（stdlib）+ `requests`。无 API key、无登录。
 - 运行：
@@ -16,6 +17,7 @@
 cd bots/quant/replay/quant-012
 python3 replay.py  | tee run_output.txt       # 约 4 分钟，原始下载缓存在 _cache/（已 gitignore）
 python3 analysis.py | tee analysis_output.txt
+python3 mtm.py      | tee mtm_output.txt
 python3 verify_sources.py | tee verify_output.txt
 ```
 
@@ -26,7 +28,7 @@ python3 verify_sources.py | tee verify_output.txt
   - 执行价 = `min(0.999, 1 − 市场YES + 0.01)`（1¢ 让价）；手续费 = `0.05 × p × (1−p)`/份（天气板块费率，GUIDE §8），另跑费 0。
   - 仓位：每档 100 份；单事件 ≤300 USDT；专项资金 1,000 USDT（5,000 账户的一部分）。
   - 结算：NO 中则 1，否则 0；现金在窗口结束 +48h 到账（规则允许最多 48h 迟报）。
-  - 回撤：日线，已实现口径（持仓按成本记，不盯浮亏），专项 1,000 USDT。
+  - 回撤：日线，专项 1,000 USDT。`replay.py` 报已实现口径（持仓按成本记）；`mtm.py` 另按每日最后一笔 data-api 成交重估未平仓档位，给出**含浮亏**的 MTM 回撤。
 - 数据下载地址和访问日期（全部免费免密钥，访问 2026-10-21）：
   - `https://gamma-api.polymarket.com/public-search?q=earthquake&limit_per_type=50&events_status=closed&page=1`（另加 `q=magnitude`、`q=earthquakes`，逐页到 `hasMore=false`）
   - `https://gamma-api.polymarket.com/events?slug=<event-slug>`
@@ -54,16 +56,16 @@ python3 verify_sources.py | tee verify_output.txt
   - **成交时间外（成交 ≥ 2026-07-01）：82 档，均值 `−0.0009`/份，合计 `−0.10%`。** 内样本（< 2026-07-01）101 档 `+9.57%`。
   - 延迟 ≤24h 的子集：155 档 `+2.01%`；延迟 >24h 的 28 档贡献 `+4.73 / +7.20`（约 66% 的总利润来自迟到成交，见下）。
 - 组合口径（1,000 USDT 专项，含现金约束）：137 档，净 `+372.73` USDT / 成本 `10,529.53` = `+3.54%`；期末现金 `1,470.47`。
-- 最大回撤：**`21.5%`（日线，已实现，峰值口径；峰值到谷 `327.32` USDT）**；若按初始 1,000 USDT 计为 `32.7%`。已实现口径不盯浮亏，真实回撤只会更大。
+- 最大回撤：**`21.6%`（日线，含浮亏，MTM 峰值口径；峰值到谷 `347.59 USDT`，谷底 `2026-08-24`）**；同口径的已实现回撤为 `21.5%`（`327.32` USDT）。若按初始 1,000 USDT 计，已实现口径为 `32.7%`。`mtm.py` 对 2,059 个持仓日全部用成交后打印重估（0 个只能按成本携带），未平仓从不“免费”留在成本价。
 - 对 5,000 USDT 的年化贡献：`372.73 × 365 / 320.3 / 5000 = +8.50%`（样本 320.3 天，含内样本超额；时间外约 0，见上）。
-- result：**`不显著`**。理由：点估计为正但事件聚类 CI 跨 0；时间外 `−0.10%`；66% 的利润来自 t0 之后 >24h 的迟到成交（执行时点不可在 t0 获得，薄市场打印也不代表可成交深度；周内更新版仍为 `+4.55%`、时间外 `+0.75%`）；最大回撤 `21.5%` 对 `+8.5%` 年化，比值约 0.40，明显低于 GUIDE §9 的 0.8 参考线；真 maker 代理仍为负（变体 8、9）。
+- result：**`不显著`**。理由：点估计为正但事件聚类 CI 跨 0；时间外 `−0.10%`；66% 的利润来自 t0 之后 >24h 的迟到成交（执行时点不可在 t0 获得，薄市场打印也不代表可成交深度；周内更新版仍为 `+4.55%`、时间外 `+0.75%`）；最大回撤 `21.6%` 对 `+8.5%` 年化，比值约 0.39，明显低于 GUIDE §9 的 0.8 参考线；真 maker 代理仍为负（变体 8、9）。
 - 不可靠或失败原因：
   1. **迟到成交占比高**：`p90 = 38.7h`、最大 `2,875.7h`（两个 M7.0+ 长窗口事件）。>24h 的 28 档均值 `+0.1737`/份，把总结果从 `+2.01%` 抬到 `+4.94%`；这些价格在 t0 不可成交。用条目自己的周内更新规则（`k<3`，按已发生地震数条件化）重算并未消除它（变体 10：`+4.55%`，`k=0` 的成交占 148/180），所以问题更像“薄市场的迟到成交/执行时点”而不是“模型没更新”。
   2. **没有历史盘口/深度**：只能取成交打印 + 1¢；排队、逆向选择、冲击成本未知。maker 版本只有“成交打印穿过限价”的代理。
   3. **log loss 只是打平**：同一 29 个事件，前窗市场 `1.4152`、t0 后市场 `1.4415`、模型 `1.4455`（模型仍略差，但差距从 `0.0304` 缩到 `0.0040`，不足以下强结论）。
-  4. **M5.5+ 计数不一致**：自算 USGS 计数与结算档 19/28 一致；M6.5+ 38/38、M7.0+ 2/2。5.5+ 的 9 个不一致未逐事件定因。
+  4. **M5.5+ 计数不一致**：2026-10-22 复跑后自算 USGS 计数与结算档 18/28 一致（2026-10-21 为 19/28；USGS 修订把 `august-17-august-23` 的计数从 14 改为 13，该档结算为 `>13`，由 MATCH 变 MISMATCH）；M6.5+ 38/38、M7.0+ 2/2。5.5+ 的 10 个不一致未逐事件定因。头条收益不变。
   5. **费率是假设**：回放统一 0.05；2026-10-21 实取 10/19 事件 7 档全为 `rate=0`，历史各事件费率无法追溯，故费 0 敏感性一并给出。
-  6. 已实现回撤口径不含浮亏，`21.5%` 是下界。
+  6. 回撤：MTM `21.6%` 已含浮亏；持仓按“当日最后一笔成交”盯市，薄档位的打印可能过时，但已不再只用已实现口径。
 
 ## 所有变体（所有市场都要写，看了不用的也算）
 
@@ -92,10 +94,12 @@ python3 verify_sources.py | tee verify_output.txt
 |---|---|
 | `replay.py` | canonical 回放脚本（含上述全部参数） |
 | `analysis.py` | bootstrap CI、延迟/月度拆分、与 q012-hist 的 log-loss 对照 |
+| `mtm.py` | 含浮亏的逐日盯市回撤（读 `_cache/`，无网络） |
 | `verify_sources.py` | 端点复核 |
 | `trades.csv` | 183 行信号明细（含 `port_*` 组合列），< 1 MB |
 | `cond_trades.csv` | 180 行周内更新版（变体 10）明细 |
 | `events.csv` | 68 行事件明细（独立结果、log loss） |
 | `equity.csv` | 322 行日度权益（已实现） |
-| `run_output.txt` / `analysis_output.txt` / `verify_output.txt` | stdout |
+| `equity_mtm.csv` | 322 行日度权益（含浮亏 MTM，含 cash / mark / drawdown） |
+| `run_output.txt` / `analysis_output.txt` / `mtm_output.txt` / `verify_output.txt` | stdout |
 | `_cache/` | 原始下载，已 gitignore，不入库 |

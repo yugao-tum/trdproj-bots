@@ -1,0 +1,9 @@
+==============================================================================
+quant-012 replay: mark-to-market daily drawdown (open positions at last print)
+==============================================================================
+portfolio rows: 137
+days: 322 (2025-12-04..2026-10-21)
+position-days marked from a post-fill print: 2059; carried at entry (no print): 0
+start equity = 1000.00; final MTM equity = 1470.47; final realised PnL = +372.73
+MAX DRAWDOWN (daily, MTM incl. floating) = 21.61% (347.59 USDT), trough 2026-08-24
+wrote equity_mtm.csv (322 rows)

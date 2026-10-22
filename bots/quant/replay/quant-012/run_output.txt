@@ -3,7 +3,7 @@ quant-012 replay: tradable-price fills after decision time
 ==============================================================================
 
 [1] closed ladder events pulled from Gamma: 68
-    USGS M5.5+ events since 2000-01-01: 13228
+    USGS M5.5+ events since 2000-01-01: 13227
     USGS M6.5+ events since 2000-01-01: 1222
     USGS M7.0+ events since 2000-01-01: 399
 
@@ -43,8 +43,8 @@ quant-012 replay: tradable-price fills after decision time
 [6] model vs market log loss (events with every bracket priced post-t0)
     events=68 model=1.552162 market=1.630808 model_better=35
 
-[7] USGS own count vs resolved bracket: 59/68 MATCH
-    M5.5+  19/28
+[7] USGS own count vs resolved bracket: 58/68 MATCH
+    M5.5+  18/28
     M6.5+  38/38
     M7.0+  2/2
 
