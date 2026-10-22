@@ -1,0 +1,9 @@
+CDC print used: 4410 as of 2026-10-15 (entry snapshot)
+
+[200] measles-cases-in-uptspt-by-october-31-20260928t160000000z endDate=2026-11-01T03:59:00Z
+  
+  no 0.5 crossing found in quoted strikes
+
+[200] measles-cases-in-us-in-2026 endDate=2027-01-01T04:59:00Z
+  
+  no 0.5 crossing found in quoted strikes

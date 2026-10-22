@@ -1,0 +1,41 @@
+[PASS] anchor A flow low = 47.33/d  47.333
+[PASS] anchor A flow high = 54.00/d  54.000
+[PASS] Oct-31 50% level = 4,879 cases  4879.2
+[PASS] anchor B flow = 29.33/d  29.328
+[PASS] anchor A/B ratio = 1.73x  1.728
+[PASS] fills.csv rows = 17  17
+[PASS] independent events = 7  7
+[PASS] YES fills/cost/net/ret = 10/2043.16/-538.50/-26.36%  {'fills': 10, 'cost': 2043.16, 'net': -538.4999999999999, 'ret': -0.2635623250259401}
+[PASS] NO fills/cost/net/ret = 7/503.22/-479.48/-95.28%  {'fills': 7, 'cost': 503.21999999999997, 'net': -479.48, 'ret': -0.9528238146337586}
+[PASS] max drawdown YES = 23.76%  0.23765
+[PASS] contribution = -34.90% of 5,000  -0.34902
+       YES: events=5 median=-1.0245 mean=+0.0960 bootstrap95=[-1.0321,+1.8277]
+[PASS] YES event median < 0
+[PASS] YES bootstrap CI crosses 0
+       NO: events=4 median=-1.0318 mean=-0.7593 bootstrap95=[-1.0332,-0.2128]
+[PASS] NO bootstrap CI entirely < 0
+[PASS] YES per-share gross median = -0.044 (<= 0: failure triggered)  -0.04375 n=10
+[PASS] front matter evidence: 回放  '回放'
+[PASS] front matter result: 不显著  '不显著'
+[PASS] front matter slot: -  '-'
+[PASS] front matter variants: 4  '4'
+[PASS] front matter variants_ext: -  '-'
+[PASS] front matter window: 2026-01-01..2026-10-01  '2026-01-01..2026-10-01'
+[PASS] front matter max_dd: 23.8%（按结算日累计已实现，非盯市）  '23.8%（按结算日累计已实现，非盯市）'
+[PASS] front matter contribution: -25.9%  '-25.9%'
+[PASS] entry keeps status: 待核 (task says do not change)
+[PASS] entry keeps date: 2026-10-20 (task says do not change)
+[PASS] entry quotes 26.36%
+[PASS] entry quotes 95.28%
+[PASS] entry quotes 60.98%
+[PASS] entry quotes 37.04%
+[PASS] entry quotes 50.46%
+[PASS] entry quotes 23.76%
+[PASS] dot causality review exists  /home/box/quant/oc-jobs/quant-batch/c20261022-080324-research/wt/w06/bots/dot/notes/20261021-goal-review-0920.md
+[PASS] merged b16_flow verification note exists  /home/box/quant/oc-jobs/quant-batch/c20261022-080324-research/wt/w06/bots/quant/notes/batch2-verification/quant-019.md
+[PASS] merged note contains 47.33..54.00
+[PASS] merged note contains 29.33
+[PASS] merged note contains 1.73
+[PASS] merged note contains 4879 cases
+
+checks failed: 0
