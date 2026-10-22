@@ -1,0 +1,20 @@
+[OK  ] gamma public-search q='listed on binance': HTTP 200, events=18
+[OK  ] gamma public-search q='listed on coinbase': HTTP 200, events=26
+[OK  ] gamma public-search q='listed on robinhood': HTTP 200, events=4
+[OK  ] gamma public-search q='be listed': HTTP 200, events=27
+[OK  ] 4-query union and title match: union=53 matched=24 closed=24 (entry wrote 53 / 24 / 24)
+[OK  ] HYPE/Coinbase 2025 rule text: outcomePrices=["0", "1"], volumeNum=239725.347892, umaStatus=resolved, feeSchedule=None
+[OK  ] HYPE/Coinbase 2027 event: volume=47799.358913, markets=1
+[OK  ] HYPE/Binance by-event (2 markets): volume=278645.142524, outcomePrices={'hyperliquid-listed-on-binance-by-june-30-2026': '["0", "1"]', 'hyperliquid-listed-on-binance-in-2026-485': '["1", "0"]'}
+[OK  ] PENGUIN contract address in rule: volumeNum=224358.07984199983, outcomePrices=["0", "1"]
+[OK  ] FARTCOIN/Robinhood U.S. rule: volumeNum=14832.369719, endDate=2025-05-31T12:00:00Z
+[OK  ] Binance catalog 48 total / HYPE releaseDate: catalog total=2286 (entry saw 2283 on 2026-10-20), HYPE releaseDate=2026-09-24T07:30:38.608000+00:00
+[OK  ] Binance HYPE article times: title='Binance Will List Hyperliquid (HYPE) with Seed Tag Applied', open_trading_11:00=True, withdrawals_next_day=True
+[OK  ] data-api trades fields: HTTP 200, n=5, fields=['asset', 'bio', 'conditionId', 'eventSlug', 'icon', 'name', 'outcome', 'outcomeIndex', 'price', 'profileImage', 'profileImageOptimized', 'proxyWallet', 'pseudonym', 'side', 'size', 'slug', 'timestamp', 'title', 'transactionHash']
+[OK  ] CLOB prices-history cited token: HTTP 200, points=142, first={'t': 1766707211, 'p': 0.011} (entry wrote t=1766707211, p=0.011)
+[OK  ] Coinbase unavailable as recorded /blog/listing: HTTP 403 (expected 403)
+[OK  ] Coinbase unavailable as recorded /blog/rss: HTTP 403 (expected 403)
+[OK  ] Coinbase unavailable as recorded /rss/blog?category=listing: HTTP 404 (expected 404)
+[INFO] Wayback snapshot check: HTTP 429 (rate-limited today); entry result from 2026-10-20 was archived_snapshots={} and is kept as-is
+
+ALL EXTERNAL CHECKS PASS: True

@@ -1,0 +1,31 @@
+[1] trades.csv: 43 triggered rows across 3 variants
+
+[2] Full enumerated closed universe (no sampling)
+    markets=95  Yes markets=14  (14.737%)
+    independent clusters=27  Yes clusters=14  (51.852%)
+    CAUTION: 62/95 markets were already resolved before endDate-7d, so the
+    unconditional base rate is NOT the conditional probability at entry.
+    Among the 17 markets still priced at endDate-7d, market YES at entry was 0/17.
+
+[primary_7d] trades=11  equal-1-share: total net=-0.163467 on 1.137606 staked -> -14.37% per $ of share cost
+         fixed 300 USDT/market: total PnL=-3163.07 USDT on 3300 deployed -> -95.85% per trade
+         fixed-size running max drawdown=-3163.07 USDT (-63.26% of 5,000); fill span 273 days
+         fixed 300 USDT/cluster: clusters=5 PnL=-1240.83 on 1500 deployed -> -82.72%; maxDD=-1240.83 USDT
+         illustrative annualisation on 5,000 (fixed-size, non-continuous): -84.70%/yr -- NOT used in the entry (n<30)
+
+[sensitivity_3d] trades=7  equal-1-share: total net=-0.098354 on 0.092000 staked -> -106.91% per $ of share cost
+         fixed 300 USDT/market: total PnL=-2245.07 USDT on 2100 deployed -> -106.91% per trade
+         fixed-size running max drawdown=-2245.07 USDT (-44.90% of 5,000); fill span 0 days
+         fixed 300 USDT/cluster: clusters=2 PnL=-641.45 on 600 deployed -> -106.91%; maxDD=-641.45 USDT
+         illustrative annualisation on 5,000 (fixed-size, non-continuous): -258631.83%/yr -- NOT used in the entry (n<30)
+
+[diagnostic_14d] trades=25  equal-1-share: total net=+0.004203 on 3.876168 staked -> +0.11% per $ of share cost
+         fixed 300 USDT/market: total PnL=-5579.19 USDT on 7500 deployed -> -74.39% per trade
+         fixed-size running max drawdown=-5579.19 USDT (-111.58% of 5,000); fill span 546 days
+         fixed 300 USDT/cluster: clusters=10 PnL=-1245.49 on 3000 deployed -> -41.52%; maxDD=-1245.49 USDT
+         illustrative annualisation on 5,000 (fixed-size, non-continuous): -74.64%/yr -- NOT used in the entry (n<30)
+
+[3] Read with run_output.txt
+    canonical 7d: cluster median net<0, per-$ staked<0, CI crosses 0, priced clusters 10<30
+    fixed-size capital-weighted returns are negative in all three variants;
+    3d and 14d are diagnostics, not the frozen entry rule; none reaches 30 priced clusters.

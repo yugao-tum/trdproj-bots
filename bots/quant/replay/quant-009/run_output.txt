@@ -1,0 +1,118 @@
+==============================================================================
+quant-009 replay: executable-price backtest (data-api fills + walk-forward base rate)
+access date 2026-10-22 | queries 22 | unique Gamma events 75
+==============================================================================
+
+[1] Enumeration
+  candidate events: 37  markets (deduped by conditionId): 95
+    binance              events= 8 markets=15
+    coinbase             events=20 markets=43
+    robinhood            events= 4 markets=32
+    upbit                events= 0 markets= 0
+    binance+coinbase     events= 5 markets= 5
+  date span (endDate): 2021-11-18 .. 2027-01-01
+  independent clusters (token+venue; next/first-coin event = 1): 27
+  queries (delta unique events, cumulative):
+    'listed on binance'                    +18 -> 18
+    'listed on coinbase'                   +14 -> 32
+    'listed on robinhood'                  + 4 -> 36
+    'list on upbit'                        +22 -> 58
+    'binance list'                         + 5 -> 63
+    'coinbase list'                        + 8 -> 71
+    'next coin on coinbase'                + 0 -> 71
+    'next coin on robinhood'               + 0 -> 71
+    'listed on upbit'                      + 0 -> 71
+    'listed on bybit'                      + 1 -> 72
+    'listed on kraken'                     + 0 -> 72
+    'listed on okx'                        + 0 -> 72
+    'spot listed'                          + 1 -> 73
+    'will be listed on'                    + 2 -> 75
+    'listed on exchange'                   + 0 -> 75
+    'coin listed on'                       + 0 -> 75
+    'listed for trading'                   + 0 -> 75
+    'will coinbase list'                   + 0 -> 75
+    'will binance list'                    + 0 -> 75
+    'coinbase listing'                     + 0 -> 75
+    'binance listing'                      + 0 -> 75
+    'listed on coinbase or binance'        + 0 -> 75
+
+[2] Walk-forward base rate and pricing
+  markets with valid walk-forward lambda: 79/95
+  skipped for <8 resolved markets / <1 Yes / <365d exposure: 16
+  lambda/day: min=0.00506713 median=0.00549687 max=0.01017263
+    2024-12-31 binance            BITCOIN      px=0.0070 p=0.0687 n_hist=37 side=YES net=-0.018170
+    2024-12-31 binance            FWOG         px=0.0099 p=0.0687 n_hist=37 side=YES net=-0.021266
+    2024-12-31 binance            GOAT         px=0.0280 p=0.0687 n_hist=37 side=YES net=-0.040559
+    2024-12-31 binance            MOG          px=0.0229 p=0.0687 n_hist=37 side=YES net=-0.035176
+    2024-12-31 binance            MOODENG      px=0.0310 p=0.0687 n_hist=37 side=YES net=-0.043752
+    2024-12-31 binance            NEIRO        px=0.0200 p=0.0687 n_hist=37 side=YES net=-0.032037
+    2024-12-31 binance            POPCAT       px=0.0200 p=0.0687 n_hist=37 side=YES net=-0.032037
+    2024-12-31 coinbase           PNUT         px=0.1380 p=0.0687 n_hist=37 side=NO  net=+0.120187
+    2024-12-31 binance+coinbase   POPCAT       px=0.0500 p=0.0687 n_hist=37 side=-   net=n/a
+    2024-12-31 binance            DEGEN        px=0.0080 p=0.0687 n_hist=37 side=YES net=-0.019237
+    2025-03-31 coinbase           FARTCOIN     px=0.0114 p=0.0540 n_hist=67 side=YES net=-0.022851
+    2025-05-31 coinbase           FARTCOIN     px=0.0500 p=0.0399 n_hist=87 side=-   net=n/a
+    2025-05-31 robinhood          FARTCOIN     px=0.0210 p=0.0399 n_hist=87 side=-   net=n/a
+    2025-09-30 binance+coinbase   YZY          px=0.0074 p=0.0384 n_hist=89 side=YES net=-0.018567
+    2025-12-31 coinbase           HYPERLIQUID  px=0.0220 p=0.0377 n_hist=90 side=-   net=n/a
+    2026-04-01 binance            PENGUIN      px=0.0210 p=0.0373 n_hist=92 side=-   net=n/a
+    2026-07-01 binance            HYPERLIQUID  px=0.0150 p=0.0363 n_hist=93 side=-   net=n/a
+  unpriced breakdown: no walk-forward lambda=16, no fill in 2d window=62 (of which already resolved before entry=62), no resolution price=0
+
+[3] Results (per independent cluster/event, equal 1 share per triggered market)
+  -- primary_7d (entry = endDate - 7d)
+     markets priced=17/95  clusters priced=10
+     triggered trades=11  clusters/events=5  YES=10 NO=1
+     median net/share=-0.019237  mean net/share=+0.005535
+     cluster bootstrap 95% CI of mean: [-0.026675, +0.063828]
+     hit rate=1/11 = 0.091
+     total net=-0.163467 on staked=1.137606 -> per $ staked=-0.143694
+  -- sensitivity_3d (entry = endDate - 3d)
+     markets priced=16/95  clusters priced=10
+     triggered trades=7  clusters/events=2  YES=7 NO=0
+     median net/share=-0.013987  mean net/share=-0.013987
+     cluster bootstrap 95% CI of mean: [-0.014076, -0.013898]
+     hit rate=0/7 = 0.000
+     total net=-0.098354 on staked=0.092000 -> per $ staked=-1.069069
+  -- diagnostic_14d (entry = endDate - 14d)
+     markets priced=27/95  clusters priced=11
+     triggered trades=25  clusters/events=10  YES=20 NO=5
+     median net/share=-0.035561  mean net/share=+0.078650
+     cluster bootstrap 95% CI of mean: [-0.039576, +0.239840]
+     hit rate=4/25 = 0.160
+     total net=+0.004203 on staked=3.876168 -> per $ staked=+0.001084
+
+[4] Walk-forward model vs market price on priced markets
+  -- primary_7d: n=17 market-YES=0
+     Brier  model=0.003467  market=0.001712  diff=+0.001755
+     LogLoss model=0.058913  market=0.029309  diff=+0.029603
+     model lower Brier on 2, market lower on 15, ties 0, sign p=0.0023
+     mean |p_model - market|=0.038057
+  -- sensitivity_3d: n=16 market-YES=0
+     Brier  model=0.000684  market=0.000138  diff=+0.000546
+     LogLoss model=0.025737  market=0.008020  diff=+0.017717
+     model lower Brier on 1, market lower on 15, ties 0, sign p=0.0005
+     mean |p_model - market|=0.017768
+  -- diagnostic_14d: n=27 market-YES=1
+     Brier  model=0.050691  market=0.047172  diff=+0.003519
+     LogLoss model=0.230717  market=0.155619  diff=+0.075099
+     model lower Brier on 5, market lower on 22, ties 0, sign p=0.0015
+     mean |p_model - market|=0.140090
+
+[5] Triggered cluster detail (primary_7d)
+    DEGEN|binance                              trades= 1 mean_net=-0.019237 median=-0.019237 pnl=-0.019237
+    FARTCOIN|coinbase                          trades= 1 mean_net=-0.022851 median=-0.022851 pnl=-0.022851
+    PNUT|coinbase                              trades= 1 mean_net=+0.120187 median=+0.120187 pnl=+0.120187
+    YZY|binance+coinbase                       trades= 1 mean_net=-0.018567 median=-0.018567 pnl=-0.018567
+    next-coin-listed-on-binance                trades= 7 mean_net=-0.031857 median=-0.032037 pnl=-0.222998
+
+  executed fill timestamps span: 2024-12-17T05:19:36+00:00 .. 2026-06-15T20:47:54+00:00
+
+[6] Frozen fail criterion / verdict
+    independent clusters        = 27 (need >=30)
+    priced independent clusters = 10 (need >=30)
+    median cluster net/share   = -0.019237 (FAIL if <=0)
+    triggered clusters         = 5
+    VERDICT = INSUFFICIENT (independent clusters 27 and priced clusters 10; need both >= 30)
+
+[7] wrote bots/quant/replay/quant-009/markets.csv (285 rows)
