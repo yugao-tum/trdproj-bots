@@ -990,3 +990,45 @@
 | bots/quant/forward/quant-011/state.json | 前向记录 quant-011 state.json | 2026-10-22 | 笔记 |
 | bots/quant/forward/quant-034/state.json | 前向记录 quant-034 state.json | 2026-10-22 | 笔记 |
 | bots/quant/forward/quant-035/state.json | 前向记录 quant-035 state.json | 2026-10-22 | 笔记 |
+| bots/quant/notes/postdecision-fills-20261021/REPORT.md | 决策后可成交价敏感性复核（回应 dot 前视质疑） | 2026-10-22 | 笔记 |
+| bots/quant/notes/postdecision-fills-20261021/common.py | common.py | 2026-10-22 | 笔记 |
+| bots/quant/notes/postdecision-fills-20261021/q012_strict.out | q012_strict.out | 2026-10-22 | 笔记 |
+| bots/quant/notes/postdecision-fills-20261021/q012_strict.py | q012_strict.py | 2026-10-22 | 笔记 |
+| bots/quant/notes/postdecision-fills-20261021/q018_strict.out | q018_strict.out | 2026-10-22 | 笔记 |
+| bots/quant/notes/postdecision-fills-20261021/q018_strict.py | q018_strict.py | 2026-10-22 | 笔记 |
+| bots/quant/notes/postdecision-fills-20261021/q018_strict_buckets.csv | q018_strict_buckets.csv | 2026-10-22 | 笔记 |
+| bots/quant/notes/postdecision-fills-20261021/q020_strict.out | q020_strict.out | 2026-10-22 | 笔记 |
+| bots/quant/notes/postdecision-fills-20261021/q020_strict.py | q020_strict.py | 2026-10-22 | 笔记 |
+| bots/quant/notes/postdecision-fills-20261021/q020_strict_events.csv | q020_strict_events.csv | 2026-10-22 | 笔记 |
+| bots/quant/notes/postdecision-fills-20261021/q021_strict.out | q021_strict.out | 2026-10-22 | 笔记 |
+| bots/quant/notes/postdecision-fills-20261021/q021_strict.py | q021_strict.py | 2026-10-22 | 笔记 |
+| bots/quant/notes/scheduler/scratch/H-quant-019/FIXES.md | H-quant-019 fixer changelog（2026-10-21） | 2026-10-22 | 笔记 |
+| bots/quant/notes/scheduler/scratch/H-quant-019/test_causality.py | test_causality.py | 2026-10-22 | 笔记 |
+| bots/quant/notes/scheduler/scratch/H-quant-019/test_causality.stdout.txt | test_causality.stdout.txt | 2026-10-22 | 笔记 |
+| bots/quant/notes/scheduler/scratch/H-quant-021/run_r3_replay_repro.txt | run_r3_replay_repro.txt | 2026-10-22 | 笔记 |
+| bots/quant/notes/scheduler/scratch/H-quant-021/run_r3_repro_compare.txt | run_r3_repro_compare.txt | 2026-10-22 | 笔记 |
+| bots/quant/notes/scheduler/scratch/H-quant-021/run_r3_verify_sources.txt | run_r3_verify_sources.txt | 2026-10-22 | 笔记 |
+| bots/quant/notes/scheduler/scratch/P-quant-003/.gitignore | .gitignore | 2026-10-22 | 笔记 |
+| bots/quant/notes/scheduler/scratch/P-quant-003/README.md | P-quant-003 verification run (2026-10-21, worker w04) | 2026-10-22 | 笔记 |
+| bots/quant/notes/scheduler/scratch/P-quant-003/diagnose_replay.py | diagnose_replay.py | 2026-10-22 | 笔记 |
+| bots/quant/notes/scheduler/scratch/P-quant-003/diagnostics.stdout.txt | diagnostics.stdout.txt | 2026-10-22 | 笔记 |
+| bots/quant/notes/scheduler/scratch/P-quant-003/equity_curve.csv | equity_curve.csv | 2026-10-22 | 笔记 |
+| bots/quant/notes/scheduler/scratch/P-quant-003/fetch_data.py | fetch_data.py | 2026-10-22 | 笔记 |
+| bots/quant/notes/scheduler/scratch/P-quant-003/k6_weights.csv | k6_weights.csv | 2026-10-22 | 笔记 |
+| bots/quant/notes/scheduler/scratch/P-quant-003/replay.stdout.txt | replay.stdout.txt | 2026-10-22 | 笔记 |
+| bots/quant/notes/scheduler/scratch/P-quant-003/replay_quant003.py | replay_quant003.py | 2026-10-22 | 笔记 |
+| bots/quant/notes/scheduler/scratch/P-quant-003/results_percoin.csv | results_percoin.csv | 2026-10-22 | 笔记 |
+| bots/quant/notes/scheduler/scratch/P-quant-003/results_replay.csv | results_replay.csv | 2026-10-22 | 笔记 |
+| bots/quant/notes/scheduler/scratch/P-quant-003/sha256_compare.txt | sha256_compare.txt | 2026-10-22 | 笔记 |
+| bots/quant/notes/scheduler/scratch/P-quant-003/source_check.py | source_check.py | 2026-10-22 | 笔记 |
+| bots/quant/notes/scheduler/scratch/P-quant-003/source_check.txt | source_check.txt | 2026-10-22 | 笔记 |
+| bots/quant/notes/scheduler/scratch/P-quant-003/source_check_verify.txt | source_check_verify.txt | 2026-10-22 | 笔记 |
+| bots/quant/notes/scheduler/scratch/P-quant-003/verify_replay.stdout.txt | verify_replay.stdout.txt | 2026-10-22 | 笔记 |
+| bots/quant/notes/scheduler/scratch/P-quant-004/backtest.stdout.w05-rerun.txt | backtest.stdout.w05-rerun.txt | 2026-10-22 | 笔记 |
+| bots/quant/notes/scheduler/scratch/P-quant-004/sensitivity.py | sensitivity.py | 2026-10-22 | 笔记 |
+| bots/quant/notes/scheduler/scratch/P-quant-004/sensitivity.stdout.txt | sensitivity.stdout.txt | 2026-10-22 | 笔记 |
+| bots/quant/notes/scheduler/scratch/P-quant-004/verify_replay.py | verify_replay.py | 2026-10-22 | 笔记 |
+| bots/quant/notes/scheduler/scratch/P-quant-004/verify_replay.stdout.txt | verify_replay.stdout.txt | 2026-10-22 | 笔记 |
+| bots/quant/notes/scheduler/scratch/P-quant-004/verify_sources.py | verify_sources.py | 2026-10-22 | 笔记 |
+| bots/quant/notes/scheduler/scratch/P-quant-004/verify_sources.stdout.txt | verify_sources.stdout.txt | 2026-10-22 | 笔记 |
+| bots/quant/replay/quant-021/verify_sources.py | verify_sources.py | 2026-10-22 | 笔记 |
