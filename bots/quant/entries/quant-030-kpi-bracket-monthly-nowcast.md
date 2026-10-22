@@ -12,13 +12,21 @@ category: S
 return_type: direction
 instruments: Polymarket「<公司> 本季 <KPI> 落在哪一档」区间市场，以及「<公司> 本季 <KPI> 是否 above <阈值>」阈值阶梯（Gamma tag `kpis`）
 venues: Polymarket
-data: Gamma `tag_slug=kpis`（2026-10-20 实取 192 个已关闭事件 / 931 个市场、102 个开放事件 / 494 个市场；2026-10-21 复核 196/951、102/497；规则原文、outcomePrices、feeSchedule、volume）；CLOB prices-history（已关闭市场可按事件窗口取；1 分钟 fidelity 下实测 15 天可用、16 天报 interval too long，脚本保守按 6 天分块）；data-api trades（conditionId，逐笔，约最近 2 万笔/市场）；公司 IR / SEC 8-K / 月度经营数据；BTS T1（月度，滞后约 2 个月）。全部免费免密钥
-test_2w: 独立结果按公司-季度计；历史上同口径只有 5 个已结算事件（航空载客率 2、Costco 同店 1、Boeing 交付 1、TSMC 营收 1；严格规则内 0），前向每季约 2–4 个，两周内拿不到 30 个；失败标准：前向累计 ≥10 个事件时，规则净 PnL 中位 ≤0，或 nowcast 落在结算档的比例 ≤ 同批市场价隐含概率
+data: Gamma `tag_slug=kpis`（2026-10-20 实取 192 个已关闭事件 / 931 个市场、102 个开放事件 / 494 个市场；2026-10-21 复核 196/951、102/497；2026-10-22 复核 209/1015、89/433；规则原文、outcomePrices、feeSchedule、volume）；CLOB prices-history（已关闭市场可按事件窗口取；1 分钟 fidelity 下实测 15 天可用、16 天报 interval too long，脚本保守按 6 天分块）；data-api trades（conditionId，逐笔，约最近 2 万笔/市场）；公司 IR / SEC 8-K / 月度经营数据；BTS T1（月度，滞后约 2 个月）。全部免费免密钥
+test_2w: 独立结果按公司-季度计；历史上同口径 5 个已回放 + 1 个 2026-10-22 新结算观察（UAL Q3，月度仅 1/3，按规则不交易；严格规则内 0 笔），前向每季约 2–4 个，两周内拿不到 30 个；失败标准：前向累计 ≥10 个事件时，规则净 PnL 中位 ≤0，或 nowcast 落在结算档的比例 ≤ 同批市场价隐含概率
 status: 草稿
 confidence: 中
+evidence: 回放
+result: 不显著
+slot: -
+variants: 2
+variants_ext: -
+window: 2026-04-14..2026-10-22
+max_dd: -
+contribution: 0%
 ---
 
-整理说明：本条的家族普查、价格与逐笔成交最初在 2026-10-20 用 Gamma / CLOB / data-api 现取现算；2026-10-21 按 review `c20261020-170337-research` 的 B29 条逐项复取，并在 `bots/quant/notes/scheduler/scratch/P-quant-030/` 重跑了家族统计、案例逐笔与**历史可成交价回测**（`verify_family.py`、`verify_cases.py`、`inspect_trades.py`、`backtest.py` 及同名 `.out`）。**历史上严格规则内样本是 0 个**（放宽“距阈值 ≥2%”后才只有 TSM above-41 1 笔），所以下面按“案例研究 + 预注册前向规则 + 一次小样本回测”写，不把它们冒充统计检验。结论：**作为可交易策略应当放弃（drop），不建议第 2 轮升 `待核`**；若保留，只作为“月度经营数据抢跑”的边界记录。
+整理说明：本条的家族普查、价格与逐笔成交最初在 2026-10-20 用 Gamma / CLOB / data-api 现取现算；2026-10-21 按 review `c20261020-170337-research` 的 B29 条逐项复取，2026-10-22 又按第 2 轮字段要求重跑，并在 `bots/quant/notes/scheduler/scratch/P-quant-030/` 保留了家族统计、案例逐笔与回测脚本及 `.out`；**可复现回放材料在 `bots/quant/replay/quant-030/`（`replay.py`、`trades.csv`、`SUMMARY.md`）**。**历史上严格规则内样本是 0 个**（放宽“距阈值 ≥2%”后才只有 TSM above-41 1 笔），所以下面按“案例研究 + 预注册前向规则 + 一次小样本回测”写，不把它们冒充统计检验。第 2 轮字段：`evidence: 回放`、`result: 不显著`（独立结果 5 个 < 30）、`slot: -`（不占新机制名额）、`variants: 2`（严格 2% / 放宽 1.9%）、`window: 2026-04-14..2026-10-22`、`max_dd: -`（Polymarket，未做账户级回撤）、`contribution: 0%`（严格规则 0 笔）。结论：**作为可交易策略应当放弃（drop），不建议第 2 轮升 `待核`**；若保留，只作为“月度经营数据抢跑”的边界记录。
 
 ## 一句话
 
@@ -30,7 +38,7 @@ confidence: 中
 
 但本轮实测把这个故事削掉了一大半：
 
-- 真正“同口径、公开、可在财报前拿到”的事件极少（192 个已关闭 KPI 事件里只有 5 个：4 个月度序列 + Boeing 的季度交付公告；10-21 复核 196 个，仍是这 5 个）；
+- 真正“同口径、公开、可在财报前拿到”的事件极少（192 个已关闭 KPI 事件里只有 5 个：4 个月度序列 + Boeing 的季度交付公告；10-21 复核 196 个，仍是这 5 个；10-22 复核 209 个，新增 UAL Q3 载客率 1 个，但 BTS 月度只到 2026-07（1/3），按规则第 2 条不交易，故可回放样本仍是 5 个）；
 - 其中 Boeing、TSMC above-40 在发布当天就被打到 0.98 / 0.99，几乎没有可吃的价差；
 - 留下窗口的两个案例（TSMC above-41、Delta 83–85）盘口极薄，单笔只有几十到几百份；
 - Costco 的 6.5–7.5 档在 05-22 有一笔 `BUY No @0.92`，但同一钱包在 22:38:53–22:38:55 的 3 秒内于 6 个档各买 NO（篮式成交），不是可执行的 YES 卖价；财报前没有 YES 卖价。
@@ -98,13 +106,14 @@ Costco 事件额外把“US adjusted comparable sales growth”定义为**剔除
 
 ### 1）家族普查（我自己数的）
 
-- `https://gamma-api.polymarket.com/events?tag_slug=kpis&limit=100&closed=true&order=endDate&ascending=false` 全量翻页（offset 0…200）：**2026-10-20 快照 192 个已关闭事件、931 个市场**（2026-10-21 复核为 **196 个已关闭事件、951 个市场**，新增 4 个已结算事件）；`endDate` 覆盖 2026-03 至 2027-01。
+- `https://gamma-api.polymarket.com/events?tag_slug=kpis&limit=100&closed=true&order=endDate&ascending=false` 全量翻页（offset 0…200）：**2026-10-20 快照 192 个已关闭事件、931 个市场**（2026-10-21 复核为 **196 个已关闭事件、951 个市场**，新增 4 个已结算事件；**2026-10-22 复核为 209 个已关闭事件、1,015 个市场**）；`endDate` 覆盖 2026-03 至 2027-01。
+- **2026-10-22 复核（时间漂移，不改上面的历史快照）**：已关闭费率为 849 个 `0.04`、84 个 `rate=0`、50 个 `0.05`、4 个 `0.07`、28 个 `null`；已关闭事件 volume 合计 **$4,789,277**、中位 **$7,676**、p90 **$38,776**；开放 **89 个事件 / 433 个市场**（400 个 `rate=0`、27 个 `0.04`、6 个 `0.05`，volume 合计 **$1,660,747**）。新增已结算事件里与月度经营数据同口径的是 **UAL Q3 载客率**（2026-10-20 结算 83–84，volume $29,751）；本轮直接读取的 `theairside.news/en/invest-united` BTS T1 月表只到 2026-07，覆盖 1/3 个月，规则第 2 条要求 ≥2/3，故不交易、只作观察。
 - 同端点 `closed=false&order=endDate&ascending=true`：**2026-10-20 快照 102 个开放事件、494 个市场**（2026-10-21 复核 **102 个事件、497 个市场**）；其中 **61 个 endDate 在 2026-10、24 个在 2026-11**（10-21 复核为 57 / 26，属时间漂移）。
 - 费率：已关闭市场 **2026-10-20 快照 849 个 `rate=0.04`、50 个 `0.05`、4 个 `0.07`、28 个 `feeSchedule=null`**（2026-10-21 复核同分布，另 20 个 `rate=0`）。**开放市场 2026-10-21 04:00 UTC 复核（497 个市场）：464 个 `rate=0`（`feeType=zero_fees`）、27 个 `0.04`、6 个 `0.05`**——2026-10-20 写入时把“开放市场 486 个 0.04、8 个 0.05”写错了，已更正；开放市场以免费为主，因此 §成本 的 0.04 是**保守上界**，不是当前开放市场的实际费率。
 - 事件累计成交额（Gamma `volume`，**来源自报，未核实**）：已关闭 **2026-10-20 快照合计 $4,599,544，中位 $8,102，p90 $39,168，最大 $893,324**（Tesla Q1 交付）；开放合计 **$1,761,353**，中位 **$3,780**，p90 **$9,163**。2026-10-21 04:00 UTC 复核：已关闭合计 **$4,703,475**、中位 **$8,353**；开放合计 **$1,690,567**、中位 **$3,850**、p90 **$7,711**。两组都只是带时间戳的快照，不是稳定常数。
 - 按标题关键词（2026-10-20 快照）：`revenue` 68、`comparable sales` 12、`margin` 9、`ARR` 7、`organic` 6、`deliveries` 5、`load factor` 2、`monthly active` 2、`subscriber` 2（10-21 复核 `revenue` 69、`margin` 10、`load factor` 3）。**绝大多数是季度才披露的指标，没有同口径月度序列。**
 
-### 2）同口径公开经营数据事件（人工分类，全部 5 个；4 个月度 + Boeing 季度交付）
+### 2）同口径公开经营数据事件（人工分类：5 个已回放；另 1 个 2026-10-22 新结算观察；4 个月度 + Boeing 季度交付）
 
 | 事件 | 指标 | 公开月度/季度经营数据 | nowcast | 实际档 | 信息发布后首笔成交（taker 方向/价/份数） | 结论 |
 |---|---|---|---|---|---|---|
@@ -113,8 +122,9 @@ Costco 事件额外把“US adjusted comparable sales growth”定义为**剔除
 | Costco Q3 FY2026 US adjusted comp（`costco-q3-us-adjusted-comparable-sales-growth`） | US adjusted comps | 2026-05-06 公布 April：US adjusted **8.0%**；March US adjusted **6.2%**（二手）；Q3 12 周只覆盖其中 8 周 | 简单平均 ≈7.1% | **6.8%（US）；total company 6.6%** | 6.5–7.5 档首笔是 05-22 22:38:55 `BUY No @0.92` 20 份（**同一钱包在 3 秒内于 6 个档各买 NO 的篮式成交**，不是 YES 卖价）；该档首笔 `BUY Yes` 在 05-28 20:15:05、@0.88、11.25 份，已在财报发布后 | **不是可执行缺口**：只有 NO 买盘/篮式成交，没有财报前的 YES 卖价 |
 | Delta Q2 2026 载客率（`delta-dal-q2-passenger-load-factor`） | consolidated LF | BTS T1 月度（二手，引用 BTS）：Apr 82.7%、May 84.9%；June 88.1%（财报前未发布） | Apr+May 加权 **83.8%** | **84.8%** → 83–85 档 | 07-02 10:07:10 `BUY Yes @0.2381` 37.55 份（该档首笔 `BUY Yes` 实为 06-24 23:31 @0.46、101.46 份；07-02 只是 May 数据后的观察） | **命中**：83.8 在 83–85；毛 +0.762/份，但 June 缺失、BTS 发布时刻不明、样本只 37.55 份 |
 | UAL Q2 2026 载客率（`…ual-q2-consolidated-passenger-load-factor…`） | consolidated LF | 同上：Apr 82.3%、May 82.4%；June 85.9% | Apr+May 加权 **82.3%** | **83.4%** → 83–84 档 | **07-01 09:09:52** `BUY Yes 50 @0.07`（83–84，事后赢）；naive nowcast 实际会选 `<83`，该档在 06-27 04:56:28 有 `BUY Yes 10 @0.16`（事后结算 0） | **反例**：naive 部分月 nowcast 落在 82–83，会做错；需用季节补 June 才能得到 83.5 |
+| UAL Q3 2026 载客率（新观察，`…ual-q3-consolidated-passenger-load-factor-20261008120016000`） | consolidated LF | BTS T1 月度表（`theairside.news/en/invest-united`，2026-10-22 读取）只到 **2026-07**：Jul 87.1%；Aug/Sep 未取到 | 1/3 个月，规则第 2 条要求 ≥2/3，**不交易** | **83–84 档**（2026-10-20 结算） | 未取（规则已排除；只记 7 月 87.1% 会指向 85%+，与实际 83–84 相反） | **观察**：月度覆盖不足时不交易是对的；硬做会选错 |
 
-按预注册规则严格回看这 5 个事件：**没有 1 个同时满足全部条件**。TSM above-41 差在“nowcast 距阈值 ≥2%”（40.20 vs 41 = **1.95%**），且月度 TWD 与季度 USD 需要汇率折算，严格说不是同一口径；Boeing 是季度数据（不满足“至少 2 个月”）且公告无小时；DAL 只有 37.55 份（不满足 50 份）且 BTS 发布时刻不明；Costco 没有财报前可验证的 YES 卖价；UAL 的 naive nowcast 不在目标档内、`<83` 档会做错。**所以严格规则内样本是 0 个；只把“2% 距离”放宽到 1.9% 后，才剩 TSM above-41 1 笔（净 +8.1%/3 天，约 $469 本金）。**
+按预注册规则严格回看这 5 个已回放事件：**没有 1 个同时满足全部条件**。TSM above-41 差在“nowcast 距阈值 ≥2%”（40.20 vs 41 = **1.95%**），且月度 TWD 与季度 USD 需要汇率折算，严格说不是同一口径；Boeing 是季度数据（不满足“至少 2 个月”）且公告无小时；DAL 只有 37.55 份（不满足 50 份）且 BTS 发布时刻不明；Costco 没有财报前可验证的 YES 卖价；UAL 的 naive nowcast 不在目标档内、`<83` 档会做错。**所以严格规则内样本是 0 个；只把“2% 距离”放宽到 1.9% 后，才剩 TSM above-41 1 笔（净 +8.1%/3 天，约 $469 本金）。**
 
 ### 3）三个细节
 
@@ -133,7 +143,7 @@ Costco 事件额外把“US adjusted comparable sales growth”定义为**剔除
 
 ### 5）历史可成交价回测（扣费）
 
-脚本 `bots/quant/notes/scheduler/scratch/P-quant-030/backtest.py`，stdout 同目录 `backtest.out`；逐笔数据来自 data-api（`trades_<conditionId>.json`），费率取 Gamma 的 `0.04`，费 = `p × 0.04 × (1−p)`/份，净 = `结算 − 买入价 − 费 − 半价差`。半价差基准 1¢，压力 3¢/5¢；买入价一律用 **taker 成交价**，不用日线、mid 或对手方挂单价。
+回放材料：`bots/quant/replay/quant-030/replay.py`（从头复取 Gamma + data-api；`--help` 不需要参数），逐笔落在 `trades.csv`，汇总在 `SUMMARY.md`；stdout 另存 `bots/quant/notes/scheduler/scratch/P-quant-030/replay.out`。旧的 `scratch/P-quant-030/backtest.py` / `backtest.out` 保留作同一结果的历史脚本。逐笔数据来自 data-api（`trades_<conditionId>.json`），费率取 Gamma 的 `0.04`，费 = `p × 0.04 × (1−p)`/份，净 = `结算 − 买入价 − 费 − 半价差`。半价差基准 1¢，压力 3¢/5¢；买入价一律用 **taker 成交价**，不用日线、mid 或对手方挂单价。
 
 | 案例 | 规则状态 | 采用的可成交 print | 费/份 | 净/份（1¢） | 总净（实际份数） | 说明 |
 |---|---|---|---|---|---|---|

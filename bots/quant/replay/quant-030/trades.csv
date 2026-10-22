@@ -1,0 +1,7 @@
+case,event_slug,bracket,release_utc,print_utc,side,outcome,price,size_used,settle,fee_per_share,half_spread,net_per_share,net_total_usdc,status
+TSM Q2 above-41 -> NO,will-taiwan-semiconductor-tsm-q2-revenue-usd-be-above-20260618163305419,$41B,2026-07-13 05:30:28,2026-07-13 05:32:08,BUY,No,0.912887,514.01,1,0.003181,0.01,0.073932,38.00,relaxed-only: distance 1.95% < 2%
+TSM Q2 above-40 -> YES,will-taiwan-semiconductor-tsm-q2-revenue-usd-be-above-20260618163305419,$40B,2026-07-13 05:30:28,2026-07-13 05:31:55,BUY,Yes,0.934495,721.54,1,0.002449,0.01,0.053057,38.28,excluded: distance 0.5%
+Boeing Q1 above-140 -> YES,boeing-airplane-deliveries-above-in-q1,140,2026-04-14 00:00:00,2026-04-14 18:27:46,BUY,Yes,0.980000,29.00,1,0.000784,0.01,0.009216,0.27,"excluded: quarterly data, release time unpublished"
+Costco 6.5-7.5 -> YES,costco-q3-us-adjusted-comparable-sales-growth,6.5%–7.5%,2026-05-06 00:00:00,2026-05-28 20:15:05,BUY,Yes,0.880000,11.25,1,0.004224,0.01,0.105776,1.19,excluded: first YES print is after the earnings release (upper bound only)
+DAL Q2 83-85 -> YES,delta-dal-q2-passenger-load-factor,83%–85%,2026-07-02 10:07:00,2026-07-02 10:07:10,BUY,Yes,0.238136,37.55,1,0.007257,0.01,0.744607,27.96,"excluded: 37.55 shares < 50-share gate, BTS release time unpublished"
+UAL Q2 <83 (naive) -> YES,united-airlines-ual-q2-consolidated-passenger-load-factor-20260618193152130,<83%,2026-06-20 00:00:00,2026-06-27 04:56:28,BUY,Yes,0.160000,10.00,0,0.005376,0.01,-0.175376,-1.75,counterexample: naive partial-month nowcast picks the wrong bracket
