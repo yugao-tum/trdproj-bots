@@ -38,7 +38,7 @@ expect = {
     "evidence": "回放", "result": "不显著", "slot": "-",
     "variants": "8", "variants_ext": "不清楚",
     "window": "2022-01-01..2024-12-31",
-    "max_dd": "-24.6%（日线）", "contribution": "21.0%",
+    "max_dd": "-24.6%（日线）", "contribution": "0.4%",
 }
 for k, v in expect.items():
     ck(f"front-matter {k}={v}", fm.get(k) == v, f"got {fm.get(k)!r}")
@@ -72,7 +72,9 @@ ck("entry quotes +59.73%", "+59.73%" in norm)
 ck("entry quotes +83.41%", "+83.41%" in norm)
 ck("entry quotes +48.97%", "+48.97%" in norm)
 ck("entry quotes 20.99%", "20.99%" in norm)
-ck("entry quotes 21.0%", "21.0%" in norm)
+ck("entry quotes 21.0% only as caveated full-sample", "21.0%" in norm and "不把 21.0% 当字段值或预期" in norm)
+ck("entry quotes contribution 0.4%", "0.4%" in norm)
+ck("entry keeps status note", "status/date" in norm)
 ck("entry quotes -24.58%", "-24.58%" in norm)
 ck("entry quotes -35.69%", "-35.69%" in norm)
 ck("entry quotes 7.75%", "7.75%" in norm)

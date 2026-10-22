@@ -65,3 +65,41 @@ python3 tools/check.py lint --bot quant
 - 建议不变：**待选区（1.0）/反证**，不按“改进采纳”（2.0）或收录计分。
 - 门 1 部分满足；2、3、7 满足；4 不确定；5、6 不满足；`result: 不显著`。
 - 21.0% 只是全样本账户级算术，2024 单年约 0.4%，不可当预期；若主审要求“稳定优于原版”，可直接退回。
+
+## 2026-10-22（batch c20261022-063202/research，queue H-quant-001，fixer f1-03）
+
+输入：`reviews/c20261022-063202-research.md` 的 H-quant-001 三条（门 6 / `contribution: 21.0%` 误导 / replay 复核）；
+`reviews/c20261021-120001-research.md` 的 re-check 尾项（`:38` “最大回撤明显下降”措辞、待选区处置）；
+`audit/c20261020-170337-research.md` S8 与 `audit/c20261021-030001-research.md` S13（CCI 回撤口径，条文中已无此内容）；
+`checks/` 下没有 quant-001 专项文件。任务要求不改 status/date/文件名/id。
+
+| # | 问题（复核原文） | 改了什么 | 证据 |
+|---|---|---|---|
+| 1 | 复核：`contribution: 21.0%` 是全样本净折年，但条目自己写 2024 单年 +0.39%，“不能当作可外推的预期”；21.0% 不能当 head-line。 | front matter `contribution: 21.0%` → **`0.4%`**（2024 单年 +0.39% × 5,000 ÷ 5,000）。`## 成本与容量` 改写：字段用 2024 单年 0.4%；全样本 20.99%（≈21.0%）明确标为“样本内复算”，`**不把 21.0% 当字段值或预期**`。`SUMMARY.md` 同一段同步。 | `run_holdout.py` 重跑：2024 VM_x_SMA50 compound=+0.39%、cagr=+0.39%；`run_replay.py` 全样本 cagr=20.99%。`verify_replay_entry.py` 新增 contribution=0.4% 与“21.0% 仅作 caveat”两项检查，116 checks / 0 failed。 |
+| 2 | 复核：门 6 不满足，不能 PASS/改进采纳；状态建议改待选区/草稿。 | 按队列硬要求**未改 `status: 待核`、`date`、文件名、`id`**；在 `## 改进了什么` 末条补一句：status 是第 1 轮名额留下的状态，是否降级由整合者定，结局建议仍是待选区（1.0）/反证。门 6 仍写“不满足”，未上调任何数字。 | `verify_replay_entry.py` 的 `id/date/status unchanged` 检查通过；`lint --bot quant` 问题 0 个。 |
+| 3 | re-check：`:38` “最大回撤明显下降”把外部来源写成已检验的改进，但原文没有回撤差异的显著性检验。 | 改为“原文报告最大回撤低于未缩放版，但原文未给该差异的显著性检验”；保留“来源自报，未核实”，具体数字按第 2 轮规则不抄入。 | `verify_sources.py` 重跑：作者版 PDF HTTP 200、444,689 bytes，命中 `The maximum drawdown of raw momentum is -96.69% versus -45.20%`；未命中任何回撤显著性检验语句。ScienceDirect 仍 403（条目如实标注“摘要”）。 |
+| 4 | 任务：重做可成交价历史回放，扣费、样本外。 | 回放已存在于 `replay/quant-001/`（2022-01-01..2024-12-31、次日 Binance 日线 **open** 成交、0.30%/边），本轮**从缓存/重下载重跑**确认；未改窗口、未看 2021/2025+ 数据。加密按 GUIDE §9 用次根开盘价，Polymarket 的 data-api/prices-history 规则不适用。 | `run_replay.py` 重跑输出 VM +23.31%/8.90%/−35.69%、SMA50 +59.73%/20.99%/−24.58%、SMA100 +83.41%/27.99%/−23.28%、常量缩放 +20.07%/7.73%/−28.54%；关闭段 24/18/8；家族 p=0.066/0.084/0.278；`run_holdout.py` 重跑 2024 SMA50 +0.39%。与 `replay_results.json`/`holdout_results.json`/`SUMMARY.md` 一致（仅 `generated_utc` 随重跑更新）。本次重跑的 stdout 与已入库的 `replay_stdout.txt`/`holdout_stdout.txt` 数字逐位一致。 |
+| 5 | 任务：逐个确认引用来源存在且说所声称的话。 | 重跑来源脚本；44 个本地引用全部存在、<1 MB、非二进制；外部 URL 状态见 stdout。 | `verify_sources.py`：binance 各接口 200；RePEc 200；Crossref 200；DOI 200；作者版 PDF 200；ScienceDirect 403（已披露）。`verify_cited_local.py`：44/44 OK。 |
+| 6 | 任务：`lint --bot quant` 必须 0 个问题。 | 改完字段后重跑。 | `python3 tools/check.py lint --bot quant` → `检查完毕，问题 0 个`。 |
+| 7 | 任务：不能核实的来源陈述要删或降级。`data:` 与 `## 数据` 原写“2017 年起有（SOL 2020 年 8 月起）”，但第 2 轮窗口禁止下载/查看 2021 及以前数据，本轮无法在不违规的前提下核实这两句。 | 删掉 2017/2020 起点的具体断言，改为“本条回放只用 2022-01-01～2024-12-31，BTC/ETH/SOL 在该区间均有数据；更早数据未下载、未使用”。 | `run_replay.py` 实际请求并得到三币 2022-01-01～2024-12-31 日线（`replay_results.json` 的 window 与数据行数）；未请求更早区间。 |
+
+### 本轮重跑命令与结果
+
+```bash
+python3 bots/quant/replay/quant-001/run_replay.py
+python3 bots/quant/replay/quant-001/run_holdout.py
+python3 bots/quant/notes/scheduler/scratch/H-quant-001/verify_sources.py
+python3 bots/quant/notes/scheduler/scratch/H-quant-001/verify_cited_local.py
+python3 bots/quant/notes/scheduler/scratch/H-quant-001/verify_replay_entry.py
+python3 tools/check.py lint --bot quant
+```
+
+- `verify_replay_entry.py`：116 checks，0 failed（已删除运行时生成的 `replay/quant-001/__pycache__`）。
+- `lint --bot quant`：问题 0 个。
+- 未新增/删除任何收益、回撤、p 值；`result: 不显著` 不变。
+
+### 诚实结论（本轮，覆盖上文旧的 21.0% 表述）
+
+- 7 门：1 部分满足；2、3、7 满足；4 不确定；5 作为改进不满足（1.00%/边 7.75%、2024 +0.39%）；6 **不满足**（独立关闭段 24/18/8 <30，家族 p>0.05）。
+- `evidence: 回放`、`result: 不显著`、`window: 2022-01-01..2024-12-31`、`max_dd: -24.6%（日线）` 不变；`contribution` 改为 **0.4%**（2024 单年）。
+- 建议：**不按“改进采纳”（2.0）或收录计分；按待选区（1.0）/反证，或直接退回。** 若继续，价值在补足 ≥30 个独立关闭段/做前向，而不是在本窗口继续调参。
