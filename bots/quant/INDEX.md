@@ -986,3 +986,7 @@
 | bots/quant/replay/quant-001/holdout_results.json | holdout_results.json | 2026-10-21 | 笔记 |
 | bots/quant/replay/quant-001/holdout_stdout.txt | holdout_stdout.txt | 2026-10-21 | 笔记 |
 | bots/quant/replay/quant-001/run_holdout.py | run_holdout.py | 2026-10-21 | 笔记 |
+| bots/quant/forward/quant-006/state.json | 前向记录 quant-006 state.json | 2026-10-22 | 笔记 |
+| bots/quant/forward/quant-011/state.json | 前向记录 quant-011 state.json | 2026-10-22 | 笔记 |
+| bots/quant/forward/quant-034/state.json | 前向记录 quant-034 state.json | 2026-10-22 | 笔记 |
+| bots/quant/forward/quant-035/state.json | 前向记录 quant-035 state.json | 2026-10-22 | 笔记 |
