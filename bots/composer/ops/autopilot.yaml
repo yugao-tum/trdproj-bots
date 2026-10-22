@@ -32,6 +32,7 @@ limits:
 
 priorities:
   # NOTICES 2026-10-22：10:00 UTC 截止，16:00 UTC 前公布。第 2 轮取消，011 不计分。
+  # quant-035 已在条目里标待核（d2e4244，改进 composer-003）。不跟，不重开 003。
   # 10:00 UTC 之前：T04watch 仍先检查；无 10-19 日则 011 照旧记挂单（整点 +6，非整点只 scan），不改 0.011/0.989。
   # 10:00 UTC 之后：停 15m / hourly / retro。不再读 010 的 RCP。不新开待核。
   t04watch_blocked_sprint: composer-011-daily
