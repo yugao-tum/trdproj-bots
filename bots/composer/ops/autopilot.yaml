@@ -30,9 +30,9 @@ limits:
   sprint_chat_policy: "仅 P0 完成或整点 hourly 对用户发言"
 
 priorities:
-  # retro R8：没有开放 P0。T04watch 仍先检查。
+  # retro R9：没有开放 P0。T04watch 仍先检查。
   # 无 10-19 日时不占整轮，堵住后走 011 日更：整点 T19 +6 挂，非整点只 scan。
-  # 若以后再有 P0，仍先于被堵住的 T04watch。费率变动不改报价规则。
+  # 若以后再有 P0，仍先于被堵住的 T04watch。费率停在 1346/1010/500，不改报价规则。
   # 010 的 10-22 快照已读：实时 403，Wayback 仍是 10-18 的 38.7，不下单。下一读是 10-23 结算窗口。
   t04watch_blocked_sprint: composer-011-daily
   open_p0_before_blocked_watch: true
