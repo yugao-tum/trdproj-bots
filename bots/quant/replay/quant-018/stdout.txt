@@ -1,17 +1,20 @@
 quant-018 replay | Bab el-Mandeb NO ladder at data-api trade prices
 draft events=12 (2026-07-20..2026-10-05) + post-draft OOS=1 (2026-10-12)
 fee rate=0.0 (Gamma feesEnabled=false for all 13 events)
-variants: base_1c half_spread=0.01, stress_5c half_spread=0.05
+variants: base_1c(h=0.01,main_p_yes), stress_5c(h=0.05,main_p_yes), strict_1c(h=0.01,strict_p_yes), strict60_1c(h=0.01,strict_p_yes,<=3600s)
 buckets with a [T-24h,T] trade: 40/62
+buckets with a post-T first print: 57/62
 
-trades.csv: 39 filled bucket-rows (10 base events)
+trades.csv: 66 filled bucket-rows (10 base events)
 
 == trigger/fill counts ==
-case       sample                   
-base_1c    draft_history                18
-           post_draft_oos_2026_10_12     3
-stress_5c  draft_history                15
-           post_draft_oos_2026_10_12     3
+case         sample                   
+base_1c      draft_history                18
+             post_draft_oos_2026_10_12     3
+stress_5c    draft_history                15
+             post_draft_oos_2026_10_12     3
+strict60_1c  draft_history                 1
+strict_1c    draft_history                26
 
 == results (1 share per triggered bucket, fee included) ==
 
@@ -24,6 +27,16 @@ stress_5c
   all: shares=18 events=10 median=+0.2000/sh mean=+0.0134/sh total=+0.2416 invested=13.7584 per$=+0.0176 hit=0.7778 | event_total=+0.2416 event_median=+0.2550 event_win=6/10 | boot mean95%=[-0.198,+0.182] per$95%=[-0.257,+0.240]
   draft history (pre-OOS): shares=15 events=9 median=+0.2000/sh mean=-0.0152/sh total=-0.2284 invested=11.2284 per$=-0.0203 hit=0.7333 | event_total=-0.2284 event_median=+0.2000 event_win=5/9 | boot mean95%=[-0.257,+0.188] per$95%=[-0.338,+0.254]
   post-draft OOS: shares=3 events=1 median=+0.1500/sh mean=+0.1567/sh total=+0.4700 invested=2.5300 per$=+0.1858 hit=1.0000 | event_total=+0.4700 event_median=+0.4700 event_win=1/1 | boot mean95%=[+0.157,+0.157] per$95%=[+0.186,+0.186]
+
+strict_1c
+  all: shares=26 events=12 median=+0.2300/sh mean=+0.0443/sh total=+1.1505 invested=18.8495 per$=+0.0610 hit=0.7692 | event_total=+1.1505 event_median=+0.0450 event_win=6/12 | boot mean95%=[-0.070,+0.165] per$95%=[-0.096,+0.229]
+  draft history (pre-OOS): shares=26 events=12 median=+0.2300/sh mean=+0.0443/sh total=+1.1505 invested=18.8495 per$=+0.0610 hit=0.7692 | event_total=+1.1505 event_median=+0.0450 event_win=6/12 | boot mean95%=[-0.070,+0.165] per$95%=[-0.096,+0.229]
+  post-draft OOS: n=0
+
+strict60_1c
+  all: shares=1 events=1 median=-0.9200/sh mean=-0.9200/sh total=-0.9200 invested=0.9200 per$=-1.0000 hit=0.0000 | event_total=-0.9200 event_median=-0.9200 event_win=0/1 | boot mean95%=[-0.920,-0.920] per$95%=[-1.000,-1.000]
+  draft history (pre-OOS): shares=1 events=1 median=-0.9200/sh mean=-0.9200/sh total=-0.9200 invested=0.9200 per$=-1.0000 hit=0.0000 | event_total=-0.9200 event_median=-0.9200 event_win=0/1 | boot mean95%=[-0.920,-0.920] per$95%=[-1.000,-1.000]
+  post-draft OOS: n=0
 
 == per-event P&L, base_1c ==
 week_start                                                                               slug                    sample  shares    profit     cost  per_dollar
@@ -43,6 +56,8 @@ event-sequence max drawdown (1-share scale): -1.4600 USDT (-0.73% of the 200 USD
 annualised contribution on 5,000 USDT (draft per$=+0.0094, 200 USDT/event, 39 events/yr): 1.5%
 
 == verdict under the entry's frozen criteria ==
-(1) median realised gross profit of filled NO shares <= 0? median=+0.2400 => PASS
+(1) median realised gross profit of filled NO shares <= 0? base median=+0.2400 => PASS
 (1-event-level) event median net profit = +0.0850; event hit rate = 0.5000
 (3) >=30 independent events with same-time tradable prices? 10 events (<30) => INSUFFICIENT
+strict (post-T first print): shares=26 events=12 median=+0.2300/sh total=+1.1505
+strict60 (first print <=60min after T): shares=1 events=1 median=-0.9200/sh total=-0.9200

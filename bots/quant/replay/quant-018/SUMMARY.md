@@ -7,7 +7,7 @@
 
 ## 如何复现
 
-- 脚本：`bots/quant/replay/quant-018/replay.py`（Python 3.13，`pandas`；无网络依赖，读同目录冻结输入）
+- 脚本：`bots/quant/replay/quant-018/replay.py`（Python 3.13，`pandas`；无网络依赖，读同目录冻结输入）。脚本一次跑 **4 个变体**：base 1¢、5¢ 压力、决策后第一笔 STRICT、决策后 60 分钟内 STRICT60。
 - 运行：
   ```bash
   python3 bots/quant/replay/quant-018/replay.py
@@ -15,10 +15,12 @@
   输出逐字保存在 `stdout.txt`，逐份成交在 `trades.csv`。
 - 输入如何生成：`bots/quant/replay/quant-018/build_inputs.py`（stdout `build_inputs_stdout.txt`；scratch 留有同一脚本 `build_replay_inputs.py` 作证据链）
   - `inputs/buckets_bab.csv`（sha1 `205f1facfdc5a120cbaae3f163166052736ca6e5`）：12 个草稿期 Bab 事件，由合并笔记 `bots/quant/notes/q018-paired/buckets.csv`（sha1 `962b0b2434581fdf75a6ea8210836a6931baa6e3`）原样投影，未改数。
-  - `inputs/oos_bab_oct12.csv`（sha1 `420531cd824165f85252917b0a6a5232c0a266c3`）：1 个 post-draft OOS 事件（week of 2026-10-12），数值由 `bots/quant/notes/scheduler/scratch/H-quant-018/tradable_backtest.py` 于 2026-10-21 现场取 Gamma/data-api/PortWatch 得到。
+  - `inputs/strict_bab.csv`（sha1 `f58e5073e68a65533af6ba088031fe5413532f69`）：同一批 12 个草稿期 Bab 事件，由合并笔记 `bots/quant/notes/postdecision-fills-20261021/q018_strict_buckets.csv`（sha1 `ae0c71bbb900df8949203d18dadcd939ac4f6c5a`，PR #21）投影出 `strict_p_yes`（`T` 之后第一笔 data-api 打印的 YES 等价价）与 `strict_ts`，未改数。
+  - `inputs/oos_bab_oct12.csv`（sha1 `420531cd824165f85252917b0a6a5232c0a266c3`）：1 个 post-draft OOS 事件（week of 2026-10-12），数值由 `bots/quant/notes/scheduler/scratch/H-quant-018/tradable_backtest.py` 于 2026-10-21 现场取 Gamma/data-api/PortWatch 得到。OOS 没有冻结的 `T` 后第一笔，故 STRICT/STRICT60 只覆盖 12 个草稿期事件。
 - 数据下载地址（公开、免密钥，访问日期 2026-10-21）：
   - Gamma 事件与规则、`outcomePrices`、`feesEnabled`：`https://gamma-api.polymarket.com/events?slug=<event-slug>`
   - 逐笔成交（入场价唯一来源）：`https://data-api.polymarket.com/trades?market=<conditionId>&limit=500&offset=<n>`
+  - 决策后第一笔：`bots/quant/notes/postdecision-fills-20261021/q018_strict.py` 用同一 data-api 抓取器（脚本与 `q018_strict.out` 已合并），冻结结果见上一条 `strict_bab.csv`。
   - 结算源日度计数：`https://services9.arcgis.com/weJ1QsnbMYJlCHdG/arcgis/rest/services/Daily_Chokepoints_Data/FeatureServer/0/query?where=portname = 'Bab el-Mandeb Strait'&outFields=date,n_total&returnGeometry=false&f=json&resultOffset=0&resultRecordCount=1000&orderByFields=date ASC`
   - 同族事件清单：`https://gamma-api.polymarket.com/public-search?q=how%20many%20ships%20transit`
 - 数据本身起点：PortWatch 2019-01-01；本回放实际使用的事件窗口 **2026-07-20..2026-10-18**（POLYMARKET，不受加密 2022–2024 窗口限制）。
@@ -29,38 +31,46 @@
 
 - 决策时点 `T` = 事件周周一 00:00 UTC。
 - 模型：严格早于 `T` 的最近 12 个完整 Mon–Sun PortWatch 周，按当期档位计频数，Laplace `p_i=(k_i+1)/(12+n)`。
-- 入场价：`[T−24h, T]` 内 data-api 的**最后一笔真实成交**，YES 成交取 `p`、NO 成交取 `1−p`；同一秒多笔时取该秒**最高 YES 价**（对 NO 买方最差）；窗口内无成交则该档不成交。没有使用 CLOB `prices-history` 当成交价。
-- 触发：`p_yes ≥ p_model + half_spread + 0.01`；基础 `half_spread=0.01`，压力 `0.05`，压力下**重新判定触发**。
+- 入场价：
+  - V1/V2：`[T−24h, T]` 内 data-api 的**最后一笔真实成交**（**决策前**），YES 成交取 `p`、NO 成交取 `1−p`；同一秒多笔时取该秒**最高 YES 价**（对 NO 买方最差）；窗口内无成交则该档不成交。
+  - V3/V4：`T` 之后 data-api 的**第一笔真实成交**（决策后），同一映射；V4 只认 `T` 后 60 分钟内的第一笔，超时该档记不可成交。这是对“挂 maker 买 NO”的无排队假设近似，仍不是 L2 深度。
+  - 全部变体都没有使用 CLOB `prices-history` 当成交价。
+- 触发：`p_yes ≥ p_model + half_spread + 0.01`；基础 `half_spread=0.01`，压力 `0.05`，压力下**重新判定触发**；V3/V4 沿用 1¢。
 - 全部成本：吃单价 `1−p_yes+half_spread`；手续费按 Gamma `feesEnabled/feeSchedule`，13 个事件全部 `feesEnabled=false`，费率 **0**（地缘板块 GUIDE §8 也是 0）。没有另加滑点，买卖价差已由 `half_spread` 承担。
 - 资金和容量：每档 1 份回放；条目实盘上限为每档 100 份、单 event 200 USDT、本条专线 1,000 USDT、单场所不超过 2,500 USDT。不加杠杆，NO 买单最大亏损是本金。
 
 ## 汇总结果
 
-- 独立结果数及计法：按 **weekly event** 计，不按档、不按市场。基础口径有触发成交的独立事件 **10 个**（草稿期 9 + OOS 1），**小于 GUIDE §2 要求的 30**。13 个事件共 21 个成交份额；另有 22 个档位在 `[T−24h,T]` 内无成交，不计入。
+- 独立结果数及计法：按 **weekly event** 计，不按档、不按市场。基础口径（V1/V2）有触发成交的独立事件 **10 个**（草稿期 9 + OOS 1）；决策后 STRICT（V3）有 **12 个**；STRICT60（V4）只有 **1 个**。全部低于 GUIDE §2 的 30。V1/V2 共 21 个成交份额；另有 22 个档位在 `[T−24h,T]` 内无成交，不计入。
 - 扣成本后净收益（`replay.py` 原样）：
   - 全样本 base 1¢：21 份 / 10 事件，总净 **+0.7116 USDT**，投入 15.2884 USDT，每美元 **+0.0465**；份额中位 **+0.2400/份**；但事件中位仅 **+0.0850**，事件 5 胜 5 负。
   - 草稿期 12 事件 base 1¢：18 份 / 9 事件，总净 **+0.1216 USDT**，每美元 **+0.0094**；事件中位 **−0.1800**，事件 4 胜 5 负。
   - 5¢ 压力：全样本 18 份 / 10 事件，总净 **+0.2416 USDT**，每美元 **+0.0176**；草稿期 15 份 / 9 事件，总净 **−0.2284 USDT**，每美元 **−0.0203**。
-  - 事件聚类 bootstrap（10,000 次，种子 20261021）：全样本每份均值 95% 区间 **[-0.158, +0.188]**，每美元 **[-0.216, +0.261]**，都跨 0。
+  - 决策后 STRICT（V3，12 个草稿期事件）：26 份 / 12 事件，总净 **+1.1505 USDT**，投入 18.8495 USDT，每美元 **+0.0610**；份额中位 **+0.2300**；事件中位仅 **+0.0450**，事件 6 胜 6 负。
+  - 决策后 STRICT60（V4，`T` 后 60 分钟内必须有成交）：只剩 **1 份 / 1 事件**，净 **−0.9200 USDT**（每美元 −1.0000），11/12 个事件不可成交。
+  - 事件聚类 bootstrap（10,000 次，种子 20261021）：V1 全样本每份均值 95% 区间 **[-0.158, +0.188]**，每美元 **[-0.216, +0.261]**，都跨 0；V3 STRICT 每份 **[-0.070, +0.165]**、每美元 **[-0.096, +0.229]**，也跨 0。
 - 最大回撤：本回放是 1 份/档的份额曲线，事件序列最大回撤 **−1.4600 USDT**（按 200 USDT/event 上限折 **−0.73%**）。Polymarket 条目的 `max_dd` 字段按 GUIDE §7 填 `-`；这不是账户级回撤。
-- 对 5,000 USDT 的年化贡献：草稿期每美元 **+0.0094** × 200 USDT/event × 每年约 **39** 次触发（Bab 每周 1 个 event、9/12 有触发）÷ 5,000 = **1.5%**。这是**上限粗算，未由成交深度验证**：回放只有 1 份/档，200 USDT/event 是条目假设而不是实测容量；bootstrap 区间跨 0，不能当保证。
-- result：**不显著**（独立事件 10 < 30；且全样本区间跨 0、草稿期事件中位为负）。
+- 对 5,000 USDT 的年化贡献：字段取保守的草稿期 base 口径，每美元 **+0.0094** × 200 USDT/event × 每年约 **39** 次触发（Bab 每周 1 个 event、9/12 有触发）÷ 5,000 = **1.5%**。这是**上限粗算，未由成交深度验证**：回放只有 1 份/档，200 USDT/event 是条目假设而不是实测容量；bootstrap 区间跨 0，不能当保证。STRICT（V3）每美元 +0.0610 算术上会得到约 2.5%，但事件中位只有 +0.045、区间跨 0；STRICT60（V4）只有 1 份且为负。因此**不把 V3 的更高数字当贡献**，1.5% 已属上限。
+- result：**不显著**（独立事件 10 < 30，V3 也只有 12 < 30；且 V1/V3 区间都跨 0、草稿期事件中位为负或接近 0）。
 - 不可靠或失败原因：
   1. 有触发成交的独立事件只有 **10 个 < 30**；同点全档有价事件 24/43 < 30。门 6 不满足。
   2. 份额中位 +0.24 是份额口径，事件层中位只有 +0.085（草稿期 −0.18），不能读成“稳定盈利”。
   3. data-api 只给已成交打印，不给当时订单簿深度；1¢/5¢ 价差是预先假设，薄市场可能更差。
   4. PortWatch 是当前修订版，不是 `T` 时点的 vintage；2026-03 至 05 有 7 周与结算不一致。
   5. 唯一 post-draft OOS（2026-10-12）为 +0.5900（3 份），只有 1 个事件，不能当显著性证据。
+  6. 决策后口径：V3（不设延迟上限）点估计为正但事件中位仅 +0.045、6/12 胜，区间跨 0；V4（60 分钟内）只剩 1 份且 −0.9200。**决策时点立即可成交的正收益没有证据**，这是比“样本不足”更强的负面信号。
 
 ## 所有变体（所有市场都要写，看了不用的也算）
 
-- variants（自己的）：**2**
+- variants（自己的）：**4**
 - variants_ext（外部来源）：**-**（未引用外部来源的变体数；dot-051 只作周起点价 Brier 的交叉核对，不算变体）
 
 | 序号 | 自己 / 外部来源 | 规则与全部参数 | 窗口 | 结果和位置 |
 |---|---|---|---|---|
 | V1 | 自己 | Bab NO；12 周 Laplace；`[T−24h,T]` 最后一笔成交；触发 `p_yes ≥ p_model+0.01+0.01`；`half_spread=0.01`；费 0；1 份/档 | 2026-07-20..2026-10-18 | 21 份/10 事件，总净 +0.7116，每美元 +0.0465；草稿期 9 事件每美元 +0.0094；`trades.csv` case=`base_1c` |
 | V2 | 自己 | 同 V1，但 `half_spread=0.05` 并**重新判定触发**；费 0；1 份/档 | 2026-07-20..2026-10-18 | 18 份/10 事件，总净 +0.2416；草稿期每美元 −0.0203；`trades.csv` case=`stress_5c` |
+| V3 | 自己 | 同 V1，但入场改为 `T` 后**第一笔** data-api 成交（PR #21 STRICT），`half_spread=0.01`，费 0，1 份/档；只覆盖 12 个草稿期事件 | 2026-07-20..2026-10-05 | 26 份/12 事件，总净 +1.1505，每美元 +0.0610，事件中位 +0.0450，6/12 胜；`trades.csv` case=`strict_1c` |
+| V4 | 自己 | 同 V3，但第一笔必须在 `T` 后 **60 分钟内**，否则该档不可成交（PR #21 STRICT60）；只覆盖 12 个草稿期事件 | 2026-07-20..2026-10-05 | 1 份/1 事件，净 −0.9200，11/12 事件不可成交；`trades.csv` case=`strict60_1c` |
 
 未作为交易变体、但看过的诊断（不计入 `variants`）：
 

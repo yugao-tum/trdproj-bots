@@ -103,7 +103,12 @@ def main():
         "bots/quant/replay/quant-018/stdout.txt",
         "bots/quant/replay/quant-018/trades.csv",
         "bots/quant/replay/quant-018/inputs/buckets_bab.csv",
+        "bots/quant/replay/quant-018/inputs/strict_bab.csv",
         "bots/quant/replay/quant-018/inputs/oos_bab_oct12.csv",
+        "bots/quant/notes/postdecision-fills-20261021/REPORT.md",
+        "bots/quant/notes/postdecision-fills-20261021/q018_strict.py",
+        "bots/quant/notes/postdecision-fills-20261021/q018_strict.out",
+        "bots/quant/notes/postdecision-fills-20261021/q018_strict_buckets.csv",
         "bots/quant/notes/scheduler/scratch/H-quant-018/tradable_backtest_stdout.txt",
         "bots/quant/notes/scheduler/scratch/H-quant-018/tradable_fills.csv",
         "bots/quant/notes/scheduler/scratch/H-quant-018/brier_start_check_stdout.txt",
@@ -114,7 +119,9 @@ def main():
     hashes = {
         "bots/quant/replay/quant-018/inputs/buckets_bab.csv": "205f1facfdc5a120cbaae3f163166052736ca6e5",
         "bots/quant/replay/quant-018/inputs/oos_bab_oct12.csv": "420531cd824165f85252917b0a6a5232c0a266c3",
+        "bots/quant/replay/quant-018/inputs/strict_bab.csv": "f58e5073e68a65533af6ba088031fe5413532f69",
         "bots/quant/notes/q018-paired/buckets.csv": "962b0b2434581fdf75a6ea8210836a6931baa6e3",
+        "bots/quant/notes/postdecision-fills-20261021/q018_strict_buckets.csv": "ae0c71bbb900df8949203d18dadcd939ac4f6c5a",
     }
     bad_hash = {p: hashlib.sha1((REPO / p).read_bytes()).hexdigest()
                 for p, h in hashes.items() if hashlib.sha1((REPO / p).read_bytes()).hexdigest() != h}
@@ -146,16 +153,18 @@ def main():
 
     summary = SUMMARY.read_text(encoding="utf-8")
     need = [
-        "variants（自己的）：**2**",
+        "variants（自己的）：**4**",
         "窗口 **2026-07-20..2026-10-18**",
         "result：**不显著**",
         "+0.7116",
+        "+1.1505",
+        "−0.9200",
         "1.5%",
         "10 个",
     ]
     miss = [x for x in need if x not in summary]
     add("entry fields agree with replay/SUMMARY.md",
-        not miss and fields.get("variants") == "2" and fields.get("window") == "2026-07-20..2026-10-18"
+        not miss and fields.get("variants") == "4" and fields.get("window") == "2026-07-20..2026-10-18"
         and fields.get("result") == "不显著" and fields.get("contribution") == "1.5%",
         f"missing in SUMMARY={miss}; entry variants/window/result/contribution="
         f"{fields.get('variants')}/{fields.get('window')}/{fields.get('result')}/{fields.get('contribution')}")

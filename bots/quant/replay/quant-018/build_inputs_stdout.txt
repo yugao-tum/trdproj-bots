@@ -5,3 +5,7 @@ buckets_bab.csv sha1: 205f1facfdc5a120cbaae3f163166052736ca6e5
 events: {'2026-07-20': 6, '2026-07-27': 4, '2026-08-03': 4, '2026-08-10': 4, '2026-08-17': 4, '2026-08-24': 5, '2026-08-31': 5, '2026-09-07': 5, '2026-09-14': 5, '2026-09-21': 5, '2026-09-28': 5, '2026-10-05': 5}
 oos_bab_oct12.csv: 5 rows (values printed by tradable_backtest.py on 2026-10-21)
 oos_bab_oct12.csv sha1: 420531cd824165f85252917b0a6a5232c0a266c3
+source: bots/quant/notes/postdecision-fills-20261021/q018_strict_buckets.csv
+source sha1: ae0c71bbb900df8949203d18dadcd939ac4f6c5a
+strict_bab.csv: 57 rows, 12 events, 57 buckets with a post-T first print
+strict_bab.csv sha1: f58e5073e68a65533af6ba088031fe5413532f69

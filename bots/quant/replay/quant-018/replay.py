@@ -7,10 +7,15 @@ PRE-DECLARED RULE (identical to the entry; nothing is tuned in this file)
   * Decision time T = Monday 00:00 UTC of the event week.
   * Model p_i = Laplace((k_i+1)/(12+n)) from the last 12 complete Mon-Sun
     PortWatch weeks whose Monday is strictly before T.
-  * Entry price per bucket = last data-api trade in [T-24h, T], mapped to a
-    YES price (YES print p, NO print 1-p).  If several prints share the last
+  * V1/V2 entry price per bucket = last data-api trade in [T-24h, T], mapped to
+    a YES price (YES print p, NO print 1-p).  If several prints share the last
     second, the HIGHEST YES price at that second is used (worst for a NO
-    buyer).  No trade in the window => no fill.
+    buyer).  No trade in the window => no fill.  These are PRE-decision prints.
+  * V3/V4 entry price = FIRST data-api print at/after T (post-decision), same
+    YES mapping; V4 additionally requires that first print to be within 60
+    minutes of T, otherwise the bucket is treated as unfillable.  V3/V4 cover
+    the 12 draft-era events only; the post-draft OOS event has no frozen
+    post-T print in this replay.
   * Buy NO only if p_yes >= p_model + half_spread + 0.01 (safety cushion).
   * Base half_spread = 0.01; stress = 0.05, and the trigger is recomputed
     under the stress cost (not applied ex post to base fills).
@@ -20,10 +25,13 @@ PRE-DECLARED RULE (identical to the entry; nothing is tuned in this file)
   * One share per triggered bucket; losing shares are included.
 
 Inputs (frozen, < 1 MB, built by
-bots/quant/notes/scheduler/scratch/H-quant-018/build_replay_inputs.py):
+bots/quant/replay/quant-018/build_inputs.py):
   * inputs/buckets_bab.csv - 12 draft-era Bab events, same-time [T-24h,T]
     last data-api trade, copied from bots/quant/notes/q018-paired/buckets.csv
     (sha1 962b0b2434581fdf75a6ea8210836a6931baa6e3).
+  * inputs/strict_bab.csv - the same 12 events, first data-api print at/after
+    T, copied from bots/quant/notes/postdecision-fills-20261021/
+    q018_strict_buckets.csv (PR #21).
   * inputs/oos_bab_oct12.csv - 1 post-draft event (week of 2026-10-12) that
     resolved after the 2026-10-20 draft snapshot.
 
@@ -31,6 +39,7 @@ Run:
     python3 bots/quant/replay/quant-018/replay.py
 Writes trades.csv next to this script and prints every variant.
 """
+import datetime as dt
 import random
 import statistics
 from pathlib import Path
@@ -42,18 +51,34 @@ SEED = 20261021
 N_BOOT = 10000
 FEE_RATE = 0.0          # Gamma feesEnabled=false for all 13 events (2026-10-21)
 SAFETY = 0.01
-VARIANTS = [("base_1c", 0.01), ("stress_5c", 0.05)]
+# tag, half_spread, price column, max post-T delay in seconds (None = no limit)
+VARIANTS = [
+    ("base_1c", 0.01, "main_p_yes", None),
+    ("stress_5c", 0.05, "main_p_yes", None),
+    ("strict_1c", 0.01, "strict_p_yes", None),
+    ("strict60_1c", 0.01, "strict_p_yes", 3600),
+]
 
 
 def pf(x):
     return f"{x:+.4f}"
 
 
+def week_ts(w):
+    d = dt.date.fromisoformat(str(w))
+    return int(dt.datetime(d.year, d.month, d.day,
+                           tzinfo=dt.timezone.utc).timestamp())
+
+
 def load():
-    d = pd.concat([
+    main = pd.concat([
         pd.read_csv(HERE / "inputs" / "buckets_bab.csv"),
         pd.read_csv(HERE / "inputs" / "oos_bab_oct12.csv"),
     ], ignore_index=True, sort=False)
+    strict = pd.read_csv(HERE / "inputs" / "strict_bab.csv")[
+        ["slug", "label", "strict_p_yes", "strict_ts"]]
+    d = main.merge(strict, on=["slug", "label"], how="left",
+                   validate="one_to_one")
     d["sample"] = d.week_start.apply(
         lambda w: "post_draft_oos_2026_10_12" if w == "2026-10-12" else "draft_history")
     d["event_key"] = d.slug
@@ -63,17 +88,24 @@ def load():
 def build_fills(rows):
     fills = []
     for r in rows.itertuples():
-        if pd.isna(r.main_p_yes) or pd.isna(r.p_model):
-            continue
-        for tag, hs in VARIANTS:
-            if r.main_p_yes < r.p_model + hs + SAFETY:
+        t0 = week_ts(r.week_start)
+        for tag, hs, pcol, max_delay in VARIANTS:
+            p = getattr(r, pcol)
+            if pd.isna(p):
                 continue
-            cost = 1 - r.main_p_yes + hs
+            if max_delay is not None:
+                st = r.strict_ts
+                if pd.isna(st) or int(st) > t0 + max_delay:
+                    continue
+            if p < r.p_model + hs + SAFETY:
+                continue
+            cost = 1 - p + hs
             fee = 1 * FEE_RATE * cost * (1 - cost)
             payoff = 1 - int(r.resolved_yes)
-            fills.append(dict(event_key=r.event_key, slug=r.slug, week_start=r.week_start,
-                              label=r.label, sample=r.sample, case=tag,
-                              p_model=r.p_model, p_yes=r.main_p_yes,
+            fills.append(dict(event_key=r.event_key, slug=r.slug,
+                              week_start=r.week_start, label=r.label,
+                              sample=r.sample, case=tag,
+                              p_model=r.p_model, p_yes=p,
                               cost=cost, fee=fee, payoff=payoff,
                               profit=payoff - cost - fee,
                               resolved_yes=int(r.resolved_yes)))
@@ -120,18 +152,22 @@ def main():
     print("quant-018 replay | Bab el-Mandeb NO ladder at data-api trade prices")
     print(f"draft events=12 (2026-07-20..2026-10-05) + post-draft OOS=1 (2026-10-12)")
     print(f"fee rate={FEE_RATE} (Gamma feesEnabled=false for all 13 events)")
-    print(f"variants: {', '.join(f'{t} half_spread={h}' for t, h in VARIANTS)}")
+    print("variants: " + ", ".join(
+        f"{t}(h={h},{p}{'' if md is None else f',<={md}s'})"
+        for t, h, p, md in VARIANTS))
     print(f"buckets with a [T-24h,T] trade: {rows.main_p_yes.notna().sum()}/{len(rows)}")
+    print(f"buckets with a post-T first print: {rows.strict_p_yes.notna().sum()}/{len(rows)}")
 
     f = build_fills(rows)
     f.to_csv(HERE / "trades.csv", index=False, float_format="%.10f")
     print(f"\ntrades.csv: {len(f)} filled bucket-rows "
           f"({f[f.case == 'base_1c'].event_key.nunique()} base events)")
+
     print("\n== trigger/fill counts ==")
     print(f.groupby(["case", "sample"]).size().to_string())
 
     print("\n== results (1 share per triggered bucket, fee included) ==")
-    for case, _ in VARIANTS:
+    for case, _, _, _ in VARIANTS:
         d = f[f.case == case]
         print("\n" + case)
         print(summarize(d, "  all"))
@@ -158,12 +194,21 @@ def main():
 
     print("\n== verdict under the entry's frozen criteria ==")
     print(f"(1) median realised gross profit of filled NO shares <= 0? "
-          f"median={base.profit.median():+.4f} => "
+          f"base median={base.profit.median():+.4f} => "
           f"{'FAIL' if base.profit.median() <= 0 else 'PASS'}")
     print(f"(1-event-level) event median net profit = {ev.profit.median():+.4f}; "
           f"event hit rate = {(ev.profit > 0).mean():.4f}")
     print(f"(3) >=30 independent events with same-time tradable prices? "
           f"{base.event_key.nunique()} events (<30) => INSUFFICIENT")
+    strict = f[f.case == "strict_1c"]
+    strict60 = f[f.case == "strict60_1c"]
+    print(f"strict (post-T first print): shares={len(strict)} "
+          f"events={strict.event_key.nunique()} "
+          f"median={pf(strict.profit.median())}/sh total={pf(strict.profit.sum())}")
+    print(f"strict60 (first print <=60min after T): shares={len(strict60)} "
+          f"events={strict60.event_key.nunique()} "
+          f"median={pf(strict60.profit.median()) if len(strict60) else 'n/a'}/sh "
+          f"total={pf(strict60.profit.sum()) if len(strict60) else 'n/a'}")
 
 
 if __name__ == "__main__":

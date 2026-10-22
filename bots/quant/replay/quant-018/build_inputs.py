@@ -4,12 +4,15 @@
 Sources (all already fetched and verified by earlier merged notes):
   * draft-era Bab buckets: bots/quant/notes/q018-paired/buckets.csv
     (same-time [T-24h,T] last data-api trade, built 2026-10-20).
+  * post-decision Bab fills: bots/quant/notes/postdecision-fills-20261021/
+    q018_strict_buckets.csv (PR #21; first data-api print at/after T, with
+    its timestamp, built 2026-10-21).
   * post-draft OOS event: live Gamma + data-api + PortWatch, fetched by
     tradable_backtest.py on 2026-10-21 (Bab week of October 12).
 
 Canonical copy in the replay directory; the scratch copy is kept for the
 scheduler evidence trail.  This script never picks or tunes parameters; it only projects the columns the
-replay needs into two small CSVs (< 1 MB) and prints sha1/row counts.
+replay needs into three small CSVs (< 1 MB) and prints sha1/row counts.
 """
 import hashlib
 from pathlib import Path
@@ -18,6 +21,8 @@ import pandas as pd
 
 REPO = Path(__file__).resolve().parents[4]
 PAIRED = REPO / "bots" / "quant" / "notes" / "q018-paired" / "buckets.csv"
+STRICT = (REPO / "bots" / "quant" / "notes" / "postdecision-fills-20261021"
+          / "q018_strict_buckets.csv")
 OUT = REPO / "bots" / "quant" / "replay" / "quant-018" / "inputs"
 OUT.mkdir(parents=True, exist_ok=True)
 
@@ -61,6 +66,17 @@ def main():
     print(f"oos_bab_oct12.csv: {len(oos)} rows (values printed by "
           f"tradable_backtest.py on 2026-10-21)")
     print("oos_bab_oct12.csv sha1:", sha1(OUT / "oos_bab_oct12.csv"))
+
+    print("source:", STRICT.relative_to(REPO))
+    print("source sha1:", sha1(STRICT))
+    s = pd.read_csv(STRICT)
+    sb = s[s.strait == "Bab el-Mandeb Strait"].copy()
+    sb = sb[["slug", "week_start", "label", "p_model", "resolved_yes",
+             "main_p_yes", "strict_p_yes", "strict_ts"]]
+    sb.to_csv(OUT / "strict_bab.csv", index=False, float_format="%.12g")
+    print(f"strict_bab.csv: {len(sb)} rows, {sb.slug.nunique()} events, "
+          f"{sb.strict_p_yes.notna().sum()} buckets with a post-T first print")
+    print("strict_bab.csv sha1:", sha1(OUT / "strict_bab.csv"))
 
 
 if __name__ == "__main__":

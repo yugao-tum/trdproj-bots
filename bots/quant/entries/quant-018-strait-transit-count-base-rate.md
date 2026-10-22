@@ -196,7 +196,7 @@ Hormuz 同一快照（为什么不做）：六档中价 `<20 0.30 / 20-24 0.347 
 
 ### 4.6 第 2 轮回放产物（H-quant-018，2026-10-21）
 
-4.5 的回测已固化为可复跑的回放目录 `bots/quant/replay/quant-018/`：`replay.py`（无网络、读冻结输入）、`inputs/buckets_bab.csv`（12 个草稿期 Bab 事件，由 `notes/q018-paired/buckets.csv` sha1 `962b0b2434581fdf75a6ea8210836a6931baa6e3` 原样投影）、`inputs/oos_bab_oct12.csv`（1 个 post-draft OOS）、`trades.csv`（39 份成交）、`stdout.txt`、`SUMMARY.md`。回放把规则里的“挂 maker 买 NO”近似为 `[T−24h,T]` 内**最后一笔真实成交价**（同一秒取对 NO 买方最差的最高 YES 价），没有模拟排队位置；这**不是**决策后可成交价（价格早于决策时点 `T`；2026-10-22 更正原“最保守成交近似”的说法），决策后 60 分钟口径见 4.7。运行 `python3 bots/quant/replay/quant-018/replay.py` 得到：
+4.5 的回测已固化为可复跑的回放目录 `bots/quant/replay/quant-018/`：`replay.py`（无网络、读冻结输入；一次跑 4 个变体）、`inputs/buckets_bab.csv`（12 个草稿期 Bab 事件，由 `notes/q018-paired/buckets.csv` sha1 `962b0b2434581fdf75a6ea8210836a6931baa6e3` 原样投影）、`inputs/strict_bab.csv`（同一批 12 个事件，由 `notes/postdecision-fills-20261021/q018_strict_buckets.csv` sha1 `ae0c71bb…` 投影出 `T` 后第一笔与时间戳，PR #21）、`inputs/oos_bab_oct12.csv`（1 个 post-draft OOS）、`trades.csv`（66 份成交，4 个变体）、`stdout.txt`、`SUMMARY.md`。V1/V2 把规则里的“挂 maker 买 NO”近似为 `[T−24h,T]` 内**最后一笔真实成交价**（同一秒取对 NO 买方最差的最高 YES 价），没有模拟排队位置；这**不是**决策后可成交价（价格早于决策时点 `T`；2026-10-22 更正原“最保守成交近似”的说法）。V3/V4 改用决策后 `T` 的第一笔成交，V4 另要求 60 分钟内，见 4.7。运行 `python3 bots/quant/replay/quant-018/replay.py` 得到：
 
 | 口径 | 份数 | 独立事件 | 总净 | 每美元 | 事件中位 | 事件胜 |
 |---|---:|---:|---:|---:|---:|---:|
@@ -205,8 +205,10 @@ Hormuz 同一快照（为什么不做）：六档中价 `<20 0.30 / 20-24 0.347 
 | base 1¢ post-draft OOS | 3 | 1 | +0.5900 | +0.2448 | +0.5900 | 1/1 |
 | 5¢ 压力全样本 | 18 | 10 | +0.2416 | +0.0176 | +0.2550 | 6/10 |
 | 5¢ 压力草稿期 | 15 | 9 | **−0.2284** | **−0.0203** | +0.2000 | 5/9 |
+| V3 决策后第一笔（STRICT，草稿期） | 26 | 12 | +1.1505 | +0.0610 | +0.0450 | 6/12 |
+| V4 决策后 60 分钟内（STRICT60，草稿期） | 1 | 1 | **−0.9200** | **−1.0000** | **−0.9200** | 0/1 |
 
-事件聚类 bootstrap 全样本每份 95% 区间 `[-0.158, +0.188]`、每美元 `[-0.216, +0.261]`，跨 0。事件序列最大回撤 −1.4600 USDT（按 200 USDT/event 上限折 −0.73%，不是账户级）。年化贡献粗算：草稿期每美元 +0.0094 × 200 USDT/event × 约 39 次/年 ÷ 5,000 = **1.5%**（**上限粗算，未由成交深度验证**；回放是 1 份/档，200 USDT/event 来自条目假设）。回放本身 2 个变体（base 1¢、5¢ 压力；压力下重新判定触发；加上 4.7 的两个决策后口径，`variants` 共 4），`variants_ext: -`。**独立事件 10 < 30，`result: 不显著`**；没有把份额中位 +0.24 当成事件层结论。所有参数、数据地址和变体表见 `bots/quant/replay/quant-018/SUMMARY.md`。review c20261021-070001 已从零重跑 `replay.py` 并逐个核对上述数字；2026-10-21 fixer 再跑一遍，输出与仓库内 `stdout.txt` **逐字节一致**（无 diff）。
+事件聚类 bootstrap 全样本每份 95% 区间 `[-0.158, +0.188]`、每美元 `[-0.216, +0.261]`，跨 0。事件序列最大回撤 −1.4600 USDT（按 200 USDT/event 上限折 −0.73%，不是账户级）。年化贡献粗算：草稿期每美元 +0.0094 × 200 USDT/event × 约 39 次/年 ÷ 5,000 = **1.5%**（**上限粗算，未由成交深度验证**；回放是 1 份/档，200 USDT/event 来自条目假设）。回放本身 **4 个变体**（V1 base 1¢、V2 5¢ 压力且重新判定触发、V3 决策后第一笔、V4 决策后 60 分钟；V3/V4 只覆盖 12 个草稿期事件，无 OOS），`variants_ext: -`。**独立事件 10 < 30，`result: 不显著`**；没有把份额中位 +0.24 当成事件层结论。所有参数、数据地址和变体表见 `bots/quant/replay/quant-018/SUMMARY.md`。review c20261021-070001 已核对 V1/V2 的数字；2026-10-22 H-quant-018 把 V3/V4 并入回放后再次运行，输出与仓库内 `stdout.txt` **逐字节一致**（diff 为空，V1/V2 数字未变）。
 
 ### 4.7 决策后 60 分钟可成交性复核（PR #21，2026-10-21；2026-10-22 写入本条）
 
@@ -218,7 +220,7 @@ Hormuz 同一快照（为什么不做）：六档中价 `<20 0.30 / 20-24 0.347 
 | STRICT：T 后第一笔（不限延迟） | 26 | 12 | 0/12 | +0.0443 | +0.2300 | PASS |
 | STRICT60：T 后 60 分钟内须有成交 | **1** | **1** | **11/12** | **−0.9200** | **−0.9200** | 点估计 FAIL，整体 INSUFFICIENT（n=1） |
 
-结论：标准 (1) 的 PASS 依赖决策后**较晚**才出现的成交；在“决策后 60 分钟内可成交”的要求下，Bab 只有 **1 笔**成交且亏 **−0.92**，12 个事件里 11 个不可成交。本条在决策时点的可成交性/可执行性**没有证据**，交易经济性只能写“未证实”。`status` 按要求不改（仍 `待核`，作为反面证据保留），`result: 不显著` 不变；STRICT 与 STRICT60 各算一次结果，`variants` 由 2 记为 **4**。
+结论：标准 (1) 的 PASS 依赖决策后**较晚**才出现的成交；在“决策后 60 分钟内可成交”的要求下，Bab 只有 **1 笔**成交且亏 **−0.92**，12 个事件里 11 个不可成交。本条在决策时点的可成交性/可执行性**没有证据**，交易经济性只能写“未证实”。`status` 按要求不改（仍 `待核`，作为反面证据保留），`result: 不显著` 不变；STRICT 与 STRICT60 已作为 V3/V4 收进回放（`trades.csv` case `strict_1c` / `strict60_1c`），`variants` 共 **4**。
 
 ## 数据
 
@@ -277,7 +279,7 @@ Hormuz 同一快照（为什么不做）：六档中价 `<20 0.30 / 20-24 0.347 
 
 ## 结论与建议
 
-七条门槛里，1/2/3/4/7 基本满足（其中 4 是“同一机制补充”，不主张独立开新路），**5 不确定且偏负，6 不满足**（独立事件 <30）。按 GUIDE §2“七条全部满足才收录”，本条**不应按收录处理**；建议主判降为**待选区**，保留前向记录，并把 2026-10-12 的 post-draft OOS 事件继续跟踪。第 2 轮交付已按 GUIDE §2.1/§7 补齐：`evidence: 回放`（`bots/quant/replay/quant-018/` 可复跑）、`result: 不显著`（10 个独立事件 < 30，bootstrap 区间跨 0）、`variants: 4`（回放 2 + PR #21 决策后口径 2）、`window: 2026-07-20..2026-10-18`、`contribution: 1.5%`（上限粗算，未由成交深度验证）。这是**负/不显著证据**，不是可盈利证明。PR #21 的决策后 60 分钟复核（4.7）显示 Bab 只有 1 笔可成交（−0.92），可成交性/可执行性未证实。
+七条门槛里，1/2/3/4/7 基本满足（其中 4 是“同一机制补充”，不主张独立开新路），**5 不确定且偏负，6 不满足**（独立事件 <30）。按 GUIDE §2“七条全部满足才收录”，本条**不应按收录处理**；建议主判降为**待选区**，保留前向记录，并把 2026-10-12 的 post-draft OOS 事件继续跟踪。第 2 轮交付已按 GUIDE §2.1/§7 补齐：`evidence: 回放`（`bots/quant/replay/quant-018/` 可复跑）、`result: 不显著`（10 个独立事件 < 30，bootstrap 区间跨 0）、`variants: 4`（V1/V2 决策前回放 + V3/V4 决策后回放）、`window: 2026-07-20..2026-10-18`、`contribution: 1.5%`（上限粗算，未由成交深度验证）。这是**负/不显著证据**，不是可盈利证明。PR #21 的决策后 60 分钟复核（4.7）显示 Bab 只有 1 笔可成交（−0.92），可成交性/可执行性未证实。
 
 按 review c20261021-070001 第 1 条，**建议 integrator 把本条降为草稿或并入 quant-012，不单独占待核名额**；quant-012 才是本机制的主条目。fixer 按本轮任务要求未改 `status`（仍 `待核`）与 `date`（仍 `2026-10-20`），只把正文里的降级建议写死，避免与 front matter 的差异被误读为“仍主张独立待核”。
 
@@ -303,8 +305,9 @@ Hormuz 同一快照（为什么不做）：六档中价 `<20 0.30 / 20-24 0.347 
 - https://gamma-api.polymarket.com/events?slug=how-many-ships-transit-bab-el-mandeb-strait-week-of-october-12-20261006t134953677z — 访问 2026-10-21 — 已读（post-draft OOS 事件，结算 `170-189`，5 档全部 `feesEnabled=false`）
 - https://data-api.polymarket.com/trades?market=0xc3f0b47231b149f564840ae702749014a9f1a63c39d20375d505eba509f10039&limit=500&offset=0 — 访问 2026-10-21 — 已读（新 OOS 事件 `170-189` 档的逐笔成交；脚本按 conditionId 逐档分页，见 `tradable_backtest.py`）
 - `bots/quant/notes/scheduler/scratch/H-quant-018/verify_sources_stdout.txt` — 访问 2026-10-21 — 已读（出处节 17 个外部 URL 全部 HTTP 200、0 FAIL；PortWatch 行数/最新日期、`clobRewards`、`volume` 漂移均记录）
-- `bots/quant/replay/quant-018/SUMMARY.md` — 访问 2026-10-21 — 已读（第 2 轮回放：参数、数据地址、2 个变体、独立事件数与全部结果）
-- `bots/quant/replay/quant-018/stdout.txt` 与 `trades.csv` — 访问 2026-10-21 — 已读（`python3 replay.py` 逐字输出；39 份成交）
-- `bots/quant/replay/quant-018/inputs/buckets_bab.csv`（sha1 `205f1fac…`）与 `inputs/oos_bab_oct12.csv`（sha1 `420531cd…`）— 访问 2026-10-21 — 已读（冻结输入，来自 `notes/q018-paired/buckets.csv` 与 2026-10-21 现场 OOS 数字）
+- `bots/quant/replay/quant-018/SUMMARY.md` — 访问 2026-10-22 — 已读（第 2 轮回放：参数、数据地址、4 个变体、独立事件数与全部结果）
+- `bots/quant/replay/quant-018/stdout.txt` 与 `trades.csv` — 访问 2026-10-22 — 已读（`python3 replay.py` 逐字输出；66 份成交，4 个变体）
+- `bots/quant/replay/quant-018/inputs/buckets_bab.csv`（sha1 `205f1fac…`）、`inputs/strict_bab.csv`（sha1 `f58e5073…`）与 `inputs/oos_bab_oct12.csv`（sha1 `420531cd…`）— 访问 2026-10-22 — 已读（冻结输入，来自 `notes/q018-paired/buckets.csv`、`notes/postdecision-fills-20261021/q018_strict_buckets.csv` 与 2026-10-21 现场 OOS 数字）
+- `bots/quant/notes/postdecision-fills-20261021/q018_strict_buckets.csv`（sha1 `ae0c71bb…`）与 `q018_strict.out` — 访问 2026-10-22 — 已读（Bab STRICT 26 份 12 事件、STRICT60 1 份 −0.92；本回放 V3/V4 的冻结来源）
 - `bots/quant/notes/scheduler/scratch/H-quant-018/tradable_backtest_stdout.txt` 与 `tradable_fills.csv` — 2026-10-21 — 已读（真实成交价 NO 回测，含 1 个 post-draft OOS；复用 `q018-paired/buckets.csv`）
 - `bots/quant/notes/scheduler/scratch/H-quant-018/brier_start_check_stdout.txt` — 2026-10-21 — 已读（周起点价 Brier 0.7436 vs 模型 0.7747，复现 dot-051）
