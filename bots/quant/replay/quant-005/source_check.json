@@ -1,0 +1,64 @@
+{
+  "Elon 48h event exists": {
+    "ok": true,
+    "detail": "title='Elon Musk # tweets October 19 - October 21, 2026?' endDate=2026-10-21T16:00:00Z negRisk=True restricted=True series=10816 n_markets=10"
+  },
+  "Elon 48h brackets": {
+    "ok": true,
+    "detail": "['<40', '40-64', '65-89', '90-114', '115-139', '140-164', '165-189', '190-214', '215-239', '240+']"
+  },
+  "Elon 48h fee rate": {
+    "ok": false,
+    "detail": "rates=[0]"
+  },
+  "elon_event_id": "1205854",
+  "elon_condition_40_64": "0x8637d7e75f672f87f82ce56ec2fa05e0372d3731a4eb7160a004dc3c6b130a61",
+  "Settled Oct17-19 exists": {
+    "ok": true,
+    "detail": "closed=True winner_40_64=['1', '0'] status=resolved closedTime=2026-10-19 18:03:14+00"
+  },
+  "Settled 40-64 is Yes": {
+    "ok": true,
+    "detail": "outcomePrices=[\"1\", \"0\"]"
+  },
+  "resolvedBy": {
+    "ok": true,
+    "detail": "0x69c47De9D4D3Dad79590d61b9e05918E03775f24"
+  },
+  "Trump 7d event exists": {
+    "ok": true,
+    "detail": "title='Donald Trump # Truth Social posts October 20 - October 27, 2026?' endDate=2026-10-27T16:00:00Z n_markets=11"
+  },
+  "Trump brackets count 11": {
+    "ok": true,
+    "detail": "n=11 first=<20 last=200+"
+  },
+  "Trump fee rate": {
+    "ok": false,
+    "detail": "all rate=0.05"
+  },
+  "series 10816 paginates": {
+    "ok": true,
+    "detail": "closed_events=127 span=2026-01-03T17:00:00Z..2026-10-21T16:00:00Z"
+  },
+  "Elon posts feed": {
+    "ok": true,
+    "detail": "HTTP 200 posts=13760 first=2025-10-31T00:17:35.000Z last=2026-10-22T01:22:04.000Z"
+  },
+  "Settled window tracker count": {
+    "ok": true,
+    "detail": "posts in [2026-10-17T16:00Z,2026-10-19T16:00Z)=62 (entry claims 62)"
+  },
+  "data-api trades": {
+    "ok": true,
+    "detail": "conditionId=0x8637d7e75f672f87f82ce56ec2fa05e0372d3731a4eb7160a004dc3c6b130a61 HTTP=200 n_first_page=500 sample={'proxyWallet': '0x088ebed03549fe73c2117b535be5a00aa30c8827', 'side': 'SELL', 'asset': '56651867420055575479362034501537028625471736127802280229015023835380616803179', 'conditionId': '0x8637d7e75f672f87f82ce56ec2fa05e0372d3731a4eb7160a004dc3c6b130a61', 'size': 4.91, 'price': 0.999, 'timestamp': 1792604655, 'title': 'Will Elon Musk post 40-64 tweets from October 19 to October 21, 2026?', 'slug': 'elon-musk-of-tweets-october-19-october-21-2026-40-64', 'icon': 'https://polymarket-upload.s3.us-east-2.amazonaws.com/elon-musk-of-tweets-nov-22-29-apMPG21-pzx_.jpg', 'eventSlug': 'elon-musk-of-tweets-october-19-october-21-2026', 'outcome': 'No', 'outcomeIndex': 1, 'name': 'nonch-winner', 'pseudonym': 'Flowery-Fiction', 'bio': '', 'profileImage': '', 'profileImageOptimized': '', 'transactionHash': '0xaa0f8b44602aed810ac4ba9088ea9c83b204104147f30a58a1600a17c89cda10'}"
+  },
+  "CLOB prices-history": {
+    "ok": true,
+    "detail": "HTTP=200 points=86 first={'t': 1792083636, 'p': 0.515} last={'t': 1792432830, 'p': 0.9995}"
+  },
+  "public-search": {
+    "ok": true,
+    "detail": "HTTP=200 totalResults=343"
+  }
+}

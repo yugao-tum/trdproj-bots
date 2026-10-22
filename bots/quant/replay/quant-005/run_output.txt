@@ -1,0 +1,94 @@
+quant-005 历史可成交价回测
+数据访问日期(UTC): 2026-10-21
+Universe: Gamma closed=true series 10816 (Elon 48h), 10000 (Elon 7d), 11108 (Trump 7d)
+Decision: 50% (canonical=frozen; pooled=敏感性), 75% (pooled 敏感性); 条件模式=le_ge; 历史窗口步长 12h; fee rate 0.05; ask=trade+0.01; edge buffer 0.01
+
+Universe 抓取：
+  series 10816 elon48: closed=126, 有已结算档=126, span=2026-01-03..2026-10-19, posts=13704 (2025-10-31..2026-10-20)
+  series 10000 elon7d: closed=188, 有已结算档=188, span=2024-06-07..2026-10-20, posts=13704 (2025-10-31..2026-10-20)
+  series 11108 trump7d: closed=73, 有已结算档=73, span=2026-02-13..2026-10-20, posts=5789 (2026-01-15..2026-10-20)
+
+可建模候选事件=298；待取成交的 conditionId=4878（并发 8，缓存 _cache/trades）
+  trades 缓存审计: 已有 4878 个，需重取的不完整/旧格式 45 个（其中 v1 旧格式 0 个）
+  trades fetched 200/4878
+  trades fetched 400/4878
+  trades fetched 600/4878
+  trades fetched 800/4878
+  trades fetched 1000/4878
+  trades fetched 1200/4878
+  trades fetched 1400/4878
+  trades fetched 1600/4878
+  trades fetched 1800/4878
+  trades fetched 2000/4878
+  trades fetched 2200/4878
+  trades fetched 2400/4878
+  trades fetched 2600/4878
+  trades fetched 2800/4878
+  trades fetched 3000/4878
+  trades fetched 3200/4878
+  trades fetched 3400/4878
+  trades fetched 3600/4878
+  trades fetched 3800/4878
+  trades fetched 4000/4878
+  trades fetched 4200/4878
+  trades fetched 4400/4878
+  trades fetched 4600/4878
+  trades fetched 4800/4878
+  trades 抓取完整 4833/4878；不完整 45 个（已从定价中排除，complete=false，下次重取）
+  WARN trades 0xd9daa9c0abb5506523bac5dee937313cef0f3e4c86995704acd5af07c7bb277c: fetch failed https://data-api.polymarket.com/trades {'market': '0xd9daa9c0abb5506523bac5dee937313cef0f3e4c86995704acd5af07c7bb277c', 'limit': 500, 'offset': 10500}: 400 Client Error: Bad Request for url: https://data-api.polymarket.com/trades?market=0xd9daa9c0abb5506523bac5dee937313cef0f3e4c86995704acd5af07c7bb277c&limit=500&offset=10500
+  WARN trades 0x46fbdeffa6619cb7e6ce94ba9e2c8c316ff278e6006bf557dbb5adbb3b268e56: fetch failed https://data-api.polymarket.com/trades {'market': '0x46fbdeffa6619cb7e6ce94ba9e2c8c316ff278e6006bf557dbb5adbb3b268e56', 'limit': 500, 'offset': 10500}: 400 Client Error: Bad Request for url: https://data-api.polymarket.com/trades?market=0x46fbdeffa6619cb7e6ce94ba9e2c8c316ff278e6006bf557dbb5adbb3b268e56&limit=500&offset=10500
+  WARN trades 0xe25ae47970ad8babbe3073eaca65d24ee73f685fd49f74e55d2b75a965639695: fetch failed https://data-api.polymarket.com/trades {'market': '0xe25ae47970ad8babbe3073eaca65d24ee73f685fd49f74e55d2b75a965639695', 'limit': 500, 'offset': 10500}: 400 Client Error: Bad Request for url: https://data-api.polymarket.com/trades?market=0xe25ae47970ad8babbe3073eaca65d24ee73f685fd49f74e55d2b75a965639695&limit=500&offset=10500
+  WARN trades 0xd5db778f7930696bc1891e9bed63ec5e6bc0587746d513c40eb67e52509b955d: fetch failed https://data-api.polymarket.com/trades {'market': '0xd5db778f7930696bc1891e9bed63ec5e6bc0587746d513c40eb67e52509b955d', 'limit': 500, 'offset': 10500}: 400 Client Error: Bad Request for url: https://data-api.polymarket.com/trades?market=0xd5db778f7930696bc1891e9bed63ec5e6bc0587746d513c40eb67e52509b955d&limit=500&offset=10500
+  WARN trades 0x9dd958416ab05e989cbc2bddb8fd6e89692b675e126cc0a89d9518634acf7cc2: fetch failed https://data-api.polymarket.com/trades {'market': '0x9dd958416ab05e989cbc2bddb8fd6e89692b675e126cc0a89d9518634acf7cc2', 'limit': 500, 'offset': 10500}: 400 Client Error: Bad Request for url: https://data-api.polymarket.com/trades?market=0x9dd958416ab05e989cbc2bddb8fd6e89692b675e126cc0a89d9518634acf7cc2&limit=500&offset=10500
+
+样本漏斗：
+  全部 closed 事件=386；模型可建模=257；有可成交价=253；50% 触发=253
+  skip no_post_history_before_window: 87
+  skip insufficient_conditional_history: 40
+  skip no_executable_price_in_6h: 4
+  skip tracker_feed_gap: 2
+
+冻结 q005 口径（canonical VERDICT 与头条数字；entry 原文：主样本仅 Elon 48h；
+  重叠窗口按窗口边界去重；50% 决策点；保守经验分布，fee=0.05，hold-to-resolution）：
+  触发事件数 n=111，覆盖 ISO 周=42
+  每份净收益: median=-0.073204, mean=-0.019971
+  每 $1 本金净收益: median=-1.043700, mean=-0.280287
+  命中率=0.1532 (17/111)
+  ISO 周 block bootstrap 95% CI of mean(每份) = [-0.084398, 0.052229] (B=10000, seed=20260520)
+  去重明细 A（先对全部 Elon48 事件按窗口重叠去重）: 事件=124, 触发 n=111, median=-0.073204, mean=-0.019971, hit=0.1532
+  去重明细 B（先取触发行，再按窗口重叠去重）: n=111, median=-0.073204, mean=-0.019971, hit=0.1532
+  Elon48 事件行=126；50% 触发（去重前，仅对照）: n=112, median=-0.073230, mean=-0.023381, hit=0.1518
+  冻结判据（median≤0，或 hit<0.5 且 mean≤0；n≥30）→ FAIL（A 口径 n=111）
+
+敏感性 A（pooled：Elon 48h + Elon 7d + Trump 7d，未去重；50% 决策点；非冻结口径）：
+  触发事件数 n=253，覆盖 ISO 周=47
+  每份净收益: median=-0.032502, mean=-0.016655
+  每 $1 本金净收益: median=-1.047600, mean=-0.511073
+  命中率=0.0870 (22/253)
+  ISO 周 block bootstrap 95% CI of mean(每份) = [-0.049672, 0.019635] (B=10000, seed=20260520)
+  all-event 口径（未触发=0）: median=-0.014690, mean=-0.010916, hit=0.0570
+
+敏感性 B（pooled：同上，未去重；75% 决策点；非冻结口径）：
+  触发事件数 n=200，覆盖 ISO 周=42
+  每份净收益: median=-0.037680, mean=0.006071
+  每 $1 本金净收益: median=-1.045710, mean=-0.424775
+  命中率=0.2250 (45/200)
+  ISO 周 block bootstrap 95% CI of mean(每份) = [-0.027779, 0.040914]
+  all-event 口径: median=0.000000, mean=0.003146, hit=0.1166
+
+模型 vs 市场 对数损失（priced events，按有价档位重新归一化）：
+  n=225
+  保守经验模型: 4.022817
+  原始经验模型: 2.272611
+  NB 平滑检查:  1.814389
+  市场归一化价: 1.472953
+
+结算源一致性（tracker 最终计数落档 vs Gamma resolved 档）：
+  可核对=257, 不一致=18
+
+判定（canonical：冻结 q005 口径 — Elon 48h、按窗口重叠去重、50% 决策点；
+  逐事件买入侧扣费后净收益 median≤0，或 hit<0.5 且 mean≤0 → FAIL；需 ≥30 个独立事件结果）：
+  FAIL — 冻结口径触发样本 n=111，每份净收益中位数 -0.073204，hit=0.1532，mean=-0.019971。
+  VERDICT=FAIL
+
+输出: events.csv (137648 bytes)

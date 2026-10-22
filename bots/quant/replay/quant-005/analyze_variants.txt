@@ -1,0 +1,75 @@
+{
+  "canonical_f50": {
+    "n": 111,
+    "median_share": -0.073204,
+    "mean_share": -0.01997143243243243,
+    "median_dollar": -1.0437,
+    "mean_dollar": -0.28028694594594594,
+    "hit": 0.15315315315315314
+  },
+  "canonical_f50_account": {
+    "n": 111,
+    "net_usdt": -6222.370200000002,
+    "end_equity": 744.481,
+    "max_dd_pct": 100.0,
+    "span_days": 290.9583333333333,
+    "contribution_pct": -156.11617629099248,
+    "notional_per_event": 200.0
+  },
+  "canonical_f75": {
+    "n": 89,
+    "median_share": -0.038445,
+    "mean_share": 0.04549674157303369,
+    "median_dollar": -1.025,
+    "mean_dollar": -0.0017639213483146622,
+    "hit": 0.43820224719101125
+  },
+  "canonical_f75_account": {
+    "n": 89,
+    "net_usdt": -31.39780000000033,
+    "end_equity": 4968.6022,
+    "max_dd_pct": 64.11506636620233,
+    "span_days": 286.9583333333333,
+    "contribution_pct": -0.7987359605053084,
+    "notional_per_event": 200.0
+  },
+  "pooled_f50": {
+    "n": 253,
+    "median_share": -0.032502,
+    "mean_share": -0.016655205533596836,
+    "median_dollar": -1.0476,
+    "mean_dollar": -0.5110732529644268,
+    "hit": 0.08695652173913043
+  },
+  "pooled_f50_account": {
+    "n": 253,
+    "net_usdt": -25860.306599999985,
+    "end_equity": 324.731,
+    "max_dd_pct": 100.0,
+    "span_days": 328.9583333333333,
+    "contribution_pct": -573.8727949740339,
+    "notional_per_event": 200.0
+  },
+  "pooled_f75": {
+    "n": 200,
+    "median_share": -0.03768,
+    "mean_share": 0.006071184999999999,
+    "median_dollar": -1.0457095,
+    "mean_dollar": -0.42477469000000007,
+    "hit": 0.225
+  },
+  "pooled_f75_account": {
+    "n": 200,
+    "net_usdt": -16990.98759999999,
+    "end_equity": 1017.3877999999997,
+    "max_dd_pct": 100.0,
+    "span_days": 287.9583333333333,
+    "contribution_pct": -430.73665569671505,
+    "notional_per_event": 200.0
+  },
+  "elon48_rows": 126,
+  "elon48_kept": 124,
+  "elon48_triggered_nodedup": 112,
+  "dataset_access_date_utc": "2026-10-21",
+  "analysis_run_date_utc": "2026-10-22"
+}
