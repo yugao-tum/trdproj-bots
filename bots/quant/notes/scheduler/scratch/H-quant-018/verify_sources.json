@@ -4,21 +4,21 @@
     {
       "url": "https://gamma-api.polymarket.com/events?tag_slug=geopolitics&limit=500&closed=true&order=endDate&ascending=false",
       "status": 200,
-      "bytes": 3927071,
+      "bytes": 3927093,
       "verdict": "PASS",
       "detail": "100 events returned (entry claims 100 per page)"
     },
     {
       "url": "https://gamma-api.polymarket.com/events?tag_slug=geopolitics&limit=500&closed=false&order=endDate&ascending=true",
       "status": 200,
-      "bytes": 4436591,
+      "bytes": 4437639,
       "verdict": "PASS",
       "detail": "100 events returned (entry claims 100 per page)"
     },
     {
       "url": "https://gamma-api.polymarket.com/events?tag_slug=geopolitics&limit=100&closed=true&offset=100&order=endDate&ascending=false",
       "status": 200,
-      "bytes": 2422080,
+      "bytes": 2422086,
       "verdict": "PASS",
       "detail": "100 events returned (entry claims 100 per page)"
     },
@@ -32,42 +32,42 @@
     {
       "url": "https://gamma-api.polymarket.com/events?slug=how-many-ships-transit-bab-el-mandeb-strait-week-of-october-19",
       "status": 200,
-      "bytes": 27566,
+      "bytes": 27882,
       "verdict": "PASS",
-      "detail": "labels=['<170', '170-189', '190-209', '210-229', '230+'], feesEnabled=[False, False, False, False, False], clobRewards_rates=[None, 11, 9, None, None], rewardsMinSize=[20, 50], rewardsMaxSpread=[8.5] (bid/ask/reward params drift noted in entry)"
+      "detail": "labels=['<170', '170-189', '190-209', '210-229', '230+'], feesEnabled=[False, False, False, False, False], clobRewards_rates=[1, 10, 9, None, None], rewardsMinSize=[20], rewardsMaxSpread=[8.5] (bid/ask/reward params drift noted in entry)"
     },
     {
       "url": "https://gamma-api.polymarket.com/events?slug=how-many-ships-transit-the-strait-of-hormuz-week-of-october-19",
       "status": 200,
-      "bytes": 31229,
+      "bytes": 31160,
       "verdict": "PASS",
       "detail": "labels=['<20', '20-24', '25-29', '30-34', '35-39', '40+'], volume=18101.584662999998 (entry snapshot volume=5539.661748)"
     },
     {
       "url": "https://gamma-api.polymarket.com/public-search?q=how%20many%20ships%20transit&limit_per_type=100&events_status=all",
       "status": 200,
-      "bytes": 1289534,
+      "bytes": 1289977,
       "verdict": "PASS",
       "detail": "47 events (47 how-many-*)"
     },
     {
       "url": "https://gamma-api.polymarket.com/public-search?q=UKMTO&limit_per_type=50&events_status=all",
       "status": 200,
-      "bytes": 26835,
+      "bytes": 26853,
       "verdict": "PASS",
       "detail": "1 events: ['how-many-ukmto-notices-october-1925']"
     },
     {
       "url": "https://gamma-api.polymarket.com/public-search?q=Strait%20of%20Hormuz&limit_per_type=50&events_status=all",
       "status": 200,
-      "bytes": 1468186,
+      "bytes": 1468907,
       "verdict": "PASS",
       "detail": "50 events returned"
     },
     {
       "url": "https://gamma-api.polymarket.com/public-search?q=Bab%20el-Mandeb&limit_per_type=50&events_status=all",
       "status": 200,
-      "bytes": 593742,
+      "bytes": 594339,
       "verdict": "PASS",
       "detail": "23 events returned"
     },

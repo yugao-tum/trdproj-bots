@@ -14,17 +14,17 @@
     {
       "check": "GET https://gamma-api.polymarket.com/events?tag_slug=geopolitics&limit=500&closed=true&order=endDate&ascending=fal",
       "ok": true,
-      "detail": "HTTP 200, 3927071 bytes"
+      "detail": "HTTP 200, 3927093 bytes"
     },
     {
       "check": "GET https://gamma-api.polymarket.com/events?tag_slug=geopolitics&limit=500&closed=false&order=endDate&ascending=tr",
       "ok": true,
-      "detail": "HTTP 200, 4436591 bytes"
+      "detail": "HTTP 200, 4437639 bytes"
     },
     {
       "check": "GET https://gamma-api.polymarket.com/events?tag_slug=geopolitics&limit=100&closed=true&offset=100&order=endDate&as",
       "ok": true,
-      "detail": "HTTP 200, 2422080 bytes"
+      "detail": "HTTP 200, 2422086 bytes"
     },
     {
       "check": "GET https://gamma-api.polymarket.com/events?slug=how-many-ships-transit-bab-el-mandeb-strait-week-of-october-5",
@@ -34,32 +34,32 @@
     {
       "check": "GET https://gamma-api.polymarket.com/events?slug=how-many-ships-transit-bab-el-mandeb-strait-week-of-october-19",
       "ok": true,
-      "detail": "HTTP 200, 27566 bytes"
+      "detail": "HTTP 200, 27882 bytes"
     },
     {
       "check": "GET https://gamma-api.polymarket.com/events?slug=how-many-ships-transit-the-strait-of-hormuz-week-of-october-19",
       "ok": true,
-      "detail": "HTTP 200, 31229 bytes"
+      "detail": "HTTP 200, 31160 bytes"
     },
     {
       "check": "GET https://gamma-api.polymarket.com/public-search?q=how%20many%20ships%20transit&limit_per_type=100&events_status",
       "ok": true,
-      "detail": "HTTP 200, 1289534 bytes"
+      "detail": "HTTP 200, 1289977 bytes"
     },
     {
       "check": "GET https://gamma-api.polymarket.com/public-search?q=UKMTO&limit_per_type=50&events_status=all",
       "ok": true,
-      "detail": "HTTP 200, 26835 bytes"
+      "detail": "HTTP 200, 26853 bytes"
     },
     {
       "check": "GET https://gamma-api.polymarket.com/public-search?q=Strait%20of%20Hormuz&limit_per_type=50&events_status=all",
       "ok": true,
-      "detail": "HTTP 200, 1468186 bytes"
+      "detail": "HTTP 200, 1468907 bytes"
     },
     {
       "check": "GET https://gamma-api.polymarket.com/public-search?q=Bab%20el-Mandeb&limit_per_type=50&events_status=all",
       "ok": true,
-      "detail": "HTTP 200, 593742 bytes"
+      "detail": "HTTP 200, 594339 bytes"
     },
     {
       "check": "GET https://services9.arcgis.com/weJ1QsnbMYJlCHdG/arcgis/rest/services?f=json",
