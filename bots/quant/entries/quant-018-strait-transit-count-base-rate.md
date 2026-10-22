@@ -26,7 +26,7 @@ max_dd: -
 contribution: 1.5%
 ---
 
-整理说明：本条的板块调研、模板计数、PortWatch 复算、费用与盘口数字都是我在 2026-10-20 本会话用 curl/urllib 现场取的（无密钥、无登录、未交易）；脚本 `pw_weekly.py`、`pw_verify.py`、`pw_calib.py` 全码附在文末 `notes/batch2-verification/quant-018.md`。初稿**没有做收益回测**：已关闭市场的逐档价格历史当时只有 6 个事件可取全，只能做 6 个事件的小样本校准，不能当盈利证明。2026-10-20 复核已补做 43 个已关闭事件的价格侧历史检验（“证据 4.4”）与同时点 data-api 成交配对检验；**2026-10-21 H-quant-018 再补做真实成交价可执行回测**（“证据 4.5”，含 1 个 post-draft OOS 事件），并重新核对出处节 17 个外部 URL（原有 15 个 + OOS 事件与 data-api 成交；2026-10-21 复跑全部 HTTP 200）。该回测已在第 2 轮格式下固化为可运行回放 `bots/quant/replay/quant-018/`（脚本、参数、数据地址、`SUMMARY.md`、逐份 `trades.csv`），条目字段 `evidence: 回放`、`result: 不显著` 与回放产物一致，见“证据 4.6”。加固结论：份额中位为正，但事件层不显著、独立事件 <30，**建议降为待选区**；理由见 4.5、4.6 与门槛自查。本条只是 quant-012 的补充：最新 review（`notes/scheduler/reviews/c20261021-070001-research.md`）指出同一机制不能让 018 再占一个独立待核名额，建议 integrator 把本条降为草稿或并入 quant-012；fixer 按本轮任务要求只保留原 `status: 待核` 供复核，不自行改状态。
+整理说明：本条的板块调研、模板计数、PortWatch 复算、费用与盘口数字都是我在 2026-10-20 本会话用 curl/urllib 现场取的（无密钥、无登录、未交易）；脚本 `pw_weekly.py`、`pw_verify.py`、`pw_calib.py` 全码附在文末 `notes/batch2-verification/quant-018.md`。初稿**没有做收益回测**：已关闭市场的逐档价格历史当时只有 6 个事件可取全，只能做 6 个事件的小样本校准，不能当盈利证明。2026-10-20 复核已补做 43 个已关闭事件的价格侧历史检验（“证据 4.4”）与同时点 data-api 成交配对检验；**2026-10-21 H-quant-018 再补做真实成交价可执行回测**（“证据 4.5”，含 1 个 post-draft OOS 事件），并重新核对出处节 17 个外部 URL（原有 15 个 + OOS 事件与 data-api 成交；2026-10-21/22 复跑全部 HTTP 200）。该回测已在第 2 轮格式下固化为可运行回放 `bots/quant/replay/quant-018/`（脚本、参数、数据地址、`SUMMARY.md`、逐份 `trades.csv`），条目字段 `evidence: 回放`、`result: 不显著` 与回放产物一致，见“证据 4.6”。加固结论：份额中位为正，但事件层不显著、独立事件 <30、决策后 60 分钟口径只剩 1 笔且为负，**建议 integrator 降为草稿或并入 quant-012，只作反证/补充，不占独立待核名额，最多按补充采纳（0.5）**；理由见 4.5、4.6、4.7 与门槛自查。本条只是 quant-012 的补充：review `c20261021-070001` 与 `c20261022-063202` 都指出同一机制不能让 018 再占一个独立待核名额；fixer 按本轮任务要求只保留原 `status: 待核` 供复核，不自行改状态。**2026-10-22 review c20261022-063202 复核**：4.2 的 0.127/0.16 与 +0.0682/份已明确标为 2026-10-20 快照；按 2026-10-21（0.024/0.333）和 2026-10-22（0.006/0.155）重抓，该示例 edge 已消失并转负，规则不会触发（见 4.2）。本条是 quant-012 的反证/补充：**不占独立待核名额，最多按补充采纳（0.5）**；正文按任务要求保留 `status: 待核`、`date: 2026-10-20` 不变。
 
 ## 一句话
 
@@ -34,7 +34,7 @@ contribution: 1.5%
 
 ## 钱从哪里来
 
-付钱给你的是**把外侧档按"危机还会升级"来出价的散户**。这条模板的结算值不是新闻、不是民调、不是官方口径的"某方是否宣布"，而是 PortWatch 的一串日度计数：区间内所有日子的通行次数加总。它持续存在的理由是：档位边界由平台按近期水平设定（Bab 的 `170-189 / 190-209 / 210-229` 每档只有 20 次宽，Hormuz 九月底起每档只有 5 次宽），而 2026-10-19 两个 open 市场的中价合计分别是 **Bab 1.010、Hormuz 1.1615**（我按 Gamma 的 bid/ask 中价加总；这是当日快照，2026-10-21 复核盘口已漂移），也就是外侧档合计被系统性多付。这不是套利：十条腿的卖价合计 1.408（Hormuz）根本买不齐，收益只能来自"报价挂在那里被情绪单打中"。
+付钱给你的是**把外侧档按"危机还会升级"来出价的散户**。这条模板的结算值不是新闻、不是民调、不是官方口径的"某方是否宣布"，而是 PortWatch 的一串日度计数：区间内所有日子的通行次数加总。它可能持续存在的理由是：档位边界由平台按近期水平设定（Bab 的 `170-189 / 190-209 / 210-229` 每档只有 20 次宽，Hormuz 九月底起每档只有 5 次宽）。但**“外侧档被系统性多付”只在 2026-10-20 快照成立**：当时两个 open 市场的中价合计为 **Bab 1.010、Hormuz 1.1615**（按 Gamma bid/ask 中价加总）。2026-10-22 重抓同一事件，Bab 中价合计 **1.032**、Hormuz **0.971**；Bab `<170` 的 bid/ask 从 0.127/0.16 变为 **0.006/0.155**，原先 +0.0682/份的示例变成 **−0.0528/份**，规则不触发。也就是说，付款方故事目前只有一个历史横截面支持，**不能当作持续存在的证据**；本条因此只按反证/补充处理。这也不是套利：当时十条腿的卖价合计 1.408（Hormuz）根本买不齐，原假设的收益只能来自“报价挂在那里被情绪单打中”。
 
 ## 规则
 
@@ -80,7 +80,7 @@ contribution: 1.5%
 
 1. 公允值：取该海峡**严格早于本期起始日**的 12 个完整 Mon–Sun 周总量，映射到本期档位网格，做 Laplace 平滑 `p_i=(k_i+1)/(12+n)`，`n` 为档数。不用全历史（2019–2026 共 405 个完整周，横跨战前/战中两个完全不同的状态）。
 2. 只做 Bab el-Mandeb：近 12 周总量 sd=13.51，档宽 20，分布可用；Hormuz 近 30 周 sd=44.17、极差 10–213，档宽只有 5，基准率对它没有信息量（`|周环比变化|` 中位 13 次 > 档宽 5 次）。
-3. 触发：某档 `1-p_i ≥ 该档 NO 的可成交卖价 + 0.01` 才挂 maker 买 NO（`0.01` 为安全垫，成交前写死）。以 2026-10-20 快照的 `<170` 档为例：YES `bestBid=0.127 / bestAsk=0.16`，故 NO 卖价 `1-0.127=0.873`，公允 NO `1-0.0588=0.9412`，价差 `+0.0682/份`。
+3. 触发：某档 `1-p_i ≥ 该档 NO 的可成交卖价 + 0.01` 才挂 maker 买 NO（`0.01` 为安全垫，成交前写死）。**下面是 2026-10-20 快照，不是当前盘口**：当时 `<170` 档 YES `bestBid=0.127 / bestAsk=0.16`，NO 卖价 `1-0.127=0.873`，公允 NO `1-0.0588=0.9412`，价差 `+0.0682/份`。**2026-10-22 重抓**：同一档 `bestBid=0.006 / bestAsk=0.155`，NO 买价 `1-0.006=0.994`，对公允 `0.9412` 是 **−0.0528/份（−5.3% 占款）**，规则**不触发**；2026-10-21 的 0.024/0.333 同样已使 edge 转负。所以 `+0.0682` 不能当现存机会。
 4. 不做裸卖 YES，不碰 negRisk 转换；不加杠杆、不借钱。
 5. 仓位：每档在险 ≤100 份，单 event ≤200 USDT，同时在手 ≤2 个 event，本条专线总额 ≤1,000 USDT（远低于单场所 2,500）。
 6. 出场：不主动平仓，持有到 UMA 结算。
@@ -115,7 +115,7 @@ Bab el-Mandeb 近 12 个完整周总量（2026-07-20 起，脚本 `pw_weekly.py`
 | `230+` | 0/12 = 0.000 | 0.059 | 0.066 | +0.007 |
 | 合计 | 1.000 | 1.000 | **1.010** | |
 
-可执行的一侧（不是中价）：`<170` 的 YES `bestAsk=0.16`、`bestBid=0.127`，买 NO 需付 `0.873`，公允 NO `0.9412`，**每份 +0.0682**；按占用资金折 `0.0682/0.873 = +7.8%`，占款约 7 天（`endDate=2026-10-26T03:59Z`，另加发布与结算滞后）。`230+` 的 NO 卖价 `1-0.028=0.972` 已经高于公允 `0.9412`，**同一算式的 EV 是 −0.031/份，不挂**。这是模型算术，不是实测。
+可执行的一侧（**2026-10-20 快照，不是当前价**）：`<170` 的 YES `bestAsk=0.16`、`bestBid=0.127`，买 NO 需付 `0.873`，公允 NO `0.9412`，当时**每份 +0.0682**；按占用资金折 `+7.8%`，占款约 7 天（`endDate=2026-10-26T03:59Z`，另加发布与结算滞后）。**这个 edge 已经消失**：2026-10-21 重抓 bid/ask=**0.024/0.333**（audit c20261020-170337 §2.2），2026-10-22 重抓=**0.006/0.155**；后者 NO 买价 `1-0.006=0.994`，对公允 `0.9412` 是 **−0.0528/份（−5.3%）**。`230+` 按 2026-10-22 的 bid `0.013` 算 NO 买价 `0.987`，同一算式 **−0.0458/份**，也不挂。表中 2026-10-20 中价合计 1.010 是历史快照；2026-10-22 同一事件中价合计 **1.032**（`0.0805/0.465/0.385/0.058/0.0435`），外侧档不再一致地被高估。以上是模型算术，不是实测，也不能当现存 edge。
 
 Hormuz 同一快照（为什么不做）：六档中价 `<20 0.30 / 20-24 0.347 / 25-29 0.335 / 30-34 0.07 / 35-39 0.0585 / 40+ 0.051`，合计 **1.1615**；卖价合计 `0.35+0.375+0.38+0.11+0.104+0.089 = 1.408`，买价合计 `0.915`。外侧三档中价合计 `0.1795`，而近 30 周（`10,25,37,41,52,28,86,10,38,34,21,31,17,85,213,162,98,44,25,37,39,31,35,30,22,37,22,22,19,29`）里 ≥30 的占 18/30，基准率无法否定这个定价——**Hormuz 的阶梯看起来贵，但基准率给不出可交易的差额**，如实写在这里。
 
@@ -192,7 +192,7 @@ Hormuz 同一快照（为什么不做）：六档中价 `<20 0.30 / 20-24 0.347 
 - 5¢ 压力下草稿期每美元 **−0.0203**；全样本每美元 +0.0465 的 95% 区间跨 0，**不能宣称扣成本后稳定为正**。
 - 把草稿期按 2026-09-01 事后切成两段（不是预注册）：前段 10 份总 **−0.0184**、后段 8 份 **+0.1400**；两段都很小，且后段事件中位 **−0.1800**，同样不能说明稳定。
 - 唯一 post-draft OOS 事件 +0.5900（3 份）为正，但 n=1 事件，无法抵消上面的不确定性。
-- 有触发成交的独立事件 **10 个 < 30**；同点全档价格完整事件 24/43 < 30。按 GUIDE §2 第 6 条，**门 6 仍不满足**。因此本条不应按“已验证可盈利”收录；建议主判降为**待选区**，保留前向记录。
+- 有触发成交的独立事件 **10 个 < 30**；同点全档价格完整事件 24/43 < 30；决策后 60 分钟内 Bab 只有 **1/12 个事件可成交（1 份，−0.92）**。按 GUIDE §2 第 6 条，**门 6 仍不满足**；门 5 也不能判满足。因此本条**不应按收录或待选区候选处理**；建议 integrator **降为草稿或并入 quant-012**，只作 quant-012 的反证/补充，最多按补充采纳（0.5），保留前向记录供以后复核。
 
 ### 4.6 第 2 轮回放产物（H-quant-018，2026-10-21）
 
@@ -224,7 +224,7 @@ Hormuz 同一快照（为什么不做）：六档中价 `<20 0.30 / 20-24 0.347 
 
 ## 数据
 
-- **IMF PortWatch（本条核心，免费、免密钥、无需注册）**：ArcGIS FeatureServer `https://services9.arcgis.com/weJ1QsnbMYJlCHdG/arcgis/rest/services/Daily_Chokepoints_Data/FeatureServer/0/query`，字段 `date, portname, n_total, n_container, n_dry_bulk, n_general_cargo, n_roro, n_tanker, capacity...`；`where=portname IN ('Bab el-Mandeb Strait','Strait of Hormuz')`；单页上限 1,000 行（`exceededTransferLimit=true`），需 `resultOffset` 翻页。覆盖 **2019-01-01 起**；我 2026-10-20 抓时最大 `date` 是 **2026-10-11**（5,682 行 / 每海峡 2,841 天）。**2026-10-21 复核**：5,696 行 / 每海峡 2,848 天 / 最新 **2026-10-18**（407 个完整周），见 `notes/scheduler/scratch/H-quant-018/verify_sources_stdout.txt`。
+- **IMF PortWatch（本条核心，免费、免密钥、无需注册）**：ArcGIS FeatureServer `https://services9.arcgis.com/weJ1QsnbMYJlCHdG/arcgis/rest/services/Daily_Chokepoints_Data/FeatureServer/0/query`，字段 `date, portname, n_total, n_container, n_dry_bulk, n_general_cargo, n_roro, n_tanker, capacity...`；`where=portname IN ('Bab el-Mandeb Strait','Strait of Hormuz')`；单页上限 1,000 行（`exceededTransferLimit=true`），需 `resultOffset` 翻页。覆盖 **2019-01-01 起**；我 2026-10-20 抓时最大 `date` 是 **2026-10-11**（5,682 行 / 每海峡 2,841 天）。**2026-10-21 复核**：5,696 行 / 每海峡 2,848 天 / 最新 **2026-10-18**（407 个完整周）；**2026-10-22 再抓不变**（5,696 / 2,848 / 2026-10-18），见 `notes/scheduler/scratch/H-quant-018/verify_sources_stdout.txt`。
 - **发布节奏（我观察到的，不是官方说明）**：结算规则里指定的那个 PortWatch 页面 `https://portwatch.imf.org/pages/6b1814d64903461b98144a6cc25eb79c` 我在 2026-10-20 抓到 216,598 字节的 ArcGIS Hub 页面，但**页面 HTML 里没有直接的表格链接**（条目 id 只有一个 logo 的 `fe7fbd7489ec425d8c415e7ad3ef01da`），所以日度数据我是经 ArcGIS 服务取的，不是经这个页面点的；这条"页面 = 服务"的对应关系**未完全核实**。观察到的事实：2026-10-20 时最新日度数据是 2026-10-11；2026-10-21 复核已到 2026-10-18，Bab `week of October 12` 已结算 `170-189`、Hormuz 同周仍 `closed=false`。即便如此，日度数据在周内是否可见取决于发布时点，**不能假定周内能看到完整 7 天**；本条仍不做周内 nowcast。
 - **Polymarket Gamma（免费免密钥）**：`events?slug=<event slug>`（规则原文、`outcomePrices`、`bestBid/bestAsk`、`feesEnabled`、`clobRewards`、`negRisk`）；`events?tag_slug=geopolitics&closed=true|false`（板块普查）；`public-search?q=how many ships transit&limit_per_type=100&events_status=all`（同族清单）。
 - **CLOB（免费免密钥）**：`https://clob.polymarket.com/prices-history?market=<tokenId>&interval=max&fidelity=60`；原稿只覆盖 6 个事件（Hormuz `week of october 5` 的 `25-29` 档有完整序列，其余无成交档返回空）；2026-10-20 复核改用 `startTs/endTs` 分段后，43/43 个事件有首价、34/43 有周起点价，见“证据 4.4”。
@@ -238,7 +238,7 @@ Hormuz 同一快照（为什么不做）：六档中价 `<20 0.30 / 20-24 0.347 
 - 每天记录：PortWatch 当日新发布的 `date, portname, n_total`；各档 `bestBid/bestAsk/outcomePrices`；我的挂单、成交、库存。
 - **失败标准（写死，事后不改）**：
   1. 已成交 NO 份额的**中位已实现毛利 ≤ 0**（毛利 = 票面 1.00 − 成交价，不含未成交挂单）；
-  2. 或两周内成交份额 < 20 份（判"容量失败"，同样进待选区）；
+  2. 或两周内成交份额 < 20 份（判"容量失败"，同样按失败处理；本条已不建议进待选区）；
   3. 或补全的 30 个历史事件上，基准率的平均 Brier **不优于**市场价首价（当前首价 43 个事件上 0.7658 vs 0.8060，但不显著；周起点价 34 个事件上模型 0.7747 vs 市场 0.7436，模型更差；Bab 独立事件 <30，故对实际规则是 INSUFFICIENT）。
 - 不允许的自我安慰：不能把"挂单没成交"当正结果；不能在 6 个事件上说"已验证"。
 
@@ -249,8 +249,8 @@ Hormuz 同一快照（为什么不做）：六档中价 `<20 0.30 / 20-24 0.347 
 - **单笔能放多少**：`<170` 档 NO 挂 `0.873`、100 份 ≈ **87.3 USDT**；单 event 上限 200 USDT，两条海峡同时做也只到 400 USDT。
 - **一个月多少次机会**：每周 2 个 event（Hormuz + Bab，2026-07-13 起每周都有；更早 Hormuz 也是每周一个）→ **约 8–9 个 event/月**。但真正会触发挂单的只有外侧档，多数周只有 0–2 档触发；回放里 Bab 草稿期 12 个事件有 9 个至少一档触发。
 - **对 5,000 USDT 的年化贡献（第 2 轮粗算）**：只做 Bab，草稿期每美元投入 **+0.0094** × 单 event 上限 **200 USDT** × 每年约 **39** 次触发（52 周 × 9/12）÷ 5,000 = **1.5%**。这是**上限粗算，未由成交深度验证**：回放只有 1 份/档，200 USDT/event 是条目假设而不是实测容量；bootstrap 区间跨 0，且是税前、无滑点之外成本；不等于可稳定拿到的收益。
-- **容量**：event 成交额（Gamma 自报，**未用成交明细复现**）Bab 12 个已关闭事件合计 **$265,080**、Hormuz 30 个（不含日期解析失败的 `mar-10-16`）合计 **$6,332,007**；open 的 Bab `week of october 19` `volume=13,595.37`、`liquidity=53,710.93`。**几百到几十万美元/event** 的量级，1,000 USDT 的专线额度放得下，但 5,000 USDT 放不满——赚的钱对总资金微不足道，这是本条的主要缺点。`volume` 是 Gamma 自报且会变（2026-10-21 复核 Hormuz `week of october 19` 已从 5,539.66 变到约 1.7 万，本轮为 17,126.44），这里只作量级参考，未用成交明细复现。
-- **流动性奖励（补贴，不是主收益）**：该市场 `clobRewards` 是**逐档（逐 leg）**字段，2026-10-20 快照的 5 档 `rewardsDailyRate` 依次为 **6/39/42/5/8**（`170-189` 档为 39；各档 `rewardsAmount=0`、`startDate=2026-10-20`、`endDate=2500-12-31`）、`rewardsMinSize=50`、`rewardsMaxSpread=8.5`；按 Q-score 规则（见 dot-032）`170-189` 档 $39/日由所有合格 maker 分。**2026-10-21 复核仍在逐档漂移（同日多次重抓见到 1/53/41/5/无、2/9/7/2/无、2/9/8/1/无；`rewardsMinSize` 在 20 与 50 之间混合）**，见 `notes/scheduler/scratch/H-quant-018/verify_sources_stdout.txt`；这条不靠它，只把它当噪声补贴，且奖励参数逐日可变。
+- **容量**：event 成交额（Gamma 自报，**未用成交明细复现**）Bab 12 个已关闭事件合计 **$265,080**、Hormuz 30 个（不含日期解析失败的 `mar-10-16`）合计 **$6,332,007**；open 的 Bab `week of october 19` `volume=13,595.37`、`liquidity=53,710.93`。**几百到几十万美元/event** 的量级，1,000 USDT 的专线额度放得下，但 5,000 USDT 放不满——赚的钱对总资金微不足道，这是本条的主要缺点。`volume` 是 Gamma 自报且会变（2026-10-21 Hormuz `week of october 19` 为 17,126.44；**2026-10-22 为 18,101.58，Bab 同周为 15,809.84、`liquidity=22,960.27`**），这里只作量级参考，未用成交明细复现。
+- **流动性奖励（补贴，不是主收益）**：该市场 `clobRewards` 是**逐档（逐 leg）**字段，2026-10-20 快照的 5 档 `rewardsDailyRate` 依次为 **6/39/42/5/8**（`170-189` 档为 39；各档 `rewardsAmount=0`、`startDate=2026-10-20`、`endDate=2500-12-31`）、`rewardsMinSize=50`、`rewardsMaxSpread=8.5`；按 Q-score 规则（见 dot-032）`170-189` 档 $39/日由所有合格 maker 分。**2026-10-21/22 复核仍在逐档漂移（10-21 同日多次重抓见到 1/53/41/5/无、2/9/7/2/无、2/9/8/1/无；10-22 为 无/11/9/无/无，`rewardsMinSize` 在 20 与 50 之间混合）**，见 `notes/scheduler/scratch/H-quant-018/verify_sources_stdout.txt`；这条不靠它，只把它当噪声补贴，且奖励参数逐日可变。
 
 ## 风险
 
@@ -272,16 +272,16 @@ Hormuz 同一快照（为什么不做）：六档中价 `<20 0.30 / 20-24 0.347 
 1. **机制说得清：满足** — 付钱方是按地缘恐慌给外侧档出价的散户；量化证据是 2026-10-19 快照两个 open 阶梯的中价合计 1.010（Bab）与 1.1615（Hormuz；2026-10-21 复核已漂移），以及 Bab `<170` 档中价 0.1435 对 12 周经验值 0（Laplace 0.059）。谁付钱清楚了；"为什么持续"只有单点横截面证据。
 2. **有免费数据能检验：满足（有条件）** — 结算源 IMF PortWatch 免费免密钥、2019 起有日度数据，我复算 43 个已关闭事件中 41 个可比对的里 34 个与结算档位一致（2026-07-13 起 25/25）；预言机结算结果也在 Gamma 免费可读。2026-10-20 复核已取到 43/43 个事件的首价与 34/43 的周起点价；2026-10-21 又补到同时点 data-api 成交价（24/43 事件全档有价）和 1 个 post-draft OOS 事件。但价格是已成交打印、不是完整盘口，历史深度缺失。
 3. **小资金能做：资金门槛满足，可成交性未证实** — 87.3 USDT/档、200 USDT/event、本条专线 1,000 USDT，远低于单场所 2,500 与总资金 5,000；不加杠杆；NO 买单最大亏损就是本金。但按 PR #21，决策后 60 分钟内 Bab 12 个事件只有 1 个有成交（1 份，−0.92），决策时点按回放价成交没有证据（4.7）。
-4. **不重复：不确定** — 2026-10-21 复核时 `grep -rl "pm_category: geopolitics" bots/*/entries/` 已能查到 `composer-004`、`dot-051` 与本条：板块**不再空白**，不能按“开新路”加分；其中 composer-004 与本条是同一 PortWatch 周转模板。但**机制同族于 quant-012（地震周计数基准率）**：同样是"免费计数源的经验分布 vs 计数阶梯"。真正的差别是：这里吃单费为 0（quant-012 是 0.05）、结算源存在**事后修订**与 9 天级发布滞后（2026-10-21 复核时已恢复至 3 天；所以周内无任何部分信息，不能做 nowcast，只能做纯预测）、档宽 20 对 sd 13.51 的量级。与 dot C04（政治官宣与未结算窗口）、C10（截止日型时间衰减）、C11（新闻后过度反应）都不同：本条不依赖任何公告、不依赖截止日临近的时间价值、也不预测新闻后的修正方向。按主审判法，本条已按 `kind: supplement` 并入 quant-012。composer-004 的提交时间晚于本条（2026-10-20 06:50 +0200 vs composer 2026-10-21 08:57 +0800），按 GUIDE §3.3 先到先得，应保留 quant-018 为主、composer-004 作补充；但**本机制的主条目是 quant-012，quant-018 只按 quant-012 的补充**，不单独占待核名额。本条不主张独立开新路。
+4. **不重复：不满足（作为独立条目）** — 2026-10-21 复核时 `grep -rl "pm_category: geopolitics" bots/*/entries/` 已能查到 `composer-004`、`dot-051` 与本条：板块**不再空白**，不能按“开新路”加分；其中 composer-004 与本条是同一 PortWatch 周转模板。更关键的是**机制同族于 quant-012（地震周计数基准率）**：同样是"免费计数源的经验分布 vs 计数阶梯"，差别只是计数源、费用和档宽。按 GUIDE §2 第 4 条和 §3.3，这属于变体/补充，**不能算独立的新收益来源**，所以作为独立条目门 4 不满足。与 dot C04（政治官宣与未结算窗口）、C10（截止日型时间衰减）、C11（新闻后过度反应）都不同：本条不依赖任何公告、不依赖截止日临近的时间价值、也不预测新闻后的修正方向。按主审判法，本条已按 `kind: supplement` 并入 quant-012。composer-004 的提交时间晚于本条（2026-10-20 06:50 +0200 vs composer 2026-10-21 08:57 +0800），按 GUIDE §3.3 先到先得，018 相对 composer-004 先到；但**本机制的主条目是 quant-012，quant-018 只按 quant-012 的补充**，不单独占待核名额。本条不主张独立开新路。
 5. **扣成本后粗算够用：不确定（偏负，2026-10-21 真实成交价回放后）** — 吃单费 0；1¢ 基础成本下全样本 21 份 / 10 事件，份额中位 +0.2400/份、每美元 +0.0465，但事件中位仅 +0.0850、事件 5 胜 5 负，事件聚类 bootstrap 每美元 95% 区间 **[-0.216, +0.261]** 跨 0；草稿期 12 事件事件中位 **−0.1800**，5¢ 压力下每美元 **−0.0203**。唯一 post-draft OOS 事件 +0.5900（n=1）不能改变结论。回放产物见 `bots/quant/replay/quant-018/`，年化贡献粗算仅 **1.5%**（**上限粗算，未由成交深度验证**；1 份/档，200 USDT/event 是假设而非实测容量）。不足以宣称扣成本后稳定为正；按门 5 不应收录。另：以上价格均为 `T` 前最后一笔；决策后 60 分钟口径下 Bab 仅 1 笔成交、每份 −0.92（`bots/quant/notes/postdecision-fills-20261021/REPORT.md`）。
-6. **两周内能检验：不满足** — 独立结果按 event 计；有触发成交的事件只有 **10 个 < 30**，同一时点全档都有成交价的事件也只有 **24/43**（Bab **5/12**），均低于 30；前向两周只有约 4 个 event，不能补足。冻结标准 (3) 因此 **INSUFFICIENT**。这是本条不能收录的主要原因（`result: 不显著` 也是按这一条，而不是因为回放净收益为负）。
-7. **出处可查：满足** — 2026-10-21 用 `notes/scheduler/scratch/H-quant-018/verify_sources.py` 重抓出处节的 **17/17 个外部 URL，全部 HTTP 200、0 FAIL**（stdout 见同目录 `verify_sources_stdout.txt`；较早一版只列 15 个，加入 OOS 事件与 data-api 成交后为 17 个）；另用 `verify_citations.py` 全文扫描 **25/25 项检查通过**（含正文里全部外部 URL、OOS 事件结算 `170-189`、data-api 成交字段、PortWatch 5,696 行 / 2,848 天 / 最新 2026-10-18、14 个本地引用路径存在、3 个冻结输入 sha1、8 个第 2 轮字段与 `SUMMARY.md` 一致；stdout `verify_citations_stdout.txt`）；回放输入与参数在 `bots/quant/replay/quant-018/SUMMARY.md`，可离线复跑；PortWatch 的 5,682 行、405 个完整周、12 周序列、34/7/2 的 MATCH/MISMATCH 明细、Brier 与 P&L 数字都是我自己脚本算的，全码附在 `notes/batch2-verification/quant-018.md` 与本轮 scratch；Gamma 的 `volume/liquidity` 标了"来源自报，未核实"；快照漂移（PortWatch 行数/最新日期、clobRewards、盘口）已照写。两个失败/未核实项（PortWatch 页面→服务的对应、3–5 月 MISMATCH 的解释）仍照写。
+6. **两周内能检验：不满足** — 独立结果按 event 计；有触发成交的事件只有 **10 个 < 30**，同一时点全档都有成交价的事件也只有 **24/43**（Bab **5/12**），均低于 30；决策后 60 分钟内只有 **1/12** 个 Bab 事件可成交；前向两周只有约 4 个 event，不能补足。冻结标准 (3) 因此 **INSUFFICIENT**。这是本条不能收录的主要原因（`result: 不显著` 也是按这一条，而不是因为回放净收益为负）。
+7. **出处可查：满足** — 2026-10-22 用 `notes/scheduler/scratch/H-quant-018/verify_sources.py` 重抓出处节的 **17/17 个外部 URL，全部 HTTP 200、0 FAIL**（stdout 见同目录 `verify_sources_stdout.txt`；较早一版只列 15 个，加入 OOS 事件与 data-api 成交后为 17 个）；另用 `verify_citations.py` 全文扫描 **25/25 项检查通过**（含正文里全部外部 URL、OOS 事件结算 `170-189`、data-api 成交字段、PortWatch 5,696 行 / 2,848 天 / 最新 2026-10-18、**19 个**本地引用路径存在、**5 个**冻结输入 sha1、8 个第 2 轮字段与 `SUMMARY.md` 一致；stdout `verify_citations_stdout.txt`）；回放输入与参数在 `bots/quant/replay/quant-018/SUMMARY.md`，可离线复跑；PortWatch 的 5,682 行、405 个完整周、12 周序列、34/7/2 的 MATCH/MISMATCH 明细、Brier 与 P&L 数字都是我自己脚本算的，全码附在 `notes/batch2-verification/quant-018.md` 与本轮 scratch；Gamma 的 `volume/liquidity` 标了"来源自报，未核实"；快照漂移（PortWatch 行数/最新日期、clobRewards、盘口）已照写。两个失败/未核实项（PortWatch 页面→服务的对应、3–5 月 MISMATCH 的解释）仍照写。
 
 ## 结论与建议
 
-七条门槛里，1/2/3/4/7 基本满足（其中 4 是“同一机制补充”，不主张独立开新路），**5 不确定且偏负，6 不满足**（独立事件 <30）。按 GUIDE §2“七条全部满足才收录”，本条**不应按收录处理**；建议主判降为**待选区**，保留前向记录，并把 2026-10-12 的 post-draft OOS 事件继续跟踪。第 2 轮交付已按 GUIDE §2.1/§7 补齐：`evidence: 回放`（`bots/quant/replay/quant-018/` 可复跑）、`result: 不显著`（10 个独立事件 < 30，bootstrap 区间跨 0）、`variants: 4`（V1/V2 决策前回放 + V3/V4 决策后回放）、`window: 2026-07-20..2026-10-18`、`contribution: 1.5%`（上限粗算，未由成交深度验证）。这是**负/不显著证据**，不是可盈利证明。PR #21 的决策后 60 分钟复核（4.7）显示 Bab 只有 1 笔可成交（−0.92），可成交性/可执行性未证实。
+七条门槛里，作为**独立条目**只有 1/2/3/7 基本满足：**4 不满足**（与 quant-012 同机制、与 composer-004 同模板，只按 supplement 计）、**5 不确定且偏负**（份额中位为正但事件层不稳，5¢ 压力和决策后 60 分钟为负）、**6 不满足**（独立事件 10<30）。按 GUIDE §2“七条全部满足才收录”，本条**不应按收录处理**，也不应再按“待选区候选”占位；建议 integrator **降为草稿或并入 quant-012**，只作反证/补充（最多补充采纳 0.5），保留前向记录，并把 2026-10-12 的 post-draft OOS 事件继续跟踪。第 2 轮交付已按 GUIDE §2.1/§7 补齐：`evidence: 回放`（`bots/quant/replay/quant-018/` 可复跑）、`result: 不显著`（10 个独立事件 < 30，bootstrap 区间跨 0）、`variants: 4`（V1/V2 决策前回放 + V3/V4 决策后回放）、`window: 2026-07-20..2026-10-18`、`contribution: 1.5%`（上限粗算，未由成交深度验证）。这是**负/不显著证据**，不是可盈利证明。PR #21 的决策后 60 分钟复核（4.7）显示 Bab 只有 1 笔可成交（−0.92），11/12 个事件不可成交，可成交性/可执行性未证实。
 
-按 review c20261021-070001 第 1 条，**建议 integrator 把本条降为草稿或并入 quant-012，不单独占待核名额**；quant-012 才是本机制的主条目。fixer 按本轮任务要求未改 `status`（仍 `待核`）与 `date`（仍 `2026-10-20`），只把正文里的降级建议写死，避免与 front matter 的差异被误读为“仍主张独立待核”。
+按 review c20261021-070001 第 1 条和 c20261022-063202 的同机制/盘口问题，**建议 integrator 把本条降为草稿或并入 quant-012，不单独占待核名额**；quant-012 才是本机制的主条目。fixer 按本轮任务要求未改 `status`（仍 `待核`）与 `date`（仍 `2026-10-20`），只把正文里的降级建议和盘口快照写死，避免与 front matter 的差异被误读为“仍主张独立待核”。
 
 ## 出处
 
@@ -290,9 +290,10 @@ Hormuz 同一快照（为什么不做）：六档中价 `<20 0.30 / 20-24 0.347 
 - https://gamma-api.polymarket.com/events?tag_slug=geopolitics&limit=500&closed=false&order=endDate&ascending=true — 访问 2026-10-20 — 已读（100 个 open event，4,390,404 字节）
 - https://gamma-api.polymarket.com/events?tag_slug=geopolitics&limit=100&closed=true&offset=100&order=endDate&ascending=false — 访问 2026-10-20 — 已读（第 2 页 100 个）
 - https://gamma-api.polymarket.com/events?slug=how-many-ships-transit-bab-el-mandeb-strait-week-of-october-5 — 访问 2026-10-20 — 已读（规则原文全文、5 档、结算 `190-209`、`volume=13097.774817`）
-- https://gamma-api.polymarket.com/events?slug=how-many-ships-transit-bab-el-mandeb-strait-week-of-october-19 — 访问 2026-10-20 — 已读（5 档 bid/ask、`feesEnabled=false`、逐档 `clobRewards` rate 6/39/42/5/8（`170-189` 档 39）、`rewardsMinSize=50`、`rewardsMaxSpread=8.5`）
-- https://gamma-api.polymarket.com/events?slug=how-many-ships-transit-the-strait-of-hormuz-week-of-october-19 — 访问 2026-10-20 — 已读（6 档 bid/ask、`volume=5539.661748`）
-- https://gamma-api.polymarket.com/public-search?q=how%20many%20ships%20transit&limit_per_type=100&events_status=all — 访问 2026-10-20 — 已读（47 个 `how-many-*` 同族 event 的 slug 与 endDate，用于 43 个已关闭事件的枚举）
+- https://gamma-api.polymarket.com/events?slug=how-many-ships-transit-bab-el-mandeb-strait-week-of-october-19 — 访问 2026-10-20 — 已读（5 档 bid/ask、`feesEnabled=false`、逐档 `clobRewards` rate 6/39/42/5/8（`170-189` 档 39）、`rewardsMinSize=50`、`rewardsMaxSpread=8.5`；**2026-10-22 复访**：`<170` bid/ask=0.006/0.155，`volume=15,809.844682`、`liquidity=22,960.26523`，各档仍 `feesEnabled=false`）
+- `bots/quant/notes/scheduler/audit/c20261020-170337-research.md` §2.2 — 访问 2026-10-20/22 — 已读（同日重抓 Bab `<170` bid/ask=0.024/0.333，说明 0.127/0.16 只是 2026-10-20 快照且 edge 已转负）
+- https://gamma-api.polymarket.com/events?slug=how-many-ships-transit-the-strait-of-hormuz-week-of-october-19 — 访问 2026-10-20 — 已读（6 档 bid/ask、`volume=5539.661748`；**2026-10-22 复访**：中价合计 0.971、`volume=18,101.584663`、`liquidity=72,694.61991`）
+- https://gamma-api.polymarket.com/public-search?q=how%20many%20ships%20transit&limit_per_type=100&events_status=all — 访问 2026-10-20 — 已读（47 个 `how-many-*` 同族 event 的 slug 与 endDate；**2026-10-22 复访仍 47 个，其中 44 个已关闭 = Hormuz 31 / Bab 13**，用于 43 个草稿期已关闭事件的枚举）
 - https://gamma-api.polymarket.com/public-search?q=UKMTO&limit_per_type=50&events_status=all — 访问 2026-10-20 — 已读（1 个 event：`how-many-ukmto-notices-october-1925`）
 - https://gamma-api.polymarket.com/public-search?q=Strait%20of%20Hormuz&limit_per_type=50&events_status=all — 访问 2026-10-20 — 已读（50 个 event，含月度均值模板）
 - https://gamma-api.polymarket.com/public-search?q=Bab%20el-Mandeb&limit_per_type=50&events_status=all — 访问 2026-10-20 — 已读（23 个 event）
@@ -304,7 +305,8 @@ Hormuz 同一快照（为什么不做）：六档中价 `<20 0.30 / 20-24 0.347 
 - GUIDE.md 第 2、7、8、10、11 节 — 访问 2026-10-20 — 已读（费用公式、地缘费率 0、七条门槛、分类代码）
 - https://gamma-api.polymarket.com/events?slug=how-many-ships-transit-bab-el-mandeb-strait-week-of-october-12-20261006t134953677z — 访问 2026-10-21 — 已读（post-draft OOS 事件，结算 `170-189`，5 档全部 `feesEnabled=false`）
 - https://data-api.polymarket.com/trades?market=0xc3f0b47231b149f564840ae702749014a9f1a63c39d20375d505eba509f10039&limit=500&offset=0 — 访问 2026-10-21 — 已读（新 OOS 事件 `170-189` 档的逐笔成交；脚本按 conditionId 逐档分页，见 `tradable_backtest.py`）
-- `bots/quant/notes/scheduler/scratch/H-quant-018/verify_sources_stdout.txt` — 访问 2026-10-21 — 已读（出处节 17 个外部 URL 全部 HTTP 200、0 FAIL；PortWatch 行数/最新日期、`clobRewards`、`volume` 漂移均记录）
+- `bots/quant/notes/scheduler/scratch/H-quant-018/verify_sources_stdout.txt` — 访问 2026-10-22 — 已读（出处节 17 个外部 URL 全部 HTTP 200、0 FAIL；PortWatch 行数/最新日期、`clobRewards`、`volume` 漂移均记录）
+- `bots/quant/notes/scheduler/scratch/H-quant-018/verify_citations_stdout.txt` — 访问 2026-10-22 — 已读（全文 25 项检查全部通过，含 19 个本地引用路径与 5 个冻结输入 sha1）
 - `bots/quant/replay/quant-018/SUMMARY.md` — 访问 2026-10-22 — 已读（第 2 轮回放：参数、数据地址、4 个变体、独立事件数与全部结果）
 - `bots/quant/replay/quant-018/stdout.txt` 与 `trades.csv` — 访问 2026-10-22 — 已读（`python3 replay.py` 逐字输出；66 份成交，4 个变体）
 - `bots/quant/replay/quant-018/inputs/buckets_bab.csv`（sha1 `205f1fac…`）、`inputs/strict_bab.csv`（sha1 `f58e5073…`）与 `inputs/oos_bab_oct12.csv`（sha1 `420531cd…`）— 访问 2026-10-22 — 已读（冻结输入，来自 `notes/q018-paired/buckets.csv`、`notes/postdecision-fills-20261021/q018_strict_buckets.csv` 与 2026-10-21 现场 OOS 数字）

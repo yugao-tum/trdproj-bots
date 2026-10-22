@@ -1,8 +1,35 @@
-# H-quant-018 fix log (2026-10-21)
+# H-quant-018 fix log (2026-10-21, updated 2026-10-22)
 
 Scope: `bots/quant/entries/quant-018-strait-transit-count-base-rate.md`,
 `bots/quant/replay/quant-018/**`, this scratch directory. No `status`, `date`,
 `id` or filename change. No trading, keys or paid data.
+
+## 2026-10-22 pass (review c20261022-063202)
+
+Problems read from `reviews/c20261022-063202-research.md` §H-quant-018,
+`reviews/c20261021-070001-research.md`, and audits c20261020-1423 /
+c20261020-170337 / c20261021-030001 / c20261021-070001. All fixes are
+inside the three allowed paths.
+
+| # | Problem | Change | Evidence |
+|---|---|---|---|
+| A | **Stale headline edge.** Review 063202 #4: lines quoting YES 0.127/0.16 and +0.0682/份 could still be read as a live opportunity; audit c20261020-170337 §2.2 re-grabbed 0.024/0.333. | Marked the quote as a **2026-10-20 snapshot**, added the 2026-10-21 (0.024/0.333) and 2026-10-22 (0.006/0.155) re-fetches, and stated that at the 10-22 quote NO costs 0.994 against fair 0.9412, i.e. **−0.0528/份**, so the rule does not trigger. Removed the “live +7.8%” reading in §4.2 and 钱从哪里来. | Live re-fetch in `verify_sources_stdout.txt`: Bab `<170` bid/ask 0.006/0.155; entry now carries both timestamps. audit c20261020-170337 §2.2 cited beside the old snapshot. |
+| B | **Internal contradiction on destination.** The intro said “建议降为待选区” while §§4.5 and 结论 said “不应按待选区候选处理；降为草稿或并入 quant-012”. | Rewrote the intro conclusion to one line: **demote to 草稿 or merge into quant-012; counter-evidence/supplement only, max 0.5, no independent 待核 slot**. Changed the frozen “容量失败 → 进待选区” wording to “按失败处理；本条已不建议进待选区”. | `grep -n "待选区" entry` now shows only the removed-candidate statement and the frozen-criteria disclaimer; no conflicting recommendation. |
+| C | **Gate 5/6 wording lacked the post-decision result.** Review 063202 #3 asked to add “独立事件 10<30, bootstrap CI 跨 0, STRICT60 11/12 不可成交”. | Gate 5 now names the bootstrap interval and STRICT60 −0.92; gate 6 already names 10<30 and 1/12 fillable, and the conclusion says 11/12 events unfillable. | Entry 门槛自查 5/6 and 结论与建议; `replay/quant-018/stdout.txt` prints `strict60 shares=1 events=1 median=-0.9200`; `SUMMARY.md` V4 row. |
+| D | **Contribution could be read as measured.** Review 070001 #2. | Kept `contribution: 1.5%` but every occurrence is labelled **上限粗算，未由成交深度验证**; SUMMARY says V3's higher arithmetic is not used. | `grep -n "上限粗算" entry SUMMARY.md`; replay's `annualised contribution ... 1.5%` comes from 1-share × assumed 200 USDT/event. |
+| E | **Round-2 fields and replay consistency.** | Re-ran `verify_citations.py` after the 10-22 edits: 8 fields valid and agree with `replay/quant-018/SUMMARY.md` (`variants=4`, `window=2026-07-20..2026-10-18`, `result=不显著`, `contribution=1.5%`). | `verify_citations_stdout.txt`: `summary: 25 checks, PASS=25, FAIL=0`. |
+| F | **Sources must exist and say what is claimed.** | Re-ran `verify_sources.py` (17 出处 URLs) and `verify_citations.py` (whole entry, 25 checks). Whole-entry local refs now **19** paths and **5** frozen sha1s. | `verify_sources_stdout.txt`: `17 URLs, PASS=17, CHANGED=0, FAIL=0`. `verify_citations_stdout.txt`: `25 checks, PASS=25, FAIL=0`. PortWatch still 5,696 rows / 2,848 per strait / latest 2026-10-18. |
+| G | **Replay must reproduce.** | Re-ran `python3 bots/quant/replay/quant-018/replay.py`; also re-ran the scratch `tradable_backtest.py` and `brier_start_check.py`. | replay `diff stdout.txt → empty`; tradable stdout reproduces 21 shares/10 events, +0.7116, per-$1 +0.0465, draft +0.0094, event median −0.1800, 5¢ draft −0.0203, OOS +0.5900; brier start 0.743627 vs model 0.774672 (diff −0.031045). |
+| H | **Status request conflict.** Review 063202/070001 asked `status: 草稿`; the queue task and HARD RULES say keep the existing `status`/`date` exactly. | Left `status: 待核` and `date: 2026-10-20` untouched; wrote the demotion recommendation in the entry and here. Integrator decides. | Front matter lines 17-18 unchanged; `grep -n '^status\|^date' entry`. |
+| I | **Lint.** | Ran `python3 tools/check.py lint --bot quant`. | `检查完毕，问题 0 个` (see `lint_output.txt`). |
+
+Verdict: the honest evidence stays **negative/insignificant** — 10 triggered
+independent events < 30, bootstrap intervals cross 0, draft event median
+−0.1800, 5¢ stress −0.0203/$, STRICT60 1 fill at −0.92. The entry recommends
+demotion/merge, not promotion. No number was inflated.
+
+---
+
 
 Sources read: `notes/scheduler/reviews/c20261021-070001-research.md` (H-quant-018
 section), `reviews/c20261020-1423-research.md`, `checks/B23.md`,

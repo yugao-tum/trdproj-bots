@@ -24,7 +24,7 @@ ENTRY = REPO / "bots/quant/entries/quant-018-strait-transit-count-base-rate.md"
 SUMMARY = REPO / "bots/quant/replay/quant-018/SUMMARY.md"
 S = requests.Session()
 S.headers.update({"User-Agent": "quant-q018-citation-check/1.0 (keyless public data)"})
-AS_OF = "2026-10-21"
+AS_OF = "2026-10-22"
 checks = []
 
 

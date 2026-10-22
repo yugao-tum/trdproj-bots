@@ -20,7 +20,7 @@ CACHE.mkdir(exist_ok=True)
 ENTRY = HERE.parents[3] / "entries" / "quant-018-strait-transit-count-base-rate.md"
 S = requests.Session()
 S.headers.update({"User-Agent": "quant-q018-source-verify/1.0 (keyless public data)"})
-AS_OF = "2026-10-21"
+AS_OF = "2026-10-22"
 rows = []
 
 
