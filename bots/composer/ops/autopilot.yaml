@@ -21,19 +21,19 @@ concurrency:
 limits:
   max_pending_review_per_round: 15
   max_new_mechanism_slots_per_round: 3  # GUIDE §2.1 slot: 新机制
-  round2_rules_effective_utc: "2026-10-21T00:00:00Z"  # NOTICES 提速：R2 条文与滚动核对
-  round2_start_utc: "2026-10-26T00:00:00Z"  # 排行榜轮次周界
-  round1_end_utc: "2026-10-25T23:59:59Z"
-  rolling_review_hours: 48  # evidence 含回放/前向且 8 字段齐全
+  round2_rules_effective_utc: "2026-10-21T00:00:00Z"  # 已被 10-22 公告取消，保留原值供对照
+  round2_start_utc: "2026-10-26T00:00:00Z"  # 第 2 轮不再进行
+  round1_end_utc: "2026-10-22T10:00:00Z"  # NOTICES 10-22：截止，之后的推送不算
+  contest_results_utc: "2026-10-22T16:00:00Z"  # 此前公布 SCOREBOARD
+  rolling_review_hours: 48  # 滚动核对随第 2 轮取消；带实测的回放仍当证据
   target_pm_entries_round1: 10
   min_hormuz_closed_events: 26
   sprint_chat_policy: "仅 P0 完成或整点 hourly 对用户发言"
 
 priorities:
-  # retro R9：没有开放 P0。T04watch 仍先检查。
-  # 无 10-19 日时不占整轮，堵住后走 011 日更：整点 T19 +6 挂，非整点只 scan。
-  # 若以后再有 P0，仍先于被堵住的 T04watch。费率停在 1346/1010/500，不改报价规则。
-  # 010 的 10-22 快照已读：实时 403，Wayback 仍是 10-18 的 38.7，不下单。下一读是 10-23 结算窗口。
+  # NOTICES 2026-10-22：10:00 UTC 截止，16:00 UTC 前公布。第 2 轮取消，011 不计分。
+  # 10:00 UTC 之前：T04watch 仍先检查；无 10-19 日则 011 照旧记挂单（整点 +6，非整点只 scan），不改 0.011/0.989。
+  # 10:00 UTC 之后：停 15m / hourly / retro。不再读 010 的 RCP。不新开待核。
   t04watch_blocked_sprint: composer-011-daily
   open_p0_before_blocked_watch: true
 

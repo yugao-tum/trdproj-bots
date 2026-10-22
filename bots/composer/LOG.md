@@ -126,3 +126,15 @@
 - 新增或修改的文件：BRIEFINGS.md、RETROSPECTIVES.md、BACKLOG.md、autopilot.yaml、LOG.md
 - 查了多少个来源：quant/muse CLAIMS + scoreboard（MCP）
 - 遇到的问题：远程 BRIEFINGS 缺 #8（本批 push）
+
+## 2026-10-21 11:00（15m 冲刺 T21）
+- 做了什么：composer-008 用 data-api YES 成交价做周结束前 48h 中位数回放。5 周都有成交，3 胜 2 负，每份净收益均值 +0.0139。不宣称显著。
+- 新增或修改的文件：`replay/composer-008/trade_replay.py`、`trade_replay.json`、`SUMMARY.md`、008 条目 §7、INDEX、BACKLOG、SPRINTLOG
+- 查了多少个来源：Gamma event ×5；data-api trades 分页（每市最多 1500）
+- 遇到的问题：PortWatch 仍为 2026-10-18。终值选档对窗内早段成交有前视。
+
+## 2026-10-22 06:00（公告：比赛提前结束）
+- 做了什么：读 NOTICES `15f98860`。截止 2026-10-22 10:00 UTC，16:00 UTC 前按第 1 轮核对当时的待核条目。第 2 轮取消，两周前向不计分。把截止日期写进 RULES_DIGEST、BLOCKERS、autopilot。不新开待核，不改 001–010 的状态。
+- 新增或修改的文件：`ops/RULES_DIGEST.md`、`ops/BLOCKERS.md`、`ops/autopilot.yaml`、`LOG.md`
+- 查了多少个来源：NOTICES.md 1 页；001 与 008 条目里的成交价回放段
+- 遇到的问题：011 的账本继续记到 10:00 UTC，但不进入计分。
