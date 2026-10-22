@@ -1,0 +1,21 @@
+quant-001 round-3 Monte Carlo / block bootstrap
+window 2022-01-01..2024-12-31, eval start 2022-07-19, 896 days, fee 0.30%/side, next-open fills
+
+placebo design: 20,000 circular shifts of the same gate (same design as run_replay.py, more draws)
+  SMA50: p(compound>=actual)=0.0609 p(DD<=actual)=0.7652 p(Sharpe>=actual)=0.0827
+  SMA100: p(compound>=actual)=0.0533 p(DD<=actual)=0.8275 p(Sharpe>=actual)=0.0638
+  SMA200: p(compound>=actual)=0.1217 p(DD<=actual)=0.5830 p(Sharpe>=actual)=0.1348
+  family max-statistic (best actual SMA100): p(compound)=0.0723 p(DD)=0.2710 p(Sharpe)=0.0880
+  Monte Carlo s.e. at p=0.05 with 20,000 draws = 0.0015
+
+stationary block bootstrap: 5,000 draws, mean block 10 days, paired indices
+  VM                 CAGR 5/50/95=-48.0/+24.4/+211.5% Sharpe=-0.68/+0.45/+1.67 DD=-63.8/-38.4/-20.7%
+  VM_x_SMA50         CAGR 5/50/95=-25.2/+58.8/+264.7% Sharpe=-0.34/+0.86/+2.00 DD=-48.4/-27.8/-15.5%
+  VM_x_SMA100        CAGR 5/50/95=-5.7/+82.2/+285.8% Sharpe=-0.01/+1.16/+2.20 DD=-37.2/-21.4/-12.9%
+  const_scale_SMA50  CAGR 5/50/95=-38.2/+20.5/+146.2% Sharpe=-0.68/+0.45/+1.67 DD=-53.6/-30.8/-16.3%
+  SMA50 - VM: actual CAGR diff=+12.11 pp; bootstrap CAGR diff p05/p50/p95=+2.9/+32.9/+86.0 pp (descriptive, upward-biased; not a p-value); mean daily diff=+0.0251%/day (+9.2%/yr); centered block-bootstrap p(diff<=0)=0.0670
+    Sharpe diff actual=+0.421; bootstrap p05/p50/p95=+0.06/+0.39/+0.71 (descriptive only)
+  SMA50 - const_scale_SMA50: actual CAGR diff=+13.28 pp; bootstrap CAGR diff p05/p50/p95=+6.3/+38.4/+130.3 pp (descriptive, upward-biased; not a p-value); mean daily diff=+0.0334%/day (+12.2%/yr); centered block-bootstrap p(diff<=0)=0.0178
+    Sharpe diff actual=+0.421; bootstrap p05/p50/p95=+0.06/+0.39/+0.71 (descriptive only)
+  P(SMA50 bootstrap CAGR > 8%) = 0.7980 (descriptive; compounding-biased)
+

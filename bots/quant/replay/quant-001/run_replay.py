@@ -50,11 +50,30 @@ COLS = ["open_time", "open", "high", "low", "close", "volume", "close_time",
         "quote_volume", "trades", "taker_base", "taker_quote", "ignore"]
 
 
+def _window_only(df):
+    """Hard-filter a cached/downloaded frame to the allowed development window.
+
+    The round-2 rules forbid reading 2021 or 2025+ data.  A stale or manually
+    edited cache must never leak those dates into the replay, so every read
+    goes through this filter and the caller asserts the result is non-empty.
+    """
+    ot = pd.to_datetime(df["open_time"], unit="ms", utc=True, errors="coerce")
+    df = df.assign(open_time=ot)
+    for c in ("open", "high", "low", "close", "volume", "quote_volume"):
+        df[c] = pd.to_numeric(df[c], errors="coerce")
+    lo, hi = START.tz_localize("UTC"), END.tz_localize("UTC")
+    df = df[(df.open_time >= lo) & (df.open_time <= hi)].dropna(
+        subset=["open", "high", "low", "close", "volume"]).reset_index(drop=True)
+    return df[["open_time", "open", "high", "low", "close", "volume", "quote_volume"]]
+
+
 def fetch(sym):
     CACHE.mkdir(parents=True, exist_ok=True)
     path = CACHE / f"{sym}USDT-1d-2022-2024.csv"
     if path.exists():
-        return pd.read_csv(path, parse_dates=["open_time"])
+        cached = _window_only(pd.read_csv(path))
+        if len(cached) > 0:
+            return cached
     frames, start_ms = [], int(START.timestamp() * 1000)
     end_ms = int((END + pd.Timedelta(days=1)).timestamp() * 1000) - 1
     while start_ms <= end_ms:
@@ -67,13 +86,9 @@ def fetch(sym):
         start_ms = int(rows[-1][6]) + 1
         if len(rows) < 1000:
             break
-    df = pd.concat(frames, ignore_index=True)
-    for c in ("open", "high", "low", "close", "volume", "quote_volume"):
-        df[c] = pd.to_numeric(df[c])
-    df["open_time"] = pd.to_datetime(df["open_time"], unit="ms", utc=True)
-    df = df[["open_time", "open", "high", "low", "close", "volume", "quote_volume"]]
-    df = df[(df.open_time >= START.tz_localize("UTC")) &
-            (df.open_time <= END.tz_localize("UTC"))]
+    df = _window_only(pd.concat(frames, ignore_index=True))
+    if df.empty:
+        raise RuntimeError(f"{sym}: no bars inside {START.date()}..{END.date()}")
     df.to_csv(path, index=False)
     return df
 
@@ -81,7 +96,10 @@ def fetch(sym):
 def load(sym):
     d = fetch(sym).copy()
     d["date"] = d.open_time.dt.tz_convert("UTC").dt.normalize().dt.tz_localize(None)
-    return d.set_index("date")[["open", "high", "low", "close", "volume", "quote_volume"]]
+    d = d.set_index("date")[["open", "high", "low", "close", "volume", "quote_volume"]]
+    assert d.index.min() >= START, (sym, d.index.min())
+    assert d.index.max() <= END, (sym, d.index.max())
+    return d
 
 
 def freeze(w):
