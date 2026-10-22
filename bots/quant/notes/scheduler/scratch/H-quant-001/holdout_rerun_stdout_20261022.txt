@@ -1,0 +1,27 @@
+quant-001 temporal hold-out / walk-forward (0.30%/side, next-open fills)
+data span: 2022-01-01..2024-12-31 (only 2022-01-01..2024-12-31 downloaded)
+common eval start: 2022-07-19
+
+[development] 2022-07-19..2023-12-31
+  VM             compound=  +34.98% cagr= +22.90% dd= -35.69% sharpe=+0.758 expo=0.338 days=531
+  VM_x_SMA50     compound=  +59.11% cagr= +37.61% dd= -20.53% sharpe=+1.209 expo=0.256 days=531
+  VM_x_SMA100    compound=  +79.64% cagr= +49.58% dd= -16.50% sharpe=+1.654 expo=0.219 days=531
+  VM_x_SMA200    compound=  +77.95% cagr= +48.61% dd= -15.60% sharpe=+1.701 expo=0.210 days=531
+
+[holdout_2024] 2024-01-01..2024-12-31
+  VM             compound=   -8.64% cagr=  -8.62% dd= -35.17% sharpe=-0.251 expo=0.308 days=366
+  VM_x_SMA50     compound=   +0.39% cagr=  +0.39% dd= -24.58% sharpe=+0.122 expo=0.246 days=366
+  VM_x_SMA100    compound=   +2.10% cagr=  +2.09% dd= -23.28% sharpe=+0.203 expo=0.255 days=366
+  VM_x_SMA200    compound=  -16.29% cagr= -16.25% dd= -33.54% sharpe=-0.759 expo=0.269 days=366
+
+[walk-forward gate selection] 2023-01-01 / 2023-07-01 / 2024-01-01 / 2024-07-01
+  2023-01-01 -> VM_x_SMA100 until 2023-06-30 (trailing 2022-07-19.., n=166); trailing Sharpe=VM:-1.788, VM_x_SMA50:-1.5638, VM_x_SMA100:-1.4001, VM_x_SMA200:na
+  2023-07-01 -> VM_x_SMA200 until 2023-12-31 (trailing 2022-07-19.., n=347); trailing Sharpe=VM:-0.0336, VM_x_SMA50:0.5421, VM_x_SMA100:0.9662, VM_x_SMA200:0.9849
+  2024-01-01 -> VM_x_SMA100 until 2024-06-30 (trailing 2023-01-01.., n=365); trailing Sharpe=VM:2.233, VM_x_SMA50:2.2009, VM_x_SMA100:2.2542, VM_x_SMA200:2.0546
+  2024-07-01 -> VM_x_SMA100 until 2024-12-31 (trailing 2023-07-02.., n=365); trailing Sharpe=VM:1.2279, VM_x_SMA50:1.3921, VM_x_SMA100:1.6614, VM_x_SMA200:1.272
+  stitched: compound=+96.04% cagr=+39.95% dd=-23.28% sharpe=+1.407 expo=0.283 days=731
+  same span, always-VM           compound=+78.74% cagr=+33.64% dd=-35.17% sharpe=+1.153
+  same span, always-VM_x_SMA50   compound=+93.34% cagr=+38.98% dd=-24.58% sharpe=+1.354
+  same span, always-VM_x_SMA100  compound=+96.04% cagr=+39.95% dd=-23.28% sharpe=+1.407
+  same span, always-VM_x_SMA200  compound=+48.97% cagr=+22.02% dd=-33.54% sharpe=+0.895
+

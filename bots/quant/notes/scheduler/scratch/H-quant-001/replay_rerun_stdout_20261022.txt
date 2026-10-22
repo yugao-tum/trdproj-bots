@@ -1,0 +1,45 @@
+quant-001 round-2 replay — tradable next-open fills, 0.30%/side
+data: Binance daily klines (UTC), 2022-01-01..2024-12-31, 1096 rows per symbol
+common evaluation start after warm-up: 2022-07-19
+fill: OPEN of the next daily bar after the signal close; no 2021/2025 data
+
+variant               compound%    cagr%   maxDD%  sharpe   expo
+VM                        23.31     8.90   -35.69   0.428  0.326
+VM_x_SMA50                59.73    20.99   -24.58   0.848  0.252
+VM_x_SMA100               83.41    27.99   -23.28   1.141  0.234
+VM_x_SMA200               48.97    17.61   -33.54   0.808  0.234
+const_scale_SMA50         20.07     7.73   -28.54   0.428  0.252
+const_scale_SMA100        19.05     7.35   -26.67   0.428  0.234
+const_scale_SMA200        19.09     7.37   -26.75   0.428  0.234
+
+yearly net returns (%):
+  VM                  2022:-31.0 2023:+95.7 2024:-8.6
+  VM_x_SMA50          2022:-17.4 2023:+92.6 2024:+0.4
+  VM_x_SMA100         2022:-6.4 2023:+92.0 2024:+2.1
+  VM_x_SMA200         2022:+0.0 2023:+78.0 2024:-16.3
+  const_scale_SMA50   2022:-24.4 2023:+69.5 2024:-6.3
+  const_scale_SMA100  2022:-22.7 2023:+63.4 2024:-5.7
+  const_scale_SMA200  2022:-22.8 2023:+63.7 2024:-5.7
+
+gate-off episodes (independent results):
+  SMA50: episodes=24 switches=46 off_days=361 vm_ret_mean=-1.18% negative=12/24
+  SMA100: episodes=18 switches=35 off_days=339 vm_ret_mean=-2.13% negative=6/18
+  SMA200: episodes=8 switches=15 off_days=311 vm_ret_mean=-2.10% negative=2/8
+
+placebo (1,000 circular shifts of the same gate):
+  SMA50: p(compound>=actual)=0.065 p(DD<=actual)=0.756 p(Sharpe>=actual)=0.084; placebo compound p50/p95=3.2%/79.5%, DD p5/p50=-38.6%/-31.8%
+  SMA100: p(compound>=actual)=0.052 p(DD<=actual)=0.805 p(Sharpe>=actual)=0.061; placebo compound p50/p95=4.4%/87.8%, DD p5/p50=-41.6%/-33.9%
+  SMA200: p(compound>=actual)=0.104 p(DD<=actual)=0.587 p(Sharpe>=actual)=0.125; placebo compound p50/p95=12.2%/91.0%, DD p5/p50=-45.2%/-35.2%
+
+familywise max-statistic (same shifts across SMA50/100/200):
+  best actual: compound=83.41% DD=-23.28% Sharpe=1.141; p(compound)=0.066 p(DD)=0.278 p(Sharpe)=0.084
+
+cost sensitivity at 1.00%/side (same rules):
+  SMA50: compound=20.15% cagr=7.75% maxDD=-28.82%
+  SMA100: compound=44.67% cagr=16.22% maxDD=-27.59%
+  SMA200: compound=18.57% cagr=7.18% maxDD=-39.47%
+
+SMA50: sum |dw|=45.56, arithmetic fee sum at 0.30%/side=13.7%
+SMA100: sum |dw|=35.17, arithmetic fee sum at 0.30%/side=10.6%
+SMA200: sum |dw|=30.94, arithmetic fee sum at 0.30%/side=9.3%
+

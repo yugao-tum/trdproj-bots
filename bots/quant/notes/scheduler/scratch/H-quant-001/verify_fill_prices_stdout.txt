@@ -1,0 +1,37 @@
+fill-price verification: daily open vs first data-api aggTrade
+window checked: 2024-10-15..2024-12-31 (aggTrades retention), 0.30%/side replay
+
+2024-10-23 BTC: kline_open=67426.01000000 first=67426.01000000 diff_bp=+0.0000 lag_s=0.1 [ok]
+2024-10-23 ETH: kline_open=2622.81000000 first=2622.81000000 diff_bp=+0.0000 lag_s=0.1 [ok]
+2024-10-23 SOL: kline_open=167.60000000 first=167.60000000 diff_bp=+0.0000 lag_s=0.6 [ok]
+2024-10-28 BTC: kline_open=68021.69000000 first=68021.69000000 diff_bp=+0.0000 lag_s=0.0 [ok]
+2024-10-28 SOL: kline_open=176.63000000 first=176.63000000 diff_bp=+0.0000 lag_s=0.0 [ok]
+2024-11-02 BTC: kline_open=69496.00000000 first=69496.00000000 diff_bp=+0.0000 lag_s=0.0 [ok]
+2024-11-02 ETH: kline_open=2511.49000000 first=2511.49000000 diff_bp=+0.0000 lag_s=0.6 [ok]
+2024-11-02 SOL: kline_open=166.11000000 first=166.11000000 diff_bp=+0.0000 lag_s=0.5 [ok]
+2024-11-07 BTC: kline_open=75571.99000000 first=75571.99000000 diff_bp=+0.0000 lag_s=0.0 [ok]
+2024-11-07 SOL: kline_open=186.59000000 first=186.59000000 diff_bp=+0.0000 lag_s=0.1 [ok]
+2024-11-12 BTC: kline_open=88648.00000000 first=88648.00000000 diff_bp=+0.0000 lag_s=0.0 [ok]
+2024-11-12 ETH: kline_open=3371.59000000 first=3371.59000000 diff_bp=+0.0000 lag_s=0.0 [ok]
+2024-11-12 SOL: kline_open=222.12000000 first=222.12000000 diff_bp=+0.0000 lag_s=0.0 [ok]
+2024-11-17 BTC: kline_open=90587.98000000 first=90587.98000000 diff_bp=+0.0000 lag_s=0.0 [ok]
+2024-11-17 ETH: kline_open=3132.88000000 first=3132.88000000 diff_bp=+0.0000 lag_s=0.1 [ok]
+2024-11-17 SOL: kline_open=215.72000000 first=215.72000000 diff_bp=+0.0000 lag_s=0.3 [ok]
+2024-11-27 BTC: kline_open=91965.16000000 first=91965.16000000 diff_bp=+0.0000 lag_s=0.1 [ok]
+2024-11-27 ETH: kline_open=3324.74000000 first=3324.74000000 diff_bp=+0.0000 lag_s=0.1 [ok]
+2024-11-27 SOL: kline_open=230.69000000 first=230.69000000 diff_bp=+0.0000 lag_s=0.1 [ok]
+2024-12-02 BTC: kline_open=97185.17000000 first=97185.17000000 diff_bp=+0.0000 lag_s=0.0 [ok]
+2024-12-02 ETH: kline_open=3707.61000000 first=3707.61000000 diff_bp=+0.0000 lag_s=0.0 [ok]
+2024-12-02 SOL: kline_open=236.79000000 first=236.79000000 diff_bp=+0.0000 lag_s=0.2 [ok]
+2024-12-07 BTC: kline_open=99740.84000000 first=99740.84000000 diff_bp=+0.0000 lag_s=0.2 [ok]
+2024-12-07 ETH: kline_open=3998.87000000 first=3998.87000000 diff_bp=+0.0000 lag_s=0.2 [ok]
+2024-12-07 SOL: kline_open=236.87000000 first=236.87000000 diff_bp=+0.0000 lag_s=0.3 [ok]
+2024-12-17 BTC: kline_open=106058.65000000 first=106058.65000000 diff_bp=+0.0000 lag_s=0.2 [ok]
+2024-12-17 ETH: kline_open=3986.24000000 first=3986.24000000 diff_bp=+0.0000 lag_s=0.1 [ok]
+2024-12-17 SOL: kline_open=216.19000000 first=216.19000000 diff_bp=+0.0000 lag_s=0.3 [ok]
+2024-12-22 BTC: kline_open=97292.00000000 first=97292.00000000 diff_bp=+0.0000 lag_s=0.1 [ok]
+2024-12-22 ETH: kline_open=3338.92000000 first=3338.92000000 diff_bp=+0.0000 lag_s=0.5 [ok]
+
+checked executions: 30 with data, 0 missing/error
+max |daily open / first aggTrade - 1| = 0.0000 bp
+max lag of first trade after 00:00 UTC = 0.6 s

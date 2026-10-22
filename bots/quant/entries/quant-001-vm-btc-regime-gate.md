@@ -55,6 +55,7 @@ contribution: 0.4%
 
 - 数据：Binance 公开日线（data-api.binance.vision，免密钥），只下载 2022-01-01～2024-12-31；**没有下载、运行或查看 2021 年及以前、2025-01-01 以后的数据**。
 - 信号：t 日收盘计算；成交：t+1 日**开盘价**（该日 K 线第一笔成交），持有到下一次调仓的次日开盘；每边 0.30%，按 |Δw| 计；现货多头、不加杠杆。
+- **成交价真实性抽查**（2026-10-22 新增）：`notes/scheduler/scratch/H-quant-001/verify_fill_prices.py` 用 data-api `aggTrades` 独立取每个执行日 00:00 UTC 后的第一笔成交，与回放用的日线 open 对比；在 aggTrades 仍可取的 2024-10-15～2024-12-31 共 **30 个执行点**（BTC/ETH/SOL）上，两者**逐点完全相同**（最大偏差 0.0000 bp，首笔成交在开盘后 ≤0.6 s）。这仅证明日线 open 是真实成交价、不是中间价或陈旧报价；不消除“收盘后 1 秒内下不到单”的执行延迟风险（见风险节）。csv/stdout 同目录。
 - 指标预热在窗口内。为避免某个变体靠“预热期空仓”躲过 2022 年下跌而占便宜，所有变体从共同评估起点 **2022-07-19**（SMA200 的 200 日均线首次有值）开始计。
 - 规则参数在本次回放前已冻结，本窗口不再调参；但原研究可能看过 2022 年数据（第 1 轮已注明 2022 压力折不是严格 OOS），所以这是“冻结规则的样本外复算”，不是完全盲测；真正的盲测留存段是 2025 年以后（本条目不跑、不看）。2024 单年作为允许窗口内最后一段，另做时间切分（见下一小节）。
 
@@ -81,6 +82,7 @@ contribution: 0.4%
 - **独立关闭区段**：SMA50 24 段、SMA100 18 段、SMA200 8 段；关闭段的 VM 段收益均值为 −1.18%/−2.13%/−2.10%。逐段见 `episodes_SMA*.csv`。
 - **安慰剂（同一开关序列循环平移 1,000 次，保留段长与关闭比例）**：单闸门 p(compound≥实际)=0.065/0.052/0.104，p(Sharpe≥实际)=0.084/0.061/0.125，p(路径回撤≤实际)=0.756/0.805/0.587（即随机平移的回撤不差于实际的比例；换成“实际更好”的比例只有 24%/20%/41%，并不特殊）。
 - **3 闸门家族校正（SMA50/100/200 共用同一组 1,000 次平移，max-statistic）**：p(compound)=**0.066**、p(Sharpe)=**0.084**、p(路径回撤)=**0.278**。这三个数是三变体的家族 max-statistic，取的是最佳实际变体 **SMA100**，不是 SMA50 单变体；SMA50 自己的 placebo 为 p(compound≥实际)=0.065、p(Sharpe≥实际)=0.084、p(DD≤实际)=0.756（实际更好的 DD 尾概率 0.244）。即使只在 3 个预指定闸门里挑最好的，收益/Sharpe 也不到 5% 显著；SMA50 的回撤优势尤其不成立。
+- **精度复核（20,000 次平移 + 平稳块 bootstrap；`replay/quant-001/montecarlo_round3.py`，不新增交易变体）**：同一安慰剂设计加到 20,000 次后，家族 max-statistic p(compound)=**0.0723**、p(DD)=**0.2710**、p(Sharpe)=**0.0880**（Monte Carlo 标准误约 0.0015），与 1,000 次的 0.066/0.278/0.084 同向。SMA50 对 VM 的日均收益差中心化块 bootstrap p=0.0670；对同仓位常数缩放的日均差 p=0.0178，但该差值的 CAGR 分位区间 +6.3～+130.3 pp 明显向上偏、只能作描述，且没有校正 3 个闸门的选择偏差。**结论不变：绝对收益仍不显著。**
 - **1.00%/边的加严成本**（不作为变体）：SMA50 折年 **7.75%**（低于 8% 粗算线）、SMA100 16.22%、SMA200 7.18%。0.30%/边下绝对收益够，但推荐版对成本很敏感。
 - **结论（不显著）**：本窗口的净收益为正，SMA50 开关版也优于同仓位缩放；但独立关闭段 <30 个，家族校正后 p>0.05，回撤优势无法与随机平移区分，且 1.00%/边时推荐版折年低于 8%。**这不足以按“改进采纳”计分；建议整合者把本条留在待选区（1.0）。**
 
@@ -151,11 +153,13 @@ contribution: 0.4%
 
 ## 出处
 
-- `bots/quant/replay/quant-001/`：`run_replay.py`、`run_holdout.py`、`SUMMARY.md`、`replay_stdout.txt`、`holdout_stdout.txt`、`replay_results.json`、`holdout_results.json`、`replay_equity.csv`、`episodes_SMA50.csv`、`episodes_SMA100.csv`、`episodes_SMA200.csv`、`placebo_results.json`（本仓库，2026-10-21 运行）— 访问 2026-10-21 — 已读（本次主证据；只用 2022–2024；主回放本轮重跑数字逐位一致）
+- `bots/quant/replay/quant-001/`：`run_replay.py`、`run_holdout.py`、`montecarlo_round3.py`、`SUMMARY.md`、`replay_stdout.txt`、`holdout_stdout.txt`、`montecarlo_stdout.txt`、`replay_results.json`、`holdout_results.json`、`montecarlo_results.json`、`replay_equity.csv`、`episodes_SMA50.csv`、`episodes_SMA100.csv`、`episodes_SMA200.csv`、`placebo_results.json`（本仓库，2026-10-21～2026-10-22 运行）— 访问 2026-10-22 — 已读（本次主证据；只用 2022–2024；主回放、时间切分、20,000 次精度复核本轮重跑数字逐项一致）
 - `bots/quant/notes/scheduler/scratch/H-quant-001/`：`REPORT.md`、`REPORT-hardening-round2.md`、`REPORT-round2-replay.md`、`REPORT-round2-harden-20261021.md`、`tradable_backtest.py`、`tradable_stdout.txt`、`tradable_results.csv`、`same_exposure.csv`、`placebo_gate.py`、`placebo_stdout.txt`、`familywise_placebo.py`、`familywise_placebo_stdout.txt`、`familywise_placebo.csv`、`episodes_SMA*.csv`、`fetch_hourly.py`、`verify_sources.py`、`verify_sources_stdout.txt`、`verify_sources_round2_stdout.txt`、`verify_entry_numbers.py`、`verify_replay_entry.py`、`lint_entry.py`（本仓库，2026-10-21）— 访问 2026-10-21 — 已读（第 1 轮旧窗口存档，数字不抄入本条；本轮来源复核见 round2 stdout）
+- `bots/quant/notes/scheduler/scratch/H-quant-001/`：`REPORT-round2-harden-20261022.md`、`verify_fill_prices.py`、`verify_fill_prices_stdout.txt`、`verify_fill_prices.csv`、`verify_round2_numbers.py`、`verify_round2_numbers_stdout.txt`、`replay_rerun_stdout_20261022.txt`、`holdout_rerun_stdout_20261022.txt`（本仓库，2026-10-22 运行）— 访问 2026-10-22 — 已读（成交价真实性抽查：30 个执行点日线 open 与 data-api 首笔 aggTrade 完全一致；主回放/时间切分关键数字逐项复核 0 失败）
 - `bots/quant/notes/xqt-migration/README.md`、`reproduce.py`、`results.csv`（本仓库，旧窗口，2026-10-20 运行）— 访问 2026-10-21 — 已读（旧口径存档，数字不抄入）
 - `bots/quant/notes/xqt-migration/q001-robustness/REPORT.md`、`q001_robustness.py`、`run_output.txt`、`variants.csv`（本仓库，2026-10-20）— 访问 2026-10-21 — 已读（旧窗口 106 闸门 DSR/PBO，数字不抄入）
 - https://data-api.binance.vision/api/v3/klines?symbol=BTCUSDT&interval=1d&startTime=1640995200000&endTime=1735689599999&limit=1000 — 访问 2026-10-21 — 已读（HTTP 200；日线 open/close，回放成交价来源）
+- https://data-api.binance.vision/api/v3/aggTrades?symbol=BTCUSDT&startTime=1728950400000&endTime=1735689599999&limit=5 — 访问 2026-10-22 — 已读（HTTP 200；取 2024-10-15～2024-12-31 执行日 00:00 UTC 后首笔成交，与日线 open 逐点比对；该接口只保留近段历史，更早日期返回空，脚本如实列出而未补造）
 - https://data.binance.vision/?prefix=data/spot/monthly/klines/BTCUSDT/1d/ — 访问 2026-10-21 — 已读（HTTP 200；仅验证下载地址可用，未用于本轮回测）
 - https://data-api.binance.vision/api/v3/klines?symbol=BTCUSDT&interval=1h&startTime=1733011200000&endTime=1733097600000&limit=2 — 访问 2026-10-21 — 已读（HTTP 200；仅验证接口，本轮不用 1h 成交）
 - https://ideas.repec.org/a/eee/jfinec/v116y2015i1p111-120.html — 访问 2026-10-21 — 已读（摘要含 “nearly doubles the Sharpe ratio”；卷 116(1)、页 111-120）

@@ -37,6 +37,12 @@
 
 - 成交价和时点：Binance 日线 **open**（下一根 K 线开盘，真实首笔成交），无前视；
   信号只用 t 日收盘及以前的数据。
+- 成交价真实性抽查（2026-10-22）：`notes/scheduler/scratch/H-quant-001/verify_fill_prices.py`
+  用 data-api `aggTrades` 独立取每个执行日 00:00 UTC 后的第一笔成交，与回放用的
+  日线 open 对比。在 aggTrades 仍可取的 2024-10-15～2024-12-31，共 **30 个执行点**
+  （BTC/ETH/SOL）两者**逐点完全相同**（最大偏差 0.0000 bp，首笔成交在开盘后 ≤0.6 s）；
+  更早日期该接口返回空，脚本如实列出、未补造。这只证明日线 open 是真实成交价，
+  不消除“收盘后 1 秒内下不到单”的执行延迟风险。
 - 全部成本：每边 0.30%（手续费 + 价差 + 滑点），按 |Δw| 计；现货多头，无资金费、无借币。
   1.00%/边的敏感性单独列出，不混进主结果。
 - 资金和容量：总资金 5,000 USDT；平均仓位 0.23–0.33，其余现金；单笔远小于 BTC/ETH/SOL
@@ -111,6 +117,23 @@ walk-forward 的选择历史：2023H1 选 SMA100，2023H2 选 SMA200，2024H1/H2
 +2.10%，低于 8% 粗算线。**因此新增证据没有把“不显著”变成“已证实”**：收益优势仍集中在
 2022H2–2023，2024 只是少亏；推荐版 2024 单年 +0.39%，不能支撑“改进采纳”。
 
+## 精度复核：20,000 次平移 + 平稳块 bootstrap（`montecarlo_round3.py`）
+
+这不是新的交易规则，因此不增加变体；它只把主回放的 1,000 次安慰剂加细，并给出收益差的
+块 bootstrap。窗口仍为 2022-01-01..2024-12-31，评估起点 2022-07-19，次日开盘成交，
+0.30%/边；全部数字见 `montecarlo_stdout.txt` / `montecarlo_results.json`。
+
+- 单闸门 20,000 次平移：SMA50 p(compound≥实际)=0.0609、p(DD≤实际)=0.7652、
+  p(Sharpe≥实际)=0.0827；SMA100 0.0533/0.8275/0.0638；SMA200 0.1217/0.5830/0.1348。
+- 家族 max-statistic（取最佳实际变体 SMA100）：p(compound)=**0.0723**、p(DD)=**0.2710**、
+  p(Sharpe)=**0.0880**；20,000 次在 p=0.05 处的 Monte Carlo 标准误约 0.0015。
+- 平稳块 bootstrap（5,000 次，平均块长 10 天，配对抽样）：
+  SMA50 − VM 的日均收益差中心化 p(diff≤0)=0.0670；SMA50 − 同仓位常数缩放的
+  p(diff≤0)=0.0178。后者的 CAGR 差分位区间 +6.3/+38.4/+130.3 pp 明显向上偏，
+  脚本已注明只能作描述、不是 p 值，且未校正 3 个闸门的选择偏差。
+- 结论：精度提高后家族 p 仍 >0.05（0.0723/0.2710/0.0880），**result 仍为“不显著”**；
+  没有把回撤优势或绝对收益变成已证实。
+
 ## 所有变体（所有市场都要写，看了不用的也算）
 
 - variants（自己的）：**8**（4 个策略规则 + 3 个事后同仓位诊断 + 1 个 walk-forward 选闸门）
@@ -140,10 +163,13 @@ walk-forward 的选择历史：2023H1 选 SMA100，2023H2 选 SMA200，2024H1/H2
 |---|---|
 | `run_replay.py` | 下载数据 + 回测 + placebo + 家族校正（主脚本） |
 | `run_holdout.py` | 2024 时间切分 + walk-forward 选闸门（复用 `run_replay.py` 的函数） |
+| `montecarlo_round3.py` | 20,000 次循环平移 + 平稳块 bootstrap（精度复核，不新增变体） |
 | `replay_stdout.txt` | 主回放完整 stdout（2026-10-21 重跑，数字与上一轮逐位一致） |
 | `holdout_stdout.txt` | 时间切分 / walk-forward 完整 stdout |
+| `montecarlo_stdout.txt` | 20,000 次平移 / 块 bootstrap 完整 stdout |
 | `replay_results.json` | 所有主变体、逐年、平均仓位、回撤、placebo、familywise |
 | `holdout_results.json` | 开发段 / 2024 切分 / walk-forward 选择历史 |
+| `montecarlo_results.json` | 20,000 次单闸门/家族 p 值、块 bootstrap 分位与配对差 |
 | `replay_equity.csv` | VM 基准逐日净收益与净值（897 行） |
 | `episodes_SMA50.csv` / `100` / `200` | 关闭区段逐段明细 |
 | `bots/quant/notes/scheduler/scratch/H-quant-001/_cache/` | 原始 CSV 缓存，已 gitignore，不入库 |
